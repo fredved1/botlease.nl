@@ -1,0 +1,52 @@
+2025-06-23 09:14:07,837 - __main__ - INFO - Starting Botlease Chatbot Backend on port 5001
+2025-06-23 09:14:07,858 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.85.40.72:5001
+2025-06-23 09:14:07,858 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-23 09:14:07,858 - werkzeug - INFO -  * Restarting with stat
+2025-06-23 09:14:08,131 - __main__ - INFO - Starting Botlease Chatbot Backend on port 5001
+2025-06-23 09:14:08,149 - werkzeug - WARNING -  * Debugger is active!
+2025-06-23 09:14:08,154 - werkzeug - INFO -  * Debugger PIN: 816-303-542
+2025-06-23 09:14:22,888 - werkzeug - INFO - 127.0.0.1 - - [23/Jun/2025 09:14:22] "GET /health HTTP/1.1" 200 -
+2025-06-23 09:17:23,967 - werkzeug - INFO - 127.0.0.1 - - [23/Jun/2025 09:17:23] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-23 09:17:23,970 - __main__ - INFO - Started new conversation: ca235825-5734-4fa6-92ae-cbf61e9d9df9
+2025-06-23 09:17:23,970 - werkzeug - INFO - 127.0.0.1 - - [23/Jun/2025 09:17:23] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-23 09:17:26,541 - werkzeug - INFO - 127.0.0.1 - - [23/Jun/2025 09:17:26] "OPTIONS /api/send-message HTTP/1.1" 200 -
+2025-06-23 09:17:30,505 - __main__ - INFO - Processed message for session: ca235825-5734-4fa6-92ae-cbf61e9d9df9
+2025-06-23 09:17:30,505 - werkzeug - INFO - 127.0.0.1 - - [23/Jun/2025 09:17:30] "POST /api/send-message HTTP/1.1" 200 -
+2025-06-24 11:35:49,529 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 11:35:49] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 11:35:49,534 - __main__ - INFO - Started new conversation: c73b2579-d3b7-444a-b9c7-193553c99f4f
+2025-06-24 11:35:49,534 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 11:35:49] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:04:34,103 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:04:34] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:04:34,107 - __main__ - INFO - Started new conversation: 9be3d596-e349-4728-ad3e-b974eddb4145
+2025-06-24 12:04:34,108 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:04:34] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:04:35,399 - __main__ - INFO - Started new conversation: c5d0e2b6-a7a5-4d86-adc6-a25acdcc3c8c
+2025-06-24 12:04:35,400 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:04:35] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:10:47,509 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:10:47] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:10:47,511 - __main__ - INFO - Started new conversation: 44711050-ff7b-41a9-8420-cad177ac6a3c
+2025-06-24 12:10:47,512 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:10:47] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:10:49,130 - __main__ - INFO - Started new conversation: c34c3c26-35e5-4455-981a-a02e8e1fa0e8
+2025-06-24 12:10:49,131 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:10:49] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:13:53,786 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:13:53] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:13:53,790 - __main__ - INFO - Started new conversation: ff12c0f6-12e4-45b2-8694-b0603dd70837
+2025-06-24 12:13:53,791 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:13:53] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:13:56,359 - __main__ - INFO - Started new conversation: e26731bf-0c34-48cc-83e0-d705c1c5efa0
+2025-06-24 12:13:56,359 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:13:56] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:14:12,812 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:14:12] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:14:12,816 - __main__ - INFO - Started new conversation: be5f8a5c-1ef0-449a-befc-9e73600ca235
+2025-06-24 12:14:12,817 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:14:12] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:14:14,275 - __main__ - INFO - Started new conversation: 6722db91-c9fe-4b5c-b352-fbae058c5777
+2025-06-24 12:14:14,276 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:14:14] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:20:32,787 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:20:32] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:20:32,790 - __main__ - INFO - Started new conversation: b437f87f-b6c6-4b5a-a38e-6e2ee7d50521
+2025-06-24 12:20:32,790 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:20:32] "POST /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:20:34,959 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:20:34] "OPTIONS /api/send-message HTTP/1.1" 200 -
+2025-06-24 12:20:37,500 - __main__ - INFO - Processed message for session: b437f87f-b6c6-4b5a-a38e-6e2ee7d50521
+2025-06-24 12:20:37,501 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:20:37] "POST /api/send-message HTTP/1.1" 200 -
+2025-06-24 12:20:54,109 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:20:54] "OPTIONS /api/send-message HTTP/1.1" 200 -
+2025-06-24 12:21:14,908 - __main__ - INFO - Processed message for session: b437f87f-b6c6-4b5a-a38e-6e2ee7d50521
+2025-06-24 12:21:14,910 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:21:14] "POST /api/send-message HTTP/1.1" 200 -
+2025-06-24 12:22:05,728 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:22:05] "OPTIONS /api/start-conversation HTTP/1.1" 200 -
+2025-06-24 12:22:05,730 - __main__ - INFO - Started new conversation: d6474be6-c5fd-456e-a05f-f2e038e4104a
+2025-06-24 12:22:05,731 - werkzeug - INFO - 127.0.0.1 - - [24/Jun/2025 12:22:05] "POST /api/start-conversation HTTP/1.1" 200 -
