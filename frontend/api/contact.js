@@ -51,20 +51,21 @@ export default async function handler(req, res) {
       source: 'website_contact_form'
     };
 
-    // TODO: Hier moet de Vercel Postgres integratie komen
-    // Voor nu loggen we alleen naar de console
-    console.log('New contact form submission:', submission);
-
-    // Voor Vercel Postgres (later toe te voegen):
-    /*
-    import { sql } from '@vercel/postgres';
-    
-    const { rows } = await sql`
-      INSERT INTO contacts (name, email, phone, company, message, created_at)
-      VALUES (${name}, ${email}, ${phone}, ${company}, ${message}, NOW())
-      RETURNING id
-    `;
-    */
+    // Vercel Postgres integratie
+    try {
+      const { sql } = await import('@vercel/postgres');
+      
+      const { rows } = await sql`
+        INSERT INTO contacts (name, email, phone, company, message)
+        VALUES (${name}, ${email}, ${phone}, ${company}, ${message})
+        RETURNING id
+      `;
+      
+      console.log('Contact saved to database with ID:', rows[0].id);
+    } catch (dbError) {
+      console.error('Database error:', dbError);
+      // Continue anyway - don't fail the whole request
+    }
 
     // Send success response
     return res.status(200).json({ 
