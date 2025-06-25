@@ -51,14 +51,18 @@ export default async function handler(req, res) {
       source: 'website_contact_form'
     };
 
-    // Supabase integratie
+    // Supabase integratie met verbeterde logging
     try {
-      const { createClient } = await import('@supabase/supabase-js');
-      
       const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ysrxerfgnwnnzmmwppzd.supabase.co';
       const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzcnhlcmZnbndubnptbXdwcHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4MzI4MDksImV4cCI6MjA2NjQwODgwOX0.5uNOe_ldZjkpyBAbko_CLdrxpLwebDwHCw05XkREg5g';
       
+      console.log('Supabase URL:', supabaseUrl);
+      console.log('Supabase Key:', supabaseKey ? 'SET' : 'NOT SET');
+      
+      const { createClient } = await import('@supabase/supabase-js');
       const supabase = createClient(supabaseUrl, supabaseKey);
+      
+      console.log('Attempting to insert:', { name, email, phone, company, message });
       
       const { data, error } = await supabase
         .from('contacts')
@@ -72,13 +76,18 @@ export default async function handler(req, res) {
         .select();
         
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Supabase error details:', error);
+        return res.status(500).json({ 
+          error: 'Database insert failed: ' + error.message 
+        });
       } else {
-        console.log('Contact saved to Supabase:', data);
+        console.log('SUCCESS - Contact saved to Supabase:', data);
       }
     } catch (dbError) {
-      console.error('Database error:', dbError);
-      // Continue anyway - don't fail the whole request
+      console.error('Database connection error:', dbError);
+      return res.status(500).json({ 
+        error: 'Database connection failed: ' + dbError.message 
+      });
     }
 
     // Send success response
