@@ -51,26 +51,17 @@ export default async function handler(req, res) {
       source: 'website_contact_form'
     };
 
-    // Supabase integratie
+    // Vercel Postgres integratie
     try {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+      const { sql } = await import('@vercel/postgres');
       
-      if (supabaseUrl && supabaseKey) {
-        const { createClient } = await import('@supabase/supabase-js');
-        const supabase = createClient(supabaseUrl, supabaseKey);
-        
-        const { data, error } = await supabase
-          .from('contacts')
-          .insert([submission])
-          .select();
-          
-        if (error) {
-          console.error('Supabase error:', error);
-        } else {
-          console.log('Contact saved to Supabase:', data);
-        }
-      }
+      const { rows } = await sql`
+        INSERT INTO contacts (name, email, phone, company, message)
+        VALUES (${name}, ${email}, ${phone}, ${company}, ${message})
+        RETURNING id
+      `;
+      
+      console.log('Contact saved to database with ID:', rows[0].id);
     } catch (dbError) {
       console.error('Database error:', dbError);
       // Continue anyway - don't fail the whole request
