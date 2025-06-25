@@ -6,14 +6,18 @@ Full-stack applicatie voor BotLease, een AI-automatiseringsbedrijf opgericht doo
 
 ```
 botlease/
-├── index.html          # Frontend website
-├── api/               # Vercel API routes
-│   └── contact.js     # Contact form handler
+├── frontend/          # Vercel frontend
+│   ├── index.html     # Main website
+│   ├── api/           # API routes
+│   │   └── contact.js # Contact form
+│   ├── package.json   # Dependencies
+│   └── vercel.json    # Vercel config
 ├── backend/           # Flask chatbot backend
 │   ├── app.py         # Main Flask app
 │   ├── requirements.txt
-│   └── README.md
-└── package.json       # Frontend dependencies
+│   ├── Dockerfile     # Docker config
+│   └── README.md      # Backend docs
+└── README.md          # Project overview
 ```
 
 ## 🛠️ Tech Stack
@@ -32,6 +36,8 @@ botlease/
 
 ### Frontend
 ```bash
+cd frontend
+
 # Install dependencies
 npm install
 
