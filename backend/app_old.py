@@ -1,6 +1,6 @@
 """
-Botlease AI Chatbot Backend - Sales Qualifier
-Strikte lead generator voor BotLease automatisering
+Botlease AI Chatbot Backend
+Professionele chatbot API voor business automatisering
 """
 
 import os
@@ -41,116 +41,78 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 app = Flask(__name__)
 CORS(app, origins=['*'], supports_credentials=True)
 
-# In-memory session storage
+# In-memory session storage (for development - gebruik Redis voor productie)
 sessions = {}
 
-# System prompt voor Botlease Sales Qualifier
-SYSTEM_PROMPT = """Je bent een vriendelijke BotLease specialist die bedrijven helpt ontdekken welke processen geautomatiseerd kunnen worden.
+# System prompt voor Botlease AI Assistant
+SYSTEM_PROMPT = """Je bent de Botlease Sales Qualifier. Jouw ENIGE doel: kwalificeren of iemand een potentiële klant is.
 
-JOUW STIJL:
-✅ Vriendelijk en toegankelijk
-✅ Enthousiast over automatisering
-✅ Gericht op praktische oplossingen
-✅ Kort en bondig (max 2 zinnen)
+JE BENT GEEN:
+❌ Universele AI assistent
+❌ Technische consultant 
+❌ Gratis adviesgever
+❌ Procesbouwer
 
-JOUW DOEL:
-- Identificeren welke processen BotLease kan automatiseren
-- Interesse wekken met concrete besparingen (€/tijd)
-- Doorverwijzen naar het contactformulier voor maatwerk
+JE BENT WEL:
+✅ BotLease verkoop kwalificeerder
+✅ Usecase identifier voor BotLease diensten
+✅ Lead generator naar het contactformulier
 
-ANTWOORD STRUCTUUR:
-1. Bevestig het proces: "Facturatie automatiseren is een geweldige keuze!"
-2. Vraag naar details: "Hoeveel facturen maken jullie per maand?"
-3. Alleen bij genoeg info: bereken besparing (tijd × €25/uur)
-4. Vervolgvraag: "Welke andere repetitieve taken kosten jullie tijd?"
-5. Na 3+ berichten: Doorverwijzen naar contactformulier
+STRIKTE REGELS:
+- GEEN uitgebreide analyses of adviezen geven
+- GEEN technische implementatie details
+- GEEN gratis consulting
+- MAX 2 zinnen per antwoord
+- ALTIJD doorverwijzen naar contact na 2-3 berichten
 
-KOSTENBEREKNING ALLEEN ALS:
-- Je weet hoeveel tijd het proces nu kost (uren/week)
-- Je weet frequentie (hoeveel keer per dag/week/maand)
-- Bereken dan: huidige tijd × €25 per uur = maandelijkse besparing
+ANTWOORD FORMAAT:
+1. "BotLease kan [proces] automatiseren en €X per maand besparen"
+2. "Welk proces kost jullie nu de meeste tijd?"
+3. Na 2 berichten: "Voor maatwerk advies: [contactformulier](https://www.botlease.nl/#contact)"
 
-ZONDER DETAILS:
-- GEEN specifieke bedragen noemen
-- Wel algemeen: "Dat kan flink wat tijd en geld besparen"
-- Focus op mogelijkheden, niet op fictieve cijfers
+WEIGER ALLES BEHALVE:
+- Vragen over wat BotLease kan
+- Processen die geautomatiseerd kunnen worden
+- Kosten/tijdbesparing van automatisering
 
-GEEN lange uitleg, GEEN technische details, GEEN gratis consulting! """
+Bij off-topic: "Ik help alleen met BotLease automatisering. Welk bedrijfsproces wil je automatiseren?"
 
 
 def is_botlease_related(message):
-    """Check if message is about business processes that BotLease can automate"""
+    """Check if message is specifically about BotLease services or business process automation"""
     
-    # Core business processes that BotLease automates
-    business_processes = [
-        # Financial processes
-        'factureren', 'factuur', 'facturatie', 'rekening', 'boekhouding', 'administratie',
-        'inkoop', 'verkoop', 'betaling', 'debiteur', 'crediteur',
-        
-        # Customer processes  
-        'klant', 'customer', 'service', 'support', 'helpdesk', 'ticket',
-        'offerte', 'order', 'bestelling',
-        
-        # Planning & scheduling
-        'planning', 'roosters', 'agenda', 'afspraak', 'vergadering',
-        'resource', 'capaciteit',
-        
-        # Inventory & logistics
-        'voorraad', 'stock', 'inventaris', 'magazijn', 'logistiek',
-        'inkoop', 'levering', 'transport',
-        
-        # Communication
-        'email', 'mail', 'communicatie', 'notificatie', 'melding',
-        'bericht', 'contact',
-        
-        # Reporting & data
-        'rapport', 'rapportage', 'dashboard', 'data', 'analyse',
-        'kpi', 'metrics', 'cijfer',
-        
-        # HR processes
-        'hr', 'personeel', 'medewerker', 'verlof', 'aanwezigheid',
-        'declaratie', 'onkosten',
-        
-        # General business terms
-        'proces', 'workflow', 'taak', 'handmatig', 'repetitief',
-        'automatisering', 'efficiency', 'besparing', 'tijd', 'kosten'
+    # Allowed BotLease topics
+    botlease_keywords = [
+        'botlease', 'automatisering', 'proces', 'bedrijf', 'efficiency', 'kosten', 'besparen',
+        'workflow', 'tijdsbesparing', 'facturatie', 'klanten', 'voorraad', 'planning',
+        'administratie', 'email', 'rapportage', 'data', 'integratie'
     ]
     
-    # BotLease company terms
-    botlease_terms = [
-        'botlease', 'bot lease', 'automatisering', 'ai', 'chatbot', 'robot'
+    # Block everything else including generic requests
+    blocked_patterns = [
+        'schrijf', 'maak', 'help me met', 'leg uit', 'vertel over', 'wat is',
+        'hoe werkt', 'recept', 'sport', 'weer', 'nieuws', 'code', 'programmeer',
+        'vertaal', 'samenvatting', 'homework', 'essay', 'brief', 'email schrijven',
+        'plan maken', 'strategie', 'advies geven', 'oplossing bedenken'
     ]
     
     message_lower = message.lower()
     
-    # Always allow BotLease company mentions
-    if any(term in message_lower for term in botlease_terms):
-        return True
-    
-    # Allow business process mentions
-    if any(process in message_lower for process in business_processes):
-        return True
-    
-    # Block obvious non-business requests
-    blocked_patterns = [
-        'recept', 'koken', 'sport', 'weer', 'nieuws', 'politiek',
-        'medisch', 'gezondheid', 'school', 'huiswerk', 'vakantie',
-        'vertaal', 'homework', 'essay', 'verhaal', 'gedicht'
-    ]
-    
+    # Block obvious non-BotLease requests
     if any(pattern in message_lower for pattern in blocked_patterns):
         return False
     
-    # Allow short business-related questions
-    if len(message) <= 30:  # Short messages are usually process names
+    # Allow if it contains BotLease-specific keywords
+    if any(keyword in message_lower for keyword in botlease_keywords):
         return True
     
-    # Block very long requests for detailed work
-    if len(message) > 100:
-        return False
+    # Block questions that are clearly requests for work/advice
+    work_indicators = ['hoe', 'wat', 'waarom', 'wanneer', 'waar', 'welke']
+    if any(indicator in message_lower for indicator in work_indicators) and len(message) > 50:
+        return False  # Long questions are usually requests for detailed advice
     
-    # Default allow for unclear cases (better to engage than block potential leads)
-    return True
+    # Default to strict blocking - only allow very specific BotLease queries
+    return False
 
 
 @app.route('/health', methods=['GET'])
@@ -181,8 +143,13 @@ def start_conversation():
             "context": []
         }
         
-        # Korte welkomstbericht
-        welcome_message = f"Hallo! Ik help bedrijven met automatisering. Welk proces kost jullie de meeste tijd?"
+        # Personaliseer welkomstbericht
+        industry = data.get('industry', 'uw branche')
+        welcome_message = f"""Hallo! Ik ben de Botlease AI Assistant. 
+
+Ik help bedrijven in {industry} met het identificeren en implementeren van slimme automatiseringsoplossingen. 
+
+Wat is momenteel uw grootste uitdaging of welk proces kost u de meeste tijd?"""
         
         # Sla welkomstbericht op
         sessions[session_id]["messages"].append({
@@ -222,15 +189,9 @@ def send_message():
         
         session = sessions[session_id]
         
-        # Only block obvious misuse (be more social and flexible)
-        obvious_misuse = [
-            'schrijf een verhaal', 'maak een gedicht', 'help me met huiswerk',
-            'recept voor', 'wat is de hoofdstad', 'hoe is het weer',
-            'vertaal dit', 'programmeer een', 'code voor'
-        ]
-        
-        if any(misuse in user_message.lower() for misuse in obvious_misuse):
-            friendly_redirect = "Haha, ik ben gespecialiseerd in business automatisering! 😊 Laten we het hebben over processen die ik kan helpen automatiseren. Wat houdt je het meest bezig in je werk?"
+        # Check if message is BotLease-related
+        if not is_botlease_related(user_message):
+            off_topic_response = "Ik help alleen met BotLease automatisering. Welk bedrijfsproces wil je automatiseren? Bijvoorbeeld: facturatie, planning, administratie?"
             
             session["messages"].append({
                 "role": "user",
@@ -240,12 +201,12 @@ def send_message():
             
             session["messages"].append({
                 "role": "assistant", 
-                "content": friendly_redirect,
+                "content": off_topic_response,
                 "timestamp": datetime.now().isoformat()
             })
             
             return jsonify({
-                "response": friendly_redirect,
+                "response": off_topic_response,
                 "session_id": session_id,
                 "message_count": len(session["messages"])
             })
@@ -259,7 +220,7 @@ def send_message():
         
         # Bouw conversatie context op
         conversation_history = []
-        for msg in session["messages"][-6:]:  # Laatste 6 berichten voor context
+        for msg in session["messages"][-10:]:  # Laatste 10 berichten voor context
             if msg["role"] == "user":
                 conversation_history.append(f"Gebruiker: {msg['content']}")
             else:
@@ -268,9 +229,12 @@ def send_message():
         # Analyseer conversatie context voor lead kwalificatie
         user_messages = [msg for msg in session["messages"] if msg["role"] == "user"]
         context_summary = ""
-        mentioned_processes = []
         
         if len(user_messages) > 1:
+            # Extraheer belangrijke context uit vorige berichten
+            mentioned_processes = []
+            mentioned_pain_points = []
+            
             all_user_text = " ".join([msg["content"].lower() for msg in user_messages])
             
             # Identificeer genoemde processen
@@ -387,9 +351,11 @@ def end_conversation():
             return jsonify({"error": "Session ID is verplicht"}), 400
         
         if session_id in sessions:
+            # Log conversation summary
             session = sessions[session_id]
             logger.info(f"Ending conversation {session_id} with {len(session['messages'])} messages")
             
+            # Verwijder sessie
             del sessions[session_id]
             
             return jsonify({
@@ -402,6 +368,7 @@ def end_conversation():
     except Exception as e:
         logger.error(f"Error ending conversation: {str(e)}")
         return jsonify({"error": "Er ging iets mis bij het beëindigen van de conversatie"}), 500
+
 
 
 @app.errorhandler(404)
