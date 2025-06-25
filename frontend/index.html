@@ -1937,21 +1937,22 @@
             };
             
             try {
-                // Voor nu: opslaan in localStorage (later vervangen door Vercel API)
-                const submissions = JSON.parse(localStorage.getItem('botlease_submissions') || '[]');
-                submissions.push(formData);
-                localStorage.setItem('botlease_submissions', JSON.stringify(submissions));
+                // API call naar Vercel serverless function
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
                 
-                // TODO: Vervang dit met echte API call naar Vercel
-                // const response = await fetch('/api/contact', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(formData)
-                // });
+                const result = await response.json();
                 
-                // Show success message
-                formStatus.className = 'form-status success';
-                formStatus.textContent = 'Bedankt voor uw aanvraag! We nemen binnen 24 uur contact met u op.';
+                if (response.ok && result.success) {
+                    // Show success message
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = result.message || 'Bedankt voor uw aanvraag! We nemen binnen 24 uur contact met u op.';
+                } else {
+                    throw new Error(result.error || 'Er ging iets mis bij het versturen van uw bericht.');
+                }
                 
                 // Reset form
                 contactForm.reset();
