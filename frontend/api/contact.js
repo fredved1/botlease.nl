@@ -51,17 +51,31 @@ export default async function handler(req, res) {
       source: 'website_contact_form'
     };
 
-    // Vercel Postgres integratie
+    // Supabase integratie
     try {
-      const { sql } = await import('@vercel/postgres');
+      const { createClient } = await import('@supabase/supabase-js');
       
-      const { rows } = await sql`
-        INSERT INTO contacts (name, email, phone, company, message)
-        VALUES (${name}, ${email}, ${phone}, ${company}, ${message})
-        RETURNING id
-      `;
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ysrxerfgnwnnzmmwppzd.supabase.co';
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzcnhlcmZnbndubnptbXdwcHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4MzI4MDksImV4cCI6MjA2NjQwODgwOX0.5uNOe_ldZjkpyBAbko_CLdrxpLwebDwHCw05XkREg5g';
       
-      console.log('Contact saved to database with ID:', rows[0].id);
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      
+      const { data, error } = await supabase
+        .from('contacts')
+        .insert([{
+          name,
+          email,
+          phone: phone || '',
+          company: company || '',
+          message
+        }])
+        .select();
+        
+      if (error) {
+        console.error('Supabase error:', error);
+      } else {
+        console.log('Contact saved to Supabase:', data);
+      }
     } catch (dbError) {
       console.error('Database error:', dbError);
       // Continue anyway - don't fail the whole request
