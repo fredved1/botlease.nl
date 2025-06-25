@@ -1,0 +1,22 @@
+# Botlease Chatbot Backend Requirements
+# Essential packages only
+
+# Flask web framework
+Flask==3.1.1
+Flask-Cors==6.0.1
+
+# Google Gemini AI
+google-generativeai==0.8.3
+
+# Environment variables
+python-dotenv==1.1.0
+
+# Production server (optional for development)
+gunicorn==23.0.0
+
+# For better error handling in production (optional)
+# sentry-sdk[flask]==2.20.0
+
+# For Redis session storage in production (optional)
+# redis==5.2.1
+# flask-session==0.8.0
