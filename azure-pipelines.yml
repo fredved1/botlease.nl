@@ -1,0 +1,42 @@
+# Azure Pipeline voor Backend Deployment
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - backend/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  pythonVersion: '3.11'
+  workingDirectory: 'backend'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+  displayName: 'Use Python $(pythonVersion)'
+
+- script: |
+    cd $(workingDirectory)
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(workingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/backend.zip'
+  displayName: 'Archive backend files'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+  displayName: 'Publish artifacts'
