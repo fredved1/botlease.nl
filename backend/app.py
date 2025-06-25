@@ -159,7 +159,7 @@ def health_check():
     return jsonify({
         "status": "healthy",
         "model": "gemini-2.5-flash",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "timestamp": datetime.now().isoformat()
     })
 
