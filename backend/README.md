@@ -92,4 +92,4 @@ docker run -p 5001:5001 --env-file .env botlease-backend
 Update the frontend API URL in `index.html`:
 ```javascript
 this.apiUrl = 'https://your-backend-url.com/api';
-```
+```# Trigger deploy vr  4 jul. 2025 15:18:40 CEST
