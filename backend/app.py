@@ -164,6 +164,50 @@ def health_check():
     })
 
 
+@app.route('/api/chat', methods=['POST', 'OPTIONS'])
+def chat():
+    """Simple chat endpoint for frontend compatibility"""
+    if request.method == 'OPTIONS':
+        return '', 204
+        
+    try:
+        data = request.json
+        user_message = data.get('message', '').strip()
+        
+        if not user_message:
+            return jsonify({"error": "Geen bericht ontvangen"}), 400
+        
+        # Check if message is BotLease related
+        if not is_botlease_related(user_message):
+            return jsonify({
+                "response": "Ik help specifiek met BotLease AI-automatisering voor klantenservice. Heb je vragen over chatbots, procesautomatisering of wil je weten wat we voor jouw bedrijf kunnen betekenen?"
+            })
+        
+        # Generate response using Gemini
+        chat_session = model.start_chat(history=[])
+        
+        response = chat_session.send_message(f"{SYSTEM_PROMPT}\n\nGebruiker: {user_message}\n\nGeef een kort, direct antwoord (max 3 zinnen):")
+        
+        bot_response = response.text.strip()
+        
+        # Ensure response is concise
+        sentences = bot_response.split('. ')
+        if len(sentences) > 3:
+            bot_response = '. '.join(sentences[:3]) + '.'
+        
+        logger.info(f"Chat - User: {user_message[:50]}... | Bot: {bot_response[:50]}...")
+        
+        return jsonify({
+            "response": bot_response
+        })
+        
+    except Exception as e:
+        logger.error(f"Chat error: {str(e)}")
+        return jsonify({
+            "error": "Er ging iets mis. Probeer het opnieuw."
+        }), 500
+
+
 @app.route('/api/start-conversation', methods=['POST'])
 def start_conversation():
     """Start een nieuwe conversatie sessie"""
@@ -279,18 +323,51 @@ def send_message():
             if any(signal in all_user_text for signal in interest_signals):
                 context_summary += "Toont interesse in kosten/tijdsbesparing. "
 
-        # Genereer prompt met verbeterde context
-        prompt = f"""{SYSTEM_PROMPT}
+        # Check if we're in demo mode
+        if session.get("demo_mode") and session.get("demo_website"):
+            website = session["demo_website"]
+            # Demo mode prompt
+            prompt = f"""De gebruiker heeft website {website} opgegeven. Je bent nu een DEMO van hoe hun chatbot zou werken.
+
+BELANGRIJK VOOR DEMO MODE:
+1. Gedraag je als de chatbot van {website}
+2. Beantwoord vragen alsof je hun bedrijf vertegenwoordigt
+3. Blijf vriendelijk en behulpzaam
+4. Als je niet zeker weet wat het bedrijf doet, doe een educated guess op basis van de URL
+5. Geef korte, praktische antwoorden (max 50 woorden)
+6. AAN HET EINDE van elk antwoord: Voeg subtiel toe "(Dit is een Botlease AI demo)"
+
+Voorbeeld antwoorden:
+- "Welkom bij {website}! Hoe kan ik u helpen vandaag? (Dit is een Botlease AI demo)"
+- "Onze openingstijden zijn ma-vr 9-17u. (Dit is een Botlease AI demo)"
+- "U kunt een afspraak maken via ons contactformulier. (Dit is een Botlease AI demo)"
+
+Laatste berichten:
+{chr(10).join(conversation_history[-4:])}
+
+Gebruiker: {user_message}
+Assistant:"""
+        else:
+            # Regular prompt - first check if they gave a website
+            if url_match:
+                prompt = f"""De gebruiker heeft zojuist website {website} opgegeven! 
+
+Start je antwoord met:
+"Geweldig! Ik gedraag me nu als de chatbot voor {website}. Stel maar een vraag die jouw klanten zouden stellen!"
+
+Dan ga je over in demo mode voor volgende berichten."""
+            else:
+                # Normal BotLease prompt
+                prompt = f"""{SYSTEM_PROMPT}
 
 CONTEXT VAN DIT GESPREK:
 - Bedrijf: {session['company_name']} ({session['industry']})
 - Bericht nummer: {len(user_messages)}
 - {context_summary}
 
-INSTRUCTIES OP BASIS VAN CONTEXT:
-- Als dit bericht 1-2 is: Focus op proces identificatie
-- Als dit bericht 3+: VERPLICHT doorverwijzen naar contactformulier
-- Verwijs altijd terug naar eerder genoemde processen waar relevant
+INSTRUCTIES:
+- Als gebruiker nog geen website heeft gegeven, vraag er vriendelijk om
+- Focus op het demonstreren van chatbot mogelijkheden
 
 Laatste berichten:
 {chr(10).join(conversation_history[-4:])}  
@@ -302,15 +379,17 @@ Assistant:"""
         response = model.generate_content(prompt)
         ai_response = response.text
         
-        # Forceer contact doorverwijzing na 3+ berichten met context
-        if len(user_messages) >= 3:
-            contact_prompt = ""
-            if mentioned_processes:
-                contact_prompt = f"\n\nPerfect! Voor maatwerk automatisering van {', '.join(mentioned_processes)}: [contactformulier](https://www.botlease.nl/#contact)"
-            else:
-                contact_prompt = "\n\nVoor een persoonlijke procesanalyse: [contactformulier](https://www.botlease.nl/#contact)"
-            
-            ai_response += contact_prompt
+        # Skip contact referral in demo mode
+        if not session.get("demo_mode"):
+            # Forceer contact doorverwijzing na 3+ berichten met context
+            if len(user_messages) >= 3:
+                contact_prompt = ""
+                if mentioned_processes:
+                    contact_prompt = f"\n\nPerfect! Voor maatwerk automatisering van {', '.join(mentioned_processes)}: [contactformulier](https://www.botlease.nl/#contact)"
+                else:
+                    contact_prompt = "\n\nVoor een persoonlijke procesanalyse: [contactformulier](https://www.botlease.nl/#contact)"
+                
+                ai_response += contact_prompt
         
         # Sla AI response op
         session["messages"].append({
