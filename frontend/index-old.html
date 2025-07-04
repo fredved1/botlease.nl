@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotLease - AI-automatisering zonder risico</title>
+    <meta name="description" content="Transformeer uw bedrijf met AI-automatisering. No cure, no pay garantie. Start vandaag nog met een gratis pilot.">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #171717;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        .nav-cta {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Chat Section - v0.dev Style */
+        .chat-section {
+            padding: 100px 0;
+            background: #fafafa;
+        }
+
+        .integrated-chat-container {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .chat-header-integrated {
+            background: #f8fafc;
+            padding: 16px 24px;
+            color: #171717;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .chat-avatar-integrated {
+            width: 32px;
+            height: 32px;
+            background: #171717;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .chat-info-integrated h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 2px 0;
+            color: #171717;
+        }
+
+        .chat-info-integrated p {
+            font-size: 12px;
+            margin: 0;
+            color: #737373;
+        }
+
+        .connection-status-integrated {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #22c55e;
+        }
+
+        .status-dot-integrated {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        .status-dot-integrated.disconnected {
+            background: #ef4444;
+        }
+
+        .chat-messages-integrated {
+            height: 400px;
+            padding: 20px;
+            overflow-y: auto;
+            background: white;
+        }
+
+        .chat-messages-integrated::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-messages-integrated::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages-integrated::-webkit-scrollbar-thumb {
+            background: #e5e5e5;
+            border-radius: 2px;
+        }
+
+        .welcome-message-integrated {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-message-integrated h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #171717;
+            margin-bottom: 8px;
+        }
+
+        .welcome-message-integrated p {
+            font-size: 14px;
+            color: #737373;
+            margin-bottom: 24px;
+        }
+
+        .quick-actions-integrated {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .quick-action-integrated {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 16px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .quick-action-integrated:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #0f172a;
+            transform: translateY(-1px);
+        }
+
+        .chat-input-container-integrated {
+            padding: 16px 20px;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .chat-input-wrapper-integrated {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .chat-input-wrapper-integrated:focus-within {
+            border-color: #94a3b8;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.1);
+        }
+
+        .chat-input-integrated {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #171717;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            min-height: 20px;
+            max-height: 100px;
+            padding: 8px 0;
+        }
+
+        .chat-input-integrated::placeholder {
+            color: #a3a3a3;
+        }
+
+        .send-button-integrated {
+            width: 36px;
+            height: 36px;
+            background: #0f172a;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .send-button-integrated:hover {
+            background: #1e293b;
+            transform: translateY(-1px);
+        }
+
+        .send-button-integrated:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Message Styles for Integrated Chat - v0.dev Style */
+        .message-integrated {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .message-integrated.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar-integrated {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .message-avatar-integrated.bot {
+            background: #171717;
+        }
+
+        .message-avatar-integrated.user {
+            background: #737373;
+        }
+
+        .message-content-integrated {
+            flex: 1;
+            max-width: 80%;
+        }
+
+        .message-bubble-integrated {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message-integrated.bot .message-bubble-integrated {
+            background: #f8fafc;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+        }
+
+        .message-integrated.user .message-bubble-integrated {
+            background: #0f172a;
+            color: white;
+        }
+
+        .message-time-integrated {
+            font-size: 12px;
+            color: #a3a3a3;
+            margin-top: 4px;
+        }
+
+        .message-integrated.user .message-time-integrated {
+            text-align: right;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: #f9fafb;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-intro {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .about-stat strong {
+            display: block;
+            font-size: 32px;
+            color: #171717;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .about-stat span {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA Section with Contact Form */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .cta-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .cta-text h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-text p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            background: #f8fafc;
+            transition: all 0.3s;
+            color: #0f172a;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            pointer-events: none;
+            background: #f8fafc;
+            padding: 0 4px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group input:not(:placeholder-shown),
+        .form-group textarea:not(:placeholder-shown) {
+            border-color: #0f172a;
+            background: white;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 14px;
+            color: #0f172a;
+            background: white;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px 32px;
+            background: #0f172a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-submit:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+            display: block;
+        }
+
+        .form-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+            display: block;
+        }
+
+        /* Chat Modal */
+        .chat-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .chat-modal.active {
+            display: flex;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #2563eb;
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: messageSlideIn 0.3s ease-out;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .message-avatar.bot {
+            background: #2563eb;
+        }
+
+        .message-avatar.user {
+            background: #6b7280;
+        }
+
+        .message-content {
+            flex: 1;
+            max-width: 70%;
+        }
+
+        .message-bubble {
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-bubble {
+            background: #f3f4f6;
+            color: #1a1a1a;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-bubble {
+            background: #2563eb;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input-wrapper:focus-within {
+            border-color: #2563eb;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            min-height: 20px;
+            max-height: 100px;
+            padding: 8px 0;
+        }
+
+        .chat-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .send-button {
+            width: 36px;
+            height: 36px;
+            background: #2563eb;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .send-button:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quick-action {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            color: #6b7280;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .quick-action:hover {
+            background: #f3f4f6;
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #4b5563;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                gap: 16px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .chat-container {
+                height: 500px;
+                margin: 10px;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .cta-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="#171717" stroke-width="2"/>
+                    <rect x="8" y="8" width="6" height="6" rx="1" fill="#171717"/>
+                    <rect x="18" y="8" width="6" height="6" rx="1" fill="#171717"/>
+                    <path d="M8 20 Q16 24 24 20" stroke="#171717" stroke-width="2" fill="none"/>
+                </svg>
+                BotLease
+            </a>
+            <div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#features">AI Chat</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#stats">Resultaten</a></li>
+                    <li><a href="#cta">Contact</a></li>
+                    <li><a href="#features" class="nav-cta">Gratis Pilot</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>AI-automatisering<br>zonder risico</h1>
+            <p class="hero-subtitle">
+                Transformeer uw bedrijfsprocessen met slimme AI-automatisering. 
+                Betaal alleen bij bewezen resultaat - No cure, no pay.
+            </p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn-primary">
+                    <span>Start Gratis Pilot</span>
+                    <span>→</span>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    <span>Praat met AI</span>
+                </a>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span>✓</span>
+                    <span>No cure, no pay</span>
+                </div>
+                <div class="trust-badge">
+                    <span>🇪🇺</span>
+                    <span>100% EU compliant</span>
+                </div>
+                <div class="trust-badge">
+                    <span>⚡</span>
+                    <span>2 weken implementatie</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section class="chat-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Praat met onze AI-consultant</h2>
+                <p class="section-subtitle">
+                    Ontdek direct hoe AI-automatisering uw bedrijf kan helpen. 
+                    Stel uw vragen en krijg persoonlijk advies.
+                </p>
+            </div>
+            <div class="integrated-chat-container">
+                <div class="chat-header-integrated">
+                    <div class="chat-avatar-integrated">AI</div>
+                    <div class="chat-info-integrated">
+                        <h3>BotLease AI Consultant</h3>
+                        <p>Specialist in AI-automatisering voor MKB</p>
+                    </div>
+                    <div class="connection-status-integrated">
+                        <div class="status-dot-integrated" id="statusDotIntegrated"></div>
+                        <span id="statusTextIntegrated">Connecting...</span>
+                    </div>
+                </div>
+                <div class="chat-messages-integrated" id="chatMessagesIntegrated">
+                    <div class="welcome-message-integrated">
+                        <h3>Welkom bij BotLease! 👋</h3>
+                        <p>Ik ben uw AI-consultant voor automatisering. Hoe kan ik u helpen?</p>
+                        <div class="quick-actions-integrated">
+                            <button class="quick-action-integrated" onclick="sendQuickMessageIntegrated('Wat kan BotLease voor mijn bedrijf betekenen?')">
+                                💡 Wat kunnen jullie voor mij doen?
+                            </button>
+                            <button class="quick-action-integrated" onclick="sendQuickMessageIntegrated('Hoe werkt jullie no cure no pay principe?')">
+                                ✅ No cure, no pay principe
+                            </button>
+                            <button class="quick-action-integrated" onclick="sendQuickMessageIntegrated('Hoeveel kost een pilot en wat krijg ik daarvoor?')">
+                                💰 Pilot kosten
+                            </button>
+                            <button class="quick-action-integrated" onclick="sendQuickMessageIntegrated('Welke processen kunnen jullie automatiseren?')">
+                                ⚙️ Processen automatiseren
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container-integrated">
+                    <div class="chat-input-wrapper-integrated">
+                        <textarea 
+                            id="chatInputIntegrated" 
+                            class="chat-input-integrated" 
+                            placeholder="Typ uw vraag over AI-automatisering..."
+                            rows="1"
+                            onkeydown="handleKeyDownIntegrated(event)"
+                            oninput="autoResizeIntegrated(this)"
+                        ></textarea>
+                        <button class="send-button-integrated" onclick="sendMessageIntegrated()" id="sendButtonIntegrated">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Images -->
+    <section class="features" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Onze AI-oplossingen</h2>
+                <p class="section-subtitle">
+                    Ontdek hoe AI-automatisering uw bedrijfsprocessen kan transformeren
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2000&auto=format&fit=crop" alt="Klantenservice automatisering" class="feature-image">
+                    <div class="feature-content">
+                        <div class="feature-icon">💬</div>
+                        <h3>Klantenservice AI</h3>
+                        <p>24/7 slimme chatbots die uw klanten helpen met directe, accurate antwoorden</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop" alt="Data analyse" class="feature-image">
+                    <div class="feature-content">
+                        <div class="feature-icon">📊</div>
+                        <h3>Data Analyse</h3>
+                        <p>Automatische inzichten uit uw bedrijfsdata voor betere besluitvorming</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop" alt="Proces automatisering" class="feature-image">
+                    <div class="feature-content">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Procesautomatisering</h3>
+                        <p>Stroomlijn repetitieve taken en verhoog productiviteit met 70%</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000&auto=format&fit=crop" alt="Document verwerking" class="feature-image">
+                    <div class="feature-content">
+                        <div class="feature-icon">📄</div>
+                        <h3>Document AI</h3>
+                        <p>Automatische verwerking van facturen, contracten en formulieren</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bewezen resultaten</h2>
+                <p class="section-subtitle">
+                    Onze no cure, no pay aanpak zorgt ervoor dat we alleen betaald worden bij succes.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">€0</div>
+                    <div class="stat-label">Pilot kosten</div>
+                </div>
+                <div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Weken implementatie</div>
+                </div>
+                <div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">EU compliant</div>
+                </div>
+                <div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI ondersteuning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Over Thomas Vedder</h2>
+                    <p class="about-intro">
+                        Als AI-specialist heb ik mijn expertise opgebouwd door talloze pilots 
+                        te draaien voor startups en zelfs binnen de overheid. Dit heeft me 
+                        geleerd om zelfs op de moeilijkste plekken te innoveren.
+                    </p>
+                    <p>
+                        Mijn ervaring met het succesvol implementeren van AI-oplossingen in 
+                        complexe omgevingen heeft me geïnspireerd om BotLease op te richten. 
+                        Ik zie dagelijks hoeveel kansen bedrijven missen omdat ze de expertise 
+                        of resources niet in huis hebben.
+                    </p>
+                    <p>
+                        Daarom neem ik met BotLease alle zorgen weg. Door samen te werken met 
+                        de beste AI-specialisten, bieden we laagdrempelig toegang tot geavanceerde 
+                        AI-tooling zoals chatbots en automatiseringsoplossingen. We maken innovatie 
+                        bereikbaar voor iedereen.
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <strong>50+</strong>
+                            <span>AI Pilots</span>
+                        </div>
+                        <div class="about-stat">
+                            <strong>Overheid</strong>
+                            <span>Ervaring</span>
+                        </div>
+                        <div class="about-stat">
+                            <strong>100%</strong>
+                            <span>Focus op innovatie</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop" alt="Thomas Vedder - AI Specialist">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Contact Form -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Klaar om te transformeren?</h2>
+                    <p>
+                        Begin vandaag nog met uw gratis pilot en ontdek hoe AI-automatisering 
+                        uw bedrijf kan versterken - zonder risico.
+                    </p>
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <span class="cta-check">✓</span>
+                            <span>Gratis pilot zonder verplichtingen</span>
+                        </div>
+                        <div class="cta-feature">
+                            <span class="cta-check">✓</span>
+                            <span>Binnen 2 weken geïmplementeerd</span>
+                        </div>
+                        <div class="cta-feature">
+                            <span class="cta-check">✓</span>
+                            <span>100% No cure, no pay</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container" id="contact">
+                    <form id="contactForm" class="contact-form">
+                        <h3>Start uw AI-transformatie</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Naam *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Email *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" placeholder=" ">
+                                <label for="phone">Telefoon</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="company" name="company" placeholder=" ">
+                                <label for="company">Bedrijf</label>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Wat is uw AI-uitdaging? *</label>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitButton">
+                            <span>Verstuur aanvraag</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>BotLease AI Consultant</h3>
+                <button class="chat-close" onclick="closeChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="quick-actions">
+                    <button class="quick-action" onclick="sendQuickMessage('Wat kan BotLease voor mijn bedrijf betekenen?')">
+                        💡 Wat kunnen jullie voor mij doen?
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('Hoe werkt jullie no cure no pay principe?')">
+                        ✅ No cure, no pay principe
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('Hoeveel kost een pilot en wat krijg ik daarvoor?')">
+                        💰 Pilot kosten
+                    </button>
+                    <button class="quick-action" onclick="sendQuickMessage('Welke processen kunnen jullie automatiseren?')">
+                        ⚙️ Processen automatiseren
+                    </button>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <textarea 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="Typ uw vraag over AI-automatisering..."
+                        rows="1"
+                        onkeydown="handleKeyDown(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button class="send-button" onclick="sendMessage()" id="sendButton">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Integrated Chat System
+        class BotLeaseChatIntegrated {
+            constructor() {
+                this.apiUrl = 'https://botlease-new-gwbgf3eqbyd5dmb6.westeurope-01.azurewebsites.net/api';
+                this.sessionId = null;
+                this.isConnected = false;
+                this.chatMessages = document.getElementById('chatMessagesIntegrated');
+                this.chatInput = document.getElementById('chatInputIntegrated');
+                this.sendButton = document.getElementById('sendButtonIntegrated');
+                this.statusDot = document.getElementById('statusDotIntegrated');
+                this.statusText = document.getElementById('statusTextIntegrated');
+                this.welcomeMessage = document.querySelector('.welcome-message-integrated');
+            }
+
+            async connect() {
+                try {
+                    this.updateStatus('connecting', 'Connecting...');
+                    
+                    const response = await fetch(`${this.apiUrl}/start-conversation`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({})
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.sessionId = data.session_id;
+                        this.isConnected = true;
+                        this.updateStatus('connected', 'Online');
+                        console.log('Connected to BotLease backend:', this.sessionId);
+                    } else {
+                        throw new Error('Connection failed');
+                    }
+                } catch (error) {
+                    console.error('Connection error:', error);
+                    this.updateStatus('disconnected', 'Offline');
+                    this.showError('Verbinding mislukt. Controleer of de backend draait op localhost:5001');
+                }
+            }
+
+            updateStatus(status, text) {
+                this.statusText.textContent = text;
+                this.statusDot.className = status === 'connected' ? 'status-dot-integrated' : 'status-dot-integrated disconnected';
+            }
+
+            async sendMessage(text) {
+                if (!this.isConnected || !this.sessionId) return;
+
+                // Hide welcome message
+                if (this.welcomeMessage) {
+                    this.welcomeMessage.style.display = 'none';
+                }
+
+                this.addMessage('user', text);
+                this.showTyping();
+
+                try {
+                    const response = await fetch(`${this.apiUrl}/send-message`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            session_id: this.sessionId,
+                            message: text
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.hideTyping();
+                        this.addMessage('bot', data.response);
+                    } else {
+                        throw new Error('Send failed');
+                    }
+                } catch (error) {
+                    console.error('Send error:', error);
+                    this.hideTyping();
+                    this.showError('Bericht kon niet worden verzonden');
+                }
+            }
+
+            addMessage(sender, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message-integrated ${sender}`;
+                
+                const time = new Date().toLocaleTimeString('nl-NL', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+
+                const isBot = sender === 'bot';
+                const content = isBot && typeof marked !== 'undefined' ? marked.parse(text) : text;
+
+                messageDiv.innerHTML = `
+                    <div class="message-avatar-integrated ${sender}">
+                        ${isBot ? 'AI' : 'U'}
+                    </div>
+                    <div class="message-content-integrated">
+                        <div class="message-bubble-integrated">${content}</div>
+                        <div class="message-time-integrated">${time}</div>
+                    </div>
+                `;
+
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+
+            showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message-integrated bot';
+                typingDiv.id = 'typingIndicatorIntegrated';
+                
+                typingDiv.innerHTML = `
+                    <div class="message-avatar-integrated bot">AI</div>
+                    <div class="message-content-integrated">
+                        <div class="message-bubble-integrated">...</div>
+                    </div>
+                `;
+
+                this.chatMessages.appendChild(typingDiv);
+                this.scrollToBottom();
+            }
+
+            hideTyping() {
+                const typingIndicator = document.getElementById('typingIndicatorIntegrated');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            showError(message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = `
+                    background: #ef4444;
+                    color: white;
+                    padding: 16px;
+                    border-radius: 12px;
+                    margin: 16px 0;
+                    font-size: 14px;
+                    text-align: center;
+                `;
+                errorDiv.textContent = message;
+                
+                this.chatMessages.appendChild(errorDiv);
+                this.scrollToBottom();
+
+                setTimeout(() => {
+                    if (errorDiv.parentNode) {
+                        errorDiv.remove();
+                    }
+                }, 5000);
+            }
+
+            scrollToBottom() {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+        }
+
+        // Chat system (modal)
+        class BotLeaseChat {
+            constructor() {
+                this.apiUrl = 'https://botlease-new-gwbgf3eqbyd5dmb6.westeurope-01.azurewebsites.net/api';
+                this.sessionId = null;
+                this.isConnected = false;
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+            }
+
+            async connect() {
+                try {
+                    const response = await fetch(`${this.apiUrl}/start-conversation`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({})
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.sessionId = data.session_id;
+                        this.isConnected = true;
+                        console.log('Connected to BotLease backend:', this.sessionId);
+                    } else {
+                        throw new Error('Connection failed');
+                    }
+                } catch (error) {
+                    console.error('Connection error:', error);
+                    this.showError('Verbinding mislukt. Controleer of de backend draait op localhost:5001');
+                }
+            }
+
+            async sendMessage(text) {
+                if (!this.isConnected || !this.sessionId) return;
+
+                this.addMessage('user', text);
+                this.showTyping();
+
+                try {
+                    const response = await fetch(`${this.apiUrl}/send-message`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            session_id: this.sessionId,
+                            message: text
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.hideTyping();
+                        this.addMessage('bot', data.response);
+                    } else {
+                        throw new Error('Send failed');
+                    }
+                } catch (error) {
+                    console.error('Send error:', error);
+                    this.hideTyping();
+                    this.showError('Bericht kon niet worden verzonden');
+                }
+            }
+
+            addMessage(sender, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+                
+                const isBot = sender === 'bot';
+                const content = isBot && typeof marked !== 'undefined' ? marked.parse(text) : text;
+
+                messageDiv.innerHTML = `
+                    <div class="message-avatar ${sender}">
+                        ${isBot ? 'AI' : 'U'}
+                    </div>
+                    <div class="message-content">
+                        <div class="message-bubble">${content}</div>
+                    </div>
+                `;
+
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+
+            showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message bot';
+                typingDiv.id = 'typingIndicator';
+                
+                typingDiv.innerHTML = `
+                    <div class="message-avatar bot">AI</div>
+                    <div class="message-content">
+                        <div class="message-bubble">...</div>
+                    </div>
+                `;
+
+                this.chatMessages.appendChild(typingDiv);
+                this.scrollToBottom();
+            }
+
+            hideTyping() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            showError(message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = `
+                    background: #ef4444;
+                    color: white;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin: 10px 0;
+                    font-size: 14px;
+                    text-align: center;
+                `;
+                errorDiv.textContent = message;
+                
+                this.chatMessages.appendChild(errorDiv);
+                this.scrollToBottom();
+
+                setTimeout(() => {
+                    if (errorDiv.parentNode) {
+                        errorDiv.remove();
+                    }
+                }, 5000);
+            }
+
+            scrollToBottom() {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+        }
+
+        // Global chat instances
+        let botLeaseChat = null;
+        let botLeaseChatIntegrated = null;
+
+        // Initialize integrated chat when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize integrated chat
+            botLeaseChatIntegrated = new BotLeaseChatIntegrated();
+            botLeaseChatIntegrated.connect();
+        });
+
+        // Integrated chat functions
+        function sendMessageIntegrated() {
+            const input = document.getElementById('chatInputIntegrated');
+            const message = input.value.trim();
+            
+            if (message && botLeaseChatIntegrated) {
+                botLeaseChatIntegrated.sendMessage(message);
+                input.value = '';
+                autoResizeIntegrated(input);
+            }
+        }
+
+        function sendQuickMessageIntegrated(message) {
+            if (botLeaseChatIntegrated) {
+                botLeaseChatIntegrated.sendMessage(message);
+            }
+        }
+
+        function handleKeyDownIntegrated(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessageIntegrated();
+            }
+        }
+
+        function autoResizeIntegrated(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+        }
+
+        // Chat modal functions
+        function openChat() {
+            document.getElementById('chatModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if (!botLeaseChat) {
+                botLeaseChat = new BotLeaseChat();
+                botLeaseChat.connect();
+            }
+        }
+
+        function closeChat() {
+            document.getElementById('chatModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message && botLeaseChat) {
+                botLeaseChat.sendMessage(message);
+                input.value = '';
+                autoResize(input);
+            }
+        }
+
+        function sendQuickMessage(message) {
+            if (botLeaseChat) {
+                botLeaseChat.sendMessage(message);
+            }
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 100) + 'px';
+        }
+
+        // Close chat modal when clicking outside
+        document.getElementById('chatModal').addEventListener('click', (e) => {
+            if (e.target.id === 'chatModal') {
+                closeChat();
+            }
+        });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span>Verzenden...</span>';
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // API call naar Vercel serverless function
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Show success message
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = result.message || 'Bedankt voor uw aanvraag! We nemen binnen 24 uur contact met u op.';
+                } else {
+                    throw new Error(result.error || 'Er ging iets mis bij het versturen van uw bericht.');
+                }
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Log to console for debugging
+                console.log('Form submission successful:', formData);
+                
+            } catch (error) {
+                // Show error message
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Er ging iets mis. Probeer het later opnieuw of mail naar info@botlease.nl';
+                console.error('Form submission error:', error);
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = `
+                    <span>Verstuur aanvraag</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

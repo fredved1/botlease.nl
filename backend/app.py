@@ -181,8 +181,8 @@ def start_conversation():
             "context": []
         }
         
-        # Korte welkomstbericht
-        welcome_message = f"Hallo! Ik help bedrijven met automatisering. Welk proces kost jullie de meeste tijd?"
+        # Demo welkomstbericht
+        welcome_message = "Hoi! 👋 Wil je zien wat een AI chatbot voor jouw bedrijf kan betekenen?\n\nGeef me je website URL, dan gedraag ik me als JOUW chatbot en laat ik zien hoe ik jouw klanten zou helpen.\n\nTyp bijvoorbeeld: www.jouwbedrijf.nl"
         
         # Sla welkomstbericht op
         sessions[session_id]["messages"].append({
@@ -222,33 +222,16 @@ def send_message():
         
         session = sessions[session_id]
         
-        # Only block obvious misuse (be more social and flexible)
-        obvious_misuse = [
-            'schrijf een verhaal', 'maak een gedicht', 'help me met huiswerk',
-            'recept voor', 'wat is de hoofdstad', 'hoe is het weer',
-            'vertaal dit', 'programmeer een', 'code voor'
-        ]
+        # Check if message contains a website URL
+        import re
+        url_pattern = r'(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})'
+        url_match = re.search(url_pattern, user_message.lower())
         
-        if any(misuse in user_message.lower() for misuse in obvious_misuse):
-            friendly_redirect = "Haha, ik ben gespecialiseerd in business automatisering! 😊 Laten we het hebben over processen die ik kan helpen automatiseren. Wat houdt je het meest bezig in je werk?"
-            
-            session["messages"].append({
-                "role": "user",
-                "content": user_message,
-                "timestamp": datetime.now().isoformat()
-            })
-            
-            session["messages"].append({
-                "role": "assistant", 
-                "content": friendly_redirect,
-                "timestamp": datetime.now().isoformat()
-            })
-            
-            return jsonify({
-                "response": friendly_redirect,
-                "session_id": session_id,
-                "message_count": len(session["messages"])
-            })
+        # Store website in session if detected
+        if url_match:
+            website = url_match.group(0)
+            session["demo_website"] = website
+            session["demo_mode"] = True
         
         # Voeg gebruikersbericht toe aan geschiedenis
         session["messages"].append({
