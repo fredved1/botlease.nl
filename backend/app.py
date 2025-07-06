@@ -227,7 +227,7 @@ def start_conversation():
         }
         
         # Demo welkomstbericht
-        welcome_message = "Hoi! 👋 Wil je zien wat een AI chatbot voor jouw bedrijf kan betekenen?\n\nGeef me je website URL, dan gedraag ik me als JOUW chatbot en laat ik zien hoe ik jouw klanten zou helpen.\n\nTyp bijvoorbeeld: www.jouwbedrijf.nl"
+        welcome_message = "Hoi! 👋 Test hier hoe een AI chatbot voor jouw bedrijf zou werken!\n\n🔗 Geef me je website URL en ik gedraag me als JOUW chatbot\n📋 Stel vragen die jouw klanten zouden stellen\n⚡ Zie direct hoe AI automatisch klantenservice kan overnemen\n\nTyp bijvoorbeeld: www.jouwbedrijf.nl"
         
         # Sla welkomstbericht op
         sessions[session_id]["messages"].append({
@@ -274,9 +274,45 @@ def send_message():
         
         # Store website in session if detected
         if url_match:
-            website = url_match.group(0)
+            website = url_match.group(0).strip()
+            # Clean up URL formatting
+            if not website.startswith('http'):
+                website = 'https://' + website
+            if not website.startswith('https://www.') and not website.startswith('https://'):
+                website = website.replace('https://', 'https://www.')
+            
             session["demo_website"] = website
             session["demo_mode"] = True
+            
+            # Extract company info from URL
+            domain_parts = website.replace('https://', '').replace('http://', '').replace('www.', '').split('.')
+            company_name = domain_parts[0].capitalize()
+            session["demo_company_name"] = company_name
+            
+            # Guess business type from domain name
+            business_keywords = {
+                'restaurant': ['restaurant', 'eetcafe', 'bistro', 'pizzeria', 'cafe', 'bar', 'eten', 'food'],
+                'retail': ['shop', 'store', 'winkel', 'fashion', 'clothing', 'mode', 'boutique', 'outlet'],
+                'legal': ['advocaat', 'juridisch', 'legal', 'notaris', 'recht', 'law', 'jurist'],
+                'medical': ['tandarts', 'dokter', 'ziekenhuis', 'kliniek', 'medical', 'gezondheid', 'fysiotherapie', 'huisarts'],
+                'automotive': ['garage', 'auto', 'car', 'motor', 'dealer', 'occasions', 'motors'],
+                'beauty': ['kapper', 'salon', 'beauty', 'spa', 'wellness', 'nails', 'schoonheid'],
+                'construction': ['bouw', 'construction', 'aanneming', 'installatie', 'schilder', 'elektrisch'],
+                'consulting': ['advies', 'consulting', 'bureau', 'diensten', 'consultancy'],
+                'technology': ['tech', 'software', 'digital', 'it', 'computer', 'webdesign', 'app'],
+                'finance': ['financieel', 'finance', 'accounting', 'verzekering', 'bank', 'hypotheek'],
+                'hotel': ['hotel', 'pension', 'bnb', 'logies', 'verblijf', 'accommodatie'],
+                'education': ['school', 'training', 'cursus', 'les', 'onderwijs', 'academy'],
+                'fitness': ['fitness', 'sport', 'gym', 'personal', 'yoga', 'pilates'],
+                'real_estate': ['makelaar', 'vastgoed', 'wonen', 'huis', 'property', 'estate']
+            }
+            
+            session["demo_business_type"] = "algemeen"  # default
+            domain_lower = company_name.lower()
+            for business_type, keywords in business_keywords.items():
+                if any(keyword in domain_lower for keyword in keywords):
+                    session["demo_business_type"] = business_type
+                    break
         
         # Voeg gebruikersbericht toe aan geschiedenis
         session["messages"].append({
@@ -327,36 +363,125 @@ def send_message():
         # Check if we're in demo mode
         if session.get("demo_mode") and session.get("demo_website"):
             website = session["demo_website"]
+            company_name = session.get("demo_company_name", "dit bedrijf")
+            business_type = session.get("demo_business_type", "algemeen")
+            
+            # Business-specific responses
+            business_responses = {
+                'restaurant': {
+                    'welkom': f"Welkom bij {company_name}! Wilt u een tafel reserveren of heeft u vragen over onze menukaart?",
+                    'openingstijden': "Wij zijn open di-zo van 17:00-22:00. Maandag zijn wij gesloten.",
+                    'reservering': "Voor reserveringen kunt u bellen naar 010-1234567 of online reserveren via onze website.",
+                    'menu': "Ons menu vindt u op de website. We serveren moderne Nederlandse keuken met seizoensproducten."
+                },
+                'retail': {
+                    'welkom': f"Welkom bij {company_name}! Waarmee kan ik u vandaag helpen?",
+                    'openingstijden': "Wij zijn open ma-za 9:00-18:00, zondag 12:00-17:00.",
+                    'voorraad': "Voor actuele voorraad kunt u het beste even bellen of langskomen in de winkel.",
+                    'retour': "Retourneren kan binnen 14 dagen met kassabon en in originele staat."
+                },
+                'medical': {
+                    'welkom': f"Welkom bij {company_name}. Voor spoedgevallen belt u 112. Waarmee kan ik u helpen?",
+                    'afspraak': "Voor afspraken kunt u bellen tijdens kantooruren of online inplannen via onze patiëntenportaal.",
+                    'openingstijden': "Spreekuur: ma-vr 8:00-17:00. Voor spoedgevallen hebben we een avond- en weekenddienst.",
+                    'contact': "Voor vragen over medicatie of resultaten kunt u contact opnemen met de assistente."
+                },
+                'legal': {
+                    'welkom': f"Welkom bij {company_name}. Waarmee kunnen we u juridisch adviseren?",
+                    'afspraak': "Voor een vrijblijvend intakegesprek kunt u contact opnemen via telefoon of email.",
+                    'specialisaties': "Wij zijn gespecialiseerd in ondernemingsrecht, arbeidsrecht en contractrecht.",
+                    'kosten': "Voor informatie over tarieven en no cure no pay arrangementen nemen we graag contact met u op."
+                },
+                'automotive': {
+                    'welkom': f"Welkom bij {company_name}! Heeft u een vraag over onderhoud, reparatie of verkoop?",
+                    'afspraak': "Voor onderhoud en reparaties kunt u online een afspraak inplannen of bellen naar de werkplaats.",
+                    'openingstijden': "Showroom: ma-vr 9:00-18:00, za 9:00-17:00. Werkplaats: ma-vr 8:00-17:00.",
+                    'garantie': "Op al onze reparaties geven wij standaard garantie volgens de geldende voorwaarden."
+                },
+                'hotel': {
+                    'welkom': f"Welkom bij {company_name}! Wilt u een kamer reserveren of heeft u vragen over uw verblijf?",
+                    'reservering': "Voor reserveringen kunt u online boeken of bellen naar 015-1234567.",
+                    'openingstijden': "Receptie is 24/7 bereikbaar. Check-in vanaf 15:00, check-out tot 11:00.",
+                    'faciliteiten': "We hebben gratis WiFi, ontbijtservice, parking en een fitnessruimte."
+                },
+                'education': {
+                    'welkom': f"Welkom bij {company_name}! Heeft u vragen over onze cursussen of wilt u zich inschrijven?",
+                    'inschrijving': "Voor inschrijvingen kunt u ons contactformulier invullen of bellen tijdens kantooruren.",
+                    'openingstijden': "Lessen: ma-vr 9:00-21:00, za 9:00-17:00. Administratie: ma-vr 9:00-17:00.",
+                    'cursussen': "Ons actuele cursusaanbod en roosters vindt u op onze website."
+                },
+                'fitness': {
+                    'welkom': f"Welkom bij {company_name}! Wilt u informatie over lidmaatschap of onze groepslessen?",
+                    'lidmaatschap': "Voor een proefles en informatie over lidmaatschappen kunt u langskomen of bellen.",
+                    'openingstijden': "Ma-vr 6:00-23:00, za-zo 8:00-20:00. Groepslessen volgens rooster.",
+                    'faciliteiten': "We hebben moderne fitnessapparatuur, groepslessen en personal training beschikbaar."
+                },
+                'real_estate': {
+                    'welkom': f"Welkom bij {company_name}! Zoekt u een huis om te kopen, verkopen of huren?",
+                    'bezichtiging': "Voor bezichtigingen kunt u online een afspraak maken of bellen naar 020-1234567.",
+                    'openingstijden': "Kantoor: ma-vr 9:00-18:00, za 10:00-16:00. Bezichtigingen ook 's avonds mogelijk.",
+                    'waardering': "Voor een gratis woningwaardering kunt u contact met ons opnemen."
+                }
+            }
+            
+            # Get business-specific context
+            business_context = business_responses.get(business_type, {
+                'welkom': f"Welkom bij {company_name}! Hoe kan ik u vandaag van dienst zijn?",
+                'contact': "Voor meer informatie kunt u contact met ons opnemen via telefoon of email.",
+                'diensten': "Meer informatie over onze diensten vindt u op onze website."
+            })
+            
             # Demo mode prompt
-            prompt = f"""De gebruiker heeft website {website} opgegeven. Je bent nu een DEMO van hoe hun chatbot zou werken.
+            prompt = f"""Je bent nu een DEMO chatbot voor {website} ({company_name}).
 
-BELANGRIJK VOOR DEMO MODE:
-1. Gedraag je als de chatbot van {website}
-2. Beantwoord vragen alsof je hun bedrijf vertegenwoordigt
-3. Blijf vriendelijk en behulpzaam
-4. Als je niet zeker weet wat het bedrijf doet, doe een educated guess op basis van de URL
-5. Geef korte, praktische antwoorden (max 50 woorden)
-6. AAN HET EINDE van elk antwoord: Voeg subtiel toe "(Dit is een Botlease AI demo)"
+BEDRIJFSTYPE: {business_type}
+BEDRIJFSNAAM: {company_name}
 
-Voorbeeld antwoorden:
-- "Welkom bij {website}! Hoe kan ik u helpen vandaag? (Dit is een Botlease AI demo)"
-- "Onze openingstijden zijn ma-vr 9-17u. (Dit is een Botlease AI demo)"
-- "U kunt een afspraak maken via ons contactformulier. (Dit is een Botlease AI demo)"
+DEMO GEDRAG:
+1. Gedraag je als de officiële chatbot van {company_name}
+2. Gebruik realistische bedrijfsinformatie passend bij het bedrijfstype
+3. Wees vriendelijk, professioneel en behulpzaam
+4. Geef korte, praktische antwoorden (max 60 woorden)
+5. EINDIGE ALTIJD met: "(Dit is een Botlease AI demo)"
+
+STANDAARD ANTWOORDEN VOOR DIT BEDRIJFSTYPE:
+{chr(10).join([f"- {key}: {value}" for key, value in business_context.items()])}
+
+VEELGESTELDE VRAGEN BEANTWOORDEN:
+- Openingstijden: Geef realistische tijden passend bij het bedrijfstype
+- Contact: Gebruik fictieve maar realistische contactgegevens
+- Afspraken: Verwijs naar telefoon/online booking systemen
+- Producten/diensten: Beschrijf wat logisch is voor dit bedrijfstype
+- Prijzen: "Voor actuele prijzen neem contact op" of verwijs naar website
 
 Laatste berichten:
 {chr(10).join(conversation_history[-4:])}
 
 Gebruiker: {user_message}
-Assistant:"""
+
+Beantwoord als de chatbot van {company_name}:"""
         else:
             # Regular prompt - first check if they gave a website
             if url_match:
-                prompt = f"""De gebruiker heeft zojuist website {website} opgegeven! 
+                company_name = session.get("demo_company_name", "dit bedrijf")
+                business_type = session.get("demo_business_type", "algemeen")
+                
+                prompt = f"""De gebruiker heeft website {website} opgegeven voor de chatbot demo!
 
-Start je antwoord met:
-"Geweldig! Ik gedraag me nu als de chatbot voor {website}. Stel maar een vraag die jouw klanten zouden stellen!"
+ANTWOORD EXACT DIT:
+"🎯 Perfect! Ik ben nu de chatbot van {company_name}!
 
-Dan ga je over in demo mode voor volgende berichten."""
+✅ Gedetecteerd bedrijfstype: {business_type}
+🤖 Vanaf nu beantwoord ik vragen alsof ik jullie officiële chatbot ben
+
+💬 Stel een vraag die jullie klanten zouden stellen - bijvoorbeeld:
+• Wat zijn jullie openingstijden?
+• Kan ik een afspraak maken?
+• Wat zijn jullie tarieven?
+
+Laat maar zien wat je wilt testen! 👋"
+
+Gebruik dit exacte antwoord, verander er niets aan."""
             else:
                 # Normal BotLease prompt
                 prompt = f"""{SYSTEM_PROMPT}
