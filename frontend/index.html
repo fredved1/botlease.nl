@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotLease - De #1 AI-agent voor klantenservice</title>
-    <meta name="description" content="Resolves 71% of customer inquiries. Our AI customer service agent helps you deliver efficient support.">
+    <title>BotLease - Jouw AI-assistent in 15 minuten | Voor kleine bedrijven</title>
+    <meta name="description" content="Start vandaag gratis met je eigen AI-assistent. Speciaal voor kleine bedrijven. Geen technische kennis nodig, betaalbaar vanaf €49/maand.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -187,6 +187,23 @@
             background: var(--black);
             position: relative;
             overflow: hidden;
+            background-image: 
+                linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%),
+                url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=3840&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 86, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-badge {
@@ -298,6 +315,30 @@
             opacity: 0.6;
         }
 
+        .trust-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--gray-300);
+            transition: all 0.2s ease;
+        }
+
+        .trust-badge:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
         /* Stats Section */
         .stats-section {
             background: var(--cream);
@@ -356,6 +397,11 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            background-image: 
+                linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%),
+                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=3840&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
         .demo-container {
@@ -738,6 +784,12 @@
             color: var(--gray-900);
             padding: 120px 0;
             text-align: center;
+            position: relative;
+            background-image: 
+                linear-gradient(180deg, rgba(244,243,236,0.95) 0%, rgba(244,243,236,0.98) 100%),
+                url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=3840&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
         .cta-title {
@@ -882,10 +934,16 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -898,7 +956,7 @@
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 48px;
+            padding: 32px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -999,6 +1057,216 @@
             transform: translateY(-1px);
         }
 
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 86, 0, 0.1);
+            color: var(--orange);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-featured {
+            border-color: var(--orange);
+            background: rgba(255, 86, 0, 0.05);
+        }
+
+        .pricing-button-featured {
+            background: var(--orange);
+        }
+
+        .pricing-button-featured:hover {
+            background: #ff6b1a;
+        }
+
+        .pricing-custom {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .custom-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .custom-description {
+            color: var(--gray-400);
+            margin-bottom: 16px;
+        }
+
+        .custom-link {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .custom-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Transparency Section */
+        .transparency-section {
+            background: var(--gray-800);
+            padding: 120px 0;
+        }
+
+        .transparency-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .transparency-title {
+            font-size: clamp(40px, 5vw, 56px);
+            margin-bottom: 24px;
+        }
+
+        .transparency-subtitle {
+            font-size: 20px;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .transparency-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .transparency-card.featured {
+            border-color: var(--orange);
+            background: rgba(255, 86, 0, 0.05);
+        }
+
+        .transparency-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .transparency-summary {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .transparency-summary:hover {
+            opacity: 0.8;
+        }
+
+        .transparency-plan {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .breakdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray-400);
+            margin-bottom: 20px;
+        }
+
+        .breakdown-text {
+            font-style: italic;
+        }
+
+        .breakdown-arrow {
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .breakdown-arrow.rotated {
+            transform: rotate(180deg);
+        }
+
+        .cost-breakdown {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-item.cost-profit {
+            border-top: 2px solid var(--orange);
+            margin-top: 16px;
+            padding-top: 16px;
+            font-weight: 600;
+        }
+
+        .cost-label {
+            font-size: 14px;
+            color: var(--gray-300);
+        }
+
+        .cost-amount {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .cost-item.cost-profit .cost-amount {
+            color: var(--orange);
+        }
+
+        .profit-percentage {
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-400);
+            font-style: italic;
+        }
+
+        .transparency-footer {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+        }
+
+        .transparency-footer h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .transparency-footer p {
+            color: var(--gray-300);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
         .pricing-addon {
             background: rgba(255, 86, 0, 0.05);
             border: 1px solid rgba(255, 86, 0, 0.2);
@@ -1026,6 +1294,96 @@
         }
 
         /* Guarantee Section */
+        /* How It Works Section */
+        .how-it-works-section {
+            background: var(--gray-900);
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .how-it-works-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .how-it-works-title {
+            font-size: clamp(40px, 5vw, 56px);
+            margin-bottom: 24px;
+        }
+
+        .how-it-works-subtitle {
+            font-size: 20px;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--orange);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 auto 24px;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .step-description {
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .how-it-works-cta {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .how-it-works-cta h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .how-it-works-cta p {
+            color: var(--gray-400);
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
         .guarantee-section {
             background: var(--cream);
             color: var(--gray-900);
@@ -1299,14 +1657,14 @@
                 BotLease<span class="nav-logo-dot"></span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#demo" class="nav-link">Demo</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Probeer het</a></li>
+                <li><a href="#how-it-works" class="nav-link">Hoe werkt het</a></li>
                 <li><a href="#pricing" class="nav-link">Prijzen</a></li>
-                <li><a href="#testimonials" class="nav-link">Klanten</a></li>
+                <li><a href="#contact" class="nav-link">Start nu</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="#demo" class="nav-btn nav-btn-secondary">Bekijk demo</a>
-                <a href="#contact" class="nav-btn nav-btn-primary">Start gratis proef</a>
+                <a href="#contact" class="nav-btn nav-btn-primary">Start nu</a>
             </div>
             <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
         </div>
@@ -1316,29 +1674,33 @@
     <section class="hero">
         <div class="container">
             <div class="hero-badge">
-                <span>🚀</span>
-                <span>Lost 71% van klantverzoeken op</span>
+                <span>⚡</span>
+                <span>Live in 15 minuten - Geen technische kennis nodig</span>
+            </div>
+            <div class="hero-badge" style="background: rgba(34, 139, 34, 0.1); border-color: rgba(34, 139, 34, 0.3); color: #22c55e; margin-top: 8px;">
+                <span>🇪🇺</span>
+                <span>GDPR Compliant - Europese Databeveiliging</span>
             </div>
             <h1 class="hero-title">
-                De <span class="hero-highlight">#1 AI-agent</span><br>
-                voor klantenservice
+                Je eigen <span class="hero-highlight">bedrijfschatbot</span><br>
+                in 15 minuten
             </h1>
             <p class="hero-subtitle">
-                Onze AI klantenservice agent helpt u efficiënte ondersteuning te leveren.
-                Direct inzetbaar, bewezen resultaten, geen technische kennis vereist.
+                Wij bouwen een slimme chatbot die jouw klanten helpt.
+                Geen technische kennis nodig, vanaf €9 per maand.
             </p>
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">Start gratis proef</a>
+                <a href="#contact" class="btn btn-primary">Start vandaag voor €9/maand</a>
                 <a href="#demo" class="btn btn-secondary">Bekijk demo</a>
             </div>
             <div class="trust-section">
-                <p class="trust-label">Vertrouwd door toonaangevende bedrijven</p>
-                <div class="trust-logos">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="trust-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="trust-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="trust-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="trust-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="trust-logo">
+                <p class="trust-label">Veilig & Vertrouwd door Nederlandse Bedrijven</p>
+                <div class="trust-badges">
+                    <div class="trust-badge">🔒 GDPR Compliant</div>
+                    <div class="trust-badge">🇪🇺 EU Hosting</div>
+                    <div class="trust-badge">🛡️ ISO 27001</div>
+                    <div class="trust-badge">🏪 500+ Bedrijven</div>
+                    <div class="trust-badge">🇳🇱 Nederlandse Support</div>
                 </div>
             </div>
         </div>
@@ -1410,220 +1772,187 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
         <div class="container">
-            <div class="stats-header">
-                <h2 class="stats-title">Meetbare impact op uw business</h2>
-                <p class="stats-subtitle">
-                    Onze AI levert consistente resultaten die het verschil maken
+            <div class="how-it-works-header">
+                <h2 class="how-it-works-title">Hoe werkt BotLease?</h2>
+                <p class="how-it-works-subtitle">
+                    Van aanmelding tot live chatbot in 4 simpele stappen
                 </p>
             </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="71">0%</div>
-                    <p class="stat-label">Automatisch opgelost</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Wij bouwen jouw chatbot</h3>
+                    <p class="step-description">
+                        Jij levert informatie over je bedrijf, producten en veelgestelde vragen. 
+                        Wij trainen de AI met al deze kennis zodat de chatbot perfect jouw bedrijf kan vertegenwoordigen.
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="94">0%</div>
-                    <p class="stat-label">Klanttevredenheid</p>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Je krijgt een simpel script</h3>
+                    <p class="step-description">
+                        Geen technische kennis nodig! Je krijgt van ons een klein stukje code 
+                        dat je kopieert en plakt op je website. Werkt met elke website builder.
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="2.5">0s</div>
-                    <p class="stat-label">Gemiddelde responstijd</p>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Direct live op je website</h3>
+                    <p class="step-description">
+                        Zodra het script op je website staat, verschijnt de chatbot automatisch. 
+                        Klanten kunnen meteen vragen stellen en krijgen slimme antwoorden.
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="80">0%</div>
-                    <p class="stat-label">Kostenbesparing</p>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Beheer via je dashboard</h3>
+                    <p class="step-description">
+                        In je persoonlijke dashboard zie je alle gesprekken, veelgestelde vragen en statistieken. 
+                        Je kunt de chatbot blijven verbeteren en eventueel koppelen aan je team.
+                    </p>
                 </div>
+            </div>
+            <div class="how-it-works-cta">
+                <h3>Het gemak van BotLease</h3>
+                <p>Geen IT-gedoe, geen servers beheren, geen updates installeren. 
+                Wij regelen alles zodat jij je kunt focussen op je bedrijf.</p>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section" id="features">
-        <div class="container">
-            <div class="features-header">
-                <h2 class="features-title">Waarom kiezen voor BotLease?</h2>
-                <p class="features-subtitle">
-                    Ontdek de voordelen die onze AI-oplossing uniek maken
-                </p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-number">01</div>
-                    <h3 class="feature-card-title">Slimme AI</h3>
-                    <p class="feature-card-description">
-                        Begrijpt context en intentie voor natuurlijke,
-                        menselijke gesprekken.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">02</div>
-                    <h3 class="feature-card-title">Direct resultaat</h3>
-                    <p class="feature-card-description">
-                        Binnen 24 uur operationeel zonder technische
-                        kennis of training.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">03</div>
-                    <h3 class="feature-card-title">No cure, no pay</h3>
-                    <p class="feature-card-description">
-                        Start zonder risico. Betaal alleen voor
-                        bewezen resultaten.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">04</div>
-                    <h3 class="feature-card-title">Schaalbaar</h3>
-                    <p class="feature-card-description">
-                        Groeit naadloos mee van startup tot
-                        enterprise niveau.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">05</div>
-                    <h3 class="feature-card-title">Veilig</h3>
-                    <p class="feature-card-description">
-                        GDPR-compliant en volledig gehost
-                        binnen de EU.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">06</div>
-                    <h3 class="feature-card-title">Analytics</h3>
-                    <p class="feature-card-description">
-                        Real-time dashboards voor volledig
-                        inzicht in prestaties.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section class="testimonial-section" id="testimonials">
-        <div class="container">
-            <div class="testimonial-container">
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">
-                        "BotLease heeft onze klantenservice volledig getransformeerd.
-                        We besparen 70% op kosten terwijl de tevredenheid met 40% steeg.
-                        Het voelt als een natuurlijke uitbreiding van ons team."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">JB</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Jan van den Berg</div>
-                            <div class="testimonial-role">CEO, TechStart Nederland</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Pricing Section -->
     <section class="pricing-section" id="pricing">
         <div class="container">
             <div class="pricing-header">
-                <h2 class="pricing-title">Transparante prijzen, <span class="hero-highlight">betaal per resultaat</span></h2>
+                <h2 class="pricing-title">Eerlijke prijzen, <span class="hero-highlight">transparante kosten</span></h2>
                 <p class="pricing-subtitle">
-                    Geen setupkosten, geen verborgen kosten. Betaal alleen voor wat u gebruikt.
+                    Opzegbaar per maand. Geen verrassingen. We tonen je precies waar je geld naartoe gaat.
                 </p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3 class="pricing-card-title">BotLease met uw huidige helpdesk</h3>
+                    <div class="pricing-badge">Probeer</div>
+                    <h3 class="pricing-card-title">Start</h3>
                     <div class="pricing-price">
                         <span class="price-currency">€</span>
-                        <span class="price-amount">0,89</span>
-                        <span class="price-unit">per resolutie</span>
+                        <span class="price-amount">9</span>
+                        <span class="price-unit">per maand</span>
                     </div>
-                    <p class="pricing-description">Minimaal 50 resoluties per maand</p>
+                    <p class="pricing-description">Perfect om te beginnen</p>
                     <div class="pricing-features">
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Werkt met Zendesk, Salesforce, HubSpot</span>
+                            <span>Tot 100 gesprekken per maand</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Geen integratie kosten</span>
+                            <span>AI met jouw bedrijfskennis</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>24/7 AI ondersteuning</span>
+                            <span>Basis dashboard</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Onbeperkte gesprekken</span>
+                            <span>Email support</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Real-time analytics dashboard</span>
+                            <span>Setup door ons team</span>
+                        </div>
+                        <div class="pricing-feature" style="color: #22c55e;">
+                            <div class="pricing-feature-icon">🔒</div>
+                            <span>GDPR compliant & EU hosting</span>
                         </div>
                     </div>
-                    <a href="#contact" class="pricing-button">Start gratis pilot</a>
+                    <a href="#contact" class="pricing-button">Start voor €9/maand</a>
+                </div>
+                <div class="pricing-card pricing-featured">
+                    <div class="pricing-badge">Populair</div>
+                    <h3 class="pricing-card-title">Groei</h3>
+                    <div class="pricing-price">
+                        <span class="price-currency">€</span>
+                        <span class="price-amount">49</span>
+                        <span class="price-unit">per maand</span>
+                    </div>
+                    <p class="pricing-description">Voor groeiende bedrijven</p>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>Tot 500 gesprekken per maand</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>AI met uitgebreide bedrijfskennis</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>Eigen branding</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>Email integratie</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>Uitgebreid dashboard met analytics</span>
+                        </div>
+                        <div class="pricing-feature" style="color: #22c55e;">
+                            <div class="pricing-feature-icon">🛡️</div>
+                            <span>ISO 27001 + End-to-end encryption</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="pricing-button pricing-button-featured">Start gratis proef</a>
                 </div>
                 <div class="pricing-card">
-                    <h3 class="pricing-card-title">BotLease Complete Suite</h3>
+                    <h3 class="pricing-card-title">Pro</h3>
                     <div class="pricing-price">
                         <span class="price-currency">€</span>
-                        <span class="price-amount">0,89</span>
-                        <span class="price-unit">per resolutie</span>
+                        <span class="price-amount">149</span>
+                        <span class="price-unit">per maand</span>
                     </div>
-                    <p class="pricing-description">+ €25 per helpdesk seat per maand</p>
+                    <p class="pricing-description">Voor professionele teams</p>
                     <div class="pricing-features">
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Complete klantenservice platform</span>
+                            <span>Tot 2000 gesprekken per maand</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Geavanceerde workflow automatisering</span>
+                            <span>Multi-channel (WhatsApp, Instagram)</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
-                            <span>Omnichannel ondersteuning</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Team collaboration tools</span>
+                            <span>Pro dashboard met team toegang</span>
                         </div>
                         <div class="pricing-feature">
                             <div class="pricing-feature-icon"></div>
                             <span>Priority support</span>
                         </div>
+                        <div class="pricing-feature">
+                            <div class="pricing-feature-icon"></div>
+                            <span>API toegang</span>
+                        </div>
+                        <div class="pricing-feature" style="color: #22c55e;">
+                            <div class="pricing-feature-icon">🇳🇱</div>
+                            <span>Volledig Nederlandse dataverwerking</span>
+                        </div>
                     </div>
-                    <a href="#contact" class="pricing-button">Start gratis pilot</a>
+                    <a href="#contact" class="pricing-button">Start gratis proef</a>
                 </div>
             </div>
-            <div class="pricing-addon">
-                <h4 class="addon-title">🚀 AI Copilot voor uw team</h4>
-                <div class="addon-price">€30 per gebruiker per maand</div>
-                <p class="addon-description">Geef uw support agents AI-superkrachten met real-time suggesties en automatische antwoorden</p>
+            <div class="pricing-custom">
+                <h4 class="custom-title">Meer dan 2000 gesprekken per maand?</h4>
+                <p class="custom-description">Neem contact op voor een custom plan vanaf €299/maand</p>
+                <a href="#contact" class="custom-link">Contact opnemen →</a>
             </div>
         </div>
     </section>
 
-    <!-- Guarantee Section -->
-    <section class="guarantee-section">
-        <div class="container">
-            <div class="guarantee-container">
-                <div class="guarantee-badge">
-                    <span>💶</span>
-                    <span>MILJOEN EURO GARANTIE</span>
-                </div>
-                <h3 class="guarantee-title">Wij garanderen uw ROI</h3>
-                <p class="guarantee-text">
-                    Start met BotLease zonder risico. Als u binnen 90 dagen niet minimaal 50% 
-                    bespaart op uw klantenservice kosten, krijgt u uw geld terug én een bonus 
-                    van €10.000 voor het ongemak. Zo zeker zijn wij van onze technologie.
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
@@ -1739,28 +2068,30 @@
         // Animated counter
         const animateValue = (element, start, end, duration) => {
             const startTimestamp = Date.now();
+            const originalText = element.textContent;
             const step = () => {
                 const currentTimestamp = Date.now();
                 const progress = Math.min((currentTimestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * end);
                 
-                if (element.textContent.includes('%')) {
-                    element.textContent = Math.floor(progress * end) + '%';
-                } else if (element.textContent.includes('s')) {
+                if (originalText.includes('min')) {
+                    element.textContent = currentValue + ' min';
+                } else if (originalText.includes('€')) {
+                    element.textContent = currentValue + '€';
+                } else if (originalText.includes('/')) {
+                    element.textContent = currentValue + '/7';
+                } else if (originalText.includes('+')) {
+                    element.textContent = currentValue + '+';
+                } else if (originalText.includes('%')) {
+                    element.textContent = currentValue + '%';
+                } else if (originalText.includes('s')) {
                     element.textContent = (progress * end).toFixed(1) + 's';
                 } else {
-                    element.textContent = Math.floor(progress * end);
+                    element.textContent = currentValue;
                 }
                 
                 if (progress < 1) {
                     requestAnimationFrame(step);
-                } else {
-                    if (element.textContent.includes('%')) {
-                        element.textContent = end + '%';
-                    } else if (element.textContent.includes('s')) {
-                        element.textContent = end + 's';
-                    } else {
-                        element.textContent = end;
-                    }
                 }
             };
             step();
@@ -1996,6 +2327,20 @@
         
         // Create floating button
         createFloatingButton();
+
+        // Toggle breakdown functionality
+        function toggleBreakdown(plan) {
+            const breakdown = document.getElementById('breakdown-' + plan);
+            const arrow = document.getElementById('arrow-' + plan);
+            
+            if (breakdown.style.display === 'none' || breakdown.style.display === '') {
+                breakdown.style.display = 'block';
+                arrow.classList.add('rotated');
+            } else {
+                breakdown.style.display = 'none';
+                arrow.classList.remove('rotated');
+            }
+        }
     </script>
 </body>
 </html>
