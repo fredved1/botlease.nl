@@ -283,7 +283,7 @@
     <script>
         class ChatbotTest {
             constructor() {
-                this.apiUrl = 'http://localhost:5001/api';
+                this.apiUrl = 'https://botlease-new-gwbgf3eqbyd5dmb6.westeurope-01.azurewebsites.net/api';
                 this.sessionId = null;
                 this.isConnected = false;
                 
@@ -419,7 +419,7 @@
                         return;
                     }
                     
-                    this.addMessage('assistant', '❌ Netwerkfout. Controleer of de backend draait op localhost:5001');
+                    this.addMessage('assistant', '❌ Netwerkfout. Controleer of de Azure backend bereikbaar is.');
                     
                     // Test connection
                     this.testConnection();

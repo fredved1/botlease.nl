@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotLease AI - Interactive Experience</title>
+    <meta name="description" content="Experience the future of customer service with BotLease AI in an immersive split-screen interface.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --cream: #F4F3EC;
+            --orange: #FF5600;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6a6a6a;
+            --gray-400: #8a8a8a;
+            --gray-300: #aaaaaa;
+            --gray-200: #cccccc;
+            --gray-100: #e5e5e5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.35;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Split Layout */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Left Side - Chat */
+        .split-left {
+            background: var(--gray-900);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Right Side - Content */
+        .split-right {
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Animated Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--orange) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--orange) 0%, transparent 50%);
+            animation: bgMove 30s ease infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.1); }
+            66% { transform: translate(20px, 20px) scale(0.9); }
+        }
+
+        /* Navigation Bar */
+        .nav-minimal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-top: 64px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        /* Welcome Message */
+        .welcome-message {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: wave 1s ease infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: messageIn 0.3s ease;
+        }
+
+        @keyframes messageIn {
+            from { 
+                opacity: 0; 
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+            animation: messageInUser 0.3s ease;
+        }
+
+        @keyframes messageInUser {
+            from { 
+                opacity: 0; 
+                transform: translateX(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--orange) 0%, #ff8040 100%);
+            box-shadow: 0 2px 8px rgba(255, 86, 0, 0.3);
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--gray-600) 0%, var(--gray-700) 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 14px 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            backdrop-filter: blur(10px);
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, var(--orange) 0%, #ff7030 100%);
+            border: none;
+            color: var(--white);
+        }
+
+        /* Chat Input */
+        .chat-input-container {
+            padding: 20px 32px 32px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .chat-form {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px 20px;
+            border-radius: 24px;
+            color: var(--white);
+            font-size: 15px;
+            font-family: inherit;
+            resize: none;
+            min-height: 52px;
+            max-height: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(255, 86, 0, 0.1);
+        }
+
+        .chat-submit {
+            background: linear-gradient(135deg, var(--orange) 0%, #ff7030 100%);
+            color: var(--white);
+            border: none;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(255, 86, 0, 0.3);
+        }
+
+        .chat-submit:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 86, 0, 0.4);
+        }
+
+        .chat-submit:active {
+            transform: scale(0.95);
+        }
+
+        .chat-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Right Side Content */
+        .content-area {
+            flex: 1;
+            padding: 80px 60px 40px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .content-section {
+            max-width: 600px;
+            margin: 0 auto;
+            animation: contentFadeIn 0.8s ease;
+        }
+
+        @keyframes contentFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 86, 0, 0.1);
+            border: 1px solid rgba(255, 86, 0, 0.3);
+            color: var(--orange);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .content-title {
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 400;
+            font-family: 'Lora', Georgia, serif;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .content-highlight {
+            background: linear-gradient(135deg, var(--orange) 0%, #ff8040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-subtitle {
+            font-size: 20px;
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 86, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--orange);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 86, 0, 0.05);
+            border: 1px solid rgba(255, 86, 0, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 86, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--orange);
+            margin-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .quick-action {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: var(--gray-200);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quick-action:hover {
+            background: rgba(255, 86, 0, 0.1);
+            border-color: var(--orange);
+            color: var(--white);
+            transform: translateX(4px);
+        }
+
+        .quick-action-icon {
+            font-size: 20px;
+            width: 32px;
+            text-align: center;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange) 0%, #ff7030 100%);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 32px;
+            box-shadow: 0 4px 12px rgba(255, 86, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 86, 0, 0.4);
+        }
+
+        /* Typing Animation */
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-500);
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            30% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .split-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .split-right {
+                display: none;
+            }
+            
+            .content-area {
+                padding: 80px 40px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-minimal {
+                padding: 12px 20px;
+            }
+            
+            .chat-messages {
+                padding: 20px;
+            }
+            
+            .chat-input-container {
+                padding: 16px 20px 20px;
+            }
+            
+            .message-bubble {
+                max-width: 90%;
+            }
+        }
+
+        /* Loading State */
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.05) 25%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0.05) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Split Container -->
+    <div class="split-container">
+        <!-- Left Side - Chat -->
+        <div class="split-left">
+            <div class="bg-pattern"></div>
+            
+            <!-- Navigation -->
+            <nav class="nav-minimal">
+                <a href="#" class="nav-logo">
+                    BotLease<span class="nav-logo-dot"></span>
+                </a>
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <a href="/frontend/index.html" style="color: var(--gray-400); text-decoration: none; font-size: 14px;">Classic</a>
+                    <a href="/frontend/chatbot-landing.html" style="color: var(--gray-400); text-decoration: none; font-size: 14px;">Full</a>
+                </div>
+            </nav>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Welcome Message -->
+                    <div class="welcome-message">
+                        <div class="welcome-emoji">👋</div>
+                        <h3 style="font-size: 24px; margin-bottom: 8px;">Welkom bij BotLease!</h3>
+                        <p style="color: var(--gray-400);">Ik ben uw AI-assistent. Hoe kan ik u helpen?</p>
+                    </div>
+
+                    <!-- Initial Bot Message -->
+                    <div class="message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-bubble">
+                            Ik help bedrijven hun klantenservice te transformeren met AI. Waar bent u specifiek in geïnteresseerd?
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="message">
+                        <div class="message-avatar">🤖</div>
+                        <div style="max-width: 80%;">
+                            <div class="quick-actions">
+                                <button class="quick-action" onclick="sendQuickMessage('Wat zijn de voordelen van AI klantenservice?')">
+                                    <span class="quick-action-icon">✨</span>
+                                    <span>Voordelen van AI klantenservice</span>
+                                </button>
+                                <button class="quick-action" onclick="sendQuickMessage('Hoeveel kost een AI chatbot?')">
+                                    <span class="quick-action-icon">💰</span>
+                                    <span>Prijzen en kosten</span>
+                                </button>
+                                <button class="quick-action" onclick="sendQuickMessage('Hoe werkt de implementatie?')">
+                                    <span class="quick-action-icon">🚀</span>
+                                    <span>Implementatie proces</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-container">
+                    <form class="chat-form" id="chatForm" onsubmit="sendMessage(event)">
+                        <textarea 
+                            class="chat-input" 
+                            id="chatInput" 
+                            placeholder="Stel uw vraag..."
+                            rows="1"
+                            onkeydown="handleKeyDown(event)"
+                        ></textarea>
+                        <button type="submit" class="chat-submit" id="chatSubmit">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Content -->
+        <div class="split-right">
+            <div class="bg-pattern"></div>
+            
+            <div class="content-area">
+                <div class="content-section">
+                    <div class="hero-badge">
+                        <span>🚀</span>
+                        <span>DE #1 AI-AGENT VOOR KLANTENSERVICE</span>
+                    </div>
+                    
+                    <h1 class="content-title">
+                        Transform your customer service with 
+                        <span class="content-highlight">AI-powered automation</span>
+                    </h1>
+                    
+                    <p class="content-subtitle">
+                        BotLease lost 71% van klantverzoeken automatisch op, 
+                        verhoogt de tevredenheid en bespaart tot 80% op kosten.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-number">71%</div>
+                            <div class="stat-label">Automatisch opgelost</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">94%</div>
+                            <div class="stat-label">Klanttevredenheid</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2.5s</div>
+                            <div class="stat-label">Responstijd</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">Kostenbesparing</div>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <h2 style="font-size: 24px; margin: 48px 0 24px; font-weight: 500;">
+                        Waarom kiezen voor BotLease?
+                    </h2>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3 class="feature-title">Slimme AI</h3>
+                            <p class="feature-description">
+                                Begrijpt context en intentie voor natuurlijke gesprekken
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3 class="feature-title">Direct resultaat</h3>
+                            <p class="feature-description">
+                                Binnen 24 uur operationeel zonder technische kennis
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3 class="feature-title">No cure, no pay</h3>
+                            <p class="feature-description">
+                                Start zonder risico, betaal voor bewezen resultaten
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3 class="feature-title">Schaalbaar</h3>
+                            <p class="feature-description">
+                                Groeit naadloos mee van startup tot enterprise
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div style="text-align: center; margin-top: 48px;">
+                        <a href="#" class="cta-button">Start gratis pilot →</a>
+                        <p style="margin-top: 16px; font-size: 14px; color: var(--gray-500);">
+                            Geen creditcard vereist • Setup in 5 minuten
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_URL = 'https://botlease-new-gwbgf3eqbyd5dmb6.westeurope-01.azurewebsites.net/api';
+        let sessionId = null;
+        let isTyping = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Focus on chat input
+            document.getElementById('chatInput').focus();
+
+            // Initialize chat session
+            await initializeChat();
+
+            // Auto-resize textarea
+            const chatInput = document.getElementById('chatInput');
+            chatInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+            });
+        });
+
+        // Initialize chat session
+        async function initializeChat() {
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        message: 'start',
+                        context: 'split_screen'
+                    })
+                });
+
+                const data = await response.json();
+                if (data.session_id) {
+                    sessionId = data.session_id;
+                }
+            } catch (error) {
+                console.error('Failed to initialize chat:', error);
+            }
+        }
+
+        // Send message
+        async function sendMessage(event) {
+            event.preventDefault();
+            
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || isTyping) return;
+            
+            // Remove welcome message if exists
+            const welcome = document.querySelector('.welcome-message');
+            if (welcome) {
+                welcome.style.opacity = '0';
+                setTimeout(() => welcome.remove(), 300);
+            }
+            
+            // Add user message
+            addMessage(message, true);
+            
+            // Clear input
+            input.value = '';
+            input.style.height = 'auto';
+            
+            // Show typing indicator
+            showTyping();
+            
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        message,
+                        context: 'split_screen',
+                        session_id: sessionId
+                    })
+                });
+
+                const data = await response.json();
+                
+                // Hide typing
+                hideTyping();
+                
+                if (data.response) {
+                    addMessage(data.response);
+                } else {
+                    addMessage('Sorry, er ging iets mis. Probeer het opnieuw.');
+                }
+            } catch (error) {
+                console.error('Chat error:', error);
+                hideTyping();
+                addMessage('Sorry, ik kan momenteel niet reageren. Probeer het later opnieuw.');
+            }
+        }
+
+        // Send quick message
+        function sendQuickMessage(message) {
+            const input = document.getElementById('chatInput');
+            input.value = message;
+            sendMessage(new Event('submit'));
+        }
+
+        // Add message to chat
+        function addMessage(content, isUser = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : ''}`;
+            
+            // Parse markdown links for bot messages
+            if (!isUser) {
+                content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: var(--orange); text-decoration: underline;">$1</a>');
+            }
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${isUser ? '👤' : '🤖'}</div>
+                <div class="message-bubble">${content}</div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // Show typing indicator
+        function showTyping() {
+            if (isTyping) return;
+            isTyping = true;
+            
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message';
+            typingDiv.id = 'typing-indicator';
+            
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="typing-indicator">
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        // Hide typing indicator
+        function hideTyping() {
+            isTyping = false;
+            const typing = document.getElementById('typing-indicator');
+            if (typing) typing.remove();
+        }
+
+        // Scroll to bottom of messages
+        function scrollToBottom() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Handle enter key
+        function handleKeyDown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage(event);
+            }
+        }
+    </script>
+</body>
+</html>
