@@ -1,7 +1,7 @@
 // BotLease Chatbot Integration
 class BotleaseChat {
     constructor() {
-        this.apiUrl = 'http://localhost:5001/api';
+        this.apiUrl = 'https://botlease-new-gwbgf3eqbyd5dmb6.westeurope-01.azurewebsites.net/api';
         this.sessionId = null;
         this.isConnected = false;
         this.messages = [];
