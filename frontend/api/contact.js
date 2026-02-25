@@ -53,8 +53,8 @@ export default async function handler(req, res) {
 
     // Supabase integratie met verbeterde logging
     try {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ysrxerfgnwnnzmmwppzd.supabase.co';
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzcnhlcmZnbndubnptbXdwcHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4MzI4MDksImV4cCI6MjA2NjQwODgwOX0.5uNOe_ldZjkpyBAbko_CLdrxpLwebDwHCw05XkREg5g';
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.supabase.co';
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
       
       console.log('Supabase URL:', supabaseUrl);
       console.log('Supabase Key:', supabaseKey ? 'SET' : 'NOT SET');
