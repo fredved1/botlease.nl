@@ -1,105 +1,51 @@
-// API route voor Vercel - /api/contact
-// Deze file moet in de 'api' folder staan voor Vercel deployment
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.supabase.co';
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
 
 export default async function handler(req, res) {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle OPTIONS request
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
-  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  try {
-    const { name, email, phone, company, message } = req.body;
+  const { name, email, phone, company, message } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !message) {
-      return res.status(400).json({ 
-        error: 'Naam, email en bericht zijn verplicht' 
-      });
-    }
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
-        error: 'Ongeldig email adres' 
-      });
-    }
-
-    // Create submission object
-    const submission = {
-      name,
-      email,
-      phone: phone || '',
-      company: company || '',
-      message,
-      timestamp: new Date().toISOString(),
-      source: 'website_contact_form'
-    };
-
-    // Supabase integratie met verbeterde logging
-    try {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.supabase.co';
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
-      
-      console.log('Supabase URL:', supabaseUrl);
-      console.log('Supabase Key:', supabaseKey ? 'SET' : 'NOT SET');
-      
-      const { createClient } = await import('@supabase/supabase-js');
-      const supabase = createClient(supabaseUrl, supabaseKey);
-      
-      console.log('Attempting to insert:', { name, email, phone, company, message });
-      
-      const { data, error } = await supabase
-        .from('contacts')
-        .insert([{
-          name,
-          email,
-          phone: phone || '',
-          company: company || '',
-          message
-        }])
-        .select();
-        
-      if (error) {
-        console.error('Supabase error details:', error);
-        return res.status(500).json({ 
-          error: 'Database insert failed: ' + error.message 
-        });
-      } else {
-        console.log('SUCCESS - Contact saved to Supabase:', data);
-      }
-    } catch (dbError) {
-      console.error('Database connection error:', dbError);
-      return res.status(500).json({ 
-        error: 'Database connection failed: ' + dbError.message 
-      });
-    }
-
-    // Send success response
-    return res.status(200).json({ 
-      success: true,
-      message: 'Bedankt voor uw aanvraag! We nemen binnen 24 uur contact met u op.'
-    });
-
-  } catch (error) {
-    console.error('Contact form error:', error);
-    return res.status(500).json({ 
-      error: 'Er ging iets mis. Probeer het later opnieuw.' 
-    });
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Naam, email en bericht zijn verplicht' });
   }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Ongeldig email adres' });
+  }
+
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ name, email, phone: phone || '', company: company || '', message })
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    console.error('Supabase error:', err);
+    return res.status(500).json({ error: 'Opslaan mislukt: ' + err });
+  }
+
+  return res.status(200).json({
+    success: true,
+    message: 'Bedankt! We nemen binnen 24 uur contact met u op.'
+  });
 }
