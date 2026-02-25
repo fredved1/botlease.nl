@@ -2279,25 +2279,37 @@ GEEN lange uitleg, GEEN technische details, GEEN gratis consulting!`;
             };
 
             try {
-                const response = await fetch('/api/contact', {
+                const SUPA_URL = 'https://hzexwxpnsqggbxklpues.supabase.co';
+                const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+
+                const response = await fetch(`${SUPA_URL}/rest/v1/contacts`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'apikey': SUPA_KEY,
+                        'Authorization': `Bearer ${SUPA_KEY}`,
+                        'Prefer': 'return=minimal'
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({
+                        name: formData.name,
+                        email: formData.email,
+                        company: formData.company,
+                        phone: formData.phone,
+                        message: formData.message
+                    })
                 });
 
-                const result = await response.json();
-
-                if (response.ok) {
+                if (response.ok || response.status === 201) {
                     messageDiv.className = 'form-message form-success';
                     messageDiv.textContent = 'Bedankt! We nemen binnen 24 uur contact met u op.';
                     messageDiv.style.display = 'block';
                     contactForm.reset();
                 } else {
-                    throw new Error(result.error || 'Er ging iets mis');
+                    const err = await response.text();
+                    throw new Error(err);
                 }
             } catch (error) {
+                console.error('Contact form error:', error);
                 messageDiv.className = 'form-message form-error';
                 messageDiv.textContent = 'Er ging iets mis. Probeer het later opnieuw.';
                 messageDiv.style.display = 'block';
