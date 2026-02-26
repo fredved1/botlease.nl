@@ -1649,9 +1649,9 @@
         }
     </style>
     <!-- Vercel Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
     <!-- Vercel Speed Insights -->
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -2157,9 +2157,17 @@ GEEN lange uitleg, GEEN technische details, GEEN gratis consulting!`;
             const bubbleDiv = document.createElement('div');
             bubbleDiv.className = 'message-bubble';
             
-            // Parse markdown links
             if (!isUser) {
-                content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: var(--orange); text-decoration: underline;">$1</a>');
+                content = content
+                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:var(--orange);text-decoration:underline;" target="_blank">$1</a>')
+                    .replace(/^### (.+)$/gm, '<strong>$1</strong>')
+                    .replace(/^## (.+)$/gm, '<strong>$1</strong>')
+                    .replace(/^- (.+)$/gm, '• $1')
+                    .replace(/^\d+\. (.+)$/gm, '• $1')
+                    .replace(/\n/g, '<br>');
                 bubbleDiv.innerHTML = content;
             } else {
                 bubbleDiv.textContent = content;

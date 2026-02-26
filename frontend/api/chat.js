@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       'X-Title': 'BotLease'
     },
     body: JSON.stringify({
-      model: 'google/gemma-3-4b-it:free',
+      model: 'nvidia/nemotron-nano-12b-v2-vl:free',
       messages,
       max_tokens: 200
     })
