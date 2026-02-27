@@ -572,6 +572,30 @@
             color: var(--gray-100);
         }
 
+        .message-bot .message-bubble p {
+            margin: 0 0 8px 0;
+        }
+        .message-bot .message-bubble p:last-child {
+            margin-bottom: 0;
+        }
+        .message-bot .message-bubble ul,
+        .message-bot .message-bubble ol {
+            margin: 4px 0 8px 0;
+            padding-left: 20px;
+        }
+        .message-bot .message-bubble li {
+            margin-bottom: 4px;
+        }
+        .message-bot .message-bubble strong {
+            color: var(--white);
+        }
+        .message-bot .message-bubble code {
+            background: rgba(255,255,255,0.1);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
         .message-user .message-bubble {
             background: var(--orange);
             color: var(--white);
@@ -1675,6 +1699,8 @@
             }
         }
     </style>
+    <!-- Marked.js markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
     <!-- Vercel Analytics -->
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
     <!-- Vercel Speed Insights -->
@@ -2151,25 +2177,20 @@
         const chatInput = document.getElementById('chatInput');
         const chatMessages = document.getElementById('chatMessages');
         const chatSubmit = document.getElementById('chatSubmit');
-        const SYSTEM_PROMPT = `Je bent een vriendelijke BotLease specialist die bedrijven helpt ontdekken welke processen geautomatiseerd kunnen worden.
+        const SYSTEM_PROMPT = `Je bent een scherpe, vriendelijke BotLease specialist. BotLease bouwt AI-chatbots voor kleine bedrijven — live in 15 minuten, vanaf €49/maand.
 
-JOUW STIJL:
-✅ Vriendelijk en toegankelijk
-✅ Enthousiast over automatisering
-✅ Gericht op praktische oplossingen
-✅ Kort en bondig (max 2 zinnen per antwoord)
+REGELS:
+- Antwoord ALTIJD in maximaal 2-3 zinnen. Nooit meer.
+- Schrijf gewone zinnen. Geen opsommingen tenzij echt nodig.
+- Gebruik markdown alleen voor **vetgedrukte** kernwoorden, niet voor lijsten.
+- Stel één gerichte vervolgvraag om de situatie te begrijpen.
 
-JOUW DOEL:
-- Identificeren welke processen BotLease kan automatiseren
-- Interesse wekken met concrete besparingen (€/tijd)
-- Doorverwijzen naar het contactformulier voor maatwerk
+DOEL:
+1. Ontdek welk proces het bedrijf wil automatiseren
+2. Bereken concrete besparing (uren × €25/uur)
+3. Na 3+ berichten: stuur naar https://botlease.nl/#contact
 
-ANTWOORD STRUCTUUR:
-1. Bevestig het proces en vraag naar details
-2. Alleen bij genoeg info: bereken besparing (tijd × €25/uur)
-3. Na 3+ berichten: Doorverwijzen naar contactformulier: https://www.botlease.nl/#contact
-
-GEEN lange uitleg, GEEN technische details, GEEN gratis consulting!`;
+NOOIT: lange uitleg, bullet-lijsten van opties, technisch jargon, gratis advies geven.`;
         const chatHistory = [];
 
         function formatTime() {
@@ -2177,25 +2198,27 @@ GEEN lange uitleg, GEEN technische details, GEEN gratis consulting!`;
             return now.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
         }
 
+        // Configureer marked.js
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+        });
+
+        // Override link renderer zodat links in nieuw tabblad openen
+        const renderer = new marked.Renderer();
+        renderer.link = ({ href, text }) =>
+            `<a href="${href}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline;">${text}</a>`;
+        marked.use({ renderer });
+
         function addMessage(content, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'message-user' : 'message-bot'}`;
-            
+
             const bubbleDiv = document.createElement('div');
             bubbleDiv.className = 'message-bubble';
-            
+
             if (!isUser) {
-                content = content
-                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:var(--orange);text-decoration:underline;" target="_blank">$1</a>')
-                    .replace(/^### (.+)$/gm, '<strong>$1</strong>')
-                    .replace(/^## (.+)$/gm, '<strong>$1</strong>')
-                    .replace(/^- (.+)$/gm, '• $1')
-                    .replace(/^\d+\. (.+)$/gm, '• $1')
-                    .replace(/\n/g, '<br>');
-                bubbleDiv.innerHTML = content;
+                bubbleDiv.innerHTML = marked.parse(content);
             } else {
                 bubbleDiv.textContent = content;
             }
