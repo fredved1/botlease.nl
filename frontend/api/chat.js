@@ -1,11 +1,8 @@
-// Modellen die system messages ondersteunen (primair)
-const MODELS_WITH_SYSTEM = [
+const MODELS_NO_SYSTEM = new Set(['google/gemma-3-4b-it:free']);
+
+const ALL_MODELS = [
   'google/gemini-2.0-flash-exp:free',
   'qwen/qwen-2.5-7b-instruct:free',
-];
-
-// Modellen waarbij system message omgezet wordt naar user message
-const MODELS_NO_SYSTEM = [
   'google/gemma-3-4b-it:free',
 ];
 
@@ -21,6 +18,7 @@ function mergeSystemIntoUser(messages) {
 }
 
 async function tryModel(model, messages) {
+  const msgs = MODELS_NO_SYSTEM.has(model) ? mergeSystemIntoUser(messages) : messages;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12000);
   try {
@@ -32,7 +30,7 @@ async function tryModel(model, messages) {
         'HTTP-Referer': 'https://botlease.nl',
         'X-Title': 'BotLease'
       },
-      body: JSON.stringify({ model, messages, max_tokens: 200 }),
+      body: JSON.stringify({ model, messages: msgs, max_tokens: 200 }),
       signal: controller.signal,
     });
     clearTimeout(timeout);
@@ -55,17 +53,16 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { messages } = req.body;
+  const { messages, model: preferredModel } = req.body;
   if (!messages) return res.status(400).json({ error: 'Geen berichten' });
 
-  for (const model of MODELS_WITH_SYSTEM) {
-    const content = await tryModel(model, messages);
-    if (content) return res.status(200).json({ model, choices: [{ message: { role: 'assistant', content } }] });
-  }
+  // Bouw volgorde: gekozen model eerst, daarna de rest als fallback
+  const order = preferredModel && ALL_MODELS.includes(preferredModel)
+    ? [preferredModel, ...ALL_MODELS.filter(m => m !== preferredModel)]
+    : ALL_MODELS;
 
-  const messagesNoSystem = mergeSystemIntoUser(messages);
-  for (const model of MODELS_NO_SYSTEM) {
-    const content = await tryModel(model, messagesNoSystem);
+  for (const model of order) {
+    const content = await tryModel(model, messages);
     if (content) return res.status(200).json({ model, choices: [{ message: { role: 'assistant', content } }] });
   }
 

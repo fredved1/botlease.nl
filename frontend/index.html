@@ -513,6 +513,33 @@
             color: var(--gray-500);
         }
 
+        .model-select {
+            appearance: none;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--gray-300);
+            font-size: 12px;
+            font-family: inherit;
+            padding: 4px 24px 4px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a6a6a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            transition: border-color 0.2s;
+        }
+
+        .model-select:hover {
+            border-color: rgba(255,255,255,0.25);
+            color: var(--white);
+        }
+
+        .model-select option {
+            background: #1a1a1a;
+            color: var(--white);
+        }
+
         .chat-body {
             height: 420px;
             overflow-y: auto;
@@ -1800,10 +1827,11 @@
                             <span class="chat-status"></span>
                             BotLease AI Assistant
                         </div>
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <span id="chatModelBadge" style="display:none;font-size:11px;background:rgba(16,185,129,0.15);color:#10B981;border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:2px 8px;font-weight:500;white-space:nowrap;"></span>
-                            <span class="chat-header-info">Online</span>
-                        </div>
+                        <select id="modelSelect" class="model-select" title="Kies AI-model">
+                            <option value="google/gemini-2.0-flash-exp:free">✦ Gemini 2.0 Flash</option>
+                            <option value="qwen/qwen-2.5-7b-instruct:free">✦ Qwen 2.5</option>
+                            <option value="google/gemma-3-4b-it:free">✦ Gemma 3</option>
+                        </select>
                     </div>
                     <div class="chat-body" id="chatMessages">
                         <div class="message message-bot">
@@ -2180,6 +2208,7 @@
         const chatInput = document.getElementById('chatInput');
         const chatMessages = document.getElementById('chatMessages');
         const chatSubmit = document.getElementById('chatSubmit');
+        const modelSelect = document.getElementById('modelSelect');
         const SYSTEM_PROMPT = `Je bent een conversion-specialist voor BotLease. BotLease bouwt AI-chatbots voor kleine Nederlandse bedrijven: live in 15 minuten, vanaf €49/maand.
 
 JOUW ENIGE DOEL: de bezoeker warm maken voor een gratis kennismaking en doorsturen naar het contactformulier.
@@ -2296,6 +2325,7 @@ TOON: zelfverzekerd, direct, menselijk. Geen blabla.`;
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
+                        model: modelSelect.value,
                         messages: [
                             { role: 'system', content: SYSTEM_PROMPT },
                             ...chatHistory
@@ -2308,16 +2338,15 @@ TOON: zelfverzekerd, direct, menselijk. Geen blabla.`;
                 const data = await response.json();
                 hideTyping();
 
+                // Update dropdown naar het model dat écht gebruikt werd
+                if (data.model && data.model !== modelSelect.value) {
+                    modelSelect.value = data.model;
+                }
+
                 const botMessage = data.choices?.[0]?.message?.content;
                 if (botMessage) {
                     chatHistory.push({ role: 'assistant', content: botMessage });
                     addMessage(botMessage);
-                    // Toon model badge in header
-                    const badge = document.getElementById('chatModelBadge');
-                    if (badge && data.model) {
-                        badge.textContent = MODEL_NAMES[data.model] || data.model.split('/').pop();
-                        badge.style.display = 'inline-block';
-                    }
                 } else {
                     chatHistory.pop();
                     addMessage('Even geen verbinding. Probeer het opnieuw. 🔄');
