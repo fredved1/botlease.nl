@@ -1827,14 +1827,22 @@
                             <span class="chat-status"></span>
                             BotLease AI Assistant
                         </div>
-                        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;">
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <span style="font-size:12px;color:var(--gray-500);">Model:</span>
                             <select id="modelSelect" class="model-select" title="Kies AI-model">
-                                <option value="google/gemini-2.0-flash-exp:free">✦ Gemini 2.0 Flash</option>
-                                <option value="qwen/qwen-2.5-7b-instruct:free">✦ Qwen 2.5</option>
-                                <option value="google/gemma-3-4b-it:free">✦ Gemma 3</option>
+                                <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash</option>
+                                <option value="qwen/qwen-2.5-7b-instruct:free">Qwen 2.5</option>
+                                <option value="google/gemma-3-4b-it:free">Gemma 3</option>
                             </select>
-                            <span style="font-size:10px;color:var(--gray-500);text-align:right;line-height:1.3;">Gratis modellen · productie gebruikt GPT-4o / Claude</span>
                         </div>
+                    </div>
+                    <!-- Demo notice -->
+                    <div style="background:rgba(255,86,0,0.08);border-bottom:1px solid rgba(255,86,0,0.15);padding:8px 20px;display:flex;align-items:center;gap:8px;">
+                        <span style="font-size:13px;">🧪</span>
+                        <span style="font-size:12px;color:var(--gray-400);line-height:1.4;">
+                            <strong style="color:var(--gray-200);">Demo met gratis modellen.</strong>
+                            Voor uw bedrijf gebruiken we krachtigere modellen zoals GPT-4o of Claude Sonnet.
+                        </span>
                     </div>
                     <div class="chat-body" id="chatMessages">
                         <div class="message message-bot">
@@ -1846,10 +1854,10 @@
                     </div>
                     <div class="chat-input-area">
                         <form class="chat-form" id="chatForm">
-                            <input 
-                                type="text" 
-                                class="chat-input" 
-                                id="chatInput" 
+                            <input
+                                type="text"
+                                class="chat-input"
+                                id="chatInput"
                                 placeholder="Type uw vraag..."
                                 autocomplete="off"
                             />
