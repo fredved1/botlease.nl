@@ -1827,11 +1827,14 @@
                             <span class="chat-status"></span>
                             BotLease AI Assistant
                         </div>
-                        <select id="modelSelect" class="model-select" title="Kies AI-model">
-                            <option value="google/gemini-2.0-flash-exp:free">✦ Gemini 2.0 Flash</option>
-                            <option value="qwen/qwen-2.5-7b-instruct:free">✦ Qwen 2.5</option>
-                            <option value="google/gemma-3-4b-it:free">✦ Gemma 3</option>
-                        </select>
+                        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;">
+                            <select id="modelSelect" class="model-select" title="Kies AI-model">
+                                <option value="google/gemini-2.0-flash-exp:free">✦ Gemini 2.0 Flash</option>
+                                <option value="qwen/qwen-2.5-7b-instruct:free">✦ Qwen 2.5</option>
+                                <option value="google/gemma-3-4b-it:free">✦ Gemma 3</option>
+                            </select>
+                            <span style="font-size:10px;color:var(--gray-500);text-align:right;line-height:1.3;">Gratis modellen · productie gebruikt GPT-4o / Claude</span>
+                        </div>
                     </div>
                     <div class="chat-body" id="chatMessages">
                         <div class="message message-bot">
