@@ -1800,7 +1800,10 @@
                             <span class="chat-status"></span>
                             BotLease AI Assistant
                         </div>
-                        <span class="chat-header-info">Online</span>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <span id="chatModelBadge" style="display:none;font-size:11px;background:rgba(16,185,129,0.15);color:#10B981;border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:2px 8px;font-weight:500;white-space:nowrap;"></span>
+                            <span class="chat-header-info">Online</span>
+                        </div>
                     </div>
                     <div class="chat-body" id="chatMessages">
                         <div class="message message-bot">
@@ -2177,20 +2180,30 @@
         const chatInput = document.getElementById('chatInput');
         const chatMessages = document.getElementById('chatMessages');
         const chatSubmit = document.getElementById('chatSubmit');
-        const SYSTEM_PROMPT = `Je bent een scherpe, vriendelijke BotLease specialist. BotLease bouwt AI-chatbots voor kleine bedrijven — live in 15 minuten, vanaf €49/maand.
+        const SYSTEM_PROMPT = `Je bent een conversion-specialist voor BotLease. BotLease bouwt AI-chatbots voor kleine Nederlandse bedrijven: live in 15 minuten, vanaf €49/maand.
 
-REGELS:
-- Antwoord ALTIJD in maximaal 2-3 zinnen. Nooit meer.
-- Schrijf gewone zinnen. Geen opsommingen tenzij echt nodig.
-- Gebruik markdown alleen voor **vetgedrukte** kernwoorden, niet voor lijsten.
-- Stel één gerichte vervolgvraag om de situatie te begrijpen.
+JOUW ENIGE DOEL: de bezoeker warm maken voor een gratis kennismaking en doorsturen naar het contactformulier.
 
-DOEL:
-1. Ontdek welk proces het bedrijf wil automatiseren
-2. Bereken concrete besparing (uren × €25/uur)
-3. Na 3+ berichten: stuur naar https://botlease.nl/#contact
+STRIKTE REGELS:
+- Max 2 zinnen per antwoord. Altijd.
+- Stel elke keer precies 1 korte vervolgvraag.
+- Geen opsommingen. Schrijf als een mens, niet als een brochure.
+- Weet je iets niet? Zeg eerlijk "dat weet ik niet exact, maar dat bespreken we in een gratis gesprek."
+- Ga NIET in op vragen over andere tools, concurrenten of technische details.
 
-NOOIT: lange uitleg, bullet-lijsten van opties, technisch jargon, gratis advies geven.`;
+GESPREKSFLOW:
+1. Begroeting → vraag wat voor bedrijf ze hebben
+2. Begrijp welk proces ze willen automatiseren (klantvragen, afspraken, leads?)
+3. Geef een concrete schatting: "Als je X uur/week bespaart à €25/uur, is dat €Y/maand"
+4. Na 2-3 berichten: "Wil je zien hoe dit er voor jouw bedrijf uitziet? → [Plan gratis gesprek](https://botlease.nl/#contact)"
+
+TOON: zelfverzekerd, direct, menselijk. Geen blabla.`;
+
+        const MODEL_NAMES = {
+            'google/gemini-2.0-flash-exp:free': 'Gemini 2.0 Flash · gratis',
+            'qwen/qwen-2.5-7b-instruct:free': 'Qwen 2.5 · gratis',
+            'google/gemma-3-4b-it:free': 'Gemma 3 · gratis',
+        };
         const chatHistory = [];
 
         function formatTime() {
@@ -2299,6 +2312,12 @@ NOOIT: lange uitleg, bullet-lijsten van opties, technisch jargon, gratis advies 
                 if (botMessage) {
                     chatHistory.push({ role: 'assistant', content: botMessage });
                     addMessage(botMessage);
+                    // Toon model badge in header
+                    const badge = document.getElementById('chatModelBadge');
+                    if (badge && data.model) {
+                        badge.textContent = MODEL_NAMES[data.model] || data.model.split('/').pop();
+                        badge.style.display = 'inline-block';
+                    }
                 } else {
                     chatHistory.pop();
                     addMessage('Even geen verbinding. Probeer het opnieuw. 🔄');

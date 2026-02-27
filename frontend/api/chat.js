@@ -60,13 +60,13 @@ export default async function handler(req, res) {
 
   for (const model of MODELS_WITH_SYSTEM) {
     const content = await tryModel(model, messages);
-    if (content) return res.status(200).json({ choices: [{ message: { role: 'assistant', content } }] });
+    if (content) return res.status(200).json({ model, choices: [{ message: { role: 'assistant', content } }] });
   }
 
   const messagesNoSystem = mergeSystemIntoUser(messages);
   for (const model of MODELS_NO_SYSTEM) {
     const content = await tryModel(model, messagesNoSystem);
-    if (content) return res.status(200).json({ choices: [{ message: { role: 'assistant', content } }] });
+    if (content) return res.status(200).json({ model, choices: [{ message: { role: 'assistant', content } }] });
   }
 
   return res.status(503).json({ error: 'Tijdelijk niet beschikbaar' });
