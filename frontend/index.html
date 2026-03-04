@@ -20,6 +20,7 @@
     <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         :root {
             /* ─ Distinctive 2025 palette — violet / warm-white ─ */
@@ -295,7 +296,7 @@
         }
 
         /* ═══════════════ USE CASES ═══════════════ */
-        .usecases-section { padding: 104px 0; background: #fff; }
+        .usecases-section { padding: 104px 0; background: var(--bg-soft); }
         .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         @media (max-width: 760px) { .usecases-grid { grid-template-columns: 1fr; } }
         .usecase-card {
