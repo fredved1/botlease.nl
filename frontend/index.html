@@ -137,11 +137,11 @@
             background: var(--blue); display: inline-block;
         }
         .nav-links {
-            display: flex; align-items: center; gap: 32px;
+            display: flex; align-items: center; gap: 24px;
             list-style: none; margin: 0; padding: 0;
         }
         .nav-links a {
-            font-size: 14px; font-weight: 500; color: var(--fg-muted);
+            font-size: 13px; font-weight: 500; color: var(--fg-muted);
             text-decoration: none; transition: color 0.15s;
         }
         .nav-links a:hover { color: var(--fg); }
@@ -555,22 +555,29 @@
         .urldemo-send svg { width: 15px; height: 15px; fill: #fff; }
 
         /* ═══════════════ AI INTERN ═══════════════ */
-        .aiintern-section { padding: 80px 0; background: var(--bg-soft); }
-        .aiintern-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-        }
-        @media (max-width: 760px) { .aiintern-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .aiintern-grid { grid-template-columns: 1fr; } }
+        .aiintern-section { padding: 104px 0; background: var(--bg-soft); }
+        .aiintern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 900px) { .aiintern-grid { grid-template-columns: 1fr; } }
         .aiintern-card {
-            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;
-            box-shadow: var(--shadow-xs); transition: border-color 0.2s, box-shadow 0.2s;
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 36px; display: flex; flex-direction: column;
+            box-shadow: var(--shadow-sm); transition: all 0.25s;
         }
-        .aiintern-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: var(--shadow-sm); }
-        .aiintern-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-section); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .aiintern-icon svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-        .aiintern-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--fg); }
-        .aiintern-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.6; }
+        .aiintern-card:hover { box-shadow: var(--shadow-xl); border-color: rgba(37,99,235,0.25); transform: translateY(-4px); }
+        .aiintern-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--bg-section); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; }
+        .aiintern-icon svg { width: 24px; height: 24px; stroke: var(--blue); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .aiintern-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--fg); }
+        .aiintern-card > p { font-size: 14px; color: var(--fg-muted); line-height: 1.7; margin-bottom: 20px; }
+        .aiintern-examples { list-style: none; border-top: 1px solid var(--border); padding-top: 16px; margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .aiintern-examples li { font-size: 13px; color: var(--fg-muted); display: flex; align-items: center; gap: 10px; }
+        .aiintern-examples li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); flex-shrink: 0; opacity: 0.7; }
+        .aiintern-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 48px; background: var(--fg); border-radius: var(--radius-lg); overflow: hidden; }
+        @media (max-width: 600px) { .aiintern-stats { grid-template-columns: 1fr; } }
+        .aiintern-stat { padding: 28px 32px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+        .aiintern-stat:last-child { border-right: none; }
+        .aiintern-stat-num { font-size: 34px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+        .aiintern-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+        .aiintern-cta { text-align: center; margin-top: 40px; }
 
         /* ═══════════════ PRICING ═══════════════ */
         .pricing-section { padding: 104px 0 88px; background: #fff; }
@@ -880,8 +887,9 @@
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hoe-het-werkt">Hoe het werkt</a></li>
+            <li><a href="#demo">Probeer zelf</a></li>
+            <li><a href="#intern">AI intern</a></li>
             <li><a href="#prijzen">Prijzen</a></li>
-            <li><a href="#use-cases">Use Cases</a></li>
             <li><a href="#over-ons">Over ons</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1084,56 +1092,61 @@
 
 
 <!-- ══════════════════════ AI INTERN ══════════════════════ -->
-<section class="aiintern-section">
+<section class="aiintern-section" id="intern">
     <div class="container">
         <div class="section-header fi">
             <span class="section-label">Meer dan klantenservice</span>
-            <h2>AI bespaart ook <span class="grad-text">intern tijd</span></h2>
-            <p>Via jouw BotLease dashboard zet je AI niet alleen in voor klanten, maar ook voor jou en je team. Teksten, mails, offertes — vanuit één plek.</p>
+            <h2>Jouw AI-medewerker werkt <span class="grad-text">ook intern voor je.</span></h2>
+            <p>Via het BotLease dashboard gebruik je dezelfde AI die je klanten helpt, ook voor interne taken. Minder repetitief werk. Meer focus op wat er écht toe doet.</p>
         </div>
         <div class="aiintern-grid">
             <div class="aiintern-card fi">
-                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
-                <div>
-                    <h4>Teksten herschrijven</h4>
-                    <p>Productomschrijvingen, offertes of nieuwsbrieven — AI schrijft en herschrijft in jouw tone-of-voice.</p>
-                </div>
-            </div>
-            <div class="aiintern-card fi" style="transition-delay:0.05s">
                 <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                <div>
-                    <h4>Mails opstellen & versturen</h4>
-                    <p>Van opvolgmails tot klachtafhandeling — AI stelt op, jij keurt goed of stuurt automatisch.</p>
-                </div>
+                <h4>Communicatie</h4>
+                <p>AI schrijft al je uitgaande communicatie in jouw stijl. Jij keurt goed met één klik — of laat het volledig automatisch gaan.</p>
+                <ul class="aiintern-examples">
+                    <li>Opvolgmails na een gesprek of offerte</li>
+                    <li>Klachtafhandeling & excuusmails</li>
+                    <li>Nieuwsbrieven en campagneteksten</li>
+                </ul>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.1s">
-                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-                <div>
-                    <h4>Documenten samenvatten</h4>
-                    <p>Contracten, rapporten, handleidingen — AI geeft in seconden de kern terug.</p>
-                </div>
-            </div>
-            <div class="aiintern-card fi" style="transition-delay:0.15s">
-                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-                <div>
-                    <h4>Offertes genereren</h4>
-                    <p>Vul een paar velden in, AI genereert een professionele offerte — klaar om te versturen.</p>
-                </div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <h4>Documentatie</h4>
+                <p>Contracten, rapporten en handleidingen verwerkt de AI in seconden. Nooit meer uren zoeken naar de kern van een document.</p>
+                <ul class="aiintern-examples">
+                    <li>Contracten & offertes samenvatten</li>
+                    <li>FAQ genereren vanuit kennisbank</li>
+                    <li>Vergaderingen omzetten naar actiepunten</li>
+                </ul>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.2s">
                 <div class="aiintern-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-                <div>
-                    <h4>Processen automatiseren</h4>
-                    <p>Terugkerende taken zoals orderbevestigingen, herinneringen of statusupdates — AI regelt het.</p>
-                </div>
+                <h4>Automatisering</h4>
+                <p>Terugkerende taken die jou en je team uren per week kosten, laat je volledig automatiseren — zonder dat jij er iets voor hoeft te doen.</p>
+                <ul class="aiintern-examples">
+                    <li>Orderbevestigingen & statusupdates</li>
+                    <li>Herinneringen voor afspraken of facturen</li>
+                    <li>Klanttevredenheid automatisch opvolgen</li>
+                </ul>
             </div>
-            <div class="aiintern-card fi" style="transition-delay:0.25s">
-                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-                <div>
-                    <h4>Rapporten & analyses</h4>
-                    <p>Verkoopcijfers, klanttevredenheid, trends — AI zet ruwe data om in bruikbare inzichten.</p>
-                </div>
+        </div>
+        <div class="aiintern-stats fi">
+            <div class="aiintern-stat">
+                <div class="aiintern-stat-num">8+ uur</div>
+                <div class="aiintern-stat-label">per week bespaard per medewerker</div>
             </div>
+            <div class="aiintern-stat">
+                <div class="aiintern-stat-num">0</div>
+                <div class="aiintern-stat-label">extra personeel nodig</div>
+            </div>
+            <div class="aiintern-stat">
+                <div class="aiintern-stat-num">1 plek</div>
+                <div class="aiintern-stat-label">alles via jouw BotLease dashboard</div>
+            </div>
+        </div>
+        <div class="aiintern-cta fi">
+            <a href="#contact" class="btn btn-primary">Ontdek wat AI intern voor jou kan doen →</a>
         </div>
     </div>
 </section>
