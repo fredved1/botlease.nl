@@ -567,7 +567,8 @@
             box-shadow: var(--shadow-xs); transition: border-color 0.2s, box-shadow 0.2s;
         }
         .aiintern-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: var(--shadow-sm); }
-        .aiintern-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+        .aiintern-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-section); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .aiintern-icon svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
         .aiintern-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--fg); }
         .aiintern-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.6; }
 
@@ -943,14 +944,14 @@
                         <div class="fake-chat-widget">
                             <div class="fake-chat-window">
                                 <div class="fake-chat-head">
-                                    <div class="fake-chat-head-av">💬</div>
+                                    <div class="fake-chat-head-av"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                                     <div>
                                         <div class="fake-chat-head-name">AI-assistent</div>
                                         <div class="fake-chat-head-status">● Online</div>
                                     </div>
                                 </div>
                                 <div class="fake-chat-msgs">
-                                    <div class="fake-msg bot">Hoi! Hoe kan ik je helpen? 👋</div>
+                                    <div class="fake-msg bot">Hoi! Hoe kan ik je helpen?</div>
                                     <div class="fake-msg user">Wat zijn jullie openingstijden?</div>
                                     <div class="fake-msg bot">We zijn open ma–vr van 9:00–17:30. Kan ik je ergens mee helpen?</div>
                                 </div>
@@ -959,7 +960,7 @@
                                     <div class="fake-chat-inp-btn"></div>
                                 </div>
                             </div>
-                            <div class="fake-chat-bubble-btn">💬</div>
+                            <div class="fake-chat-bubble-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         </div>
                     </div>
                 </div>
@@ -995,15 +996,13 @@
 <!-- ══════════════════════ URL DEMO ══════════════════════ -->
 <section class="urldemo-section" id="demo">
     <div class="container">
+        <div class="section-header fi" style="margin-bottom:56px">
+            <span class="section-label">Probeer het zelf</span>
+            <h2>Jouw website in. <span class="grad-text">Chatbot klaar.</span></h2>
+            <p>Onze AI leest je website in seconden en wordt direct jouw digitale assistent. Geen account, geen code — gewoon proberen.</p>
+        </div>
         <div class="urldemo-layout">
             <div class="fi">
-                <span class="section-label">Probeer het zelf</span>
-                <h2 style="font-size:clamp(26px,3vw,40px);margin-bottom:16px;margin-top:10px">
-                    Jouw website in.<br><span class="grad-text">Chatbot klaar.</span>
-                </h2>
-                <p style="font-size:16px;color:var(--fg-muted);line-height:1.7;margin-bottom:28px;max-width:430px">
-                    Onze AI leest je website in seconden en wordt direct jouw digitale assistent. Geen setup, geen code — gewoon proberen.
-                </p>
                 <div class="urldemo-form-wrap">
                     <input class="urldemo-input" type="text" id="urlDemoInput" placeholder="bijv. jouwbedrijf.nl" autocomplete="off">
                     <button class="urldemo-btn" id="urlDemoBtn" onclick="loadUrlDemo()">Probeer →</button>
@@ -1017,7 +1016,7 @@
             <div class="fi" style="transition-delay:0.2s">
                 <div class="urldemo-chat" id="urlDemoChat" style="opacity:1;transform:none;pointer-events:none">
                     <div class="urldemo-chat-bar">
-                        <div class="urldemo-chat-avatar">💬</div>
+                        <div class="urldemo-chat-avatar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         <div style="flex:1">
                             <div class="urldemo-chat-domain" id="urlDemoDomain">Jouw bedrijf</div>
                             <div class="urldemo-chat-status"><span class="urldemo-chat-dot"></span>Online — 24/7 bereikbaar</div>
@@ -1026,7 +1025,7 @@
                     </div>
                     <div class="urldemo-messages" id="urlDemoMessages">
                         <div class="urldemo-placeholder" id="urlDemoPlaceholder">
-                            <div class="urldemo-placeholder-icon">🌐</div>
+                            <div class="urldemo-placeholder-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                             <p>Vul links je website in<br>en stel daarna vragen over je bedrijf.</p>
                         </div>
                     </div>
@@ -1040,10 +1039,10 @@
                 <div style="margin-top:12px;padding:14px 16px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--fg-muted);line-height:1.6">
                     <strong style="color:var(--fg)">Dit is een gratis demo</strong> — de echte productie-bot is significant nauwkeuriger:<br>
                     <span style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🤖 OpenAI, Anthropic of Google</span>
-                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🛡️ Guardrails (nooit onzin)</span>
-                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">📚 Jouw volledige kennisbank</span>
-                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🎨 Eigen tone-of-voice</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">OpenAI, Anthropic of Google</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">Guardrails — nooit onzin</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">Jouw volledige kennisbank</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">Eigen tone-of-voice</span>
                     </span>
                 </div>
             </div>
@@ -1073,7 +1072,7 @@
                 <p>Wij bouwen de chatbot op maat: jouw naam, jouw huisstijl, jouw kennisbank. Met guardrails zodat de bot nooit onzin praat.</p>
             </div>
             <div class="hiw-step fi" style="transition-delay:0.2s">
-                <div class="hiw-badge">⚡ 24 uur</div>
+                <div class="hiw-badge">24 uur</div>
                 <div class="hiw-bg-num">03</div>
                 <div class="hiw-num">Stap 03</div>
                 <h3>Wij maken het live</h3>
@@ -1094,42 +1093,42 @@
         </div>
         <div class="aiintern-grid">
             <div class="aiintern-card fi">
-                <div class="aiintern-icon">✍️</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div>
                     <h4>Teksten herschrijven</h4>
                     <p>Productomschrijvingen, offertes of nieuwsbrieven — AI schrijft en herschrijft in jouw tone-of-voice.</p>
                 </div>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.05s">
-                <div class="aiintern-icon">📧</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                 <div>
                     <h4>Mails opstellen & versturen</h4>
                     <p>Van opvolgmails tot klachtafhandeling — AI stelt op, jij keurt goed of stuurt automatisch.</p>
                 </div>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.1s">
-                <div class="aiintern-icon">📄</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
                 <div>
                     <h4>Documenten samenvatten</h4>
                     <p>Contracten, rapporten, handleidingen — AI geeft in seconden de kern terug.</p>
                 </div>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.15s">
-                <div class="aiintern-icon">💼</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                 <div>
                     <h4>Offertes genereren</h4>
                     <p>Vul een paar velden in, AI genereert een professionele offerte — klaar om te versturen.</p>
                 </div>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.2s">
-                <div class="aiintern-icon">🔄</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
                 <div>
                     <h4>Processen automatiseren</h4>
                     <p>Terugkerende taken zoals orderbevestigingen, herinneringen of statusupdates — AI regelt het.</p>
                 </div>
             </div>
             <div class="aiintern-card fi" style="transition-delay:0.25s">
-                <div class="aiintern-icon">📊</div>
+                <div class="aiintern-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                 <div>
                     <h4>Rapporten & analyses</h4>
                     <p>Verkoopcijfers, klanttevredenheid, trends — AI zet ruwe data om in bruikbare inzichten.</p>
@@ -1472,7 +1471,7 @@
 
 <div class="chat-window" id="chatWindow">
     <div class="cw-header">
-        <div class="cw-avatar">💬</div>
+        <div class="cw-avatar"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <div>
             <div class="cw-name">BotLease AI Assistant</div>
             <div class="cw-status">Demo — altijd online</div>
@@ -1651,10 +1650,10 @@ VERBODEN: verzin geen features, claim niet dat je een mens bent, geef geen techn
                 chatHistory.push({ role: 'assistant', content: botMsg });
                 addCwMessage(botMsg);
                 saveChatMessage(text, botMsg);
-            } else { chatHistory.pop(); addCwMessage('Even geen verbinding. Probeer het opnieuw. 🔄'); }
+            } else { chatHistory.pop(); addCwMessage('Even geen verbinding. Probeer het opnieuw.'); }
         } catch (err) {
             chatHistory.pop(); hideCwTyping();
-            addCwMessage(err.name === 'AbortError' ? 'Het duurt te lang. Probeer het opnieuw. 🔄' : 'Even geen verbinding. 🔄');
+            addCwMessage(err.name === 'AbortError' ? 'Het duurt te lang. Probeer het opnieuw.' : 'Even geen verbinding.');
         } finally {
             cwSend.disabled = false;
             cwInput.focus();
@@ -1669,7 +1668,7 @@ VERBODEN: verzin geen features, claim niet dat je een mens bent, geef geen techn
         sendCwMessage(msg);
     });
 
-    addCwMessage('Hoi! 👋 Ben jij ook zo\'n ondernemer die elke week dezelfde klantvragen beantwoordt? Of ben je hier gewoon nieuwsgierig naar wat een chatbot voor je kan doen?');
+    addCwMessage('Hoi! Ben jij ook zo\'n ondernemer die elke week dezelfde klantvragen beantwoordt? Of ben je hier gewoon nieuwsgierig naar wat een chatbot voor je kan doen?');
     setTimeout(showQuickReplies, 400);
 
     // ── HERO DEMO (links naar floating chat) ──────────
@@ -1811,7 +1810,7 @@ VERBODEN: verzin geen features, claim niet dat je een mens bent, geef geen techn
 
         function showUrlError(msg) {
             if (spinner) spinner.style.display = 'none';
-            statusText.innerHTML = `⚠️ ${msg}`;
+            statusText.innerHTML = msg;
             btn.disabled = false;
         }
 
@@ -1856,7 +1855,7 @@ INSTRUCTIES:
             document.getElementById('urlDemoDomain').textContent = domain;
             const msgs = document.getElementById('urlDemoMessages');
             msgs.innerHTML = '';
-            addUrlDemoBubble(`Hoi! 👋 Ik ben de AI-assistent van <strong>${domain}</strong>. Wat wil je weten?`, false);
+            addUrlDemoBubble(`Hoi! Ik ben de AI-assistent van <strong>${domain}</strong>. Wat wil je weten?`, false);
 
             const chat = document.getElementById('urlDemoChat');
             chat.style.opacity = '1'; chat.style.transform = 'none'; chat.style.pointerEvents = 'all';
