@@ -3,2506 +3,1932 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotLease - Jouw AI-assistent in 15 minuten | Voor kleine bedrijven</title>
-    <meta name="description" content="Start vandaag gratis met je eigen AI-assistent. Speciaal voor kleine bedrijven. Geen technische kennis nodig, betaalbaar vanaf €49/maand.">
+    <title>BotLease — AI-klantenservice voor het MKB | Probeer 14 dagen gratis</title>
+    <meta name="description" content="BotLease bouwt een 24/7 AI-klantenservice voor jouw bedrijf. Wij regelen alles — binnen 24 uur live, vanaf €49/maand. Geen technische kennis nodig.">
+    <meta property="og:title" content="BotLease — Premium klantenservice zonder het dure support-team">
+    <meta property="og:description" content="Grote bedrijven hebben een 24/7 klantenservice. Nu kan jij dat ook. Wij bouwen alles voor je — vanaf €49/maand.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://botlease.nl">
+    <meta property="og:image" content="https://botlease.nl/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://botlease.nl">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+    <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #000000;
-            --cream: #F4F3EC;
-            --orange: #FF5600;
-            --gray-900: #111111;
-            --gray-800: #1a1a1a;
-            --gray-700: #2a2a2a;
-            --gray-600: #4a4a4a;
-            --gray-500: #6a6a6a;
-            --gray-400: #8a8a8a;
-            --gray-300: #aaaaaa;
-            --gray-200: #cccccc;
-            --gray-100: #e5e5e5;
-            --white: #ffffff;
+            /* ─ Distinctive 2025 palette — violet / warm-white ─ */
+            --bg:        #FFFFFF;
+            --bg-soft:   #F9F7FF;          /* very faint violet tint */
+            --bg-section:#F3F0FF;          /* light violet section */
+            --card:      #FFFFFF;
+            --border:    #E8E4F0;
+            --fg:        #120D26;          /* near-black with violet hue */
+            --fg-muted:  #5B5675;          /* muted violet-grey */
+            --fg-subtle: #A09CB8;
+            --blue:      #2563EB;          /* violet-700  */
+            --blue-hover:#1D4ED8;          /* violet-800  */
+            --blue-soft: rgba(37,99,235,0.07);
+            --grad:      linear-gradient(135deg, #2563EB, #4F46E5); /* violet → indigo */
+            --grad-warm: linear-gradient(135deg, #3B82F6, #2563EB);
+            --glow:      0 4px 28px rgba(37,99,235,0.28);
+            --shadow-xs: 0 1px 2px rgba(18,13,38,0.05);
+            --shadow-sm: 0 1px 3px rgba(18,13,38,0.07), 0 4px 12px rgba(18,13,38,0.05);
+            --shadow-md: 0 4px 16px rgba(18,13,38,0.08), 0 1px 4px rgba(18,13,38,0.05);
+            --shadow-lg: 0 10px 40px rgba(18,13,38,0.10), 0 2px 8px rgba(18,13,38,0.06);
+            --shadow-xl: 0 20px 60px rgba(18,13,38,0.12), 0 4px 16px rgba(18,13,38,0.07);
+            --shadow-demo: 0 32px 80px rgba(37,99,235,0.15), 0 8px 24px rgba(18,13,38,0.10);
+            --radius:    10px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.35;
-            font-weight: 400;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Utility Classes */
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 48px;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            color: var(--fg);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+        /* Gradient text — blue → indigo (Stripe-style) */
+        .grad-text {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Inter', sans-serif;
+            padding: 13px 26px; font-size: 15px; font-weight: 600;
+            text-decoration: none; border-radius: 8px;
+            border: 1.5px solid transparent; cursor: pointer;
+            transition: all 0.18s; white-space: nowrap;
         }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', Georgia, serif;
-            font-weight: 400;
-            line-height: 1.02;
-            letter-spacing: -0.02em;
+        .btn-primary {
+            background: var(--blue); color: #fff;
+            box-shadow: 0 1px 2px rgba(37,99,235,0.15), 0 4px 16px rgba(37,99,235,0.25);
         }
+        .btn-primary:hover {
+            background: var(--blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 24px rgba(37,99,235,0.38);
+        }
+        .btn-ghost { background: transparent; color: var(--blue); border-color: rgba(37,99,235,0.3); }
+        .btn-ghost:hover { background: var(--blue-soft); border-color: var(--blue); color: var(--blue); }
+        .btn-sm { padding: 9px 18px; font-size: 14px; }
 
-        /* Navigation */
+        /* Fade-in */
+        .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .fi.visible { opacity: 1; transform: none; }
+
+        /* Section labels */
+        .section-label {
+            display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--blue);
+            background: var(--blue-soft); padding: 4px 12px; border-radius: 99px;
+            margin-bottom: 14px;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header h2 { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px; }
+        .section-header p { font-size: 17px; color: var(--fg-muted); max-width: 580px; margin: 0 auto; line-height: 1.7; }
+
+        /* ═══════════════ NAV ═══════════════ */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: 68px; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center;
+            transition: box-shadow 0.2s;
         }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
+        .nav.scrolled { box-shadow: 0 1px 8px rgba(15,23,42,0.08); }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px;
         }
-
         .nav-logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            display: flex; align-items: center; gap: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800;
+            color: var(--fg); text-decoration: none;
         }
-
         .nav-logo-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--orange);
-            border-radius: 50%;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--blue); display: inline-block;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 32px;
+            list-style: none; margin: 0; padding: 0;
+        }
+        .nav-links a {
+            font-size: 14px; font-weight: 500; color: var(--fg-muted);
+            text-decoration: none; transition: color 0.15s;
+        }
+        .nav-links a:hover { color: var(--fg); }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .nav-login {
+            font-size: 14px; font-weight: 500; color: var(--fg-muted);
+            text-decoration: none; transition: color 0.15s;
+        }
+        .nav-login:hover { color: var(--fg); }
+        .nav-hamburger {
+            display: none; background: none; border: none;
+            font-size: 22px; cursor: pointer; color: var(--fg); padding: 4px;
+        }
+        @media (max-width: 820px) {
+            .nav-links { display: none; position: fixed; top: 68px; left: 0; right: 0;
+                background: #fff; flex-direction: column; gap: 0; padding: 12px 0 20px;
+                border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); }
+            .nav-links.open { display: flex; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; padding: 12px 24px; font-size: 15px; }
+            .nav-login { display: none; }
+            .nav-hamburger { display: block; }
+            .nav-right .btn { font-size: 13px; padding: 9px 16px; }
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 400;
-            opacity: 0.8;
-            transition: opacity 0.2s ease;
-        }
-
-        .nav-link:hover {
-            opacity: 1;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .nav-btn {
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-btn-secondary {
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .nav-btn-secondary:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-btn-primary {
-            background: var(--orange);
-            color: var(--white);
-            border: 1px solid var(--orange);
-        }
-
-        .nav-btn-primary:hover {
-            background: #E04A00;
-            border-color: #E04A00;
-        }
-
-        /* Mobile Navigation */
-        .nav-mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 968px) {
-            .nav-menu, .nav-actions {
-                display: none;
-            }
-            
-            .nav-mobile-toggle {
-                display: block;
-            }
-        }
-
-        /* Hero Section */
+        /* ═══════════════ HERO ═══════════════ */
         .hero {
-            padding: 160px 0 120px;
-            background: var(--black);
-            position: relative;
-            overflow: hidden;
-            background-image: 
-                linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%),
-                url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=3840&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            padding: 136px 0 96px;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 10%, rgba(37,99,235,0.08) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 40% at 10% 90%, rgba(29,78,216,0.05) 0%, transparent 60%),
+                #ffffff;
+        }
+        .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        @media (max-width: 900px) {
+            .hero-layout { grid-template-columns: 1fr; gap: 52px; }
+            .hero { padding: 108px 0 72px; }
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 600; color: var(--blue);
+            background: var(--blue-soft); border: 1px solid rgba(37,99,235,0.18);
+            padding: 6px 14px; border-radius: 99px; margin-bottom: 22px;
+        }
+        .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; flex-shrink: 0; }
+        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+        .hero-title { font-size: clamp(32px, 4.5vw, 56px); margin-bottom: 22px; line-height: 1.1; color: var(--fg); }
+        .hero-sub { font-size: 18px; color: var(--fg-muted); margin-bottom: 36px; max-width: 520px; line-height: 1.7; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+        .trust-badge { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .trust-stars { color: #F59E0B; font-size: 18px; }
+        .trust-text { font-size: 13px; color: var(--fg-muted); font-weight: 500; }
+
+        /* Hero demo */
+        .hero-demo {
+            background: #fff; border-radius: 18px;
+            box-shadow: 0 32px 80px rgba(37,99,235,0.12), 0 8px 24px rgba(15,23,42,0.08);
+            border: 1px solid rgba(15,23,42,0.08); overflow: hidden;
+            transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+            transition: transform 0.4s ease;
+        }
+        .hero-demo:hover { transform: perspective(1200px) rotateY(0deg) rotateX(0deg); }
+        .hero-demo-bar { background: linear-gradient(135deg, #1E40AF, #2563EB); padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+        .hero-demo-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .hero-demo-name { color: #fff; font-weight: 700; font-size: 14px; }
+        .hero-demo-status { color: rgba(255,255,255,0.82); font-size: 12px; }
+        .hero-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; margin-right: 4px; display: inline-block; animation: pulse 2s infinite; }
+        .hero-demo-body { padding: 22px; display: flex; flex-direction: column; gap: 14px; min-height: 228px; background: #fff; }
+        .hero-demo-bubble { padding: 11px 15px; border-radius: 14px; font-size: 14px; line-height: 1.55; max-width: 86%; }
+        .hero-demo-bubble.bot { background: var(--bg-soft); color: var(--fg); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+        .hero-demo-bubble.user { background: var(--blue); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .hero-demo-footer { padding: 14px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: var(--bg-soft); }
+        .hero-demo-input { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif; background: #fff; color: var(--fg); outline: none; transition: border-color 0.15s; box-shadow: var(--shadow-xs); }
+        .hero-demo-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+        .hero-demo-send { width: 38px; height: 38px; border-radius: 8px; background: var(--blue); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; transition: background 0.15s; }
+        .hero-demo-send:hover { background: var(--blue-hover); }
+        .hero-demo-send svg { width: 16px; height: 16px; fill: #fff; }
+
+        /* ═══════════════ SOCIAL PROOF ═══════════════ */
+        .proof-section { padding: 52px 0 0; background: #fff; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .proof-label { text-align: center; font-size: 12px; font-weight: 600; color: var(--fg-subtle); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
+        .marquee-outer { overflow: hidden; padding: 4px 0 48px; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+        .marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 30s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .logo-pill {
+            padding: 10px 24px; border: 1px solid var(--border); border-radius: 8px;
+            font-size: 14px; font-weight: 700; color: #94A3B8; background: #fff;
+            flex-shrink: 0; white-space: nowrap; box-shadow: var(--shadow-xs);
+        }
+        .reviews-row {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; max-width: 940px; margin: 0 auto;
+        }
+        .review-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 14px;
+            padding: 28px; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s;
+        }
+        .review-card:hover { box-shadow: var(--shadow-md); }
+        .review-stars { color: #F59E0B; font-size: 16px; margin-bottom: 14px; }
+        .review-text { font-size: 14px; line-height: 1.7; color: var(--fg); margin-bottom: 16px; font-style: italic; }
+        .review-author { font-size: 13px; font-weight: 600; color: var(--fg-subtle); }
+
+        /* ═══════════════ PAIN POINTS ═══════════════ */
+        .pain-section { padding: 104px 0; background: #fff; }
+        .pain-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+        @media (max-width: 760px) { .pain-layout { grid-template-columns: 1fr; } }
+        .pain-card { padding: 40px; border-radius: var(--radius-lg); border: 1.5px solid; }
+        .pain-card.before { border-color: #FECACA; background: #FFFAFA; }
+        .pain-card.after  { border-color: #BBF7D0; background: #F7FFF9; }
+        .pain-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+            text-transform: uppercase; padding: 4px 12px; border-radius: 99px; margin-bottom: 20px;
+        }
+        .pain-tag.before { background: #FEE2E2; color: #DC2626; }
+        .pain-tag.after  { background: #DCFCE7; color: #16A34A; }
+        .pain-card h3 { font-size: 18px; margin-bottom: 18px; }
+        .pain-item { display: flex; gap: 12px; margin-bottom: 14px; font-size: 15px; line-height: 1.6; color: var(--fg-muted); }
+        .pain-icon { flex-shrink: 0; font-size: 16px; margin-top: 3px; }
+
+        /* ═══════════════ HOW IT WORKS ═══════════════ */
+        .hiw-section { padding: 104px 0; background: var(--bg-soft); }
+        .hiw-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        @media (max-width: 760px) { .hiw-steps { grid-template-columns: 1fr; } }
+        .hiw-step {
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 36px; position: relative; overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .hiw-step:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        /* Giant watermark number */
+        .hiw-bg-num {
+            position: absolute; top: -24px; right: -8px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 160px; font-weight: 900;
+            color: var(--blue); opacity: 0.045; line-height: 1;
+            pointer-events: none; user-select: none;
+        }
+        .hiw-num {
+            font-size: 12px; font-weight: 700; color: var(--blue);
+            text-transform: uppercase; letter-spacing: 0.12em;
+            margin-bottom: 16px; position: relative;
+        }
+        .hiw-step h3 { font-size: 20px; margin-bottom: 10px; position: relative; }
+        .hiw-step p { font-size: 14px; color: var(--fg-muted); line-height: 1.7; position: relative; }
+        .hiw-step .hiw-badge {
+            position: absolute; top: 16px; right: 20px;
+            background: var(--blue); color: #fff; font-size: 11px; font-weight: 700;
+            padding: 4px 12px; border-radius: 99px; letter-spacing: 0.04em;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.3);
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 86, 0, 0.1) 0%, transparent 50%);
+        /* ═══════════════ USE CASES ═══════════════ */
+        .usecases-section { padding: 104px 0; background: #fff; }
+        .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 760px) { .usecases-grid { grid-template-columns: 1fr; } }
+        .usecase-card {
+            border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px;
+            transition: all 0.25s; background: #fff; box-shadow: var(--shadow-sm);
+        }
+        .usecase-card:hover { box-shadow: var(--shadow-xl); border-color: rgba(37,99,235,0.25); transform: translateY(-4px); }
+        .usecase-icon { font-size: 36px; margin-bottom: 18px; }
+        .usecase-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .usecase-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.7; }
+        .usecase-cta {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 13px; font-weight: 600; color: var(--blue);
+            margin-top: 18px; text-decoration: none; transition: gap 0.2s;
+        }
+        .usecase-cta:hover { gap: 10px; }
+
+        /* ═══════════════ DARK CTA BAND ═══════════════ */
+        .cta-band {
+            background: #0A0512; padding: 88px 0; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .cta-band::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 70% 90% at 50% 50%, rgba(37,99,235,0.22) 0%, transparent 70%);
+        }
+        .cta-band-inner { position: relative; z-index: 1; }
+        .cta-band h2 { font-size: clamp(28px, 3.5vw, 48px); color: #fff; margin-bottom: 16px; }
+        .cta-band p { font-size: 17px; color: rgba(255,255,255,0.58); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+        /* ═══════════════ BENTO SERVICES ═══════════════ */
+        .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+        .b-8 { grid-column: span 8; }
+        .b-4 { grid-column: span 4; }
+        .b-6 { grid-column: span 6; }
+        .b-3 { grid-column: span 3; }
+        @media (max-width: 900px) {
+            .b-8 { grid-column: span 12; }
+            .b-4 { grid-column: span 12; }
+            .b-6 { grid-column: span 6; }
+            .b-3 { grid-column: span 6; }
+        }
+        @media (max-width: 560px) { .b-8,.b-4,.b-6,.b-3 { grid-column: span 12; } }
+        .bento-card {
+            background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 32px;
+            transition: border-color 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
+        }
+        .bento-card:hover { border-color: rgba(37,99,235,0.3); box-shadow: var(--shadow-md); }
+        .bento-card.dark { background: #0A0512; border-color: rgba(37,99,235,0.3); }
+        .bento-card.accent { background: var(--grad); border: none; }
+        .bento-icon { font-size: 30px; margin-bottom: 14px; }
+        .bento-card h3 { font-size: 17px; margin-bottom: 8px; color: var(--fg); }
+        .bento-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.65; }
+        .bento-card.dark h3, .bento-card.accent h3 { color: #fff; }
+        .bento-card.dark p { color: rgba(255,255,255,0.55); }
+        .bento-card.accent p { color: rgba(255,255,255,0.8); }
+        .bento-big { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(44px, 6vw, 72px); font-weight: 900; line-height: 1; margin-bottom: 10px; color: var(--fg); }
+        .bento-big.light { color: #fff; }
+        .bento-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); background: var(--blue-soft); padding: 3px 10px; border-radius: 99px; margin-bottom: 12px; }
+        .bento-tag.light { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.15); }
+
+        /* ═══════════════ SERVICES ═══════════════ */
+        .services-section { padding: 104px 0; background: var(--bg-soft); }
+        .services-group { margin-bottom: 44px; }
+        .services-group-label {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 12px; font-weight: 700; color: var(--blue);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 20px; position: relative;
+        }
+        .services-group-label::after {
+            content: ''; flex: 1; height: 1px; background: var(--border);
+            width: 100px; display: inline-block;
+        }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px)  { .services-grid { grid-template-columns: 1fr; } }
+        .service-card {
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 24px; transition: all 0.2s; box-shadow: var(--shadow-xs);
+        }
+        .service-card:hover { border-color: rgba(37,99,235,0.3); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .service-icon { font-size: 28px; margin-bottom: 14px; }
+        .service-card h3 { font-size: 15px; margin-bottom: 6px; }
+        .service-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.65; }
+
+        /* ═══════════════ BROWSER MOCKUP ═══════════════ */
+        .browser-mockup {
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 32px 80px rgba(37,99,235,0.13), 0 8px 24px rgba(15,23,42,0.10);
+            border: 1px solid rgba(15,23,42,0.08);
+            transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+            transition: transform 0.4s ease;
+        }
+        .browser-mockup:hover { transform: perspective(1200px) rotateY(0deg) rotateX(0deg); }
+        .browser-bar {
+            background: #F1F3F4; padding: 10px 14px;
+            display: flex; align-items: center; gap: 10px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .browser-dots { display: flex; gap: 5px; }
+        .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+        .browser-dots span:nth-child(1) { background: #FF5F57; }
+        .browser-dots span:nth-child(2) { background: #FEBC2E; }
+        .browser-dots span:nth-child(3) { background: #28C840; }
+        .browser-url {
+            flex: 1; background: #fff; border-radius: 6px; padding: 4px 12px;
+            font-size: 12px; color: #666; border: 1px solid #E0E0E0;
+        }
+        .browser-body { background: #F8FAFC; position: relative; min-height: 340px; overflow: hidden; }
+        /* Fake website inside browser */
+        .fake-nav { background: #fff; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+        .fake-nav-logo { width: 70px; height: 10px; background: #CBD5E1; border-radius: 4px; }
+        .fake-nav-links { display: flex; gap: 10px; }
+        .fake-nav-links span { width: 36px; height: 8px; background: #E2E8F0; border-radius: 3px; }
+        .fake-nav-btn { width: 52px; height: 22px; background: var(--blue); border-radius: 5px; opacity: 0.8; }
+        .fake-hero-area { padding: 24px 18px 16px; }
+        .fake-h1 { width: 72%; height: 14px; background: #CBD5E1; border-radius: 4px; margin-bottom: 8px; }
+        .fake-h1b { width: 55%; height: 14px; background: #CBD5E1; border-radius: 4px; margin-bottom: 14px; }
+        .fake-p { width: 90%; height: 8px; background: #E2E8F0; border-radius: 3px; margin-bottom: 6px; }
+        .fake-p2 { width: 75%; height: 8px; background: #E2E8F0; border-radius: 3px; margin-bottom: 18px; }
+        .fake-btns { display: flex; gap: 8px; margin-bottom: 20px; }
+        .fake-btn-p { width: 88px; height: 28px; background: var(--blue); border-radius: 6px; opacity: 0.85; }
+        .fake-btn-g { width: 72px; height: 28px; background: #E2E8F0; border-radius: 6px; }
+        /* Chat widget floating bottom-right */
+        .fake-chat-widget { position: absolute; bottom: 14px; right: 14px; }
+        .fake-chat-window {
+            background: #fff; border-radius: 14px; width: 210px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.14); border: 1px solid #eee;
+            margin-bottom: 8px; overflow: hidden;
+        }
+        .fake-chat-head { background: linear-gradient(135deg, #1E40AF, #2563EB); padding: 10px 12px; display: flex; align-items: center; gap: 8px; }
+        .fake-chat-head-av { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 12px; }
+        .fake-chat-head-name { color: #fff; font-size: 11px; font-weight: 700; }
+        .fake-chat-head-status { color: rgba(255,255,255,0.8); font-size: 10px; }
+        .fake-chat-msgs { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+        .fake-msg { padding: 7px 10px; border-radius: 10px; font-size: 11px; line-height: 1.45; max-width: 88%; }
+        .fake-msg.bot { background: #F1F5F9; color: #374151; align-self: flex-start; border-bottom-left-radius: 3px; }
+        .fake-msg.user { background: var(--blue); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
+        .fake-chat-inp { padding: 8px 10px; border-top: 1px solid #eee; display: flex; gap: 6px; background: #F8FAFC; }
+        .fake-chat-inp-bar { flex: 1; height: 22px; background: #fff; border: 1px solid #E2E8F0; border-radius: 5px; }
+        .fake-chat-inp-btn { width: 22px; height: 22px; background: var(--blue); border-radius: 5px; flex-shrink: 0; }
+        .fake-chat-bubble-btn {
+            width: 42px; height: 42px; border-radius: 50%; background: var(--blue);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; box-shadow: 0 4px 14px rgba(37,99,235,0.45);
+            margin-left: auto;
+        }
+
+        /* ═══════════════ URL DEMO ═══════════════ */
+        .urldemo-section { padding: 96px 0; background: var(--bg-soft); }
+        .urldemo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        @media (max-width: 860px) { .urldemo-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+        .urldemo-form-wrap { display: flex; gap: 10px; margin-bottom: 10px; }
+        .urldemo-input {
+            flex: 1; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 8px;
+            font-size: 15px; font-family: 'Inter', sans-serif; color: var(--fg);
+            background: #fff; outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .urldemo-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .urldemo-btn {
+            padding: 13px 22px; background: var(--blue); color: #fff; border: none;
+            border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer;
+            font-family: 'Inter', sans-serif; white-space: nowrap;
+            transition: background 0.15s; box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+        }
+        .urldemo-btn:hover { background: var(--blue-hover); }
+        .urldemo-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .urldemo-hint { font-size: 12px; color: var(--fg-subtle); }
+        /* Placeholder state */
+        .urldemo-placeholder {
+            height: 300px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 12px;
+            padding: 24px; text-align: center;
+        }
+        .urldemo-placeholder-icon { font-size: 40px; opacity: 0.4; }
+        .urldemo-placeholder p { font-size: 14px; color: var(--fg-muted); line-height: 1.6; }
+        /* In-chat CTA */
+        .urldemo-cta-msg {
+            background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+            border: 1px solid #BFDBFE; border-radius: 12px;
+            padding: 14px 16px; margin-top: 4px;
+            font-size: 13px; color: var(--fg); line-height: 1.6;
+            align-self: stretch;
+        }
+        .urldemo-cta-msg a {
+            display: inline-block; margin-top: 10px; padding: 9px 18px;
+            background: var(--blue); color: #fff; border-radius: 8px;
+            font-size: 13px; font-weight: 700; text-decoration: none;
+            transition: background 0.15s;
+        }
+        .urldemo-cta-msg a:hover { background: var(--blue-hover); }
+        .urldemo-status {
+            margin-top: 12px; font-size: 13px; color: var(--fg-muted);
+            display: none; align-items: center; gap: 8px;
+        }
+        .urldemo-status.visible { display: flex; }
+        .urldemo-spinner {
+            width: 14px; height: 14px; border: 2px solid var(--border);
+            border-top-color: var(--blue); border-radius: 50%;
+            animation: spin 0.7s linear infinite; flex-shrink: 0;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Embedded chat */
+        .urldemo-chat {
+            background: #fff; border: 1px solid var(--border); border-radius: 18px;
+            box-shadow: var(--shadow-demo); overflow: hidden;
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
             pointer-events: none;
         }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 86, 0, 0.1);
-            border: 1px solid rgba(255, 86, 0, 0.3);
-            color: var(--orange);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 32px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 8vw, 88px);
-            font-weight: 400;
-            margin-bottom: 32px;
-            max-width: 1200px;
-        }
-
-        .hero-highlight {
-            color: var(--orange);
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            line-height: 1.5;
-            color: var(--gray-300);
-            max-width: 600px;
-            margin-bottom: 48px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 120px;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--orange);
-            color: var(--white);
-            border-color: var(--orange);
-        }
-
-        .btn-primary:hover {
-            background: #E04A00;
-            border-color: #E04A00;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Trust Section */
-        .trust-section {
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .trust-label {
-            font-size: 13px;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 32px;
-            font-weight: 500;
-        }
-
-        .trust-logos {
-            display: flex;
-            gap: 64px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .trust-logo {
-            height: 28px;
-            opacity: 0.4;
-            filter: brightness(0) invert(1);
-            transition: opacity 0.2s ease;
-        }
-
-        .trust-logo:hover {
-            opacity: 0.6;
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 24px;
-            border-radius: 100px;
-            font-size: 14px;
-            color: var(--gray-300);
-            transition: all 0.2s ease;
-        }
-
-        .trust-badge:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: var(--cream);
-            color: var(--gray-900);
-            padding: 120px 0;
-        }
-
-        .stats-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .stats-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .stats-subtitle {
-            font-size: 20px;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 80px;
-            text-align: center;
-        }
-
-        .stat-item {
-            position: relative;
-        }
-
-        .stat-number {
-            font-size: clamp(48px, 6vw, 72px);
-            font-weight: 300;
-            color: var(--orange);
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: var(--gray-600);
-            font-weight: 400;
-        }
-
-        /* Demo Section */
-        .demo-section {
-            background: var(--black);
-            padding: 80px 0 120px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background-image: 
-                linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=3840&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .demo-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 120px;
-            align-items: center;
-        }
-
-        @media (max-width: 1024px) {
-            .demo-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-        }
-
-        .demo-content {
-            max-width: 540px;
-        }
-
-        .demo-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 32px;
-        }
-
-        .demo-description {
-            font-size: 18px;
-            color: var(--gray-300);
-            line-height: 1.5;
-            margin-bottom: 48px;
-        }
-
-        .demo-features {
-            display: grid;
-            gap: 24px;
-        }
-
-        .demo-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .demo-feature-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(255, 86, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .demo-feature-icon::before {
-            content: '✓';
-            color: var(--orange);
-            font-size: 14px;
-        }
-
-        .demo-feature-text {
-            font-size: 16px;
-            line-height: 1.5;
-            color: var(--gray-200);
-        }
-
-        /* Chat Interface */
-        .chat-interface {
-            background: var(--gray-900);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .chat-header {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 20px 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-header-title {
-            font-weight: 500;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .chat-status {
-            width: 8px;
-            height: 8px;
-            background: #10B981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .chat-header-info {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        .model-select {
-            appearance: none;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: var(--gray-300);
-            font-size: 12px;
-            font-family: inherit;
-            padding: 4px 24px 4px 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            outline: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a6a6a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            transition: border-color 0.2s;
-        }
-
-        .model-select:hover {
-            border-color: rgba(255,255,255,0.25);
-            color: var(--white);
-        }
-
-        .model-select option {
-            background: #1a1a1a;
-            color: var(--white);
-        }
-
-        .chat-body {
-            height: 420px;
-            overflow-y: auto;
-            padding: 32px;
-            background: rgba(0, 0, 0, 0.3);
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .chat-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-body::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chat-body::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
-
-        .message {
-            margin-bottom: 24px;
-            animation: messageSlide 0.3s ease;
-        }
-
-        @keyframes messageSlide {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message-bot {
-            text-align: left;
-        }
-
-        .message-user {
-            text-align: right;
-        }
-
-        .message-bubble {
-            display: inline-block;
-            max-width: 80%;
-            padding: 12px 20px;
-            border-radius: 20px;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .message-bot .message-bubble {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--gray-100);
-        }
-
-        .message-bot .message-bubble p {
-            margin: 0 0 8px 0;
-        }
-        .message-bot .message-bubble p:last-child {
-            margin-bottom: 0;
-        }
-        .message-bot .message-bubble ul,
-        .message-bot .message-bubble ol {
-            margin: 4px 0 8px 0;
-            padding-left: 20px;
-        }
-        .message-bot .message-bubble li {
-            margin-bottom: 4px;
-        }
-        .message-bot .message-bubble strong {
-            color: var(--white);
-        }
-        .message-bot .message-bubble code {
-            background: rgba(255,255,255,0.1);
-            padding: 1px 5px;
-            border-radius: 3px;
-            font-size: 13px;
-        }
-
-        .message-user .message-bubble {
-            background: var(--orange);
-            color: var(--white);
-        }
-
-        .message-time {
-            font-size: 12px;
-            color: var(--gray-600);
-            margin-top: 8px;
-        }
-
-        .chat-input-area {
-            padding: 20px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .chat-form {
-            display: flex;
-            gap: 12px;
-        }
-
-        .chat-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 12px 20px;
-            border-radius: 8px;
-            color: var(--white);
-            font-size: 16px;
-            font-family: inherit;
-            min-width: 0;
-        }
-
-        .chat-input::placeholder {
-            color: var(--gray-600);
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--orange);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .chat-submit {
-            background: var(--orange);
-            color: var(--white);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .chat-submit:hover {
-            background: #E04A00;
-        }
-
-        .chat-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        @media (max-width: 640px) {
-            .chat-body {
-                height: 300px;
-                padding: 20px 16px;
-            }
-
-            .chat-header {
-                padding: 16px 20px;
-            }
-
-            .chat-input-area {
-                padding: 14px 16px;
-            }
-
-            .chat-submit {
-                padding: 12px 16px;
-                font-size: 14px;
-            }
-
-            .message-bubble {
-                max-width: 90%;
-                font-size: 14px;
-            }
-        }
-
-        /* Features Section */
-        .features-section {
-            background: var(--cream);
-            color: var(--gray-900);
-            padding: 120px 0;
-        }
-
-        .features-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .features-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .features-subtitle {
-            font-size: 20px;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-        }
-
-        @media (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 48px 32px;
-            background: var(--white);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .feature-number {
-            font-size: 56px;
-            font-weight: 300;
-            color: var(--orange);
-            opacity: 0.2;
-            margin-bottom: 24px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .feature-card-title {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .feature-card-description {
-            font-size: 16px;
-            color: var(--gray-600);
-            line-height: 1.5;
-        }
-
-        /* Testimonial Section */
-        .testimonial-section {
-            background: var(--black);
-            padding: 120px 0;
-        }
-
-        .testimonial-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 64px;
-            position: relative;
-        }
-
-        .testimonial-quote {
-            font-size: 32px;
-            line-height: 1.4;
-            margin-bottom: 48px;
-            font-family: 'Lora', serif;
-            font-weight: 400;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .testimonial-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--orange);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 20px;
-            color: var(--white);
-        }
-
-        .testimonial-info {
-            text-align: left;
-        }
-
-        .testimonial-name {
-            font-weight: 500;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-
-        .testimonial-role {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--cream);
-            color: var(--gray-900);
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-            background-image: 
-                linear-gradient(180deg, rgba(244,243,236,0.95) 0%, rgba(244,243,236,0.98) 100%),
-                url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=3840&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .cta-title {
-            font-size: clamp(48px, 6vw, 72px);
-            margin-bottom: 32px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-subtitle {
-            font-size: 20px;
-            color: var(--gray-600);
-            margin-bottom: 64px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            max-width: 480px;
-            margin: 0 auto;
-            background: var(--white);
-            border-radius: 16px;
-            padding: 48px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .contact-form-title {
-            font-size: 28px;
-            margin-bottom: 32px;
-            text-align: center;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--gray-700);
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            font-size: 15px;
-            font-family: inherit;
-            transition: all 0.2s ease;
-            background: var(--white);
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 86, 0, 0.1);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            width: 100%;
-            background: var(--orange);
-            color: var(--white);
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .form-submit:hover {
-            background: #E04A00;
-            transform: translateY(-1px);
-        }
-
-        .form-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .form-message {
-            margin-top: 16px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .form-success {
-            background: #D1FAE5;
-            color: #065F46;
-            border: 1px solid #A7F3D0;
-        }
-
-        .form-error {
-            background: #FEE2E2;
-            color: #991B1B;
-            border: 1px solid #FECACA;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            background: var(--black);
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .pricing-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .pricing-subtitle {
-            font-size: 20px;
-            color: var(--gray-300);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
+        .urldemo-chat.ready { opacity: 1; transform: none; pointer-events: all; }
+        .urldemo-chat-bar {
+            background: linear-gradient(135deg, #1E40AF, #2563EB);
+            padding: 14px 18px; display: flex; align-items: center; gap: 10px;
+        }
+        .urldemo-chat-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+        .urldemo-chat-domain { color: #fff; font-weight: 700; font-size: 13px; }
+        .urldemo-chat-status { color: rgba(255,255,255,0.8); font-size: 11px; }
+        .urldemo-chat-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; display: inline-block; margin-right: 4px; animation: pulse 2s infinite; }
+        .urldemo-messages {
+            height: 300px; overflow-y: auto; padding: 16px;
+            display: flex; flex-direction: column; gap: 10px;
+            background: #fff;
+        }
+        .urldemo-bubble { padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.55; max-width: 84%; }
+        .urldemo-bubble.bot { background: var(--bg-soft); color: var(--fg); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+        .urldemo-bubble.user { background: var(--blue); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .urldemo-typing { display: flex; align-items: center; align-self: flex-start; }
+        .urldemo-typing-dots { background: var(--bg-soft); border-radius: 12px; padding: 10px 14px; display: flex; gap: 5px; border: 1px solid var(--border); }
+        .urldemo-typing-dot { width: 6px; height: 6px; background: var(--fg-subtle); border-radius: 50%; animation: bounce 1.2s infinite; }
+        .urldemo-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .urldemo-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .urldemo-input-row {
+            padding: 12px 14px; border-top: 1px solid var(--border);
+            display: flex; gap: 10px; background: var(--bg-soft);
+        }
+        .urldemo-chat-input {
+            flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+            font-size: 14px; font-family: 'Inter', sans-serif; background: #fff; color: var(--fg);
+            outline: none; transition: border-color 0.15s;
+        }
+        .urldemo-chat-input:focus { border-color: var(--blue); }
+        .urldemo-chat-input:disabled { opacity: 0.5; }
+        .urldemo-send {
+            width: 36px; height: 36px; border-radius: 8px; background: var(--blue);
+            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: background 0.15s;
+        }
+        .urldemo-send:hover { background: var(--blue-hover); }
+        .urldemo-send:disabled { opacity: 0.5; cursor: not-allowed; }
+        .urldemo-send svg { width: 15px; height: 15px; fill: #fff; }
+
+        /* ═══════════════ AI INTERN ═══════════════ */
+        .aiintern-section { padding: 80px 0; background: var(--bg-soft); }
+        .aiintern-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+        }
+        @media (max-width: 760px) { .aiintern-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .aiintern-grid { grid-template-columns: 1fr; } }
+        .aiintern-card {
+            background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;
+            box-shadow: var(--shadow-xs); transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .aiintern-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: var(--shadow-sm); }
+        .aiintern-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+        .aiintern-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--fg); }
+        .aiintern-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.6; }
+
+        /* ═══════════════ PRICING ═══════════════ */
+        .pricing-section { padding: 104px 0 88px; background: #fff; }
         .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-bottom: 88px; align-items: start;
         }
-
-        @media (max-width: 1024px) {
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        @media (max-width: 860px) { .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; } }
         .pricing-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 36px;
+            background: #fff; position: relative; transition: box-shadow 0.25s, transform 0.25s;
+            box-shadow: var(--shadow-sm);
         }
-
-        .pricing-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--orange);
-            transform: translateY(-4px);
+        .pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+        .pricing-card.featured {
+            border-color: var(--blue); border-width: 2px;
+            box-shadow: var(--glow), var(--shadow-lg);
+            transform: scale(1.03);
         }
-
-        .pricing-card-title {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .pricing-price {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .price-currency {
-            font-size: 24px;
-            color: var(--gray-400);
-        }
-
-        .price-amount {
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--orange);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .price-unit {
-            font-size: 18px;
-            color: var(--gray-400);
-        }
-
-        .pricing-description {
-            color: var(--gray-400);
-            margin-bottom: 32px;
-            font-size: 16px;
-        }
-
-        .pricing-features {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        .pricing-feature {
-            display: flex;
-            align-items: start;
-            gap: 12px;
-            font-size: 15px;
-        }
-
-        .pricing-feature-icon {
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 86, 0, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .pricing-feature-icon::before {
-            content: '✓';
-            color: var(--orange);
-            font-size: 12px;
-        }
-
-        .pricing-button {
-            width: 100%;
-            padding: 14px 28px;
-            background: var(--orange);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-        }
-
-        .pricing-button:hover {
-            background: #E04A00;
-            transform: translateY(-1px);
-        }
-
+        .pricing-card.featured:hover { transform: scale(1.03) translateY(-3px); }
         .pricing-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 86, 0, 0.1);
-            color: var(--orange);
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .pricing-featured {
-            border-color: var(--orange);
-            background: rgba(255, 86, 0, 0.05);
-        }
-
-        .pricing-button-featured {
-            background: var(--orange);
-        }
-
-        .pricing-button-featured:hover {
-            background: #ff6b1a;
-        }
-
-        .pricing-custom {
-            text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            margin-top: 40px;
-        }
-
-        .custom-title {
-            font-size: 20px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .custom-description {
-            color: var(--gray-400);
-            margin-bottom: 16px;
-        }
-
-        .custom-link {
-            color: var(--orange);
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s ease;
-        }
-
-        .custom-link:hover {
-            opacity: 0.8;
-        }
-
-        /* Transparency Section */
-        .transparency-section {
-            background: var(--gray-800);
-            padding: 120px 0;
-        }
-
-        .transparency-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .transparency-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .transparency-subtitle {
-            font-size: 20px;
-            color: var(--gray-400);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .transparency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-        }
-
-        .transparency-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-
-        .transparency-card.featured {
-            border-color: var(--orange);
-            background: rgba(255, 86, 0, 0.05);
-        }
-
-        .transparency-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
-        }
-
-        .transparency-summary {
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .transparency-summary:hover {
-            opacity: 0.8;
-        }
-
-        .transparency-plan {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .breakdown-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--gray-400);
-            margin-bottom: 20px;
-        }
-
-        .breakdown-text {
-            font-style: italic;
-        }
-
-        .breakdown-arrow {
-            transition: transform 0.3s ease;
-            font-size: 12px;
-        }
-
-        .breakdown-arrow.rotated {
-            transform: rotate(180deg);
-        }
-
-        .cost-breakdown {
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .cost-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .cost-item:last-child {
-            border-bottom: none;
-        }
-
-        .cost-item.cost-profit {
-            border-top: 2px solid var(--orange);
-            margin-top: 16px;
-            padding-top: 16px;
-            font-weight: 600;
-        }
-
-        .cost-label {
-            font-size: 14px;
-            color: var(--gray-300);
-        }
-
-        .cost-amount {
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .cost-item.cost-profit .cost-amount {
-            color: var(--orange);
-        }
-
-        .profit-percentage {
-            text-align: center;
-            font-size: 14px;
-            color: var(--gray-400);
-            font-style: italic;
-        }
-
-        .transparency-footer {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-        }
-
-        .transparency-footer h3 {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .transparency-footer p {
-            color: var(--gray-300);
-            line-height: 1.6;
-            font-size: 18px;
-        }
-
-        .pricing-addon {
-            background: rgba(255, 86, 0, 0.05);
-            border: 1px solid rgba(255, 86, 0, 0.2);
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 48px;
-            text-align: center;
-        }
-
-        .addon-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .addon-price {
-            font-size: 24px;
-            color: var(--orange);
-            margin-bottom: 12px;
-        }
-
-        .addon-description {
-            color: var(--gray-400);
-            font-size: 14px;
-        }
-
-        /* Guarantee Section */
-        /* How It Works Section */
-        .how-it-works-section {
-            background: var(--gray-900);
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .how-it-works-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .how-it-works-title {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .how-it-works-subtitle {
-            font-size: 20px;
-            color: var(--gray-400);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-        }
-
-        .step-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 40px 32px;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--orange);
-            transform: translateY(-4px);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--orange);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 600;
-            margin: 0 auto 24px;
-        }
-
-        .step-title {
-            font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .step-description {
-            color: var(--gray-400);
-            line-height: 1.6;
-        }
-
-        .how-it-works-cta {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .how-it-works-cta h3 {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .how-it-works-cta p {
-            color: var(--gray-400);
-            font-size: 18px;
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .guarantee-section {
-            background: var(--cream);
-            color: var(--gray-900);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .guarantee-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 48px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .guarantee-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 86, 0, 0.1);
-            color: var(--orange);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .guarantee-title {
-            font-size: 36px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .guarantee-text {
-            font-size: 18px;
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--black);
-            padding: 80px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-
-        @media (max-width: 968px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 48px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer-brand {
-            max-width: 320px;
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--white);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            color: var(--gray-500);
-            line-height: 1.5;
-        }
-
-        .footer-column h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            margin-bottom: 24px;
-        }
-
-        .footer-links {
-            display: grid;
-            gap: 16px;
-        }
-
-        .footer-link {
-            color: var(--gray-500);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--white);
-        }
-
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--blue); color: #fff; font-size: 12px; font-weight: 700;
+            padding: 5px 18px; border-radius: 99px; white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(37,99,235,0.3);
+        }
+        .pricing-name { font-size: 13px; font-weight: 700; color: var(--fg-subtle); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+        .pricing-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 52px; font-weight: 800; color: var(--fg); line-height: 1; margin-bottom: 6px; }
+        .pricing-price sub { font-size: 15px; font-weight: 500; color: var(--fg-muted); }
+        .pricing-desc { font-size: 13px; color: var(--fg-muted); margin: 14px 0 28px; line-height: 1.6; }
+        .pricing-features { display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+        .pricing-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--fg-muted); }
+        .pricing-check { color: #10B981; font-weight: 700; flex-shrink: 0; }
+        .pricing-cta {
+            display: block; text-align: center; padding: 13px 20px;
+            border-radius: 8px; font-size: 14px; font-weight: 700;
+            text-decoration: none; transition: all 0.18s; border: 1.5px solid;
+        }
+        .pricing-cta-primary {
+            background: var(--blue); color: #fff; border-color: transparent;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+        }
+        .pricing-cta-primary:hover { background: var(--blue-hover); box-shadow: 0 4px 20px rgba(37,99,235,0.4); }
+        .pricing-cta-ghost { background: #fff; color: var(--fg); border-color: var(--border); }
+        .pricing-cta-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+        /* FAQ */
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q {
+            width: 100%; display: flex; justify-content: space-between; align-items: center;
+            padding: 22px 0; background: none; border: none; cursor: pointer;
+            font-size: 16px; font-weight: 600; color: var(--fg); text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif; gap: 16px;
+        }
+        .faq-icon { font-size: 20px; color: var(--blue); flex-shrink: 0; transition: transform 0.2s; }
+        .faq-a { display: none; padding: 0 0 22px; font-size: 15px; color: var(--fg-muted); line-height: 1.75; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        /* ═══════════════ INTEGRATIONS ═══════════════ */
+        .integrations-section { padding: 80px 0; background: var(--bg-soft); }
+        .integration-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .integration-pill {
+            padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px;
+            font-size: 13px; font-weight: 500; color: var(--fg-muted); background: #fff;
+            transition: all 0.18s; box-shadow: var(--shadow-xs);
+        }
+        .integration-pill:hover { border-color: var(--blue); color: var(--blue); box-shadow: var(--shadow-sm); }
+        .integrations-note { text-align: center; margin-top: 24px; font-size: 14px; color: var(--fg-muted); }
+
+        /* ═══════════════ ABOUT ═══════════════ */
+        .about-section { padding: 104px 0; background: #fff; }
+        .about-card {
+            display: grid; grid-template-columns: auto 1fr; gap: 52px;
+            align-items: start; background: var(--bg-soft);
+            border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 52px;
+            box-shadow: var(--shadow-sm);
+        }
+        @media (max-width: 760px) { .about-card { grid-template-columns: 1fr; gap: 28px; padding: 36px; } }
+        .about-avatar-wrap { display: flex; justify-content: center; }
+        .about-avatar {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: var(--grad); display: flex; align-items: center; justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 800;
+            color: #fff; box-shadow: var(--glow); flex-shrink: 0;
+        }
+        .about-tag {
+            display: inline-block; font-size: 12px; font-weight: 700; color: var(--blue);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            background: var(--blue-soft); padding: 4px 12px; border-radius: 99px;
+            margin-bottom: 10px;
+        }
+        .about-content h2 { font-size: 28px; margin-bottom: 16px; }
+        .about-quote {
+            font-size: 17px; color: var(--fg); font-style: italic; line-height: 1.7;
+            margin-bottom: 18px; border-left: 3px solid var(--blue); padding-left: 18px;
+        }
+        .about-bio { font-size: 15px; color: var(--fg-muted); line-height: 1.75; margin-bottom: 28px; }
+        .about-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-bottom: 22px; }
+        .about-stat-item { display: flex; flex-direction: column; gap: 2px; }
+        .about-stat-value {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 800;
+            background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .about-stat-label { font-size: 12px; color: var(--fg-muted); font-weight: 500; }
+        .about-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .about-pill { font-size: 13px; padding: 5px 14px; border-radius: 99px; background: #fff; border: 1px solid var(--border); color: var(--fg-muted); font-weight: 500; }
+        .about-pill.accent { background: var(--blue-soft); border-color: rgba(37,99,235,0.2); color: var(--blue); }
+
+        /* ── Timeline ── */
+        .about-timeline {
+            margin-top: 72px; display: grid;
+            grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;
+        }
+        .about-timeline::before {
+            content: ''; position: absolute;
+            top: 29px; left: 12.5%; right: 12.5%;
+            height: 2px; background: var(--border); z-index: 0;
+        }
+        .timeline-item {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 0 16px; position: relative;
+        }
+        .timeline-year {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px;
+            font-weight: 800; color: var(--blue); margin-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
+        .timeline-dot {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: #fff; border: 3px solid var(--border);
+            box-shadow: 0 0 0 3px #fff; z-index: 1; margin-bottom: 18px; flex-shrink: 0;
+        }
+        .timeline-item.current .timeline-dot {
+            background: var(--blue); border-color: var(--blue);
+            box-shadow: 0 0 0 3px #fff, var(--glow);
+        }
+        .timeline-content h4 { font-size: 15px; margin-bottom: 7px; }
+        .timeline-content p { font-size: 13px; color: var(--fg-muted); line-height: 1.65; }
+        @media (max-width: 760px) {
+            .about-timeline { grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
+            .about-timeline::before { display: none; }
+            .timeline-item { flex-direction: row; text-align: left; align-items: flex-start; gap: 16px; }
+            .timeline-year { min-width: 44px; padding-top: 1px; margin-bottom: 0; }
+            .timeline-dot { margin-bottom: 0; margin-top: 4px; }
+        }
+
+        /* ═══════════════ CONTACT ═══════════════ */
+        .contact-section { padding: 104px 0; background: #0A0512; position: relative; overflow: hidden; }
+        .contact-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(37,99,235,0.18) 0%, transparent 70%); }
+        .contact-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+        .contact-section .section-label { background: rgba(37,99,235,0.2); color: rgba(147,197,253,0.95); }
+        .contact-section .section-header h2 { color: #fff; }
+        .contact-section .section-header p { color: rgba(255,255,255,0.58); }
+        .contact-form-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-xl); padding: 44px; backdrop-filter: blur(20px);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+        .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+        .form-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+        .form-input {
+            padding: 12px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
+            font-size: 15px; font-family: 'Inter', sans-serif; color: #fff;
+            background: rgba(255,255,255,0.06); outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .form-input::placeholder { color: rgba(255,255,255,0.3); }
+        .form-input:focus { border-color: rgba(37,99,235,0.8); box-shadow: 0 0 0 3px rgba(37,99,235,0.2); }
+        .form-submit {
+            width: 100%; padding: 15px 24px; background: var(--blue); color: #fff;
+            border: none; border-radius: 8px; font-size: 15px; font-weight: 700;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.25); transition: background 0.18s, box-shadow 0.18s;
+        }
+        .form-submit:hover { background: var(--blue-hover); box-shadow: 0 4px 20px rgba(37,99,235,0.4); }
+        .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+        .form-message { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: 14px; display: none; }
+        .form-success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+        .form-error   { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+        .contact-or {
+            display: flex; align-items: center; gap: 12px;
+            color: rgba(255,255,255,0.3); font-size: 13px; margin: 22px 0 14px;
+        }
+        .contact-or::before, .contact-or::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        .contact-email-link {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 13px 20px; border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
+            color: rgba(255,255,255,0.65); font-size: 14px; font-weight: 600; text-decoration: none;
+            transition: all 0.18s; background: rgba(255,255,255,0.04);
+        }
+        .contact-email-link:hover { border-color: rgba(37,99,235,0.6); color: #fff; }
+
+        /* ═══════════════ FOOTER ═══════════════ */
+        .footer { background: #120D26; color: rgba(255,255,255,0.55); padding: 64px 0 36px; }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px;
+        }
+        @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-brand .footer-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 21px; font-weight: 800;
+            color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px;
+            margin-bottom: 14px;
+        }
+        .footer-brand p { font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+        .footer-col h4 { color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+        .footer-col a {
+            display: block; color: rgba(255,255,255,0.55); font-size: 14px;
+            text-decoration: none; margin-bottom: 11px; transition: color 0.15s;
+        }
+        .footer-col a:hover { color: #fff; }
+        .footer-seo-link { font-size: 13px !important; }
         .footer-bottom {
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--gray-600);
-            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px; font-size: 13px;
         }
 
-        @media (max-width: 640px) {
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
+        /* ═══════════════ FLOATING CHAT WIDGET ═══════════════ */
+        .model-select-wrap { display: none; }
+
+        .chat-window {
+            position: fixed; bottom: 88px; right: 24px;
+            width: 364px; max-height: 528px;
+            background: #fff; border-radius: 20px;
+            border: 1px solid var(--border); box-shadow: var(--shadow-xl);
+            display: flex; flex-direction: column;
+            opacity: 0; transform: translateY(16px) scale(0.97);
+            pointer-events: none; transition: all 0.22s ease;
+            z-index: 999;
         }
+        .chat-window.open { opacity: 1; transform: none; pointer-events: all; }
+        @media (max-width: 480px) { .chat-window { right: 12px; left: 12px; width: auto; bottom: 80px; } }
 
-        /* Typing Animation */
-        .typing-dots {
-            display: inline-flex;
-            gap: 4px;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
+        .cw-header {
+            padding: 16px 18px; display: flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            border-radius: 20px 20px 0 0; flex-shrink: 0;
         }
-
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--gray-500);
-            border-radius: 50%;
-            animation: typingDot 1.4s infinite;
+        .cw-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .cw-name { color: #fff; font-weight: 700; font-size: 14px; }
+        .cw-status { color: rgba(255,255,255,0.8); font-size: 12px; }
+        .cw-notice { padding: 8px 16px; background: #FFFBEB; border-bottom: 1px solid #FDE68A; font-size: 12px; color: #92400E; flex-shrink: 0; }
+        .cw-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+        .cw-msg { display: flex; }
+        .cw-msg.user { justify-content: flex-end; }
+        .cw-bubble { padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.55; max-width: 82%; }
+        .cw-msg.bot .cw-bubble { background: var(--bg-soft); color: var(--fg); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+        .cw-msg.user .cw-bubble { background: var(--blue); color: #fff; border-bottom-right-radius: 4px; }
+        .cw-bubble a { color: var(--blue); }
+        .cw-msg.user .cw-bubble a { color: #BFDBFE; }
+        .cw-typing { display: flex; align-items: center; }
+        .cw-typing-dots { background: var(--bg-soft); border-radius: 12px; padding: 10px 14px; display: flex; gap: 5px; border: 1px solid var(--border); }
+        .cw-typing-dot { width: 7px; height: 7px; background: var(--fg-subtle); border-radius: 50%; animation: bounce 1.2s infinite; }
+        .cw-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .cw-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes bounce { 0%,60%,100%{transform:translateY(0);} 30%{transform:translateY(-5px);} }
+        .cw-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0; }
+        .cw-quick-btn {
+            padding: 7px 13px; border: 1px solid rgba(37,99,235,0.3); border-radius: 99px;
+            background: var(--blue-soft); color: var(--blue); font-size: 12px; font-weight: 600;
+            cursor: pointer; transition: all 0.18s; font-family: 'Inter', sans-serif;
         }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
+        .cw-quick-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+        .cw-input-area {
+            padding: 12px 14px; border-top: 1px solid var(--border);
+            display: flex; gap: 10px; align-items: center; flex-shrink: 0;
+            background: var(--bg-soft); border-radius: 0 0 20px 20px;
         }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
+        .cw-input {
+            flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+            font-size: 14px; font-family: 'Inter', sans-serif; background: #fff; color: var(--fg);
+            outline: none; transition: border-color 0.15s, box-shadow 0.15s;
         }
-
-        @keyframes typingDot {
-            0%, 60%, 100% {
-                opacity: 0.3;
-                transform: scale(0.8);
-            }
-            30% {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .cw-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .cw-send {
+            width: 36px; height: 36px; border-radius: 8px; background: var(--blue);
+            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: background 0.15s;
         }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 0.8s ease;
+        .cw-send:hover { background: var(--blue-hover); }
+        .cw-send svg { width: 16px; height: 16px; fill: #fff; }
+        .cw-send:disabled { opacity: 0.5; cursor: not-allowed; }
+        .chat-float-btn {
+            position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+            width: 56px; height: 56px; border-radius: 50%; border: none;
+            background: var(--blue); cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Floating Chat Button */
-        .chat-float-button {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-        }
-
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            background: var(--orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            position: relative;
-            border: none;
-            text-decoration: none;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .chat-button-icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        .chat-pulse {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            width: 20px;
-            height: 20px;
-            background: #10B981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @media (max-width: 480px) {
-            .chat-float-button {
-                bottom: 16px;
-                right: 16px;
-            }
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .trust-logos {
-                justify-content: center;
-            }
-        }
+        .chat-float-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,99,235,0.55); }
+        .chat-float-btn:hover { transform: scale(1.08); }
+        .chat-float-btn svg { width: 24px; height: 24px; fill: #fff; }
+        @media (max-width: 480px) { .chat-float-btn { right: 16px; bottom: 16px; } }
     </style>
-    <!-- Marked.js markdown parser -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
-    <!-- Vercel Analytics -->
-    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
-    <!-- Vercel Speed Insights -->
-    <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="#" class="nav-logo">
-                BotLease<span class="nav-logo-dot"></span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#demo" class="nav-link">Probeer het</a></li>
-                <li><a href="#how-it-works" class="nav-link">Hoe werkt het</a></li>
-                <li><a href="#pricing" class="nav-link">Prijzen</a></li>
-                <li><a href="#contact" class="nav-link">Start nu</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#demo" class="nav-btn nav-btn-secondary">Bekijk demo</a>
-                <a href="#contact" class="nav-btn nav-btn-primary">Start nu</a>
-            </div>
-            <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <span>⚡</span>
-                <span>Live in 15 minuten - Geen technische kennis nodig</span>
-            </div>
-            <div class="hero-badge" style="background: rgba(34, 139, 34, 0.1); border-color: rgba(34, 139, 34, 0.3); color: #22c55e; margin-top: 8px;">
-                <span>🇪🇺</span>
-                <span>GDPR Compliant - Europese Databeveiliging</span>
-            </div>
-            <h1 class="hero-title">
-                Je eigen <span class="hero-highlight">bedrijfschatbot</span><br>
-                in 15 minuten
-            </h1>
-            <p class="hero-subtitle">
-                Wij bouwen een slimme chatbot die jouw klanten helpt.
-                Geen technische kennis nodig, vanaf €9 per maand.
-            </p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">Start vandaag voor €9/maand</a>
-                <a href="#demo" class="btn btn-secondary">Bekijk demo</a>
-            </div>
-            <div class="trust-section">
-                <p class="trust-label">Veilig & Vertrouwd door Nederlandse Bedrijven</p>
-                <div class="trust-badges">
-                    <div class="trust-badge">🔒 GDPR Compliant</div>
-                    <div class="trust-badge">🇪🇺 EU Hosting</div>
-                    <div class="trust-badge">🛡️ ISO 27001</div>
-                    <div class="trust-badge">🏪 500+ Bedrijven</div>
-                    <div class="trust-badge">🇳🇱 Nederlandse Support</div>
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav class="nav" id="mainNav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            BotLease<span class="nav-logo-dot"></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hoe-het-werkt">Hoe het werkt</a></li>
+            <li><a href="#prijzen">Prijzen</a></li>
+            <li><a href="#use-cases">Use Cases</a></li>
+            <li><a href="#over-ons">Over ons</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="#" class="nav-login">Inloggen</a>
+            <a href="#contact" class="btn btn-primary btn-sm">Probeer 14 dagen gratis</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu">☰</button>
+    </div>
+</nav>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-layout">
+            <div class="fi">
+                <div class="hero-eyebrow">
+                    <span class="hero-eyebrow-dot"></span>
+                    50+ bedrijven gingen je voor
+                </div>
+                <h1 class="hero-title">
+                    Premium klantenservice,<br>maar dan <span class="grad-text">zonder het dure support-team.</span>
+                </h1>
+                <p class="hero-sub">
+                    Wij bouwen een AI-assistent op maat voor jouw bedrijf — aangedreven door de beste modellen van OpenAI, Anthropic en Google. Met guardrails zodat de bot nooit onzin praat. Binnen 24 uur live.
+                </p>
+                <div class="hero-model-badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--fg-muted);background:var(--bg-soft);border:1px solid var(--border);padding:4px 11px;border-radius:99px">ChatGPT / OpenAI</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--fg-muted);background:var(--bg-soft);border:1px solid var(--border);padding:4px 11px;border-radius:99px">Claude / Anthropic</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--fg-muted);background:var(--bg-soft);border:1px solid var(--border);padding:4px 11px;border-radius:99px">Gemini / Google</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-soft);border:1px solid rgba(37,99,235,0.15);padding:4px 11px;border-radius:99px">Altijd het nieuwste model</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="trust-stars">★★★★★</span>
+                    <span class="trust-text">Vertrouwd door 50+ ondernemers in Europa · Geen technische kennis nodig</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="demo-section" id="demo">
-        <div class="container">
-            <div class="demo-container">
-                <div class="demo-content">
-                    <h2 class="demo-title">
-                        Ervaar de kracht van <span class="hero-highlight">AI</span>
-                    </h2>
-                    <p class="demo-description">
-                        Test onze geavanceerde chatbot die natuurlijke gesprekken voert,
-                        context begrijpt en klanten helpt met complexe vragen.
-                    </p>
-                    <div class="demo-features">
-                        <div class="demo-feature">
-                            <div class="demo-feature-icon"></div>
-                            <p class="demo-feature-text">95+ talen ondersteund</p>
-                        </div>
-                        <div class="demo-feature">
-                            <div class="demo-feature-icon"></div>
-                            <p class="demo-feature-text">Leert van elke interactie</p>
-                        </div>
-                        <div class="demo-feature">
-                            <div class="demo-feature-icon"></div>
-                            <p class="demo-feature-text">Naadloze integratie met uw systemen</p>
-                        </div>
-                        <div class="demo-feature">
-                            <div class="demo-feature-icon"></div>
-                            <p class="demo-feature-text">24/7 beschikbaar zonder pauze</p>
-                        </div>
+            <div class="fi" style="transition-delay:0.25s">
+                <div class="browser-mockup">
+                    <div class="browser-bar">
+                        <div class="browser-dots"><span></span><span></span><span></span></div>
+                        <div class="browser-url">jouwbedrijf.nl</div>
                     </div>
-                </div>
-                <div class="chat-interface">
-                    <div class="chat-header">
-                        <div class="chat-header-title">
-                            <span class="chat-status"></span>
-                            BotLease AI Assistant
+                    <div class="browser-body">
+                        <div class="fake-nav">
+                            <div class="fake-nav-logo"></div>
+                            <div class="fake-nav-links"><span></span><span></span><span></span></div>
+                            <div class="fake-nav-btn"></div>
                         </div>
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <span style="font-size:12px;color:var(--gray-500);">Model:</span>
-                            <select id="modelSelect" class="model-select" title="Kies AI-model">
-                                <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash</option>
-                                <option value="qwen/qwen-2.5-7b-instruct:free">Qwen 2.5</option>
-                                <option value="google/gemma-3-4b-it:free">Gemma 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Demo notice -->
-                    <div style="background:rgba(255,86,0,0.08);border-bottom:1px solid rgba(255,86,0,0.15);padding:8px 20px;display:flex;align-items:center;gap:8px;">
-                        <span style="font-size:13px;">🧪</span>
-                        <span style="font-size:12px;color:var(--gray-400);line-height:1.4;">
-                            <strong style="color:var(--gray-200);">Demo met gratis modellen.</strong>
-                            Voor uw bedrijf gebruiken we krachtigere modellen zoals GPT-4o of Claude Sonnet.
-                        </span>
-                    </div>
-                    <div class="chat-body" id="chatMessages">
-                        <div class="message message-bot">
-                            <div class="message-bubble">
-                                Hallo! 👋 Ik ben de BotLease AI-assistent. Hoe kan ik u vandaag helpen?
+                        <div class="fake-hero-area">
+                            <div class="fake-h1"></div>
+                            <div class="fake-h1b"></div>
+                            <div class="fake-p"></div>
+                            <div class="fake-p2"></div>
+                            <div class="fake-btns">
+                                <div class="fake-btn-p"></div>
+                                <div class="fake-btn-g"></div>
                             </div>
-                            <div class="message-time">Nu</div>
                         </div>
-                    </div>
-                    <div class="chat-input-area">
-                        <form class="chat-form" id="chatForm">
-                            <input
-                                type="text"
-                                class="chat-input"
-                                id="chatInput"
-                                placeholder="Type uw vraag..."
-                                autocomplete="off"
-                            />
-                            <button type="submit" class="chat-submit" id="chatSubmit">
-                                Verstuur
-                            </button>
-                        </form>
+                        <div class="fake-chat-widget">
+                            <div class="fake-chat-window">
+                                <div class="fake-chat-head">
+                                    <div class="fake-chat-head-av">💬</div>
+                                    <div>
+                                        <div class="fake-chat-head-name">AI-assistent</div>
+                                        <div class="fake-chat-head-status">● Online</div>
+                                    </div>
+                                </div>
+                                <div class="fake-chat-msgs">
+                                    <div class="fake-msg bot">Hoi! Hoe kan ik je helpen? 👋</div>
+                                    <div class="fake-msg user">Wat zijn jullie openingstijden?</div>
+                                    <div class="fake-msg bot">We zijn open ma–vr van 9:00–17:30. Kan ik je ergens mee helpen?</div>
+                                </div>
+                                <div class="fake-chat-inp">
+                                    <div class="fake-chat-inp-bar"></div>
+                                    <div class="fake-chat-inp-btn"></div>
+                                </div>
+                            </div>
+                            <div class="fake-chat-bubble-btn">💬</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works-section" id="how-it-works">
-        <div class="container">
-            <div class="how-it-works-header">
-                <h2 class="how-it-works-title">Hoe werkt BotLease?</h2>
-                <p class="how-it-works-subtitle">
-                    Van aanmelding tot live chatbot in 4 simpele stappen
+<!-- ══════════════════════ SOCIAL PROOF ══════════════════════ -->
+<section class="proof-section" style="padding:64px 0">
+    <div class="container">
+        <p class="proof-label fi">Wat ondernemers zeggen</p>
+        <div class="reviews-row fi" style="transition-delay:0.1s">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Binnen een dag stond er een chatbot die 80% van de standaardvragen zelf afhandelde. Had ik dit eerder geweten, had ik al jaren geleden overgestapt."</p>
+                <div class="review-author">Mark van Dijk — eigenaar, Klein & Sterk Advies (Utrecht)</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Ik was sceptisch, maar na de gratis proefperiode was ik verkocht. Geen technisch gedoe — het team regelde alles en de bot werkt perfect op mijn website."</p>
+                <div class="review-author">Sandra Bakker — directeur, Studio Bloom (Amsterdam)</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Klanten bellen ons minder voor standaardvragen. De chatbot handelt het netjes af en verwijst door als het nodig is. Scheelt me zeker 3 uur per week."</p>
+                <div class="review-author">Peter Hendriks — founder, Handvatten.nl (Eindhoven)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════ URL DEMO ══════════════════════ -->
+<section class="urldemo-section" id="demo">
+    <div class="container">
+        <div class="urldemo-layout">
+            <div class="fi">
+                <span class="section-label">Probeer het zelf</span>
+                <h2 style="font-size:clamp(26px,3vw,40px);margin-bottom:16px;margin-top:10px">
+                    Jouw website in.<br><span class="grad-text">Chatbot klaar.</span>
+                </h2>
+                <p style="font-size:16px;color:var(--fg-muted);line-height:1.7;margin-bottom:28px;max-width:430px">
+                    Onze AI leest je website in seconden en wordt direct jouw digitale assistent. Geen setup, geen code — gewoon proberen.
                 </p>
+                <div class="urldemo-form-wrap">
+                    <input class="urldemo-input" type="text" id="urlDemoInput" placeholder="bijv. jouwbedrijf.nl" autocomplete="off">
+                    <button class="urldemo-btn" id="urlDemoBtn" onclick="loadUrlDemo()">Probeer →</button>
+                </div>
+                <div class="urldemo-status" id="urlDemoStatus">
+                    <div class="urldemo-spinner"></div>
+                    <span id="urlDemoStatusText">Website wordt ingelezen…</span>
+                </div>
+                <p class="urldemo-hint" style="margin-top:10px">Geen account nodig · werkt met elke website</p>
             </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Wij bouwen jouw chatbot</h3>
-                    <p class="step-description">
-                        Jij levert informatie over je bedrijf, producten en veelgestelde vragen. 
-                        Wij trainen de AI met al deze kennis zodat de chatbot perfect jouw bedrijf kan vertegenwoordigen.
-                    </p>
+            <div class="fi" style="transition-delay:0.2s">
+                <div class="urldemo-chat" id="urlDemoChat" style="opacity:1;transform:none;pointer-events:none">
+                    <div class="urldemo-chat-bar">
+                        <div class="urldemo-chat-avatar">💬</div>
+                        <div style="flex:1">
+                            <div class="urldemo-chat-domain" id="urlDemoDomain">Jouw bedrijf</div>
+                            <div class="urldemo-chat-status"><span class="urldemo-chat-dot"></span>Online — 24/7 bereikbaar</div>
+                        </div>
+                        <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;letter-spacing:0.05em;flex-shrink:0">DEMO</span>
+                    </div>
+                    <div class="urldemo-messages" id="urlDemoMessages">
+                        <div class="urldemo-placeholder" id="urlDemoPlaceholder">
+                            <div class="urldemo-placeholder-icon">🌐</div>
+                            <p>Vul links je website in<br>en stel daarna vragen over je bedrijf.</p>
+                        </div>
+                    </div>
+                    <div class="urldemo-input-row">
+                        <input class="urldemo-chat-input" type="text" id="urlDemoChatInput" placeholder="Stel een vraag…" autocomplete="off" disabled>
+                        <button class="urldemo-send" id="urlDemoSend" disabled onclick="sendUrlDemoMessage()">
+                            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Je krijgt een simpel script</h3>
-                    <p class="step-description">
-                        Geen technische kennis nodig! Je krijgt van ons een klein stukje code 
-                        dat je kopieert en plakt op je website. Werkt met elke website builder.
-                    </p>
+                <div style="margin-top:12px;padding:14px 16px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--fg-muted);line-height:1.6">
+                    <strong style="color:var(--fg)">Dit is een gratis demo</strong> — de echte productie-bot is significant nauwkeuriger:<br>
+                    <span style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🤖 OpenAI, Anthropic of Google</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🛡️ Guardrails (nooit onzin)</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">📚 Jouw volledige kennisbank</span>
+                        <span style="background:#fff;border:1px solid var(--border);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--fg)">🎨 Eigen tone-of-voice</span>
+                    </span>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Direct live op je website</h3>
-                    <p class="step-description">
-                        Zodra het script op je website staat, verschijnt de chatbot automatisch. 
-                        Klanten kunnen meteen vragen stellen en krijgen slimme antwoorden.
-                    </p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Beheer via je dashboard</h3>
-                    <p class="step-description">
-                        In je persoonlijke dashboard zie je alle gesprekken, veelgestelde vragen en statistieken. 
-                        Je kunt de chatbot blijven verbeteren en eventueel koppelen aan je team.
-                    </p>
-                </div>
-            </div>
-            <div class="how-it-works-cta">
-                <h3>Het gemak van BotLease</h3>
-                <p>Geen IT-gedoe, geen servers beheren, geen updates installeren. 
-                Wij regelen alles zodat jij je kunt focussen op je bedrijf.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- ══════════════════════ HOW IT WORKS ══════════════════════ -->
+<section class="hiw-section" id="hoe-het-werkt">
+    <div class="container">
+        <div class="section-header fi">
+            <span class="section-label">Zo werkt het</span>
+            <h2>Binnen <span class="grad-text">24 uur live</span> — zonder dat jij iets hoeft te doen.</h2>
+            <p>Geen technische kennis nodig. Geen configuratie. Wij bouwen en starten alles voor je op.</p>
+        </div>
+        <div class="hiw-steps">
+            <div class="hiw-step fi">
+                <div class="hiw-bg-num">01</div>
+                <div class="hiw-num">Stap 01</div>
+                <h3>Vertel ons over je bedrijf</h3>
+                <p>Vul je domeinnaam in en plan een kort gesprek. Onze AI leest je website in — wij leren jouw bedrijf kennen. <strong>Geen formulieren, geen huiswerk.</strong></p>
+            </div>
+            <div class="hiw-step fi" style="transition-delay:0.1s">
+                <div class="hiw-bg-num">02</div>
+                <div class="hiw-num">Stap 02</div>
+                <h3>Wij bouwen & personaliseren</h3>
+                <p>Wij bouwen de chatbot op maat: jouw naam, jouw huisstijl, jouw kennisbank. Met guardrails zodat de bot nooit onzin praat.</p>
+            </div>
+            <div class="hiw-step fi" style="transition-delay:0.2s">
+                <div class="hiw-badge">⚡ 24 uur</div>
+                <div class="hiw-bg-num">03</div>
+                <div class="hiw-num">Stap 03</div>
+                <h3>Wij maken het live</h3>
+                <p>Wij plaatsen de chatbot op jouw website. Jij hoeft niets technisch te doen — wij regelen alles, van A tot Z.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-    <!-- Pricing Section -->
-    <section class="pricing-section" id="pricing">
-        <div class="container">
-            <div class="pricing-header">
-                <h2 class="pricing-title">Eerlijke prijzen, <span class="hero-highlight">transparante kosten</span></h2>
-                <p class="pricing-subtitle">
-                    Opzegbaar per maand. Geen verrassingen. We tonen je precies waar je geld naartoe gaat.
+<!-- ══════════════════════ AI INTERN ══════════════════════ -->
+<section class="aiintern-section">
+    <div class="container">
+        <div class="section-header fi">
+            <span class="section-label">Meer dan klantenservice</span>
+            <h2>AI bespaart ook <span class="grad-text">intern tijd</span></h2>
+            <p>Via jouw BotLease dashboard zet je AI niet alleen in voor klanten, maar ook voor jou en je team. Teksten, mails, offertes — vanuit één plek.</p>
+        </div>
+        <div class="aiintern-grid">
+            <div class="aiintern-card fi">
+                <div class="aiintern-icon">✍️</div>
+                <div>
+                    <h4>Teksten herschrijven</h4>
+                    <p>Productomschrijvingen, offertes of nieuwsbrieven — AI schrijft en herschrijft in jouw tone-of-voice.</p>
+                </div>
+            </div>
+            <div class="aiintern-card fi" style="transition-delay:0.05s">
+                <div class="aiintern-icon">📧</div>
+                <div>
+                    <h4>Mails opstellen & versturen</h4>
+                    <p>Van opvolgmails tot klachtafhandeling — AI stelt op, jij keurt goed of stuurt automatisch.</p>
+                </div>
+            </div>
+            <div class="aiintern-card fi" style="transition-delay:0.1s">
+                <div class="aiintern-icon">📄</div>
+                <div>
+                    <h4>Documenten samenvatten</h4>
+                    <p>Contracten, rapporten, handleidingen — AI geeft in seconden de kern terug.</p>
+                </div>
+            </div>
+            <div class="aiintern-card fi" style="transition-delay:0.15s">
+                <div class="aiintern-icon">💼</div>
+                <div>
+                    <h4>Offertes genereren</h4>
+                    <p>Vul een paar velden in, AI genereert een professionele offerte — klaar om te versturen.</p>
+                </div>
+            </div>
+            <div class="aiintern-card fi" style="transition-delay:0.2s">
+                <div class="aiintern-icon">🔄</div>
+                <div>
+                    <h4>Processen automatiseren</h4>
+                    <p>Terugkerende taken zoals orderbevestigingen, herinneringen of statusupdates — AI regelt het.</p>
+                </div>
+            </div>
+            <div class="aiintern-card fi" style="transition-delay:0.25s">
+                <div class="aiintern-icon">📊</div>
+                <div>
+                    <h4>Rapporten & analyses</h4>
+                    <p>Verkoopcijfers, klanttevredenheid, trends — AI zet ruwe data om in bruikbare inzichten.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════ USE CASES ══════════════════════ -->
+<section class="usecases-section" id="use-cases">
+    <div class="container">
+        <div class="section-header fi">
+            <span class="section-label">Use Cases</span>
+            <h2>Voor elk bedrijf dat <span class="grad-text">klanten helpt.</span></h2>
+            <p>Van webshop tot kliniek — BotLease werkt voor elke branche. Wij configureren de chatbot volledig op jouw sector en doelgroep.</p>
+        </div>
+        <div class="usecases-grid">
+            <div class="usecase-card fi">
+                <div class="usecase-icon">🛒</div>
+                <h3>Webshops & e-commerce</h3>
+                <p>Beantwoord vragen over bezorging, retourneren en producten automatisch. Minder e-mails, meer conversie — dag en nacht.</p>
+            </div>
+            <div class="usecase-card fi">
+                <div class="usecase-icon">🍽️</div>
+                <h3>Horeca & restaurants</h3>
+                <p>Reserveringen, openingstijden, allergenen en het menu — alles direct beantwoord zonder dat je personeel de telefoon hoeft op te nemen.</p>
+            </div>
+            <div class="usecase-card fi">
+                <div class="usecase-icon">🏥</div>
+                <h3>Klinieken & zorgpraktijken</h3>
+                <p>Afspraken inplannen, verzekeringsinfo en veelgestelde vragen — soepel afgehandeld zodat jouw medewerkers zich focussen op zorg.</p>
+            </div>
+            <div class="usecase-card fi">
+                <div class="usecase-icon">🔧</div>
+                <h3>Installatie & techniek</h3>
+                <p>Offerte-aanvragen, storingsmeldingen en planningsinfo — de bot filtert, verzamelt gegevens en stuurt de juiste leads door.</p>
+            </div>
+            <div class="usecase-card fi">
+                <div class="usecase-icon">🏠</div>
+                <h3>Makelaars & vastgoed</h3>
+                <p>Bezichtigingen inplannen, objectinformatie delen en interesse peilen — 24/7, zonder dat jij bereikbaar hoeft te zijn.</p>
+            </div>
+            <div class="usecase-card fi">
+                <div class="usecase-icon">📚</div>
+                <h3>Opleidingen & cursussen</h3>
+                <p>Programma-info, inschrijvingen en diplomavragen direct beantwoord. Studenten krijgen meteen antwoord, jij bespaart uren per week.</p>
+            </div>
+        </div>
+        <div class="fi" style="text-align:center;margin-top:48px;">
+            <p style="color:var(--fg-muted);margin-bottom:16px;">Jouw branche staat er niet bij?</p>
+            <a class="usecase-cta" href="#contact">Vraag het ons →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════ PRICING + FAQ ══════════════════════ -->
+<section class="pricing-section" id="prijzen">
+    <div class="container">
+        <div class="section-header fi">
+            <span class="section-label">Prijzen</span>
+            <h2>Simpel. Transparant. <span class="grad-text">Geen verrassingen.</span></h2>
+            <p>Geen setupkosten. Geen jaarcontract. Maandelijks opzegbaar.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fi">
+                <div class="pricing-name">Starter</div>
+                <div class="pricing-price">€49<sub>/maand</sub></div>
+                <div class="pricing-desc">Voor kleine bedrijven die willen starten. 250 gesprekken/maand, AI getraind op jouw website.</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>AI-chatbot op je website</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Getraind op jouw bedrijfsdata</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>GDPR-compliant (NL servers)</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Setup door ons team</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>E-mail support</span></div>
+                </div>
+                <a href="#contact" class="pricing-cta pricing-cta-ghost">Start gratis proefperiode</a>
+            </div>
+            <div class="pricing-card featured fi" style="transition-delay:0.1s">
+                <div class="pricing-badge">Meest gekozen</div>
+                <div class="pricing-name">Business</div>
+                <div class="pricing-price">€99<sub>/maand</sub></div>
+                <div class="pricing-desc">Voor groeiende bedrijven. 1.000 gesprekken/maand, alle kanalen, eigen branding.</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Alles uit Starter</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Eigen branding & huisstijl</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>WhatsApp Business</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Analytics dashboard</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Prioriteit support</span></div>
+                </div>
+                <a href="#contact" class="pricing-cta pricing-cta-primary">Probeer 14 dagen gratis</a>
+            </div>
+            <div class="pricing-card fi" style="transition-delay:0.2s">
+                <div class="pricing-name">Scale</div>
+                <div class="pricing-price">€249<sub>/maand</sub></div>
+                <div class="pricing-desc">Voor bedrijven met hoog volume. Onbeperkte gesprekken, alle kanalen, API-toegang.</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Alles uit Business</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Voice (AI-telefonist)</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Open API-toegang</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>Dedicated accountmanager</span></div>
+                    <div class="pricing-feature"><span class="pricing-check">✓</span><span>SLA & uptime garantie</span></div>
+                </div>
+                <a href="#contact" class="pricing-cta pricing-cta-ghost">Neem contact op</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section-header fi" style="margin-bottom:32px">
+            <h2>Veelgestelde vragen</h2>
+        </div>
+        <div class="faq-list fi" style="transition-delay:0.1s">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Wat gebeurt er als ik meer dan 250 gesprekken heb?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a"><p>Geen paniek! Je chatbot stopt niet zomaar. Je ontvangt een bericht als je over je limiet van 250 gesprekken zit, waarna je eenvoudig kunt upgraden naar Business (1.000 gesprekken) of per gesprek een klein bedrag bijbetaalt.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Is het echt binnen 24 uur live?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a"><p>Ja! Jij vult je domeinnaam in en wij doen de rest. Onze AI leest je website in, wij bouwen de chatbot op maat en zetten hem voor je live — gemiddeld binnen 24 uur. Jij hoeft geen code aan te raken.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Wat als de AI een vraag niet weet?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a"><p>De bot geeft eerlijk aan dat hij het niet weet en stuurt de klant door naar jou of legt een terugbelverzoek vast. Geen verkeerde antwoorden, geen frustratie bij je klant.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Is mijn klantdata veilig? Wat met de AVG?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a"><p>Alle data wordt opgeslagen en verwerkt in Nederland. AVG by design: geen data naar derde landen, verwerkerovereenkomst standaard inbegrepen.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Zit ik vast aan een contract?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a"><p>Nee. Maandelijks opzegbaar, geen jaarcontract, geen opzeggingsboete. Wij verdienen ons geld door resultaat te leveren.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════ OVER ONS ══════════════════════ -->
+<section class="about-section" id="over-ons">
+    <div class="container">
+
+        <div class="section-header fi">
+            <span class="section-label">Over ons</span>
+            <h2>Van <span class="grad-text">klein begin</span> naar echte impact</h2>
+            <p>Hoe een simpele observatie uitgroeide tot de makkelijkste AI-klantenservice van Nederland.</p>
+        </div>
+
+        <!-- Founder card -->
+        <div class="about-card fi" style="transition-delay:0.1s">
+            <div class="about-avatar-wrap">
+                <div class="about-avatar">T</div>
+            </div>
+            <div class="about-content">
+                <span class="about-tag">Founder & CEO</span>
+                <h2>Thomas Vedder</h2>
+                <blockquote class="about-quote">
+                    "Elk MKB-bedrijf verdient een 24/7 klantenservice. Niet over vijf jaar — morgen."
+                </blockquote>
+                <p class="about-bio">
+                    BotLease begon met een simpele observatie: grote bedrijven hebben een heel support-team dat dag en nacht klaarstaat. De bakker om de hoek, de webshop die net begint, het installatiebedrijf met drie man — die kunnen dat niet betalen. Terwijl AI inmiddels zo goed is dat het nauwelijks nog van een mens te onderscheiden is.
                 </p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-badge">Probeer</div>
-                    <h3 class="pricing-card-title">Start</h3>
-                    <div class="pricing-price">
-                        <span class="price-currency">€</span>
-                        <span class="price-amount">9</span>
-                        <span class="price-unit">per maand</span>
-                    </div>
-                    <p class="pricing-description">Perfect om te beginnen</p>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Tot 100 gesprekken per maand</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>AI met jouw bedrijfskennis</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Basis dashboard</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Email support</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Setup door ons team</span>
-                        </div>
-                        <div class="pricing-feature" style="color: #22c55e;">
-                            <div class="pricing-feature-icon">🔒</div>
-                            <span>GDPR compliant & EU hosting</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="pricing-button">Start voor €9/maand</a>
+                <p class="about-bio" style="margin-bottom:28px">
+                    Die twee dingen bij elkaar brachten BotLease. Niet als technologie-experiment, maar als eerlijke dienst: wij bouwen het, wij onderhouden het, jij plukt de vruchten. Geen technisch gedoe, geen maandlang implementatietraject. Gewoon: morgen live.
+                </p>
+                <div class="about-pills">
+                    <span class="about-pill accent">🇳🇱 Gemaakt in Nederland</span>
+                    <span class="about-pill accent">GDPR-compliant</span>
+                    <span class="about-pill accent">Europese servers</span>
+                    <span class="about-pill">OpenAI</span>
+                    <span class="about-pill">Anthropic</span>
+                    <span class="about-pill">Google AI</span>
+                    <span class="about-pill">Maandelijks opzegbaar</span>
                 </div>
-                <div class="pricing-card pricing-featured">
-                    <div class="pricing-badge">Populair</div>
-                    <h3 class="pricing-card-title">Groei</h3>
-                    <div class="pricing-price">
-                        <span class="price-currency">€</span>
-                        <span class="price-amount">49</span>
-                        <span class="price-unit">per maand</span>
-                    </div>
-                    <p class="pricing-description">Voor groeiende bedrijven</p>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Tot 500 gesprekken per maand</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>AI met uitgebreide bedrijfskennis</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Eigen branding</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Email integratie</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Uitgebreid dashboard met analytics</span>
-                        </div>
-                        <div class="pricing-feature" style="color: #22c55e;">
-                            <div class="pricing-feature-icon">🛡️</div>
-                            <span>ISO 27001 + End-to-end encryption</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="pricing-button pricing-button-featured">Start gratis proef</a>
-                </div>
-                <div class="pricing-card">
-                    <h3 class="pricing-card-title">Pro</h3>
-                    <div class="pricing-price">
-                        <span class="price-currency">€</span>
-                        <span class="price-amount">149</span>
-                        <span class="price-unit">per maand</span>
-                    </div>
-                    <p class="pricing-description">Voor professionele teams</p>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Tot 2000 gesprekken per maand</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Multi-channel (WhatsApp, Instagram)</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Pro dashboard met team toegang</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>Priority support</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <div class="pricing-feature-icon"></div>
-                            <span>API toegang</span>
-                        </div>
-                        <div class="pricing-feature" style="color: #22c55e;">
-                            <div class="pricing-feature-icon">🇳🇱</div>
-                            <span>Volledig Nederlandse dataverwerking</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="pricing-button">Start gratis proef</a>
-                </div>
-            </div>
-            <div class="pricing-custom">
-                <h4 class="custom-title">Meer dan 2000 gesprekken per maand?</h4>
-                <p class="custom-description">Neem contact op voor een custom plan vanaf €299/maand</p>
-                <a href="#contact" class="custom-link">Contact opnemen →</a>
             </div>
         </div>
-    </section>
 
+        <!-- Timeline -->
+        <div class="about-timeline fi" style="transition-delay:0.2s">
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Het begin</h4>
+                    <p>Eerste prototype gebouwd. Getest bij een handvol lokale ondernemers. Feedback verzameld, bijgeschaafd, opnieuw getest.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Eerste klanten live</h4>
+                    <p>10 betalende klanten in uiteenlopende branches — van installatiebedrijf tot online shop. AI bleek overal te werken.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>50+ bedrijven</h4>
+                    <p>WhatsApp en voice-integratie toegevoegd. De modellen werden beter, de setup sneller, de resultaten sterker.</p>
+                </div>
+            </div>
+            <div class="timeline-item current">
+                <div class="timeline-year">2026 →</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Nationaal uitrollen</h4>
+                    <p>Volledig Nederland. Meer kanalen, meer talen, zelfde missie: premium klantenservice voor elke MKB'er.</p>
+                </div>
+            </div>
+        </div>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <h2 class="cta-title">
-                Klaar om uw klantenservice te transformeren?
-            </h2>
-            <p class="cta-subtitle">
-                Start vandaag nog met een gratis pilot. 
-                Geen verplichtingen, geen setupkosten.
-            </p>
-            <div class="contact-form-container">
-                <h3 class="contact-form-title">Start uw gratis pilot</h3>
+        <!-- Stats strip -->
+        <div class="fi" style="transition-delay:0.3s;display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-top:72px;padding:40px;background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-xl)">
+            <div class="about-stat-item" style="text-align:center">
+                <div class="about-stat-value">50+</div>
+                <div class="about-stat-label">Actieve klanten</div>
+            </div>
+            <div class="about-stat-item" style="text-align:center">
+                <div class="about-stat-value">24u</div>
+                <div class="about-stat-label">Gemiddeld live</div>
+            </div>
+            <div class="about-stat-item" style="text-align:center">
+                <div class="about-stat-value">100%</div>
+                <div class="about-stat-label">Done for you</div>
+            </div>
+            <div class="about-stat-item" style="text-align:center">
+                <div class="about-stat-value">NL</div>
+                <div class="about-stat-label">Servers & support</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="section-header fi">
+                <span class="section-label">Gratis starten</span>
+                <h2>Bouw vandaag nog jouw <span class="grad-text">AI-assistent</span></h2>
+                <p>15 minuten kennismaking — geen verplichtingen, geen technische kennis nodig. Wij bouwen alles voor je.</p>
+            </div>
+            <div class="contact-form-card fi" style="transition-delay:0.1s">
                 <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Naam</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Naam</label>
+                            <input class="form-input" type="text" id="name" name="name" required placeholder="Jan de Vries">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">E-mail</label>
+                            <input class="form-input" type="email" id="email" name="email" required placeholder="jan@bedrijf.nl">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="form-label">E-mailadres</label>
-                        <input type="email" id="email" name="email" class="form-input" required>
+                        <label class="form-label" for="company">Bedrijfsnaam</label>
+                        <input class="form-input" type="text" id="company" name="company" placeholder="Jouw Bedrijf BV">
                     </div>
                     <div class="form-group">
-                        <label for="company" class="form-label">Bedrijfsnaam</label>
-                        <input type="text" id="company" name="company" class="form-input" required>
+                        <label class="form-label" for="phone">Telefoon <span style="font-weight:400;opacity:0.6">(optioneel)</span></label>
+                        <input class="form-input" type="tel" id="phone" name="phone" placeholder="+31 6 12345678">
                     </div>
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Telefoonnummer (optioneel)</label>
-                        <input type="tel" id="phone" name="phone" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Bericht (optioneel)</label>
-                        <textarea id="message" name="message" class="form-textarea" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Start gratis pilot</button>
-                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                    <button type="submit" class="form-submit">Probeer 14 dagen gratis →</button>
+                    <div id="formMessage" class="form-message"></div>
                 </form>
+                <div class="contact-or">of stuur direct een e-mail</div>
+                <a href="mailto:hallo@botlease.nl" class="contact-email-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    hallo@botlease.nl
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="footer-logo">
-                        BotLease<span class="nav-logo-dot"></span>
-                    </a>
-                    <p class="footer-description">
-                        Je eigen bedrijfschatbot in 15 minuten. Speciaal voor kleine bedrijven.
-                        GDPR compliant en gehost in Nederland.
-                    </p>
-                </div>
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <div class="footer-links">
-                        <a href="#demo" class="footer-link">Demo</a>
-                        <a href="#how-it-works" class="footer-link">Hoe werkt het</a>
-                        <a href="#pricing" class="footer-link">Prijzen</a>
-                        <a href="#contact" class="footer-link">Start nu</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <div class="footer-links">
-                        <a href="#contact" class="footer-link">Contact formulier</a>
-                        <a href="mailto:info@botlease.nl" class="footer-link">info@botlease.nl</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Veiligheid</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">GDPR Compliant</a>
-                        <a href="#" class="footer-link">ISO 27001</a>
-                        <a href="#" class="footer-link">EU Hosting</a>
-                        <a href="#" class="footer-link">Data Privacy</a>
-                    </div>
-                </div>
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">BotLease<span class="nav-logo-dot"></span></a>
+                <p>AI-klantenservice voor het MKB. Wij bouwen alles voor je — binnen 24 uur live, vanaf €49/maand.</p>
+                <a href="#contact" class="btn btn-primary btn-sm" style="margin-top:8px">Probeer 14 dagen gratis</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 BotLease. Alle rechten voorbehouden.</p>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">Privacy</a>
-                    <span style="color: var(--gray-700);">•</span>
-                    <a href="#" class="footer-link">Voorwaarden</a>
-                    <span style="color: var(--gray-700);">•</span>
-                    <a href="#" class="footer-link">Cookies</a>
-                </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#hoe-het-werkt">Hoe het werkt</a>
+                <a href="#prijzen">Prijzen</a>
+                <a href="#use-cases">Use Cases</a>
+                <a href="#integraties">Integraties</a>
+            </div>
+            <div class="footer-col">
+                <h4>Bedrijf</h4>
+                <a href="#over-ons">Over ons</a>
+                <a href="#contact">Contact</a>
+                <a href="mailto:hallo@botlease.nl">hallo@botlease.nl</a>
+            </div>
+            <div class="footer-col">
+                <h4>SEO</h4>
+                <a href="#" class="footer-seo-link">AI Chatbot voor MKB</a>
+                <a href="#" class="footer-seo-link">Nederlandse Chatbot software</a>
+                <a href="#" class="footer-seo-link">AVG/GDPR veilige AI</a>
+                <a href="#" class="footer-seo-link">Klantenservice automatiseren</a>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <span>© 2026 BotLease — Alle rechten voorbehouden.</span>
+            <span>🇳🇱 Gemaakt in Nederland · GDPR-compliant · Europese servers</span>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+<!-- ══════════════════════ FLOATING CHAT WIDGET ══════════════════════ -->
+<div class="model-select-wrap">
+    <select id="modelSelect">
+        <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash</option>
+        <option value="qwen/qwen-2.5-7b-instruct:free">Qwen 2.5</option>
+        <option value="google/gemma-3-4b-it:free">Gemma 3</option>
+    </select>
+</div>
 
-        // Animated counter
-        const animateValue = (element, start, end, duration) => {
-            const startTimestamp = Date.now();
-            const originalText = element.textContent;
-            const step = () => {
-                const currentTimestamp = Date.now();
-                const progress = Math.min((currentTimestamp - startTimestamp) / duration, 1);
-                const currentValue = Math.floor(progress * end);
-                
-                if (originalText.includes('min')) {
-                    element.textContent = currentValue + ' min';
-                } else if (originalText.includes('€')) {
-                    element.textContent = currentValue + '€';
-                } else if (originalText.includes('/')) {
-                    element.textContent = currentValue + '/7';
-                } else if (originalText.includes('+')) {
-                    element.textContent = currentValue + '+';
-                } else if (originalText.includes('%')) {
-                    element.textContent = currentValue + '%';
-                } else if (originalText.includes('s')) {
-                    element.textContent = (progress * end).toFixed(1) + 's';
-                } else {
-                    element.textContent = currentValue;
-                }
-                
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                }
-            };
-            step();
-        };
+<div class="chat-window" id="chatWindow">
+    <div class="cw-header">
+        <div class="cw-avatar">💬</div>
+        <div>
+            <div class="cw-name">BotLease AI Assistant</div>
+            <div class="cw-status">Demo — altijd online</div>
+        </div>
+    </div>
+    <div class="cw-notice">Demo op gratis model — productie gebruikt Claude, ChatGPT of Gemini</div>
+    <div class="cw-messages" id="cwMessages"></div>
+    <form class="cw-input-area" id="cwForm">
+        <input class="cw-input" type="text" id="cwInput" placeholder="Stel een vraag..." autocomplete="off">
+        <button type="submit" class="cw-send" id="cwSend">
+            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+    </form>
+</div>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
+<button class="chat-float-btn" id="chatFloatBtn" aria-label="Open chat">
+    <svg id="iconChat" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+    <svg id="iconClose" viewBox="0 0 24 24" style="display:none"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                    entry.target.classList.add('animated');
-                    const target = parseFloat(entry.target.getAttribute('data-target'));
-                    animateValue(entry.target, 0, target, 2000);
-                }
-            });
-        }, observerOptions);
+<script>
+    // ── NAV scroll shadow ───────────────────────────────
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => mainNav.classList.toggle('scrolled', window.scrollY > 10));
 
-        document.querySelectorAll('.stat-number').forEach(stat => {
-            observer.observe(stat);
-        });
+    // ── Hamburger ──────────────────────────────────────
+    const hamburger = document.getElementById('navHamburger');
+    const navLinksList = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinksList.classList.toggle('open'));
+    navLinksList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinksList.classList.remove('open')));
 
-        // Chat functionality
-        const chatForm = document.getElementById('chatForm');
-        const chatInput = document.getElementById('chatInput');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatSubmit = document.getElementById('chatSubmit');
-        const modelSelect = document.getElementById('modelSelect');
-        const SYSTEM_PROMPT = `Je bent een conversion-specialist voor BotLease. BotLease bouwt AI-chatbots voor kleine Nederlandse bedrijven: live in 15 minuten, vanaf €49/maand.
+    // ── FAQ ────────────────────────────────────────────
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
 
-JOUW ENIGE DOEL: de bezoeker warm maken voor een gratis kennismaking en doorsturen naar het contactformulier.
+    // ── Fade-in ────────────────────────────────────────
+    const fiObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fiObs.unobserve(e.target); } });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
 
-STRIKTE REGELS:
-- Max 2 zinnen per antwoord. Altijd.
-- Stel elke keer precies 1 korte vervolgvraag.
-- Geen opsommingen. Schrijf als een mens, niet als een brochure.
-- Weet je iets niet? Zeg eerlijk "dat weet ik niet exact, maar dat bespreken we in een gratis gesprek."
-- Ga NIET in op vragen over andere tools, concurrenten of technische details.
+    // ── SYSTEM PROMPT ──────────────────────────────────
+    const SYSTEM_PROMPT = `Je bent de demo-chatbot op botlease.nl. BotLease bouwt AI-chatbots voor kleine Nederlandse bedrijven: live in 5 minuten, vanaf €9/maand. Wij bouwen alles voor de klant — geen technische kennis nodig.
 
-GESPREKSFLOW:
-1. Begroeting → vraag wat voor bedrijf ze hebben
-2. Begrijp welk proces ze willen automatiseren (klantvragen, afspraken, leads?)
-3. Geef een concrete schatting: "Als je X uur/week bespaart à €25/uur, is dat €Y/maand"
-4. Na 2-3 berichten: "Wil je zien hoe dit er voor jouw bedrijf uitziet? → [Plan gratis gesprek](https://botlease.nl/#contact)"
+WAT BOTLEASE DOET: wij nemen het volledige klantcontact over — chat op de website, voice (AI-telefonist via ElevenLabs), WhatsApp en e-mail. Wij bouwen alles; de klant hoeft niets technisch te doen.
 
-TOON: zelfverzekerd, direct, menselijk. Geen blabla.`;
+DOEL: laat door een goed gesprek zien wat AI-klantcontact voor hun bedrijf betekent. Bouw vertrouwen op, stuur naar het contactformulier als het natuurlijk aanvoelt.
 
-        const MODEL_NAMES = {
-            'google/gemini-2.0-flash-exp:free': 'Gemini 2.0 Flash · gratis',
-            'qwen/qwen-2.5-7b-instruct:free': 'Qwen 2.5 · gratis',
-            'google/gemma-3-4b-it:free': 'Gemma 3 · gratis',
-        };
-        const chatHistory = [];
+TOON: schrijf als een behulpzame vakman die een vriend advies geeft. Direct, menselijk, concreet. Gebruik altijd "je/jij", nooit "u". Geen opsommingen, geen blabla, geen nep-enthousiasme.
 
-        function formatTime() {
-            const now = new Date();
-            return now.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
-        }
+ANTWOORDLENGTE: max 2-3 korte zinnen, nooit meer dan 4. Stel max 1 logische vervolgvraag — nooit een vraag herhalen die al beantwoord is.
 
-        // Configureer marked.js
-        marked.setOptions({
-            breaks: true,
-            gfm: true,
-        });
+GESPREKSFLOW (sla fases over als de bezoeker sneller gaat):
+1. Begrijp het bedrijf: wat doen ze, waar lopen ze tegenaan?
+2. Verdiep het probleem: welke vragen/taken kosten de meeste tijd?
+3. Maak het concreet: schets hoe een chatbot dat voor HUN bedrijf oplost.
+4. Na 3-4 berichten, of eerder als het past: "Zullen we kijken hoe dit voor jouw bedrijf werkt? [Plan een gratis gesprek](https://botlease.nl/#contact) — 10 minuten, vrijblijvend."
 
-        // Override link renderer zodat links in nieuw tabblad openen
+PRIJZEN (eerlijk beantwoorden als gevraagd):
+Starter €49/maand (250 gesprekken), Business €99/maand (1.000 gesprekken + branding + WhatsApp), Scale €249/maand (onbeperkt + voice + API). Setup altijd door ons team. 14 dagen gratis proberen.
+
+EDGE CASES:
+Prijs gevraagd → beantwoord direct: "Het Starter-plan is €49/maand. Dat verdient zichzelf terug als de chatbot 1 klant per week beter helpt — en dat doet hij."
+Concurrent of ChatGPT → erken eerlijk: "ChatGPT is prima voor algemene vragen. Een BotLease-bot kent jouw bedrijf en staat op jouw website — dat is het verschil."
+Zelf bouwen → "Dat kan zeker. Reken op een paar dagen werk en onderhoud. BotLease regelt alles voor €9/maand."
+Al klaar om te starten → geef direct de link: "[Start hier](https://botlease.nl/#contact)"
+Iets niet weten → "Dat weet ik niet precies — [stel je vraag hier](https://botlease.nl/#contact) en je krijgt binnen een dag antwoord."
+Na 2x "nee" of "niet nu" → "Geen probleem. Als je later vragen hebt, ben ik hier."
+
+VERBODEN: verzin geen features, claim niet dat je een mens bent, geef geen technische AI-details, herhaal de contactlink niet vaker dan 2x in een gesprek.`;
+
+    const QUICK_REPLIES = [
+        "Wat kan BotLease voor mij doen?",
+        "Hoe werkt de AI-chatbot?",
+        "Wat kost het?",
+    ];
+
+    try {
+        marked.setOptions({ breaks: true, gfm: true });
         const renderer = new marked.Renderer();
-        renderer.link = ({ href, text }) =>
-            `<a href="${href}" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline;">${text}</a>`;
+        renderer.link = ({ href, text }) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
         marked.use({ renderer });
+    } catch(_) { /* marked CDN fallback */ }
 
-        function addMessage(content, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'message-user' : 'message-bot'}`;
+    function safeMarkdown(text) {
+        try { return marked.parse(text); }
+        catch(_) { return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); }
+    }
 
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.className = 'message-bubble';
+    // ── FLOATING CHAT WIDGET ───────────────────────────
+    const chatWindow  = document.getElementById('chatWindow');
+    const cwMessages  = document.getElementById('cwMessages');
+    const cwForm      = document.getElementById('cwForm');
+    const cwInput     = document.getElementById('cwInput');
+    const cwSend      = document.getElementById('cwSend');
+    const modelSelect = document.getElementById('modelSelect');
+    const floatBtn    = document.getElementById('chatFloatBtn');
+    const iconChat    = document.getElementById('iconChat');
+    const iconClose   = document.getElementById('iconClose');
+    let chatOpen = false;
 
-            if (!isUser) {
-                bubbleDiv.innerHTML = marked.parse(content);
-            } else {
-                bubbleDiv.textContent = content;
-            }
-            
-            const timeDiv = document.createElement('div');
-            timeDiv.className = 'message-time';
-            timeDiv.textContent = formatTime();
-            
-            messageDiv.appendChild(bubbleDiv);
-            messageDiv.appendChild(timeDiv);
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+    floatBtn.addEventListener('click', () => {
+        chatOpen = !chatOpen;
+        chatWindow.classList.toggle('open', chatOpen);
+        iconChat.style.display = chatOpen ? 'none' : 'block';
+        iconClose.style.display = chatOpen ? 'block' : 'none';
+        if (chatOpen) { setTimeout(() => cwInput.focus(), 200); }
+    });
 
-        function showTyping() {
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message message-bot';
-            typingDiv.id = 'typing-indicator';
-            
-            const dotsDiv = document.createElement('div');
-            dotsDiv.className = 'typing-dots';
-            dotsDiv.innerHTML = `
-                <span class="typing-dot"></span>
-                <span class="typing-dot"></span>
-                <span class="typing-dot"></span>
-            `;
-            
-            typingDiv.appendChild(dotsDiv);
-            chatMessages.appendChild(typingDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+    const chatHistory = [];
+    let quickRepliesShown = false;
 
-        function hideTyping() {
-            const typing = document.getElementById('typing-indicator');
-            if (typing) typing.remove();
-        }
+    function addCwMessage(content, isUser = false) {
+        const row    = document.createElement('div');
+        row.className = `cw-msg ${isUser ? 'user' : 'bot'}`;
+        const bubble = document.createElement('div');
+        bubble.className = 'cw-bubble';
+        if (!isUser) { bubble.innerHTML = safeMarkdown(content); } else { bubble.textContent = content; }
+        row.appendChild(bubble);
+        cwMessages.appendChild(row);
+        cwMessages.scrollTop = cwMessages.scrollHeight;
+    }
 
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const message = chatInput.value.trim();
-            if (!message) return;
-            
-            // Add user message
-            addMessage(message, true);
-            
-            // Clear input and disable submit
-            chatInput.value = '';
-            chatSubmit.disabled = true;
-            
-            // Show typing indicator
-            showTyping();
-            
-            try {
-                chatHistory.push({ role: 'user', content: message });
-
-                const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), 15000);
-
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        model: modelSelect.value,
-                        messages: [
-                            { role: 'system', content: SYSTEM_PROMPT },
-                            ...chatHistory
-                        ]
-                    }),
-                    signal: controller.signal,
-                });
-
-                clearTimeout(timeout);
-                const data = await response.json();
-                hideTyping();
-
-                // Update dropdown naar het model dat écht gebruikt werd
-                if (data.model && data.model !== modelSelect.value) {
-                    modelSelect.value = data.model;
-                }
-
-                const botMessage = data.choices?.[0]?.message?.content;
-                if (botMessage) {
-                    chatHistory.push({ role: 'assistant', content: botMessage });
-                    addMessage(botMessage);
-                } else {
-                    chatHistory.pop();
-                    addMessage('Even geen verbinding. Probeer het opnieuw. 🔄');
-                }
-            } catch (error) {
-                chatHistory.pop();
-                hideTyping();
-                if (error.name === 'AbortError') {
-                    addMessage('Het duurt te lang om te reageren. Probeer het opnieuw. 🔄');
-                } else {
-                    addMessage('Even geen verbinding. Probeer het opnieuw. 🔄');
-                }
-            } finally {
-                chatSubmit.disabled = false;
-                chatInput.focus();
-            }
+    function showQuickReplies() {
+        if (quickRepliesShown) return;
+        quickRepliesShown = true;
+        const qr = document.createElement('div');
+        qr.className = 'cw-quick-replies';
+        QUICK_REPLIES.forEach(reply => {
+            const btn = document.createElement('button');
+            btn.className = 'cw-quick-btn';
+            btn.textContent = reply;
+            btn.addEventListener('click', () => { qr.remove(); sendCwMessage(reply); });
+            qr.appendChild(btn);
         });
+        cwMessages.appendChild(qr);
+        cwMessages.scrollTop = cwMessages.scrollHeight;
+    }
 
-        // Contact form
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitButton = e.target.querySelector('.form-submit');
-            const messageDiv = document.getElementById('formMessage');
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Verzenden...';
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                company: document.getElementById('company').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
-            };
+    function showCwTyping() {
+        const t = document.createElement('div');
+        t.className = 'cw-typing'; t.id = 'cw-typing';
+        t.innerHTML = '<div class="cw-typing-dots"><span class="cw-typing-dot"></span><span class="cw-typing-dot"></span><span class="cw-typing-dot"></span></div>';
+        cwMessages.appendChild(t);
+        cwMessages.scrollTop = cwMessages.scrollHeight;
+    }
+    function hideCwTyping() { const t = document.getElementById('cw-typing'); if (t) t.remove(); }
 
-            try {
-                const SUPA_URL = 'https://hzexwxpnsqggbxklpues.supabase.co';
-                const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
-
-                const response = await fetch(`${SUPA_URL}/rest/v1/contacts`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': SUPA_KEY,
-                        'Authorization': `Bearer ${SUPA_KEY}`,
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({
-                        name: formData.name,
-                        email: formData.email,
-                        company: formData.company,
-                        phone: formData.phone,
-                        message: formData.message
-                    })
-                });
-
-                if (response.ok || response.status === 201) {
-                    messageDiv.className = 'form-message form-success';
-                    messageDiv.textContent = 'Bedankt! We nemen binnen 24 uur contact met u op.';
-                    messageDiv.style.display = 'block';
-                    contactForm.reset();
-                } else {
-                    const err = await response.text();
-                    throw new Error(err);
-                }
-            } catch (error) {
-                console.error('Contact form error:', error);
-                messageDiv.className = 'form-message form-error';
-                messageDiv.textContent = 'Er ging iets mis. Probeer het later opnieuw.';
-                messageDiv.style.display = 'block';
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Start gratis pilot';
-            }
-        });
-
-        // Add fade-in animations
-        const fadeElements = document.querySelectorAll('.feature-card, .stat-item');
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('fade-in')) {
-                    entry.target.classList.add('fade-in');
-                }
+    async function sendCwMessage(text) {
+        addCwMessage(text, true);
+        cwSend.disabled = true;
+        showCwTyping();
+        try {
+            chatHistory.push({ role: 'user', content: text });
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 15000);
+            const res = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: modelSelect.value,
+                    messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...chatHistory.slice(-8)]
+                }),
+                signal: controller.signal,
             });
-        }, { threshold: 0.1 });
+            clearTimeout(timeout);
+            const data = await res.json();
+            hideCwTyping();
+            if (data.model && data.model !== modelSelect.value) modelSelect.value = data.model;
+            const botMsg = data.choices?.[0]?.message?.content;
+            if (botMsg) {
+                chatHistory.push({ role: 'assistant', content: botMsg });
+                addCwMessage(botMsg);
+                saveChatMessage(text, botMsg);
+            } else { chatHistory.pop(); addCwMessage('Even geen verbinding. Probeer het opnieuw. 🔄'); }
+        } catch (err) {
+            chatHistory.pop(); hideCwTyping();
+            addCwMessage(err.name === 'AbortError' ? 'Het duurt te lang. Probeer het opnieuw. 🔄' : 'Even geen verbinding. 🔄');
+        } finally {
+            cwSend.disabled = false;
+            cwInput.focus();
+        }
+    }
 
-        fadeElements.forEach(element => {
-            fadeObserver.observe(element);
-        });
+    cwForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const msg = cwInput.value.trim();
+        if (!msg) return;
+        cwInput.value = '';
+        sendCwMessage(msg);
+    });
 
-        // Floating Chat Button
-        function createFloatingButton() {
-            const buttonHTML = `
-                <div class="chat-float-button">
-                    <a href="#demo" class="chat-button">
-                        <svg class="chat-button-icon" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.41 0-2.73-.36-3.88-.99l-.28-.15-2.91.49.49-2.91-.15-.28C4.64 14.73 4.28 13.41 4.28 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.5-6.21c-.25-.12-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.12-.17.25-.66.8-.81.97-.15.17-.3.19-.55.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.09-.17.04-.31-.02-.44s-.56-1.35-.77-1.85c-.2-.49-.41-.42-.56-.43-.15 0-.31-.02-.48-.02s-.44.06-.67.31c-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.17 1.58.1.48-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.11-.25-.17-.52-.3z"/>
-                        </svg>
-                        <div class="chat-pulse">1</div>
-                    </a>
-                </div>
-            `;
-            
-            document.body.insertAdjacentHTML('beforeend', buttonHTML);
-            
-            // Smooth scroll to chat when clicking the button
-            document.querySelector('.chat-button').addEventListener('click', (e) => {
-                e.preventDefault();
-                const demoSection = document.getElementById('demo');
-                if (demoSection) {
-                    const offset = 80;
-                    const targetPosition = demoSection.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Focus on chat input after scrolling
-                    setTimeout(() => {
-                        const chatInput = document.getElementById('chatInput');
-                        if (chatInput) chatInput.focus();
-                    }, 800);
-                }
+    addCwMessage('Hoi! 👋 Ben jij ook zo\'n ondernemer die elke week dezelfde klantvragen beantwoordt? Of ben je hier gewoon nieuwsgierig naar wat een chatbot voor je kan doen?');
+    setTimeout(showQuickReplies, 400);
+
+    // ── HERO DEMO (links naar floating chat) ──────────
+    const heroDemoInput = document.getElementById('heroDemoInput');
+    const heroDemoSend  = document.getElementById('heroDemoSend');
+
+    function openChatWithMessage(msg) {
+        if (!chatOpen) {
+            chatOpen = true;
+            chatWindow.classList.add('open');
+            iconChat.style.display = 'none';
+            iconClose.style.display = 'block';
+        }
+        if (msg) {
+            cwInput.value = msg;
+            sendCwMessage(msg);
+        } else {
+            cwInput.focus();
+        }
+        chatWindow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    heroDemoSend.addEventListener('click', () => {
+        const msg = heroDemoInput.value.trim();
+        heroDemoInput.value = '';
+        openChatWithMessage(msg || '');
+    });
+
+    heroDemoInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const msg = heroDemoInput.value.trim();
+            heroDemoInput.value = '';
+            openChatWithMessage(msg || '');
+        }
+    });
+
+    // ── SAVE CHAT TO SUPABASE ─────────────────────────
+    const SUPA_URL_CHAT = 'https://hzexwxpnsqggbxklpues.supabase.co';
+    const SUPA_KEY_CHAT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+    let chatSessionId = crypto.randomUUID();
+
+    async function saveDemoMessage(userMsg, botMsg) {
+        try {
+            await fetch(`${SUPA_URL_CHAT}/rest/v1/demo_logs`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPA_KEY_CHAT,
+                    'Authorization': `Bearer ${SUPA_KEY_CHAT}`,
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                    session_id: chatSessionId,
+                    demo_url: document.getElementById('urlDemoDomain').textContent,
+                    user_message: userMsg,
+                    bot_message: botMsg,
+                    model: document.getElementById('modelSelect').value
+                })
             });
-        }
-        
-        // Create floating button
-        createFloatingButton();
+        } catch (_) { /* silent */ }
+    }
 
-        // Toggle breakdown functionality
-        function toggleBreakdown(plan) {
-            const breakdown = document.getElementById('breakdown-' + plan);
-            const arrow = document.getElementById('arrow-' + plan);
-            
-            if (breakdown.style.display === 'none' || breakdown.style.display === '') {
-                breakdown.style.display = 'block';
-                arrow.classList.add('rotated');
-            } else {
-                breakdown.style.display = 'none';
-                arrow.classList.remove('rotated');
-            }
+    async function saveChatMessage(userMsg, botMsg, demoUrl = null) {
+        try {
+            await fetch(`${SUPA_URL_CHAT}/rest/v1/chat_logs`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPA_KEY_CHAT,
+                    'Authorization': `Bearer ${SUPA_KEY_CHAT}`,
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                    session_id: chatSessionId,
+                    user_message: userMsg,
+                    bot_message: botMsg,
+                    model: modelSelect.value,
+                    url: window.location.href,
+                    demo_url: demoUrl
+                })
+            });
+        } catch (_) { /* silent */ }
+    }
+
+    // ── CONTACT FORM ──────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('.form-submit');
+        const msg = document.getElementById('formMessage');
+        btn.disabled = true; btn.textContent = 'Verzenden...';
+        try {
+            const SUPA_URL = 'https://hzexwxpnsqggbxklpues.supabase.co';
+            const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+            const res = await fetch(`${SUPA_URL}/rest/v1/contacts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}`, 'Prefer': 'return=minimal' },
+                body: JSON.stringify({
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    company: document.getElementById('company').value,
+                    phone: document.getElementById('phone').value,
+                    message: ''
+                })
+            });
+            if (res.ok || res.status === 201) {
+                msg.className = 'form-message form-success'; msg.textContent = 'Bedankt! We nemen binnen 24 uur contact met je op.'; msg.style.display = 'block';
+                e.target.reset();
+            } else { throw new Error(await res.text()); }
+        } catch (err) {
+            console.error(err);
+            msg.className = 'form-message form-error'; msg.textContent = 'Er ging iets mis. Probeer het later opnieuw.'; msg.style.display = 'block';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Probeer 14 dagen gratis →';
         }
-    </script>
+    });
+
+    // ── URL DEMO ───────────────────────────────────────
+    let urlDemoHistory = [];
+    let urlDemoSystemPrompt = '';
+    let urlDemoCTAShown = false;
+
+    async function loadUrlDemo() {
+        const input = document.getElementById('urlDemoInput');
+        const btn   = document.getElementById('urlDemoBtn');
+        const status = document.getElementById('urlDemoStatus');
+        const statusText = document.getElementById('urlDemoStatusText');
+        let url = input.value.trim();
+        if (!url) { input.focus(); return; }
+
+        btn.disabled = true;
+        status.classList.add('visible');
+        statusText.textContent = 'Website wordt ingelezen…';
+        const spinnerEl = status.querySelector('.urldemo-spinner');
+        if (spinnerEl) spinnerEl.style.display = '';
+
+        const spinner = status.querySelector('.urldemo-spinner');
+
+        function showUrlError(msg) {
+            if (spinner) spinner.style.display = 'none';
+            statusText.innerHTML = `⚠️ ${msg}`;
+            btn.disabled = false;
+        }
+
+        try {
+            const res = await fetch('/api/scrape', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+
+            let data;
+            try { data = await res.json(); }
+            catch (_) {
+                showUrlError('Website tijdelijk niet bereikbaar. Probeer het opnieuw of gebruik een andere URL.');
+                return;
+            }
+
+            if (!res.ok || data.error) {
+                const msg = data.error || 'Kon website niet bereiken.';
+                const tip = msg.toLowerCase().includes('blokkeert') || msg.toLowerCase().includes('403')
+                    ? `<br><span style="font-size:12px;opacity:0.8">Tip: grote platforms (banken, webshops) blokkeren automatische toegang. De demo werkt het best met je eigen bedrijfswebsite.</span>`
+                    : '';
+                showUrlError(msg + tip);
+                return;
+            }
+
+            const domain = data.domain;
+            urlDemoSystemPrompt = `Je bent de vriendelijke AI-assistent van ${domain}. Hieronder staat de inhoud van hun website. Gebruik dit om vragen te beantwoorden.
+
+WEBSITE INHOUD:
+${data.content}
+
+INSTRUCTIES:
+- Beantwoord vragen over dit bedrijf op basis van bovenstaande informatie
+- Noem het bedrijf bij naam (${domain})
+- Als je iets niet weet, zeg dat eerlijk en stel voor om contact op te nemen
+- Wees vriendelijk en bondig (max 3 zinnen per antwoord)
+- Schrijf in het Nederlands tenzij de bezoeker een andere taal gebruikt`;
+
+            urlDemoHistory = [];
+            urlDemoCTAShown = false;
+            document.getElementById('urlDemoDomain').textContent = domain;
+            const msgs = document.getElementById('urlDemoMessages');
+            msgs.innerHTML = '';
+            addUrlDemoBubble(`Hoi! 👋 Ik ben de AI-assistent van <strong>${domain}</strong>. Wat wil je weten?`, false);
+
+            const chat = document.getElementById('urlDemoChat');
+            chat.style.opacity = '1'; chat.style.transform = 'none'; chat.style.pointerEvents = 'all';
+            document.getElementById('urlDemoChatInput').disabled = false;
+            document.getElementById('urlDemoSend').disabled = false;
+            document.getElementById('urlDemoChatInput').focus();
+            status.classList.remove('visible');
+        } catch (e) {
+            showUrlError('Er ging iets mis. Probeer het opnieuw.');
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function addUrlDemoBubble(html, isUser) {
+        const msgs = document.getElementById('urlDemoMessages');
+        const b = document.createElement('div');
+        b.className = 'urldemo-bubble ' + (isUser ? 'user' : 'bot');
+        b.innerHTML = isUser ? html.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : safeMarkdown(html);
+        msgs.appendChild(b);
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    async function sendUrlDemoMessage() {
+        const inp  = document.getElementById('urlDemoChatInput');
+        const send = document.getElementById('urlDemoSend');
+        const text = inp.value.trim();
+        if (!text || !urlDemoSystemPrompt) return;
+        inp.value = '';
+        addUrlDemoBubble(text, true);
+        send.disabled = true; inp.disabled = true;
+
+        const msgs = document.getElementById('urlDemoMessages');
+        const typing = document.createElement('div');
+        typing.className = 'urldemo-typing';
+        typing.innerHTML = '<div class="urldemo-typing-dots"><span class="urldemo-typing-dot"></span><span class="urldemo-typing-dot"></span><span class="urldemo-typing-dot"></span></div>';
+        msgs.appendChild(typing);
+        msgs.scrollTop = msgs.scrollHeight;
+
+        urlDemoHistory.push({ role: 'user', content: text });
+        try {
+            const res = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: [{ role: 'system', content: urlDemoSystemPrompt }, ...urlDemoHistory.slice(-6)]
+                })
+            });
+            const data = await res.json();
+            typing.remove();
+            const botMsg = data.choices?.[0]?.message?.content;
+            if (botMsg) {
+                urlDemoHistory.push({ role: 'assistant', content: botMsg });
+                addUrlDemoBubble(botMsg, false);
+                saveDemoMessage(text, botMsg);
+            } else {
+                addUrlDemoBubble('Het gratis demo-model is even bezet. <button onclick="sendUrlDemoMessage()" style="background:none;border:none;color:var(--blue);font-weight:700;cursor:pointer;padding:0;font-size:inherit">Probeer opnieuw →</button>', false);
+                urlDemoHistory.pop();
+            }
+        } catch {
+            typing.remove();
+            addUrlDemoBubble('Het gratis demo-model is even bezet. <button onclick="sendUrlDemoMessage()" style="background:none;border:none;color:var(--blue);font-weight:700;cursor:pointer;padding:0;font-size:inherit">Probeer opnieuw →</button>', false);
+            urlDemoHistory.pop();
+        } finally {
+            send.disabled = false; inp.disabled = false; inp.focus();
+        }
+    }
+
+    document.getElementById('urlDemoChatInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); sendUrlDemoMessage(); }
+    });
+    document.getElementById('urlDemoInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); loadUrlDemo(); }
+    });
+</script>
 </body>
 </html>
