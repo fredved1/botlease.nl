@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BotLease — AI-producten voor mensen en bedrijven</title>
-  <meta name="description" content="BotLease bouwt betrouwbare AI-producten die dagelijkse taken slimmer maken. Voor consumenten: Milo. Voor bedrijven: BotLease Assist.">
-  <meta property="og:title" content="BotLease — Practical AI, beautifully delivered">
-  <meta property="og:description" content="BotLease bouwt premium AI-producten voor consumenten en bedrijven. Gemaakt in Nederland.">
+  <title>BotLease — AI voor consumenten, bedrijven en de fysieke wereld</title>
+  <meta name="description" content="BotLease bouwt AI-producten die echt werken. Milo voor consumenten, BotLease Agents voor bedrijven, en de toekomst van robotica.">
+  <meta property="og:title" content="BotLease — Van WhatsApp-assistent tot AI agents en humanoid robots">
+  <meta property="og:description" content="BotLease bouwt AI-producten voor consumenten, bedrijven en de fysieke wereld. Gemaakt in Nederland.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://botlease.nl">
   <link rel="canonical" href="https://botlease.nl">
@@ -19,14 +19,15 @@
     html { scroll-behavior: smooth; }
 
     :root {
-      --bg:    #0a0a0f;
-      --bg2:   #0f0f18;
-      --card:  rgba(255,255,255,0.04);
-      --border:rgba(255,255,255,0.08);
-      --milo:  #14B8A6;
-      --fg:    #ffffff;
-      --fg2:   rgba(255,255,255,0.55);
-      --fg3:   rgba(255,255,255,0.28);
+      --bg:      #0a0a0f;
+      --bg2:     #0f0f18;
+      --card:    rgba(255,255,255,0.04);
+      --border:  rgba(255,255,255,0.08);
+      --teal:    #14B8A6;
+      --indigo:  #6366f1;
+      --fg:      #ffffff;
+      --fg2:     rgba(255,255,255,0.55);
+      --fg3:     rgba(255,255,255,0.28);
     }
 
     body {
@@ -44,17 +45,17 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { font-size: 18px; font-weight: 700; color: var(--fg); text-decoration: none; letter-spacing: -.3px; }
-    .nav-logo span { color: var(--milo); }
+    .nav-logo span { color: var(--teal); }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { color: var(--fg2); font-size: 14px; text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--fg); }
     .nav-cta {
-      background: var(--milo); color: #fff; padding: 9px 20px;
+      background: var(--teal); color: #fff; padding: 9px 20px;
       border-radius: 8px; font-size: 14px; font-weight: 600;
       text-decoration: none; transition: opacity .2s;
     }
     .nav-cta:hover { opacity: .88; }
-    @media (max-width: 600px) { .nav-links { gap: 16px; } .nav-links a:not(:last-child) { display: none; } }
+    @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
 
     /* HERO */
     .hero {
@@ -64,22 +65,22 @@
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2);
-      color: var(--milo); font-size: 13px; font-weight: 500;
+      color: var(--teal); font-size: 13px; font-weight: 500;
       padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
     }
-    .eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--milo); }
+    .eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal); }
     h1 {
-      font-size: clamp(42px,6.5vw,80px); font-weight: 800;
-      line-height: 1.07; letter-spacing: -2.5px; margin-bottom: 24px;
+      font-size: clamp(36px,6vw,74px); font-weight: 800;
+      line-height: 1.08; letter-spacing: -2px; margin-bottom: 24px;
     }
-    h1 em { font-style: normal; color: var(--milo); }
+    h1 em { font-style: normal; color: var(--teal); }
     .hero-sub {
       font-size: clamp(16px,2vw,20px); color: var(--fg2);
-      max-width: 540px; margin: 0 auto 44px; line-height: 1.7;
+      max-width: 560px; margin: 0 auto 44px; line-height: 1.75;
     }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--milo); color: #fff; padding: 14px 28px;
+      background: var(--teal); color: #fff; padding: 14px 28px;
       border-radius: 10px; font-size: 15px; font-weight: 600;
       text-decoration: none; transition: opacity .2s;
     }
@@ -104,18 +105,24 @@
       gap: 40px; flex-wrap: wrap;
     }
     .strip-item { display: flex; align-items: center; gap: 8px; color: var(--fg2); font-size: 14px; }
-    .strip-item svg { width:15px; height:15px; stroke:var(--milo); fill:none; stroke-width:2.5; }
+    .strip-item svg { width:15px; height:15px; stroke:var(--teal); fill:none; stroke-width:2.5; }
 
     /* SECTIONS */
-    .sec { padding: 112px clamp(20px,5vw,64px); }
+    .sec { padding: 100px clamp(20px,5vw,64px); }
     .sec.dark { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .container { max-width: 1100px; margin: 0 auto; }
-    .sec-label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--milo); margin-bottom: 14px; }
+    .sec-label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
     .sec-title { font-size: clamp(28px,4vw,46px); font-weight: 700; letter-spacing: -1px; line-height: 1.14; margin-bottom: 16px; }
     .sec-sub { font-size: 17px; color: var(--fg2); line-height: 1.75; max-width: 520px; }
 
-    /* PRODUCTS */
-    .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+    /* PRODUCT CARDS */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px;
+      margin-top: 56px;
+    }
     @media (max-width: 720px) { .products-grid { grid-template-columns: 1fr; } }
 
     .pcard {
@@ -124,25 +131,41 @@
       display: flex; flex-direction: column; transition: border-color .25s;
     }
     .pcard:hover { border-color: rgba(255,255,255,0.15); }
-    .pcard.hl {
-      background: linear-gradient(140deg,rgba(20,184,166,0.09),rgba(20,184,166,0.03));
+    .pcard.hl-teal {
+      background: linear-gradient(140deg,rgba(20,184,166,0.09),rgba(20,184,166,0.02));
       border-color: rgba(20,184,166,0.22);
     }
-    .pcard.hl:hover { border-color: rgba(20,184,166,0.38); }
+    .pcard.hl-teal:hover { border-color: rgba(20,184,166,0.38); }
+    .pcard.hl-indigo {
+      background: linear-gradient(140deg,rgba(99,102,241,0.08),rgba(99,102,241,0.02));
+      border-color: rgba(99,102,241,0.2);
+    }
+    .pcard.hl-indigo:hover { border-color: rgba(99,102,241,0.36); }
+    .pcard.robots {
+      grid-column: 1 / -1;
+      flex-direction: row; align-items: center; gap: 48px;
+      background: linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      border-color: rgba(255,255,255,0.1);
+    }
+    @media (max-width: 720px) { .pcard.robots { flex-direction: column; gap: 28px; grid-column: auto; } }
+    .robots-left { flex: 1; }
+    .robots-right { flex-shrink: 0; }
 
     .pbadge {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 11px; font-weight: 600; letter-spacing: .9px; text-transform: uppercase;
       padding: 5px 10px; border-radius: 6px; margin-bottom: 22px; width: fit-content;
     }
-    .pbadge.teal { background: rgba(20,184,166,0.12); color: var(--milo); }
+    .pbadge.teal  { background: rgba(20,184,166,0.12);  color: var(--teal); }
     .pbadge.indigo { background: rgba(99,102,241,0.12); color: #818cf8; }
+    .pbadge.soon  { background: rgba(255,255,255,0.06); color: var(--fg3); border: 1px solid var(--border); }
 
-    .pcard h3 { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
-    .pcard .ptag { font-size: 16px; color: var(--fg2); margin-bottom: 28px; line-height: 1.6; }
+    .pcard h3 { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .pcard .ptag { font-size: 16px; color: var(--fg2); margin-bottom: 28px; line-height: 1.65; }
     .pfeatures { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 36px; flex: 1; }
     .pfeatures li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--fg2); }
-    .pfeatures li svg { width:15px; height:15px; stroke:var(--milo); fill:none; stroke-width:2.5; flex-shrink:0; }
+    .pfeatures li svg { width:15px; height:15px; stroke:var(--teal); fill:none; stroke-width:2.5; flex-shrink:0; }
+    .pfeatures.indigo li svg { stroke: #818cf8; }
 
     .plink {
       display: inline-flex; align-items: center; gap: 8px;
@@ -150,30 +173,101 @@
       padding: 12px 20px; border-radius: 10px; width: fit-content; transition: opacity .2s;
     }
     .plink:hover { opacity: .85; }
-    .plink.teal { background: var(--milo); color: #fff; }
-    .plink.indigo { background: #4f46e5; color: #fff; }
+    .plink.teal   { background: var(--teal); color: #fff; }
+    .plink.indigo { background: var(--indigo); color: #fff; }
     .plink svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2.5; }
 
-    /* MISSION */
-    .mission-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .mquote {
-      font-size: clamp(22px,3.2vw,34px); font-weight: 600;
-      line-height: 1.45; letter-spacing: -.5px; margin-bottom: 18px;
+    /* WAITLIST FORM (robots card) */
+    .waitlist-form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .waitlist-input {
+      flex: 1; min-width: 200px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; color: #fff; font-size: 15px;
+      padding: 12px 16px; outline: none; transition: border-color .2s;
+      font-family: inherit;
     }
-    .mquote em { font-style: normal; color: var(--milo); }
-    .msub { font-size: 16px; color: var(--fg2); line-height: 1.75; margin-bottom: 28px; }
-    .nl-tag { display: inline-flex; align-items: center; gap: 6px; color: var(--fg3); font-size: 13px; }
+    .waitlist-input:focus { border-color: rgba(255,255,255,0.28); }
+    .waitlist-input::placeholder { color: var(--fg3); }
+    .waitlist-btn {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.14);
+      color: #fff; font-size: 14px; font-weight: 600;
+      padding: 12px 22px; border-radius: 10px; cursor: pointer;
+      transition: background .2s; white-space: nowrap; font-family: inherit;
+    }
+    .waitlist-btn:hover { background: rgba(255,255,255,0.15); }
+    .waitlist-msg { font-size: 13px; color: var(--teal); margin-top: 10px; display: none; }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
-    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .stat {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px;
+    /* AGENTS SECTION */
+    .agents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
+    @media (max-width: 720px) { .agents-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .agents-features { display: flex; flex-direction: column; gap: 20px; }
+    .af-item { display: flex; gap: 16px; align-items: flex-start; }
+    .af-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
     }
-    .stat-n { font-size: 38px; font-weight: 800; color: var(--milo); letter-spacing: -1px; line-height: 1; }
-    .stat-l { font-size: 13px; color: var(--fg2); margin-top: 6px; line-height: 1.4; }
+    .af-icon svg { width:18px; height:18px; stroke:#818cf8; fill:none; stroke-width:2; }
+    .af-text h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .af-text p { font-size: 14px; color: var(--fg2); line-height: 1.6; }
+    .agents-cta-wrap { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .btn-indigo {
+      background: var(--indigo); color: #fff; padding: 14px 28px;
+      border-radius: 10px; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-indigo:hover { opacity: .88; }
+
+    /* MILO SPOTLIGHT */
+    .milo-card {
+      background: linear-gradient(135deg,rgba(20,184,166,0.1),rgba(20,184,166,0.03));
+      border: 1px solid rgba(20,184,166,0.2); border-radius: 24px;
+      padding: clamp(40px,6vw,72px); margin-top: 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    @media (max-width: 720px) { .milo-card { grid-template-columns: 1fr; gap: 40px; } }
+    .milo-price {
+      display: inline-flex; align-items: baseline; gap: 4px;
+      margin-bottom: 24px;
+    }
+    .milo-price .amount { font-size: 52px; font-weight: 800; color: var(--teal); letter-spacing: -2px; line-height: 1; }
+    .milo-price .period { font-size: 16px; color: var(--fg2); }
+    .milo-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .milo-bullets li { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+    .milo-bullets li svg { width:16px; height:16px; stroke:var(--teal); fill:none; stroke-width:2.5; flex-shrink:0; }
+    .milo-right { text-align: center; }
+    .wa-bubble {
+      background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.15);
+      border-radius: 18px; padding: 28px; max-width: 300px; margin: 0 auto;
+      text-align: left;
+    }
+    .wa-bubble .wa-label { font-size: 11px; color: var(--teal); font-weight: 600; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 14px; }
+    .wa-msg { display: flex; flex-direction: column; gap: 10px; }
+    .wa-msg .msg {
+      background: rgba(255,255,255,0.07); border-radius: 12px;
+      padding: 10px 14px; font-size: 14px; color: var(--fg2); line-height: 1.5;
+    }
+    .wa-msg .msg.out {
+      background: rgba(20,184,166,0.15); color: var(--fg);
+      align-self: flex-end; border-bottom-right-radius: 4px;
+    }
+    .wa-msg .msg.in { border-bottom-left-radius: 4px; }
+
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 52px; }
+    @media (max-width: 720px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+    }
+    .why-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.15);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .why-icon svg { width:20px; height:20px; stroke:var(--teal); fill:none; stroke-width:2; }
+    .why-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .why-card p { font-size: 14px; color: var(--fg2); line-height: 1.6; }
 
     /* CONTACT */
     .contact-wrap { text-align: center; }
@@ -185,7 +279,7 @@
     .email-link {
       display: inline-flex; align-items: center; gap: 10px;
       background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.2);
-      color: var(--milo); font-size: 17px; font-weight: 600;
+      color: var(--teal); font-size: 17px; font-weight: 600;
       padding: 14px 24px; border-radius: 12px; text-decoration: none;
       margin-top: 18px; transition: background .2s;
     }
@@ -193,16 +287,13 @@
     .email-link svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; }
 
     /* FOOTER */
-    footer {
-      padding: 36px clamp(20px,5vw,64px);
-      border-top: 1px solid var(--border);
-    }
+    footer { padding: 36px clamp(20px,5vw,64px); border-top: 1px solid var(--border); }
     .footer-inner {
       max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
     }
     .flogo { font-size: 16px; font-weight: 700; }
-    .flogo span { color: var(--milo); }
+    .flogo span { color: var(--teal); }
     .flinks { display: flex; gap: 24px; }
     .flinks a { color: var(--fg3); font-size: 13px; text-decoration: none; transition: color .2s; }
     .flinks a:hover { color: var(--fg2); }
@@ -219,7 +310,7 @@
   <a href="/" class="nav-logo">Bot<span>Lease</span></a>
   <div class="nav-links">
     <a href="#producten">Producten</a>
-    <a href="#over">Over</a>
+    <a href="#agents">Voor bedrijven</a>
     <a href="#contact">Contact</a>
     <a href="https://heymilo.nl" class="nav-cta">Probeer Milo</a>
   </div>
@@ -229,11 +320,11 @@
 <div class="hero">
   <div class="container">
     <div class="eyebrow fi">AI-producten uit Nederland</div>
-    <h1 class="fi">Practical AI,<br><em>beautifully delivered.</em></h1>
-    <p class="hero-sub fi">BotLease bouwt betrouwbare AI-producten die dagelijkse taken slimmer maken — voor consumenten én bedrijven.</p>
+    <h1 class="fi">Van WhatsApp-assistent tot<br><em>AI agents en robots</em></h1>
+    <p class="hero-sub fi">BotLease ontwikkelt AI-producten voor consumenten, bedrijven en de volgende generatie robotica — praktisch inzetbaar, vanaf vandaag.</p>
     <div class="hero-btns fi">
-      <a href="https://heymilo.nl" class="btn-primary">Ontdek Milo</a>
-      <a href="#producten" class="btn-ghost">Onze producten</a>
+      <a href="https://heymilo.nl" class="btn-primary">Probeer Milo</a>
+      <a href="#agents" class="btn-ghost">Voor bedrijven</a>
     </div>
   </div>
 </div>
@@ -248,17 +339,17 @@
   </div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- PRODUCTS OVERVIEW -->
 <div class="sec" id="producten">
   <div class="container">
     <div class="sec-label fi">Onze producten</div>
-    <h2 class="sec-title fi">AI die echt iets<br>uit handen neemt</h2>
-    <p class="sec-sub fi">Van persoonlijke assistent tot klantenservice-automatisering — elk product met een concreet doel.</p>
+    <h2 class="sec-title fi">Drie producten,<br>één visie</h2>
+    <p class="sec-sub fi">Van persoonlijke AI-assistent tot agents voor bedrijven en de fysieke wereld — elk product met een concreet doel.</p>
 
     <div class="products-grid">
 
       <!-- MILO -->
-      <div class="pcard hl fi">
+      <div class="pcard hl-teal fi">
         <div class="pbadge teal">Voor consumenten</div>
         <h3>Milo</h3>
         <p class="ptag">Jouw persoonlijke AI-assistent via WhatsApp. Altijd beschikbaar, onthoudt wie je bent.</p>
@@ -266,86 +357,188 @@
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Werkt via WhatsApp — geen app nodig</li>
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Brieven uitleggen, taken plannen, vragen beantwoorden</li>
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Onthoudt jouw context en voorkeuren</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Proactief: stelt voor en herinnert</li>
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gratis beginnen, upgraden wanneer je wilt</li>
         </ul>
         <a href="https://heymilo.nl" class="plink teal">
-          Naar heymilo.nl
+          Probeer Milo
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <!-- ASSIST -->
-      <div class="pcard fi">
+      <!-- AGENTS -->
+      <div class="pcard hl-indigo fi">
         <div class="pbadge indigo">Voor bedrijven</div>
-        <h3>Assist</h3>
-        <p class="ptag">AI-klantenservice voor jouw bedrijf. 24/7 live, binnen een dag ingericht, volledig op maat.</p>
-        <ul class="pfeatures">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>24/7 klantenservice zonder extra personeel</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Getraind op jouw producten, FAQ en tone of voice</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Integratie met WhatsApp, website en e-mail</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Escalatie naar medewerker bij complexe vragen</li>
+        <h3>Agents</h3>
+        <p class="ptag">AI-agents voor jouw bedrijf. 24/7 klantenservice en automatisering, volledig op maat ingericht.</p>
+        <ul class="pfeatures indigo">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>24/7 klantencontact zonder extra personeel</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Getraind op jouw producten en tone of voice</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp, website en e-mail integratie</li>
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dashboard met inzichten en gesprekken</li>
         </ul>
-        <a href="mailto:hallo@botlease.nl" class="plink indigo">
-          Neem contact op
+        <a href="#agents" class="plink indigo">
+          Plan een demo
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
+      <!-- ROBOTICS -->
+      <div class="pcard robots fi">
+        <div class="robots-left">
+          <div class="pbadge soon">Coming soon</div>
+          <h3>Robotics</h3>
+          <p class="ptag" style="margin-bottom:20px">De volgende stap: AI in de fysieke wereld. Humanoid robots die je kunt leasen voor je bedrijf — van logistiek tot klantencontact.</p>
+          <p style="font-size:14px;color:var(--fg3);margin-bottom:20px">We werken aan de eerste generatie. Schrijf je in voor vroege toegang.</p>
+          <div class="waitlist-form">
+            <input type="email" class="waitlist-input" id="wl-email" placeholder="jouw@email.nl">
+            <button class="waitlist-btn" onclick="joinWaitlist()">Schrijf me in</button>
+          </div>
+          <div class="waitlist-msg" id="wl-msg">Gelukt! We houden je op de hoogte.</div>
+        </div>
+        <div class="robots-right">
+          <div style="width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2">
+              <rect x="8" y="2" width="8" height="6" rx="2"/>
+              <line x1="12" y1="8" x2="12" y2="10"/>
+              <rect x="4" y="10" width="16" height="9" rx="3"/>
+              <line x1="4" y1="14" x2="2" y2="17"/>
+              <line x1="20" y1="14" x2="22" y2="17"/>
+              <line x1="9" y1="19" x2="9" y2="22"/>
+              <line x1="15" y1="19" x2="15" y2="22"/>
+              <circle cx="9.5" cy="13.5" r="1"/>
+              <circle cx="14.5" cy="13.5" r="1"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<!-- MISSION -->
+<!-- MILO SPOTLIGHT -->
 <div class="sec dark">
   <div class="container">
-    <div class="mission-inner">
-      <p class="mquote fi">"Wij geloven dat <em>AI gewoon moet werken</em> — zonder technische kennis, zonder gedoe. Betrouwbaar, toegankelijk en nuttig voor iedereen."</p>
-      <p class="msub fi">BotLease is opgericht om AI praktisch toepasbaar te maken. Niet als hype, maar als gereedschap dat echt iets oplost — thuis en op het werk.</p>
-      <span class="nl-tag fi">🇳🇱 Opgericht in Nederland · 2024</span>
+    <div class="sec-label fi">Uitgelicht</div>
+    <h2 class="sec-title fi">Milo — al live voor iedereen</h2>
+    <p class="sec-sub fi">De eenvoudigste manier om AI te ervaren: gewoon via WhatsApp.</p>
+
+    <div class="milo-card fi">
+      <div>
+        <div class="milo-price">
+          <span class="amount">€9,99</span>
+          <span class="period">/maand</span>
+        </div>
+        <ul class="milo-bullets">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Gratis beginnen, geen creditcard nodig</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Stel elke vraag — Milo antwoordt altijd</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Onthoudt gesprekken en jouw voorkeuren</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>100+ berichten per maand in starter plan</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cancel altijd, geen gedoe</li>
+        </ul>
+        <a href="https://heymilo.nl" class="btn-primary">Ga naar heymilo.nl →</a>
+      </div>
+      <div class="milo-right">
+        <div class="wa-bubble">
+          <div class="wa-label">WhatsApp gesprek</div>
+          <div class="wa-msg">
+            <div class="msg out">Kun jij deze brief van de gemeente uitleggen?</div>
+            <div class="msg in">Tuurlijk! Dit is een aanschrijving over je parkeervergunning. Kort gezegd: je vergunning verloopt op 1 april en je moet hem voor die datum verlengen via de gemeentesite. Wil ik dat stappenplan voor je opschrijven?</div>
+            <div class="msg out">Ja graag!</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<div class="sec" id="over">
+<!-- AGENTS SECTION -->
+<div class="sec" id="agents">
   <div class="container">
-    <div class="about-grid">
+    <div class="agents-grid">
       <div class="fi">
-        <div class="sec-label">Over BotLease</div>
-        <h2 class="sec-title">Een AI-huis<br>met focus</h2>
-        <p class="sec-sub" style="margin-bottom:18px">BotLease B.V. is een Nederlands AI-bedrijf dat premium AI-producten bouwt voor consumenten en bedrijven. Wij richten ons op toepassingen die direct waarde leveren.</p>
-        <p class="sec-sub">Onze producten delen dezelfde kern: betrouwbare AI, heldere UX, en een eerlijke prijs. Geen hype — gewoon nuttig.</p>
+        <div class="sec-label">BotLease Agents</div>
+        <h2 class="sec-title">AI klantenservice<br>voor jouw bedrijf</h2>
+        <p class="sec-sub" style="margin-bottom:0">We bouwen en beheren AI-agents die jouw klanten te woord staan — 24/7, op jouw kanalen, in jouw stijl.</p>
+        <div class="agents-cta-wrap">
+          <a href="mailto:hallo@botlease.nl?subject=Demo BotLease Agents" class="btn-indigo">Plan een demo</a>
+          <a href="mailto:hallo@botlease.nl" class="btn-ghost">Stel een vraag</a>
+        </div>
       </div>
-      <div class="stats fi">
-        <div class="stat">
-          <div class="stat-n">2</div>
-          <div class="stat-l">AI-producten in productie</div>
+      <div class="agents-features fi">
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="af-text">
+            <h4>Multi-channel</h4>
+            <p>WhatsApp, live chat op je website, e-mail — alles via één agent.</p>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-n">NL</div>
-          <div class="stat-l">Gemaakt en gehost in Nederland</div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="af-text">
+            <h4>Op maat getraind</h4>
+            <p>Getraind op jouw producten, FAQ, prijslijsten en tone of voice.</p>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-n">24/7</div>
-          <div class="stat-l">Altijd beschikbaar voor gebruikers</div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="af-text">
+            <h4>Inzicht & controle</h4>
+            <p>Dashboard met alle gesprekken, statistieken en escalatiebeheer.</p>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-n">€0</div>
-          <div class="stat-l">Gratis beginnen met Milo</div>
+        <div class="af-item">
+          <div class="af-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="af-text">
+            <h4>Snel live</h4>
+            <p>Binnen één week operationeel. Wij regelen de inrichting.</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY BOTLEASE -->
+<div class="sec dark">
+  <div class="container">
+    <div class="sec-label fi">Waarom BotLease</div>
+    <h2 class="sec-title fi">AI die gewoon werkt</h2>
+    <p class="sec-sub fi">Geen hype, geen demo-ware. Producten die vandaag al waarde leveren.</p>
+    <div class="why-grid">
+      <div class="why-card fi">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Privacy-first</h4>
+        <p>Geen data verkopen, geen tracking. Jouw gesprekken zijn van jou.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Direct bruikbaar</h4>
+        <p>Geen installatie, geen technische kennis. Stuur een bericht en begin.</p>
+      </div>
+      <div class="why-card fi">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Gemaakt in Nederland</h4>
+        <p>Nederlands team, Nederlandse servers, Nederlandse klantenservice.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="sec dark" id="contact">
+<div class="sec" id="contact">
   <div class="container">
     <div class="contact-wrap">
       <div class="sec-label fi">Contact</div>
-      <h2 class="sec-title fi">Vragen of interesse<br>in BotLease Assist?</h2>
+      <h2 class="sec-title fi">Vragen of interesse<br>in BotLease Agents?</h2>
       <p class="sec-sub fi" style="margin:0 auto">Stuur ons een mail — we reageren binnen één werkdag.</p>
       <div class="contact-card fi">
         <p style="color:var(--fg2);font-size:15px;margin-bottom:6px">Bereik ons direct via</p>
@@ -365,19 +558,36 @@
     <div class="flogo">Bot<span>Lease</span> <span style="color:var(--fg3);font-weight:400;font-size:13px">B.V.</span></div>
     <div class="flinks">
       <a href="https://heymilo.nl">Milo</a>
-      <a href="#producten">Assist</a>
-      <a href="#over">Over</a>
-      <a href="mailto:hallo@botlease.nl">Contact</a>
+      <a href="#agents">Agents</a>
+      <a href="#producten">Robotics</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="fcopy">© 2026 BotLease B.V.</div>
   </div>
 </footer>
 
 <script>
+  // Scroll animations
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  // Waitlist
+  async function joinWaitlist() {
+    const email = document.getElementById('wl-email').value.trim();
+    if (!email || !email.includes('@')) { document.getElementById('wl-email').focus(); return; }
+    try {
+      await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'robotics-waitlist' })
+      });
+    } catch(e) {}
+    document.getElementById('wl-email').style.display = 'none';
+    document.querySelector('.waitlist-btn').style.display = 'none';
+    document.getElementById('wl-msg').style.display = 'block';
+  }
 </script>
 </body>
 </html>
