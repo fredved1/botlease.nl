@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kennisbank — Milo</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dashboard.css">
+  <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+</head>
+<body>
+
+<!-- Top nav -->
+<nav class="topnav">
+  <a href="/dashboard" class="topnav-brand">Milo<span>.</span></a>
+  <div class="topnav-links">
+    <a href="/dashboard"  class="topnav-link">Dashboard</a>
+    <a href="/kennisbank" class="topnav-link active">Kennisbank</a>
+  </div>
+  <div class="topnav-right">
+    <span class="topnav-company" id="company-name">…</span>
+    <button class="topnav-logout" onclick="logout()">Uitloggen</button>
+  </div>
+</nav>
+
+<!-- Page -->
+<main class="page">
+  <div class="page-inner">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <h1>Kennisbank</h1>
+        <p class="kb-meta" id="kb-meta">Items laden…</p>
+      </div>
+      <button class="btn-primary" onclick="openModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Nieuw item
+      </button>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-cat="alle" onclick="setFilter('alle', this)">Alle</button>
+      <button class="filter-btn" data-cat="faq"       onclick="setFilter('faq', this)">FAQ</button>
+      <button class="filter-btn" data-cat="producten" onclick="setFilter('producten', this)">Producten</button>
+      <button class="filter-btn" data-cat="beleid"    onclick="setFilter('beleid', this)">Beleid</button>
+      <button class="filter-btn" data-cat="uren"      onclick="setFilter('uren', this)">Uren</button>
+      <button class="filter-btn" data-cat="algemeen"  onclick="setFilter('algemeen', this)">Algemeen</button>
+    </div>
+
+    <!-- List -->
+    <div id="kb-loader" class="loader"><div class="spinner"></div></div>
+    <div id="kb-list" class="kb-list" style="display:none"></div>
+    <div id="kb-empty" class="empty-state" style="display:none">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <p id="empty-text">Voeg je eerste kennisitem toe zodat de bot beter kan antwoorden.</p>
+    </div>
+
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <h2 id="modal-title">Nieuw kennisitem</h2>
+    <div class="form-group">
+      <label class="form-label" for="item-title">Titel</label>
+      <input class="form-input" type="text" id="item-title" placeholder="Bijv. Retourbeleid of Openingstijden">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="item-category">Categorie</label>
+      <select class="form-select" id="item-category">
+        <option value="algemeen">Algemeen</option>
+        <option value="faq">FAQ</option>
+        <option value="producten">Producten</option>
+        <option value="beleid">Beleid</option>
+        <option value="uren">Uren</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="item-content">Inhoud</label>
+      <textarea class="form-textarea" id="item-content" placeholder="Wat moet de bot weten? Schrijf het zo duidelijk mogelijk."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal()">Annuleren</button>
+      <button class="btn-primary" onclick="saveItem()">
+        Opslaan &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL  = 'https://hzexwxpnsqggbxklpues.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  let chatbotId   = null;
+  let allItems    = [];
+  let editingId   = null;
+  let activeFilter = 'alle';
+
+  // Auth guard
+  sb.auth.getSession().then(async ({ data: { session } }) => {
+    if (!session) { window.location.href = '/login'; return; }
+    await initPage(session.user);
+  });
+
+  sb.auth.onAuthStateChange((event) => {
+    if (event === 'SIGNED_OUT') window.location.href = '/login';
+  });
+
+  async function logout() {
+    await sb.auth.signOut();
+    window.location.href = '/login';
+  }
+
+  async function initPage(user) {
+    const { data: client } = await sb.from('clients').select('*').eq('user_id', user.id).single();
+    if (client) {
+      document.getElementById('company-name').textContent = client.company_name;
+      const { data: bot } = await sb.from('chatbots').select('*').eq('client_id', client.id).single();
+      if (bot) {
+        chatbotId = bot.id;
+        await loadItems();
+        return;
+      }
+    }
+    document.getElementById('company-name').textContent = user.email;
+    document.getElementById('kb-loader').style.display = 'none';
+    document.getElementById('kb-empty').style.display = 'block';
+    document.getElementById('empty-text').textContent = 'Account wordt ingesteld door BotLease.';
+    document.getElementById('kb-meta').textContent = 'Bot nog niet actief';
+  }
+
+  async function loadItems() {
+    const { data, error } = await sb
+      .from('knowledge_items')
+      .select('*')
+      .eq('chatbot_id', chatbotId)
+      .eq('is_active', true)
+      .order('created_at', { ascending: false });
+
+    document.getElementById('kb-loader').style.display = 'none';
+
+    if (error) {
+      showToast('Fout bij laden: ' + error.message, 'error');
+      return;
+    }
+
+    allItems = data || [];
+    renderItems();
+    updateMeta();
+  }
+
+  function renderItems() {
+    const filtered = activeFilter === 'alle'
+      ? allItems
+      : allItems.filter(i => i.category === activeFilter);
+
+    const list  = document.getElementById('kb-list');
+    const empty = document.getElementById('kb-empty');
+
+    if (filtered.length === 0) {
+      list.style.display  = 'none';
+      empty.style.display = 'block';
+      document.getElementById('empty-text').textContent = activeFilter === 'alle'
+        ? 'Voeg je eerste kennisitem toe zodat de bot beter kan antwoorden.'
+        : 'Geen items in de categorie "' + activeFilter + '".';
+      return;
+    }
+
+    empty.style.display = 'none';
+    list.style.display  = 'flex';
+    list.innerHTML = filtered.map(item => `
+      <div class="kb-item" id="item-${item.id}">
+        <div class="kb-category">${item.category}</div>
+        <div class="kb-content">
+          <div class="kb-title">${escHtml(item.title)}</div>
+          <div class="kb-preview">${escHtml(item.content)}</div>
+        </div>
+        <div class="kb-actions">
+          <button class="kb-btn" onclick="editItem('${item.id}')">Bewerken</button>
+          <button class="kb-btn delete" onclick="deleteItem('${item.id}')">✕</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function updateMeta() {
+    const count = allItems.length;
+    const updated = allItems.length > 0
+      ? formatDate(allItems[0].updated_at)
+      : '—';
+    document.getElementById('kb-meta').textContent =
+      count + ' item' + (count !== 1 ? 's' : '') + ' · Bot bijgewerkt op: ' + updated;
+  }
+
+  function setFilter(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderItems();
+  }
+
+  // ── Modal ──────────────────────────────────────────────
+
+  function openModal(item = null) {
+    editingId = item ? item.id : null;
+    document.getElementById('modal-title').textContent = item ? 'Item bewerken' : 'Nieuw kennisitem';
+    document.getElementById('item-title').value    = item ? item.title   : '';
+    document.getElementById('item-category').value = item ? item.category : 'algemeen';
+    document.getElementById('item-content').value  = item ? item.content : '';
+    document.getElementById('modal-overlay').classList.add('open');
+    document.getElementById('item-title').focus();
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    editingId = null;
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+
+  function editItem(id) {
+    const item = allItems.find(i => i.id === id);
+    if (item) openModal(item);
+  }
+
+  async function saveItem() {
+    const title    = document.getElementById('item-title').value.trim();
+    const category = document.getElementById('item-category').value;
+    const content  = document.getElementById('item-content').value.trim();
+
+    if (!title || !content) {
+      showToast('Vul titel en inhoud in', 'error');
+      return;
+    }
+
+    if (!chatbotId) {
+      showToast('Bot niet gevonden', 'error');
+      return;
+    }
+
+    let error;
+
+    if (editingId) {
+      ({ error } = await sb
+        .from('knowledge_items')
+        .update({ title, category, content, updated_at: new Date().toISOString() })
+        .eq('id', editingId));
+    } else {
+      ({ error } = await sb
+        .from('knowledge_items')
+        .insert({ chatbot_id: chatbotId, title, category, content }));
+    }
+
+    if (error) {
+      showToast('Opslaan mislukt: ' + error.message, 'error');
+      return;
+    }
+
+    closeModal();
+    showToast('Kennisbank bijgewerkt — bot is bijgewerkt');
+    await loadItems();
+  }
+
+  async function deleteItem(id) {
+    if (!confirm('Dit item verwijderen?')) return;
+
+    const { error } = await sb
+      .from('knowledge_items')
+      .update({ is_active: false })
+      .eq('id', id);
+
+    if (error) {
+      showToast('Verwijderen mislukt: ' + error.message, 'error');
+      return;
+    }
+
+    showToast('Item verwijderd');
+    allItems = allItems.filter(i => i.id !== id);
+    renderItems();
+    updateMeta();
+  }
+
+  // ── Helpers ────────────────────────────────────────────
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('nl-NL', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className   = 'toast ' + type;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // Close modal on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

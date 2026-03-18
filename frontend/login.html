@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inloggen — Milo Dashboard</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dashboard.css">
+  <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+</head>
+<body>
+<div class="login-page">
+  <div class="login-card">
+    <a href="/" class="login-brand">Milo<span>.</span></a>
+    <h1>Inloggen op jouw Milo dashboard</h1>
+    <p class="subtitle">Vul je e-mailadres in en we sturen je een inloglink. Geen wachtwoord nodig.</p>
+
+    <div id="alert" style="display:none"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label" for="email">E-mailadres</label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="jouw@bedrijf.nl"
+          required
+          autocomplete="email"
+        >
+      </div>
+      <button type="submit" class="btn-primary" id="submit-btn" style="width:100%; justify-content:center;">
+        Stuur inloglink &rarr;
+      </button>
+    </form>
+
+    <div class="login-checks">
+      <div class="login-check"><span class="check-icon">✓</span> Geen wachtwoord nodig</div>
+      <div class="login-check"><span class="check-icon">✓</span> Link is 24 uur geldig</div>
+      <div class="login-check"><span class="check-icon">✓</span> Veilig via Supabase Auth</div>
+    </div>
+
+    <div class="login-footer">
+      Nog geen account? <a href="/">Ontdek Milo</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL     = 'https://hzexwxpnsqggbxklpues.supabase.co';
+  const SUPABASE_ANON    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  // If already logged in, go straight to dashboard
+  sb.auth.getSession().then(({ data: { session } }) => {
+    if (session) window.location.href = '/dashboard';
+  });
+
+  // Handle magic link callback (hash fragment)
+  sb.auth.onAuthStateChange((event, session) => {
+    if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
+      window.location.href = '/dashboard';
+    }
+  });
+
+  const form       = document.getElementById('login-form');
+  const submitBtn  = document.getElementById('submit-btn');
+  const alertEl   = document.getElementById('alert');
+
+  function showAlert(msg, type) {
+    alertEl.className = 'alert alert-' + type;
+    alertEl.textContent = msg;
+    alertEl.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Verzenden…';
+    alertEl.style.display = 'none';
+
+    const { error } = await sb.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: window.location.origin + '/dashboard'
+      }
+    });
+
+    if (error) {
+      showAlert('Er ging iets mis: ' + error.message, 'error');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Stuur inloglink &rarr;';
+    } else {
+      showAlert('Check je inbox! We hebben een inloglink gestuurd naar ' + email, 'success');
+      form.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

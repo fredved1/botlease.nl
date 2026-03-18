@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Milo</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dashboard.css">
+  <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+</head>
+<body>
+
+<!-- Top nav -->
+<nav class="topnav">
+  <a href="/dashboard" class="topnav-brand">Milo<span>.</span></a>
+  <div class="topnav-links">
+    <a href="/dashboard"  class="topnav-link active">Dashboard</a>
+    <a href="/kennisbank" class="topnav-link">Kennisbank</a>
+  </div>
+  <div class="topnav-right">
+    <span class="topnav-company" id="company-name">…</span>
+    <button class="topnav-logout" onclick="logout()">Uitloggen</button>
+  </div>
+</nav>
+
+<!-- Page -->
+<main class="page">
+  <div class="page-inner">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <h1 id="greeting">Goedemorgen.</h1>
+        <p id="bot-domain" style="margin-top:4px;font-size:14px;color:var(--fg-muted)">Bot laadt…</p>
+      </div>
+      <div id="bot-status" class="status-badge">Online</div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Gesprekken vandaag</div>
+        <div class="stat-value" id="stat-today">—</div>
+        <div class="stat-sub">chatgesprekken</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Deze week</div>
+        <div class="stat-value" id="stat-week">—</div>
+        <div class="stat-sub">chatgesprekken</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Leads</div>
+        <div class="stat-value" id="stat-leads">—</div>
+        <div class="stat-sub">e-mails verzameld</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Kennisitems</div>
+        <div class="stat-value" id="stat-knowledge">—</div>
+        <div class="stat-sub">actieve items</div>
+      </div>
+    </div>
+
+    <!-- Two-column -->
+    <div class="two-col">
+
+      <!-- Recent conversations -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Recente gesprekken</h2>
+          <span style="font-size:12px;color:var(--fg-subtle)" id="refresh-label"></span>
+        </div>
+        <div class="card-body">
+          <div id="convos-loader" class="loader"><div class="spinner"></div></div>
+          <ul class="convo-list" id="convo-list" style="display:none"></ul>
+          <div id="convos-empty" class="empty-state" style="display:none">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p>Nog geen gesprekken. De bot is klaar!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div>
+        <div class="card">
+          <div class="card-header"><h2>Snelle acties</h2></div>
+          <div class="card-body">
+            <div class="quick-actions">
+              <a href="/kennisbank" class="quick-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                Kennisbank updaten
+              </a>
+              <button class="quick-btn" onclick="copyEmbedCode()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Embedcode kopiëren
+              </button>
+              <button class="quick-btn" onclick="testBot()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                Test mijn bot
+              </button>
+            </div>
+            <div class="bot-since">
+              <strong>Bot actief sinds</strong>
+              <span id="bot-since">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL  = 'https://hzexwxpnsqggbxklpues.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZXh3eHBuc3FnZ2J4a2xwdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5Nzg2OTIsImV4cCI6MjA4NzU1NDY5Mn0.Lv8WaPCJuCb_PJIDlSFIjcZ3kEzg9sxGJkJsS3SWihg';
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  let currentChatbotId = null;
+
+  // Auth guard
+  sb.auth.getSession().then(async ({ data: { session } }) => {
+    if (!session) { window.location.href = '/login'; return; }
+    await initPage(session.user);
+  });
+
+  sb.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT') window.location.href = '/login';
+  });
+
+  async function logout() {
+    await sb.auth.signOut();
+    window.location.href = '/login';
+  }
+
+  function greeting() {
+    const h = new Date().getHours();
+    if (h < 12) return 'Goedemorgen';
+    if (h < 18) return 'Goedemiddag';
+    return 'Goedenavond';
+  }
+
+  async function initPage(user) {
+    // Load client profile
+    const { data: client } = await sb
+      .from('clients')
+      .select('*')
+      .eq('user_id', user.id)
+      .single();
+
+    const companyName = client ? client.company_name : user.email;
+    document.getElementById('company-name').textContent = companyName;
+    document.getElementById('greeting').textContent = greeting() + ', ' + companyName + '.';
+
+    // Load chatbot
+    if (client) {
+      const { data: bot } = await sb
+        .from('chatbots')
+        .select('*')
+        .eq('client_id', client.id)
+        .single();
+
+      if (bot) {
+        currentChatbotId = bot.id;
+        const domainEl = document.getElementById('bot-domain');
+        domainEl.textContent = (client.domain ? '● ' + client.domain : '● Bot actief') + ' — ' + bot.name;
+
+        const statusEl = document.getElementById('bot-status');
+        if (!bot.is_active) {
+          statusEl.className = 'status-badge offline';
+          statusEl.textContent = 'Offline';
+        } else {
+          statusEl.textContent = 'Online';
+        }
+
+        document.getElementById('bot-since').textContent = formatDate(bot.created_at);
+
+        await loadStats(bot.id);
+        await loadConversations(bot.id);
+      } else {
+        document.getElementById('bot-domain').textContent = 'Chatbot wordt ingesteld door BotLease';
+        noBot();
+      }
+    } else {
+      document.getElementById('bot-domain').textContent = 'Account wordt ingesteld door BotLease';
+      noBot();
+    }
+
+    document.getElementById('refresh-label').textContent = 'Bijgewerkt ' + new Date().toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function noBot() {
+    ['stat-today','stat-week','stat-leads','stat-knowledge'].forEach(id => {
+      document.getElementById(id).textContent = '0';
+    });
+    document.getElementById('convos-loader').style.display = 'none';
+    document.getElementById('convos-empty').style.display = 'block';
+  }
+
+  async function loadStats(chatbotId) {
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+    const weekStart  = new Date(now - 7 * 86400000).toISOString();
+
+    const [todayRes, weekRes, leadsRes, knowledgeRes] = await Promise.all([
+      sb.from('conversations').select('id', { count: 'exact', head: true })
+        .eq('chatbot_id', chatbotId).gte('started_at', todayStart),
+      sb.from('conversations').select('id', { count: 'exact', head: true })
+        .eq('chatbot_id', chatbotId).gte('started_at', weekStart),
+      sb.from('conversations').select('id', { count: 'exact', head: true })
+        .eq('chatbot_id', chatbotId).eq('is_lead', true),
+      sb.from('knowledge_items').select('id', { count: 'exact', head: true })
+        .eq('chatbot_id', chatbotId).eq('is_active', true),
+    ]);
+
+    document.getElementById('stat-today').textContent     = todayRes.count ?? 0;
+    document.getElementById('stat-week').textContent      = weekRes.count ?? 0;
+    document.getElementById('stat-leads').textContent     = leadsRes.count ?? 0;
+    document.getElementById('stat-knowledge').textContent = knowledgeRes.count ?? 0;
+  }
+
+  async function loadConversations(chatbotId) {
+    const { data } = await sb
+      .from('conversations')
+      .select('*')
+      .eq('chatbot_id', chatbotId)
+      .order('started_at', { ascending: false })
+      .limit(5);
+
+    document.getElementById('convos-loader').style.display = 'none';
+
+    if (!data || data.length === 0) {
+      document.getElementById('convos-empty').style.display = 'block';
+      return;
+    }
+
+    const list = document.getElementById('convo-list');
+    list.style.display = 'block';
+    list.innerHTML = data.map(c => `
+      <li class="convo-item">
+        <div class="convo-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="convo-time">${formatDateTime(c.started_at)}${c.is_lead ? ' · <span style="color:var(--green);font-weight:600">Lead</span>' : ''}</div>
+          <div class="convo-preview">Sessie ${c.session_id.slice(-6)} · ${c.message_count} berichten${c.visitor_email ? ' · ' + c.visitor_email : ''}</div>
+        </div>
+      </li>
+    `).join('');
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function formatDateTime(iso) {
+    const d = new Date(iso);
+    const now = new Date();
+    const diffDays = Math.floor((now - d) / 86400000);
+    const time = d.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+    if (diffDays === 0) return 'Vandaag ' + time;
+    if (diffDays === 1) return 'Gisteren ' + time;
+    return d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short' }) + ' ' + time;
+  }
+
+  function copyEmbedCode() {
+    if (!currentChatbotId) { showToast('Bot niet gevonden', 'error'); return; }
+    const code = `<script src="https://botlease.nl/chatbot.js" data-bot="${currentChatbotId}"><\/script>`;
+    navigator.clipboard.writeText(code).then(() => showToast('Embedcode gekopieerd!')).catch(() => {
+      prompt('Kopieer de embedcode:', code);
+    });
+  }
+
+  function testBot() {
+    window.open('/', '_blank');
+  }
+
+  function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast ' + type;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+</body>
+</html>
