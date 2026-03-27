@@ -62,4 +62,4 @@ server.log
 server_test.log
 *.db
 *.sqlite
-localStorage/
+localStorage/supabase/
