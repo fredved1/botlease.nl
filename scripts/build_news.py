@@ -124,10 +124,32 @@ article.card .read-more { color:var(--accent-2); font-weight:600; }
 article.card.featured { grid-column:span 2; background:linear-gradient(135deg, rgba(255,94,31,0.08), rgba(255,94,31,0.02)); border-color:rgba(255,94,31,0.25); }
 article.card.featured h2 { font-size:30px; max-width:680px; }
 article.card.featured p.lede { font-size:16px; max-width:680px; }
+article.card { padding:0; overflow:hidden; }
+article.card .card-body { padding:24px 28px 28px; display:flex; flex-direction:column; flex:1; }
+.card-thumb {
+  position:relative; height:160px; overflow:hidden;
+  background:linear-gradient(135deg, color-mix(in srgb, var(--art-tint) 22%, var(--bg-3)) 0%, var(--bg-3) 100%);
+  border-bottom:1px solid var(--line);
+}
+.card-thumb-pattern {
+  position:absolute; inset:0;
+  background:radial-gradient(60% 80% at 80% 50%, color-mix(in srgb, var(--art-tint) 28%, transparent) 0%, transparent 70%);
+}
+.card-thumb-art {
+  position:absolute; right:22px; top:50%; transform:translateY(-50%);
+  height:140px; width:auto; opacity:0.92;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+  transition:transform .35s;
+}
+article.card:hover .card-thumb-art { transform:translateY(-50%) scale(1.05); }
+article.card.featured .card-thumb { height:220px; }
+article.card.featured .card-thumb-art { height:200px; right:48px; }
 @media (max-width:780px) {
   .news-grid { grid-template-columns:1fr; }
   article.card.featured { grid-column:span 1; }
   article.card.featured h2 { font-size:24px; }
+  article.card.featured .card-thumb { height:160px; }
+  article.card.featured .card-thumb-art { height:140px; right:22px; }
 }
 """
 
@@ -138,6 +160,35 @@ ARTICLE_CSS = """
 .crumbs { display:flex; gap:8px; font-size:13px; color:var(--ink-3); margin-bottom:24px; }
 .crumbs a:hover { color:var(--ink-2); }
 .crumbs .sep { color:var(--line-2); }
+.hero-banner {
+  position:relative; width:100%; height:240px;
+  border-radius:18px; overflow:hidden; margin-bottom:36px;
+  background:linear-gradient(135deg, color-mix(in srgb, var(--art-tint) 26%, var(--bg-3)) 0%, var(--bg-3) 70%);
+  border:1px solid var(--line);
+}
+.hero-banner-pattern {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(50% 90% at 78% 50%, color-mix(in srgb, var(--art-tint) 35%, transparent) 0%, transparent 65%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 18px);
+}
+.hero-banner-label {
+  position:absolute; top:20px; left:24px;
+  font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.16em;
+  color:var(--ink); opacity:0.75;
+  padding:5px 12px; background:rgba(8,8,10,0.55); border:1px solid rgba(255,255,255,0.08);
+  border-radius:999px; backdrop-filter:blur(8px);
+}
+.hero-banner-art {
+  position:absolute; right:32px; top:50%; transform:translateY(-50%);
+  height:220px; width:auto; opacity:0.95;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,0.55));
+}
+@media (max-width:780px) {
+  .hero-banner { height:180px; }
+  .hero-banner-art { height:160px; right:18px; }
+}
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat { font-family:'Space Grotesk'; color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; padding:4px 10px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
 article.full h1 { font-size:clamp(34px,4.5vw,52px); margin-bottom:18px; letter-spacing:-0.035em; line-height:1.1; }
@@ -200,6 +251,231 @@ FOOTER_HTML = """
   </div>
 </footer>
 """
+
+# ---------------------------------------------------------------- SVG art library
+# Reused across listing + article pages. Mirrors the silhouettes on the homepage,
+# plus two abstract motifs voor regelgeving/markt-artikelen.
+SVG_DEFS = """
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bot-g1" viewBox="0 0 200 320">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="100" cy="42" rx="22" ry="24" fill="currentColor" fill-opacity="0.08"/>
+        <rect x="84" y="34" width="32" height="10" rx="5" fill="currentColor" fill-opacity="0.4"/>
+        <circle cx="92" cy="39" r="2" fill="currentColor"/><circle cx="108" cy="39" r="2" fill="currentColor"/>
+        <line x1="94" y1="66" x2="94" y2="78"/><line x1="106" y1="66" x2="106" y2="78"/>
+        <path d="M76 82 Q76 78 82 78 L118 78 Q124 78 124 82 L124 160 Q124 166 118 166 L82 166 Q76 166 76 160 Z" fill="currentColor" fill-opacity="0.07"/>
+        <rect x="89" y="96" width="22" height="32" rx="3" fill="currentColor" fill-opacity="0.15"/>
+        <line x1="93" y1="105" x2="107" y2="105"/><line x1="93" y1="114" x2="107" y2="114"/>
+        <circle cx="74" cy="86" r="7" fill="currentColor" fill-opacity="0.15"/>
+        <circle cx="126" cy="86" r="7" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M70 93 Q66 120 68 148"/><path d="M130 93 Q134 120 132 148"/>
+        <rect x="62" y="148" width="12" height="22" rx="3" fill="currentColor" fill-opacity="0.18"/>
+        <rect x="126" y="148" width="12" height="22" rx="3" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M82 166 L118 166 L120 184 L80 184 Z" fill="currentColor" fill-opacity="0.1"/>
+        <path d="M88 186 L86 232"/><path d="M112 186 L114 232"/>
+        <circle cx="86" cy="234" r="6" fill="currentColor" fill-opacity="0.15"/>
+        <circle cx="114" cy="234" r="6" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M86 240 L88 270"/><path d="M114 240 L112 270"/>
+        <rect x="76" y="270" width="24" height="8" rx="2" fill="currentColor" fill-opacity="0.2"/>
+        <rect x="100" y="270" width="24" height="8" rx="2" fill="currentColor" fill-opacity="0.2"/>
+      </g>
+    </symbol>
+    <symbol id="bot-digit" viewBox="0 0 200 320">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="76" y="20" width="48" height="28" rx="4" fill="currentColor" fill-opacity="0.1"/>
+        <circle cx="100" cy="34" r="6" fill="currentColor" fill-opacity="0.4"/>
+        <circle cx="100" cy="34" r="2.5" fill="currentColor"/>
+        <line x1="78" y1="44" x2="122" y2="44" stroke-width="2"/>
+        <line x1="96" y1="48" x2="96" y2="58"/><line x1="104" y1="48" x2="104" y2="58"/>
+        <path d="M62 60 L138 60 L142 170 Q142 182 130 182 L70 182 Q58 182 58 170 Z" fill="currentColor" fill-opacity="0.08"/>
+        <rect x="84" y="78" width="32" height="50" rx="2" fill="currentColor" fill-opacity="0.15"/>
+        <line x1="90" y1="88" x2="110" y2="88"/>
+        <circle cx="93" cy="100" r="2" fill="currentColor"/><circle cx="107" cy="100" r="2" fill="currentColor"/>
+        <line x1="90" y1="112" x2="110" y2="112"/>
+        <circle cx="56" cy="68" r="9" fill="currentColor" fill-opacity="0.15"/>
+        <circle cx="144" cy="68" r="9" fill="currentColor" fill-opacity="0.15"/>
+        <path d="M52 76 L46 130"/><path d="M148 76 L154 130"/>
+        <circle cx="46" cy="132" r="7" fill="currentColor" fill-opacity="0.18"/>
+        <circle cx="154" cy="132" r="7" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M46 139 L54 178"/><path d="M154 139 L146 178"/>
+        <path d="M40 178 L60 178 L58 188 L42 188 Z" fill="currentColor" fill-opacity="0.2"/>
+        <path d="M140 178 L160 178 L158 188 L142 188 Z" fill="currentColor" fill-opacity="0.2"/>
+        <path d="M82 184 L70 222" stroke-width="3.5"/>
+        <path d="M118 184 L130 222" stroke-width="3.5"/>
+        <circle cx="70" cy="224" r="7" fill="currentColor" fill-opacity="0.18"/>
+        <circle cx="130" cy="224" r="7" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M70 230 L92 270" stroke-width="3.5"/>
+        <path d="M130 230 L108 270" stroke-width="3.5"/>
+        <path d="M92 270 L88 302"/><path d="M108 270 L112 302"/>
+        <rect x="76" y="300" width="26" height="10" rx="2" fill="currentColor" fill-opacity="0.25"/>
+        <rect x="98" y="300" width="26" height="10" rx="2" fill="currentColor" fill-opacity="0.25"/>
+      </g>
+    </symbol>
+    <symbol id="bot-apollo" viewBox="0 0 200 320">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="74" y="8" width="52" height="50" rx="12" fill="currentColor" fill-opacity="0.1"/>
+        <rect x="80" y="22" width="40" height="16" rx="3" fill="currentColor" fill-opacity="0.45"/>
+        <line x1="86" y1="30" x2="114" y2="30" stroke-width="2"/>
+        <line x1="92" y1="58" x2="92" y2="68"/><line x1="108" y1="58" x2="108" y2="68"/>
+        <path d="M50 72 Q50 64 60 64 L140 64 Q150 64 150 72 L150 180 Q150 192 138 192 L62 192 Q50 192 50 180 Z" fill="currentColor" fill-opacity="0.1"/>
+        <rect x="76" y="84" width="48" height="56" rx="6" fill="currentColor" fill-opacity="0.2"/>
+        <rect x="84" y="94" width="32" height="12" rx="2" fill="currentColor" fill-opacity="0.35"/>
+        <circle cx="92" cy="124" r="4" fill="currentColor" fill-opacity="0.3"/>
+        <circle cx="108" cy="124" r="4" fill="currentColor" fill-opacity="0.3"/>
+        <path d="M44 74 Q40 70 46 64 L62 64 L62 92 Q56 96 48 92 Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M156 74 Q160 70 154 64 L138 64 L138 92 Q144 96 152 92 Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M46 96 Q38 130 44 162"/><path d="M154 96 Q162 130 156 162"/>
+        <circle cx="44" cy="164" r="8" fill="currentColor" fill-opacity="0.18"/>
+        <circle cx="156" cy="164" r="8" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M44 172 Q42 200 50 220"/><path d="M156 172 Q158 200 150 220"/>
+        <rect x="38" y="220" width="22" height="24" rx="4" fill="currentColor" fill-opacity="0.22"/>
+        <rect x="140" y="220" width="22" height="24" rx="4" fill="currentColor" fill-opacity="0.22"/>
+        <path d="M62 192 L138 192 L142 214 L58 214 Z" fill="currentColor" fill-opacity="0.13"/>
+        <path d="M80 216 Q76 254 82 274"/><path d="M120 216 Q124 254 118 274"/>
+        <circle cx="82" cy="276" r="9" fill="currentColor" fill-opacity="0.18"/>
+        <circle cx="118" cy="276" r="9" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M82 284 L84 308"/><path d="M118 284 L116 308"/>
+        <rect x="68" y="306" width="32" height="10" rx="3" fill="currentColor" fill-opacity="0.25"/>
+        <rect x="100" y="306" width="32" height="10" rx="3" fill="currentColor" fill-opacity="0.25"/>
+      </g>
+    </symbol>
+    <!-- Regelgeving: weegschaal + EU-sterren -->
+    <symbol id="art-regulation" viewBox="0 0 200 320">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- pillar -->
+        <line x1="100" y1="62" x2="100" y2="246" stroke-width="4"/>
+        <rect x="74" y="248" width="52" height="14" rx="3" fill="currentColor" fill-opacity="0.2"/>
+        <rect x="62" y="262" width="76" height="10" rx="3" fill="currentColor" fill-opacity="0.15"/>
+        <!-- beam -->
+        <line x1="38" y1="92" x2="162" y2="92" stroke-width="3.5"/>
+        <line x1="100" y1="62" x2="100" y2="92" stroke-width="3.5"/>
+        <circle cx="100" cy="62" r="6" fill="currentColor" fill-opacity="0.5"/>
+        <!-- left pan -->
+        <line x1="50" y1="92" x2="50" y2="120"/>
+        <line x1="30" y1="120" x2="70" y2="120"/>
+        <path d="M30 120 Q30 142 50 144 Q70 142 70 120" fill="currentColor" fill-opacity="0.18"/>
+        <!-- right pan -->
+        <line x1="150" y1="92" x2="150" y2="120"/>
+        <line x1="130" y1="120" x2="170" y2="120"/>
+        <path d="M130 120 Q130 142 150 144 Q170 142 170 120" fill="currentColor" fill-opacity="0.18"/>
+        <!-- EU stars arc above -->
+        <g fill="currentColor" fill-opacity="0.7" stroke="none">
+          <polygon points="60,20 62,26 68,26 63,30 65,36 60,32 55,36 57,30 52,26 58,26"/>
+          <polygon points="82,12 84,18 90,18 85,22 87,28 82,24 77,28 79,22 74,18 80,18"/>
+          <polygon points="100,8  102,14 108,14 103,18 105,24 100,20 95,24 97,18 92,14 98,14"/>
+          <polygon points="118,12 120,18 126,18 121,22 123,28 118,24 113,28 115,22 110,18 116,18"/>
+          <polygon points="140,20 142,26 148,26 143,30 145,36 140,32 135,36 137,30 132,26 138,26"/>
+        </g>
+        <!-- document on left pan -->
+        <g stroke-width="2">
+          <rect x="38" y="100" width="24" height="14" rx="1" fill="currentColor" fill-opacity="0.25"/>
+          <line x1="42" y1="105" x2="58" y2="105"/>
+          <line x1="42" y1="109" x2="54" y2="109"/>
+        </g>
+        <!-- gear on right pan (AI) -->
+        <g stroke-width="2">
+          <circle cx="150" cy="106" r="9" fill="currentColor" fill-opacity="0.2"/>
+          <circle cx="150" cy="106" r="3" fill="currentColor" fill-opacity="0.4"/>
+          <line x1="150" y1="94"  x2="150" y2="97"/>
+          <line x1="150" y1="115" x2="150" y2="118"/>
+          <line x1="138" y1="106" x2="141" y2="106"/>
+          <line x1="159" y1="106" x2="162" y2="106"/>
+        </g>
+      </g>
+    </symbol>
+    <!-- Markt: oplopende barchart + pijl + euro/dollar -->
+    <symbol id="art-market" viewBox="0 0 200 320">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- baseline + y-axis -->
+        <line x1="32" y1="40" x2="32" y2="240" stroke-width="2"/>
+        <line x1="32" y1="240" x2="180" y2="240" stroke-width="2"/>
+        <g stroke-width="1" stroke-opacity="0.4">
+          <line x1="28" y1="80" x2="180" y2="80"/>
+          <line x1="28" y1="120" x2="180" y2="120"/>
+          <line x1="28" y1="160" x2="180" y2="160"/>
+          <line x1="28" y1="200" x2="180" y2="200"/>
+        </g>
+        <!-- bars ascending -->
+        <g fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2">
+          <rect x="44"  y="200" width="20" height="40" rx="2"/>
+          <rect x="72"  y="172" width="20" height="68" rx="2"/>
+          <rect x="100" y="140" width="20" height="100" rx="2"/>
+          <rect x="128" y="98"  width="20" height="142" rx="2"/>
+          <rect x="156" y="60"  width="20" height="180" rx="2"/>
+        </g>
+        <!-- trend arrow -->
+        <g stroke-width="3.5" fill="none">
+          <path d="M40 210 L80 175 L120 145 L165 70"/>
+          <polyline points="155,68 165,68 165,80"/>
+        </g>
+        <!-- euro symbol top-left -->
+        <g stroke-width="3" stroke-linecap="round">
+          <path d="M80 268 Q70 268 66 274 Q62 282 66 290 Q70 296 80 296"/>
+          <line x1="62" y1="278" x2="78" y2="278"/>
+          <line x1="62" y1="286" x2="78" y2="286"/>
+        </g>
+        <!-- dollar -->
+        <g stroke-width="3" stroke-linecap="round">
+          <path d="M118 268 Q108 268 108 274 Q108 280 116 282 Q124 284 124 290 Q124 296 114 296"/>
+          <line x1="116" y1="262" x2="116" y2="302"/>
+        </g>
+        <!-- 2035 label squareish -->
+        <g stroke-width="2" stroke-opacity="0.7">
+          <rect x="150" y="262" width="36" height="20" rx="3" fill="currentColor" fill-opacity="0.12"/>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+"""
+
+# ---------------------------------------------------------------- art mapping
+# Per artikel: welke symbol gebruiken en in welke kleur.
+DEFAULT_ART = {"symbol": "bot-g1", "color": "#7be59d", "tint": "#5be584"}
+ART_BY_SLUG = {
+    "unitree-g1-mkb-vijf-rendabele-toepassingen":
+        {"symbol": "bot-g1", "color": "#7be59d", "tint": "#5be584"},
+    "apptronik-mercedes-apollo-lessen-eerste-pilot":
+        {"symbol": "bot-apollo", "color": "#ffb098", "tint": "#ff5e1f"},
+    "ai-act-machineverordening-humanoid-werkgevers-2026":
+        {"symbol": "art-regulation", "color": "#ffd166", "tint": "#ffc966"},
+    "agility-digit-fulfillment-pilot-3pl-nederland":
+        {"symbol": "bot-digit", "color": "#ffc966", "tint": "#ffb098"},
+    "goldman-sachs-38-miljard-humanoid-markt-nederland":
+        {"symbol": "art-market", "color": "#a6cbff", "tint": "#6ea8ff"},
+}
+
+
+def art_for(slug: str) -> dict:
+    return ART_BY_SLUG.get(slug, DEFAULT_ART)
+
+
+def article_hero_banner(a: dict) -> str:
+    """Banner above the article title: gradient + robot/abstract silhouette."""
+    art = art_for(a["slug"])
+    return (
+        f'<div class="hero-banner" style="--art-tint:{art["tint"]}">'
+        f'  <div class="hero-banner-pattern"></div>'
+        f'  <span class="hero-banner-label">{escape(a.get("category", "Nieuws"))}</span>'
+        f'  <svg class="hero-banner-art" viewBox="0 0 200 320" style="color:{art["color"]}" aria-hidden="true">'
+        f'    <use href="#{art["symbol"]}"/>'
+        f'  </svg>'
+        f'</div>'
+    )
+
+
+def card_thumb(a: dict) -> str:
+    """Compact thumbnail at the top of a listing card."""
+    art = art_for(a["slug"])
+    return (
+        f'<div class="card-thumb" style="--art-tint:{art["tint"]}">'
+        f'  <div class="card-thumb-pattern"></div>'
+        f'  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:{art["color"]}" aria-hidden="true">'
+        f'    <use href="#{art["symbol"]}"/>'
+        f'  </svg>'
+        f'</div>'
+    )
 
 ORG_SCHEMA = json.dumps({
     "@context": "https://schema.org",
@@ -273,6 +549,7 @@ def render_article(a: dict, related: list) -> str:
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 </head>
 <body>
+{SVG_DEFS}
 {NAV_HTML}
 
 <section class="article-hero">
@@ -284,6 +561,7 @@ def render_article(a: dict, related: list) -> str:
       <span class="sep">/</span>
       <span>{escape(a.get('category',''))}</span>
     </nav>
+    {article_hero_banner(a)}
     <article class="full">
       <div class="meta">
         <span class="cat">{escape(a.get('category', 'Nieuws'))}</span>
@@ -322,15 +600,18 @@ def render_listing(articles: list) -> str:
         featured = " featured" if i == 0 else ""
         cards.append(f'''
         <article class="card{featured}">
-          <div class="meta">
-            <span class="cat">{escape(a.get('category', 'Nieuws'))}</span>
-            <span class="date">{escape(fmt_date_nl(a['date']))}</span>
-          </div>
-          <h2><a href="/nieuws/{a['slug']}">{escape(a['title'])}</a></h2>
-          <p class="lede">{escape(a['subtitle'])}</p>
-          <div class="footer-line">
-            <span>{a.get('reading_time', 5)} min lezen</span>
-            <a class="read-more" href="/nieuws/{a['slug']}">Lees artikel →</a>
+          {card_thumb(a)}
+          <div class="card-body">
+            <div class="meta">
+              <span class="cat">{escape(a.get('category', 'Nieuws'))}</span>
+              <span class="date">{escape(fmt_date_nl(a['date']))}</span>
+            </div>
+            <h2><a href="/nieuws/{a['slug']}">{escape(a['title'])}</a></h2>
+            <p class="lede">{escape(a['subtitle'])}</p>
+            <div class="footer-line">
+              <span>{a.get('reading_time', 5)} min lezen</span>
+              <a class="read-more" href="/nieuws/{a['slug']}">Lees artikel →</a>
+            </div>
           </div>
         </article>''')
 
@@ -372,6 +653,7 @@ def render_listing(articles: list) -> str:
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 </head>
 <body>
+{SVG_DEFS}
 {NAV_HTML}
 
 <section class="news-hero">

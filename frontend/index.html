@@ -307,14 +307,15 @@ section.alt { background:var(--bg-2); border-top:1px solid var(--line); border-b
 .usecases { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
 .usecase {
   border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden;
-  background:var(--bg-2); position:relative; min-height:320px;
+  background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%);
+  position:relative; min-height:340px;
   display:flex; flex-direction:column; justify-content:flex-end;
   transition:transform .3s, border-color .25s;
 }
 .usecase:hover { transform:translateY(-3px); border-color:var(--line-2); }
-.usecase img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.45; transition:opacity .3s, transform .8s; }
-.usecase:hover img { opacity:0.55; transform:scale(1.04); }
-.usecase::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,10,0.2) 0%, rgba(8,8,10,0.95) 75%); }
+.usecase-art { position:absolute; inset:0; width:100%; height:100%; opacity:0.9; transition:opacity .3s, transform .8s; pointer-events:none; }
+.usecase:hover .usecase-art { opacity:1; transform:scale(1.03); }
+.usecase::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,10,0) 0%, rgba(8,8,10,0.92) 70%); pointer-events:none; }
 .usecase-body { position:relative; z-index:2; padding:30px; }
 .usecase h3 { font-size:22px; margin-bottom:8px; letter-spacing:-0.02em; }
 .usecase p { color:var(--ink-2); font-size:14.5px; margin-bottom:14px; line-height:1.55; }
@@ -895,31 +896,247 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
     </div>
     <div class="usecases">
       <div class="usecase">
-        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1400&q=85&auto=format&fit=crop" alt="Warehouse fulfillment" loading="lazy">
+        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="uc-w-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5e1f" stop-opacity="0.14"/>
+              <stop offset="1" stop-color="#ff5e1f" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="380" fill="url(#uc-w-bg)"/>
+          <!-- shelving racks -->
+          <g stroke="#a5a5b3" stroke-width="1.2" stroke-opacity="0.28" fill="none">
+            <line x1="20" y1="80"  x2="290" y2="80"/>
+            <line x1="20" y1="140" x2="290" y2="140"/>
+            <line x1="20" y1="200" x2="290" y2="200"/>
+            <line x1="20" y1="260" x2="290" y2="260"/>
+            <line x1="40"  y1="60" x2="40"  y2="280"/>
+            <line x1="155" y1="60" x2="155" y2="280"/>
+            <line x1="270" y1="60" x2="270" y2="280"/>
+          </g>
+          <!-- boxes on shelves -->
+          <g fill="#ffb098" fill-opacity="0.16" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.4">
+            <rect x="52"  y="95"  width="34" height="40" rx="2"/>
+            <rect x="92"  y="105" width="26" height="30" rx="2"/>
+            <rect x="170" y="100" width="40" height="35" rx="2"/>
+            <rect x="225" y="110" width="32" height="25" rx="2"/>
+            <rect x="60"  y="158" width="40" height="38" rx="2"/>
+            <rect x="180" y="160" width="34" height="36" rx="2"/>
+            <rect x="226" y="165" width="28" height="31" rx="2"/>
+            <rect x="55"  y="218" width="50" height="38" rx="2"/>
+            <rect x="170" y="222" width="44" height="34" rx="2"/>
+          </g>
+          <!-- pallet on floor -->
+          <g stroke="#666672" stroke-width="1.5" fill="#16161c">
+            <rect x="320" y="298" width="120" height="14"/>
+            <line x1="332" y1="298" x2="332" y2="312"/>
+            <line x1="380" y1="298" x2="380" y2="312"/>
+            <line x1="428" y1="298" x2="428" y2="312"/>
+          </g>
+          <!-- big box on pallet -->
+          <g fill="#ffb098" fill-opacity="0.18" stroke="#ffb098" stroke-opacity="0.65" stroke-width="1.8">
+            <rect x="340" y="230" width="80" height="70" rx="2"/>
+            <line x1="340" y1="260" x2="420" y2="260"/>
+            <line x1="380" y1="230" x2="380" y2="300"/>
+          </g>
+          <!-- Digit silhouette working -->
+          <g transform="translate(440,40)" style="color:#ffc966">
+            <svg width="160" height="256" viewBox="0 0 200 320"><use href="#bot-digit"/></svg>
+          </g>
+        </svg>
         <div class="usecase-body">
           <h3>E-commerce & 3PL</h3>
           <p>Tote- en pakkethandling, decanting, sortering buiten piekuren. Een Digit of Apollo vervangt ~1,3 FTE in 2-ploegen.</p>
           <span class="roi">ROI: 11–14 maanden</span>
         </div>
       </div>
+
       <div class="usecase">
-        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1400&q=85&auto=format&fit=crop" alt="Productie assemblage" loading="lazy">
+        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="uc-p-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a6cbff" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#a6cbff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="380" fill="url(#uc-p-bg)"/>
+          <!-- conveyor belt -->
+          <g>
+            <rect x="0" y="280" width="600" height="20" fill="#23232c"/>
+            <rect x="0" y="298" width="600" height="6" fill="#0e0e12"/>
+            <g stroke="#a6cbff" stroke-opacity="0.25" stroke-width="1">
+              <line x1="20" y1="290" x2="40" y2="290"/>
+              <line x1="80" y1="290" x2="100" y2="290"/>
+              <line x1="140" y1="290" x2="160" y2="290"/>
+              <line x1="200" y1="290" x2="220" y2="290"/>
+              <line x1="260" y1="290" x2="280" y2="290"/>
+              <line x1="320" y1="290" x2="340" y2="290"/>
+              <line x1="380" y1="290" x2="400" y2="290"/>
+              <line x1="440" y1="290" x2="460" y2="290"/>
+              <line x1="500" y1="290" x2="520" y2="290"/>
+              <line x1="560" y1="290" x2="580" y2="290"/>
+            </g>
+          </g>
+          <!-- parts on conveyor -->
+          <g fill="#a6cbff" fill-opacity="0.22" stroke="#a6cbff" stroke-opacity="0.6" stroke-width="1.5">
+            <circle cx="60" cy="265" r="14"/>
+            <rect x="120" y="248" width="32" height="32" rx="3"/>
+            <circle cx="200" cy="265" r="12"/>
+            <rect x="245" y="252" width="28" height="28" rx="3"/>
+          </g>
+          <!-- gears top-left -->
+          <g fill="none" stroke="#a6cbff" stroke-opacity="0.35" stroke-width="1.5">
+            <circle cx="80" cy="80" r="32"/>
+            <circle cx="80" cy="80" r="10"/>
+            <g stroke-width="2.5">
+              <line x1="80" y1="44" x2="80" y2="52"/>
+              <line x1="80" y1="108" x2="80" y2="116"/>
+              <line x1="44" y1="80" x2="52" y2="80"/>
+              <line x1="108" y1="80" x2="116" y2="80"/>
+              <line x1="54" y1="54" x2="60" y2="60"/>
+              <line x1="100" y1="100" x2="106" y2="106"/>
+              <line x1="54" y1="106" x2="60" y2="100"/>
+              <line x1="100" y1="60" x2="106" y2="54"/>
+            </g>
+            <circle cx="160" cy="130" r="22"/>
+            <circle cx="160" cy="130" r="7"/>
+          </g>
+          <!-- robot arm on top -->
+          <g fill="none" stroke="#a6cbff" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="290" y="20" width="40" height="20" rx="3" fill="#a6cbff" fill-opacity="0.2"/>
+            <line x1="310" y1="40" x2="310" y2="90"/>
+            <circle cx="310" cy="92" r="8" fill="#a6cbff" fill-opacity="0.25"/>
+            <line x1="310" y1="100" x2="370" y2="160"/>
+            <circle cx="370" cy="160" r="8" fill="#a6cbff" fill-opacity="0.25"/>
+            <line x1="370" y1="168" x2="330" y2="220"/>
+            <path d="M325 220 L335 220 L340 235 L320 235 Z" fill="#a6cbff" fill-opacity="0.3"/>
+          </g>
+          <!-- Apollo silhouette -->
+          <g transform="translate(440,40)" style="color:#ffb098">
+            <svg width="150" height="240" viewBox="0 0 200 320"><use href="#bot-apollo"/></svg>
+          </g>
+        </svg>
         <div class="usecase-body">
           <h3>Productie & assemblage</h3>
           <p>Machine-tending, kitting, kwaliteitscontrole. Werkt 24/7 zonder pauze, levert consistente output.</p>
           <span class="roi">ROI: 13–18 maanden</span>
         </div>
       </div>
+
       <div class="usecase">
-        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1400&q=85&auto=format&fit=crop" alt="Hotel hospitality" loading="lazy">
+        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="uc-h-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5be584" stop-opacity="0.1"/>
+              <stop offset="1" stop-color="#5be584" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="380" fill="url(#uc-h-bg)"/>
+          <!-- hotel building silhouette -->
+          <g fill="#5be584" fill-opacity="0.06" stroke="#5be584" stroke-opacity="0.3" stroke-width="1.4">
+            <rect x="40" y="60" width="240" height="260"/>
+            <!-- windows grid -->
+            <g fill="#5be584" fill-opacity="0.18" stroke="none">
+              <rect x="60" y="80" width="22" height="18"/>
+              <rect x="100" y="80" width="22" height="18"/>
+              <rect x="140" y="80" width="22" height="18"/>
+              <rect x="180" y="80" width="22" height="18"/>
+              <rect x="220" y="80" width="22" height="18"/>
+              <rect x="60" y="120" width="22" height="18"/>
+              <rect x="100" y="120" width="22" height="18"/>
+              <rect x="140" y="120" width="22" height="18" fill-opacity="0.4"/>
+              <rect x="180" y="120" width="22" height="18"/>
+              <rect x="220" y="120" width="22" height="18"/>
+              <rect x="60" y="160" width="22" height="18"/>
+              <rect x="100" y="160" width="22" height="18" fill-opacity="0.4"/>
+              <rect x="140" y="160" width="22" height="18"/>
+              <rect x="180" y="160" width="22" height="18"/>
+              <rect x="220" y="160" width="22" height="18"/>
+              <rect x="60" y="200" width="22" height="18"/>
+              <rect x="100" y="200" width="22" height="18"/>
+              <rect x="140" y="200" width="22" height="18"/>
+              <rect x="180" y="200" width="22" height="18" fill-opacity="0.4"/>
+              <rect x="220" y="200" width="22" height="18"/>
+            </g>
+            <!-- entrance -->
+            <rect x="135" y="260" width="50" height="60" fill="#5be584" fill-opacity="0.22"/>
+          </g>
+          <!-- stars -->
+          <g fill="#ffc966" fill-opacity="0.7">
+            <polygon points="80,30 84,42 96,42 86,49 90,61 80,54 70,61 74,49 64,42 76,42"/>
+            <polygon points="125,30 129,42 141,42 131,49 135,61 125,54 115,61 119,49 109,42 121,42"/>
+            <polygon points="170,30 174,42 186,42 176,49 180,61 170,54 160,61 164,49 154,42 166,42"/>
+            <polygon points="215,30 219,42 231,42 221,49 225,61 215,54 205,61 209,49 199,42 211,42"/>
+            <polygon points="260,30 264,42 276,42 266,49 270,61 260,54 250,61 254,49 244,42 256,42" fill-opacity="0.4"/>
+          </g>
+          <!-- suitcase next to NEO -->
+          <g fill="#a5a5b3" fill-opacity="0.18" stroke="#a5a5b3" stroke-opacity="0.5" stroke-width="1.4">
+            <rect x="330" y="240" width="60" height="68" rx="4"/>
+            <line x1="330" y1="260" x2="390" y2="260"/>
+            <rect x="350" y="226" width="20" height="14" rx="2" fill="none"/>
+          </g>
+          <!-- NEO silhouette as lobby host -->
+          <g transform="translate(420,40)" style="color:#d4d4dc">
+            <svg width="160" height="256" viewBox="0 0 200 320"><use href="#bot-neo"/></svg>
+          </g>
+        </svg>
         <div class="usecase-body">
           <h3>Hospitality & retail</h3>
           <p>Room-service, lobby-host, voorraadtelling 's nachts. Verhoogt gastervaring én ontlast personeel.</p>
           <span class="roi">+0,4★ gastenscore</span>
         </div>
       </div>
+
       <div class="usecase">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=85&auto=format&fit=crop" alt="Zorginstelling" loading="lazy">
+        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="uc-z-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffb098" stop-opacity="0.1"/>
+              <stop offset="1" stop-color="#ffb098" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="380" fill="url(#uc-z-bg)"/>
+          <!-- hospital bed -->
+          <g fill="none" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.6">
+            <rect x="40" y="220" width="240" height="36" rx="4" fill="#ffb098" fill-opacity="0.12"/>
+            <!-- headboard -->
+            <rect x="40" y="170" width="34" height="86" rx="3" fill="#ffb098" fill-opacity="0.18"/>
+            <!-- pillow -->
+            <rect x="82" y="208" width="60" height="20" rx="6" fill="#f7f7f9" fill-opacity="0.15"/>
+            <!-- blanket pattern -->
+            <line x1="150" y1="220" x2="150" y2="256"/>
+            <line x1="180" y1="220" x2="180" y2="256"/>
+            <line x1="210" y1="220" x2="210" y2="256"/>
+            <line x1="240" y1="220" x2="240" y2="256"/>
+            <!-- legs -->
+            <line x1="60" y1="256" x2="60" y2="280" stroke-width="2"/>
+            <line x1="260" y1="256" x2="260" y2="280" stroke-width="2"/>
+          </g>
+          <!-- medical cross / monitor -->
+          <g>
+            <rect x="100" y="80" width="60" height="80" rx="6" fill="#16161c" stroke="#ffb098" stroke-opacity="0.4" stroke-width="1.4"/>
+            <g fill="#5be584" fill-opacity="0.5">
+              <rect x="120" y="98" width="6" height="14"/>
+              <rect x="111" y="105" width="24" height="6"/>
+            </g>
+            <polyline points="100,140 110,140 115,130 122,150 130,135 145,145 160,142" stroke="#5be584" stroke-opacity="0.6" stroke-width="1.5" fill="none"/>
+          </g>
+          <!-- linen cart -->
+          <g fill="none" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.6">
+            <rect x="320" y="220" width="80" height="60" rx="4" fill="#ffb098" fill-opacity="0.15"/>
+            <line x1="320" y1="240" x2="400" y2="240"/>
+            <line x1="320" y1="260" x2="400" y2="260"/>
+            <!-- handle -->
+            <path d="M320 220 L308 200 L308 180"/>
+            <!-- wheels -->
+            <circle cx="335" cy="288" r="6" fill="#16161c"/>
+            <circle cx="385" cy="288" r="6" fill="#16161c"/>
+          </g>
+          <!-- G1 silhouette helping -->
+          <g transform="translate(430,40)" style="color:#7be59d">
+            <svg width="150" height="240" viewBox="0 0 200 320"><use href="#bot-g1"/></svg>
+          </g>
+        </svg>
         <div class="usecase-body">
           <h3>Zorg & instellingen</h3>
           <p>Linnen- en materiaaltransport. Niet-zorgtaken die nu door zorgmedewerkers worden gedaan.</p>
