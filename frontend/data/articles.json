@@ -1,5 +1,33 @@
 [
   {
+    "slug": "neura-robotics-bosch-deal-nederlandse-maakindustrie",
+    "title": "NEURA Robotics × Bosch: wat de Duitse alliantie betekent voor Nederlandse maakbedrijven",
+    "subtitle": "Een €98.000 humanoid uit Metzingen met Bosch als productie- en service-partner. Voor het NL MKB de eerste echte EU-optie.",
+    "date": "2026-05-16",
+    "category": "Industrie",
+    "tags": [
+      "NEURA Robotics",
+      "Bosch",
+      "EU-gebouwd",
+      "Industrie",
+      "Compliance"
+    ]
+  },
+  {
+    "slug": "eu-machineverordening-2027-werkgevers-checklist",
+    "title": "EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026",
+    "subtitle": "Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?",
+    "date": "2026-05-15",
+    "category": "Regelgeving",
+    "tags": [
+      "Machineverordening",
+      "Regelgeving",
+      "Compliance",
+      "Werkgever",
+      "EU"
+    ]
+  },
+  {
     "slug": "unitree-g1-mkb-vijf-rendabele-toepassingen",
     "title": "Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn",
     "subtitle": "De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.",
@@ -12,6 +40,20 @@
       "Hospitality",
       "Retail",
       "ROI"
+    ]
+  },
+  {
+    "slug": "ubtech-walker-s2-1000-units-commerciele-volwassenheid",
+    "title": "UBTECH Walker S2 hit 1.000 units: betekent dit commerciële volwassenheid?",
+    "subtitle": "December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt — en moet je nu kopen?",
+    "date": "2026-05-13",
+    "category": "Industrie",
+    "tags": [
+      "UBTECH",
+      "Walker S2",
+      "Mass production",
+      "Auto-industrie",
+      "Industrie"
     ]
   },
   {
@@ -29,6 +71,22 @@
     ]
   },
   {
+    "slug": "humanoid-fulfillment-pilots-nederland-2026",
+    "title": "Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen",
+    "subtitle": "Geen marketing — wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.",
+    "date": "2026-05-11",
+    "category": "Toepassingen",
+    "tags": [
+      "3PL",
+      "Fulfillment",
+      "Pilot",
+      "Nederland",
+      "UBTECH",
+      "Unitree",
+      "Apptronik"
+    ]
+  },
+  {
     "slug": "ai-act-machineverordening-humanoid-werkgevers-2026",
     "title": "AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?",
     "subtitle": "Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.",
@@ -40,6 +98,21 @@
       "Machineverordening",
       "AVG",
       "Werkgever"
+    ]
+  },
+  {
+    "slug": "eu-gebouwd-humanoid-voordeel-2026",
+    "title": "Waarom EU-gebouwde humanoids winnen in 2026: NEURA, PAL, Pollen-analyse",
+    "subtitle": "Aziatische modellen winnen op prijs. Amerikaanse op marketing. Maar voor Nederlandse MKB-deployment in 2026 hebben EU-gebouwde robots drie structurele voordelen.",
+    "date": "2026-05-09",
+    "category": "Markt",
+    "tags": [
+      "NEURA",
+      "PAL Robotics",
+      "Pollen Robotics",
+      "EU-gebouwd",
+      "Compliance",
+      "Markt"
     ]
   },
   {

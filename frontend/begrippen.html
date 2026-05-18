@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humanoïde robot terminologie — begrippenlijst | BotLease</title>
+<meta name="description" content="Begrippenlijst humanoïde robotica: van AGV en cobot tot SLAM en VLA-model. 40+ termen kort en helder uitgelegd, inclusief Nederlandse context en lease-implicaties.">
+<meta name="keywords" content="humanoide robot begrippen, robot terminologie, humanoid robot Nederlandse termen, cobot uitleg, SLAM robot, VLA model uitleg">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://botlease.nl/begrippen">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Humanoïde robot terminologie — begrippenlijst | BotLease">
+<meta property="og:description" content="Begrippenlijst humanoïde robotica: van AGV en cobot tot SLAM en VLA-model. 40+ termen kort en helder uitgelegd, inclusief Nederlandse context en lease-implicaties.">
+<meta property="og:url" content="https://botlease.nl/begrippen">
+<meta property="og:image" content="https://botlease.nl/img/robots/apollo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#08080a; --bg-2:#0e0e12; --bg-3:#16161c; --line:#23232c; --line-2:#2e2e38;
+  --ink:#f7f7f9; --ink-2:#a5a5b3; --ink-3:#666672;
+  --accent:#ff5e1f; --accent-2:#ffb098; --green:#5be584;
+  --eu:#5be584; --value:#ffc966; --premium:#a6cbff;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.025em; line-height:1.2; font-weight:600; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; height:auto; }
+.container { max-width:1180px; margin:0 auto; padding:0 28px; }
+.narrow { max-width:840px; margin:0 auto; padding:0 28px; }
+
+nav.top {
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:rgba(8,8,10,0.78); border-bottom:1px solid rgba(255,255,255,0.05);
+}
+nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:19px; }
+.brand-mark { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg, #ff5e1f, #ff8e5c); display:flex; align-items:center; justify-content:center; }
+.nav-links { display:flex; gap:30px; }
+.nav-links a { color:var(--ink-2); font-size:14px; font-weight:500; }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
+.btn { display:inline-flex; align-items:center; gap:7px; padding:11px 20px; border-radius:999px; font-weight:600; font-size:14px; background:var(--accent); color:#fff; transition:transform .15s; }
+.btn:hover { transform:translateY(-1px); }
+.btn.ghost { background:transparent; border:1px solid var(--line-2); color:var(--ink); }
+
+footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(--bg-2); margin-top:120px; }
+footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; color:var(--ink-3); font-size:13px; align-items:center; }
+footer a { color:var(--ink-2); }
+@media (max-width:780px) { .nav-links { display:none; } }
+
+.crumbs { display:flex; gap:8px; font-size:13px; color:var(--ink-3); margin-bottom:24px; flex-wrap:wrap; }
+.crumbs .sep { color:var(--line-2); }
+
+.eyebrow { display:inline-block; color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:0.16em; font-weight:600; margin-bottom:14px; padding:5px 12px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
+
+.g-hero { padding:140px 0 30px; position:relative; }
+.g-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(50% 50% at 80% 20%, rgba(255,94,31,0.14), transparent 60%); z-index:0; }
+.g-hero .narrow { position:relative; z-index:2; }
+.g-hero h1 { font-size:clamp(34px,4.4vw,54px); margin-bottom:18px; letter-spacing:-0.03em; }
+.g-hero .tag { color:var(--accent-2); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.55; }
+
+.tldr { background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-3) 100%); border:1px solid var(--line); border-radius:18px; padding:32px 36px; margin:40px 0; }
+.tldr h3 { font-size:13px; color:var(--accent); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:18px; }
+.tldr ul { list-style:none; padding:0; }
+.tldr li { padding:10px 0 10px 26px; position:relative; color:var(--ink); font-size:15.5px; line-height:1.65; border-bottom:1px solid var(--line); }
+.tldr li:last-child { border-bottom:none; }
+.tldr li::before { content:"→"; position:absolute; left:0; top:9px; color:var(--accent); font-weight:700; }
+
+.toc { background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:24px 30px; margin:32px 0; }
+.toc h3 { font-size:13px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Space Grotesk'; font-weight:600; }
+.toc ol { padding-left:22px; }
+.toc li { margin-bottom:7px; }
+.toc a { color:var(--ink-2); font-size:14.5px; }
+.toc a:hover { color:var(--accent-2); }
+
+section.body { padding:30px 0; }
+section.body h2 { font-size:clamp(24px,2.8vw,34px); margin:48px 0 18px; letter-spacing:-0.025em; scroll-margin-top:80px; }
+section.body p, section.body ul, section.body ol { font-size:16.5px; color:var(--ink); line-height:1.78; margin-bottom:18px; }
+section.body ul, section.body ol { padding-left:24px; }
+section.body li { margin-bottom:8px; }
+section.body a { color:var(--accent-2); text-decoration:underline; text-decoration-color:rgba(255,176,152,0.3); text-underline-offset:3px; }
+section.body a:hover { text-decoration-color:var(--accent-2); }
+section.body b, section.body strong { color:var(--ink); font-weight:600; }
+
+.faq-section { padding:80px 0; background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.faq-list { max-width:820px; margin:24px auto 0; }
+.faq-item { padding:24px 28px; border:1px solid var(--line); border-radius:14px; margin-bottom:14px; background:var(--bg-3); }
+.faq-item h4 { font-size:18px; margin-bottom:10px; }
+.faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
+.faq-item a { color:var(--accent-2); text-decoration:underline; }
+
+.cta-strip { padding:48px; background:linear-gradient(135deg, #ff5e1f, #c2400d); border-radius:20px; text-align:center; margin:60px auto; max-width:900px; }
+.cta-strip h3 { font-size:28px; margin-bottom:10px; color:#fff; }
+.cta-strip p { color:rgba(255,255,255,0.92); margin-bottom:24px; font-size:16px; }
+.cta-strip .btn { background:#0a0a0c; }
+
+/* Glossary */
+.glossary-grid { display:grid; gap:14px; max-width:920px; margin:0 auto; }
+.gloss { padding:20px 26px; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; }
+.gloss dt { font-family:'Space Grotesk'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; }
+.gloss dd { color:var(--ink-2); font-size:15px; line-height:1.7; }
+.gloss dd a { color:var(--accent-2); text-decoration:underline; }
+.alpha-nav { position:sticky; top:78px; background:rgba(8,8,10,0.85); backdrop-filter:blur(12px); padding:14px 0; border-bottom:1px solid var(--line); margin-bottom:32px; z-index:30; }
+.alpha-nav .row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
+.alpha-nav a { padding:4px 10px; color:var(--ink-2); font-family:'Space Grotesk'; font-weight:600; font-size:13px; border-radius:6px; transition:background .15s, color .15s; }
+.alpha-nav a:hover { background:var(--bg-3); color:var(--ink); }
+.alpha-letter { font-family:'Space Grotesk'; color:var(--accent); font-size:24px; font-weight:700; margin:32px 0 14px; padding-top:8px; }
+.alpha-letter:first-of-type { margin-top:0; }
+
+/* Calculator */
+.calc-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:32px; max-width:1080px; margin:0 auto; }
+.calc-form { background:var(--bg-2); border:1px solid var(--line); border-radius:18px; padding:32px; }
+.calc-out  { background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%); border:1px solid var(--line-2); border-radius:18px; padding:32px; }
+.calc-field { margin-bottom:22px; }
+.calc-field label { display:block; font-size:13px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:8px; font-family:'Space Grotesk'; }
+.calc-field select, .calc-field input { width:100%; padding:14px 16px; background:var(--bg-3); border:1px solid var(--line-2); border-radius:10px; color:var(--ink); font-size:15px; font-family:'Inter'; }
+.calc-field select:focus, .calc-field input:focus { outline:2px solid var(--accent); border-color:transparent; }
+.calc-out .vbig { font-family:'Space Grotesk'; font-size:48px; font-weight:600; letter-spacing:-0.025em; color:var(--accent-2); margin-bottom:6px; }
+.calc-out .vsub { color:var(--ink-3); font-size:14px; margin-bottom:24px; }
+.calc-out .vrow { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+.calc-out .vrow:last-child { border-bottom:none; }
+.calc-out .vrow .k { color:var(--ink-2); }
+.calc-out .vrow .v { font-family:'Space Grotesk'; font-weight:600; color:var(--ink); }
+.calc-summary { margin-top:24px; padding:18px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.25); border-radius:12px; color:var(--ink); font-size:14.5px; line-height:1.6; }
+@media (max-width:880px) { .calc-grid { grid-template-columns:1fr; } }
+
+/* Comparison */
+.cmp-grid { display:grid; gap:18px; max-width:1080px; margin:32px auto; }
+.cmp-card { display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; padding:24px 28px; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; transition:border-color .2s, transform .2s; }
+.cmp-card:hover { border-color:var(--line-2); transform:translateY(-2px); }
+.cmp-card img { width:72px; height:72px; object-fit:contain; }
+.cmp-card .cmp-title { font-family:'Space Grotesk'; font-weight:600; font-size:19px; margin-bottom:4px; }
+.cmp-card .cmp-sub { color:var(--ink-3); font-size:13px; }
+.cmp-card .cmp-arr { color:var(--accent-2); font-weight:600; }
+
+.h2h-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1080px; margin:40px auto; }
+.h2h-card { background:var(--bg-2); border:1px solid var(--line); border-radius:18px; padding:32px; }
+.h2h-card .vendor { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:6px; }
+.h2h-card h3 { font-size:24px; margin-bottom:10px; }
+.h2h-card .photo-wrap { aspect-ratio:1; background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%); border:1px solid var(--line); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:18px 0; padding:18px; position:relative; overflow:hidden; }
+.h2h-card .photo-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(45% 35% at 50% 50%, rgba(255,94,31,0.15), transparent 70%); }
+.h2h-card .photo-wrap img { max-height:88%; max-width:88%; width:auto; height:auto; object-fit:contain; position:relative; z-index:2; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.5)); }
+.h2h-card .price { font-family:'Space Grotesk'; font-size:32px; font-weight:600; color:var(--accent-2); margin-bottom:14px; }
+.h2h-card .specs { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:18px; }
+.h2h-card .specs div { padding:8px 12px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; font-size:12.5px; }
+.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Space Grotesk'; font-size:14px; }
+.h2h-card .specs div span { color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
+.h2h-card ul { padding-left:18px; margin-bottom:18px; }
+.h2h-card li { color:var(--ink-2); font-size:14px; margin-bottom:6px; line-height:1.55; }
+.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Space Grotesk'; font-size:28px; font-weight:700; padding:8px 0; }
+@media (max-width:780px) { .h2h-grid { grid-template-columns:1fr; } .h2h-vs { transform:rotate(90deg); padding:14px 0; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Begrippen", "item": "https://botlease.nl/begrippen"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "DefinedTermSet", "name": "BotLease humanoid robot begrippenlijst", "description": "Begrippenlijst humanoïde robotica: van AGV en cobot tot SLAM en VLA-model. 40+ termen kort en helder uitgelegd, inclusief Nederlandse context en lease-implicaties.", "hasDefinedTerm": [{"@type": "DefinedTerm", "name": "AGV", "description": "Automated Guided Vehicle. Wheeled robot die volgens een vaste route rijdt, meestal magneetstrips of QR-codes in de vloer volgt. Geen vervanger van humanoid — andere taak. AGVs zijn voor materiaaltransport over vaste paden, humanoids voor flexibel werk.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "AI Act", "description": "EU Verordening 2024/1689. Reguleert AI-systemen op basis van risiconiveau. Humanoid robots in werkomgevingen vallen meestal onder high-risk. Volledig van toepassing vanaf 2 augustus 2026. Zie de a href=\"/gids/ai-act-machineverordening\"complete AI-Act gids/a.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "AMR", "description": "Autonomous Mobile Robot. Wheeled robot die zelfstandig navigeert (via SLAM), in tegenstelling tot AGV. Veelgebruikt in magazijnen voor tote-transport. Goedkoper dan humanoid maar minder flexibel.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Articulated robot", "description": "Robotarm met meerdere gewrichten (\"joints\"). Klassieke industriële robots zoals ABB IRB, KUKA. Geen humanoid maar wel onderdeel van veel humanoid-armen.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Battery swap", "description": "Hot-swapping van batterij zonder stilstand. Belangrijk voor 24/7 operatie. UBTECH Walker S2 en Apptronik Apollo ondersteunen dit; Unitree-modellen meestal niet.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Bipedal", "description": "Tweebenig. Echte humanoids zijn bipedal (G1, H1-2, Apollo, Walker S2). Wheeled humanoids (TIAGo Pro, Reachy 2) hebben benen-loos onderlichaam.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "CE-markering", "description": "EU-conformiteitsmarkering voor producten. Verplicht voor robots in EU. Vanaf 2027 vereist conformiteit met de nieuwe Machineverordening 2023/1230.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Cobot", "description": "Collaborative robot — robot ontworpen om naast mensen te werken zonder veiligheidshek. Vereist kracht-feedback. NEURA 4NE-1 is een humanoid cobot. Universal Robots UR-serie is een arm-cobot.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Conformity assessment", "description": "Procedure waarbij een onafhankelijke partij toetst of een product voldoet aan EU-regelgeving (AI-Act, Machineverordening). Vereist vóór deployment van high-risk humanoids.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Cycle time", "description": "Tijd die een robot nodig heeft voor één taakcyclus. Voor humanoids veel minder voorspelbaar dan voor armrobots — afhankelijk van object-herkenning, planning, motoriek.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Deployer", "description": "Onder AI-Act: organisatie die een AI-systeem gebruikt voor professionele doeleinden. Bij humanoid-lease ben jij (de gebruiker) de deployer, BotLease + fabrikant zijn provider.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "DoF", "description": "Degrees of Freedom — aantal onafhankelijke bewegingsassen. Een mens heeft ~244 DoF. Unitree G1 heeft 23-43 DoF. Apollo heeft 38. Hogere DoF = meer veelzijdigheid maar ook meer complexiteit.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Embodied AI", "description": "AI die belichaamd is in een fysiek lichaam (robot) en leert door interactie met de echte wereld. Tegenovergesteld van pure software-AI zoals LLMs.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "End-effector", "description": "Het \"hand\" of \"gereedschap\" aan het einde van een robotarm. Humanoid-handen zijn typisch 4-5 vingerig, soms simpele grippers.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "EU AI Office", "description": "Nieuwe EU-instantie in Brussel die de AI-Act handhaaft. Operationeel sinds februari 2025. Ontvangt meldingen van incidenten en uitvaardigt boetes.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Fleet learning", "description": "Robots delen wat ze leren onderling. NEURA's \"Neuraverse\" en Hugging Face's \"LeRobot\" zijn voorbeelden. Maakt humanoids elke maand slimmer zonder lokale her-training.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Force control", "description": "Methode waarbij de robot kracht voelt en daarop reageert (vs. positiecontrole, waarbij hij blind een traject volgt). Vereist voor cobot-gedrag. Apptronik Apollo is bekend om zijn force-control.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Gait", "description": "Loopbeweging van een bipedal robot. \"Natural gait\" is een term die EngineAI populair heeft gemaakt — soepele, menselijke beweging via neural networks i.p.v. klassieke planning.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "GDPR / AVG", "description": "Algemene Verordening Gegevensbescherming. Reguleert dataverwerking inclusief camera- en sensordata van robots. Vereist verwerkersovereenkomst (DPA) per klant.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Gripper", "description": "Het mechanisme dat een object vasthoudt. Humanoid-grippers zijn typisch parallelle vingers (2-finger) of antropomorfe handen (5-finger).", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "High-risk AI", "description": "AI-Act classificatie voor systemen die fundamentele rechten of veiligheid kunnen beïnvloeden. Vrijwel alle humanoid-deployments in werkomgevingen vallen hieronder. Vereist conformity assessment + ongoing compliance.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Humanoid Robot", "description": "Robot met een mensachtige vorm: twee armen, hoofd, en typisch twee benen of een mobiele basis. Bedoeld om in menselijke werkomgevingen te functioneren zonder dat de omgeving aangepast hoeft.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Imitation learning", "description": "AI-techniek waarbij robots taken leren door menselijke demonstraties (vaak via VR-bediening) na te bootsen. Pollen Reachy 2 is hier sterk in.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Joint torque", "description": "Draaikracht in een robotgewricht, gemeten in Newtonmeter (N·m). Hogere torque = sterkere robot. Unitree H2 heeft 360 N·m per gewricht — fors voor zijn formaat.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Kitting", "description": "Het verzamelen van componenten voor latere assemblage. Veel humanoid-pilots in productie focussen hierop omdat het taakgericht is maar geen vaste jig vereist.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "LIDAR", "description": "Light Detection And Ranging. Laser-scanner voor afstandsmeting. EngineAI SE01 heeft 360° LIDAR (\"Engine Sense\"). Veel humanoids gebruiken alternatief cameras + depth sensors.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Machineverordening", "description": "EU Verordening 2023/1230. Vervangt de oude Machinerichtlijn 2006/42/EG vanaf 20 januari 2027. Nieuwe eisen voor cybersecurity en AI-software-veiligheid.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "MES", "description": "Manufacturing Execution System. Software die productieprocessen orkestreert. Humanoids in productie moeten hier mee koppelen — meestal via OPC-UA.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "ONNX", "description": "Open Neural Network Exchange. Standaard formaat voor AI-modellen. Veel humanoid-fabrikanten gebruiken ONNX voor model-deployment op de robot.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Operational lease", "description": "Lease-vorm waarbij eigendom bij de lessor (BotLease) blijft. Onderscheid van financial lease, waar het economische risico bij de huurder ligt. Voor humanoids vrijwel altijd operational.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "OPC-UA", "description": "Open Platform Communications Unified Architecture. Industriële communicatiestandaard. Humanoids in productie koppelen meestal via OPC-UA aan MES/SCADA.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Pick and place", "description": "Robottaak: object oppakken en ergens anders neerzetten. Klassiek voor armrobots, lastiger voor humanoids vanwege vrijheid in bewegingstrajecten.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Provider (AI-Act)", "description": "Onder AI-Act: organisatie die een AI-systeem ontwikkelt of in EU op de markt brengt. Fabrikant + BotLease zijn beide provider voor lease-modellen.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "RaaS", "description": "Robots as a Service. Lease-vorm waarbij je per uur of per taak betaalt i.p.v. vast per maand. Agility verkoopt Digit alleen als RaaS in de VS. BotLease biedt vooral klassieke maandlease.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "ROS / ROS 2", "description": "Robot Operating System. Open-source softwareraamwerk voor robots. PAL Kangaroo + TIAGo zijn ROS-native — voordeel voor universiteiten/labs die ROS-stack al hebben.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Sim-to-real", "description": "AI-training in simulatie, daarna deployment op echte robot. Veel humanoid-fabrikanten gebruiken NVIDIA Isaac voor sim-to-real training.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "SLAM", "description": "Simultaneous Localization And Mapping. Techniek waarmee robots autonoom in een ruimte navigeren zonder vooraf gemaakte kaart. Vereist voor humanoid-deployment in onbekende ruimtes.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Swap-SLA", "description": "Service Level Agreement voor vervanging bij defect. BotLease garandeert vervangende unit binnen 24u op locatie. Als we de SLA missen: dagvergoeding van €100/dag.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Teach-in", "description": "Programmeren van een robot door hem fysiek de beweging voor te doen. Voor humanoids meestal via VR-bediening (Pollen Reachy 2) of via demonstratie via camera (NEURA).", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "Tote", "description": "Plastic bak voor magazijn-gebruik. Standaard formaten 40×60 cm of 60×40 cm. Humanoid-pick-place richt zich meestal op tote-handling.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "VLA-model", "description": "Vision-Language-Action model. AI dat camerabeelden + taalcommando's combineert tot fysieke acties. State-of-the-art voor humanoid intelligentie — RT-2, OpenVLA, NVIDIA GR00T.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "WMS", "description": "Warehouse Management System. Software die magazijnprocessen orkestreert. Voor 3PL-deployments koppelt de humanoid hieraan — typisch via REST API of OPC-UA.", "inDefinedTermSet": "https://botlease.nl/begrippen"}, {"@type": "DefinedTerm", "name": "VR-teleop", "description": "Virtual Reality teleoperation. Mens bestuurt robot via VR-headset, robot leert van die demonstraties. Gebruikt voor imitation learning en remote support.", "inDefinedTermSet": "https://botlease.nl/begrippen"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"}}</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="container row">
+    <a href="/" class="brand">
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+      BotLease
+    </a>
+    <div class="nav-links">
+      <a href="/robots">Robots</a>
+      <a href="/vergelijken">Vergelijken</a>
+      <a href="/kosten">Kosten</a>
+      <a href="/gids/humanoide-robot-leasen">Gids</a>
+      <a href="/nieuws">Nieuws</a>
+    </div>
+    <a href="/#contact" class="btn">Plan demo →</a>
+  </div>
+</nav>
+
+
+<section class="g-hero">
+  <div class="container">
+    <nav class="crumbs">
+      <a href="/">Home</a><span class="sep">/</span>
+      <span>Begrippen</span>
+    </nav>
+    <span class="eyebrow">Begrippenlijst</span>
+    <h1>Humanoïde robot begrippen — 40+ termen uitgelegd.</h1>
+    <p class="tag">De woordenlijst die je nodig hebt om gesprekken over humanoid-leasing te kunnen volgen. Kort, helder, met Nederlandse context.</p>
+  </div>
+</section>
+
+<div class="alpha-nav">
+  <div class="container row"><a href="#letter-A">A</a><a href="#letter-B">B</a><a href="#letter-C">C</a><a href="#letter-D">D</a><a href="#letter-E">E</a><a href="#letter-F">F</a><a href="#letter-G">G</a><a href="#letter-H">H</a><a href="#letter-I">I</a><a href="#letter-J">J</a><a href="#letter-K">K</a><a href="#letter-L">L</a><a href="#letter-M">M</a><a href="#letter-O">O</a><a href="#letter-P">P</a><a href="#letter-R">R</a><a href="#letter-S">S</a><a href="#letter-T">T</a><a href="#letter-V">V</a><a href="#letter-W">W</a></div>
+</div>
+
+<section class="body">
+  <div class="container"><div class="alpha-letter" id="letter-A">A</div><div class="glossary-grid"><dl class="gloss" id="term-agv"><dt>AGV</dt><dd>Automated Guided Vehicle. Wheeled robot die volgens een vaste route rijdt, meestal magneetstrips of QR-codes in de vloer volgt. Geen vervanger van humanoid — andere taak. AGVs zijn voor materiaaltransport over vaste paden, humanoids voor flexibel werk.</dd></dl><dl class="gloss" id="term-ai-act"><dt>AI Act</dt><dd>EU Verordening 2024/1689. Reguleert AI-systemen op basis van risiconiveau. Humanoid robots in werkomgevingen vallen meestal onder high-risk. Volledig van toepassing vanaf 2 augustus 2026. Zie de <a href="/gids/ai-act-machineverordening">complete AI-Act gids</a>.</dd></dl><dl class="gloss" id="term-amr"><dt>AMR</dt><dd>Autonomous Mobile Robot. Wheeled robot die zelfstandig navigeert (via SLAM), in tegenstelling tot AGV. Veelgebruikt in magazijnen voor tote-transport. Goedkoper dan humanoid maar minder flexibel.</dd></dl><dl class="gloss" id="term-articulated-robot"><dt>Articulated robot</dt><dd>Robotarm met meerdere gewrichten ("joints"). Klassieke industriële robots zoals ABB IRB, KUKA. Geen humanoid maar wel onderdeel van veel humanoid-armen.</dd></dl></div><div class="alpha-letter" id="letter-B">B</div><div class="glossary-grid"><dl class="gloss" id="term-battery-swap"><dt>Battery swap</dt><dd>Hot-swapping van batterij zonder stilstand. Belangrijk voor 24/7 operatie. UBTECH Walker S2 en Apptronik Apollo ondersteunen dit; Unitree-modellen meestal niet.</dd></dl><dl class="gloss" id="term-bipedal"><dt>Bipedal</dt><dd>Tweebenig. Echte humanoids zijn bipedal (G1, H1-2, Apollo, Walker S2). Wheeled humanoids (TIAGo Pro, Reachy 2) hebben benen-loos onderlichaam.</dd></dl></div><div class="alpha-letter" id="letter-C">C</div><div class="glossary-grid"><dl class="gloss" id="term-ce-markering"><dt>CE-markering</dt><dd>EU-conformiteitsmarkering voor producten. Verplicht voor robots in EU. Vanaf 2027 vereist conformiteit met de nieuwe Machineverordening 2023/1230.</dd></dl><dl class="gloss" id="term-cobot"><dt>Cobot</dt><dd>Collaborative robot — robot ontworpen om naast mensen te werken zonder veiligheidshek. Vereist kracht-feedback. NEURA 4NE-1 is een humanoid cobot. Universal Robots UR-serie is een arm-cobot.</dd></dl><dl class="gloss" id="term-conformity-assessment"><dt>Conformity assessment</dt><dd>Procedure waarbij een onafhankelijke partij toetst of een product voldoet aan EU-regelgeving (AI-Act, Machineverordening). Vereist vóór deployment van high-risk humanoids.</dd></dl><dl class="gloss" id="term-cycle-time"><dt>Cycle time</dt><dd>Tijd die een robot nodig heeft voor één taakcyclus. Voor humanoids veel minder voorspelbaar dan voor armrobots — afhankelijk van object-herkenning, planning, motoriek.</dd></dl></div><div class="alpha-letter" id="letter-D">D</div><div class="glossary-grid"><dl class="gloss" id="term-deployer"><dt>Deployer</dt><dd>Onder AI-Act: organisatie die een AI-systeem gebruikt voor professionele doeleinden. Bij humanoid-lease ben jij (de gebruiker) de deployer, BotLease + fabrikant zijn provider.</dd></dl><dl class="gloss" id="term-dof"><dt>DoF</dt><dd>Degrees of Freedom — aantal onafhankelijke bewegingsassen. Een mens heeft ~244 DoF. Unitree G1 heeft 23-43 DoF. Apollo heeft 38. Hogere DoF = meer veelzijdigheid maar ook meer complexiteit.</dd></dl></div><div class="alpha-letter" id="letter-E">E</div><div class="glossary-grid"><dl class="gloss" id="term-embodied-ai"><dt>Embodied AI</dt><dd>AI die belichaamd is in een fysiek lichaam (robot) en leert door interactie met de echte wereld. Tegenovergesteld van pure software-AI zoals LLMs.</dd></dl><dl class="gloss" id="term-end-effector"><dt>End-effector</dt><dd>Het "hand" of "gereedschap" aan het einde van een robotarm. Humanoid-handen zijn typisch 4-5 vingerig, soms simpele grippers.</dd></dl><dl class="gloss" id="term-eu-ai-office"><dt>EU AI Office</dt><dd>Nieuwe EU-instantie in Brussel die de AI-Act handhaaft. Operationeel sinds februari 2025. Ontvangt meldingen van incidenten en uitvaardigt boetes.</dd></dl></div><div class="alpha-letter" id="letter-F">F</div><div class="glossary-grid"><dl class="gloss" id="term-fleet-learning"><dt>Fleet learning</dt><dd>Robots delen wat ze leren onderling. NEURA's "Neuraverse" en Hugging Face's "LeRobot" zijn voorbeelden. Maakt humanoids elke maand slimmer zonder lokale her-training.</dd></dl><dl class="gloss" id="term-force-control"><dt>Force control</dt><dd>Methode waarbij de robot kracht voelt en daarop reageert (vs. positiecontrole, waarbij hij blind een traject volgt). Vereist voor cobot-gedrag. Apptronik Apollo is bekend om zijn force-control.</dd></dl></div><div class="alpha-letter" id="letter-G">G</div><div class="glossary-grid"><dl class="gloss" id="term-gait"><dt>Gait</dt><dd>Loopbeweging van een bipedal robot. "Natural gait" is een term die EngineAI populair heeft gemaakt — soepele, menselijke beweging via neural networks i.p.v. klassieke planning.</dd></dl><dl class="gloss" id="term-gdpr-/-avg"><dt>GDPR / AVG</dt><dd>Algemene Verordening Gegevensbescherming. Reguleert dataverwerking inclusief camera- en sensordata van robots. Vereist verwerkersovereenkomst (DPA) per klant.</dd></dl><dl class="gloss" id="term-gripper"><dt>Gripper</dt><dd>Het mechanisme dat een object vasthoudt. Humanoid-grippers zijn typisch parallelle vingers (2-finger) of antropomorfe handen (5-finger).</dd></dl></div><div class="alpha-letter" id="letter-H">H</div><div class="glossary-grid"><dl class="gloss" id="term-high-risk-ai"><dt>High-risk AI</dt><dd>AI-Act classificatie voor systemen die fundamentele rechten of veiligheid kunnen beïnvloeden. Vrijwel alle humanoid-deployments in werkomgevingen vallen hieronder. Vereist conformity assessment + ongoing compliance.</dd></dl><dl class="gloss" id="term-humanoid-robot"><dt>Humanoid Robot</dt><dd>Robot met een mensachtige vorm: twee armen, hoofd, en typisch twee benen of een mobiele basis. Bedoeld om in menselijke werkomgevingen te functioneren zonder dat de omgeving aangepast hoeft.</dd></dl></div><div class="alpha-letter" id="letter-I">I</div><div class="glossary-grid"><dl class="gloss" id="term-imitation-learning"><dt>Imitation learning</dt><dd>AI-techniek waarbij robots taken leren door menselijke demonstraties (vaak via VR-bediening) na te bootsen. Pollen Reachy 2 is hier sterk in.</dd></dl></div><div class="alpha-letter" id="letter-J">J</div><div class="glossary-grid"><dl class="gloss" id="term-joint-torque"><dt>Joint torque</dt><dd>Draaikracht in een robotgewricht, gemeten in Newtonmeter (N·m). Hogere torque = sterkere robot. Unitree H2 heeft 360 N·m per gewricht — fors voor zijn formaat.</dd></dl></div><div class="alpha-letter" id="letter-K">K</div><div class="glossary-grid"><dl class="gloss" id="term-kitting"><dt>Kitting</dt><dd>Het verzamelen van componenten voor latere assemblage. Veel humanoid-pilots in productie focussen hierop omdat het taakgericht is maar geen vaste jig vereist.</dd></dl></div><div class="alpha-letter" id="letter-L">L</div><div class="glossary-grid"><dl class="gloss" id="term-lidar"><dt>LIDAR</dt><dd>Light Detection And Ranging. Laser-scanner voor afstandsmeting. EngineAI SE01 heeft 360° LIDAR ("Engine Sense"). Veel humanoids gebruiken alternatief cameras + depth sensors.</dd></dl></div><div class="alpha-letter" id="letter-M">M</div><div class="glossary-grid"><dl class="gloss" id="term-machineverordening"><dt>Machineverordening</dt><dd>EU Verordening 2023/1230. Vervangt de oude Machinerichtlijn 2006/42/EG vanaf 20 januari 2027. Nieuwe eisen voor cybersecurity en AI-software-veiligheid.</dd></dl><dl class="gloss" id="term-mes"><dt>MES</dt><dd>Manufacturing Execution System. Software die productieprocessen orkestreert. Humanoids in productie moeten hier mee koppelen — meestal via OPC-UA.</dd></dl></div><div class="alpha-letter" id="letter-O">O</div><div class="glossary-grid"><dl class="gloss" id="term-onnx"><dt>ONNX</dt><dd>Open Neural Network Exchange. Standaard formaat voor AI-modellen. Veel humanoid-fabrikanten gebruiken ONNX voor model-deployment op de robot.</dd></dl><dl class="gloss" id="term-opc-ua"><dt>OPC-UA</dt><dd>Open Platform Communications Unified Architecture. Industriële communicatiestandaard. Humanoids in productie koppelen meestal via OPC-UA aan MES/SCADA.</dd></dl><dl class="gloss" id="term-operational-lease"><dt>Operational lease</dt><dd>Lease-vorm waarbij eigendom bij de lessor (BotLease) blijft. Onderscheid van financial lease, waar het economische risico bij de huurder ligt. Voor humanoids vrijwel altijd operational.</dd></dl></div><div class="alpha-letter" id="letter-P">P</div><div class="glossary-grid"><dl class="gloss" id="term-pick-and-place"><dt>Pick and place</dt><dd>Robottaak: object oppakken en ergens anders neerzetten. Klassiek voor armrobots, lastiger voor humanoids vanwege vrijheid in bewegingstrajecten.</dd></dl><dl class="gloss" id="term-provider-(ai-act)"><dt>Provider (AI-Act)</dt><dd>Onder AI-Act: organisatie die een AI-systeem ontwikkelt of in EU op de markt brengt. Fabrikant + BotLease zijn beide provider voor lease-modellen.</dd></dl></div><div class="alpha-letter" id="letter-R">R</div><div class="glossary-grid"><dl class="gloss" id="term-raas"><dt>RaaS</dt><dd>Robots as a Service. Lease-vorm waarbij je per uur of per taak betaalt i.p.v. vast per maand. Agility verkoopt Digit alleen als RaaS in de VS. BotLease biedt vooral klassieke maandlease.</dd></dl><dl class="gloss" id="term-ros-/-ros-2"><dt>ROS / ROS 2</dt><dd>Robot Operating System. Open-source softwareraamwerk voor robots. PAL Kangaroo + TIAGo zijn ROS-native — voordeel voor universiteiten/labs die ROS-stack al hebben.</dd></dl></div><div class="alpha-letter" id="letter-S">S</div><div class="glossary-grid"><dl class="gloss" id="term-sim-to-real"><dt>Sim-to-real</dt><dd>AI-training in simulatie, daarna deployment op echte robot. Veel humanoid-fabrikanten gebruiken NVIDIA Isaac voor sim-to-real training.</dd></dl><dl class="gloss" id="term-slam"><dt>SLAM</dt><dd>Simultaneous Localization And Mapping. Techniek waarmee robots autonoom in een ruimte navigeren zonder vooraf gemaakte kaart. Vereist voor humanoid-deployment in onbekende ruimtes.</dd></dl><dl class="gloss" id="term-swap-sla"><dt>Swap-SLA</dt><dd>Service Level Agreement voor vervanging bij defect. BotLease garandeert vervangende unit binnen 24u op locatie. Als we de SLA missen: dagvergoeding van €100/dag.</dd></dl></div><div class="alpha-letter" id="letter-T">T</div><div class="glossary-grid"><dl class="gloss" id="term-teach-in"><dt>Teach-in</dt><dd>Programmeren van een robot door hem fysiek de beweging voor te doen. Voor humanoids meestal via VR-bediening (Pollen Reachy 2) of via demonstratie via camera (NEURA).</dd></dl><dl class="gloss" id="term-tote"><dt>Tote</dt><dd>Plastic bak voor magazijn-gebruik. Standaard formaten 40×60 cm of 60×40 cm. Humanoid-pick-place richt zich meestal op tote-handling.</dd></dl></div><div class="alpha-letter" id="letter-V">V</div><div class="glossary-grid"><dl class="gloss" id="term-vla-model"><dt>VLA-model</dt><dd>Vision-Language-Action model. AI dat camerabeelden + taalcommando's combineert tot fysieke acties. State-of-the-art voor humanoid intelligentie — RT-2, OpenVLA, NVIDIA GR00T.</dd></dl><dl class="gloss" id="term-vr-teleop"><dt>VR-teleop</dt><dd>Virtual Reality teleoperation. Mens bestuurt robot via VR-headset, robot leert van die demonstraties. Gebruikt voor imitation learning en remote support.</dd></dl></div><div class="alpha-letter" id="letter-W">W</div><div class="glossary-grid"><dl class="gloss" id="term-wms"><dt>WMS</dt><dd>Warehouse Management System. Software die magazijnprocessen orkestreert. Voor 3PL-deployments koppelt de humanoid hieraan — typisch via REST API of OPC-UA.</dd></dl></div></div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-strip">
+      <h3>Een term mist?</h3>
+      <p>Mail ons — wij voegen hem toe en linken hem aan de juiste robotmodellen.</p>
+      <a class="btn" href="mailto:hallo@botlease.nl">Stuur een mail →</a>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container row">
+    <div>© 2026 BotLease B.V. — Eindhoven · KvK XXXXXXXX</div>
+    <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/vergelijken">Vergelijken</a> · <a href="/kosten">Kosten</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · <a href="/sitemap.xml">Sitemap</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

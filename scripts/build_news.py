@@ -261,8 +261,8 @@ NAV_HTML = """
 FOOTER_HTML = """
 <footer>
   <div class="container row">
-    <div>© 2026 BotLease B.V. (i.o.) — Eindhoven · Rotterdam</div>
-    <div><a href="/">Home</a> · <a href="/nieuws">Nieuws</a> · <a href="/#contact">Contact</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/rss.xml">RSS</a></div>
+    <div>© 2026 BotLease B.V. — Eindhoven · KvK XXXXXXXX</div>
+    <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/nieuws">Nieuws</a> · <a href="/#contact">Contact</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/rss.xml">RSS</a></div>
   </div>
 </footer>
 """
@@ -460,6 +460,16 @@ ART_BY_SLUG = {
         {"photo": "/img/robots/digit.jpg", "alt": "Agility Digit robot in fulfillment", "tint": "#ffb098", "symbol": None},
     "goldman-sachs-38-miljard-humanoid-markt-nederland":
         {"photo": None, "alt": "Humanoid robot markt", "tint": "#6ea8ff", "symbol": "art-market", "color": "#a6cbff"},
+    "neura-robotics-bosch-deal-nederlandse-maakindustrie":
+        {"photo": "/img/robots/neura-4ne1.webp", "alt": "NEURA 4NE-1 humanoid robot", "tint": "#5be584", "symbol": None},
+    "eu-machineverordening-2027-werkgevers-checklist":
+        {"photo": None, "alt": "EU Machineverordening checklist", "tint": "#ffc966", "symbol": "art-regulation", "color": "#ffd166"},
+    "ubtech-walker-s2-1000-units-commerciele-volwassenheid":
+        {"photo": "/img/robots/walker-s.webp", "alt": "UBTECH Walker S2 mass production", "tint": "#ffb098", "symbol": None},
+    "humanoid-fulfillment-pilots-nederland-2026":
+        {"photo": "/img/robots/digit.jpg", "alt": "Humanoid robots in Nederlandse fulfillment", "tint": "#ffb098", "symbol": None},
+    "eu-gebouwd-humanoid-voordeel-2026":
+        {"photo": "/img/robots/kangaroo.png", "alt": "PAL Kangaroo EU-gebouwde humanoid", "tint": "#5be584", "symbol": None},
 }
 
 
@@ -750,11 +760,29 @@ def render_sitemap(articles: list) -> str:
         SECTORS, CITIES = [], []
     urls = [
         (SITE_URL + "/", "1.0", "weekly"),
+        (SITE_URL + "/gids/humanoide-robot-leasen", "0.98", "monthly"),
         (SITE_URL + "/robots/", "0.95", "weekly"),
+        (SITE_URL + "/gids/ai-act-machineverordening", "0.92", "monthly"),
+        (SITE_URL + "/vergelijken", "0.92", "weekly"),
+        (SITE_URL + "/kosten", "0.92", "monthly"),
         (SITE_URL + "/sectoren/", "0.9", "weekly"),
         (SITE_URL + "/leasen/", "0.9", "weekly"),
         (SITE_URL + "/nieuws/", "0.85", "daily"),
+        (SITE_URL + "/gids/", "0.85", "monthly"),
+        (SITE_URL + "/begrippen", "0.75", "monthly"),
+        (SITE_URL + "/over", "0.7", "yearly"),
+        (SITE_URL + "/methodologie", "0.7", "yearly"),
     ]
+    head_to_heads = [
+        "unitree-g1-vs-neura-4ne1-mini",
+        "unitree-h1-2-vs-ubtech-walker-s2",
+        "neura-4ne1-gen3-vs-apptronik-apollo",
+        "pal-kangaroo-vs-unitree-h1-2",
+        "unitree-r1-vs-engineai-se01",
+        "apptronik-apollo-vs-figure-02",
+    ]
+    for h in head_to_heads:
+        urls.append((f"{SITE_URL}/vergelijken/{h}", "0.8", "monthly"))
     for r in ROBOTS:
         urls.append((f"{SITE_URL}/robots/{r['slug']}", "0.85", "weekly"))
     for s in SECTORS:

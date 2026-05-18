@@ -6,7 +6,23 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Mon, 18 May 2026 09:13:31 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 09:40:06 +0000</lastBuildDate>
+    <item>
+      <title>NEURA Robotics × Bosch: wat de Duitse alliantie betekent voor Nederlandse maakbedrijven</title>
+      <link>https://botlease.nl/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie</guid>
+      <pubDate>Sat, 16 May 2026 08:00:00 +0100</pubDate>
+      <category>Industrie</category>
+      <description><![CDATA[Een €98.000 humanoid uit Metzingen met Bosch als productie- en service-partner. Voor het NL MKB de eerste echte EU-optie.]]></description>
+    </item>
+    <item>
+      <title>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026</title>
+      <link>https://botlease.nl/nieuws/eu-machineverordening-2027-werkgevers-checklist</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/eu-machineverordening-2027-werkgevers-checklist</guid>
+      <pubDate>Fri, 15 May 2026 08:00:00 +0100</pubDate>
+      <category>Regelgeving</category>
+      <description><![CDATA[Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?]]></description>
+    </item>
     <item>
       <title>Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</title>
       <link>https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen</link>
@@ -14,6 +30,14 @@
       <pubDate>Thu, 14 May 2026 08:00:00 +0100</pubDate>
       <category>Toepassingen</category>
       <description><![CDATA[De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.]]></description>
+    </item>
+    <item>
+      <title>UBTECH Walker S2 hit 1.000 units: betekent dit commerciële volwassenheid?</title>
+      <link>https://botlease.nl/nieuws/ubtech-walker-s2-1000-units-commerciele-volwassenheid</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/ubtech-walker-s2-1000-units-commerciele-volwassenheid</guid>
+      <pubDate>Wed, 13 May 2026 08:00:00 +0100</pubDate>
+      <category>Industrie</category>
+      <description><![CDATA[December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt — en moet je nu kopen?]]></description>
     </item>
     <item>
       <title>Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</title>
@@ -24,12 +48,28 @@
       <description><![CDATA[De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.]]></description>
     </item>
     <item>
+      <title>Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen</title>
+      <link>https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</guid>
+      <pubDate>Mon, 11 May 2026 08:00:00 +0100</pubDate>
+      <category>Toepassingen</category>
+      <description><![CDATA[Geen marketing — wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.]]></description>
+    </item>
+    <item>
       <title>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</title>
       <link>https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</link>
       <guid isPermaLink="true">https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</guid>
       <pubDate>Sun, 10 May 2026 08:00:00 +0100</pubDate>
       <category>Regelgeving</category>
       <description><![CDATA[Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.]]></description>
+    </item>
+    <item>
+      <title>Waarom EU-gebouwde humanoids winnen in 2026: NEURA, PAL, Pollen-analyse</title>
+      <link>https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</guid>
+      <pubDate>Sat, 09 May 2026 08:00:00 +0100</pubDate>
+      <category>Markt</category>
+      <description><![CDATA[Aziatische modellen winnen op prijs. Amerikaanse op marketing. Maar voor Nederlandse MKB-deployment in 2026 hebben EU-gebouwde robots drie structurele voordelen.]]></description>
     </item>
     <item>
       <title>Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie</title>

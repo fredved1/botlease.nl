@@ -122,7 +122,7 @@ NAV_HTML = """
 FOOTER_HTML = """
 <footer>
   <div class="container row">
-    <div>© 2026 BotLease B.V. (i.o.) — Eindhoven · Rotterdam</div>
+    <div>© 2026 BotLease B.V. — Eindhoven · KvK XXXXXXXX</div>
     <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/nieuws">Nieuws</a> · <a href="/sitemap.xml">Sitemap</a></div>
   </div>
 </footer>

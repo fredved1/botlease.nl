@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humanoïde robot leasing — gidsen en bronnen | BotLease</title>
+<meta name="description" content="Complete gidsen voor humanoïde robot leasing in Nederland: pillar guide, EU AI-Act compliance, lease calculator, methodologie.">
+<link rel="canonical" href="https://botlease.nl/gids/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BotLease gidsen — humanoïde robot leasing">
+<meta property="og:image" content="https://botlease.nl/img/robots/apollo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#08080a; --bg-2:#0e0e12; --bg-3:#16161c; --line:#23232c; --line-2:#2e2e38;
+  --ink:#f7f7f9; --ink-2:#a5a5b3; --ink-3:#666672;
+  --accent:#ff5e1f; --accent-2:#ffb098; --green:#5be584;
+  --eu:#5be584; --value:#ffc966; --premium:#a6cbff;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.025em; line-height:1.2; font-weight:600; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; height:auto; }
+.container { max-width:1180px; margin:0 auto; padding:0 28px; }
+.narrow { max-width:840px; margin:0 auto; padding:0 28px; }
+
+nav.top {
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:rgba(8,8,10,0.78); border-bottom:1px solid rgba(255,255,255,0.05);
+}
+nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:19px; }
+.brand-mark { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg, #ff5e1f, #ff8e5c); display:flex; align-items:center; justify-content:center; }
+.nav-links { display:flex; gap:30px; }
+.nav-links a { color:var(--ink-2); font-size:14px; font-weight:500; }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
+.btn { display:inline-flex; align-items:center; gap:7px; padding:11px 20px; border-radius:999px; font-weight:600; font-size:14px; background:var(--accent); color:#fff; transition:transform .15s; }
+.btn:hover { transform:translateY(-1px); }
+.btn.ghost { background:transparent; border:1px solid var(--line-2); color:var(--ink); }
+
+footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(--bg-2); margin-top:120px; }
+footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; color:var(--ink-3); font-size:13px; align-items:center; }
+footer a { color:var(--ink-2); }
+@media (max-width:780px) { .nav-links { display:none; } }
+
+.crumbs { display:flex; gap:8px; font-size:13px; color:var(--ink-3); margin-bottom:24px; flex-wrap:wrap; }
+.crumbs .sep { color:var(--line-2); }
+
+.eyebrow { display:inline-block; color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:0.16em; font-weight:600; margin-bottom:14px; padding:5px 12px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
+
+.g-hero { padding:140px 0 30px; position:relative; }
+.g-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(50% 50% at 80% 20%, rgba(255,94,31,0.14), transparent 60%); z-index:0; }
+.g-hero .narrow { position:relative; z-index:2; }
+.g-hero h1 { font-size:clamp(34px,4.4vw,54px); margin-bottom:18px; letter-spacing:-0.03em; }
+.g-hero .tag { color:var(--accent-2); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.55; }
+
+.tldr { background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-3) 100%); border:1px solid var(--line); border-radius:18px; padding:32px 36px; margin:40px 0; }
+.tldr h3 { font-size:13px; color:var(--accent); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:18px; }
+.tldr ul { list-style:none; padding:0; }
+.tldr li { padding:10px 0 10px 26px; position:relative; color:var(--ink); font-size:15.5px; line-height:1.65; border-bottom:1px solid var(--line); }
+.tldr li:last-child { border-bottom:none; }
+.tldr li::before { content:"→"; position:absolute; left:0; top:9px; color:var(--accent); font-weight:700; }
+
+.toc { background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:24px 30px; margin:32px 0; }
+.toc h3 { font-size:13px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Space Grotesk'; font-weight:600; }
+.toc ol { padding-left:22px; }
+.toc li { margin-bottom:7px; }
+.toc a { color:var(--ink-2); font-size:14.5px; }
+.toc a:hover { color:var(--accent-2); }
+
+section.body { padding:30px 0; }
+section.body h2 { font-size:clamp(24px,2.8vw,34px); margin:48px 0 18px; letter-spacing:-0.025em; scroll-margin-top:80px; }
+section.body p, section.body ul, section.body ol { font-size:16.5px; color:var(--ink); line-height:1.78; margin-bottom:18px; }
+section.body ul, section.body ol { padding-left:24px; }
+section.body li { margin-bottom:8px; }
+section.body a { color:var(--accent-2); text-decoration:underline; text-decoration-color:rgba(255,176,152,0.3); text-underline-offset:3px; }
+section.body a:hover { text-decoration-color:var(--accent-2); }
+section.body b, section.body strong { color:var(--ink); font-weight:600; }
+
+.faq-section { padding:80px 0; background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.faq-list { max-width:820px; margin:24px auto 0; }
+.faq-item { padding:24px 28px; border:1px solid var(--line); border-radius:14px; margin-bottom:14px; background:var(--bg-3); }
+.faq-item h4 { font-size:18px; margin-bottom:10px; }
+.faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
+.faq-item a { color:var(--accent-2); text-decoration:underline; }
+
+.cta-strip { padding:48px; background:linear-gradient(135deg, #ff5e1f, #c2400d); border-radius:20px; text-align:center; margin:60px auto; max-width:900px; }
+.cta-strip h3 { font-size:28px; margin-bottom:10px; color:#fff; }
+.cta-strip p { color:rgba(255,255,255,0.92); margin-bottom:24px; font-size:16px; }
+.cta-strip .btn { background:#0a0a0c; }
+
+/* Glossary */
+.glossary-grid { display:grid; gap:14px; max-width:920px; margin:0 auto; }
+.gloss { padding:20px 26px; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; }
+.gloss dt { font-family:'Space Grotesk'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; }
+.gloss dd { color:var(--ink-2); font-size:15px; line-height:1.7; }
+.gloss dd a { color:var(--accent-2); text-decoration:underline; }
+.alpha-nav { position:sticky; top:78px; background:rgba(8,8,10,0.85); backdrop-filter:blur(12px); padding:14px 0; border-bottom:1px solid var(--line); margin-bottom:32px; z-index:30; }
+.alpha-nav .row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
+.alpha-nav a { padding:4px 10px; color:var(--ink-2); font-family:'Space Grotesk'; font-weight:600; font-size:13px; border-radius:6px; transition:background .15s, color .15s; }
+.alpha-nav a:hover { background:var(--bg-3); color:var(--ink); }
+.alpha-letter { font-family:'Space Grotesk'; color:var(--accent); font-size:24px; font-weight:700; margin:32px 0 14px; padding-top:8px; }
+.alpha-letter:first-of-type { margin-top:0; }
+
+/* Calculator */
+.calc-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:32px; max-width:1080px; margin:0 auto; }
+.calc-form { background:var(--bg-2); border:1px solid var(--line); border-radius:18px; padding:32px; }
+.calc-out  { background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%); border:1px solid var(--line-2); border-radius:18px; padding:32px; }
+.calc-field { margin-bottom:22px; }
+.calc-field label { display:block; font-size:13px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:8px; font-family:'Space Grotesk'; }
+.calc-field select, .calc-field input { width:100%; padding:14px 16px; background:var(--bg-3); border:1px solid var(--line-2); border-radius:10px; color:var(--ink); font-size:15px; font-family:'Inter'; }
+.calc-field select:focus, .calc-field input:focus { outline:2px solid var(--accent); border-color:transparent; }
+.calc-out .vbig { font-family:'Space Grotesk'; font-size:48px; font-weight:600; letter-spacing:-0.025em; color:var(--accent-2); margin-bottom:6px; }
+.calc-out .vsub { color:var(--ink-3); font-size:14px; margin-bottom:24px; }
+.calc-out .vrow { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+.calc-out .vrow:last-child { border-bottom:none; }
+.calc-out .vrow .k { color:var(--ink-2); }
+.calc-out .vrow .v { font-family:'Space Grotesk'; font-weight:600; color:var(--ink); }
+.calc-summary { margin-top:24px; padding:18px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.25); border-radius:12px; color:var(--ink); font-size:14.5px; line-height:1.6; }
+@media (max-width:880px) { .calc-grid { grid-template-columns:1fr; } }
+
+/* Comparison */
+.cmp-grid { display:grid; gap:18px; max-width:1080px; margin:32px auto; }
+.cmp-card { display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; padding:24px 28px; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; transition:border-color .2s, transform .2s; }
+.cmp-card:hover { border-color:var(--line-2); transform:translateY(-2px); }
+.cmp-card img { width:72px; height:72px; object-fit:contain; }
+.cmp-card .cmp-title { font-family:'Space Grotesk'; font-weight:600; font-size:19px; margin-bottom:4px; }
+.cmp-card .cmp-sub { color:var(--ink-3); font-size:13px; }
+.cmp-card .cmp-arr { color:var(--accent-2); font-weight:600; }
+
+.h2h-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1080px; margin:40px auto; }
+.h2h-card { background:var(--bg-2); border:1px solid var(--line); border-radius:18px; padding:32px; }
+.h2h-card .vendor { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:6px; }
+.h2h-card h3 { font-size:24px; margin-bottom:10px; }
+.h2h-card .photo-wrap { aspect-ratio:1; background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%); border:1px solid var(--line); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:18px 0; padding:18px; position:relative; overflow:hidden; }
+.h2h-card .photo-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(45% 35% at 50% 50%, rgba(255,94,31,0.15), transparent 70%); }
+.h2h-card .photo-wrap img { max-height:88%; max-width:88%; width:auto; height:auto; object-fit:contain; position:relative; z-index:2; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.5)); }
+.h2h-card .price { font-family:'Space Grotesk'; font-size:32px; font-weight:600; color:var(--accent-2); margin-bottom:14px; }
+.h2h-card .specs { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:18px; }
+.h2h-card .specs div { padding:8px 12px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; font-size:12.5px; }
+.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Space Grotesk'; font-size:14px; }
+.h2h-card .specs div span { color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
+.h2h-card ul { padding-left:18px; margin-bottom:18px; }
+.h2h-card li { color:var(--ink-2); font-size:14px; margin-bottom:6px; line-height:1.55; }
+.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Space Grotesk'; font-size:28px; font-weight:700; padding:8px 0; }
+@media (max-width:780px) { .h2h-grid { grid-template-columns:1fr; } .h2h-vs { transform:rotate(90deg); padding:14px 0; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Gids", "item": "https://botlease.nl/gids/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"}}</script>
+</head><body>
+
+<nav class="top">
+  <div class="container row">
+    <a href="/" class="brand">
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+      BotLease
+    </a>
+    <div class="nav-links">
+      <a href="/robots">Robots</a>
+      <a href="/vergelijken">Vergelijken</a>
+      <a href="/kosten">Kosten</a>
+      <a href="/gids/humanoide-robot-leasen">Gids</a>
+      <a href="/nieuws">Nieuws</a>
+    </div>
+    <a href="/#contact" class="btn">Plan demo →</a>
+  </div>
+</nav>
+
+<section class="g-hero"><div class="container">
+  <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><span>Gids</span></nav>
+  <span class="eyebrow">Gidsen</span>
+  <h1>Alles wat je moet weten over humanoïde robot leasing.</h1>
+  <p class="tag">Long-form gidsen, calculator, vergelijkingen en glossary — voor wie verder wil dan een marketingbrochure.</p>
+</div></section>
+<section class="body"><div class="container">
+  <div class="cmp-grid">
+    <a href="/gids/humanoide-robot-leasen" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><path d="M4 4h16v4H4z"/><path d="M4 10h10v10H4z"/><path d="M16 12h4v8h-4z"/></svg></div>
+      <div><div class="cmp-title">Pillar guide: humanoïde robot leasen</div><div class="cmp-sub">3.000 woorden — modellen, kosten, ROI, EU compliance, pilot-proces</div></div>
+      <div class="cmp-arr">Lees →</div></a>
+    <a href="/gids/ai-act-machineverordening" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div>
+      <div><div class="cmp-title">EU AI-Act + Machineverordening gids</div><div class="cmp-sub">2.500 woorden — compliance vanaf 2 augustus 2026 + 20 januari 2027</div></div>
+      <div class="cmp-arr">Lees →</div></a>
+    <a href="/kosten" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/></svg></div>
+      <div><div class="cmp-title">Lease cost calculator</div><div class="cmp-sub">Interactieve berekening — leaseprijs, ROI, vergelijking koop vs lease</div></div>
+      <div class="cmp-arr">Bereken →</div></a>
+    <a href="/begrippen" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+      <div><div class="cmp-title">Begrippenlijst</div><div class="cmp-sub">40+ termen uitgelegd — AGV, cobot, SLAM, VLA, EU AI-Act</div></div>
+      <div class="cmp-arr">Bekijk →</div></a>
+    <a href="/methodologie" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1"/></svg></div>
+      <div><div class="cmp-title">Methodologie</div><div class="cmp-sub">Hoe wij robots evalueren, prijzen berekenen, risico's dragen</div></div>
+      <div class="cmp-arr">Lees →</div></a>
+    <a href="/over" class="cmp-card">
+      <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb098" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0116 0"/></svg></div>
+      <div><div class="cmp-title">Over BotLease</div><div class="cmp-sub">Missie, team, waarom we bestaan</div></div>
+      <div class="cmp-arr">Lees →</div></a>
+  </div>
+</div></section>
+
+<footer>
+  <div class="container row">
+    <div>© 2026 BotLease B.V. — Eindhoven · KvK XXXXXXXX</div>
+    <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/vergelijken">Vergelijken</a> · <a href="/kosten">Kosten</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · <a href="/sitemap.xml">Sitemap</a></div>
+  </div>
+</footer>
+
+</body></html>
