@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nieuws & analyse over humanoïde robots in Nederland | BotLease</title>
+<meta name="description" content="Dagelijks nieuws en analyses over humanoïde robots: Unitree, Figure, Apptronik, Agility, 1X. Use-cases, regelgeving, marktanalyses en pilot-data uit Nederland.">
+<meta name="keywords" content="humanoide robot nieuws, robot Nederland, Unitree nieuws, Figure 02, Apollo Apptronik, Agility Digit, robot lease nieuws, AI Act robot">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://botlease.nl/nieuws/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="BotLease Nieuws — humanoïde robots in Nederland">
+<meta property="og:description" content="Dagelijkse analyses over humanoïde robots, Nederlandse use-cases en marktontwikkelingen.">
+<meta property="og:url" content="https://botlease.nl/nieuws/">
+<meta property="og:locale" content="nl_NL">
+
+<link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="https://botlease.nl/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#08080a; --bg-2:#0e0e12; --bg-3:#16161c; --line:#23232c; --line-2:#2e2e38;
+  --ink:#f7f7f9; --ink-2:#a5a5b3; --ink-3:#666672;
+  --accent:#ff5e1f; --accent-2:#ffb098; --green:#5be584;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.025em; line-height:1.15; font-weight:600; }
+a { color:inherit; text-decoration:none; }
+.container { max-width:1180px; margin:0 auto; padding:0 28px; }
+.narrow { max-width:760px; margin:0 auto; padding:0 28px; }
+
+nav.top {
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:rgba(8,8,10,0.78); border-bottom:1px solid rgba(255,255,255,0.05);
+}
+nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:19px; }
+.brand-mark { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg, #ff5e1f, #ff8e5c); display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(255,94,31,0.35); }
+.nav-links { display:flex; gap:30px; }
+.nav-links a { color:var(--ink-2); font-size:14px; font-weight:500; transition:color .15s; }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
+.btn { display:inline-flex; align-items:center; gap:7px; padding:11px 20px; border-radius:999px; font-weight:600; font-size:14px; background:var(--accent); color:#fff; border:none; cursor:pointer; transition:transform .15s, box-shadow .2s; }
+.btn:hover { transform:translateY(-1px); box-shadow:0 12px 30px -10px rgba(255,94,31,0.35); }
+
+footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(--bg-2); margin-top:120px; }
+footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; color:var(--ink-3); font-size:13px; align-items:center; }
+footer a { color:var(--ink-2); }
+footer a:hover { color:var(--ink); }
+
+@media (max-width:780px) { .nav-links { display:none; } }
+
+.news-hero { padding:140px 0 60px; position:relative; overflow:hidden; }
+.news-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(50% 50% at 80% 20%, rgba(255,94,31,0.18), transparent 60%); z-index:0; }
+.news-hero .container { position:relative; z-index:2; }
+.eyebrow { display:inline-block; color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:0.16em; font-weight:600; margin-bottom:14px; padding:5px 12px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
+.news-hero h1 { font-size:clamp(36px,4.8vw,60px); margin-bottom:18px; letter-spacing:-0.035em; }
+.news-hero p { color:var(--ink-2); font-size:18px; max-width:680px; }
+.news-feed { padding:30px 0 80px; }
+.news-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+article.card { background:var(--bg-2); border:1px solid var(--line); border-radius:18px; padding:30px 28px; transition:transform .25s, border-color .25s, box-shadow .25s; display:flex; flex-direction:column; min-height:300px; }
+article.card:hover { transform:translateY(-3px); border-color:var(--line-2); box-shadow:0 30px 60px -30px rgba(0,0,0,0.5); }
+article.card .meta { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
+article.card .cat { font-family:'Space Grotesk'; color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; padding:4px 10px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
+article.card .date { color:var(--ink-3); font-size:13px; }
+article.card h2 { font-size:23px; line-height:1.25; margin-bottom:10px; letter-spacing:-0.02em; }
+article.card h2 a:hover { color:var(--accent-2); }
+article.card p.lede { color:var(--ink-2); font-size:14.5px; line-height:1.6; margin-bottom:20px; flex:1; }
+article.card .footer-line { display:flex; justify-content:space-between; align-items:center; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--ink-3); }
+article.card .read-more { color:var(--accent-2); font-weight:600; }
+article.card.featured { grid-column:span 2; background:linear-gradient(135deg, rgba(255,94,31,0.08), rgba(255,94,31,0.02)); border-color:rgba(255,94,31,0.25); }
+article.card.featured h2 { font-size:30px; max-width:680px; }
+article.card.featured p.lede { font-size:16px; max-width:680px; }
+@media (max-width:780px) {
+  .news-grid { grid-template-columns:1fr; }
+  article.card.featured { grid-column:span 1; }
+  article.card.featured h2 { font-size:24px; }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "BotLease — Nieuws over humanoïde robots", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen", "name": "Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn"}, {"@type": "ListItem", "position": 2, "url": "https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot", "name": "Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert"}, {"@type": "ListItem", "position": 3, "url": "https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026", "name": "AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?"}, {"@type": "ListItem", "position": 4, "url": "https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland", "name": "Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie"}, {"@type": "ListItem", "position": 5, "url": "https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland", "name": "Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots.", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"}, "sameAs": []}</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="container row">
+    <a href="/" class="brand">
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+      BotLease
+    </a>
+    <div class="nav-links">
+      <a href="/#hoe">Werkwijze</a>
+      <a href="/#robots">Robots</a>
+      <a href="/#cases">Toepassingen</a>
+      <a href="/nieuws" class="active">Nieuws</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <a href="/#contact" class="btn">Plan demo →</a>
+  </div>
+</nav>
+
+
+<section class="news-hero">
+  <div class="container">
+    <div class="eyebrow">Nieuws & analyse</div>
+    <h1>Humanoïde robots in Nederland.</h1>
+    <p>Dagelijkse analyses over de humanoid-revolutie: nieuwe modellen, pilot-data, regelgeving en wat het betekent voor het Nederlandse MKB. Geschreven door de BotLease redactie, gekoppeld aan publieke bronnen.</p>
+  </div>
+</section>
+
+<section class="news-feed">
+  <div class="container">
+    <div class="news-grid">
+        <article class="card featured">
+          <div class="meta">
+            <span class="cat">Toepassingen</span>
+            <span class="date">14 mei 2026</span>
+          </div>
+          <h2><a href="/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen">Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</a></h2>
+          <p class="lede">De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.</p>
+          <div class="footer-line">
+            <span>6 min lezen</span>
+            <a class="read-more" href="/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen">Lees artikel →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="meta">
+            <span class="cat">Industrie</span>
+            <span class="date">12 mei 2026</span>
+          </div>
+          <h2><a href="/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot">Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</a></h2>
+          <p class="lede">De eerste Apollo&#x27;s draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.</p>
+          <div class="footer-line">
+            <span>7 min lezen</span>
+            <a class="read-more" href="/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot">Lees artikel →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="meta">
+            <span class="cat">Regelgeving</span>
+            <span class="date">10 mei 2026</span>
+          </div>
+          <h2><a href="/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026">AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</a></h2>
+          <p class="lede">Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.</p>
+          <div class="footer-line">
+            <span>9 min lezen</span>
+            <a class="read-more" href="/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026">Lees artikel →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="meta">
+            <span class="cat">Toepassingen</span>
+            <span class="date">8 mei 2026</span>
+          </div>
+          <h2><a href="/nieuws/agility-digit-fulfillment-pilot-3pl-nederland">Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie</a></h2>
+          <p class="lede">Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL — en wat de cijfers zeggen.</p>
+          <div class="footer-line">
+            <span>6 min lezen</span>
+            <a class="read-more" href="/nieuws/agility-digit-fulfillment-pilot-3pl-nederland">Lees artikel →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="meta">
+            <span class="cat">Markt</span>
+            <span class="date">5 mei 2026</span>
+          </div>
+          <h2><a href="/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland">Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?</a></h2>
+          <p class="lede">Een upgrade van een upgrade van een upgrade van een marktvoorspelling. De NL-translatie.</p>
+          <div class="footer-line">
+            <span>5 min lezen</span>
+            <a class="read-more" href="/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland">Lees artikel →</a>
+          </div>
+        </article></div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container row">
+    <div>© 2026 BotLease B.V. (i.o.) — Eindhoven · Rotterdam</div>
+    <div><a href="/">Home</a> · <a href="/nieuws">Nieuws</a> · <a href="/#contact">Contact</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/rss.xml">RSS</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

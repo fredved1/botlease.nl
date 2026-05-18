@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BotLease Nieuws — humanoïde robots in Nederland</title>
+    <link>https://botlease.nl/nieuws/</link>
+    <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
+    <language>nl-NL</language>
+    <lastBuildDate>Mon, 18 May 2026 07:27:50 +0000</lastBuildDate>
+    <item>
+      <title>Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</title>
+      <link>https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen</guid>
+      <pubDate>Thu, 14 May 2026 08:00:00 +0100</pubDate>
+      <category>Toepassingen</category>
+      <description><![CDATA[De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.]]></description>
+    </item>
+    <item>
+      <title>Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</title>
+      <link>https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot</guid>
+      <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
+      <category>Industrie</category>
+      <description><![CDATA[De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.]]></description>
+    </item>
+    <item>
+      <title>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</title>
+      <link>https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</guid>
+      <pubDate>Sun, 10 May 2026 08:00:00 +0100</pubDate>
+      <category>Regelgeving</category>
+      <description><![CDATA[Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.]]></description>
+    </item>
+    <item>
+      <title>Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie</title>
+      <link>https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland</guid>
+      <pubDate>Fri, 08 May 2026 08:00:00 +0100</pubDate>
+      <category>Toepassingen</category>
+      <description><![CDATA[Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL — en wat de cijfers zeggen.]]></description>
+    </item>
+    <item>
+      <title>Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?</title>
+      <link>https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland</guid>
+      <pubDate>Tue, 05 May 2026 08:00:00 +0100</pubDate>
+      <category>Markt</category>
+      <description><![CDATA[Een upgrade van een upgrade van een upgrade van een marktvoorspelling. De NL-translatie.]]></description>
+    </item>
+  </channel>
+</rss>
