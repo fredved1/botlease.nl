@@ -17,9 +17,10 @@
 <meta name="twitter:title" content="BotLease — Humanoïde robots leasen in Nederland">
 <meta name="twitter:description" content="All-in lease vanaf €899/maand. Unitree, Figure, Apptronik, Agility, 1X. Pilot in 4 weken op locatie.">
 <meta name="twitter:image" content="https://botlease.nl/img/robots/apollo.png">
+<meta name="theme-color" content="#faf9f6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. Lease Unitree, Figure, Apptronik, Agility en 1X humanoid robots all-in vanaf €899 per maand.", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "knowsAbout": ["Humanoid robots", "Unitree G1", "Unitree H1", "Figure 02", "Apptronik Apollo", "Agility Digit", "1X NEO", "Robot leasing", "Industriële automatisering"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "BotLease", "url": "https://botlease.nl", "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Operational lease van humanoïde robots", "provider": {"@type": "Organization", "name": "BotLease"}, "areaServed": {"@type": "Country", "name": "Nederland"}, "description": "All-in operational lease van humanoïde robots inclusief installatie, training, onderhoud, swap-SLA en verzekering. Vanaf €899/maand.", "offers": [{"@type": "Offer", "name": "Unitree G1 Edu", "price": "899", "priceCurrency": "EUR", "description": "Compact humanoid lease per maand (36 mnd)"}, {"@type": "Offer", "name": "Unitree H1", "price": "1499", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "1X NEO", "price": "1999", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Agility Digit v4", "price": "2899", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Apptronik Apollo", "price": "3499", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Figure 02", "price": "3899", "priceCurrency": "EUR"}]}</script>
@@ -38,70 +39,93 @@
 <script defer data-domain="botlease.nl" src="https://plausible.io/js/script.outbound-links.js"></script>
 <style>
 /* ─────────────────────────────────────────────────────────
-   Premium SaaS design system — BotLease 2026
+   BotLease — Editorial light design system (2026)
+   Inspired by Anthropic, Stripe, Mercury, Substack
    ─────────────────────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  /* Base surfaces — deeper, more refined */
-  --bg:      #050507;
-  --bg-2:    #0a0a0e;
-  --bg-3:    #131318;
-  --bg-elev: #1c1c24;
+  /* Surfaces — warm cream like fine paper */
+  --bg:         #faf9f6;
+  --bg-subtle:  #f3f1ec;
+  --bg-card:    #ffffff;
+  --bg-dark:    #1c1917;  /* For dark cards / footer / contrast moments */
+  --bg-darker:  #0c0a09;
 
-  /* Borders & dividers (alpha-based for subtle layering) */
-  --border:        rgba(255,255,255,0.06);
-  --border-hover:  rgba(255,255,255,0.12);
-  --border-strong: rgba(255,255,255,0.18);
+  /* Borders — warm grey */
+  --border:        #e7e5e0;
+  --border-hover:  #d4d1c8;
+  --border-strong: #a8a29e;
 
-  /* Text */
-  --fg:   #fafafa;
-  --fg-2: #a1a1aa;
-  --fg-3: #71717a;
-  --fg-4: #52525b;
+  /* Ink (text) */
+  --ink:    #1c1917;
+  --ink-2:  #44403c;
+  --ink-3:  #78716c;
+  --ink-4:  #a8a29e;
+  --ink-on-dark: #fafaf9;
+  --ink-2-on-dark: #d6d3d1;
+  --ink-3-on-dark: #a8a29e;
 
-  /* Accent — slightly more vibrant orange */
-  --accent:      #f97316;
-  --accent-2:    #fb923c;
-  --accent-soft: rgba(249,115,22,0.08);
-  --accent-glow: rgba(249,115,22,0.35);
+  /* Accent — refined terracotta (editorial, not consumer) */
+  --accent:        #c2410c;
+  --accent-deep:   #9a3412;
+  --accent-soft:   #fff7ed;
+  --accent-line:   #fed7aa;
 
   /* Semantic */
-  --green:  #22c55e;
-  --blue:   #60a5fa;
-  --purple: #c084fc;
-  --rose:   #fb7185;
+  --green:      #15803d;
+  --green-soft: #f0fdf4;
+  --green-line: #bbf7d0;
+  --blue:       #1d4ed8;
+  --blue-soft:  #eff6ff;
 
-  /* Radius */
-  --r-sm:  8px;
-  --r:     12px;
-  --r-lg:  16px;
+  /* Radius — restrained */
+  --r-sm:  6px;
+  --r:     10px;
+  --r-lg:  14px;
   --r-xl:  20px;
-  --r-2xl: 28px;
 
-  /* Shadows */
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.25);
-  --shadow-md: 0 12px 32px rgba(0,0,0,0.4);
-  --shadow-lg: 0 30px 60px -20px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 80px var(--accent-glow);
+  /* Shadows — soft, paper-like */
+  --shadow-xs: 0 1px 2px rgba(28,25,23,0.04);
+  --shadow-sm: 0 2px 8px rgba(28,25,23,0.06);
+  --shadow-md: 0 8px 24px rgba(28,25,23,0.08);
+  --shadow-lg: 0 24px 56px -16px rgba(28,25,23,0.12);
+
+  /* Spacing rhythm (8px baseline) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
 }
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--bg);
-  color:var(--fg);
+  color:var(--ink);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
 
 h1,h2,h3,h4 {
-  font-family:'Space Grotesk',sans-serif;
-  letter-spacing:-0.03em;
-  line-height:1.05;
-  font-weight:700;
+  font-family:'Space Grotesk', system-ui, sans-serif;
+  letter-spacing:-0.025em;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.1;
+}
+
+.serif {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  letter-spacing:-0.015em;
 }
 
 a { color:inherit; text-decoration:none; }
@@ -110,601 +134,799 @@ button { font-family:inherit; cursor:pointer; }
 
 ::selection { background:var(--accent); color:#fff; }
 
-.container { max-width:1280px; margin:0 auto; padding:0 32px; }
-.narrow    { max-width:880px;  margin:0 auto; padding:0 32px; }
+.container { max-width:1200px; margin:0 auto; padding:0 24px; }
+.narrow    { max-width:760px;  margin:0 auto; padding:0 24px; }
+
+@media (min-width:768px) { .container, .narrow { padding-inline:32px; } }
 
 /* ─────────── NAV ─────────── */
 nav.top {
-  position:fixed; top:0; left:0; right:0; z-index:80;
-  backdrop-filter:blur(24px) saturate(180%);
-  -webkit-backdrop-filter:blur(24px) saturate(180%);
-  background:rgba(5,5,7,0.72);
+  position:sticky; top:0; z-index:80;
+  background:rgba(250,249,246,0.85);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--border);
 }
-nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:18px; }
+nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:600; font-size:18px; letter-spacing:-0.01em; color:var(--ink); }
 .brand-mark {
-  width:28px; height:28px; border-radius:8px;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  width:28px; height:28px; border-radius:7px;
+  background:var(--ink);
   display:flex; align-items:center; justify-content:center;
-  box-shadow:0 0 28px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.2);
 }
-.nav-links { display:flex; gap:6px; }
+.brand-mark svg path, .brand-mark svg circle { stroke:var(--bg); }
+.brand-mark svg circle[fill] { fill:var(--bg) !important; }
+
+.nav-links { display:flex; gap:4px; align-items:center; }
 .nav-links a {
-  color:var(--fg-2); font-size:14px; font-weight:500;
+  color:var(--ink-2); font-size:14.5px; font-weight:500;
   padding:8px 14px; border-radius:8px;
   transition:color .15s, background .15s;
 }
-.nav-links a:hover { color:var(--fg); background:var(--border); }
+.nav-links a:hover { color:var(--ink); background:var(--bg-subtle); }
 
 .btn {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:11px 20px; border-radius:999px;
-  font-weight:600; font-size:14px; font-family:'Inter';
-  background:var(--accent); color:#fff; border:none;
-  cursor:pointer; transition:transform .15s ease, box-shadow .2s ease, background .15s;
-  box-shadow:0 8px 20px -6px var(--accent-glow);
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 18px; border-radius:8px;
+  font-weight:500; font-size:14.5px; font-family:'Inter',sans-serif;
+  background:var(--ink); color:var(--ink-on-dark); border:1px solid var(--ink);
+  cursor:pointer; transition:transform .15s ease, background .15s, box-shadow .2s;
+  white-space:nowrap;
 }
-.btn:hover { transform:translateY(-1px); box-shadow:0 12px 28px -6px var(--accent-glow); background:var(--accent-2); }
-.btn.ghost { background:transparent; color:var(--fg); border:1px solid var(--border-strong); box-shadow:none; }
-.btn.ghost:hover { background:var(--border); border-color:var(--border-hover); }
-.btn.lg { padding:14px 26px; font-size:15px; border-radius:999px; }
-.btn.lg svg { width:16px; height:16px; }
+.btn:hover { background:var(--bg-darker); transform:translateY(-1px); box-shadow:var(--shadow-sm); }
+.btn.ghost {
+  background:transparent; color:var(--ink); border:1px solid var(--border-strong);
+}
+.btn.ghost:hover { background:var(--bg-subtle); border-color:var(--ink); transform:translateY(-1px); }
+.btn.accent {
+  background:var(--accent); border-color:var(--accent); color:#fff;
+}
+.btn.accent:hover { background:var(--accent-deep); border-color:var(--accent-deep); }
+.btn.lg { padding:13px 24px; font-size:15px; border-radius:10px; }
+.btn svg { width:14px; height:14px; }
+
+@media (max-width:780px) {
+  .nav-links { display:none; }
+  .nav-cta-mobile { display:none; }
+}
 
 /* ─────────── HERO ─────────── */
 header.hero {
-  position:relative; padding:130px 0 80px;
+  padding:80px 0 96px;
+  position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(800px 600px at 20% 0%, rgba(249,115,22,0.18), transparent 60%),
-    radial-gradient(700px 500px at 90% 30%, rgba(168,85,247,0.12), transparent 60%),
-    var(--bg);
 }
-.hero-bg-grid {
-  position:absolute; inset:0; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
-}
-.hero-spotlight {
-  position:absolute; pointer-events:none; z-index:1;
-  width:600px; height:600px;
-  background:radial-gradient(circle, rgba(249,115,22,0.10) 0%, transparent 70%);
-  transform:translate(-50%,-50%);
-  transition:opacity .4s;
-  opacity:0;
-}
+@media (min-width:768px) { header.hero { padding:120px 0 140px; } }
+
 .hero-grid {
-  position:relative; z-index:2;
-  display:grid; grid-template-columns:1.15fr 1fr; gap:80px; align-items:center;
+  display:grid;
+  grid-template-columns:minmax(0, 1fr);
+  gap:64px;
+  align-items:center;
+}
+@media (min-width:1024px) {
+  .hero-grid { grid-template-columns:minmax(0, 1.3fr) minmax(0, 1fr); gap:80px; }
 }
 
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:8px;
-  padding:7px 14px; background:rgba(255,255,255,0.04);
-  border:1px solid var(--border-strong); border-radius:999px;
-  font-size:13px; color:var(--fg-2); font-weight:500;
-  margin-bottom:28px;
+  padding:6px 12px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:999px;
+  font-size:13px; color:var(--ink-2); font-weight:500;
+  margin-bottom:32px;
+  box-shadow:var(--shadow-xs);
 }
-.hero-eyebrow .pulse {
-  width:7px; height:7px; border-radius:50%;
-  background:var(--green); box-shadow:0 0 0 4px rgba(34,197,94,0.2);
-  animation:pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { box-shadow:0 0 0 4px rgba(34,197,94,0.2); }
-  50%     { box-shadow:0 0 0 8px rgba(34,197,94,0.0); }
+.hero-eyebrow .dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--green); box-shadow:0 0 0 3px var(--green-soft);
 }
 
 .hero-title {
-  font-size:clamp(44px, 6.4vw, 84px);
-  font-weight:700; line-height:0.98;
-  margin-bottom:24px; letter-spacing:-0.04em;
-  background:linear-gradient(180deg, #fafafa 0%, #d4d4d8 100%);
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(40px, 5.8vw, 84px);
+  line-height:1.02;
+  letter-spacing:-0.035em;
+  color:var(--ink);
+  margin-bottom:24px;
+  max-width:780px;
 }
 .hero-title em {
-  font-style:normal;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-style:italic;
+  color:var(--accent);
+  font-weight:500;
 }
 
 .hero-sub {
-  font-size:19px; color:var(--fg-2);
-  max-width:560px; margin-bottom:36px; line-height:1.55;
+  font-size:19px; line-height:1.55;
+  color:var(--ink-2);
+  max-width:560px;
+  margin-bottom:40px;
 }
 
-.hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:56px; }
-
-.hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; max-width:560px; }
-.hero-stat .v {
-  font-family:'Space Grotesk'; font-weight:700;
-  font-size:28px; letter-spacing:-0.025em;
-  background:linear-gradient(180deg, #fafafa 0%, #d4d4d8 100%);
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero-stat .l {
-  font-size:12px; color:var(--fg-3);
-  text-transform:uppercase; letter-spacing:0.1em;
-  margin-top:4px; font-weight:500;
+.hero-cta {
+  display:flex; gap:12px; flex-wrap:wrap;
+  margin-bottom:56px;
 }
 
-/* Hero visual — premium glass card with robot */
+.hero-meta {
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:24px;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+  max-width:560px;
+}
+@media (min-width:560px) { .hero-meta { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+.hero-meta-item .v {
+  font-family:'Space Grotesk'; font-size:22px; font-weight:600;
+  color:var(--ink); letter-spacing:-0.015em;
+}
+.hero-meta-item .l {
+  font-size:13px; color:var(--ink-3);
+  margin-top:2px;
+}
+
+/* Hero visual — paper-card with robot photo */
 .hero-visual {
-  position:relative; aspect-ratio:4/5;
-  border-radius:var(--r-2xl);
-  background:
-    radial-gradient(60% 50% at 50% 30%, rgba(249,115,22,0.22), transparent 60%),
-    linear-gradient(180deg, #131318 0%, #0a0a0e 100%);
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:var(--r-xl);
+  background:var(--bg-card);
   border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
   overflow:hidden;
-  box-shadow:var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.05);
+  display:flex; align-items:center; justify-content:center;
+  padding:48px;
 }
 .hero-visual::before {
-  content:""; position:absolute; inset:0; z-index:1;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size:32px 32px;
-  mask-image:radial-gradient(ellipse at center, black 40%, transparent 75%);
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60% 50% at 50% 100%, var(--accent-soft) 0%, transparent 60%);
+  pointer-events:none;
 }
 .hero-robot {
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-50%);
-  max-width:78%; max-height:78%;
-  width:auto; height:auto; z-index:2;
-  object-fit:contain;
-  filter:drop-shadow(0 30px 60px rgba(0,0,0,0.5)) drop-shadow(0 0 80px rgba(249,115,22,0.25));
+  position:relative; z-index:2;
+  max-width:90%; max-height:90%;
+  width:auto; height:auto; object-fit:contain;
 }
 
-.float-card {
-  position:absolute; z-index:3;
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  background:rgba(10,10,14,0.7);
-  border:1px solid var(--border-strong);
-  border-radius:var(--r);
-  padding:12px 16px;
-  font-size:13px;
-  box-shadow:var(--shadow-sm);
-}
-.float-card .lbl { font-size:11px; color:var(--fg-3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px; font-weight:600; }
-.float-card .val { font-family:'Space Grotesk'; font-weight:600; font-size:15px; color:var(--fg); }
-.float-card.tl  { top:24px; left:24px; }
-.float-card.tl .val { display:flex; align-items:center; gap:8px; color:var(--green); }
-.float-card.tl .val::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(34,197,94,0.25); animation:pulse 2s ease-in-out infinite; }
-.float-card.br {
-  bottom:24px; left:24px; right:24px;
+.hero-tag {
+  position:absolute; bottom:24px; left:24px; right:24px;
+  z-index:3;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px 18px;
   display:flex; justify-content:space-between; align-items:center;
+  box-shadow:var(--shadow-sm);
+  font-size:14px;
 }
-.float-card.br .val a { color:var(--fg); text-decoration:none; }
-.float-card.br .val a:hover { color:var(--accent-2); }
-
-@media (max-width:980px) {
-  .hero-grid { grid-template-columns:1fr; gap:48px; }
-  .hero-visual { max-width:520px; margin:0 auto; aspect-ratio:5/6; }
-}
-@media (max-width:600px) {
-  header.hero { padding:110px 0 60px; }
-  .hero-stats { grid-template-columns:repeat(2,1fr); gap:20px; }
-}
+.hero-tag .left .lbl { font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); font-weight:500; margin-bottom:2px; }
+.hero-tag .left .val { font-weight:600; color:var(--ink); }
+.hero-tag .left .val a { color:inherit; }
+.hero-tag .left .val a:hover { color:var(--accent); }
+.hero-tag .right { text-align:right; }
+.hero-tag .right .lbl { font-size:11px; color:var(--ink-3); }
+.hero-tag .right .val { font-family:'Space Grotesk'; font-weight:600; font-size:18px; color:var(--ink); }
 
 /* ─────────── TRUST BAR ─────────── */
-.trust-bar {
-  padding:48px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-  background:var(--bg-2);
+.trust {
+  padding:48px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
-.trust-bar .label {
-  text-align:center; color:var(--fg-3);
-  font-size:12px; text-transform:uppercase; letter-spacing:0.18em;
-  margin-bottom:28px; font-weight:600;
+.trust .label {
+  text-align:center;
+  font-size:12px; text-transform:uppercase; letter-spacing:0.16em;
+  color:var(--ink-3); font-weight:500;
+  margin-bottom:28px;
 }
-.trust-logos {
-  display:flex; justify-content:center; align-items:center;
-  flex-wrap:wrap; gap:48px;
+.trust-row {
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:48px; row-gap:24px;
 }
-.trust-logos .logo {
-  font-family:'Space Grotesk'; font-weight:600;
-  font-size:18px; color:var(--fg-3);
-  letter-spacing:-0.01em;
-  transition:color .2s, transform .2s;
-  display:flex; align-items:center; gap:8px;
+.trust-logo {
+  font-family:'Space Grotesk'; font-weight:500;
+  font-size:17px; color:var(--ink-3);
+  letter-spacing:-0.005em;
+  display:flex; align-items:center; gap:6px;
+  transition:color .15s;
 }
-.trust-logos .logo:hover { color:var(--fg-2); transform:translateY(-1px); }
-.trust-logos .logo .badge {
-  font-size:9px; padding:2px 6px; border-radius:4px;
-  background:var(--bg-elev); color:var(--fg-3);
-  text-transform:uppercase; letter-spacing:0.06em; font-weight:700;
+.trust-logo:hover { color:var(--ink); }
+.trust-logo .ctry {
+  font-size:9px; font-weight:600; padding:1px 5px; border-radius:3px;
+  background:var(--bg-subtle); color:var(--ink-3);
+  letter-spacing:0.05em;
 }
 
 /* ─────────── SECTIONS ─────────── */
-section { padding:120px 0; position:relative; }
-section.alt { background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+section { padding:96px 0; }
+@media (min-width:768px) { section { padding:120px 0; } }
+
+section.subtle { background:var(--bg-subtle); }
+section.dark   { background:var(--bg-dark); color:var(--ink-on-dark); }
+section.dark h2 { color:var(--ink-on-dark); }
+section.dark p { color:var(--ink-2-on-dark); }
 
 .section-eyebrow {
-  display:inline-block; color:var(--accent); font-size:12px;
-  text-transform:uppercase; letter-spacing:0.16em; font-weight:600;
-  padding:6px 14px; background:var(--accent-soft);
-  border:1px solid rgba(249,115,22,0.22); border-radius:999px;
+  display:inline-block;
+  font-size:12.5px; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+}
+section.dark .section-eyebrow { color:var(--accent-line); }
+
+.section-head {
+  max-width:760px; margin:0 auto 64px;
+  text-align:center;
+}
+.section-head h2 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(30px, 4vw, 52px);
+  letter-spacing:-0.025em;
+  line-height:1.08;
   margin-bottom:18px;
 }
-.section-head { max-width:720px; margin:0 auto 64px; text-align:center; }
-.section-head h2 { font-size:clamp(32px, 4.4vw, 56px); margin-bottom:18px; letter-spacing:-0.03em; line-height:1.05; }
 .section-head h2 em {
-  font-style:normal;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-style:italic; color:var(--accent); font-weight:500;
 }
-.section-head p { color:var(--fg-2); font-size:17.5px; max-width:620px; margin:0 auto; line-height:1.6; }
+section.dark .section-head h2 em { color:var(--accent-line); }
+.section-head p {
+  font-size:18px; color:var(--ink-2);
+  max-width:600px; margin-inline:auto;
+  line-height:1.55;
+}
+section.dark .section-head p { color:var(--ink-2-on-dark); }
 
-/* ─────────── BIG STATS ─────────── */
-.big-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; }
-.big-stat { padding:40px 32px; background:var(--bg-2); transition:background .2s; }
-.big-stat:hover { background:var(--bg-3); }
-.big-stat .v {
-  font-family:'Space Grotesk'; font-weight:700;
-  font-size:clamp(36px, 4.4vw, 56px); letter-spacing:-0.03em;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-  line-height:1; margin-bottom:8px;
+/* ─────────── PROBLEM / METRICS ─────────── */
+.metrics {
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:0;
+  border-top:1px solid var(--border);
+  border-left:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--bg-card);
+  box-shadow:var(--shadow-xs);
 }
-.big-stat .l { font-size:13.5px; color:var(--fg-2); }
-.big-stat .sub { font-size:12px; color:var(--fg-3); margin-top:4px; }
-@media (max-width:780px) { .big-stats { grid-template-columns:repeat(2,1fr); } }
-
-/* ─────────── BENTO ─────────── */
-.bento {
-  display:grid; gap:18px;
-  grid-template-columns:repeat(3, 1fr);
-  grid-template-rows:auto auto;
-}
-.bento-card {
-  position:relative; overflow:hidden;
-  background:var(--bg-2); border:1px solid var(--border);
-  border-radius:var(--r-xl); padding:32px;
-  transition:border-color .2s, transform .2s;
-  min-height:280px;
-  display:flex; flex-direction:column; justify-content:flex-end;
-}
-.bento-card:hover { border-color:var(--border-hover); transform:translateY(-3px); }
-.bento-card::before {
-  content:""; position:absolute; inset:0;
-  background:radial-gradient(60% 40% at 80% 20%, var(--bento-glow, rgba(249,115,22,0.15)), transparent 60%);
-  pointer-events:none; z-index:0;
-}
-.bento-card .photo {
-  position:absolute; right:-20px; top:0; bottom:0;
-  width:55%; z-index:1; pointer-events:none;
-}
-.bento-card .photo img { position:absolute; right:0; top:50%; transform:translateY(-50%); height:90%; width:auto; object-fit:contain; filter:drop-shadow(0 18px 36px rgba(0,0,0,0.55)); opacity:0.85; }
-.bento-card .body { position:relative; z-index:2; max-width:60%; }
-.bento-card h3 { font-size:22px; margin-bottom:10px; }
-.bento-card p { color:var(--fg-2); font-size:14.5px; margin-bottom:18px; line-height:1.5; }
-.bento-card .roi {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:6px 12px; border-radius:999px;
-  background:var(--accent-soft); color:var(--accent-2);
-  border:1px solid rgba(249,115,22,0.25);
-  font-size:12.5px; font-weight:600;
-  font-family:'Space Grotesk';
-}
-
-/* Featured bento card spans 2 cols + 2 rows */
-.bento-card.large { grid-column:span 2; grid-row:span 2; min-height:580px; padding:40px; }
-.bento-card.large .body { max-width:50%; }
-.bento-card.large h3 { font-size:32px; line-height:1.1; margin-bottom:16px; }
-.bento-card.large p  { font-size:16px; max-width:380px; }
-.bento-card.large .photo { width:55%; }
-.bento-card.large .photo img { height:75%; }
-@media (max-width:880px) {
-  .bento { grid-template-columns:1fr; }
-  .bento-card.large { grid-column:span 1; grid-row:span 1; min-height:380px; padding:32px; }
-  .bento-card .body, .bento-card.large .body { max-width:65%; }
-}
-
-/* ─────────── PROCESS ─────────── */
-.process { position:relative; }
-.process-line {
-  position:absolute; top:50%; left:5%; right:5%; height:1px;
-  background:linear-gradient(90deg, transparent, var(--border-strong) 20%, var(--border-strong) 80%, transparent);
-  z-index:0;
-}
-.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative; z-index:1; }
-.process-step {
-  background:var(--bg-2); border:1px solid var(--border);
-  border-radius:var(--r-lg); padding:28px;
-  transition:border-color .2s, transform .2s;
-}
-.process-step:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 0 0 1px var(--accent), 0 20px 40px -10px var(--accent-glow); }
-.process-num {
-  display:inline-flex; align-items:center; justify-content:center;
-  width:36px; height:36px; border-radius:10px;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  font-family:'Space Grotesk'; font-weight:700; font-size:15px; color:#fff;
-  margin-bottom:18px;
-  box-shadow:0 8px 16px -4px var(--accent-glow);
-}
-.process-step h3 { font-size:18px; margin-bottom:8px; }
-.process-step p { color:var(--fg-2); font-size:14px; line-height:1.55; }
-@media (max-width:880px) { .process-grid { grid-template-columns:repeat(2,1fr); } .process-line { display:none; } }
-@media (max-width:520px) { .process-grid { grid-template-columns:1fr; } }
-
-/* ─────────── ROBOT CATALOG ─────────── */
-.catalog { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.bot {
-  position:relative; overflow:hidden;
-  background:var(--bg-2); border:1px solid var(--border);
-  border-radius:var(--r-xl);
-  transition:border-color .25s, transform .25s, box-shadow .25s;
-  display:flex; flex-direction:column;
-  text-decoration:none; color:inherit;
-}
-.bot::before {
-  content:""; position:absolute; inset:-1px; border-radius:var(--r-xl);
-  background:conic-gradient(from var(--ang, 0deg), transparent 0deg, var(--accent) 90deg, transparent 180deg, transparent 360deg);
-  opacity:0; transition:opacity .35s;
-  z-index:0;
-  --ang:0deg;
-}
-.bot:hover::before { opacity:0.6; animation:spin 4s linear infinite; }
-@keyframes spin { to { --ang:360deg; transform:rotate(360deg); } }
-@property --ang { syntax:'<angle>'; inherits:false; initial-value:0deg; }
-.bot-inner { position:relative; z-index:1; background:var(--bg-2); border-radius:calc(var(--r-xl) - 1px); display:flex; flex-direction:column; flex:1; }
-.bot:hover { transform:translateY(-4px); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
-
-.bot-visual {
-  aspect-ratio:5/4; position:relative; overflow:hidden;
-  background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%);
-  display:flex; align-items:center; justify-content:center;
+@media (min-width:768px) { .metrics { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+.metric {
+  padding:32px 28px;
+  border-right:1px solid var(--border);
   border-bottom:1px solid var(--border);
 }
-.bot-visual::before {
-  content:""; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size:24px 24px;
+.metric .v {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(36px, 4vw, 52px);
+  letter-spacing:-0.025em;
+  color:var(--ink);
+  line-height:1;
+  margin-bottom:10px;
 }
-.bot-visual::after {
-  content:""; position:absolute; inset:0;
-  background:radial-gradient(40% 30% at 50% 50%, var(--glow, rgba(249,115,22,0.22)), transparent 70%);
+.metric .l { font-size:14px; color:var(--ink-2); font-weight:500; }
+.metric .sub { font-size:13px; color:var(--ink-3); margin-top:4px; }
+
+/* ─────────── CATALOG (featured robots) ─────────── */
+.cat-head {
+  display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+  margin-bottom:48px;
+  flex-wrap:wrap;
+}
+.cat-head h2 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(28px, 3.6vw, 44px);
+  letter-spacing:-0.025em;
+  line-height:1.1;
+  max-width:560px;
+}
+.cat-head h2 em { font-style:italic; color:var(--accent); }
+.cat-head .more { font-size:14.5px; color:var(--ink-2); font-weight:500; }
+.cat-head .more:hover { color:var(--accent); }
+.cat-head .more svg { width:14px; height:14px; display:inline; margin-left:4px; vertical-align:middle; }
+
+.catalog {
+  display:grid;
+  grid-template-columns:repeat(1, minmax(0, 1fr));
+  gap:24px;
+}
+@media (min-width:640px) { .catalog { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (min-width:1024px) { .catalog { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+
+.bot {
+  display:flex; flex-direction:column;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
+  color:inherit;
+}
+.bot:hover {
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-md);
+  border-color:var(--border-hover);
+}
+
+.bot-visual {
+  aspect-ratio:5/4;
+  background:linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg-card) 100%);
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  border-bottom:1px solid var(--border);
 }
 .bot-robot {
-  position:relative; z-index:2;
-  max-width:78%; max-height:88%;
+  max-width:80%; max-height:88%;
   width:auto; height:auto; object-fit:contain;
-  transition:transform .5s ease;
-  filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55));
+  transition:transform .35s ease;
 }
-.bot:hover .bot-robot { transform:scale(1.05) translateY(-4px); }
+.bot:hover .bot-robot { transform:scale(1.04); }
 
 .bot-badge {
-  position:absolute; top:14px; left:14px; z-index:3;
-  padding:5px 11px; background:rgba(5,5,7,0.72); backdrop-filter:blur(8px);
-  border:1px solid var(--border-strong); border-radius:999px;
-  font-size:10.5px; font-weight:600; color:var(--fg-2);
-  letter-spacing:0.08em; text-transform:uppercase;
+  position:absolute; top:14px; left:14px;
+  padding:4px 10px;
+  background:var(--bg-card);
+  border:1px solid var(--border-hover);
+  border-radius:999px;
+  font-size:10.5px; font-weight:600; color:var(--ink-2);
+  letter-spacing:0.06em; text-transform:uppercase;
 }
-.bot-badge.eu      { background:rgba(34,197,94,0.14); color:var(--green); border-color:rgba(34,197,94,0.32); }
-.bot-badge.hot     { background:var(--accent); color:#fff; border-color:transparent; }
-.bot-badge.hot.featured { background:linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow:0 8px 20px -6px var(--accent-glow); }
+.bot-badge.eu {
+  background:var(--green-soft); color:var(--green); border-color:var(--green-line);
+}
+.bot-badge.hot {
+  background:var(--accent-soft); color:var(--accent-deep); border-color:var(--accent-line);
+}
 
 .bot-vendor {
-  position:absolute; top:14px; right:14px; z-index:3;
-  font-family:'Space Grotesk'; font-size:10px; font-weight:600; color:var(--fg-3);
-  letter-spacing:0.14em; text-transform:uppercase;
+  position:absolute; top:14px; right:14px;
+  font-family:'Space Grotesk'; font-size:10.5px; font-weight:500;
+  color:var(--ink-3); letter-spacing:0.1em; text-transform:uppercase;
 }
 
-.bot-body { padding:24px; display:flex; flex-direction:column; flex:1; }
-.bot h3 { font-size:21px; margin-bottom:4px; letter-spacing:-0.025em; }
-.bot .subtitle { color:var(--fg-3); font-size:13px; margin-bottom:18px; line-height:1.45; min-height:34px; }
-.bot .specs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
-.bot .specs span {
-  font-size:11px; color:var(--fg-2); padding:4px 9px;
-  border:1px solid var(--border); border-radius:6px; background:var(--bg-3); font-weight:500;
-}
-.bot .price { margin-top:auto; padding-top:18px; border-top:1px solid var(--border); }
-.bot .price-row { display:flex; align-items:baseline; gap:6px; }
-.bot .price b {
-  font-family:'Space Grotesk'; font-size:30px; font-weight:600; letter-spacing:-0.025em;
-}
-.bot .price .per { color:var(--fg-3); font-size:13px; }
-.bot .price .setup { font-size:12px; color:var(--fg-3); margin-top:4px; }
-
-.catalog-foot { text-align:center; margin-top:36px; color:var(--fg-3); font-size:14px; }
-.catalog-foot a { color:var(--accent-2); text-decoration:underline; text-underline-offset:3px; }
-
-@media (max-width:980px) { .catalog { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:600px) { .catalog { grid-template-columns:1fr; } }
-
-/* ─────────── AI ACT TRUST SECTION ─────────── */
-.ai-act-card {
-  max-width:1080px; margin:0 auto;
-  position:relative; overflow:hidden;
-  background:
-    radial-gradient(60% 60% at 90% 50%, rgba(34,197,94,0.15), transparent 70%),
-    linear-gradient(135deg, var(--bg-2), var(--bg-3));
-  border:1px solid var(--border); border-radius:var(--r-2xl);
-  padding:48px;
-  display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;
-}
-.ai-act-card .badge {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:6px 14px; background:rgba(34,197,94,0.12);
-  border:1px solid rgba(34,197,94,0.3); border-radius:999px;
-  font-size:12px; color:var(--green); font-weight:600;
-  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;
-}
-.ai-act-card h3 { font-size:32px; margin-bottom:14px; max-width:540px; }
-.ai-act-card p  { color:var(--fg-2); font-size:16px; line-height:1.6; max-width:540px; margin-bottom:24px; }
-.ai-act-stats { display:flex; flex-direction:column; gap:16px; min-width:200px; }
-.ai-act-stat { display:flex; align-items:center; gap:14px; }
-.ai-act-stat .v { font-family:'Space Grotesk'; font-weight:700; font-size:24px; color:var(--green); }
-.ai-act-stat .l { font-size:13px; color:var(--fg-2); }
-@media (max-width:780px) { .ai-act-card { grid-template-columns:1fr; padding:32px; gap:24px; } }
-
-/* ─────────── INCLUDED GRID ─────────── */
-.incl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1080px; margin:0 auto; }
-.incl-card {
+.bot-body {
   padding:24px;
-  background:var(--bg-2); border:1px solid var(--border);
+  display:flex; flex-direction:column; flex:1;
+  gap:14px;
+}
+.bot-body h3 {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:19px; letter-spacing:-0.02em;
+  margin:0;
+}
+.bot-sub { font-size:13.5px; color:var(--ink-3); line-height:1.5; }
+.bot-specs { display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+.bot-specs span {
+  font-size:11.5px; font-weight:500;
+  padding:3px 9px;
+  background:var(--bg-subtle);
+  border-radius:5px;
+  color:var(--ink-2);
+}
+.bot-price {
+  border-top:1px solid var(--border);
+  padding-top:16px;
+  margin-top:4px;
+}
+.bot-price .row { display:flex; align-items:baseline; gap:4px; margin-bottom:2px; }
+.bot-price b {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:24px; letter-spacing:-0.025em;
+  color:var(--ink);
+}
+.bot-price .per { font-size:13px; color:var(--ink-3); }
+.bot-price .setup { font-size:12px; color:var(--ink-3); }
+
+/* ─────────── BENTO USE CASES ─────────── */
+.bento {
+  display:grid;
+  grid-template-columns:repeat(1, minmax(0, 1fr));
+  gap:20px;
+}
+@media (min-width:768px) { .bento { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (min-width:1024px) {
+  .bento {
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    grid-template-rows:repeat(2, minmax(0, 1fr));
+  }
+}
+
+.bento-card {
+  position:relative;
+  background:var(--bg-card);
+  border:1px solid var(--border);
   border-radius:var(--r-lg);
-  transition:border-color .2s, transform .2s;
+  padding:32px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  min-height:280px;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+  color:inherit;
 }
-.incl-card:hover { border-color:var(--border-hover); transform:translateY(-2px); }
-.incl-icon {
-  width:36px; height:36px; border-radius:10px;
-  background:var(--accent-soft); border:1px solid rgba(249,115,22,0.25);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--accent); margin-bottom:14px;
+.bento-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--border-hover); }
+@media (min-width:1024px) {
+  .bento-card.featured {
+    grid-column:span 2; grid-row:span 2;
+    min-height:580px;
+    padding:48px;
+  }
 }
-.incl-icon svg { width:18px; height:18px; }
-.incl-card h4 { font-size:15.5px; margin-bottom:6px; font-family:'Inter'; font-weight:600; letter-spacing:-0.005em; }
-.incl-card p { color:var(--fg-2); font-size:13.5px; line-height:1.55; }
-@media (max-width:880px) { .incl-grid { grid-template-columns:repeat(2,1fr); } }
+.bento-photo {
+  position:absolute; right:-20px; top:0; bottom:0;
+  width:55%;
+  display:flex; align-items:center; justify-content:flex-end;
+  pointer-events:none;
+}
+.bento-photo img {
+  max-height:85%; max-width:90%; width:auto; height:auto;
+  object-fit:contain;
+}
+.bento-card.featured .bento-photo { width:50%; }
+.bento-card.featured .bento-photo img { max-height:75%; }
+.bento-content { position:relative; z-index:2; max-width:55%; display:flex; flex-direction:column; flex:1; }
+.bento-card.featured .bento-content { max-width:50%; }
+.bento-card .tag {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:5px 11px;
+  background:var(--accent-soft);
+  color:var(--accent-deep);
+  border:1px solid var(--accent-line);
+  border-radius:999px;
+  font-size:11.5px; font-weight:600;
+  letter-spacing:0.04em;
+  margin-bottom:14px;
+  align-self:flex-start;
+}
+.bento-card h3 {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:22px; letter-spacing:-0.02em;
+  margin-bottom:10px;
+}
+.bento-card.featured h3 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:36px; letter-spacing:-0.025em;
+  line-height:1.1;
+}
+.bento-card p { font-size:14.5px; color:var(--ink-2); line-height:1.55; }
+.bento-card.featured p { font-size:16px; max-width:90%; }
+.bento-card .arrow {
+  margin-top:auto; padding-top:16px;
+  color:var(--accent); font-weight:600; font-size:14px;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.bento-card .arrow svg { width:14px; height:14px; transition:transform .2s; }
+.bento-card:hover .arrow svg { transform:translateX(3px); }
+
+/* ─────────── PROCESS ─────────── */
+.process {
+  display:grid;
+  grid-template-columns:repeat(1, minmax(0, 1fr));
+  gap:24px;
+  counter-reset: step;
+}
+@media (min-width:640px) { .process { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (min-width:1024px) { .process { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+
+.step {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:32px 28px;
+  display:flex; flex-direction:column;
+  gap:12px;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.step:hover { transform:translateY(-2px); box-shadow:var(--shadow-sm); border-color:var(--border-hover); }
+.step-num {
+  font-family:'Fraunces', Georgia, serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:36px;
+  color:var(--accent);
+  line-height:1;
+  letter-spacing:-0.02em;
+}
+.step h3 {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:18px; letter-spacing:-0.015em;
+}
+.step p { font-size:14.5px; color:var(--ink-2); line-height:1.55; }
+
+/* ─────────── PULL QUOTE ─────────── */
+.pullquote {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(24px, 3.2vw, 38px);
+  line-height:1.25;
+  letter-spacing:-0.015em;
+  color:var(--ink);
+  text-align:left;
+  max-width:780px;
+}
+.pullquote .accent { color:var(--accent); font-style:italic; }
+.pullquote-cite {
+  margin-top:24px;
+  font-family:'Inter', sans-serif;
+  font-size:14px; font-weight:500;
+  color:var(--ink-3);
+  font-style:normal;
+}
+.pullquote-cite::before { content:"— "; }
+
+/* ─────────── AI ACT CARD ─────────── */
+.ai-act {
+  background:var(--bg-dark);
+  color:var(--ink-on-dark);
+  border-radius:var(--r-xl);
+  padding:48px 40px;
+  display:grid; grid-template-columns:1fr; gap:32px;
+  position:relative; overflow:hidden;
+  max-width:1080px; margin:0 auto;
+}
+@media (min-width:880px) { .ai-act { grid-template-columns:1.3fr 1fr; gap:48px; align-items:center; padding:56px; } }
+.ai-act::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(60% 80% at 100% 50%, rgba(21,128,61,0.15), transparent 60%);
+  pointer-events:none;
+}
+.ai-act > * { position:relative; z-index:1; }
+.ai-act .badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(21,128,61,0.15);
+  border:1px solid rgba(21,128,61,0.35);
+  border-radius:999px; padding:5px 12px;
+  font-size:11.5px; font-weight:600;
+  color:#86efac;
+  letter-spacing:0.08em; text-transform:uppercase;
+  margin-bottom:18px;
+}
+.ai-act h3 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(24px, 3vw, 36px);
+  letter-spacing:-0.02em;
+  color:var(--ink-on-dark);
+  margin-bottom:16px;
+  line-height:1.15;
+}
+.ai-act p { color:var(--ink-2-on-dark); font-size:16px; margin-bottom:24px; max-width:480px; }
+.ai-act .btn.ghost { color:var(--ink-on-dark); border-color:rgba(250,250,249,0.3); }
+.ai-act .btn.ghost:hover { background:rgba(250,250,249,0.1); border-color:rgba(250,250,249,0.5); }
+.ai-act-stats {
+  display:flex; flex-direction:column; gap:18px;
+  border-left:1px solid rgba(250,250,249,0.12);
+  padding-left:32px;
+}
+@media (max-width:879px) { .ai-act-stats { border-left:none; padding-left:0; padding-top:24px; border-top:1px solid rgba(250,250,249,0.12); } }
+.ai-act-stat { display:flex; flex-direction:column; gap:4px; }
+.ai-act-stat .v {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:22px; color:#86efac;
+}
+.ai-act-stat .l { font-size:13px; color:var(--ink-2-on-dark); line-height:1.4; }
 
 /* ─────────── NEWS PREVIEW ─────────── */
-.news-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.news {
+  display:grid;
+  grid-template-columns:repeat(1, minmax(0, 1fr));
+  gap:24px;
+}
+@media (min-width:768px) { .news { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
 .news-card {
-  background:var(--bg-2); border:1px solid var(--border);
-  border-radius:var(--r-lg); padding:26px;
-  transition:border-color .2s, transform .2s;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:28px;
   display:flex; flex-direction:column;
-  text-decoration:none; color:inherit;
+  gap:14px;
+  color:inherit;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
 }
-.news-card:hover { border-color:var(--border-hover); transform:translateY(-3px); }
-.news-meta { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
+.news-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--border-hover); }
+.news-meta { display:flex; align-items:center; gap:10px; }
 .news-cat {
-  font-family:'Space Grotesk'; color:var(--accent); font-size:11px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  padding:4px 10px; background:var(--accent-soft);
-  border:1px solid rgba(249,115,22,0.22); border-radius:999px;
+  font-size:11.5px; font-weight:600; color:var(--accent-deep);
+  text-transform:uppercase; letter-spacing:0.08em;
+  padding:3px 10px;
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  border-radius:999px;
 }
-.news-date { color:var(--fg-3); font-size:12.5px; }
-.news-card h3 { font-size:18px; margin-bottom:10px; line-height:1.3; letter-spacing:-0.02em; }
-.news-card p { color:var(--fg-2); font-size:14px; line-height:1.55; flex:1; margin-bottom:16px; }
-.news-read { color:var(--accent-2); font-weight:600; font-size:13.5px; }
-@media (max-width:880px) { .news-strip { grid-template-columns:1fr; } }
+.news-date { font-size:12.5px; color:var(--ink-3); }
+.news-card h3 {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:18px; line-height:1.3; letter-spacing:-0.02em;
+}
+.news-card p { font-size:14px; color:var(--ink-2); line-height:1.55; flex:1; }
+.news-link { color:var(--accent); font-weight:600; font-size:13.5px; }
 
 /* ─────────── FAQ ─────────── */
-.faq-list { max-width:780px; margin:0 auto; }
+.faq { max-width:760px; margin:0 auto; }
 .faq-item {
-  border:1px solid var(--border); border-radius:var(--r);
-  background:var(--bg-2); margin-bottom:12px;
-  transition:border-color .2s;
+  border-bottom:1px solid var(--border);
+  padding:8px 0;
 }
-.faq-item[open] { border-color:var(--border-hover); }
 .faq-item summary {
-  cursor:pointer; list-style:none; padding:22px 26px;
-  font-size:16.5px; font-weight:500;
-  display:flex; justify-content:space-between; gap:20px; align-items:center;
-  font-family:'Space Grotesk'; letter-spacing:-0.01em;
+  cursor:pointer; list-style:none;
+  padding:20px 4px;
+  font-family:'Space Grotesk'; font-weight:500;
+  font-size:17px; letter-spacing:-0.015em;
+  color:var(--ink);
+  display:flex; justify-content:space-between; align-items:center; gap:24px;
 }
 .faq-item summary::-webkit-details-marker { display:none; }
 .faq-item summary::after {
-  content:"+"; font-size:22px; font-weight:300; color:var(--fg-3);
+  content:"+"; font-size:22px; font-weight:300;
+  color:var(--ink-3);
   transition:transform .2s, color .2s;
 }
 .faq-item[open] summary::after { content:"−"; color:var(--accent); }
-.faq-item p { padding:0 26px 22px; color:var(--fg-2); font-size:15.5px; line-height:1.65; }
+.faq-item p {
+  padding:0 4px 24px;
+  font-size:15.5px; line-height:1.65;
+  color:var(--ink-2);
+}
 
 /* ─────────── CONTACT ─────────── */
-.contact-wrap {
-  display:grid; grid-template-columns:1fr 1fr; gap:60px;
-  max-width:1080px; margin:0 auto; align-items:start;
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:48px;
+  max-width:1080px; margin:0 auto;
 }
-.contact-info h2 { font-size:clamp(32px,4vw,48px); margin-bottom:14px; }
-.contact-info p { color:var(--fg-2); font-size:17px; line-height:1.6; margin-bottom:32px; max-width:480px; }
-.ci { display:flex; gap:14px; margin-bottom:18px; align-items:center; }
+@media (min-width:880px) { .contact-grid { grid-template-columns:1fr 1fr; gap:64px; align-items:start; } }
+
+.contact-info h2 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(28px, 3.6vw, 44px);
+  letter-spacing:-0.025em;
+  line-height:1.1;
+  margin-bottom:16px;
+}
+.contact-info h2 em { font-style:italic; color:var(--accent); }
+.contact-info p {
+  font-size:17px; color:var(--ink-2); line-height:1.55;
+  max-width:440px; margin-bottom:32px;
+}
+.ci {
+  display:flex; gap:14px;
+  padding:16px 0;
+  border-top:1px solid var(--border);
+}
+.ci:first-of-type { border-top-color:var(--border); }
+.ci:last-of-type { border-bottom:1px solid var(--border); }
 .ci-icon {
-  width:40px; height:40px; flex-shrink:0; border-radius:10px;
-  background:var(--accent-soft); color:var(--accent);
+  width:36px; height:36px; flex-shrink:0;
+  border-radius:8px;
+  background:var(--bg-subtle); border:1px solid var(--border);
   display:flex; align-items:center; justify-content:center;
+  color:var(--ink-2);
 }
-.ci-icon svg { width:18px; height:18px; }
-.ci span { display:block; }
-.ci b { display:block; font-size:14px; font-weight:600; }
-.ci .ci-sub { color:var(--fg-3); font-size:13px; }
+.ci-icon svg { width:16px; height:16px; }
+.ci-text b { display:block; font-size:14.5px; font-weight:600; color:var(--ink); }
+.ci-text span { font-size:13px; color:var(--ink-3); }
 
 .contact-form {
-  background:var(--bg-2); border:1px solid var(--border);
-  border-radius:var(--r-xl); padding:36px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  padding:32px;
+  box-shadow:var(--shadow-sm);
 }
 .field { margin-bottom:18px; }
-.field label { display:block; font-size:13px; color:var(--fg-2); margin-bottom:8px; font-weight:500; }
+.field label {
+  display:block; font-size:13px; color:var(--ink-2);
+  margin-bottom:6px; font-weight:500;
+}
 .field input, .field textarea, .field select {
-  width:100%; padding:13px 16px;
-  background:var(--bg-3); border:1px solid var(--border);
-  border-radius:var(--r-sm); color:var(--fg);
-  font-family:inherit; font-size:14.5px;
-  transition:border-color .15s, box-shadow .15s;
+  width:100%; padding:12px 14px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:8px;
+  color:var(--ink);
+  font-family:inherit;
+  font-size:14.5px;
+  transition:border-color .15s, background .15s, box-shadow .15s;
 }
 .field input:focus, .field textarea:focus, .field select:focus {
-  outline:none; border-color:var(--accent);
+  outline:none;
+  background:var(--bg-card);
+  border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-soft);
 }
 .field textarea { min-height:100px; resize:vertical; }
 .contact-form .btn { width:100%; justify-content:center; }
-.form-note { color:var(--fg-3); font-size:12.5px; margin-top:12px; text-align:center; }
-@media (max-width:880px) { .contact-wrap { grid-template-columns:1fr; gap:40px; } }
+.form-note {
+  font-size:12.5px; color:var(--ink-3);
+  margin-top:14px; text-align:center;
+}
 
 /* ─────────── FINAL CTA ─────────── */
-.cta-block {
-  position:relative; overflow:hidden;
-  text-align:center; padding:80px 48px;
-  background:
-    radial-gradient(80% 100% at 50% 0%, rgba(249,115,22,0.22), transparent 70%),
-    linear-gradient(180deg, #1c1c24 0%, #131318 100%);
-  border:1px solid var(--border-strong); border-radius:var(--r-2xl);
+.final-cta {
+  background:var(--bg-dark);
+  color:var(--ink-on-dark);
+  border-radius:var(--r-xl);
+  padding:64px 32px;
+  text-align:center;
   max-width:1080px; margin:0 auto;
+  position:relative; overflow:hidden;
 }
-.cta-block::before {
+.final-cta::before {
   content:""; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size:32px 32px;
-  mask-image:radial-gradient(ellipse at center, black 30%, transparent 70%);
+  background:
+    radial-gradient(60% 80% at 50% 0%, rgba(194,65,12,0.18), transparent 60%);
   pointer-events:none;
 }
-.cta-block > * { position:relative; z-index:1; }
-.cta-block h2 { font-size:clamp(32px,4.4vw,52px); margin-bottom:14px; max-width:680px; margin-inline:auto; }
-.cta-block p { color:var(--fg-2); font-size:17px; margin-bottom:32px; max-width:520px; margin-inline:auto; }
+.final-cta > * { position:relative; z-index:1; }
+.final-cta h2 {
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:500;
+  font-size:clamp(30px, 4vw, 48px);
+  letter-spacing:-0.025em;
+  line-height:1.1;
+  color:var(--ink-on-dark);
+  margin-bottom:14px;
+  max-width:640px; margin-inline:auto;
+}
+.final-cta h2 em { font-style:italic; color:var(--accent-line); }
+.final-cta p { color:var(--ink-2-on-dark); font-size:17px; margin-bottom:32px; }
+.final-cta .btn.accent {
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.final-cta .btn.accent:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
 /* ─────────── FOOTER ─────────── */
-footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(--border); }
+footer {
+  padding:80px 0 32px;
+  border-top:1px solid var(--border);
+  background:var(--bg-subtle);
+  margin-top:120px;
+}
 .foot {
-  display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:48px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
   margin-bottom:48px;
 }
-.foot h5 { font-family:'Space Grotesk'; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.12em; color:var(--fg-3); margin-bottom:18px; }
+@media (min-width:640px) { .foot { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:980px) { .foot { grid-template-columns:1.4fr repeat(3, 1fr); gap:48px; } }
+.foot h5 {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--ink); margin-bottom:18px;
+}
 .foot ul { list-style:none; padding:0; }
 .foot li { margin-bottom:10px; }
-.foot a { color:var(--fg-2); font-size:14px; transition:color .15s; }
-.foot a:hover { color:var(--fg); }
-.foot .tag { color:var(--fg-3); font-size:13.5px; line-height:1.55; max-width:280px; margin-top:14px; }
-.foot-bot {
-  display:flex; justify-content:space-between; padding-top:28px; border-top:1px solid var(--border);
-  color:var(--fg-4); font-size:12.5px;
-  flex-wrap:wrap; gap:14px;
+.foot a {
+  color:var(--ink-2); font-size:14px;
+  transition:color .15s;
 }
-@media (max-width:880px) { .foot { grid-template-columns:1fr 1fr; gap:32px; } }
-@media (max-width:520px) { .foot { grid-template-columns:1fr; } }
+.foot a:hover { color:var(--accent); }
+.foot-brand-tag {
+  color:var(--ink-3); font-size:14px;
+  line-height:1.55; max-width:280px; margin-top:14px;
+}
+.foot-bot {
+  padding-top:32px; border-top:1px solid var(--border);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+  font-size:12.5px; color:var(--ink-3);
+}
 
 /* ─────────── REVEAL ON SCROLL ─────────── */
-.reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.in { opacity:1; transform:translateY(0); }
-
-/* ─────────── MOBILE NAV ─────────── */
-@media (max-width:780px) { .nav-links { display:none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -712,7 +934,7 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
 <nav class="top">
   <div class="container row">
     <a class="brand" href="/">
-      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
       BotLease
     </a>
     <div class="nav-links">
@@ -722,369 +944,310 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
       <a href="/gids/humanoide-robot-leasen">Gids</a>
       <a href="/nieuws">Nieuws</a>
     </div>
-    <a href="#contact" class="btn">Plan demo →</a>
+    <a href="#contact" class="btn">Plan een demo</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-spotlight" id="spotlight"></div>
   <div class="container hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="pulse"></span> Pilots beschikbaar in Nederland</div>
-      <h1 class="hero-title">Een <em>robotcollega</em>,<br>vanaf €899 per maand.</h1>
+      <div class="hero-eyebrow"><span class="dot"></span>Pilots beschikbaar in Nederland</div>
+      <h1 class="hero-title">Een <em>robotcollega</em>, vanaf €899 per maand.</h1>
       <p class="hero-sub">BotLease verhuurt humanoïde robots aan het Nederlandse MKB. All-in operational lease, geen investering vooraf, opzegbaar per maand na jaar 1.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn lg">
+        <a href="#contact" class="btn accent lg">
           Plan een demo
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="/robots" class="btn ghost lg">Bekijk de catalogus</a>
+        <a href="/robots" class="btn ghost lg">Bekijk catalogus</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="v" data-count="15">15</div><div class="l">Modellen</div></div>
-        <div class="hero-stat"><div class="v">24u</div><div class="l">Swap-SLA</div></div>
-        <div class="hero-stat"><div class="v">5 dgn</div><div class="l">Tot pilot</div></div>
-        <div class="hero-stat"><div class="v">€0</div><div class="l">Vooraf</div></div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="v">15</div><div class="l">Modellen</div></div>
+        <div class="hero-meta-item"><div class="v">24u</div><div class="l">Swap-SLA</div></div>
+        <div class="hero-meta-item"><div class="v">5 dgn</div><div class="l">Tot pilot</div></div>
+        <div class="hero-meta-item"><div class="v">€0</div><div class="l">Vooraf</div></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="float-card tl">
-        <div class="lbl">Beschikbaar</div>
-        <div class="val">Direct leverbaar</div>
-      </div>
       <img class="hero-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot — bestseller" width="1200" height="1200">
-      <div class="float-card br">
-        <div>
+      <div class="hero-tag">
+        <div class="left">
           <div class="lbl">Bestseller</div>
           <div class="val"><a href="/robots/unitree-g1">Unitree G1 Edu</a></div>
         </div>
-        <div style="text-align:right">
+        <div class="right">
           <div class="lbl">vanaf</div>
-          <div class="val">€899<span style="color:var(--fg-3); font-size:13px; font-weight:400">/mnd</span></div>
+          <div class="val">€899<span style="color:var(--ink-3); font-size:13px; font-weight:400">/mnd</span></div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section class="trust-bar" style="padding:48px 0">
+<div class="trust">
   <div class="container">
-    <p class="label">In samenwerking met de leidende fabrikanten</p>
-    <div class="trust-logos">
-      <span class="logo">NEURA <span class="badge">DE</span></span>
-      <span class="logo">PAL Robotics <span class="badge">ES</span></span>
-      <span class="logo">Pollen <span class="badge">FR</span></span>
-      <span class="logo">Unitree</span>
-      <span class="logo">UBTECH</span>
-      <span class="logo">Apptronik</span>
-      <span class="logo">TÜV SÜD <span class="badge">CE</span></span>
+    <p class="label">In samenwerking met</p>
+    <div class="trust-row">
+      <span class="trust-logo">NEURA Robotics <span class="ctry">DE</span></span>
+      <span class="trust-logo">PAL Robotics <span class="ctry">ES</span></span>
+      <span class="trust-logo">Pollen <span class="ctry">FR</span></span>
+      <span class="trust-logo">Unitree</span>
+      <span class="trust-logo">UBTECH</span>
+      <span class="trust-logo">Apptronik</span>
+      <span class="trust-logo">TÜV SÜD <span class="ctry">CE</span></span>
     </div>
   </div>
-</section>
+</div>
 
-<section id="problem">
+<section>
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">Het probleem</span>
       <h2>Robots kopen is te duur,<br>te risicovol, te traag.</h2>
       <p>Een humanoïde robot kost €16k–€150k aanschaf. Plus installatie, training, onderhoud en verzekering. Voor technologie waar de restwaarde over 3 jaar onbekend is. Het MKB blijft buiten beeld.</p>
     </div>
-    <div class="big-stats reveal">
-      <div class="big-stat"><div class="v" data-count="15">15</div><div class="l">Modellen leverbaar</div><div class="sub">EU + Aziatisch + wachtlijst</div></div>
-      <div class="big-stat"><div class="v">€290+</div><div class="l">Vanaf per maand</div><div class="sub">all-in lease, 36 mnd</div></div>
-      <div class="big-stat"><div class="v">24u</div><div class="l">Swap bij defect</div><div class="sub">vervangende unit op locatie</div></div>
-      <div class="big-stat"><div class="v">14 dgn</div><div class="l">Tot operationeel</div><div class="sub">intake → installatie</div></div>
+    <div class="metrics reveal">
+      <div class="metric"><div class="v">15</div><div class="l">Modellen leverbaar</div><div class="sub">EU + Aziatisch + wachtlijst</div></div>
+      <div class="metric"><div class="v">€290+</div><div class="l">Vanaf per maand</div><div class="sub">all-in, 36 mnd</div></div>
+      <div class="metric"><div class="v">24u</div><div class="l">Swap bij defect</div><div class="sub">vervangende unit op locatie</div></div>
+      <div class="metric"><div class="v">14 dgn</div><div class="l">Tot operationeel</div><div class="sub">intake → installatie</div></div>
     </div>
   </div>
 </section>
 
-<section id="cases" class="alt">
+<section id="robots" class="subtle">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Toepassingen</span>
-      <h2>Waar verdient een <em>robotcollega</em><br>zich terug?</h2>
-      <p>Vier sectoren waar Nederlandse klanten meetbare ROI halen binnen 12–18 maanden.</p>
-    </div>
-    <div class="bento reveal">
-      <a href="/sectoren/3pl-fulfillment" class="bento-card large" style="--bento-glow:rgba(249,115,22,0.2)">
-        <div class="photo"><img src="/img/robots/digit.jpg" alt="Agility Digit warehouse robot" loading="lazy"></div>
-        <div class="body">
-          <span class="roi">ROI: 11–14 maanden</span>
-          <h3 style="margin-top:14px">E-commerce & 3PL fulfillment</h3>
-          <p>Tote- en pakkethandling, decanting, sortering buiten piekuren. Een Digit, Walker S2 of Apollo vervangt ~1,3 FTE in 2-ploegen. Bij €28/uur loonkost: €76k besparing per robot per jaar.</p>
-          <p style="color:var(--accent-2); font-weight:600; font-size:14px; margin-top:8px">Bekijk sectorpagina →</p>
-        </div>
-      </a>
-      <a href="/sectoren/productie-assemblage" class="bento-card" style="--bento-glow:rgba(168,85,247,0.18)">
-        <div class="photo"><img src="/img/robots/apollo.png" alt="Apptronik Apollo productie" loading="lazy"></div>
-        <div class="body">
-          <span class="roi">ROI: 13–18 mnd</span>
-          <h3 style="margin-top:14px">Productie & assemblage</h3>
-          <p>Kitting, machine-tending, kwaliteitscontrole. 24/7 zonder pauze.</p>
-        </div>
-      </a>
-      <a href="/sectoren/hospitality-retail" class="bento-card" style="--bento-glow:rgba(34,197,94,0.18)">
-        <div class="photo"><img src="/img/robots/neo.webp" alt="1X NEO hospitality" loading="lazy"></div>
-        <div class="body">
-          <span class="roi">+0,4★ score</span>
-          <h3 style="margin-top:14px">Hospitality & retail</h3>
-          <p>Lobby-host, voorraadtelling 's nachts, room-service.</p>
-        </div>
-      </a>
-      <a href="/sectoren/zorg-instellingen" class="bento-card" style="--bento-glow:rgba(96,165,250,0.18)">
-        <div class="photo"><img src="/img/robots/g1.jpg" alt="Unitree G1 zorg" loading="lazy"></div>
-        <div class="body">
-          <span class="roi">0,6 FTE vrij</span>
-          <h3 style="margin-top:14px">Zorg & instellingen</h3>
-          <p>Linnen- en materiaaltransport. Niet-zorgtaken.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="hoe">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Werkwijze</span>
-      <h2>In 4 weken van nul naar<br><em>bewezen ROI</em>.</h2>
-      <p>Geen lange trajecten. Pilot binnen 14 dagen op locatie, beslis na 4 weken.</p>
-    </div>
-    <div class="process reveal">
-      <div class="process-line"></div>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <h3>Intake</h3>
-          <p>Gratis assessment op locatie. Wij kiezen het juiste robotmodel bij jouw werk binnen 5 werkdagen.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <h3>4-weken pilot</h3>
-          <p>Robot op locatie voor €1.500. Veiligheidsanalyse, taakprogrammering, training inbegrepen.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <h3>Beslissing</h3>
-          <p>ROI helder? Door naar lease. Niet tevreden? Robot retour, einde verhaal.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">04</div>
-          <h3>Lease & beheer</h3>
-          <p>Wij monitoren 24/7, doen onderhoud, swap binnen 24u bij defect.</p>
-        </div>
+    <div class="cat-head reveal">
+      <div>
+        <span class="section-eyebrow">Catalogus 2026</span>
+        <h2>Vijftien robots. Eén leverancier. <em>All-in.</em></h2>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="robots" class="alt">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Catalogus 2026</span>
-      <h2>Vijftien humanoïde robots.<br>Eén leverancier. <em>All-in.</em></h2>
-      <p>EU-gebouwd (NEURA, PAL, Pollen), Aziatische value-modellen (Unitree, UBTECH, EngineAI), en wachtlijst-toegang tot Apptronik Apollo, Figure 02 en 1X NEO.</p>
+      <a href="/robots" class="more">Bekijk alle 15 modellen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
     <div class="catalog reveal">
       <a href="/robots/neura-4ne1-gen3" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
-            <span class="bot-vendor">NEURA · DE</span>
-            <div class="bot-badge eu">EU Flagship</div>
-            <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Gen 3.5 humanoid robot, Made in Germany" loading="lazy" width="800" height="1920">
-          </div>
-          <div class="bot-body">
-            <h3>NEURA 4NE-1 Gen 3.5</h3>
-            <div class="subtitle">Industrieel · 1,80 m · 100 kg payload · Porsche design</div>
-            <div class="specs"><span>EU-gebouwd</span><span>Industrie</span><span>AI-Act ready</span></div>
-            <div class="price">
-              <div class="price-row"><b>€4.490</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">+ €6.500 setup · Made in Germany</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">NEURA · DE</span>
+          <div class="bot-badge eu">EU Flagship</div>
+          <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Gen 3.5 humanoid robot, Made in Germany" loading="lazy" width="800" height="1920">
+        </div>
+        <div class="bot-body">
+          <h3>NEURA 4NE-1 Gen 3.5</h3>
+          <p class="bot-sub">Industrieel · 1,80 m · 100 kg payload · Porsche-design</p>
+          <div class="bot-specs"><span>EU-gebouwd</span><span>Industrie</span><span>AI-Act ready</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€4.490</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">+ €6.500 setup · Made in Germany</div>
           </div>
         </div>
       </a>
 
       <a href="/robots/neura-4ne1-mini" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
-            <span class="bot-vendor">NEURA · DE</span>
-            <div class="bot-badge eu">EU-gebouwd</div>
-            <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Mini cobot humanoid, Duitsland" loading="lazy" width="800" height="1920">
-          </div>
-          <div class="bot-body">
-            <h3>NEURA 4NE-1 Mini</h3>
-            <div class="subtitle">Cobot · 1,65 m · Artificial skin · €19.999 koop</div>
-            <div class="specs"><span>EU-gebouwd</span><span>Cobot</span><span>R&D</span></div>
-            <div class="price">
-              <div class="price-row"><b>€890</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">+ €2.500 setup · GDPR by design</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">NEURA · DE</span>
+          <div class="bot-badge eu">EU-gebouwd</div>
+          <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Mini cobot humanoid, Duitsland" loading="lazy" width="800" height="1920">
+        </div>
+        <div class="bot-body">
+          <h3>NEURA 4NE-1 Mini</h3>
+          <p class="bot-sub">Cobot · 1,65 m · Artificial skin · €19.999 koop</p>
+          <div class="bot-specs"><span>EU-gebouwd</span><span>Cobot</span><span>R&D</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€890</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">+ €2.500 setup · GDPR by design</div>
           </div>
         </div>
       </a>
 
       <a href="/robots/unitree-g1" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual">
-            <span class="bot-vendor">Unitree · CN</span>
-            <div class="bot-badge">Bestseller</div>
-            <img class="bot-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot — bestseller" loading="lazy" width="1200" height="1200">
-          </div>
-          <div class="bot-body">
-            <h3>Unitree G1 Edu</h3>
-            <div class="subtitle">Compact · 1,27 m · 35 kg · Mass production</div>
-            <div class="specs"><span>R&D</span><span>Hospitality</span><span>Demo</span></div>
-            <div class="price">
-              <div class="price-row"><b>€899</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">+ €1.500 setup · 6-8 wk levertijd</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">Unitree · CN</span>
+          <div class="bot-badge">Bestseller</div>
+          <img class="bot-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot bestseller" loading="lazy" width="1200" height="1200">
+        </div>
+        <div class="bot-body">
+          <h3>Unitree G1 Edu</h3>
+          <p class="bot-sub">Compact · 1,27 m · 35 kg · Mass production</p>
+          <div class="bot-specs"><span>R&D</span><span>Hospitality</span><span>Demo</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€899</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">+ €1.500 setup · 6-8 wk levertijd</div>
           </div>
         </div>
       </a>
 
       <a href="/robots/pal-kangaroo" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
-            <span class="bot-vendor">PAL · ES</span>
-            <div class="bot-badge eu">EU-veteraan</div>
-            <img class="bot-robot" src="/img/robots/kangaroo.png" alt="PAL Kangaroo bipedal robot, Barcelona" loading="lazy" width="644" height="1024">
-          </div>
-          <div class="bot-body">
-            <h3>PAL Kangaroo</h3>
-            <div class="subtitle">Bipedal · 1,78 m · ROS-native · 20+ jaar heritage</div>
-            <div class="specs"><span>EU-gebouwd</span><span>Onderzoek</span><span>ROS</span></div>
-            <div class="price">
-              <div class="price-row"><b>€3.490</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">+ €5.500 setup · Barcelona-engineering</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">PAL · ES</span>
+          <div class="bot-badge eu">EU-veteraan</div>
+          <img class="bot-robot" src="/img/robots/kangaroo.png" alt="PAL Kangaroo bipedal robot Barcelona" loading="lazy" width="644" height="1024">
+        </div>
+        <div class="bot-body">
+          <h3>PAL Kangaroo</h3>
+          <p class="bot-sub">Bipedal · 1,78 m · ROS-native · 20+ jaar heritage</p>
+          <div class="bot-specs"><span>EU-gebouwd</span><span>Onderzoek</span><span>ROS</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€3.490</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">+ €5.500 setup · Barcelona-engineering</div>
           </div>
         </div>
       </a>
 
       <a href="/robots/ubtech-walker-s2" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual" style="--glow:rgba(255,201,102,0.22)">
-            <span class="bot-vendor">UBTECH · CN</span>
-            <div class="bot-badge">Auto-industrie</div>
-            <img class="bot-robot" src="/img/robots/walker-s.webp" alt="UBTECH Walker S2 mass production humanoid" loading="lazy" width="800" height="1920">
-          </div>
-          <div class="bot-body">
-            <h3>UBTECH Walker S2</h3>
-            <div class="subtitle">Industrieel · 1,75 m · 25 kg payload · Mass production</div>
-            <div class="specs"><span>Auto</span><span>Heavy-duty</span><span>24/7</span></div>
-            <div class="price">
-              <div class="price-row"><b>€3.290</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">+ €4.500 setup · BYD/Foxconn proven</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">UBTECH · CN</span>
+          <div class="bot-badge">Auto-industrie</div>
+          <img class="bot-robot" src="/img/robots/walker-s.webp" alt="UBTECH Walker S2 mass production humanoid" loading="lazy" width="800" height="1920">
+        </div>
+        <div class="bot-body">
+          <h3>UBTECH Walker S2</h3>
+          <p class="bot-sub">Industrieel · 1,75 m · 25 kg payload · Mass production</p>
+          <div class="bot-specs"><span>Auto</span><span>Heavy-duty</span><span>24/7</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€3.290</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">+ €4.500 setup · BYD/Foxconn proven</div>
           </div>
         </div>
       </a>
 
       <a href="/robots/apptronik-apollo" class="bot">
-        <div class="bot-inner">
-          <div class="bot-visual">
-            <span class="bot-vendor">Apptronik · US</span>
-            <div class="bot-badge hot featured">Wachtlijst 2027</div>
-            <img class="bot-robot" src="/img/robots/apollo.png" alt="Apptronik Apollo humanoid robot, Mercedes-Benz pilot" loading="lazy" width="563" height="800">
-          </div>
-          <div class="bot-body">
-            <h3>Apptronik Apollo</h3>
-            <div class="subtitle">Industrieel · 1,73 m · 25 kg · Mercedes-pilot</div>
-            <div class="specs"><span>Productie</span><span>Assemblage</span><span>Premium</span></div>
-            <div class="price">
-              <div class="price-row"><b>€3.499</b><span class="per">/mnd · 36 mnd</span></div>
-              <div class="setup">Reserveer plek · EU Q4 2026 / Q1 2027</div>
-            </div>
+        <div class="bot-visual">
+          <span class="bot-vendor">Apptronik · US</span>
+          <div class="bot-badge hot">Wachtlijst 2027</div>
+          <img class="bot-robot" src="/img/robots/apollo.png" alt="Apptronik Apollo Mercedes pilot" loading="lazy" width="563" height="800">
+        </div>
+        <div class="bot-body">
+          <h3>Apptronik Apollo</h3>
+          <p class="bot-sub">Industrieel · 1,73 m · 25 kg · Mercedes-pilot</p>
+          <div class="bot-specs"><span>Productie</span><span>Assemblage</span><span>Premium</span></div>
+          <div class="bot-price">
+            <div class="row"><b>€3.499</b><span class="per">/mnd · 36 mnd</span></div>
+            <div class="setup">Reserveer plek · EU Q4 2026 / Q1 2027</div>
           </div>
         </div>
       </a>
     </div>
-    <p class="catalog-foot">Bedragen excl. BTW · 9 modellen niet hier getoond: <a href="/robots">bekijk volledige catalogus →</a> · Vergelijk direct via <a href="/vergelijken">vergelijkingstool</a> of bereken je <a href="/kosten">leaseprijs</a></p>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Toepassingen</span>
+      <h2>Waar verdient een <em>robotcollega</em> zich terug?</h2>
+      <p>Vier sectoren waar Nederlandse klanten meetbare ROI halen binnen 12–18 maanden.</p>
+    </div>
+    <div class="bento reveal">
+      <a href="/sectoren/3pl-fulfillment" class="bento-card featured">
+        <div class="bento-photo"><img src="/img/robots/digit.jpg" alt="Agility Digit warehouse robot" loading="lazy"></div>
+        <div class="bento-content">
+          <span class="tag">ROI: 11–14 maanden</span>
+          <h3>E-commerce & 3PL fulfillment</h3>
+          <p>Tote- en pakkethandling, decanting, sortering buiten piekuren. Een Digit, Walker S2 of Apollo vervangt ~1,3 FTE in 2-ploegen. Bij €28/uur loonkost: <b>€76k besparing per robot per jaar</b>.</p>
+          <span class="arrow">Sectorpagina bekijken <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/sectoren/productie-assemblage" class="bento-card">
+        <div class="bento-photo"><img src="/img/robots/apollo.png" alt="Apptronik Apollo productie" loading="lazy"></div>
+        <div class="bento-content">
+          <span class="tag">ROI: 13–18 mnd</span>
+          <h3>Productie & assemblage</h3>
+          <p>Kitting, machine-tending, kwaliteitscontrole. 24/7 zonder pauze.</p>
+          <span class="arrow">Lees meer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/sectoren/hospitality-retail" class="bento-card">
+        <div class="bento-photo"><img src="/img/robots/neo.webp" alt="1X NEO hospitality robot" loading="lazy"></div>
+        <div class="bento-content">
+          <span class="tag">+0,4★ score</span>
+          <h3>Hospitality & retail</h3>
+          <p>Lobby-host, voorraadtelling 's nachts, room-service.</p>
+          <span class="arrow">Lees meer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/sectoren/zorg-instellingen" class="bento-card">
+        <div class="bento-photo"><img src="/img/robots/g1.jpg" alt="Unitree G1 zorg robot" loading="lazy"></div>
+        <div class="bento-content">
+          <span class="tag">0,6 FTE vrij</span>
+          <h3>Zorg & instellingen</h3>
+          <p>Linnen- en materiaaltransport. Niet-zorgtaken.</p>
+          <span class="arrow">Lees meer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="hoe" class="subtle">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Werkwijze</span>
+      <h2>In 4 weken van nul naar <em>bewezen ROI</em>.</h2>
+      <p>Geen lange trajecten. Pilot binnen 14 dagen op locatie, beslis na 4 weken.</p>
+    </div>
+    <div class="process reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Intake</h3>
+        <p>Gratis assessment op locatie. Wij kiezen het juiste robotmodel bij jouw werk binnen 5 werkdagen.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>4-weken pilot</h3>
+        <p>Robot op locatie voor €1.500. Veiligheidsanalyse, taakprogrammering, training inbegrepen.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Beslissing</h3>
+        <p>ROI helder? Door naar lease. Niet tevreden? Robot retour, einde verhaal.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Lease & beheer</h3>
+        <p>Wij monitoren 24/7, doen onderhoud, swap binnen 24u bij defect.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
+  <div class="container narrow reveal" style="padding-top:0; padding-bottom:0">
+    <span class="section-eyebrow">Onze positionering</span>
+    <p class="pullquote" style="margin-top:24px">
+      Het Nederlandse MKB krijgt geen pilot-toegang bij Apptronik, Figure of Atlas. Daar zit een gat. <span class="accent">Wij maken humanoid-leasing toegankelijk voor bedrijven die niet groot genoeg zijn om direct met fabrikanten te dealen.</span>
+    </p>
+    <p class="pullquote-cite">BotLease — opgericht in Eindhoven Brainport, 2026</p>
+  </div>
+</section>
+
+<section class="subtle">
   <div class="container">
-    <div class="ai-act-card reveal">
+    <div class="ai-act reveal">
       <div>
         <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
           EU AI-Act compliant
         </span>
         <h3>EU AI-Act ready vanaf 2 augustus 2026.</h3>
-        <p>BotLease draagt de compliance-last als provider. EU-gebouwde robots (NEURA, PAL, Pollen) hebben de meeste documentatie al klaar. Voor Aziatische modellen voeren wij de conformity assessment per locatie uit. Jij hoeft alleen de operator-training te plannen.</p>
+        <p>BotLease draagt de compliance-last als provider. EU-gebouwde robots (NEURA, PAL, Pollen) hebben de meeste documentatie al klaar. Voor Aziatische modellen voeren wij de conformity assessment per locatie uit.</p>
         <a href="/gids/ai-act-machineverordening" class="btn ghost">
           Lees de complete gids
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
       <div class="ai-act-stats">
         <div class="ai-act-stat">
           <span class="v">2 aug 2026</span>
-          <span class="l">AI-Act<br>volledig van toepassing</span>
+          <span class="l">AI-Act volledig van toepassing</span>
         </div>
         <div class="ai-act-stat">
           <span class="v">20 jan 2027</span>
-          <span class="l">Machineverordening<br>2023/1230 verplicht</span>
+          <span class="l">Machineverordening 2023/1230 verplicht</span>
         </div>
         <div class="ai-act-stat">
           <span class="v">5</span>
-          <span class="l">EU-gebouwde<br>modellen in catalog</span>
+          <span class="l">EU-gebouwde modellen in catalog</span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Wat zit erin</span>
-      <h2>All-in lease.<br><em>Geen verborgen kosten.</em></h2>
-      <p>Alles van installatie tot end-of-life management. Eén maandfactuur, alles inbegrepen.</p>
-    </div>
-    <div class="incl-grid reveal">
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8l4-4h10l4 4M4 8h16v12H4z"/><circle cx="9" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg></div>
-        <h4>Installatie</h4>
-        <p>Aansluiten, kalibreren, integreren met je WMS/MES.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v6m0 0a2 2 0 100 4 2 2 0 000-4m-7 8a5 5 0 0114 0v6H5z"/></svg></div>
-        <h4>Training</h4>
-        <p>2-uurs operator-training Nederlandstalig op locatie.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 11-14 0 7 7 0 0114 0z"/><path d="M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg></div>
-        <h4>Onderhoud</h4>
-        <p>Preventief en correctief, alle onderdelen inbegrepen.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M8 14l3-3-3-3M16 10l-3 3 3 3"/></svg></div>
-        <h4>Swap-SLA</h4>
-        <p>Vervangende unit binnen 24u op locatie of €100/dag.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L4 6v6c0 5 8 10 8 10s8-5 8-10V6z"/></svg></div>
-        <h4>Verzekering</h4>
-        <p>WA tot €2,5M + casco inbegrepen.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM12 12v6"/></svg></div>
-        <h4>Helpdesk NL</h4>
-        <p>24/7 monitoring, Nederlandse engineers bereikbaar.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h4>Software-updates</h4>
-        <p>Continu nieuwe features + AI-Act compliance maintenance.</p>
-      </div>
-      <div class="incl-card">
-        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <h4>Compliance</h4>
-        <p>CE-markering + EU AI-Act assessment per locatie.</p>
       </div>
     </div>
   </div>
@@ -1097,40 +1260,39 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
       <h2>Wat er gebeurt in <em>humanoid-land</em>.</h2>
       <p>Dagelijkse analyses over Unitree, Figure, Apollo en NEURA — met Nederlandse context, pilot-data en bronverwijzingen.</p>
     </div>
-    <div class="news-strip reveal">
+    <div class="news reveal">
       <a class="news-card" href="/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie">
         <div class="news-meta"><span class="news-cat">Industrie</span><span class="news-date">16 mei 2026</span></div>
         <h3>NEURA Robotics × Bosch: wat de Duitse alliantie betekent voor Nederlandse maakbedrijven</h3>
         <p>Een €98.000 humanoid uit Metzingen met Bosch als productie-partner. Voor het NL MKB de eerste echte EU-optie.</p>
-        <div class="news-read">Lees artikel →</div>
+        <span class="news-link">Lees artikel →</span>
       </a>
       <a class="news-card" href="/nieuws/eu-machineverordening-2027-werkgevers-checklist">
         <div class="news-meta"><span class="news-cat">Regelgeving</span><span class="news-date">15 mei 2026</span></div>
         <h3>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026</h3>
         <p>Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?</p>
-        <div class="news-read">Lees artikel →</div>
+        <span class="news-link">Lees artikel →</span>
       </a>
       <a class="news-card" href="/nieuws/humanoid-fulfillment-pilots-nederland-2026">
         <div class="news-meta"><span class="news-cat">Toepassingen</span><span class="news-date">11 mei 2026</span></div>
         <h3>Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen</h3>
         <p>Wat 3 Nederlandse 3PLs van humanoid-pilots tussen jan-mei 2026 hebben geleerd. Cijfers, fouten, ROI.</p>
-        <div class="news-read">Lees artikel →</div>
+        <span class="news-link">Lees artikel →</span>
       </a>
     </div>
-    <div style="text-align:center; margin-top:36px">
+    <div style="text-align:center; margin-top:48px">
       <a class="btn ghost" href="/nieuws">Alle 10 artikelen →</a>
     </div>
   </div>
 </section>
 
-<section id="faq" class="alt">
+<section id="faq" class="subtle">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">Veelgestelde vragen</span>
-      <h2>Vraag &amp; <em>antwoord</em>.</h2>
-      <p>Geen marketing — eerlijke antwoorden over veiligheid, onderhoud en juridische verplichtingen.</p>
+      <h2>Vraag & <em>antwoord</em>.</h2>
     </div>
-    <div class="faq-list reveal">
+    <div class="faq reveal">
       <details class="faq-item"><summary>Hoe veilig is een humanoïde robot op de werkvloer?</summary><p>Elke deployment voldoet aan de Machinerichtlijn 2006/42/EG (vanaf 2027 de Machineverordening EU 2023/1230) en ISO 10218 / EN ISO 13482. Wij voeren per locatie risicoanalyse uit, definiëren werkzones en trainen je team. WA-dekking tot €2,5M.</p></details>
       <details class="faq-item"><summary>Wat als de robot stuk gaat?</summary><p>Binnen 24 uur is een vervangende unit op locatie (Swap-SLA). De defecte robot gaat naar onze workshop in Eindhoven. Halen we de 24u niet, dan krijg je een dagvergoeding van €100/dag.</p></details>
       <details class="faq-item"><summary>Heb ik technische kennis nodig?</summary><p>Nee. Wij verzorgen installatie, programmering en training. Voor dagelijks gebruik volstaat een 2-uurs training. Aanpassingen aan taken doen wij op afstand of on-site.</p></details>
@@ -1144,22 +1306,22 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
 
 <section id="contact">
   <div class="container">
-    <div class="contact-wrap">
+    <div class="contact-grid">
       <div class="contact-info">
         <span class="section-eyebrow">Plan een demo</span>
         <h2 style="margin-top:14px">Zien is geloven. <em>Letterlijk.</em></h2>
         <p>Wij brengen een robot bij je langs voor een live demo. Geen kosten, geen verplichtingen. Binnen 5 werkdagen op locatie.</p>
         <div class="ci">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-8 8-13a8 8 0 10-16 0c0 5 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
-          <span><b>HQ Eindhoven</b><span class="ci-sub">High Tech Campus</span></span>
+          <div class="ci-text"><b>HQ Eindhoven</b><span>High Tech Campus</span></div>
         </div>
         <div class="ci">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 6l8 6 8-6"/></svg></div>
-          <span><b>hallo@botlease.nl</b><span class="ci-sub">Reactie &lt; 4 werkuren</span></span>
+          <div class="ci-text"><b>hallo@botlease.nl</b><span>Reactie &lt; 4 werkuren</span></div>
         </div>
         <div class="ci">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
-          <span><b>Demo op locatie</b><span class="ci-sub">Binnen 5 werkdagen</span></span>
+          <div class="ci-text"><b>Demo op locatie</b><span>Binnen 5 werkdagen</span></div>
         </div>
       </div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
@@ -1190,9 +1352,9 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
           <label for="bericht">Bericht (optioneel)</label>
           <textarea id="bericht" name="bericht" placeholder="Wat zou je willen oplossen met een humanoïde robot?"></textarea>
         </div>
-        <button type="submit" class="btn lg">
+        <button type="submit" class="btn accent lg">
           Plan een gratis intake
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
         <p class="form-note">Wij reageren binnen 4 werkuren · Geen sales-spam · GDPR-compliant</p>
       </form>
@@ -1200,14 +1362,14 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
   </div>
 </section>
 
-<section style="padding:60px 0 120px">
+<section style="padding-top:60px; padding-bottom:120px">
   <div class="container">
-    <div class="cta-block reveal">
+    <div class="final-cta reveal">
       <h2>Klaar voor je eerste <em>robotcollega</em>?</h2>
-      <p>Pilot vanaf €1.500. Lease vanaf €290/mnd. Geen investering vooraf. Beslis na 4 weken.</p>
-      <a href="#contact" class="btn lg">
+      <p>Pilot vanaf €1.500. Lease vanaf €290/mnd. Beslis na 4 weken.</p>
+      <a href="#contact" class="btn accent lg">
         Start een gesprek
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -1218,10 +1380,10 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
     <div class="foot">
       <div>
         <div class="brand" style="margin-bottom:14px">
-          <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+          <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
           BotLease
         </div>
-        <p class="tag">Nederlands eerste full-service leasemaatschappij voor humanoïde robots. Wij maken robotica toegankelijk voor het MKB — EU-gebouwd, AI-Act compliant.</p>
+        <p class="foot-brand-tag">Nederlands eerste full-service leasemaatschappij voor humanoïde robots. EU-gebouwd, AI-Act compliant.</p>
       </div>
       <div>
         <h5>Gidsen + tools</h5>
@@ -1255,28 +1417,14 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
       </div>
     </div>
     <div class="foot-bot">
-      <div>© 2026 BotLease B.V. — KvK <span style="color:var(--fg-2)">XXXXXXXX</span> · BTW <span style="color:var(--fg-2)">NLXXXXXXXXXB01</span></div>
+      <div>© 2026 BotLease B.V. — KvK XXXXXXXX · BTW NLXXXXXXXXXB01</div>
       <div>Eindhoven · Nederland</div>
     </div>
   </div>
 </footer>
 
 <script>
-// Mouse-follow spotlight in hero
-(function(){
-  var spot = document.getElementById('spotlight');
-  if (!spot) return;
-  var hero = document.querySelector('header.hero');
-  hero.addEventListener('mousemove', function(e){
-    var rect = hero.getBoundingClientRect();
-    spot.style.left = (e.clientX - rect.left) + 'px';
-    spot.style.top  = (e.clientY - rect.top) + 'px';
-    spot.style.opacity = 1;
-  });
-  hero.addEventListener('mouseleave', function(){ spot.style.opacity = 0; });
-})();
-
-// Reveal-on-scroll via IntersectionObserver
+// Reveal-on-scroll
 (function(){
   if (!('IntersectionObserver' in window)) {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
@@ -1284,76 +1432,42 @@ footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(-
   }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
     });
-  }, { threshold:0.1, rootMargin:'0px 0px -50px 0px' });
+  }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
 
-// Animated counters (data-count attribute)
-(function(){
-  if (!('IntersectionObserver' in window)) return;
-  var animated = false;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        document.querySelectorAll('[data-count]').forEach(function(el){
-          var target = parseInt(el.dataset.count);
-          var dur = 1200;
-          var start = performance.now();
-          function step(now) {
-            var t = Math.min(1, (now - start) / dur);
-            var eased = 1 - Math.pow(1 - t, 3);
-            el.textContent = Math.round(target * eased);
-            if (t < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-        });
-      }
-    });
-  }, { threshold:0.3 });
-  var first = document.querySelector('[data-count]');
-  if (first) io.observe(first);
-})();
-
-// Contact form handler — POST naar /api/contact.js (Vercel serverless function)
-// Function stuurt email naar hallo@botlease.nl via Resend.
+// Contact form → /api/contact → email naar hallo@botlease.nl
 function handleSubmit(e) {
   e.preventDefault();
   var form = e.target;
-  var btn  = form.querySelector('button[type="submit"]');
+  var btn = form.querySelector('button[type="submit"]');
   var note = form.querySelector('.form-note');
-  var origBtn  = btn.innerHTML;
-  var origNote = note ? note.textContent : '';
+  var origBtn = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = 'Versturen…';
   var data = Object.fromEntries(new FormData(form));
 
   fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
     body: JSON.stringify(data),
   })
-    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
     .then(function(res){
       if (res.ok && res.body.success) {
-        form.innerHTML = '<div style="text-align:center;padding:24px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:18px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Space Grotesk\',sans-serif;font-size:22px;margin-bottom:10px">' + (res.body.message || 'Bedankt — we nemen contact op.') + '</h3><p style="color:var(--fg-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd naar je email. Check ook je spam-folder.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-line);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Fraunces\',serif;font-weight:500;font-size:22px;margin-bottom:10px;color:var(--ink)">' + (res.body.message || 'Bedankt — we nemen contact op.') + '</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd naar je email.</p></div>';
         if (window.plausible) window.plausible('Contact form submit');
       } else {
-        var msg = (res.body && res.body.error) ? res.body.error : 'Er ging iets mis — probeer het later of stuur een mail naar hallo@botlease.nl';
-        if (note) { note.textContent = msg; note.style.color = '#fb7185'; }
-        btn.disabled = false;
-        btn.innerHTML = origBtn;
+        var msg = (res.body && res.body.error) ? res.body.error : 'Er ging iets mis — mail direct naar hallo@botlease.nl';
+        if (note) { note.textContent = msg; note.style.color = '#dc2626'; }
+        btn.disabled = false; btn.innerHTML = origBtn;
       }
     })
-    .catch(function(err){
-      if (note) { note.textContent = 'Netwerkfout. Mail direct naar hallo@botlease.nl — sorry!'; note.style.color = '#fb7185'; }
-      btn.disabled = false;
-      btn.innerHTML = origBtn;
+    .catch(function(){
+      if (note) { note.textContent = 'Netwerkfout. Mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }
+      btn.disabled = false; btn.innerHTML = origBtn;
     });
 }
 </script>
