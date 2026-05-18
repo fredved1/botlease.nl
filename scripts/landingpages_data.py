@@ -276,8 +276,8 @@ CITIES = [
         "name": "Eindhoven",
         "title_kw": "Humanoïde robot leasen Eindhoven Brainport",
         "intro": (
-            "Eindhoven Brainport is Nederlands maakindustrie-hart: ASML, NXP, Philips, VDL. BotLease is hier hoofdkantoor "
-            "(High Tech Campus) en heeft demo-units op voorraad voor pilots binnen 24 uur. Sterk netwerk in Helmond "
+            "Eindhoven Brainport is Nederlands maakindustrie-hart: ASML, NXP, Philips, VDL. BotLease bedient deze regio actief vanuit "
+            "Amsterdam (Vrouwengelukhof 58) met demo-units op voorraad voor pilots binnen 5 werkdagen. Sterk netwerk in Helmond "
             "(automotive cluster) en Veldhoven (semi-conductor toeleveranciers)."
         ),
         "sectors_in_focus": ["productie-assemblage", "3pl-fulfillment"],
