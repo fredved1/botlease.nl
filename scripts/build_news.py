@@ -28,6 +28,7 @@ SITE_URL = "https://botlease.nl"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from articles_data import ARTICLES  # noqa: E402
+from seo_common import HEAD_SEO  # noqa: E402
 
 
 # ---------------------------------------------------------------- helpers
@@ -614,6 +615,7 @@ def render_article(a: dict, related: list) -> str:
 <script type="application/ld+json">{article_jsonld(a)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(a)}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {SVG_DEFS}
@@ -724,6 +726,7 @@ def render_listing(articles: list) -> str:
 <script type="application/ld+json">{itemlist_jsonld}</script>
 <script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws/"}}]}}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {SVG_DEFS}

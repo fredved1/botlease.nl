@@ -15,6 +15,7 @@ SITE_URL = "https://botlease.nl"
 sys.path.insert(0, str(ROOT / "scripts"))
 from landingpages_data import SECTORS, CITIES  # noqa: E402
 from robots_data import by_slug  # noqa: E402
+from seo_common import HEAD_SEO  # noqa: E402
 
 PAGE_CSS = """
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -203,6 +204,7 @@ def render_sector(s: dict) -> str:
 <script type="application/ld+json">{qa_jsonld}</script>
 <script type="application/ld+json">{bc_jsonld}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -312,6 +314,7 @@ def render_city(c: dict) -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{bc_jsonld}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -391,6 +394,7 @@ def render_sectors_hub() -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head><body>
 {NAV_HTML}
 <section class="lp-hero"><div class="container">
@@ -432,6 +436,7 @@ def render_cities_hub() -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head><body>
 {NAV_HTML}
 <section class="lp-hero"><div class="container">

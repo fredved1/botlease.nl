@@ -23,6 +23,7 @@ SITE_URL = "https://botlease.nl"
 sys.path.insert(0, str(ROOT / "scripts"))
 from guides_data import PILLAR_GUIDE, AI_ACT_GUIDE, GLOSSARY, ABOUT, METHODOLOGY, COSTS_PAGE  # noqa: E402
 from robots_data import ROBOTS, by_slug, available_robots, waitlist_robots  # noqa: E402
+from seo_common import HEAD_SEO  # noqa: E402
 
 PAGE_CSS = """
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -315,6 +316,7 @@ def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool
 {f'<script type="application/ld+json">{faq_jsonld}</script>' if faq_jsonld else ''}
 <script type="application/ld+json">{speakable_jsonld}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -420,6 +422,7 @@ def render_glossary(g: dict) -> str:
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{defined_terms_jsonld}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -503,6 +506,7 @@ def render_simple(g: dict, kind: str = "over") -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -579,6 +583,7 @@ def render_costs(g: dict) -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -774,6 +779,7 @@ def render_comparison_hub() -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -901,6 +907,7 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
@@ -977,6 +984,7 @@ def render_gids_hub() -> str:
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head><body>
 {NAV_HTML}
 <section class="g-hero"><div class="container">

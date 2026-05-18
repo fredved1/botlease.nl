@@ -17,6 +17,7 @@ SITE_URL = "https://botlease.nl"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from robots_data import ROBOTS, available_robots, waitlist_robots  # noqa: E402
+from seo_common import HEAD_SEO  # noqa: E402
 
 PAGE_CSS = """
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -393,6 +394,7 @@ def render_robot(r: dict, related: list) -> str:
 <script type="application/ld+json">{breadcrumb_jsonld(r)}</script>
 {f'<script type="application/ld+json">{video_jsonld(r)}</script>' if r.get('video_id') else ''}
 <script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
 </head>
 <body>
 {NAV_HTML}
