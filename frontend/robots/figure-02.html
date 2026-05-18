@@ -394,8 +394,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
         <p class="lede">California-startup met BMW als enterprise-klant (Spartanburg en Leipzig). Figure 03 in productie sinds 2026. Geen open verkoop in EU 2026 — select enterprise pilots only.</p>
         <p style="background:rgba(255,201,102,0.1); border:1px solid rgba(255,201,102,0.3); border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. <a href="#wachtlijst" style="color:#ffd166; text-decoration:underline">Reserveer plek op wachtlijst</a> — BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>
         <div class="r-hero-cta">
-          <a class="btn" href="/#contact">Plan een demo →</a>
-          <a class="btn ghost" href="#price">Bekijk prijs</a>
+          <a class="btn" href="#wachtlijst">Reserveer plek →</a><a class="btn ghost" href="/#contact">Plan demo</a>
         </div>
       </div>
       <div class="r-hero-art">
@@ -449,6 +448,8 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
     </div>
   </div>
 </section>
+
+
 
 
 <section id="wachtlijst" style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
@@ -606,6 +607,40 @@ function handleWaitlistSubmit(e) {
     })
     .catch(function(){
       if (note) { note.textContent = 'Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }
+      btn.disabled = false; btn.innerHTML = origBtn;
+    });
+}
+
+// Bestelformulier handler → POST /api/contact met type=order
+function handleOrderSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn  = form.querySelector('button[type="submit"]');
+  var note = form.querySelector('.form-note');
+  var origBtn = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = 'Versturen…';
+  var data = Object.fromEntries(new FormData(form));
+  data.type = 'order';
+  data.robot_slug = form.dataset.robotSlug || '';
+  data.robot_name = form.dataset.robotName || '';
+
+  fetch('/api/contact', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(data),
+  })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
+    .then(function(res){
+      if (res.ok && res.body.success) {
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(74,222,128,0.1);border:2px solid rgba(74,222,128,0.3);margin-bottom:18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'JetBrains Mono\',monospace;font-weight:600;font-size:18px;margin-bottom:8px;color:#fff">Bestelling ontvangen</h3><p style="font-family:\'JetBrains Mono\',monospace;color:#a3a3a3;font-size:12px;line-height:1.5">// Wij sturen offerte ter bevestiging binnen 4 werkuren naar je inbox.</p></div>';
+        if (window.plausible) window.plausible('Order submit', { props:{ robot: data.robot_slug, qty: data.aantal } });
+      } else {
+        if (note) { note.textContent = '// ' + ((res.body && res.body.error) || 'Probeer opnieuw'); note.style.color = '#f87171'; }
+        btn.disabled = false; btn.innerHTML = origBtn;
+      }
+    })
+    .catch(function(){
+      if (note) { note.textContent = '// Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#f87171'; }
       btn.disabled = false; btn.innerHTML = origBtn;
     });
 }

@@ -16,6 +16,29 @@ const NOTIFY_TO      = 'hallo@botlease.nl';
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.supabase.co';
 const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
+// Sourcing info per robot — INTERNAL ONLY, alleen in admin email zichtbaar.
+// Bij een bestelling weet jij meteen bij welke leverancier je het kunt ordenen.
+const SOURCE_BY_SLUG = {
+  // EU-gebouwd — direct contact met fabrikant
+  'neura-4ne1-mini':   'NEURA Robotics direct · sales@neura-robotics.com · Metzingen (DE) · 6-10 wk',
+  'neura-4ne1-gen3':   'NEURA Robotics direct · sales@neura-robotics.com · Metzingen (DE) · via Bosch supply · 8-12 wk',
+  'pal-kangaroo':      'PAL Robotics · sales@pal-robotics.com · Barcelona (ES) · 8-12 wk',
+  'pal-tiago-pro':     'PAL Robotics · sales@pal-robotics.com · Barcelona (ES) · 6-10 wk',
+  'pollen-reachy-2':   'Pollen Robotics (Hugging Face) · contact@pollen-robotics.com · Bordeaux (FR) · 4-8 wk',
+  // Aziatisch — via EU distributeurs of direct
+  'unitree-r1':        'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct (shop.unitree.com) · 6-8 wk',
+  'unitree-g1':        'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct (shop.unitree.com) · 6-8 wk',
+  'unitree-h1-2':      'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct · 8-10 wk',
+  'unitree-h2':        'Unitree direct (shop.unitree.com) · 8-10 wk · let op: AI-Act assessment vereist',
+  'engineai-se01':     'EngineAI direct · sales@engineai.com · Shenzhen (CN) · 10-14 wk',
+  'ubtech-walker-s2':  'UBTECH Europe (contact@ubtrobot.com) · BACK-UP: UBTECH direct China · 12-16 wk',
+  // Wachtlijst — niet leverbaar nu
+  'apptronik-apollo':  'WACHTLIJST 2026/2027 · Apptronik (apptronik.com/contact) · pre-order via BotLease',
+  'figure-02':         'WACHTLIJST 2027 · Figure (figure.ai) · enterprise pilot only',
+  'agility-digit':     'WACHTLIJST · Agility Robotics direct (RaaS only) · pre-order via BotLease',
+  '1x-neo':            'WACHTLIJST Q1 2027 · 1X Technologies (1x.tech/order) · EU shipping Q1 2027',
+};
+
 function escapeHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -27,19 +50,48 @@ async function sendNotification(data) {
     console.warn('[contact] RESEND_API_KEY ontbreekt — email niet verstuurd. Submission:', data);
     return { skipped: true };
   }
+  const isOrder    = data.type === 'order';
   const isWaitlist = data.type === 'waitlist';
-  const heading = isWaitlist
-    ? `Nieuwe wachtlijst-aanmelding — ${data.robot_name || data.robot_slug || 'onbekend'}`
-    : 'Nieuwe lease-aanvraag — BotLease';
-  const subjectPrefix = isWaitlist
-    ? `[WACHTLIJST] ${data.robot_name || data.robot_slug || 'algemeen'}`
-    : `[BotLease] Lease-aanvraag`;
-  const subject = `${subjectPrefix} — ${data.bedrijf || data.naam}${data.usecase ? ' / ' + data.usecase : ''}`;
+
+  const heading = isOrder
+    ? `🛒 NIEUWE BESTELLING — ${data.robot_name || data.robot_slug || 'onbekend'} × ${data.aantal || 1}`
+    : isWaitlist
+      ? `Nieuwe wachtlijst-aanmelding — ${data.robot_name || data.robot_slug || 'onbekend'}`
+      : 'Nieuwe lease-aanvraag — BotLease';
+
+  const subjectPrefix = isOrder
+    ? `[BESTELLING] ${data.robot_name || data.robot_slug || 'algemeen'} × ${data.aantal || 1}`
+    : isWaitlist
+      ? `[WACHTLIJST] ${data.robot_name || data.robot_slug || 'algemeen'}`
+      : `[BotLease] Lease-aanvraag`;
+
+  const subject = `${subjectPrefix} — ${data.bedrijf || data.naam}`;
+
+  // Source info — alleen voor admin (deze email naar hallo@botlease.nl)
+  const source = isOrder ? SOURCE_BY_SLUG[data.robot_slug] || 'Onbekende bron — handmatig zoeken' : '';
+
+  const orderBlock = isOrder ? `
+      <div style="background:#fff;border:2px solid #16a34a;border-radius:10px;padding:24px;margin-bottom:14px">
+        <p style="margin:0 0 14px;font-size:13px;color:#16a34a;text-transform:uppercase;letter-spacing:0.08em;font-weight:600">📦 Bestelling</p>
+        <p style="margin:4px 0;font-size:16px"><b>Robot:</b> ${escapeHtml(data.robot_name || data.robot_slug)}</p>
+        <p style="margin:4px 0;font-size:16px"><b>Aantal:</b> ${escapeHtml(String(data.aantal || 1))} unit(s)</p>
+        ${data.contract_months ? `<p style="margin:4px 0"><b>Contractduur:</b> ${escapeHtml(data.contract_months)} maanden</p>` : ''}
+        ${data.adres ? `<p style="margin:8px 0 4px"><b>Leveringsadres:</b></p><p style="margin:0;white-space:pre-wrap;color:#44403c">${escapeHtml(data.adres)}</p>` : ''}
+      </div>
+      <div style="background:#fef9c3;border:2px solid #ca8a04;border-radius:10px;padding:18px 24px;margin-bottom:14px">
+        <p style="margin:0 0 8px;font-size:13px;color:#a16207;text-transform:uppercase;letter-spacing:0.08em;font-weight:600">🔧 INTERN: bron / leverancier</p>
+        <p style="margin:0;font-size:14px;color:#713f12;line-height:1.5"><b>${escapeHtml(source)}</b></p>
+        <p style="margin:8px 0 0;font-size:12px;color:#a16207">// Hier kun je deze robot bestellen voor de klant.</p>
+      </div>
+  ` : '';
+
+  const waitlistBlock = isWaitlist ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 18px;margin-bottom:14px"><p style="margin:0;font-size:14px;color:#c2410c"><b>Type:</b> Wachtlijst-aanmelding voor ${escapeHtml(data.robot_name || data.robot_slug)}</p></div>` : '';
 
   const html = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#faf9f6;color:#1c1917">
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:640px;margin:0 auto;padding:24px;background:#faf9f6;color:#1c1917">
       <h2 style="font-family:'Space Grotesk',sans-serif;color:#1c1917;margin:0 0 18px;font-size:22px">${escapeHtml(heading)}</h2>
-      ${isWaitlist ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 18px;margin-bottom:14px"><p style="margin:0;font-size:14px;color:#c2410c"><b>Type:</b> Wachtlijst-aanmelding voor ${escapeHtml(data.robot_name || data.robot_slug)}</p></div>` : ''}
+      ${orderBlock}
+      ${waitlistBlock}
       <div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
         <p style="margin:0 0 14px;font-size:13px;color:#78716c;text-transform:uppercase;letter-spacing:0.08em">Contactgegevens</p>
         <p style="margin:4px 0"><b>Naam:</b> ${escapeHtml(data.naam)}</p>
@@ -47,12 +99,12 @@ async function sendNotification(data) {
         <p style="margin:4px 0"><b>Email:</b> <a href="mailto:${escapeHtml(data.email)}" style="color:#c2410c">${escapeHtml(data.email)}</a></p>
         ${data.telefoon ? `<p style="margin:4px 0"><b>Telefoon:</b> ${escapeHtml(data.telefoon)}</p>` : ''}
       </div>
-      <div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
+      ${!isOrder ? `<div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
         <p style="margin:0 0 14px;font-size:13px;color:#78716c;text-transform:uppercase;letter-spacing:0.08em">${isWaitlist ? 'Wachtlijst-detail' : 'Use-case'}</p>
         ${isWaitlist && data.robot_name ? `<p style="margin:4px 0"><b>Robot:</b> ${escapeHtml(data.robot_name)}</p>` : ''}
         ${data.usecase ? `<p style="margin:4px 0"><b>Sector:</b> ${escapeHtml(data.usecase)}</p>` : ''}
         ${data.bericht ? `<p style="margin:14px 0 4px"><b>Bericht:</b></p><p style="margin:0;white-space:pre-wrap;color:#44403c">${escapeHtml(data.bericht)}</p>` : ''}
-      </div>
+      </div>` : (data.bericht ? `<div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px"><p style="margin:0 0 8px;font-size:13px;color:#78716c;text-transform:uppercase;letter-spacing:0.08em">Bericht klant</p><p style="margin:0;white-space:pre-wrap;color:#44403c">${escapeHtml(data.bericht)}</p></div>` : '')}
       <p style="font-size:12px;color:#78716c;margin:18px 0 0">
         Ingestuurd via botlease.nl op ${new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })}.
         Reageer op deze email om direct te antwoorden.
@@ -125,9 +177,18 @@ async function backupToSupabase(data) {
   if (!SUPABASE_KEY) return { skipped: true };
   try {
     // Prefix message with type tag zodat admin dashboard kan filteren
-    const prefix = data.type === 'waitlist'
-      ? `[WACHTLIJST: ${data.robot_name || data.robot_slug || 'algemeen'}]`
-      : `[${data.usecase || 'algemeen'}]`;
+    let prefix;
+    if (data.type === 'order') {
+      prefix = `[BESTELLING: ${data.robot_name || data.robot_slug} × ${data.aantal || 1}${data.contract_months ? ' · ' + data.contract_months + 'mnd' : ''}]`;
+    } else if (data.type === 'waitlist') {
+      prefix = `[WACHTLIJST: ${data.robot_name || data.robot_slug || 'algemeen'}]`;
+    } else {
+      prefix = `[${data.usecase || 'algemeen'}]`;
+    }
+    // Voor orders: voeg leveringsadres toe in message
+    const msgBody = data.type === 'order'
+      ? [data.adres ? `Leveringsadres: ${data.adres}` : '', data.bericht || ''].filter(Boolean).join('\n\n')
+      : (data.bericht || '');
     const resp = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
       method: 'POST',
       headers: {
@@ -141,7 +202,7 @@ async function backupToSupabase(data) {
         email:   data.email,
         phone:   data.telefoon || '',
         company: data.bedrijf  || '',
-        message: `${prefix} ${data.bericht || ''}`.trim(),
+        message: `${prefix} ${msgBody}`.trim(),
       }),
     });
     if (!resp.ok) {
@@ -163,16 +224,19 @@ export default async function handler(req, res) {
   }
 
   const data = req.body || {};
-  // Support both old field names (name/email/message) and new (naam/email/bericht)
-  const naam     = data.naam     || data.name    || '';
-  const email    = data.email    || '';
-  const bedrijf  = data.bedrijf  || data.company || '';
-  const telefoon = data.telefoon || data.phone   || '';
-  const usecase  = data.usecase  || '';
-  const bericht  = data.bericht  || data.message || '';
-  const type     = data.type === 'waitlist' ? 'waitlist' : 'contact';
+  const naam       = data.naam     || data.name    || '';
+  const email      = data.email    || '';
+  const bedrijf    = data.bedrijf  || data.company || '';
+  const telefoon   = data.telefoon || data.phone   || '';
+  const usecase    = data.usecase  || '';
+  const bericht    = data.bericht  || data.message || '';
+  const validTypes = ['waitlist', 'order'];
+  const type       = validTypes.includes(data.type) ? data.type : 'contact';
   const robot_slug = data.robot_slug || '';
   const robot_name = data.robot_name || '';
+  const aantal     = data.aantal || 1;
+  const contract_months = data.contract_months || '';
+  const adres      = data.adres || '';
 
   if (!naam || !email) {
     return res.status(400).json({ error: 'Naam en email zijn verplicht' });
@@ -181,7 +245,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Ongeldig email adres' });
   }
 
-  const submission = { naam, email, bedrijf, telefoon, usecase, bericht, type, robot_slug, robot_name };
+  const submission = { naam, email, bedrijf, telefoon, usecase, bericht, type, robot_slug, robot_name, aantal, contract_months, adres };
 
   // Send notification + confirmation + backup in parallel
   const results = await Promise.allSettled([

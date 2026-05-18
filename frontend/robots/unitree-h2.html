@@ -394,8 +394,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
         <p class="lede">Unitree&#x27;s service-georiënteerde flagship. Bionisch gezicht voor sociale interactie, 2070 TOPS AI-chip. Voor hospitality, retail en lichte service-taken waar interactie centraal staat.</p>
         
         <div class="r-hero-cta">
-          <a class="btn" href="/#contact">Plan een demo →</a>
-          <a class="btn ghost" href="#price">Bekijk prijs</a>
+          <a class="btn" href="#bestel">Bestel direct →</a><a class="btn ghost" href="/#contact">Plan eerst demo</a>
         </div>
       </div>
       <div class="r-hero-art">
@@ -436,6 +435,89 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 </section>
 
 
+
+
+<section id="bestel" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr; gap:32px; max-width:1080px; margin:0 auto" class="order-grid">
+      <div>
+        <div class="section-eyebrow">// Direct bestellen</div>
+        <h2 style="margin:14px 0 14px">Bestel direct een Unitree H2.</h2>
+        <p class="lede" style="margin-bottom:20px">Skip de demo en bestel meteen — wij verzorgen de hele intake, integratie en levering binnen 6-10 weken na bevestiging.</p>
+        <ul style="color:var(--ink-2); font-size:14px; line-height:1.7; padding-left:0; list-style:none; margin-bottom:14px">
+          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ <b style="color:var(--ink)">€1,890/mnd</b> all-in (36 mnd)</li>
+          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ + €2,500 eenmalige setup</li>
+          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ Installatie + training + Swap-SLA + verzekering inbegrepen</li>
+          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ Eerste jaar vast, daarna maandelijks opzegbaar</li>
+        </ul>
+        <p style="color:var(--ink-3); font-size:12.5px; line-height:1.55">// Voor pilot-eerst (€1.500, 4 weken) — gebruik 'Plan demo' bovenaan.</p>
+      </div>
+      <form onsubmit="handleOrderSubmit(event)" data-robot-slug="unitree-h2" data-robot-name="Unitree H2"
+            style="background:var(--bg-3); border:2px solid var(--border-2); padding:24px">
+        <div style="margin-bottom:14px">
+          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Naam</label>
+          <input name="naam" required placeholder="Voor- en achternaam"
+                 style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+        </div>
+        <div style="margin-bottom:14px">
+          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Bedrijf + KvK</label>
+          <input name="bedrijf" required placeholder="Bedrijfsnaam (incl. KvK indien beschikbaar)"
+                 style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px">
+          <div>
+            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Email</label>
+            <input name="email" type="email" required placeholder="naam@bedrijf.nl"
+                   style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+          </div>
+          <div>
+            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Telefoon</label>
+            <input name="telefoon" placeholder="+31 ..."
+                   style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px">
+          <div>
+            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Aantal units</label>
+            <select name="aantal"
+                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+              <option value="1">1 unit</option>
+              <option value="2">2 units</option>
+              <option value="3">3 units (-8%)</option>
+              <option value="5">5 units (-8%)</option>
+              <option value="10">10+ units (-15%)</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Contractduur</label>
+            <select name="contract_months"
+                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+              <option value="36">36 mnd (standaard)</option>
+              <option value="24">24 mnd (+7%)</option>
+              <option value="12">12 mnd (+15%)</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:14px">
+          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Leveringsadres</label>
+          <textarea name="adres" required placeholder="Straat + nr&#10;Postcode + plaats" rows="2"
+                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px; resize:vertical"></textarea>
+        </div>
+        <div style="margin-bottom:14px">
+          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Bericht (optioneel)</label>
+          <textarea name="bericht" placeholder="Specifieke configuratie, deadline, etc." rows="2"
+                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px; resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn lg"
+                style="width:100%; justify-content:center">Verstuur bestelling</button>
+        <p class="form-note" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-3); margin-top:12px; text-align:center">// Vrijblijvend · Wij sturen offerte ter bevestiging binnen 4 werkuren</p>
+      </form>
+    </div>
+  </div>
+</section>
+<style>
+  @media (min-width: 880px) { .order-grid { grid-template-columns: 1fr 1fr !important; gap: 56px !important; align-items: start; } }
+</style>
 
 
 
@@ -535,6 +617,40 @@ function handleWaitlistSubmit(e) {
     })
     .catch(function(){
       if (note) { note.textContent = 'Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }
+      btn.disabled = false; btn.innerHTML = origBtn;
+    });
+}
+
+// Bestelformulier handler → POST /api/contact met type=order
+function handleOrderSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn  = form.querySelector('button[type="submit"]');
+  var note = form.querySelector('.form-note');
+  var origBtn = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = 'Versturen…';
+  var data = Object.fromEntries(new FormData(form));
+  data.type = 'order';
+  data.robot_slug = form.dataset.robotSlug || '';
+  data.robot_name = form.dataset.robotName || '';
+
+  fetch('/api/contact', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(data),
+  })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
+    .then(function(res){
+      if (res.ok && res.body.success) {
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(74,222,128,0.1);border:2px solid rgba(74,222,128,0.3);margin-bottom:18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'JetBrains Mono\',monospace;font-weight:600;font-size:18px;margin-bottom:8px;color:#fff">Bestelling ontvangen</h3><p style="font-family:\'JetBrains Mono\',monospace;color:#a3a3a3;font-size:12px;line-height:1.5">// Wij sturen offerte ter bevestiging binnen 4 werkuren naar je inbox.</p></div>';
+        if (window.plausible) window.plausible('Order submit', { props:{ robot: data.robot_slug, qty: data.aantal } });
+      } else {
+        if (note) { note.textContent = '// ' + ((res.body && res.body.error) || 'Probeer opnieuw'); note.style.color = '#f87171'; }
+        btn.disabled = false; btn.innerHTML = origBtn;
+      }
+    })
+    .catch(function(){
+      if (note) { note.textContent = '// Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#f87171'; }
       btn.disabled = false; btn.innerHTML = origBtn;
     });
 }
