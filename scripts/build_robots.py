@@ -140,6 +140,30 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 .cta-strip h3 { font-size:28px; margin-bottom:10px; color:#fff; }
 .cta-strip p { color:rgba(255,255,255,0.92); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:#0a0a0c; }
+
+/* Video facade — iframe laadt pas bij klik (privacy + page speed) */
+.video-wrap { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:16/9; background:#000; cursor:pointer; max-width:880px; margin:0 auto; box-shadow:0 30px 60px -20px rgba(0,0,0,0.5); border:1px solid var(--line); }
+.video-wrap img { width:100%; height:100%; object-fit:cover; max-width:none; max-height:none; }
+.video-wrap .play {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:88px; height:88px; border-radius:50%;
+  background:rgba(255,94,31,0.92); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 0 10px rgba(255,94,31,0.22), 0 20px 40px rgba(0,0,0,0.4);
+  transition:transform .2s, background .2s;
+}
+.video-wrap:hover .play { transform:translate(-50%,-50%) scale(1.08); background:#ff5e1f; }
+.video-wrap .play::before {
+  content:""; width:0; height:0;
+  border-left:24px solid white; border-top:15px solid transparent; border-bottom:15px solid transparent;
+  margin-left:4px;
+}
+.video-wrap .vlabel {
+  position:absolute; bottom:20px; left:24px; right:24px;
+  color:white; font-family:'Space Grotesk'; font-weight:600; font-size:17px;
+  text-shadow:0 2px 8px rgba(0,0,0,0.85);
+  pointer-events:none;
+}
+.video-wrap iframe { width:100%; height:100%; border:none; display:block; }
 """
 
 LISTING_CSS = """
@@ -264,6 +288,45 @@ def breadcrumb_jsonld(r: dict) -> str:
     }, ensure_ascii=False)
 
 
+def video_section(r: dict) -> str:
+    vid = r.get("video_id")
+    if not vid:
+        return ""
+    title = r.get("video_title") or f"{r['name']} — officiële demonstratie"
+    thumb = f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"
+    return f"""
+<section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="section-eyebrow">In actie</div>
+    <h2 style="margin-bottom:8px">{escape(r['name'])} — officiële demo.</h2>
+    <p class="lede" style="margin-bottom:32px">{escape(title)}. Bron: {escape(r['vendor'])}.</p>
+    <div class="video-wrap" data-video-id="{vid}" role="button" aria-label="Speel video af: {escape(title)}">
+      <img src="{thumb}" alt="{escape(title)}" loading="lazy"
+           onerror="this.src='https://i.ytimg.com/vi/{vid}/hqdefault.jpg'">
+      <div class="play" aria-hidden="true"></div>
+      <div class="vlabel">▶ {escape(title)}</div>
+    </div>
+  </div>
+</section>"""
+
+
+def video_jsonld(r: dict) -> str:
+    vid = r.get("video_id")
+    if not vid:
+        return ""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": r.get("video_title") or f"{r['name']} — officiële demonstratie",
+        "description": f"Officiële demonstratie van de {r['name']} humanoïde robot door {r['vendor']}.",
+        "thumbnailUrl": [f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"],
+        "uploadDate": "2025-01-01",
+        "contentUrl": f"https://www.youtube.com/watch?v={vid}",
+        "embedUrl": f"https://www.youtube.com/embed/{vid}",
+        "publisher": {"@type": "Organization", "name": r["vendor"]},
+    }, ensure_ascii=False)
+
+
 def render_robot(r: dict, related: list) -> str:
     tier_class = {"eu": "tier-eu", "value": "tier-value", "premium": "tier-premium"}.get(r["tier"], "tier-eu")
     photo_url = f"{SITE_URL}{r['photo']}"
@@ -328,6 +391,7 @@ def render_robot(r: dict, related: list) -> str:
 <style>{PAGE_CSS}{ROBOT_CSS}</style>
 <script type="application/ld+json">{product_jsonld(r)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(r)}</script>
+{f'<script type="application/ld+json">{video_jsonld(r)}</script>' if r.get('video_id') else ''}
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 </head>
 <body>
@@ -390,6 +454,8 @@ def render_robot(r: dict, related: list) -> str:
   </div>
 </section>
 
+{video_section(r)}
+
 <section id="price">
   <div class="container">
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start">
@@ -436,6 +502,19 @@ def render_robot(r: dict, related: list) -> str:
 </section>
 
 {FOOTER_HTML}
+
+<script>
+document.querySelectorAll('.video-wrap').forEach(function(el){{
+  el.addEventListener('click', function(){{
+    var id = el.dataset.videoId;
+    if(!id) return;
+    el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" '
+      + 'title="' + (el.getAttribute('aria-label') || 'Video') + '" '
+      + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+      + 'allowfullscreen></iframe>';
+  }});
+}});
+</script>
 </body>
 </html>
 """.replace(",", ".")

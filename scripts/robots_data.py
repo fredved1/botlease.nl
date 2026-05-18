@@ -43,6 +43,8 @@ ROBOTS = [
         ],
         "tags": ["EU-gebouwd", "Cobot", "R&D", "Service"],
         "vendor_url": "https://neura-robotics.com/products/4ne1/",
+        "video_id": "4j_vgDESuDs",
+        "video_title": "NEURA Robotics 4NE-1 derde generatie — Automatica 2025",
     },
     {
         "slug": "neura-4ne1-gen3",
@@ -80,6 +82,8 @@ ROBOTS = [
         ],
         "tags": ["EU-gebouwd", "Industrie", "Heavy-duty", "Cobot"],
         "vendor_url": "https://neura-robotics.com/products/4ne1/",
+        "video_id": "4j_vgDESuDs",
+        "video_title": "NEURA Robotics 4NE-1 derde generatie — Automatica 2025",
     },
     {
         "slug": "pal-kangaroo",
@@ -116,6 +120,8 @@ ROBOTS = [
         ],
         "tags": ["EU-gebouwd", "Onderzoek", "ROS", "Veteraan"],
         "vendor_url": "https://pal-robotics.com/robots/kangaroo/",
+        "video_id": "G7riD4yb1tg",
+        "video_title": "PAL Robotics Kangaroo Pro — bipedal walking demo",
     },
     {
         "slug": "pal-tiago-pro",
@@ -225,6 +231,8 @@ ROBOTS = [
         ],
         "tags": ["Instap", "Education", "Demo", "Events"],
         "vendor_url": "https://www.unitree.com/r1",
+        "video_id": "v1Q4Su54iho",
+        "video_title": "Unitree R1 Intelligent Companion — officiële introductie",
     },
     {
         "slug": "unitree-g1",
@@ -260,6 +268,8 @@ ROBOTS = [
         ],
         "tags": ["Bestseller", "R&D", "Hospitality", "Inspectie"],
         "vendor_url": "https://www.unitree.com/g1",
+        "video_id": "Nkh6RUocD8c",
+        "video_title": "Unitree G1 — world's first humanoid kip-up demonstration",
     },
     {
         "slug": "unitree-h1-2",
@@ -295,6 +305,8 @@ ROBOTS = [
         ],
         "tags": ["Industrieel", "Heavy-duty", "Payload"],
         "vendor_url": "https://www.unitree.com/h1",
+        "video_id": "sfcqAZcWoMo",
+        "video_title": "Unitree H1 — recordbrekende snelheid 22.4 MPH",
     },
     {
         "slug": "unitree-h2",
@@ -366,6 +378,8 @@ ROBOTS = [
         ],
         "tags": ["R&D", "Gait", "Neural", "Service"],
         "vendor_url": "https://www.engineai.com/",
+        "video_id": "wlQ2Ep0g7gg",
+        "video_title": "EngineAI SE01 — natural human-like walking gait",
     },
     {
         "slug": "ubtech-walker-s2",
@@ -401,6 +415,8 @@ ROBOTS = [
         ],
         "tags": ["Auto-industrie", "Mass-production", "Heavy-duty"],
         "vendor_url": "https://www.ubtrobot.com/en/business/walker/",
+        "video_id": "WSn5Atk9ojo",
+        "video_title": "UBTECH Walker S2 — World's First Mass Deployment of Humanoid Robots",
     },
 
     # ────────────────────────────── Wachtlijst 2027 ──────────────────────────
@@ -437,6 +453,8 @@ ROBOTS = [
         ],
         "tags": ["Wachtlijst", "Industrieel", "Premium"],
         "vendor_url": "https://apptronik.com/apollo",
+        "video_id": "TfUOg38iXxo",
+        "video_title": "Mercedes-Benz testing Apollo humanoid robot in production",
     },
     {
         "slug": "figure-02",
@@ -471,6 +489,8 @@ ROBOTS = [
         ],
         "tags": ["Wachtlijst", "Auto", "Premium"],
         "vendor_url": "https://www.figure.ai/",
+        "video_id": "CgLwDbbledA",
+        "video_title": "BMW is testing the Figure 02 humanoid robot",
     },
     {
         "slug": "agility-digit",
@@ -505,6 +525,8 @@ ROBOTS = [
         ],
         "tags": ["Wachtlijst", "3PL", "Premium"],
         "vendor_url": "https://www.agilityrobotics.com/",
+        "video_id": "Xq_-OTQgzf0",
+        "video_title": "Digit: GXO's human-centric warehouse robot",
     },
     {
         "slug": "1x-neo",
