@@ -740,10 +740,27 @@ def render_listing(articles: list) -> str:
 
 
 def render_sitemap(articles: list) -> str:
+    try:
+        from robots_data import ROBOTS
+    except ImportError:
+        ROBOTS = []
+    try:
+        from landingpages_data import SECTORS, CITIES
+    except ImportError:
+        SECTORS, CITIES = [], []
     urls = [
         (SITE_URL + "/", "1.0", "weekly"),
-        (SITE_URL + "/nieuws/", "0.9", "daily"),
+        (SITE_URL + "/robots/", "0.95", "weekly"),
+        (SITE_URL + "/sectoren/", "0.9", "weekly"),
+        (SITE_URL + "/leasen/", "0.9", "weekly"),
+        (SITE_URL + "/nieuws/", "0.85", "daily"),
     ]
+    for r in ROBOTS:
+        urls.append((f"{SITE_URL}/robots/{r['slug']}", "0.85", "weekly"))
+    for s in SECTORS:
+        urls.append((f"{SITE_URL}/sectoren/{s['slug']}", "0.8", "weekly"))
+    for c in CITIES:
+        urls.append((f"{SITE_URL}/leasen/{c['slug']}", "0.75", "weekly"))
     for a in articles:
         urls.append((f"{SITE_URL}/nieuws/{a['slug']}", "0.7", "weekly", a["date"]))
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
