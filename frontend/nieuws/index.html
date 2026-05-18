@@ -92,15 +92,24 @@ article.card .card-body { padding:24px 28px 28px; display:flex; flex-direction:c
   filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45));
   transition:transform .35s;
 }
-article.card:hover .card-thumb-art { transform:translateY(-50%) scale(1.05); }
+.card-thumb-photo {
+  position:absolute; right:22px; top:50%; transform:translateY(-50%);
+  height:140px; width:auto; max-width:55%; object-fit:contain;
+  filter:drop-shadow(0 12px 24px rgba(0,0,0,0.55));
+  transition:transform .35s;
+}
+article.card:hover .card-thumb-art,
+article.card:hover .card-thumb-photo { transform:translateY(-50%) scale(1.05); }
 article.card.featured .card-thumb { height:220px; }
-article.card.featured .card-thumb-art { height:200px; right:48px; }
+article.card.featured .card-thumb-art,
+article.card.featured .card-thumb-photo { height:200px; right:48px; max-width:50%; }
 @media (max-width:780px) {
   .news-grid { grid-template-columns:1fr; }
   article.card.featured { grid-column:span 1; }
   article.card.featured h2 { font-size:24px; }
   article.card.featured .card-thumb { height:160px; }
-  article.card.featured .card-thumb-art { height:140px; right:22px; }
+  article.card.featured .card-thumb-art,
+  article.card.featured .card-thumb-photo { height:140px; right:22px; }
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "BotLease — Nieuws over humanoïde robots", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen", "name": "Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn"}, {"@type": "ListItem", "position": 2, "url": "https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot", "name": "Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert"}, {"@type": "ListItem", "position": 3, "url": "https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026", "name": "AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?"}, {"@type": "ListItem", "position": 4, "url": "https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland", "name": "Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie"}, {"@type": "ListItem", "position": 5, "url": "https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland", "name": "Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?"}]}</script>
@@ -312,7 +321,7 @@ article.card.featured .card-thumb-art { height:200px; right:48px; }
   <div class="container">
     <div class="news-grid">
         <article class="card featured">
-          <div class="card-thumb" style="--art-tint:#5be584">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#7be59d" aria-hidden="true">    <use href="#bot-g1"/>  </svg></div>
+          <div class="card-thumb" style="--art-tint:#5be584">  <div class="card-thumb-pattern"></div>  <img class="card-thumb-photo" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot" loading="lazy"></div>
           <div class="card-body">
             <div class="meta">
               <span class="cat">Toepassingen</span>
@@ -327,7 +336,7 @@ article.card.featured .card-thumb-art { height:200px; right:48px; }
           </div>
         </article>
         <article class="card">
-          <div class="card-thumb" style="--art-tint:#ff5e1f">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#ffb098" aria-hidden="true">    <use href="#bot-apollo"/>  </svg></div>
+          <div class="card-thumb" style="--art-tint:#ff5e1f">  <div class="card-thumb-pattern"></div>  <img class="card-thumb-photo" src="/img/robots/apollo.png" alt="Apptronik Apollo robot bij Mercedes" loading="lazy"></div>
           <div class="card-body">
             <div class="meta">
               <span class="cat">Industrie</span>
@@ -342,7 +351,7 @@ article.card.featured .card-thumb-art { height:200px; right:48px; }
           </div>
         </article>
         <article class="card">
-          <div class="card-thumb" style="--art-tint:#ffc966">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#ffd166" aria-hidden="true">    <use href="#art-regulation"/>  </svg></div>
+          <div class="card-thumb" style="--art-tint:#ffc966">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#ffd166" aria-hidden="true"><use href="#art-regulation"/></svg></div>
           <div class="card-body">
             <div class="meta">
               <span class="cat">Regelgeving</span>
@@ -357,7 +366,7 @@ article.card.featured .card-thumb-art { height:200px; right:48px; }
           </div>
         </article>
         <article class="card">
-          <div class="card-thumb" style="--art-tint:#ffb098">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#ffc966" aria-hidden="true">    <use href="#bot-digit"/>  </svg></div>
+          <div class="card-thumb" style="--art-tint:#ffb098">  <div class="card-thumb-pattern"></div>  <img class="card-thumb-photo" src="/img/robots/digit.jpg" alt="Agility Digit robot in fulfillment" loading="lazy"></div>
           <div class="card-body">
             <div class="meta">
               <span class="cat">Toepassingen</span>
@@ -372,7 +381,7 @@ article.card.featured .card-thumb-art { height:200px; right:48px; }
           </div>
         </article>
         <article class="card">
-          <div class="card-thumb" style="--art-tint:#6ea8ff">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#a6cbff" aria-hidden="true">    <use href="#art-market"/>  </svg></div>
+          <div class="card-thumb" style="--art-tint:#6ea8ff">  <div class="card-thumb-pattern"></div>  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:#a6cbff" aria-hidden="true"><use href="#art-market"/></svg></div>
           <div class="card-body">
             <div class="meta">
               <span class="cat">Markt</span>

@@ -94,9 +94,15 @@ footer a:hover { color:var(--ink); }
   height:220px; width:auto; opacity:0.95;
   filter:drop-shadow(0 18px 36px rgba(0,0,0,0.55));
 }
+.hero-banner-photo {
+  position:absolute; right:24px; top:50%; transform:translateY(-50%);
+  height:92%; width:auto; max-width:48%; object-fit:contain;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,0.6));
+}
 @media (max-width:780px) {
   .hero-banner { height:180px; }
   .hero-banner-art { height:160px; right:18px; }
+  .hero-banner-photo { height:86%; right:14px; max-width:55%; }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat { font-family:'Space Grotesk'; color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; padding:4px 10px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
@@ -337,7 +343,7 @@ article.full blockquote { border-left:3px solid var(--accent); padding:8px 0 8px
       <span class="sep">/</span>
       <span>Regelgeving</span>
     </nav>
-    <div class="hero-banner" style="--art-tint:#ffc966">  <div class="hero-banner-pattern"></div>  <span class="hero-banner-label">Regelgeving</span>  <svg class="hero-banner-art" viewBox="0 0 200 320" style="color:#ffd166" aria-hidden="true">    <use href="#art-regulation"/>  </svg></div>
+    <div class="hero-banner" style="--art-tint:#ffc966">  <div class="hero-banner-pattern"></div>  <span class="hero-banner-label">Regelgeving</span>  <svg class="hero-banner-art" viewBox="0 0 200 320" style="color:#ffd166" aria-hidden="true"><use href="#art-regulation"/></svg></div>
     <article class="full">
       <div class="meta">
         <span class="cat">Regelgeving</span>

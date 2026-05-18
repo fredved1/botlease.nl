@@ -141,15 +141,24 @@ article.card .card-body { padding:24px 28px 28px; display:flex; flex-direction:c
   filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45));
   transition:transform .35s;
 }
-article.card:hover .card-thumb-art { transform:translateY(-50%) scale(1.05); }
+.card-thumb-photo {
+  position:absolute; right:22px; top:50%; transform:translateY(-50%);
+  height:140px; width:auto; max-width:55%; object-fit:contain;
+  filter:drop-shadow(0 12px 24px rgba(0,0,0,0.55));
+  transition:transform .35s;
+}
+article.card:hover .card-thumb-art,
+article.card:hover .card-thumb-photo { transform:translateY(-50%) scale(1.05); }
 article.card.featured .card-thumb { height:220px; }
-article.card.featured .card-thumb-art { height:200px; right:48px; }
+article.card.featured .card-thumb-art,
+article.card.featured .card-thumb-photo { height:200px; right:48px; max-width:50%; }
 @media (max-width:780px) {
   .news-grid { grid-template-columns:1fr; }
   article.card.featured { grid-column:span 1; }
   article.card.featured h2 { font-size:24px; }
   article.card.featured .card-thumb { height:160px; }
-  article.card.featured .card-thumb-art { height:140px; right:22px; }
+  article.card.featured .card-thumb-art,
+  article.card.featured .card-thumb-photo { height:140px; right:22px; }
 }
 """
 
@@ -185,9 +194,15 @@ ARTICLE_CSS = """
   height:220px; width:auto; opacity:0.95;
   filter:drop-shadow(0 18px 36px rgba(0,0,0,0.55));
 }
+.hero-banner-photo {
+  position:absolute; right:24px; top:50%; transform:translateY(-50%);
+  height:92%; width:auto; max-width:48%; object-fit:contain;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,0.6));
+}
 @media (max-width:780px) {
   .hero-banner { height:180px; }
   .hero-banner-art { height:160px; right:18px; }
+  .hero-banner-photo { height:86%; right:14px; max-width:55%; }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat { font-family:'Space Grotesk'; color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; padding:4px 10px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
@@ -431,19 +446,20 @@ SVG_DEFS = """
 """
 
 # ---------------------------------------------------------------- art mapping
-# Per artikel: welke symbol gebruiken en in welke kleur.
-DEFAULT_ART = {"symbol": "bot-g1", "color": "#7be59d", "tint": "#5be584"}
+# Per artikel: welke foto + kleurtint voor banner/card gradient.
+# Voor markt/regulering-artikelen pakken we een symbool-fallback.
+DEFAULT_ART = {"photo": "/img/robots/g1.jpg", "alt": "Humanoïde robot", "tint": "#5be584", "symbol": None}
 ART_BY_SLUG = {
     "unitree-g1-mkb-vijf-rendabele-toepassingen":
-        {"symbol": "bot-g1", "color": "#7be59d", "tint": "#5be584"},
+        {"photo": "/img/robots/g1.jpg", "alt": "Unitree G1 humanoid robot", "tint": "#5be584", "symbol": None},
     "apptronik-mercedes-apollo-lessen-eerste-pilot":
-        {"symbol": "bot-apollo", "color": "#ffb098", "tint": "#ff5e1f"},
+        {"photo": "/img/robots/apollo.png", "alt": "Apptronik Apollo robot bij Mercedes", "tint": "#ff5e1f", "symbol": None},
     "ai-act-machineverordening-humanoid-werkgevers-2026":
-        {"symbol": "art-regulation", "color": "#ffd166", "tint": "#ffc966"},
+        {"photo": None, "alt": "AI-Act en Machineverordening", "tint": "#ffc966", "symbol": "art-regulation", "color": "#ffd166"},
     "agility-digit-fulfillment-pilot-3pl-nederland":
-        {"symbol": "bot-digit", "color": "#ffc966", "tint": "#ffb098"},
+        {"photo": "/img/robots/digit.jpg", "alt": "Agility Digit robot in fulfillment", "tint": "#ffb098", "symbol": None},
     "goldman-sachs-38-miljard-humanoid-markt-nederland":
-        {"symbol": "art-market", "color": "#a6cbff", "tint": "#6ea8ff"},
+        {"photo": None, "alt": "Humanoid robot markt", "tint": "#6ea8ff", "symbol": "art-market", "color": "#a6cbff"},
 }
 
 
@@ -452,15 +468,24 @@ def art_for(slug: str) -> dict:
 
 
 def article_hero_banner(a: dict) -> str:
-    """Banner above the article title: gradient + robot/abstract silhouette."""
+    """Banner above the article title: gradient + foto of abstract motief."""
     art = art_for(a["slug"])
+    if art.get("photo"):
+        media = (
+            f'<img class="hero-banner-photo" src="{art["photo"]}" '
+            f'alt="{escape(art["alt"])}" loading="lazy">'
+        )
+    else:
+        media = (
+            f'<svg class="hero-banner-art" viewBox="0 0 200 320" '
+            f'style="color:{art.get("color", "#ffd166")}" aria-hidden="true">'
+            f'<use href="#{art["symbol"]}"/></svg>'
+        )
     return (
         f'<div class="hero-banner" style="--art-tint:{art["tint"]}">'
         f'  <div class="hero-banner-pattern"></div>'
         f'  <span class="hero-banner-label">{escape(a.get("category", "Nieuws"))}</span>'
-        f'  <svg class="hero-banner-art" viewBox="0 0 200 320" style="color:{art["color"]}" aria-hidden="true">'
-        f'    <use href="#{art["symbol"]}"/>'
-        f'  </svg>'
+        f'  {media}'
         f'</div>'
     )
 
@@ -468,12 +493,21 @@ def article_hero_banner(a: dict) -> str:
 def card_thumb(a: dict) -> str:
     """Compact thumbnail at the top of a listing card."""
     art = art_for(a["slug"])
+    if art.get("photo"):
+        media = (
+            f'<img class="card-thumb-photo" src="{art["photo"]}" '
+            f'alt="{escape(art["alt"])}" loading="lazy">'
+        )
+    else:
+        media = (
+            f'<svg class="card-thumb-art" viewBox="0 0 200 320" '
+            f'style="color:{art.get("color", "#ffd166")}" aria-hidden="true">'
+            f'<use href="#{art["symbol"]}"/></svg>'
+        )
     return (
         f'<div class="card-thumb" style="--art-tint:{art["tint"]}">'
         f'  <div class="card-thumb-pattern"></div>'
-        f'  <svg class="card-thumb-art" viewBox="0 0 200 320" style="color:{art["color"]}" aria-hidden="true">'
-        f'    <use href="#{art["symbol"]}"/>'
-        f'  </svg>'
+        f'  {media}'
         f'</div>'
     )
 
