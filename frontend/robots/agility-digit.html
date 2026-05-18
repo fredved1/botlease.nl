@@ -212,7 +212,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
         <h1>Agility Digit v4 leasen.</h1>
         <p class="tag">Bewezen 3PL-humanoid — bird-leg design voor tote-handling.</p>
         <p class="lede">100.000+ totes verwerkt bij Amazon en GXO. Robots-as-a-Service voor enterprise klanten (~$30/uur). Voor Nederlandse MKB-toegang: BotLease beoordeelt geschiktheid in de intake en regelt het traject.</p>
-        <p style="background:rgba(255.201.102.0.1); border:1px solid rgba(255.201.102.0.3); border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. Reserveer een plek op de wachtlijst — BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>
+        <p style="background:rgba(255.201.102.0.1); border:1px solid rgba(255.201.102.0.3); border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. <a href="#wachtlijst" style="color:#ffd166; text-decoration:underline">Reserveer plek op wachtlijst</a> — BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>
         <div class="r-hero-cta">
           <a class="btn" href="/#contact">Plan een demo →</a>
           <a class="btn ghost" href="#price">Bekijk prijs</a>
@@ -269,6 +269,66 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
     </div>
   </div>
 </section>
+
+
+<section id="wachtlijst" style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr; gap:48px; max-width:1080px; margin:0 auto" class="waitlist-grid">
+      <div>
+        <div class="section-eyebrow">Wachtlijst</div>
+        <h2 style="margin:14px 0 16px">Reserveer een plek voor de Agility Digit v4.</h2>
+        <p class="lede" style="margin-bottom:24px">Deze robot is in 2026 nog niet open verkocht voor EU-derden. BotLease heeft directe lijnen met Agility Robotics en kan prioriteit-toegang regelen zodra commerciële verkoop opent — verwacht Q4 2026 / Q1 2027.</p>
+        <p style="color:var(--ink-2); font-size:14.5px; line-height:1.6">Wat krijg je door je aan te melden:</p>
+        <ul style="color:var(--ink-2); font-size:14.5px; line-height:1.7; padding-left:22px; margin:14px 0 0">
+          <li>Priority access zodra eerste EU-units beschikbaar zijn</li>
+          <li>Eerst-recht op pilot-slot in jouw sector</li>
+          <li>Maandelijkse update over levertijd + prijs</li>
+          <li>Geen verplichting tot bestellen</li>
+        </ul>
+      </div>
+      <form onsubmit="handleWaitlistSubmit(event)" data-robot-slug="agility-digit" data-robot-name="Agility Digit v4"
+            style="background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:32px">
+        <div style="margin-bottom:18px">
+          <label for="wl-naam" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Naam</label>
+          <input id="wl-naam" name="naam" required placeholder="Voor- en achternaam"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
+        </div>
+        <div style="margin-bottom:18px">
+          <label for="wl-bedrijf" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Bedrijf</label>
+          <input id="wl-bedrijf" name="bedrijf" required placeholder="Naam van je organisatie"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
+        </div>
+        <div style="margin-bottom:18px">
+          <label for="wl-email" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Werk-email</label>
+          <input id="wl-email" name="email" type="email" required placeholder="naam@bedrijf.nl"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
+        </div>
+        <div style="margin-bottom:18px">
+          <label for="wl-aantal" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Verwacht aantal units</label>
+          <select id="wl-aantal" name="usecase"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
+            <option>1 unit (pilot)</option>
+            <option>2-5 units</option>
+            <option>6-10 units</option>
+            <option>10+ units (enterprise)</option>
+            <option>Nog onbekend</option>
+          </select>
+        </div>
+        <div style="margin-bottom:18px">
+          <label for="wl-bericht" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Geplande use-case (optioneel)</label>
+          <textarea id="wl-bericht" name="bericht" placeholder="Waar wil je deze robot inzetten?"
+                    style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px; min-height:90px; resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn"
+                style="width:100%; justify-content:center">Reserveer plek op wachtlijst</button>
+        <p class="form-note" style="color:var(--ink-3); font-size:12.5px; margin-top:12px; text-align:center">Geen verplichting · Reactie binnen 4 werkuren</p>
+      </form>
+    </div>
+  </div>
+</section>
+<style>
+  @media (min-width: 880px) { .waitlist-grid { grid-template-columns: 1fr 1fr !important; gap: 64px !important; align-items: start; } }
+</style>
 
 <section id="price">
   <div class="container">
@@ -335,6 +395,40 @@ document.querySelectorAll('.video-wrap').forEach(function(el){
       + 'allowfullscreen></iframe>';
   });
 });
+
+// Wachtlijst form handler → POST /api/contact met type=waitlist
+function handleWaitlistSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn  = form.querySelector('button[type="submit"]');
+  var note = form.querySelector('.form-note');
+  var origBtn = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = 'Versturen…';
+  var data = Object.fromEntries(new FormData(form));
+  data.type = 'waitlist';
+  data.robot_slug = form.dataset.robotSlug || '';
+  data.robot_name = form.dataset.robotName || '';
+
+  fetch('/api/contact'. {
+    method:'POST'.
+    headers:{'Content-Type':'application/json'}.
+    body: JSON.stringify(data).
+  })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok. body:j }; }); })
+    .then(function(res){
+      if (res.ok && res.body.success) {
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34.197.94.0.12);border:1px solid rgba(34.197.94.0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Space Grotesk\'.sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
+        if (window.plausible) window.plausible('Waitlist signup'. { props:{ robot: data.robot_slug } });
+      } else {
+        if (note) { note.textContent = (res.body && res.body.error) || 'Er ging iets mis — probeer opnieuw'; note.style.color = '#dc2626'; }
+        btn.disabled = false; btn.innerHTML = origBtn;
+      }
+    })
+    .catch(function(){
+      if (note) { note.textContent = 'Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }
+      btn.disabled = false; btn.innerHTML = origBtn;
+    });
+}
 </script>
 </body>
 </html>

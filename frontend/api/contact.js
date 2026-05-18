@@ -27,22 +27,33 @@ async function sendNotification(data) {
     console.warn('[contact] RESEND_API_KEY ontbreekt — email niet verstuurd. Submission:', data);
     return { skipped: true };
   }
+  const isWaitlist = data.type === 'waitlist';
+  const heading = isWaitlist
+    ? `Nieuwe wachtlijst-aanmelding — ${data.robot_name || data.robot_slug || 'onbekend'}`
+    : 'Nieuwe lease-aanvraag — BotLease';
+  const subjectPrefix = isWaitlist
+    ? `[WACHTLIJST] ${data.robot_name || data.robot_slug || 'algemeen'}`
+    : `[BotLease] Lease-aanvraag`;
+  const subject = `${subjectPrefix} — ${data.bedrijf || data.naam}${data.usecase ? ' / ' + data.usecase : ''}`;
+
   const html = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f7f7f9;color:#08080a">
-      <h2 style="font-family:'Space Grotesk',sans-serif;color:#08080a;margin:0 0 18px;font-size:22px">Nieuwe lease-aanvraag — BotLease</h2>
-      <div style="background:white;border:1px solid #e4e4e7;border-radius:10px;padding:24px;margin-bottom:14px">
-        <p style="margin:0 0 14px;font-size:13px;color:#71717a;text-transform:uppercase;letter-spacing:0.08em">Contactgegevens</p>
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#faf9f6;color:#1c1917">
+      <h2 style="font-family:'Space Grotesk',sans-serif;color:#1c1917;margin:0 0 18px;font-size:22px">${escapeHtml(heading)}</h2>
+      ${isWaitlist ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 18px;margin-bottom:14px"><p style="margin:0;font-size:14px;color:#c2410c"><b>Type:</b> Wachtlijst-aanmelding voor ${escapeHtml(data.robot_name || data.robot_slug)}</p></div>` : ''}
+      <div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
+        <p style="margin:0 0 14px;font-size:13px;color:#78716c;text-transform:uppercase;letter-spacing:0.08em">Contactgegevens</p>
         <p style="margin:4px 0"><b>Naam:</b> ${escapeHtml(data.naam)}</p>
         <p style="margin:4px 0"><b>Bedrijf:</b> ${escapeHtml(data.bedrijf)}</p>
-        <p style="margin:4px 0"><b>Email:</b> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>
+        <p style="margin:4px 0"><b>Email:</b> <a href="mailto:${escapeHtml(data.email)}" style="color:#c2410c">${escapeHtml(data.email)}</a></p>
         ${data.telefoon ? `<p style="margin:4px 0"><b>Telefoon:</b> ${escapeHtml(data.telefoon)}</p>` : ''}
       </div>
-      <div style="background:white;border:1px solid #e4e4e7;border-radius:10px;padding:24px;margin-bottom:14px">
-        <p style="margin:0 0 14px;font-size:13px;color:#71717a;text-transform:uppercase;letter-spacing:0.08em">Use-case</p>
-        <p style="margin:4px 0"><b>Sector:</b> ${escapeHtml(data.usecase || 'Niet opgegeven')}</p>
-        ${data.bericht ? `<p style="margin:14px 0 4px"><b>Bericht:</b></p><p style="margin:0;white-space:pre-wrap;color:#3f3f46">${escapeHtml(data.bericht)}</p>` : ''}
+      <div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
+        <p style="margin:0 0 14px;font-size:13px;color:#78716c;text-transform:uppercase;letter-spacing:0.08em">${isWaitlist ? 'Wachtlijst-detail' : 'Use-case'}</p>
+        ${isWaitlist && data.robot_name ? `<p style="margin:4px 0"><b>Robot:</b> ${escapeHtml(data.robot_name)}</p>` : ''}
+        ${data.usecase ? `<p style="margin:4px 0"><b>Sector:</b> ${escapeHtml(data.usecase)}</p>` : ''}
+        ${data.bericht ? `<p style="margin:14px 0 4px"><b>Bericht:</b></p><p style="margin:0;white-space:pre-wrap;color:#44403c">${escapeHtml(data.bericht)}</p>` : ''}
       </div>
-      <p style="font-size:12px;color:#71717a;margin:18px 0 0">
+      <p style="font-size:12px;color:#78716c;margin:18px 0 0">
         Ingestuurd via botlease.nl op ${new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })}.
         Reageer op deze email om direct te antwoorden.
       </p>
@@ -59,7 +70,7 @@ async function sendNotification(data) {
       from: RESEND_FROM,
       to: [NOTIFY_TO],
       reply_to: data.email,
-      subject: `[BotLease] Lease-aanvraag van ${data.bedrijf || data.naam} — ${data.usecase || 'algemeen'}`,
+      subject,
       html,
     }),
   });
@@ -113,6 +124,10 @@ async function sendConfirmation(data) {
 async function backupToSupabase(data) {
   if (!SUPABASE_KEY) return { skipped: true };
   try {
+    // Prefix message with type tag zodat admin dashboard kan filteren
+    const prefix = data.type === 'waitlist'
+      ? `[WACHTLIJST: ${data.robot_name || data.robot_slug || 'algemeen'}]`
+      : `[${data.usecase || 'algemeen'}]`;
     const resp = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
       method: 'POST',
       headers: {
@@ -126,7 +141,7 @@ async function backupToSupabase(data) {
         email:   data.email,
         phone:   data.telefoon || '',
         company: data.bedrijf  || '',
-        message: `[${data.usecase || 'algemeen'}] ${data.bericht || ''}`.trim(),
+        message: `${prefix} ${data.bericht || ''}`.trim(),
       }),
     });
     if (!resp.ok) {
@@ -155,6 +170,9 @@ export default async function handler(req, res) {
   const telefoon = data.telefoon || data.phone   || '';
   const usecase  = data.usecase  || '';
   const bericht  = data.bericht  || data.message || '';
+  const type     = data.type === 'waitlist' ? 'waitlist' : 'contact';
+  const robot_slug = data.robot_slug || '';
+  const robot_name = data.robot_name || '';
 
   if (!naam || !email) {
     return res.status(400).json({ error: 'Naam en email zijn verplicht' });
@@ -163,7 +181,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Ongeldig email adres' });
   }
 
-  const submission = { naam, email, bedrijf, telefoon, usecase, bericht };
+  const submission = { naam, email, bedrijf, telefoon, usecase, bericht, type, robot_slug, robot_name };
 
   // Send notification + confirmation + backup in parallel
   const results = await Promise.allSettled([

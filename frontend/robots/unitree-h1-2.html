@@ -270,6 +270,8 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   </div>
 </section>
 
+
+
 <section id="price">
   <div class="container">
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start">
@@ -335,6 +337,40 @@ document.querySelectorAll('.video-wrap').forEach(function(el){
       + 'allowfullscreen></iframe>';
   });
 });
+
+// Wachtlijst form handler → POST /api/contact met type=waitlist
+function handleWaitlistSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn  = form.querySelector('button[type="submit"]');
+  var note = form.querySelector('.form-note');
+  var origBtn = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = 'Versturen…';
+  var data = Object.fromEntries(new FormData(form));
+  data.type = 'waitlist';
+  data.robot_slug = form.dataset.robotSlug || '';
+  data.robot_name = form.dataset.robotName || '';
+
+  fetch('/api/contact'. {
+    method:'POST'.
+    headers:{'Content-Type':'application/json'}.
+    body: JSON.stringify(data).
+  })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok. body:j }; }); })
+    .then(function(res){
+      if (res.ok && res.body.success) {
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34.197.94.0.12);border:1px solid rgba(34.197.94.0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Space Grotesk\'.sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
+        if (window.plausible) window.plausible('Waitlist signup'. { props:{ robot: data.robot_slug } });
+      } else {
+        if (note) { note.textContent = (res.body && res.body.error) || 'Er ging iets mis — probeer opnieuw'; note.style.color = '#dc2626'; }
+        btn.disabled = false; btn.innerHTML = origBtn;
+      }
+    })
+    .catch(function(){
+      if (note) { note.textContent = 'Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }
+      btn.disabled = false; btn.innerHTML = origBtn;
+    });
+}
 </script>
 </body>
 </html>

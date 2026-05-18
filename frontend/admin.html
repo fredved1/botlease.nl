@@ -96,6 +96,20 @@ input { font-family:inherit; }
 }
 .toolbar-actions button:hover { background:var(--bg-3); border-color:var(--border-h); }
 
+.filter-pills { display:flex; gap:6px; }
+.pill {
+  padding:8px 14px; border-radius:999px;
+  background:var(--bg-2); border:1px solid var(--border);
+  color:var(--fg-2); font-size:13px; font-weight:500;
+  cursor:pointer; transition:background .15s, color .15s, border-color .15s;
+}
+.pill:hover { background:var(--bg-3); color:var(--fg); }
+.pill.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+.type-badge { display:inline-block; padding:3px 9px; border-radius:999px; font-size:10.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; }
+.type-badge.contact { background:rgba(96,165,250,0.14); color:#60a5fa; border:1px solid rgba(96,165,250,0.3); }
+.type-badge.waitlist { background:rgba(249,115,22,0.14); color:#f97316; border:1px solid rgba(249,115,22,0.3); }
+
 table {
   width:100%; border-collapse:collapse; border:1px solid var(--border);
   background:var(--bg-2); border-radius:14px; overflow:hidden;
@@ -160,13 +174,20 @@ tbody tr:last-child td { border-bottom:none; }
 
   <div class="stats-row">
     <div class="stat-card"><div class="v" id="stat-total">0</div><div class="l">Totaal aanvragen</div></div>
+    <div class="stat-card"><div class="v" id="stat-contact">0</div><div class="l">Lease-aanvragen</div></div>
+    <div class="stat-card"><div class="v" id="stat-waitlist">0</div><div class="l">Wachtlijst</div></div>
     <div class="stat-card"><div class="v" id="stat-week">0</div><div class="l">Deze week</div></div>
-    <div class="stat-card"><div class="v" id="stat-month">0</div><div class="l">Deze maand</div></div>
-    <div class="stat-card"><div class="v" id="stat-today">0</div><div class="l">Vandaag</div></div>
   </div>
 
   <div class="toolbar">
-    <input class="search-input" id="search" placeholder="Zoek naam, bedrijf, email of bericht…" type="search">
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+      <input class="search-input" id="search" placeholder="Zoek naam, bedrijf, email of bericht…" type="search">
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">Alle</button>
+        <button class="pill" data-filter="contact">Lease-aanvragen</button>
+        <button class="pill" data-filter="waitlist">Wachtlijst</button>
+      </div>
+    </div>
     <div class="toolbar-actions">
       <button id="btn-refresh">↻ Vernieuw</button>
       <button id="btn-csv">⬇ Export CSV</button>
@@ -177,14 +198,16 @@ tbody tr:last-child td { border-bottom:none; }
     <thead>
       <tr>
         <th class="col-date">Datum</th>
+        <th>Type</th>
         <th>Naam</th>
         <th>Bedrijf</th>
         <th>Email</th>
-        <th>Sector + bericht</th>
+        <th>Sector / Robot</th>
+        <th>Bericht</th>
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr><td colspan="5" class="empty">Bezig met laden…</td></tr>
+      <tr><td colspan="7" class="empty">Bezig met laden…</td></tr>
     </tbody>
   </table>
 </div>
@@ -192,6 +215,17 @@ tbody tr:last-child td { border-bottom:none; }
 <script>
 var STORAGE_KEY = 'botlease_admin_pw';
 var rowsCache = [];
+var currentFilter = 'all';
+
+// Parse message field to extract type + tag (e.g. "[WACHTLIJST: Apptronik Apollo] message" or "[3PL] message")
+function parseMessage(msg) {
+  if (!msg) return { type: 'contact', tag: '', text: '' };
+  var m = msg.match(/^\[WACHTLIJST:\s*([^\]]+)\]\s*(.*)$/);
+  if (m) return { type: 'waitlist', tag: m[1].trim(), text: m[2].trim() };
+  m = msg.match(/^\[([^\]]+)\]\s*(.*)$/);
+  if (m) return { type: 'contact', tag: m[1].trim(), text: m[2].trim() };
+  return { type: 'contact', tag: '', text: msg };
+}
 
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"']/g, function(c){
@@ -208,25 +242,30 @@ function fmtDate(s) {
 
 function render(rows) {
   var search = document.getElementById('search').value.toLowerCase().trim();
-  var filtered = search
-    ? rows.filter(function(r){
-        var hay = [r.name, r.company, r.email, r.message].join(' ').toLowerCase();
-        return hay.indexOf(search) > -1;
-      })
-    : rows;
+  var filtered = rows.filter(function(r){
+    var parsed = parseMessage(r.message);
+    if (currentFilter !== 'all' && parsed.type !== currentFilter) return false;
+    if (!search) return true;
+    var hay = [r.name, r.company, r.email, r.message, parsed.tag].join(' ').toLowerCase();
+    return hay.indexOf(search) > -1;
+  });
 
   var tbody = document.getElementById('tbody');
   if (filtered.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="empty">' + (search ? 'Geen resultaten voor "' + escapeHtml(search) + '"' : 'Nog geen aanvragen') + '</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" class="empty">' + (search || currentFilter !== 'all' ? 'Geen resultaten' : 'Nog geen aanvragen') + '</td></tr>';
     return;
   }
   tbody.innerHTML = filtered.map(function(r){
+    var p = parseMessage(r.message);
+    var subject = p.type === 'waitlist' ? 'Re: Wachtlijst ' + p.tag : 'Re: Lease-aanvraag BotLease';
     return '<tr>' +
       '<td class="cell-date">' + escapeHtml(fmtDate(r.created_at)) + '</td>' +
+      '<td><span class="type-badge ' + p.type + '">' + (p.type === 'waitlist' ? 'Wachtlijst' : 'Lease') + '</span></td>' +
       '<td class="cell-name">' + escapeHtml(r.name || '—') + '</td>' +
       '<td>' + escapeHtml(r.company || '—') + '</td>' +
-      '<td class="cell-email"><a href="mailto:' + encodeURIComponent(r.email||'') + '?subject=Re:%20Lease-aanvraag%20BotLease">' + escapeHtml(r.email || '—') + '</a></td>' +
-      '<td class="cell-msg">' + escapeHtml(r.message || '—') + '</td>' +
+      '<td class="cell-email"><a href="mailto:' + encodeURIComponent(r.email||'') + '?subject=' + encodeURIComponent(subject) + '">' + escapeHtml(r.email || '—') + '</a></td>' +
+      '<td>' + escapeHtml(p.tag || '—') + '</td>' +
+      '<td class="cell-msg">' + escapeHtml(p.text || '—') + '</td>' +
       '</tr>';
   }).join('');
 }
@@ -234,19 +273,17 @@ function render(rows) {
 function renderStats(rows) {
   var now = Date.now();
   var oneDay = 86400000;
-  var today = 0, week = 0, month = 0;
+  var week = 0, contactCount = 0, waitlistCount = 0;
   rows.forEach(function(r){
     var t = new Date(r.created_at).getTime();
-    if (isNaN(t)) return;
-    var age = now - t;
-    if (age < oneDay) today++;
-    if (age < 7 * oneDay) week++;
-    if (age < 30 * oneDay) month++;
+    if (!isNaN(t) && (now - t) < 7 * oneDay) week++;
+    var p = parseMessage(r.message);
+    if (p.type === 'waitlist') waitlistCount++; else contactCount++;
   });
-  document.getElementById('stat-total').textContent = rows.length;
-  document.getElementById('stat-week').textContent = week;
-  document.getElementById('stat-month').textContent = month;
-  document.getElementById('stat-today').textContent = today;
+  document.getElementById('stat-total').textContent    = rows.length;
+  document.getElementById('stat-contact').textContent  = contactCount;
+  document.getElementById('stat-waitlist').textContent = waitlistCount;
+  document.getElementById('stat-week').textContent     = week;
 }
 
 function loadData() {
@@ -319,6 +356,14 @@ document.getElementById('login-form').addEventListener('submit', function(e){
 });
 
 document.getElementById('search').addEventListener('input', function(){ render(rowsCache); });
+document.querySelectorAll('.pill').forEach(function(p){
+  p.addEventListener('click', function(){
+    document.querySelectorAll('.pill').forEach(function(x){ x.classList.remove('active'); });
+    p.classList.add('active');
+    currentFilter = p.dataset.filter;
+    render(rowsCache);
+  });
+});
 document.getElementById('btn-refresh').addEventListener('click', loadData);
 document.getElementById('btn-logout').addEventListener('click', function(){
   sessionStorage.removeItem(STORAGE_KEY);
@@ -326,16 +371,19 @@ document.getElementById('btn-logout').addEventListener('click', function(){
 });
 document.getElementById('btn-csv').addEventListener('click', function(){
   if (!rowsCache.length) return alert('Geen data');
-  var headers = ['datum','naam','bedrijf','email','telefoon','bericht'];
+  var headers = ['datum','type','naam','bedrijf','email','telefoon','tag','bericht'];
   var lines = [headers.join(';')];
   rowsCache.forEach(function(r){
+    var p = parseMessage(r.message);
     var row = [
       r.created_at || '',
+      p.type,
       (r.name || '').replace(/;/g,','),
       (r.company || '').replace(/;/g,','),
       r.email || '',
       r.phone || '',
-      (r.message || '').replace(/\r?\n/g,' ').replace(/;/g,','),
+      (p.tag || '').replace(/;/g,','),
+      (p.text || '').replace(/\r?\n/g,' ').replace(/;/g,','),
     ];
     lines.push(row.map(function(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }).join(';'));
   });
