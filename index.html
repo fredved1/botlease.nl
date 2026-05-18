@@ -36,629 +36,685 @@
 <meta name="google-site-verification" content="REPLACE-WITH-GSC-TOKEN">
 <meta name="msvalidate.01" content="REPLACE-WITH-BING-TOKEN">
 <script defer data-domain="botlease.nl" src="https://plausible.io/js/script.outbound-links.js"></script>
-<meta property="og:site_name" content="BotLease">
 <style>
+/* ─────────────────────────────────────────────────────────
+   Premium SaaS design system — BotLease 2026
+   ─────────────────────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
 :root {
-  --bg:#08080a;
-  --bg-2:#0e0e12;
-  --bg-3:#16161c;
-  --bg-4:#1c1c24;
-  --line:#23232c;
-  --line-2:#2e2e38;
-  --ink:#f7f7f9;
-  --ink-2:#a5a5b3;
-  --ink-3:#666672;
-  --accent:#ff5e1f;
-  --accent-glow:rgba(255,94,31,0.35);
-  --green:#5be584;
-  --r-sm:10px;
-  --r-md:14px;
-  --r-lg:20px;
-  --r-xl:28px;
+  /* Base surfaces — deeper, more refined */
+  --bg:      #050507;
+  --bg-2:    #0a0a0e;
+  --bg-3:    #131318;
+  --bg-elev: #1c1c24;
+
+  /* Borders & dividers (alpha-based for subtle layering) */
+  --border:        rgba(255,255,255,0.06);
+  --border-hover:  rgba(255,255,255,0.12);
+  --border-strong: rgba(255,255,255,0.18);
+
+  /* Text */
+  --fg:   #fafafa;
+  --fg-2: #a1a1aa;
+  --fg-3: #71717a;
+  --fg-4: #52525b;
+
+  /* Accent — slightly more vibrant orange */
+  --accent:      #f97316;
+  --accent-2:    #fb923c;
+  --accent-soft: rgba(249,115,22,0.08);
+  --accent-glow: rgba(249,115,22,0.35);
+
+  /* Semantic */
+  --green:  #22c55e;
+  --blue:   #60a5fa;
+  --purple: #c084fc;
+  --rose:   #fb7185;
+
+  /* Radius */
+  --r-sm:  8px;
+  --r:     12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
+  --r-2xl: 28px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.4);
+  --shadow-lg: 0 30px 60px -20px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 80px var(--accent-glow);
 }
+
 html { scroll-behavior:smooth; }
 body {
   font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  background:var(--bg); color:var(--ink);
-  line-height:1.55; font-size:16px;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
   overflow-x:hidden;
-  font-feature-settings:'ss01','cv02','cv11';
 }
-h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.025em; line-height:1.05; font-weight:600; }
+
+h1,h2,h3,h4 {
+  font-family:'Space Grotesk',sans-serif;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  font-weight:700;
+}
+
 a { color:inherit; text-decoration:none; }
-img { display:block; max-width:100%; }
-.container { max-width:1280px; margin:0 auto; padding:0 28px; }
+img,svg { display:block; max-width:100%; }
+button { font-family:inherit; cursor:pointer; }
 
-/* NAV */
+::selection { background:var(--accent); color:#fff; }
+
+.container { max-width:1280px; margin:0 auto; padding:0 32px; }
+.narrow    { max-width:880px;  margin:0 auto; padding:0 32px; }
+
+/* ─────────── NAV ─────────── */
 nav.top {
-  position:fixed; top:0; left:0; right:0; z-index:60;
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  background:rgba(8,8,10,0.72);
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  position:fixed; top:0; left:0; right:0; z-index:80;
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  background:rgba(5,5,7,0.72);
+  border-bottom:1px solid var(--border);
 }
-nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
-.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:19px; letter-spacing:-0.01em; }
+nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:18px; }
 .brand-mark {
-  width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg, #ff5e1f, #ff8e5c);
+  width:28px; height:28px; border-radius:8px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
   display:flex; align-items:center; justify-content:center;
-  box-shadow:0 0 20px var(--accent-glow);
+  box-shadow:0 0 28px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.2);
 }
-.brand-mark svg { width:14px; height:14px; }
-.nav-links { display:flex; gap:32px; }
-.nav-links a { color:var(--ink-2); font-size:14px; font-weight:500; transition:color .15s; }
-.nav-links a:hover { color:var(--ink); }
+.nav-links { display:flex; gap:6px; }
+.nav-links a {
+  color:var(--fg-2); font-size:14px; font-weight:500;
+  padding:8px 14px; border-radius:8px;
+  transition:color .15s, background .15s;
+}
+.nav-links a:hover { color:var(--fg); background:var(--border); }
+
 .btn {
-  display:inline-flex; align-items:center; gap:7px;
-  padding:11px 20px; border-radius:999px; font-weight:600; font-size:14px;
-  background:var(--ink); color:var(--bg); border:none; cursor:pointer;
-  transition:transform .15s ease, box-shadow .2s, background .15s;
-  white-space:nowrap;
-}
-.btn:hover { transform:translateY(-1px); box-shadow:0 12px 30px -10px rgba(255,255,255,0.25); }
-.btn.primary { background:var(--accent); color:#fff; }
-.btn.primary:hover { box-shadow:0 12px 36px -8px var(--accent-glow); }
-.btn.ghost { background:transparent; border:1px solid var(--line-2); color:var(--ink); }
-.btn.ghost:hover { border-color:var(--ink-2); box-shadow:none; background:rgba(255,255,255,0.03); }
-.btn.lg { padding:15px 28px; font-size:15px; }
-
-/* GLOBAL DECORATIVE GRID */
-.bg-grid {
-  position:absolute; inset:0; pointer-events:none; z-index:0;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
-  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
-}
-
-/* HERO */
-header.hero {
-  position:relative;
-  padding:150px 0 90px;
-  overflow:hidden;
-}
-header.hero::before {
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(50% 45% at 80% 15%, rgba(255,94,31,0.22), transparent 60%),
-    radial-gradient(40% 35% at 10% 85%, rgba(91,229,132,0.06), transparent 70%);
-  z-index:0;
-}
-.hero-grid { display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; position:relative; z-index:2; }
-.eyebrow {
   display:inline-flex; align-items:center; gap:8px;
-  padding:6px 14px; background:rgba(255,255,255,0.04); border:1px solid var(--line-2); border-radius:999px;
-  font-size:12.5px; color:var(--ink-2); margin-bottom:28px; font-weight:500;
+  padding:11px 20px; border-radius:999px;
+  font-weight:600; font-size:14px; font-family:'Inter';
+  background:var(--accent); color:#fff; border:none;
+  cursor:pointer; transition:transform .15s ease, box-shadow .2s ease, background .15s;
+  box-shadow:0 8px 20px -6px var(--accent-glow);
 }
-.eyebrow .pulse { width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); animation:pulse 1.8s infinite; }
-@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-h1.hero-title { font-size:clamp(40px,5.4vw,72px); font-weight:600; margin-bottom:22px; letter-spacing:-0.035em; }
-h1.hero-title em { font-style:normal; background:linear-gradient(135deg, #ff5e1f, #ffb098); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.hero-sub { font-size:18px; color:var(--ink-2); max-width:520px; margin-bottom:36px; line-height:1.55; }
-.hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px; }
-.hero-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:560px; }
-.hero-meta div { display:flex; flex-direction:column; gap:4px; }
-.hero-meta b { font-family:'Space Grotesk'; font-size:24px; font-weight:600; letter-spacing:-0.02em; }
-.hero-meta span { font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.08em; font-weight:500; }
+.btn:hover { transform:translateY(-1px); box-shadow:0 12px 28px -6px var(--accent-glow); background:var(--accent-2); }
+.btn.ghost { background:transparent; color:var(--fg); border:1px solid var(--border-strong); box-shadow:none; }
+.btn.ghost:hover { background:var(--border); border-color:var(--border-hover); }
+.btn.lg { padding:14px 26px; font-size:15px; border-radius:999px; }
+.btn.lg svg { width:16px; height:16px; }
 
-/* HERO VISUAL — abstract robot composition (no stockfoto) */
-.hero-visual {
-  position:relative; aspect-ratio:5/6; border-radius:24px;
-  background:
-    linear-gradient(180deg, #16161c 0%, #0e0e12 100%);
-  border:1px solid var(--line);
+/* ─────────── HERO ─────────── */
+header.hero {
+  position:relative; padding:130px 0 80px;
   overflow:hidden;
-  box-shadow:0 40px 80px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+  background:
+    radial-gradient(800px 600px at 20% 0%, rgba(249,115,22,0.18), transparent 60%),
+    radial-gradient(700px 500px at 90% 30%, rgba(168,85,247,0.12), transparent 60%),
+    var(--bg);
+}
+.hero-bg-grid {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%);
+}
+.hero-spotlight {
+  position:absolute; pointer-events:none; z-index:1;
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(249,115,22,0.10) 0%, transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:opacity .4s;
+  opacity:0;
+}
+.hero-grid {
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.15fr 1fr; gap:80px; align-items:center;
+}
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 14px; background:rgba(255,255,255,0.04);
+  border:1px solid var(--border-strong); border-radius:999px;
+  font-size:13px; color:var(--fg-2); font-weight:500;
+  margin-bottom:28px;
+}
+.hero-eyebrow .pulse {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--green); box-shadow:0 0 0 4px rgba(34,197,94,0.2);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 4px rgba(34,197,94,0.2); }
+  50%     { box-shadow:0 0 0 8px rgba(34,197,94,0.0); }
+}
+
+.hero-title {
+  font-size:clamp(44px, 6.4vw, 84px);
+  font-weight:700; line-height:0.98;
+  margin-bottom:24px; letter-spacing:-0.04em;
+  background:linear-gradient(180deg, #fafafa 0%, #d4d4d8 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-title em {
+  font-style:normal;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-sub {
+  font-size:19px; color:var(--fg-2);
+  max-width:560px; margin-bottom:36px; line-height:1.55;
+}
+
+.hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:56px; }
+
+.hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; max-width:560px; }
+.hero-stat .v {
+  font-family:'Space Grotesk'; font-weight:700;
+  font-size:28px; letter-spacing:-0.025em;
+  background:linear-gradient(180deg, #fafafa 0%, #d4d4d8 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-stat .l {
+  font-size:12px; color:var(--fg-3);
+  text-transform:uppercase; letter-spacing:0.1em;
+  margin-top:4px; font-weight:500;
+}
+
+/* Hero visual — premium glass card with robot */
+.hero-visual {
+  position:relative; aspect-ratio:4/5;
+  border-radius:var(--r-2xl);
+  background:
+    radial-gradient(60% 50% at 50% 30%, rgba(249,115,22,0.22), transparent 60%),
+    linear-gradient(180deg, #131318 0%, #0a0a0e 100%);
+  border:1px solid var(--border);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .hero-visual::before {
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(60% 50% at 50% 35%, rgba(255,94,31,0.22), transparent 60%),
-    radial-gradient(80% 60% at 50% 100%, rgba(255,94,31,0.08), transparent 70%);
-}
-.hero-visual::after {
-  content:""; position:absolute; inset:0;
+  content:""; position:absolute; inset:0; z-index:1;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size:32px 32px;
-  mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+  mask-image:radial-gradient(ellipse at center, black 40%, transparent 75%);
 }
 .hero-robot {
-  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  max-width:78%; max-height:78%; width:auto; height:auto; z-index:2;
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  max-width:78%; max-height:78%;
+  width:auto; height:auto; z-index:2;
   object-fit:contain;
-  filter:drop-shadow(0 30px 60px rgba(255,94,31,0.45));
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,0.5)) drop-shadow(0 0 80px rgba(249,115,22,0.25));
 }
-.hero-floating {
+
+.float-card {
   position:absolute; z-index:3;
-  background:rgba(8,8,10,0.7); backdrop-filter:blur(14px);
-  border:1px solid var(--line-2); border-radius:14px;
-  padding:14px 18px; font-size:13px;
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:rgba(10,10,14,0.7);
+  border:1px solid var(--border-strong);
+  border-radius:var(--r);
+  padding:12px 16px;
+  font-size:13px;
+  box-shadow:var(--shadow-sm);
 }
-.hero-floating.tl { top:24px; left:24px; }
-.hero-floating.tl .v { color:var(--green); font-weight:600; font-family:'Space Grotesk'; }
-.hero-floating.br {
+.float-card .lbl { font-size:11px; color:var(--fg-3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px; font-weight:600; }
+.float-card .val { font-family:'Space Grotesk'; font-weight:600; font-size:15px; color:var(--fg); }
+.float-card.tl  { top:24px; left:24px; }
+.float-card.tl .val { display:flex; align-items:center; gap:8px; color:var(--green); }
+.float-card.tl .val::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(34,197,94,0.25); animation:pulse 2s ease-in-out infinite; }
+.float-card.br {
   bottom:24px; left:24px; right:24px;
   display:flex; justify-content:space-between; align-items:center;
 }
-.hero-floating.br .lbl { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; }
-.hero-floating.br .val { font-family:'Space Grotesk'; font-weight:600; font-size:17px; margin-top:3px; }
+.float-card.br .val a { color:var(--fg); text-decoration:none; }
+.float-card.br .val a:hover { color:var(--accent-2); }
 
-/* TRUST BAR */
-.trustbar { padding:44px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg-2); }
-.trustbar p { text-align:center; font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.16em; margin-bottom:22px; font-weight:500; }
-.brands { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:48px; }
-.brands span { font-family:'Space Grotesk'; font-weight:600; font-size:16px; color:var(--ink-3); letter-spacing:0.05em; transition:color .2s; }
-.brands span:hover { color:var(--ink-2); }
+@media (max-width:980px) {
+  .hero-grid { grid-template-columns:1fr; gap:48px; }
+  .hero-visual { max-width:520px; margin:0 auto; aspect-ratio:5/6; }
+}
+@media (max-width:600px) {
+  header.hero { padding:110px 0 60px; }
+  .hero-stats { grid-template-columns:repeat(2,1fr); gap:20px; }
+}
 
-/* SECTIONS */
-section { padding:110px 0; position:relative; }
-section.alt { background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-.section-head { max-width:720px; margin:0 auto 60px; text-align:center; }
+/* ─────────── TRUST BAR ─────────── */
+.trust-bar {
+  padding:48px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  background:var(--bg-2);
+}
+.trust-bar .label {
+  text-align:center; color:var(--fg-3);
+  font-size:12px; text-transform:uppercase; letter-spacing:0.18em;
+  margin-bottom:28px; font-weight:600;
+}
+.trust-logos {
+  display:flex; justify-content:center; align-items:center;
+  flex-wrap:wrap; gap:48px;
+}
+.trust-logos .logo {
+  font-family:'Space Grotesk'; font-weight:600;
+  font-size:18px; color:var(--fg-3);
+  letter-spacing:-0.01em;
+  transition:color .2s, transform .2s;
+  display:flex; align-items:center; gap:8px;
+}
+.trust-logos .logo:hover { color:var(--fg-2); transform:translateY(-1px); }
+.trust-logos .logo .badge {
+  font-size:9px; padding:2px 6px; border-radius:4px;
+  background:var(--bg-elev); color:var(--fg-3);
+  text-transform:uppercase; letter-spacing:0.06em; font-weight:700;
+}
+
+/* ─────────── SECTIONS ─────────── */
+section { padding:120px 0; position:relative; }
+section.alt { background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
 .section-eyebrow {
-  display:inline-block; color:var(--accent); font-size:12px; text-transform:uppercase;
-  letter-spacing:0.16em; font-weight:600; margin-bottom:16px;
-  padding:5px 12px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px;
-}
-.section-head h2 { font-size:clamp(30px,3.6vw,48px); margin-bottom:16px; letter-spacing:-0.03em; }
-.section-head p { color:var(--ink-2); font-size:17px; max-width:600px; margin:0 auto; }
-
-/* PROBLEM CARDS */
-.problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.problem-card {
-  padding:36px 30px; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-lg);
-  position:relative; overflow:hidden; transition:border-color .2s;
-}
-.problem-card:hover { border-color:var(--line-2); }
-.problem-card .num {
-  font-family:'Space Grotesk'; font-size:42px; font-weight:600; margin-bottom:16px;
-  background:linear-gradient(135deg, #ff5e1f, #ffb098);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-  letter-spacing:-0.04em;
-}
-.problem-card h3 { font-size:20px; margin-bottom:8px; }
-.problem-card p { color:var(--ink-2); font-size:14.5px; line-height:1.6; }
-
-/* STEPS */
-.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.step {
-  padding:30px 26px; background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-md);
-  position:relative;
-}
-.step .step-n {
-  width:30px; height:30px; border-radius:50%;
-  background:linear-gradient(135deg, var(--accent), #c2400d); color:#fff;
-  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;
+  display:inline-block; color:var(--accent); font-size:12px;
+  text-transform:uppercase; letter-spacing:0.16em; font-weight:600;
+  padding:6px 14px; background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,0.22); border-radius:999px;
   margin-bottom:18px;
 }
-.step h3 { font-size:17px; margin-bottom:6px; }
-.step p { color:var(--ink-2); font-size:13.5px; line-height:1.5; }
+.section-head { max-width:720px; margin:0 auto 64px; text-align:center; }
+.section-head h2 { font-size:clamp(32px, 4.4vw, 56px); margin-bottom:18px; letter-spacing:-0.03em; line-height:1.05; }
+.section-head h2 em {
+  font-style:normal;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-head p { color:var(--fg-2); font-size:17.5px; max-width:620px; margin:0 auto; line-height:1.6; }
 
-/* ROBOT CATALOG — abstract product cards, geen onbetrouwbare stockfoto's */
+/* ─────────── BIG STATS ─────────── */
+.big-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; }
+.big-stat { padding:40px 32px; background:var(--bg-2); transition:background .2s; }
+.big-stat:hover { background:var(--bg-3); }
+.big-stat .v {
+  font-family:'Space Grotesk'; font-weight:700;
+  font-size:clamp(36px, 4.4vw, 56px); letter-spacing:-0.03em;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1; margin-bottom:8px;
+}
+.big-stat .l { font-size:13.5px; color:var(--fg-2); }
+.big-stat .sub { font-size:12px; color:var(--fg-3); margin-top:4px; }
+@media (max-width:780px) { .big-stats { grid-template-columns:repeat(2,1fr); } }
+
+/* ─────────── BENTO ─────────── */
+.bento {
+  display:grid; gap:18px;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows:auto auto;
+}
+.bento-card {
+  position:relative; overflow:hidden;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-xl); padding:32px;
+  transition:border-color .2s, transform .2s;
+  min-height:280px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.bento-card:hover { border-color:var(--border-hover); transform:translateY(-3px); }
+.bento-card::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(60% 40% at 80% 20%, var(--bento-glow, rgba(249,115,22,0.15)), transparent 60%);
+  pointer-events:none; z-index:0;
+}
+.bento-card .photo {
+  position:absolute; right:-20px; top:0; bottom:0;
+  width:55%; z-index:1; pointer-events:none;
+}
+.bento-card .photo img { position:absolute; right:0; top:50%; transform:translateY(-50%); height:90%; width:auto; object-fit:contain; filter:drop-shadow(0 18px 36px rgba(0,0,0,0.55)); opacity:0.85; }
+.bento-card .body { position:relative; z-index:2; max-width:60%; }
+.bento-card h3 { font-size:22px; margin-bottom:10px; }
+.bento-card p { color:var(--fg-2); font-size:14.5px; margin-bottom:18px; line-height:1.5; }
+.bento-card .roi {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 12px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent-2);
+  border:1px solid rgba(249,115,22,0.25);
+  font-size:12.5px; font-weight:600;
+  font-family:'Space Grotesk';
+}
+
+/* Featured bento card spans 2 cols + 2 rows */
+.bento-card.large { grid-column:span 2; grid-row:span 2; min-height:580px; padding:40px; }
+.bento-card.large .body { max-width:50%; }
+.bento-card.large h3 { font-size:32px; line-height:1.1; margin-bottom:16px; }
+.bento-card.large p  { font-size:16px; max-width:380px; }
+.bento-card.large .photo { width:55%; }
+.bento-card.large .photo img { height:75%; }
+@media (max-width:880px) {
+  .bento { grid-template-columns:1fr; }
+  .bento-card.large { grid-column:span 1; grid-row:span 1; min-height:380px; padding:32px; }
+  .bento-card .body, .bento-card.large .body { max-width:65%; }
+}
+
+/* ─────────── PROCESS ─────────── */
+.process { position:relative; }
+.process-line {
+  position:absolute; top:50%; left:5%; right:5%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--border-strong) 20%, var(--border-strong) 80%, transparent);
+  z-index:0;
+}
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative; z-index:1; }
+.process-step {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-lg); padding:28px;
+  transition:border-color .2s, transform .2s;
+}
+.process-step:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 0 0 1px var(--accent), 0 20px 40px -10px var(--accent-glow); }
+.process-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:10px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-family:'Space Grotesk'; font-weight:700; font-size:15px; color:#fff;
+  margin-bottom:18px;
+  box-shadow:0 8px 16px -4px var(--accent-glow);
+}
+.process-step h3 { font-size:18px; margin-bottom:8px; }
+.process-step p { color:var(--fg-2); font-size:14px; line-height:1.55; }
+@media (max-width:880px) { .process-grid { grid-template-columns:repeat(2,1fr); } .process-line { display:none; } }
+@media (max-width:520px) { .process-grid { grid-template-columns:1fr; } }
+
+/* ─────────── ROBOT CATALOG ─────────── */
 .catalog { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .bot {
-  background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-lg);
-  overflow:hidden; position:relative;
-  transition:transform .25s ease, border-color .25s, box-shadow .25s;
-  display:flex; flex-direction:column; min-height:480px;
+  position:relative; overflow:hidden;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  transition:border-color .25s, transform .25s, box-shadow .25s;
+  display:flex; flex-direction:column;
+  text-decoration:none; color:inherit;
 }
-.bot:hover { transform:translateY(-4px); border-color:var(--line-2); box-shadow:0 30px 60px -30px rgba(0,0,0,0.7); }
+.bot::before {
+  content:""; position:absolute; inset:-1px; border-radius:var(--r-xl);
+  background:conic-gradient(from var(--ang, 0deg), transparent 0deg, var(--accent) 90deg, transparent 180deg, transparent 360deg);
+  opacity:0; transition:opacity .35s;
+  z-index:0;
+  --ang:0deg;
+}
+.bot:hover::before { opacity:0.6; animation:spin 4s linear infinite; }
+@keyframes spin { to { --ang:360deg; transform:rotate(360deg); } }
+@property --ang { syntax:'<angle>'; inherits:false; initial-value:0deg; }
+.bot-inner { position:relative; z-index:1; background:var(--bg-2); border-radius:calc(var(--r-xl) - 1px); display:flex; flex-direction:column; flex:1; }
+.bot:hover { transform:translateY(-4px); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
 
 .bot-visual {
-  aspect-ratio:5/4;
-  position:relative; overflow:hidden;
-  background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 100%);
+  aspect-ratio:5/4; position:relative; overflow:hidden;
+  background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%);
   display:flex; align-items:center; justify-content:center;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--border);
 }
 .bot-visual::before {
   content:""; position:absolute; inset:0;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size:24px 24px;
 }
-.bot-visual .glow {
-  position:absolute; width:120%; height:120%; top:-10%; left:-10%;
-  background:radial-gradient(40% 30% at 50% 50%, var(--glow-color, rgba(255,94,31,0.25)), transparent 70%);
-  pointer-events:none;
+.bot-visual::after {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(40% 30% at 50% 50%, var(--glow, rgba(249,115,22,0.22)), transparent 70%);
 }
-.bot-robot { position:relative; z-index:2; max-width:78%; max-height:88%; width:auto; height:auto; object-fit:contain; transition:transform .5s ease; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55)); }
-.bot:hover .bot-robot { transform:scale(1.04) translateY(-3px); }
+.bot-robot {
+  position:relative; z-index:2;
+  max-width:78%; max-height:88%;
+  width:auto; height:auto; object-fit:contain;
+  transition:transform .5s ease;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,0.55));
+}
+.bot:hover .bot-robot { transform:scale(1.05) translateY(-4px); }
 
 .bot-badge {
   position:absolute; top:14px; left:14px; z-index:3;
-  padding:5px 11px; background:rgba(8,8,10,0.7); backdrop-filter:blur(8px);
-  border:1px solid var(--line-2); border-radius:999px;
-  font-size:10.5px; font-weight:600; color:var(--ink-2); letter-spacing:0.08em;
-  text-transform:uppercase;
+  padding:5px 11px; background:rgba(5,5,7,0.72); backdrop-filter:blur(8px);
+  border:1px solid var(--border-strong); border-radius:999px;
+  font-size:10.5px; font-weight:600; color:var(--fg-2);
+  letter-spacing:0.08em; text-transform:uppercase;
 }
-.bot-badge.hot { background:var(--accent); color:#fff; border-color:transparent; }
-.bot-badge.hot.featured { background:linear-gradient(135deg, #ff5e1f, #ff8e5c); }
+.bot-badge.eu      { background:rgba(34,197,94,0.14); color:var(--green); border-color:rgba(34,197,94,0.32); }
+.bot-badge.hot     { background:var(--accent); color:#fff; border-color:transparent; }
+.bot-badge.hot.featured { background:linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow:0 8px 20px -6px var(--accent-glow); }
 
 .bot-vendor {
   position:absolute; top:14px; right:14px; z-index:3;
-  font-family:'Space Grotesk'; font-size:10px; font-weight:600; color:var(--ink-3);
+  font-family:'Space Grotesk'; font-size:10px; font-weight:600; color:var(--fg-3);
   letter-spacing:0.14em; text-transform:uppercase;
 }
 
-.bot-body { padding:24px 24px 26px; display:flex; flex-direction:column; flex:1; }
-.bot h3 { font-size:21px; margin-bottom:4px; letter-spacing:-0.02em; }
-.bot .subtitle { color:var(--ink-3); font-size:13px; margin-bottom:18px; line-height:1.45; min-height:34px; }
+.bot-body { padding:24px; display:flex; flex-direction:column; flex:1; }
+.bot h3 { font-size:21px; margin-bottom:4px; letter-spacing:-0.025em; }
+.bot .subtitle { color:var(--fg-3); font-size:13px; margin-bottom:18px; line-height:1.45; min-height:34px; }
 .bot .specs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
 .bot .specs span {
-  font-size:11px; color:var(--ink-2); padding:4px 9px;
-  border:1px solid var(--line); border-radius:6px; background:var(--bg-3); font-weight:500;
+  font-size:11px; color:var(--fg-2); padding:4px 9px;
+  border:1px solid var(--border); border-radius:6px; background:var(--bg-3); font-weight:500;
 }
-.bot .price { margin-top:auto; padding-top:18px; border-top:1px solid var(--line); }
+.bot .price { margin-top:auto; padding-top:18px; border-top:1px solid var(--border); }
 .bot .price-row { display:flex; align-items:baseline; gap:6px; }
-.bot .price b { font-family:'Space Grotesk'; font-size:28px; font-weight:600; letter-spacing:-0.02em; }
-.bot .price .per { color:var(--ink-3); font-size:13px; }
-.bot .price .setup { font-size:12px; color:var(--ink-3); margin-top:4px; }
+.bot .price b {
+  font-family:'Space Grotesk'; font-size:30px; font-weight:600; letter-spacing:-0.025em;
+}
+.bot .price .per { color:var(--fg-3); font-size:13px; }
+.bot .price .setup { font-size:12px; color:var(--fg-3); margin-top:4px; }
 
-.catalog-foot { text-align:center; margin-top:32px; color:var(--ink-3); font-size:13px; }
+.catalog-foot { text-align:center; margin-top:36px; color:var(--fg-3); font-size:14px; }
+.catalog-foot a { color:var(--accent-2); text-decoration:underline; text-underline-offset:3px; }
 
-/* INCLUDED */
-.included { background:var(--bg-2); border:1px solid var(--line); border-radius:var(--r-xl); padding:48px; }
-.incl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-.incl { display:flex; gap:12px; align-items:flex-start; }
+@media (max-width:980px) { .catalog { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px) { .catalog { grid-template-columns:1fr; } }
+
+/* ─────────── AI ACT TRUST SECTION ─────────── */
+.ai-act-card {
+  max-width:1080px; margin:0 auto;
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(60% 60% at 90% 50%, rgba(34,197,94,0.15), transparent 70%),
+    linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  border:1px solid var(--border); border-radius:var(--r-2xl);
+  padding:48px;
+  display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;
+}
+.ai-act-card .badge {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 14px; background:rgba(34,197,94,0.12);
+  border:1px solid rgba(34,197,94,0.3); border-radius:999px;
+  font-size:12px; color:var(--green); font-weight:600;
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;
+}
+.ai-act-card h3 { font-size:32px; margin-bottom:14px; max-width:540px; }
+.ai-act-card p  { color:var(--fg-2); font-size:16px; line-height:1.6; max-width:540px; margin-bottom:24px; }
+.ai-act-stats { display:flex; flex-direction:column; gap:16px; min-width:200px; }
+.ai-act-stat { display:flex; align-items:center; gap:14px; }
+.ai-act-stat .v { font-family:'Space Grotesk'; font-weight:700; font-size:24px; color:var(--green); }
+.ai-act-stat .l { font-size:13px; color:var(--fg-2); }
+@media (max-width:780px) { .ai-act-card { grid-template-columns:1fr; padding:32px; gap:24px; } }
+
+/* ─────────── INCLUDED GRID ─────────── */
+.incl-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1080px; margin:0 auto; }
+.incl-card {
+  padding:24px;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  transition:border-color .2s, transform .2s;
+}
+.incl-card:hover { border-color:var(--border-hover); transform:translateY(-2px); }
 .incl-icon {
-  width:32px; height:32px; flex-shrink:0;
-  background:linear-gradient(135deg, rgba(255,94,31,0.15), rgba(255,94,31,0.05));
-  border:1px solid rgba(255,94,31,0.25); border-radius:8px;
-  display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:700; font-size:14px;
+  width:36px; height:36px; border-radius:10px;
+  background:var(--accent-soft); border:1px solid rgba(249,115,22,0.25);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--accent); margin-bottom:14px;
 }
-.incl h4 { font-size:14.5px; margin-bottom:4px; font-family:'Inter'; font-weight:600; letter-spacing:-0.005em; }
-.incl p { font-size:13px; color:var(--ink-2); line-height:1.5; }
+.incl-icon svg { width:18px; height:18px; }
+.incl-card h4 { font-size:15.5px; margin-bottom:6px; font-family:'Inter'; font-weight:600; letter-spacing:-0.005em; }
+.incl-card p { color:var(--fg-2); font-size:13.5px; line-height:1.55; }
+@media (max-width:880px) { .incl-grid { grid-template-columns:repeat(2,1fr); } }
 
-/* USE CASES */
-.usecases { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-.usecase {
-  border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden;
-  background:linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 100%);
-  position:relative; min-height:340px;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  transition:transform .3s, border-color .25s;
+/* ─────────── NEWS PREVIEW ─────────── */
+.news-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.news-card {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-lg); padding:26px;
+  transition:border-color .2s, transform .2s;
+  display:flex; flex-direction:column;
+  text-decoration:none; color:inherit;
 }
-.usecase:hover { transform:translateY(-3px); border-color:var(--line-2); }
-.usecase-art { position:absolute; inset:0; width:100%; height:100%; opacity:0.85; transition:opacity .3s, transform .8s; pointer-events:none; }
-.usecase:hover .usecase-art { opacity:1; transform:scale(1.03); }
-.usecase-photo {
-  position:absolute; right:18px; top:50%; transform:translateY(-52%);
-  height:78%; width:auto; max-width:45%; object-fit:contain;
-  z-index:1; opacity:0.95;
-  filter:drop-shadow(0 18px 30px rgba(0,0,0,0.6));
-  transition:transform .4s;
+.news-card:hover { border-color:var(--border-hover); transform:translateY(-3px); }
+.news-meta { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
+.news-cat {
+  font-family:'Space Grotesk'; color:var(--accent); font-size:11px;
+  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
+  padding:4px 10px; background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,0.22); border-radius:999px;
 }
-.usecase:hover .usecase-photo { transform:translateY(-54%) scale(1.04); }
-.usecase::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,10,0) 0%, rgba(8,8,10,0.92) 70%); pointer-events:none; }
-.usecase-body { position:relative; z-index:2; padding:30px; }
-.usecase h3 { font-size:22px; margin-bottom:8px; letter-spacing:-0.02em; }
-.usecase p { color:var(--ink-2); font-size:14.5px; margin-bottom:14px; line-height:1.55; }
-.usecase .roi {
-  display:inline-flex; padding:5px 12px;
-  background:rgba(255,94,31,0.12); border:1px solid rgba(255,94,31,0.3);
-  color:#ffb098; border-radius:999px; font-size:12px; font-weight:600;
-}
+.news-date { color:var(--fg-3); font-size:12.5px; }
+.news-card h3 { font-size:18px; margin-bottom:10px; line-height:1.3; letter-spacing:-0.02em; }
+.news-card p { color:var(--fg-2); font-size:14px; line-height:1.55; flex:1; margin-bottom:16px; }
+.news-read { color:var(--accent-2); font-weight:600; font-size:13.5px; }
+@media (max-width:880px) { .news-strip { grid-template-columns:1fr; } }
 
-/* TIMELINE */
-.timeline {
-  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
-  border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--bg-2);
-}
-.tl { padding:30px 26px; border-right:1px solid var(--line); position:relative; }
-.tl:last-child { border-right:none; }
-.tl .wk { color:var(--accent); font-family:'Space Grotesk'; font-weight:600; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; }
-.tl h4 { font-size:17px; margin-bottom:6px; font-family:'Space Grotesk'; font-weight:600; }
-.tl p { color:var(--ink-2); font-size:13.5px; line-height:1.55; }
-
-/* FAQ */
+/* ─────────── FAQ ─────────── */
 .faq-list { max-width:780px; margin:0 auto; }
-.faq-item { border-bottom:1px solid var(--line); }
+.faq-item {
+  border:1px solid var(--border); border-radius:var(--r);
+  background:var(--bg-2); margin-bottom:12px;
+  transition:border-color .2s;
+}
+.faq-item[open] { border-color:var(--border-hover); }
 .faq-item summary {
-  cursor:pointer; list-style:none; padding:22px 0; font-size:17px; font-weight:500;
+  cursor:pointer; list-style:none; padding:22px 26px;
+  font-size:16.5px; font-weight:500;
   display:flex; justify-content:space-between; gap:20px; align-items:center;
   font-family:'Space Grotesk'; letter-spacing:-0.01em;
 }
 .faq-item summary::-webkit-details-marker { display:none; }
-.faq-item summary::after { content:"+"; color:var(--accent); font-size:26px; font-weight:300; transition:transform .2s; flex-shrink:0; }
-.faq-item[open] summary::after { transform:rotate(45deg); }
-.faq-item p { padding:0 0 22px; color:var(--ink-2); font-size:15px; line-height:1.65; max-width:680px; }
+.faq-item summary::after {
+  content:"+"; font-size:22px; font-weight:300; color:var(--fg-3);
+  transition:transform .2s, color .2s;
+}
+.faq-item[open] summary::after { content:"−"; color:var(--accent); }
+.faq-item p { padding:0 26px 22px; color:var(--fg-2); font-size:15.5px; line-height:1.65; }
 
-/* CONTACT */
-.contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
-.contact-info h2 { font-size:clamp(30px,3.4vw,42px); margin-bottom:16px; letter-spacing:-0.03em; }
-.contact-info > p { color:var(--ink-2); margin-bottom:32px; font-size:16.5px; line-height:1.55; }
-.contact-info .ci { display:flex; gap:14px; margin-bottom:14px; align-items:center; font-size:14.5px; }
-.contact-info .ci-icon {
-  width:36px; height:36px; border-radius:10px; flex-shrink:0;
-  background:var(--bg-2); border:1px solid var(--line);
+/* ─────────── CONTACT ─────────── */
+.contact-wrap {
+  display:grid; grid-template-columns:1fr 1fr; gap:60px;
+  max-width:1080px; margin:0 auto; align-items:start;
+}
+.contact-info h2 { font-size:clamp(32px,4vw,48px); margin-bottom:14px; }
+.contact-info p { color:var(--fg-2); font-size:17px; line-height:1.6; margin-bottom:32px; max-width:480px; }
+.ci { display:flex; gap:14px; margin-bottom:18px; align-items:center; }
+.ci-icon {
+  width:40px; height:40px; flex-shrink:0; border-radius:10px;
+  background:var(--accent-soft); color:var(--accent);
   display:flex; align-items:center; justify-content:center;
 }
-.contact-info .ci span { color:var(--ink-2); }
-.contact-info .ci b { color:var(--ink); font-weight:600; display:block; font-size:14px; }
-form.lead-form {
-  background:var(--bg-2); border:1px solid var(--line); padding:32px; border-radius:var(--r-lg);
-}
-form.lead-form label { display:block; font-size:13px; color:var(--ink-2); margin-bottom:7px; font-weight:500; }
-form.lead-form input, form.lead-form select, form.lead-form textarea {
-  width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line);
-  border-radius:10px; color:var(--ink); font-size:14.5px; font-family:inherit;
-  margin-bottom:16px; transition:border-color .15s, background .15s;
-}
-form.lead-form input:focus, form.lead-form select:focus, form.lead-form textarea:focus {
-  outline:none; border-color:var(--accent); background:var(--bg-4);
-}
-form.lead-form textarea { resize:vertical; min-height:80px; }
-form.lead-form button { width:100%; padding:14px; font-size:15px; margin-top:6px; }
+.ci-icon svg { width:18px; height:18px; }
+.ci span { display:block; }
+.ci b { display:block; font-size:14px; font-weight:600; }
+.ci .ci-sub { color:var(--fg-3); font-size:13px; }
 
-/* FINAL CTA */
+.contact-form {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--r-xl); padding:36px;
+}
+.field { margin-bottom:18px; }
+.field label { display:block; font-size:13px; color:var(--fg-2); margin-bottom:8px; font-weight:500; }
+.field input, .field textarea, .field select {
+  width:100%; padding:13px 16px;
+  background:var(--bg-3); border:1px solid var(--border);
+  border-radius:var(--r-sm); color:var(--fg);
+  font-family:inherit; font-size:14.5px;
+  transition:border-color .15s, box-shadow .15s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.field textarea { min-height:100px; resize:vertical; }
+.contact-form .btn { width:100%; justify-content:center; }
+.form-note { color:var(--fg-3); font-size:12.5px; margin-top:12px; text-align:center; }
+@media (max-width:880px) { .contact-wrap { grid-template-columns:1fr; gap:40px; } }
+
+/* ─────────── FINAL CTA ─────────── */
 .cta-block {
-  background:
-    radial-gradient(60% 80% at 50% 0%, rgba(255,255,255,0.18), transparent 70%),
-    linear-gradient(135deg, #ff5e1f 0%, #c2400d 100%);
-  border-radius:var(--r-xl); padding:64px 48px; text-align:center;
   position:relative; overflow:hidden;
+  text-align:center; padding:80px 48px;
+  background:
+    radial-gradient(80% 100% at 50% 0%, rgba(249,115,22,0.22), transparent 70%),
+    linear-gradient(180deg, #1c1c24 0%, #131318 100%);
+  border:1px solid var(--border-strong); border-radius:var(--r-2xl);
+  max-width:1080px; margin:0 auto;
 }
-.cta-block h2 { font-size:clamp(28px,3.4vw,44px); margin-bottom:14px; letter-spacing:-0.03em; }
-.cta-block p { font-size:17px; opacity:0.92; margin-bottom:30px; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.55; }
-.cta-block .btn { background:#0a0a0c; color:#fff; }
-.cta-block .btn:hover { box-shadow:0 12px 36px -8px rgba(0,0,0,0.5); }
-
-/* FOOTER */
-footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(--bg-2); }
-.foot { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:36px; margin-bottom:36px; }
-.foot h5 { font-family:'Space Grotesk'; font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin-bottom:14px; font-weight:600; }
-.foot ul { list-style:none; }
-.foot ul li { margin-bottom:8px; }
-.foot ul li a { color:var(--ink-2); font-size:14px; transition:color .15s; }
-.foot ul li a:hover { color:var(--ink); }
-.foot p.tag { color:var(--ink-2); font-size:14px; max-width:300px; line-height:1.55; }
-.foot-bot { border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; color:var(--ink-3); font-size:12.5px; flex-wrap:wrap; gap:14px; }
-
-/* RESPONSIVE */
-@media (max-width:1024px) {
-  .hero-grid { grid-template-columns:1fr; gap:48px; }
-  .hero-visual { max-width:480px; margin:0 auto; aspect-ratio:4/5; }
-  .hero-meta { max-width:none; grid-template-columns:repeat(4,1fr); }
-  .nav-links { display:none; }
+.cta-block::before {
+  content:""; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 70%);
+  pointer-events:none;
 }
-@media (max-width:780px) {
-  .problem-grid, .catalog, .incl-grid { grid-template-columns:1fr 1fr; gap:14px; }
-  .steps, .timeline, .usecases { grid-template-columns:1fr 1fr; }
-  .timeline .tl { border-right:none; border-bottom:1px solid var(--line); }
-  .timeline .tl:nth-child(2) { border-right:none; }
-  .timeline .tl:nth-child(3), .timeline .tl:nth-child(4) { border-bottom:none; }
-  .contact-wrap, .foot { grid-template-columns:1fr; }
-  section { padding:80px 0; }
-  header.hero { padding:120px 0 60px; }
-  .included { padding:32px 24px; }
-  .cta-block { padding:44px 24px; }
-  .incl-grid { grid-template-columns:1fr 1fr; gap:16px; }
-  .hero-meta { grid-template-columns:repeat(2,1fr); gap:18px; }
+.cta-block > * { position:relative; z-index:1; }
+.cta-block h2 { font-size:clamp(32px,4.4vw,52px); margin-bottom:14px; max-width:680px; margin-inline:auto; }
+.cta-block p { color:var(--fg-2); font-size:17px; margin-bottom:32px; max-width:520px; margin-inline:auto; }
+
+/* ─────────── FOOTER ─────────── */
+footer { padding:80px 0 40px; background:var(--bg-2); border-top:1px solid var(--border); }
+.foot {
+  display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:48px;
+  margin-bottom:48px;
 }
-@media (max-width:520px) {
-  .container { padding:0 18px; }
-  .problem-grid, .catalog, .usecases, .steps, .timeline { grid-template-columns:1fr; }
-  .incl-grid { grid-template-columns:1fr; }
-  .foot { grid-template-columns:1fr; gap:28px; }
-  .timeline .tl { border-right:none !important; }
-  .hero-floating.tl { display:none; }
-  form.lead-form { padding:24px 20px; }
-  .bot { min-height:auto; }
+.foot h5 { font-family:'Space Grotesk'; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.12em; color:var(--fg-3); margin-bottom:18px; }
+.foot ul { list-style:none; padding:0; }
+.foot li { margin-bottom:10px; }
+.foot a { color:var(--fg-2); font-size:14px; transition:color .15s; }
+.foot a:hover { color:var(--fg); }
+.foot .tag { color:var(--fg-3); font-size:13.5px; line-height:1.55; max-width:280px; margin-top:14px; }
+.foot-bot {
+  display:flex; justify-content:space-between; padding-top:28px; border-top:1px solid var(--border);
+  color:var(--fg-4); font-size:12.5px;
+  flex-wrap:wrap; gap:14px;
 }
+@media (max-width:880px) { .foot { grid-template-columns:1fr 1fr; gap:32px; } }
+@media (max-width:520px) { .foot { grid-template-columns:1fr; } }
 
+/* ─────────── REVEAL ON SCROLL ─────────── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
 
-/* News strip on homepage */
-.news-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.news-card { padding:26px 24px; background:var(--bg); border:1px solid var(--line); border-radius:var(--r-md); display:flex; flex-direction:column; transition:transform .2s, border-color .2s, box-shadow .2s; min-height:240px; }
-.news-card:hover { transform:translateY(-3px); border-color:var(--line-2); box-shadow:0 24px 50px -28px rgba(0,0,0,0.5); }
-.news-meta { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
-.news-cat { font-family:'Space Grotesk'; font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; padding:3px 10px; background:rgba(255,94,31,0.08); border:1px solid rgba(255,94,31,0.2); border-radius:999px; }
-.news-date { color:var(--ink-3); font-size:12.5px; }
-.news-card h3 { font-size:18px; line-height:1.25; margin-bottom:8px; letter-spacing:-0.015em; }
-.news-card p { color:var(--ink-2); font-size:13.5px; line-height:1.55; flex:1; margin-bottom:14px; }
-.news-read { color:var(--accent-2); font-size:13px; font-weight:600; margin-top:auto; }
-@media (max-width:780px) { .news-strip { grid-template-columns:1fr 1fr; } }
-@media (max-width:520px) { .news-strip { grid-template-columns:1fr; } }
-
-/* Robot SVG color schemes per card */
-.bot.g1 .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(91,229,132,0.18), transparent 70%); }
-.bot.h1 .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(91,229,132,0.18), transparent 70%); }
-.bot.neo .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(180,180,200,0.22), transparent 70%); }
-.bot.digit .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(255,180,60,0.22), transparent 70%); }
-.bot.apollo .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(255,94,31,0.28), transparent 70%); }
-.bot.figure .glow { background:radial-gradient(40% 30% at 50% 50%, rgba(120,180,255,0.22), transparent 70%); }
+/* ─────────── MOBILE NAV ─────────── */
+@media (max-width:780px) { .nav-links { display:none; } }
 </style>
 </head>
 <body>
 
-<!-- 6 unieke humanoid silhouetten — elk model anders -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <!-- Unitree G1 Edu — compact, kleine kop, slank lichaam -->
-    <symbol id="bot-g1" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <ellipse cx="100" cy="42" rx="22" ry="24" fill="currentColor" fill-opacity="0.08"/>
-        <rect x="84" y="34" width="32" height="10" rx="5" fill="currentColor" fill-opacity="0.4"/>
-        <circle cx="92" cy="39" r="2" fill="currentColor"/><circle cx="108" cy="39" r="2" fill="currentColor"/>
-        <line x1="94" y1="66" x2="94" y2="78"/><line x1="106" y1="66" x2="106" y2="78"/>
-        <path d="M76 82 Q76 78 82 78 L118 78 Q124 78 124 82 L124 160 Q124 166 118 166 L82 166 Q76 166 76 160 Z" fill="currentColor" fill-opacity="0.07"/>
-        <rect x="89" y="96" width="22" height="32" rx="3" fill="currentColor" fill-opacity="0.15"/>
-        <line x1="93" y1="105" x2="107" y2="105"/><line x1="93" y1="114" x2="107" y2="114"/>
-        <circle cx="74" cy="86" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="126" cy="86" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M70 93 Q66 120 68 148"/><path d="M130 93 Q134 120 132 148"/>
-        <rect x="62" y="148" width="12" height="22" rx="3" fill="currentColor" fill-opacity="0.18"/>
-        <rect x="126" y="148" width="12" height="22" rx="3" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M82 166 L118 166 L120 184 L80 184 Z" fill="currentColor" fill-opacity="0.1"/>
-        <path d="M88 186 L86 232"/><path d="M112 186 L114 232"/>
-        <circle cx="86" cy="234" r="6" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="114" cy="234" r="6" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M86 240 L88 270"/><path d="M114 240 L112 270"/>
-        <rect x="76" y="270" width="24" height="8" rx="2" fill="currentColor" fill-opacity="0.2"/>
-        <rect x="100" y="270" width="24" height="8" rx="2" fill="currentColor" fill-opacity="0.2"/>
-      </g>
-    </symbol>
-
-    <!-- Unitree H1 — full-size, breder, slim head -->
-    <symbol id="bot-h1" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="78" y="10" width="44" height="44" rx="10" fill="currentColor" fill-opacity="0.08"/>
-        <rect x="82" y="22" width="36" height="12" rx="2" fill="currentColor" fill-opacity="0.4"/>
-        <line x1="88" y1="28" x2="112" y2="28" stroke-width="2"/>
-        <line x1="92" y1="54" x2="92" y2="66"/><line x1="108" y1="54" x2="108" y2="66"/>
-        <path d="M58 68 Q58 62 66 62 L134 62 Q142 62 142 68 L142 174 Q142 182 134 182 L66 182 Q58 182 58 174 Z" fill="currentColor" fill-opacity="0.07"/>
-        <rect x="84" y="84" width="32" height="44" rx="4" fill="currentColor" fill-opacity="0.13"/>
-        <circle cx="100" cy="106" r="6" fill="currentColor" fill-opacity="0.3"/>
-        <circle cx="56" cy="72" r="10" fill="currentColor" fill-opacity="0.14"/>
-        <circle cx="144" cy="72" r="10" fill="currentColor" fill-opacity="0.14"/>
-        <path d="M52 82 Q44 116 48 150"/><path d="M148 82 Q156 116 152 150"/>
-        <circle cx="48" cy="152" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="152" cy="152" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M48 159 Q46 188 52 208"/><path d="M152 159 Q154 188 148 208"/>
-        <rect x="42" y="208" width="18" height="22" rx="4" fill="currentColor" fill-opacity="0.18"/>
-        <rect x="140" y="208" width="18" height="22" rx="4" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M66 182 L134 182 L136 204 L64 204 Z" fill="currentColor" fill-opacity="0.1"/>
-        <path d="M82 206 Q78 250 82 268"/><path d="M118 206 Q122 250 118 268"/>
-        <circle cx="82" cy="270" r="8" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="118" cy="270" r="8" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M82 277 L84 304"/><path d="M118 277 L116 304"/>
-        <rect x="70" y="304" width="30" height="10" rx="3" fill="currentColor" fill-opacity="0.2"/>
-        <rect x="100" y="304" width="30" height="10" rx="3" fill="currentColor" fill-opacity="0.2"/>
-      </g>
-    </symbol>
-
-    <!-- 1X NEO — soft curves, ronde proporties, service robot -->
-    <symbol id="bot-neo" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <ellipse cx="100" cy="40" rx="24" ry="26" fill="currentColor" fill-opacity="0.08"/>
-        <circle cx="93" cy="38" r="2.5" fill="currentColor"/><circle cx="107" cy="38" r="2.5" fill="currentColor"/>
-        <path d="M88 50 Q100 56 112 50"/>
-        <path d="M64 76 Q64 68 76 68 L124 68 Q136 68 136 76 L142 168 Q142 180 130 180 L70 180 Q58 180 58 168 Z" fill="currentColor" fill-opacity="0.1"/>
-        <path d="M88 92 Q100 88 112 92 L110 120 Q100 124 90 120 Z" fill="currentColor" fill-opacity="0.18"/>
-        <line x1="100" y1="100" x2="100" y2="112" stroke-width="2"/>
-        <ellipse cx="62" cy="80" rx="8" ry="10" fill="currentColor" fill-opacity="0.14"/>
-        <ellipse cx="138" cy="80" rx="8" ry="10" fill="currentColor" fill-opacity="0.14"/>
-        <path d="M58 92 Q50 130 56 162"/><path d="M142 92 Q150 130 144 162"/>
-        <path d="M56 162 Q54 196 64 214"/><path d="M144 162 Q146 196 136 214"/>
-        <circle cx="64" cy="216" r="9" fill="currentColor" fill-opacity="0.2"/>
-        <circle cx="136" cy="216" r="9" fill="currentColor" fill-opacity="0.2"/>
-        <path d="M76 180 L124 180 L130 200 L70 200 Z" fill="currentColor" fill-opacity="0.12"/>
-        <path d="M86 202 Q82 244 86 264"/><path d="M114 202 Q118 244 114 264"/>
-        <path d="M86 264 Q84 290 90 300"/><path d="M114 264 Q116 290 110 300"/>
-        <rect x="76" y="298" width="28" height="10" rx="5" fill="currentColor" fill-opacity="0.2"/>
-        <rect x="96" y="298" width="28" height="10" rx="5" fill="currentColor" fill-opacity="0.2"/>
-      </g>
-    </symbol>
-
-    <!-- Agility Digit — bird-like backward legs, industrial flat head -->
-    <symbol id="bot-digit" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="76" y="20" width="48" height="28" rx="4" fill="currentColor" fill-opacity="0.1"/>
-        <circle cx="100" cy="34" r="6" fill="currentColor" fill-opacity="0.4"/>
-        <circle cx="100" cy="34" r="2.5" fill="currentColor"/>
-        <line x1="78" y1="44" x2="122" y2="44" stroke-width="2"/>
-        <line x1="96" y1="48" x2="96" y2="58"/><line x1="104" y1="48" x2="104" y2="58"/>
-        <path d="M62 60 L138 60 L142 170 Q142 182 130 182 L70 182 Q58 182 58 170 Z" fill="currentColor" fill-opacity="0.08"/>
-        <rect x="84" y="78" width="32" height="50" rx="2" fill="currentColor" fill-opacity="0.15"/>
-        <line x1="90" y1="88" x2="110" y2="88"/>
-        <circle cx="93" cy="100" r="2" fill="currentColor"/><circle cx="107" cy="100" r="2" fill="currentColor"/>
-        <line x1="90" y1="112" x2="110" y2="112"/>
-        <circle cx="56" cy="68" r="9" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="144" cy="68" r="9" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M52 76 L46 130"/><path d="M148 76 L154 130"/>
-        <circle cx="46" cy="132" r="7" fill="currentColor" fill-opacity="0.18"/>
-        <circle cx="154" cy="132" r="7" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M46 139 L54 178"/><path d="M154 139 L146 178"/>
-        <path d="M40 178 L60 178 L58 188 L42 188 Z" fill="currentColor" fill-opacity="0.2"/>
-        <path d="M140 178 L160 178 L158 188 L142 188 Z" fill="currentColor" fill-opacity="0.2"/>
-        <!-- bird-like backward legs -->
-        <path d="M82 184 L70 222" stroke-width="3.5"/>
-        <path d="M118 184 L130 222" stroke-width="3.5"/>
-        <circle cx="70" cy="224" r="7" fill="currentColor" fill-opacity="0.18"/>
-        <circle cx="130" cy="224" r="7" fill="currentColor" fill-opacity="0.18"/>
-        <!-- knee-back kink -->
-        <path d="M70 230 L92 270" stroke-width="3.5"/>
-        <path d="M130 230 L108 270" stroke-width="3.5"/>
-        <path d="M92 270 L88 302"/><path d="M108 270 L112 302"/>
-        <rect x="76" y="300" width="26" height="10" rx="2" fill="currentColor" fill-opacity="0.25"/>
-        <rect x="98" y="300" width="26" height="10" rx="2" fill="currentColor" fill-opacity="0.25"/>
-      </g>
-    </symbol>
-
-    <!-- Apptronik Apollo — bulky industrial, chest module, shoulder pauldrons -->
-    <symbol id="bot-apollo" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="74" y="8" width="52" height="50" rx="12" fill="currentColor" fill-opacity="0.1"/>
-        <rect x="80" y="22" width="40" height="16" rx="3" fill="currentColor" fill-opacity="0.45"/>
-        <line x1="86" y1="30" x2="114" y2="30" stroke-width="2"/>
-        <line x1="92" y1="58" x2="92" y2="68"/><line x1="108" y1="58" x2="108" y2="68"/>
-        <!-- bulky torso -->
-        <path d="M50 72 Q50 64 60 64 L140 64 Q150 64 150 72 L150 180 Q150 192 138 192 L62 192 Q50 192 50 180 Z" fill="currentColor" fill-opacity="0.1"/>
-        <!-- prominent chest module -->
-        <rect x="76" y="84" width="48" height="56" rx="6" fill="currentColor" fill-opacity="0.2"/>
-        <rect x="84" y="94" width="32" height="12" rx="2" fill="currentColor" fill-opacity="0.35"/>
-        <circle cx="92" cy="124" r="4" fill="currentColor" fill-opacity="0.3"/>
-        <circle cx="108" cy="124" r="4" fill="currentColor" fill-opacity="0.3"/>
-        <!-- pauldrons -->
-        <path d="M44 74 Q40 70 46 64 L62 64 L62 92 Q56 96 48 92 Z" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M156 74 Q160 70 154 64 L138 64 L138 92 Q144 96 152 92 Z" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M46 96 Q38 130 44 162"/><path d="M154 96 Q162 130 156 162"/>
-        <circle cx="44" cy="164" r="8" fill="currentColor" fill-opacity="0.18"/>
-        <circle cx="156" cy="164" r="8" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M44 172 Q42 200 50 220"/><path d="M156 172 Q158 200 150 220"/>
-        <rect x="38" y="220" width="22" height="24" rx="4" fill="currentColor" fill-opacity="0.22"/>
-        <rect x="140" y="220" width="22" height="24" rx="4" fill="currentColor" fill-opacity="0.22"/>
-        <path d="M62 192 L138 192 L142 214 L58 214 Z" fill="currentColor" fill-opacity="0.13"/>
-        <path d="M80 216 Q76 254 82 274"/><path d="M120 216 Q124 254 118 274"/>
-        <circle cx="82" cy="276" r="9" fill="currentColor" fill-opacity="0.18"/>
-        <circle cx="118" cy="276" r="9" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M82 284 L84 308"/><path d="M118 284 L116 308"/>
-        <rect x="68" y="306" width="32" height="10" rx="3" fill="currentColor" fill-opacity="0.25"/>
-        <rect x="100" y="306" width="32" height="10" rx="3" fill="currentColor" fill-opacity="0.25"/>
-      </g>
-    </symbol>
-
-    <!-- Figure 02 — sleek minimalist, smooth head, refined proportions -->
-    <symbol id="bot-figure" viewBox="0 0 200 320">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M78 12 Q78 8 84 8 L116 8 Q122 8 122 12 L124 52 Q124 62 116 62 L84 62 Q76 62 76 52 Z" fill="currentColor" fill-opacity="0.12"/>
-        <rect x="82" y="26" width="36" height="16" rx="8" fill="currentColor" fill-opacity="0.5"/>
-        <line x1="90" y1="62" x2="90" y2="72"/><line x1="110" y1="62" x2="110" y2="72"/>
-        <path d="M64 76 Q64 70 72 70 L128 70 Q136 70 136 76 L134 174 Q134 184 124 184 L76 184 Q66 184 66 174 Z" fill="currentColor" fill-opacity="0.08"/>
-        <path d="M84 86 L116 86 L114 138 Q100 142 86 138 Z" fill="currentColor" fill-opacity="0.16"/>
-        <line x1="100" y1="92" x2="100" y2="132" stroke-width="2"/>
-        <circle cx="62" cy="78" r="8" fill="currentColor" fill-opacity="0.14"/>
-        <circle cx="138" cy="78" r="8" fill="currentColor" fill-opacity="0.14"/>
-        <path d="M58 88 Q52 122 56 154"/><path d="M142 88 Q148 122 144 154"/>
-        <path d="M56 154 Q54 184 60 206"/><path d="M144 154 Q146 184 140 206"/>
-        <path d="M52 206 L66 206 L64 226 L54 226 Z" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M134 206 L148 206 L146 226 L136 226 Z" fill="currentColor" fill-opacity="0.18"/>
-        <path d="M76 184 L124 184 L128 204 L72 204 Z" fill="currentColor" fill-opacity="0.1"/>
-        <path d="M86 206 Q82 246 86 266"/><path d="M114 206 Q118 246 114 266"/>
-        <circle cx="86" cy="268" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <circle cx="114" cy="268" r="7" fill="currentColor" fill-opacity="0.15"/>
-        <path d="M86 274 L88 302"/><path d="M114 274 L112 302"/>
-        <path d="M74 302 L102 302 L100 312 L76 312 Z" fill="currentColor" fill-opacity="0.22"/>
-        <path d="M98 302 L126 302 L124 312 L100 312 Z" fill="currentColor" fill-opacity="0.22"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <nav class="top">
   <div class="container row">
-    <div class="brand">
-      <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+    <a class="brand" href="/">
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
       BotLease
-    </div>
+    </a>
     <div class="nav-links">
       <a href="/robots">Robots</a>
       <a href="/vergelijken">Vergelijken</a>
@@ -666,554 +722,417 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
       <a href="/gids/humanoide-robot-leasen">Gids</a>
       <a href="/nieuws">Nieuws</a>
     </div>
-    <a href="#contact" class="btn primary">Plan demo →</a>
+    <a href="#contact" class="btn">Plan demo →</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="bg-grid"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-spotlight" id="spotlight"></div>
   <div class="container hero-grid">
     <div>
-      <div class="eyebrow"><span class="pulse"></span> Pilots beschikbaar in Nederland</div>
-      <h1 class="hero-title">Een <em>robotcollega</em>, vanaf €899 per maand.</h1>
+      <div class="hero-eyebrow"><span class="pulse"></span> Pilots beschikbaar in Nederland</div>
+      <h1 class="hero-title">Een <em>robotcollega</em>,<br>vanaf €899 per maand.</h1>
       <p class="hero-sub">BotLease verhuurt humanoïde robots aan het Nederlandse MKB. All-in operational lease, geen investering vooraf, opzegbaar per maand na jaar 1.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn primary lg">Plan een demo</a>
-        <a href="#robots" class="btn ghost lg">Bekijk de catalogus</a>
+        <a href="#contact" class="btn lg">
+          Plan een demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/robots" class="btn ghost lg">Bekijk de catalogus</a>
       </div>
-      <div class="hero-meta">
-        <div><b>15</b><span>Modellen</span></div>
-        <div><b>24u</b><span>Swap-SLA</span></div>
-        <div><b>5 dgn</b><span>Tot pilot</span></div>
-        <div><b>€0</b><span>Vooraf</span></div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="v" data-count="15">15</div><div class="l">Modellen</div></div>
+        <div class="hero-stat"><div class="v">24u</div><div class="l">Swap-SLA</div></div>
+        <div class="hero-stat"><div class="v">5 dgn</div><div class="l">Tot pilot</div></div>
+        <div class="hero-stat"><div class="v">€0</div><div class="l">Vooraf</div></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-floating tl">
-        <div style="color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px">Beschikbaar</div>
-        <div class="v">● Direct leverbaar</div>
+      <div class="float-card tl">
+        <div class="lbl">Beschikbaar</div>
+        <div class="val">Direct leverbaar</div>
       </div>
       <img class="hero-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot — bestseller" width="1200" height="1200">
-      <div class="hero-floating br">
+      <div class="float-card br">
         <div>
           <div class="lbl">Bestseller</div>
-          <div class="val"><a href="/robots/unitree-g1" style="color:inherit; text-decoration:none">Unitree G1 Edu</a></div>
+          <div class="val"><a href="/robots/unitree-g1">Unitree G1 Edu</a></div>
         </div>
         <div style="text-align:right">
           <div class="lbl">vanaf</div>
-          <div class="val">€899<span style="color:var(--ink-3); font-size:13px; font-weight:400">/mnd</span></div>
+          <div class="val">€899<span style="color:var(--fg-3); font-size:13px; font-weight:400">/mnd</span></div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section class="trustbar" style="padding:42px 0">
+<section class="trust-bar" style="padding:48px 0">
   <div class="container">
-    <p>Toonaangevende humanoid-fabrikanten</p>
-    <div class="brands">
-      <span>UNITREE</span>
-      <span>FIGURE AI</span>
-      <span>APPTRONIK</span>
-      <span>AGILITY ROBOTICS</span>
-      <span>1X TECHNOLOGIES</span>
+    <p class="label">In samenwerking met de leidende fabrikanten</p>
+    <div class="trust-logos">
+      <span class="logo">NEURA <span class="badge">DE</span></span>
+      <span class="logo">PAL Robotics <span class="badge">ES</span></span>
+      <span class="logo">Pollen <span class="badge">FR</span></span>
+      <span class="logo">Unitree</span>
+      <span class="logo">UBTECH</span>
+      <span class="logo">Apptronik</span>
+      <span class="logo">TÜV SÜD <span class="badge">CE</span></span>
     </div>
   </div>
 </section>
 
-<section id="probleem">
+<section id="problem">
   <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Waarom BotLease</div>
-      <h2>Robotica is klaar voor het MKB. Kopen niet.</h2>
-      <p>Een humanoïde robot kost €16k–€150k. Plus installatie, training, onderhoud en verzekering. Voor onbewezen techniek. Dat hoeft niet meer.</p>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Het probleem</span>
+      <h2>Robots kopen is te duur,<br>te risicovol, te traag.</h2>
+      <p>Een humanoïde robot kost €16k–€150k aanschaf. Plus installatie, training, onderhoud en verzekering. Voor technologie waar de restwaarde over 3 jaar onbekend is. Het MKB blijft buiten beeld.</p>
     </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="num">€0</div>
-        <h3>Geen investering vooraf</h3>
-        <p>Vast maandbedrag, volledig OPEX. Geen activering op de balans, geen restwaarderisico.</p>
-      </div>
-      <div class="problem-card">
-        <div class="num">14d</div>
-        <h3>Binnen 2 weken aan de slag</h3>
-        <p>Eerste gesprek tot werkende robot op locatie in 14 dagen. Wij regelen veiligheid, training en integratie.</p>
-      </div>
-      <div class="problem-card">
-        <div class="num">∞</div>
-        <h3>Altijd de nieuwste generatie</h3>
-        <p>Gratis upgrade-clausule (1× per contract). Zit nooit vast aan verouderde hardware.</p>
-      </div>
+    <div class="big-stats reveal">
+      <div class="big-stat"><div class="v" data-count="15">15</div><div class="l">Modellen leverbaar</div><div class="sub">EU + Aziatisch + wachtlijst</div></div>
+      <div class="big-stat"><div class="v">€290+</div><div class="l">Vanaf per maand</div><div class="sub">all-in lease, 36 mnd</div></div>
+      <div class="big-stat"><div class="v">24u</div><div class="l">Swap bij defect</div><div class="sub">vervangende unit op locatie</div></div>
+      <div class="big-stat"><div class="v">14 dgn</div><div class="l">Tot operationeel</div><div class="sub">intake → installatie</div></div>
     </div>
   </div>
 </section>
 
-<section id="hoe" class="alt">
+<section id="cases" class="alt">
   <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Werkwijze</div>
-      <h2>Pilot-eerst. Dan pas opschalen.</h2>
-      <p>Geen jarenlange implementatietrajecten. Vier weken pilot, daarna kies je.</p>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Toepassingen</span>
+      <h2>Waar verdient een <em>robotcollega</em><br>zich terug?</h2>
+      <p>Vier sectoren waar Nederlandse klanten meetbare ROI halen binnen 12–18 maanden.</p>
     </div>
-    <div class="steps">
-      <div class="step"><div class="step-n">1</div><h3>Intake</h3><p>Gratis assessment op locatie. Wij kiezen het juiste robotmodel bij jouw werk.</p></div>
-      <div class="step"><div class="step-n">2</div><h3>4-weken pilot</h3><p>Robot op locatie voor €1.500. Veiligheidsanalyse, taakprogrammering, training inbegrepen.</p></div>
-      <div class="step"><div class="step-n">3</div><h3>Beslissing</h3><p>ROI helder? Door naar lease. Niet tevreden? Robot retour, einde verhaal.</p></div>
-      <div class="step"><div class="step-n">4</div><h3>Lease & beheer</h3><p>Wij monitoren 24/7, doen onderhoud, swap binnen 24u bij defect.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="robots">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Catalogus 2026</div>
-      <h2>Vijftien humanoïde robots. Eén leverancier. All-in.</h2>
-      <p>EU-gebouwd (NEURA, PAL, Pollen), Aziatische value-modellen (Unitree, UBTECH, EngineAI), en wachtlijst-toegang tot Apptronik Apollo, Figure 02 en 1X NEO. <a href="/robots" style="color:var(--accent-2); text-decoration:underline">Bekijk volledige catalogus →</a></p>
-    </div>
-    <div class="catalog">
-
-      <a href="/robots/neura-4ne1-gen3" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow" style="--glow-color:rgba(91,229,132,0.25)"></div>
-          <span class="bot-vendor">NEURA · DE</span>
-          <div class="bot-badge" style="background:rgba(91,229,132,0.18); color:#5be584; border-color:rgba(91,229,132,0.35)">EU Flagship</div>
-          <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Gen 3.5 humanoid robot, Made in Germany" loading="lazy" width="800" height="1920">
-        </div>
-        <div class="bot-body">
-          <h3>NEURA 4NE-1 Gen 3.5</h3>
-          <div class="subtitle">Industrieel · 1,80 m · 100 kg payload · Porsche design</div>
-          <div class="specs"><span>EU-gebouwd</span><span>Industrie</span><span>AI-Act ready</span></div>
-          <div class="price">
-            <div class="price-row"><b>€4.490</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">+ €6.500 setup · Made in Germany</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/robots/neura-4ne1-mini" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow" style="--glow-color:rgba(91,229,132,0.25)"></div>
-          <span class="bot-vendor">NEURA · DE</span>
-          <div class="bot-badge" style="background:rgba(91,229,132,0.18); color:#5be584; border-color:rgba(91,229,132,0.35)">EU-gebouwd</div>
-          <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Mini cobot humanoid, Duitsland" loading="lazy" width="800" height="1920">
-        </div>
-        <div class="bot-body">
-          <h3>NEURA 4NE-1 Mini</h3>
-          <div class="subtitle">Cobot · 1,65 m · Artificial skin · €19.999 koop</div>
-          <div class="specs"><span>EU-gebouwd</span><span>Cobot</span><span>R&D</span></div>
-          <div class="price">
-            <div class="price-row"><b>€890</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">+ €2.500 setup · GDPR by design</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/robots/unitree-g1" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow"></div>
-          <span class="bot-vendor">Unitree · CN</span>
-          <div class="bot-badge">Bestseller</div>
-          <img class="bot-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot — bestseller" loading="lazy" width="1200" height="1200">
-        </div>
-        <div class="bot-body">
-          <h3>Unitree G1 Edu</h3>
-          <div class="subtitle">Compact · 1,27 m · 35 kg · Mass production</div>
-          <div class="specs"><span>R&D</span><span>Hospitality</span><span>Demo</span></div>
-          <div class="price">
-            <div class="price-row"><b>€899</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">+ €1.500 setup · 6-8 wk levertijd</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/robots/pal-kangaroo" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow" style="--glow-color:rgba(91,229,132,0.25)"></div>
-          <span class="bot-vendor">PAL · ES</span>
-          <div class="bot-badge" style="background:rgba(91,229,132,0.18); color:#5be584; border-color:rgba(91,229,132,0.35)">EU-veteraan</div>
-          <img class="bot-robot" src="/img/robots/kangaroo.png" alt="PAL Kangaroo bipedal robot, Barcelona" loading="lazy" width="644" height="1024">
-        </div>
-        <div class="bot-body">
-          <h3>PAL Kangaroo</h3>
-          <div class="subtitle">Bipedal · 1,78 m · ROS-native · 20+ jaar heritage</div>
-          <div class="specs"><span>EU-gebouwd</span><span>Onderzoek</span><span>ROS</span></div>
-          <div class="price">
-            <div class="price-row"><b>€3.490</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">+ €5.500 setup · Barcelona-engineering</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/robots/ubtech-walker-s2" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow" style="--glow-color:rgba(255,201,102,0.25)"></div>
-          <span class="bot-vendor">UBTECH · CN</span>
-          <div class="bot-badge">Auto-industrie</div>
-          <img class="bot-robot" src="/img/robots/walker-s.webp" alt="UBTECH Walker S2 — eerste Chinese full-size humanoid in mass production" loading="lazy" width="800" height="1920">
-        </div>
-        <div class="bot-body">
-          <h3>UBTECH Walker S2</h3>
-          <div class="subtitle">Industrieel · 1,75 m · 25 kg payload · Mass production</div>
-          <div class="specs"><span>Auto</span><span>Heavy-duty</span><span>24/7</span></div>
-          <div class="price">
-            <div class="price-row"><b>€3.290</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">+ €4.500 setup · BYD/Foxconn proven</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/robots/apptronik-apollo" class="bot" style="text-decoration:none; color:inherit">
-        <div class="bot-visual">
-          <div class="glow"></div>
-          <span class="bot-vendor">Apptronik · US</span>
-          <div class="bot-badge hot featured">Wachtlijst 2027</div>
-          <img class="bot-robot" src="/img/robots/apollo.png" alt="Apptronik Apollo humanoid robot, Mercedes-Benz pilot" loading="lazy" width="563" height="800">
-        </div>
-        <div class="bot-body">
-          <h3>Apptronik Apollo</h3>
-          <div class="subtitle">Industrieel · 1,73 m · 25 kg · Mercedes-pilot</div>
-          <div class="specs"><span>Productie</span><span>Assemblage</span><span>Premium</span></div>
-          <div class="price">
-            <div class="price-row"><b>€3.499</b><span class="per">/mnd · 36 mnd</span></div>
-            <div class="setup">Reserveer plek · EU Q4 2026 / Q1 2027</div>
-          </div>
-        </div>
-      </a>
-
-    </div>
-    <p class="catalog-foot">Bedragen excl. BTW · 9 modellen niet hier getoond: <a href="/robots" style="color:var(--accent-2); text-decoration:underline">bekijk volledige catalogus →</a> · Korter contract (12/24 mnd) +15% / +7% · Vanaf 3 units: –8% volume-korting</p>
-  </div>
-</section>
-
-<section id="prijzen" class="alt">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Wat krijg je</div>
-      <h2>All-in betekent écht all-in.</h2>
-      <p>Eén maandbedrag dekt alles. Geen losse facturen, geen verrassingen.</p>
-    </div>
-    <div class="included">
-      <div class="incl-grid">
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Hardware</h4><p>Robot, laadstation, accessoires.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>AI-software</h4><p>Foundation-model, taak-finetuning, alle updates.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Installatie</h4><p>On-site setup, WMS/ERP-integratie.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Team-training</h4><p>2 dagen training, Nederlandstalige handleidingen.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Onderhoud</h4><p>Preventief en correctief, onderdelen inbegrepen.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Swap-SLA</h4><p>Vervangende unit binnen 24u op locatie.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Verzekering</h4><p>WA tot €2,5M, casco inbegrepen.</p></div></div>
-        <div class="incl"><div class="incl-icon">✓</div><div><h4>Helpdesk NL</h4><p>24/7 monitoring, Nederlandse engineers.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cases">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Toepassingen</div>
-      <h2>Waar verdient een robotcollega zich terug?</h2>
-      <p>Vier sectoren waar klanten meetbare ROI halen binnen 12–18 maanden.</p>
-    </div>
-    <div class="usecases">
-      <div class="usecase">
-        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="uc-w-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ff5e1f" stop-opacity="0.14"/>
-              <stop offset="1" stop-color="#ff5e1f" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="380" fill="url(#uc-w-bg)"/>
-          <!-- shelving racks -->
-          <g stroke="#a5a5b3" stroke-width="1.2" stroke-opacity="0.28" fill="none">
-            <line x1="20" y1="80"  x2="290" y2="80"/>
-            <line x1="20" y1="140" x2="290" y2="140"/>
-            <line x1="20" y1="200" x2="290" y2="200"/>
-            <line x1="20" y1="260" x2="290" y2="260"/>
-            <line x1="40"  y1="60" x2="40"  y2="280"/>
-            <line x1="155" y1="60" x2="155" y2="280"/>
-            <line x1="270" y1="60" x2="270" y2="280"/>
-          </g>
-          <!-- boxes on shelves -->
-          <g fill="#ffb098" fill-opacity="0.16" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.4">
-            <rect x="52"  y="95"  width="34" height="40" rx="2"/>
-            <rect x="92"  y="105" width="26" height="30" rx="2"/>
-            <rect x="170" y="100" width="40" height="35" rx="2"/>
-            <rect x="225" y="110" width="32" height="25" rx="2"/>
-            <rect x="60"  y="158" width="40" height="38" rx="2"/>
-            <rect x="180" y="160" width="34" height="36" rx="2"/>
-            <rect x="226" y="165" width="28" height="31" rx="2"/>
-            <rect x="55"  y="218" width="50" height="38" rx="2"/>
-            <rect x="170" y="222" width="44" height="34" rx="2"/>
-          </g>
-          <!-- pallet on floor -->
-          <g stroke="#666672" stroke-width="1.5" fill="#16161c">
-            <rect x="320" y="298" width="120" height="14"/>
-            <line x1="332" y1="298" x2="332" y2="312"/>
-            <line x1="380" y1="298" x2="380" y2="312"/>
-            <line x1="428" y1="298" x2="428" y2="312"/>
-          </g>
-          <!-- big box on pallet -->
-          <g fill="#ffb098" fill-opacity="0.18" stroke="#ffb098" stroke-opacity="0.65" stroke-width="1.8">
-            <rect x="340" y="230" width="80" height="70" rx="2"/>
-            <line x1="340" y1="260" x2="420" y2="260"/>
-            <line x1="380" y1="230" x2="380" y2="300"/>
-          </g>
-        </svg>
-        <img class="usecase-photo" src="/img/robots/digit.jpg" alt="Agility Digit robot in warehouse">
-        <div class="usecase-body">
-          <h3>E-commerce & 3PL</h3>
-          <p>Tote- en pakkethandling, decanting, sortering buiten piekuren. Een Digit of Apollo vervangt ~1,3 FTE in 2-ploegen.</p>
+    <div class="bento reveal">
+      <a href="/sectoren/3pl-fulfillment" class="bento-card large" style="--bento-glow:rgba(249,115,22,0.2)">
+        <div class="photo"><img src="/img/robots/digit.jpg" alt="Agility Digit warehouse robot" loading="lazy"></div>
+        <div class="body">
           <span class="roi">ROI: 11–14 maanden</span>
+          <h3 style="margin-top:14px">E-commerce & 3PL fulfillment</h3>
+          <p>Tote- en pakkethandling, decanting, sortering buiten piekuren. Een Digit, Walker S2 of Apollo vervangt ~1,3 FTE in 2-ploegen. Bij €28/uur loonkost: €76k besparing per robot per jaar.</p>
+          <p style="color:var(--accent-2); font-weight:600; font-size:14px; margin-top:8px">Bekijk sectorpagina →</p>
         </div>
-      </div>
-
-      <div class="usecase">
-        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="uc-p-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#a6cbff" stop-opacity="0.12"/>
-              <stop offset="1" stop-color="#a6cbff" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="380" fill="url(#uc-p-bg)"/>
-          <!-- conveyor belt -->
-          <g>
-            <rect x="0" y="280" width="600" height="20" fill="#23232c"/>
-            <rect x="0" y="298" width="600" height="6" fill="#0e0e12"/>
-            <g stroke="#a6cbff" stroke-opacity="0.25" stroke-width="1">
-              <line x1="20" y1="290" x2="40" y2="290"/>
-              <line x1="80" y1="290" x2="100" y2="290"/>
-              <line x1="140" y1="290" x2="160" y2="290"/>
-              <line x1="200" y1="290" x2="220" y2="290"/>
-              <line x1="260" y1="290" x2="280" y2="290"/>
-              <line x1="320" y1="290" x2="340" y2="290"/>
-              <line x1="380" y1="290" x2="400" y2="290"/>
-              <line x1="440" y1="290" x2="460" y2="290"/>
-              <line x1="500" y1="290" x2="520" y2="290"/>
-              <line x1="560" y1="290" x2="580" y2="290"/>
-            </g>
-          </g>
-          <!-- parts on conveyor -->
-          <g fill="#a6cbff" fill-opacity="0.22" stroke="#a6cbff" stroke-opacity="0.6" stroke-width="1.5">
-            <circle cx="60" cy="265" r="14"/>
-            <rect x="120" y="248" width="32" height="32" rx="3"/>
-            <circle cx="200" cy="265" r="12"/>
-            <rect x="245" y="252" width="28" height="28" rx="3"/>
-          </g>
-          <!-- gears top-left -->
-          <g fill="none" stroke="#a6cbff" stroke-opacity="0.35" stroke-width="1.5">
-            <circle cx="80" cy="80" r="32"/>
-            <circle cx="80" cy="80" r="10"/>
-            <g stroke-width="2.5">
-              <line x1="80" y1="44" x2="80" y2="52"/>
-              <line x1="80" y1="108" x2="80" y2="116"/>
-              <line x1="44" y1="80" x2="52" y2="80"/>
-              <line x1="108" y1="80" x2="116" y2="80"/>
-              <line x1="54" y1="54" x2="60" y2="60"/>
-              <line x1="100" y1="100" x2="106" y2="106"/>
-              <line x1="54" y1="106" x2="60" y2="100"/>
-              <line x1="100" y1="60" x2="106" y2="54"/>
-            </g>
-            <circle cx="160" cy="130" r="22"/>
-            <circle cx="160" cy="130" r="7"/>
-          </g>
-          <!-- robot arm on top -->
-          <g fill="none" stroke="#a6cbff" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="290" y="20" width="40" height="20" rx="3" fill="#a6cbff" fill-opacity="0.2"/>
-            <line x1="310" y1="40" x2="310" y2="90"/>
-            <circle cx="310" cy="92" r="8" fill="#a6cbff" fill-opacity="0.25"/>
-            <line x1="310" y1="100" x2="370" y2="160"/>
-            <circle cx="370" cy="160" r="8" fill="#a6cbff" fill-opacity="0.25"/>
-            <line x1="370" y1="168" x2="330" y2="220"/>
-            <path d="M325 220 L335 220 L340 235 L320 235 Z" fill="#a6cbff" fill-opacity="0.3"/>
-          </g>
-        </svg>
-        <img class="usecase-photo" src="/img/robots/apollo.png" alt="Apptronik Apollo robot in productie">
-        <div class="usecase-body">
-          <h3>Productie & assemblage</h3>
-          <p>Machine-tending, kitting, kwaliteitscontrole. Werkt 24/7 zonder pauze, levert consistente output.</p>
-          <span class="roi">ROI: 13–18 maanden</span>
+      </a>
+      <a href="/sectoren/productie-assemblage" class="bento-card" style="--bento-glow:rgba(168,85,247,0.18)">
+        <div class="photo"><img src="/img/robots/apollo.png" alt="Apptronik Apollo productie" loading="lazy"></div>
+        <div class="body">
+          <span class="roi">ROI: 13–18 mnd</span>
+          <h3 style="margin-top:14px">Productie & assemblage</h3>
+          <p>Kitting, machine-tending, kwaliteitscontrole. 24/7 zonder pauze.</p>
         </div>
-      </div>
-
-      <div class="usecase">
-        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="uc-h-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#5be584" stop-opacity="0.1"/>
-              <stop offset="1" stop-color="#5be584" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="380" fill="url(#uc-h-bg)"/>
-          <!-- hotel building silhouette -->
-          <g fill="#5be584" fill-opacity="0.06" stroke="#5be584" stroke-opacity="0.3" stroke-width="1.4">
-            <rect x="40" y="60" width="240" height="260"/>
-            <!-- windows grid -->
-            <g fill="#5be584" fill-opacity="0.18" stroke="none">
-              <rect x="60" y="80" width="22" height="18"/>
-              <rect x="100" y="80" width="22" height="18"/>
-              <rect x="140" y="80" width="22" height="18"/>
-              <rect x="180" y="80" width="22" height="18"/>
-              <rect x="220" y="80" width="22" height="18"/>
-              <rect x="60" y="120" width="22" height="18"/>
-              <rect x="100" y="120" width="22" height="18"/>
-              <rect x="140" y="120" width="22" height="18" fill-opacity="0.4"/>
-              <rect x="180" y="120" width="22" height="18"/>
-              <rect x="220" y="120" width="22" height="18"/>
-              <rect x="60" y="160" width="22" height="18"/>
-              <rect x="100" y="160" width="22" height="18" fill-opacity="0.4"/>
-              <rect x="140" y="160" width="22" height="18"/>
-              <rect x="180" y="160" width="22" height="18"/>
-              <rect x="220" y="160" width="22" height="18"/>
-              <rect x="60" y="200" width="22" height="18"/>
-              <rect x="100" y="200" width="22" height="18"/>
-              <rect x="140" y="200" width="22" height="18"/>
-              <rect x="180" y="200" width="22" height="18" fill-opacity="0.4"/>
-              <rect x="220" y="200" width="22" height="18"/>
-            </g>
-            <!-- entrance -->
-            <rect x="135" y="260" width="50" height="60" fill="#5be584" fill-opacity="0.22"/>
-          </g>
-          <!-- stars -->
-          <g fill="#ffc966" fill-opacity="0.7">
-            <polygon points="80,30 84,42 96,42 86,49 90,61 80,54 70,61 74,49 64,42 76,42"/>
-            <polygon points="125,30 129,42 141,42 131,49 135,61 125,54 115,61 119,49 109,42 121,42"/>
-            <polygon points="170,30 174,42 186,42 176,49 180,61 170,54 160,61 164,49 154,42 166,42"/>
-            <polygon points="215,30 219,42 231,42 221,49 225,61 215,54 205,61 209,49 199,42 211,42"/>
-            <polygon points="260,30 264,42 276,42 266,49 270,61 260,54 250,61 254,49 244,42 256,42" fill-opacity="0.4"/>
-          </g>
-          <!-- suitcase next to NEO -->
-          <g fill="#a5a5b3" fill-opacity="0.18" stroke="#a5a5b3" stroke-opacity="0.5" stroke-width="1.4">
-            <rect x="330" y="240" width="60" height="68" rx="4"/>
-            <line x1="330" y1="260" x2="390" y2="260"/>
-            <rect x="350" y="226" width="20" height="14" rx="2" fill="none"/>
-          </g>
-        </svg>
-        <img class="usecase-photo" src="/img/robots/neo.webp" alt="1X NEO robot in hospitality">
-        <div class="usecase-body">
-          <h3>Hospitality & retail</h3>
-          <p>Room-service, lobby-host, voorraadtelling 's nachts. Verhoogt gastervaring én ontlast personeel.</p>
-          <span class="roi">+0,4★ gastenscore</span>
+      </a>
+      <a href="/sectoren/hospitality-retail" class="bento-card" style="--bento-glow:rgba(34,197,94,0.18)">
+        <div class="photo"><img src="/img/robots/neo.webp" alt="1X NEO hospitality" loading="lazy"></div>
+        <div class="body">
+          <span class="roi">+0,4★ score</span>
+          <h3 style="margin-top:14px">Hospitality & retail</h3>
+          <p>Lobby-host, voorraadtelling 's nachts, room-service.</p>
         </div>
-      </div>
+      </a>
+      <a href="/sectoren/zorg-instellingen" class="bento-card" style="--bento-glow:rgba(96,165,250,0.18)">
+        <div class="photo"><img src="/img/robots/g1.jpg" alt="Unitree G1 zorg" loading="lazy"></div>
+        <div class="body">
+          <span class="roi">0,6 FTE vrij</span>
+          <h3 style="margin-top:14px">Zorg & instellingen</h3>
+          <p>Linnen- en materiaaltransport. Niet-zorgtaken.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="usecase">
-        <svg class="usecase-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="uc-z-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ffb098" stop-opacity="0.1"/>
-              <stop offset="1" stop-color="#ffb098" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="380" fill="url(#uc-z-bg)"/>
-          <!-- hospital bed -->
-          <g fill="none" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.6">
-            <rect x="40" y="220" width="240" height="36" rx="4" fill="#ffb098" fill-opacity="0.12"/>
-            <!-- headboard -->
-            <rect x="40" y="170" width="34" height="86" rx="3" fill="#ffb098" fill-opacity="0.18"/>
-            <!-- pillow -->
-            <rect x="82" y="208" width="60" height="20" rx="6" fill="#f7f7f9" fill-opacity="0.15"/>
-            <!-- blanket pattern -->
-            <line x1="150" y1="220" x2="150" y2="256"/>
-            <line x1="180" y1="220" x2="180" y2="256"/>
-            <line x1="210" y1="220" x2="210" y2="256"/>
-            <line x1="240" y1="220" x2="240" y2="256"/>
-            <!-- legs -->
-            <line x1="60" y1="256" x2="60" y2="280" stroke-width="2"/>
-            <line x1="260" y1="256" x2="260" y2="280" stroke-width="2"/>
-          </g>
-          <!-- medical cross / monitor -->
-          <g>
-            <rect x="100" y="80" width="60" height="80" rx="6" fill="#16161c" stroke="#ffb098" stroke-opacity="0.4" stroke-width="1.4"/>
-            <g fill="#5be584" fill-opacity="0.5">
-              <rect x="120" y="98" width="6" height="14"/>
-              <rect x="111" y="105" width="24" height="6"/>
-            </g>
-            <polyline points="100,140 110,140 115,130 122,150 130,135 145,145 160,142" stroke="#5be584" stroke-opacity="0.6" stroke-width="1.5" fill="none"/>
-          </g>
-          <!-- linen cart -->
-          <g fill="none" stroke="#ffb098" stroke-opacity="0.55" stroke-width="1.6">
-            <rect x="320" y="220" width="80" height="60" rx="4" fill="#ffb098" fill-opacity="0.15"/>
-            <line x1="320" y1="240" x2="400" y2="240"/>
-            <line x1="320" y1="260" x2="400" y2="260"/>
-            <!-- handle -->
-            <path d="M320 220 L308 200 L308 180"/>
-            <!-- wheels -->
-            <circle cx="335" cy="288" r="6" fill="#16161c"/>
-            <circle cx="385" cy="288" r="6" fill="#16161c"/>
-          </g>
-        </svg>
-        <img class="usecase-photo" src="/img/robots/g1.jpg" alt="Unitree G1 robot in zorginstelling">
-        <div class="usecase-body">
-          <h3>Zorg & instellingen</h3>
-          <p>Linnen- en materiaaltransport. Niet-zorgtaken die nu door zorgmedewerkers worden gedaan.</p>
-          <span class="roi">0,6 FTE per robot</span>
+<section id="hoe">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Werkwijze</span>
+      <h2>In 4 weken van nul naar<br><em>bewezen ROI</em>.</h2>
+      <p>Geen lange trajecten. Pilot binnen 14 dagen op locatie, beslis na 4 weken.</p>
+    </div>
+    <div class="process reveal">
+      <div class="process-line"></div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h3>Intake</h3>
+          <p>Gratis assessment op locatie. Wij kiezen het juiste robotmodel bij jouw werk binnen 5 werkdagen.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h3>4-weken pilot</h3>
+          <p>Robot op locatie voor €1.500. Veiligheidsanalyse, taakprogrammering, training inbegrepen.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h3>Beslissing</h3>
+          <p>ROI helder? Door naar lease. Niet tevreden? Robot retour, einde verhaal.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <h3>Lease & beheer</h3>
+          <p>Wij monitoren 24/7, doen onderhoud, swap binnen 24u bij defect.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<section id="nieuws" class="alt" style="padding:100px 0">
+<section id="robots" class="alt">
   <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Nieuws & analyse</div>
-      <h2>Wat er gebeurt in humanoid-land.</h2>
-      <p>Dagelijkse analyses over Unitree, Figure, Apollo en Digit — met Nederlandse context, pilot-data en bronverwijzingen.</p>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Catalogus 2026</span>
+      <h2>Vijftien humanoïde robots.<br>Eén leverancier. <em>All-in.</em></h2>
+      <p>EU-gebouwd (NEURA, PAL, Pollen), Aziatische value-modellen (Unitree, UBTECH, EngineAI), en wachtlijst-toegang tot Apptronik Apollo, Figure 02 en 1X NEO.</p>
     </div>
-    <div class="news-strip">
-      <a class="news-card" href="/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen">
-        <div class="news-meta"><span class="news-cat">Toepassingen</span><span class="news-date">14 mei 2026</span></div>
-        <h3>Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</h3>
-        <p>De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.</p>
-        <div class="news-read">Lees artikel →</div>
+    <div class="catalog reveal">
+      <a href="/robots/neura-4ne1-gen3" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
+            <span class="bot-vendor">NEURA · DE</span>
+            <div class="bot-badge eu">EU Flagship</div>
+            <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Gen 3.5 humanoid robot, Made in Germany" loading="lazy" width="800" height="1920">
+          </div>
+          <div class="bot-body">
+            <h3>NEURA 4NE-1 Gen 3.5</h3>
+            <div class="subtitle">Industrieel · 1,80 m · 100 kg payload · Porsche design</div>
+            <div class="specs"><span>EU-gebouwd</span><span>Industrie</span><span>AI-Act ready</span></div>
+            <div class="price">
+              <div class="price-row"><b>€4.490</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">+ €6.500 setup · Made in Germany</div>
+            </div>
+          </div>
+        </div>
       </a>
-      <a class="news-card" href="/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot">
-        <div class="news-meta"><span class="news-cat">Industrie</span><span class="news-date">12 mei 2026</span></div>
-        <h3>Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</h3>
-        <p>De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.</p>
-        <div class="news-read">Lees artikel →</div>
+
+      <a href="/robots/neura-4ne1-mini" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
+            <span class="bot-vendor">NEURA · DE</span>
+            <div class="bot-badge eu">EU-gebouwd</div>
+            <img class="bot-robot" src="/img/robots/neura-4ne1.webp" alt="NEURA 4NE-1 Mini cobot humanoid, Duitsland" loading="lazy" width="800" height="1920">
+          </div>
+          <div class="bot-body">
+            <h3>NEURA 4NE-1 Mini</h3>
+            <div class="subtitle">Cobot · 1,65 m · Artificial skin · €19.999 koop</div>
+            <div class="specs"><span>EU-gebouwd</span><span>Cobot</span><span>R&D</span></div>
+            <div class="price">
+              <div class="price-row"><b>€890</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">+ €2.500 setup · GDPR by design</div>
+            </div>
+          </div>
+        </div>
       </a>
-      <a class="news-card" href="/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026">
-        <div class="news-meta"><span class="news-cat">Regelgeving</span><span class="news-date">10 mei 2026</span></div>
-        <h3>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</h3>
-        <p>Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.</p>
-        <div class="news-read">Lees artikel →</div>
+
+      <a href="/robots/unitree-g1" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual">
+            <span class="bot-vendor">Unitree · CN</span>
+            <div class="bot-badge">Bestseller</div>
+            <img class="bot-robot" src="/img/robots/g1.jpg" alt="Unitree G1 humanoid robot — bestseller" loading="lazy" width="1200" height="1200">
+          </div>
+          <div class="bot-body">
+            <h3>Unitree G1 Edu</h3>
+            <div class="subtitle">Compact · 1,27 m · 35 kg · Mass production</div>
+            <div class="specs"><span>R&D</span><span>Hospitality</span><span>Demo</span></div>
+            <div class="price">
+              <div class="price-row"><b>€899</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">+ €1.500 setup · 6-8 wk levertijd</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/robots/pal-kangaroo" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual" style="--glow:rgba(34,197,94,0.22)">
+            <span class="bot-vendor">PAL · ES</span>
+            <div class="bot-badge eu">EU-veteraan</div>
+            <img class="bot-robot" src="/img/robots/kangaroo.png" alt="PAL Kangaroo bipedal robot, Barcelona" loading="lazy" width="644" height="1024">
+          </div>
+          <div class="bot-body">
+            <h3>PAL Kangaroo</h3>
+            <div class="subtitle">Bipedal · 1,78 m · ROS-native · 20+ jaar heritage</div>
+            <div class="specs"><span>EU-gebouwd</span><span>Onderzoek</span><span>ROS</span></div>
+            <div class="price">
+              <div class="price-row"><b>€3.490</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">+ €5.500 setup · Barcelona-engineering</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/robots/ubtech-walker-s2" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual" style="--glow:rgba(255,201,102,0.22)">
+            <span class="bot-vendor">UBTECH · CN</span>
+            <div class="bot-badge">Auto-industrie</div>
+            <img class="bot-robot" src="/img/robots/walker-s.webp" alt="UBTECH Walker S2 mass production humanoid" loading="lazy" width="800" height="1920">
+          </div>
+          <div class="bot-body">
+            <h3>UBTECH Walker S2</h3>
+            <div class="subtitle">Industrieel · 1,75 m · 25 kg payload · Mass production</div>
+            <div class="specs"><span>Auto</span><span>Heavy-duty</span><span>24/7</span></div>
+            <div class="price">
+              <div class="price-row"><b>€3.290</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">+ €4.500 setup · BYD/Foxconn proven</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/robots/apptronik-apollo" class="bot">
+        <div class="bot-inner">
+          <div class="bot-visual">
+            <span class="bot-vendor">Apptronik · US</span>
+            <div class="bot-badge hot featured">Wachtlijst 2027</div>
+            <img class="bot-robot" src="/img/robots/apollo.png" alt="Apptronik Apollo humanoid robot, Mercedes-Benz pilot" loading="lazy" width="563" height="800">
+          </div>
+          <div class="bot-body">
+            <h3>Apptronik Apollo</h3>
+            <div class="subtitle">Industrieel · 1,73 m · 25 kg · Mercedes-pilot</div>
+            <div class="specs"><span>Productie</span><span>Assemblage</span><span>Premium</span></div>
+            <div class="price">
+              <div class="price-row"><b>€3.499</b><span class="per">/mnd · 36 mnd</span></div>
+              <div class="setup">Reserveer plek · EU Q4 2026 / Q1 2027</div>
+            </div>
+          </div>
+        </div>
       </a>
     </div>
-    <div style="text-align:center; margin-top:36px">
-      <a class="btn ghost" href="/nieuws">Alle artikelen →</a>
+    <p class="catalog-foot">Bedragen excl. BTW · 9 modellen niet hier getoond: <a href="/robots">bekijk volledige catalogus →</a> · Vergelijk direct via <a href="/vergelijken">vergelijkingstool</a> of bereken je <a href="/kosten">leaseprijs</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="ai-act-card reveal">
+      <div>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          EU AI-Act compliant
+        </span>
+        <h3>EU AI-Act ready vanaf 2 augustus 2026.</h3>
+        <p>BotLease draagt de compliance-last als provider. EU-gebouwde robots (NEURA, PAL, Pollen) hebben de meeste documentatie al klaar. Voor Aziatische modellen voeren wij de conformity assessment per locatie uit. Jij hoeft alleen de operator-training te plannen.</p>
+        <a href="/gids/ai-act-machineverordening" class="btn ghost">
+          Lees de complete gids
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="ai-act-stats">
+        <div class="ai-act-stat">
+          <span class="v">2 aug 2026</span>
+          <span class="l">AI-Act<br>volledig van toepassing</span>
+        </div>
+        <div class="ai-act-stat">
+          <span class="v">20 jan 2027</span>
+          <span class="l">Machineverordening<br>2023/1230 verplicht</span>
+        </div>
+        <div class="ai-act-stat">
+          <span class="v">5</span>
+          <span class="l">EU-gebouwde<br>modellen in catalog</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="alt">
   <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Pilot-traject</div>
-      <h2>In 4 weken van nul naar bewezen ROI.</h2>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Wat zit erin</span>
+      <h2>All-in lease.<br><em>Geen verborgen kosten.</em></h2>
+      <p>Alles van installatie tot end-of-life management. Eén maandfactuur, alles inbegrepen.</p>
     </div>
-    <div class="timeline">
-      <div class="tl"><div class="wk">Week 1</div><h4>Discovery</h4><p>Intake, process-mapping, scope pilot vastleggen.</p></div>
-      <div class="tl"><div class="wk">Week 2</div><h4>Deployment</h4><p>Robot op locatie, veiligheidsanalyse, training.</p></div>
-      <div class="tl"><div class="wk">Week 3</div><h4>Productie</h4><p>Robot in echte workflow, telemetrie meet prestaties.</p></div>
-      <div class="tl"><div class="wk">Week 4</div><h4>Evaluatie</h4><p>ROI-rapport, go/no-go, lease of retour.</p></div>
+    <div class="incl-grid reveal">
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8l4-4h10l4 4M4 8h16v12H4z"/><circle cx="9" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg></div>
+        <h4>Installatie</h4>
+        <p>Aansluiten, kalibreren, integreren met je WMS/MES.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v6m0 0a2 2 0 100 4 2 2 0 000-4m-7 8a5 5 0 0114 0v6H5z"/></svg></div>
+        <h4>Training</h4>
+        <p>2-uurs operator-training Nederlandstalig op locatie.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 11-14 0 7 7 0 0114 0z"/><path d="M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg></div>
+        <h4>Onderhoud</h4>
+        <p>Preventief en correctief, alle onderdelen inbegrepen.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M8 14l3-3-3-3M16 10l-3 3 3 3"/></svg></div>
+        <h4>Swap-SLA</h4>
+        <p>Vervangende unit binnen 24u op locatie of €100/dag.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L4 6v6c0 5 8 10 8 10s8-5 8-10V6z"/></svg></div>
+        <h4>Verzekering</h4>
+        <p>WA tot €2,5M + casco inbegrepen.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM12 12v6"/></svg></div>
+        <h4>Helpdesk NL</h4>
+        <p>24/7 monitoring, Nederlandse engineers bereikbaar.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Software-updates</h4>
+        <p>Continu nieuwe features + AI-Act compliance maintenance.</p>
+      </div>
+      <div class="incl-card">
+        <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h4>Compliance</h4>
+        <p>CE-markering + EU AI-Act assessment per locatie.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<section id="nieuws">
   <div class="container">
-    <div class="section-head">
-      <div class="section-eyebrow">Veelgestelde vragen</div>
-      <h2>Alles wat je wilt weten.</h2>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Nieuws & analyse</span>
+      <h2>Wat er gebeurt in <em>humanoid-land</em>.</h2>
+      <p>Dagelijkse analyses over Unitree, Figure, Apollo en NEURA — met Nederlandse context, pilot-data en bronverwijzingen.</p>
     </div>
-    <div class="faq-list">
+    <div class="news-strip reveal">
+      <a class="news-card" href="/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie">
+        <div class="news-meta"><span class="news-cat">Industrie</span><span class="news-date">16 mei 2026</span></div>
+        <h3>NEURA Robotics × Bosch: wat de Duitse alliantie betekent voor Nederlandse maakbedrijven</h3>
+        <p>Een €98.000 humanoid uit Metzingen met Bosch als productie-partner. Voor het NL MKB de eerste echte EU-optie.</p>
+        <div class="news-read">Lees artikel →</div>
+      </a>
+      <a class="news-card" href="/nieuws/eu-machineverordening-2027-werkgevers-checklist">
+        <div class="news-meta"><span class="news-cat">Regelgeving</span><span class="news-date">15 mei 2026</span></div>
+        <h3>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026</h3>
+        <p>Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?</p>
+        <div class="news-read">Lees artikel →</div>
+      </a>
+      <a class="news-card" href="/nieuws/humanoid-fulfillment-pilots-nederland-2026">
+        <div class="news-meta"><span class="news-cat">Toepassingen</span><span class="news-date">11 mei 2026</span></div>
+        <h3>Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen</h3>
+        <p>Wat 3 Nederlandse 3PLs van humanoid-pilots tussen jan-mei 2026 hebben geleerd. Cijfers, fouten, ROI.</p>
+        <div class="news-read">Lees artikel →</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:36px">
+      <a class="btn ghost" href="/nieuws">Alle 10 artikelen →</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Veelgestelde vragen</span>
+      <h2>Vraag &amp; <em>antwoord</em>.</h2>
+      <p>Geen marketing — eerlijke antwoorden over veiligheid, onderhoud en juridische verplichtingen.</p>
+    </div>
+    <div class="faq-list reveal">
       <details class="faq-item"><summary>Hoe veilig is een humanoïde robot op de werkvloer?</summary><p>Elke deployment voldoet aan de Machinerichtlijn 2006/42/EG (vanaf 2027 de Machineverordening EU 2023/1230) en ISO 10218 / EN ISO 13482. Wij voeren per locatie risicoanalyse uit, definiëren werkzones en trainen je team. WA-dekking tot €2,5M.</p></details>
-      <details class="faq-item"><summary>Wat als de robot stuk gaat?</summary><p>Binnen 24 uur is een vervangende unit op locatie (Swap-SLA). De defecte robot gaat naar onze workshop in Eindhoven. Halen we de 24u niet, dan krijg je een dagvergoeding.</p></details>
+      <details class="faq-item"><summary>Wat als de robot stuk gaat?</summary><p>Binnen 24 uur is een vervangende unit op locatie (Swap-SLA). De defecte robot gaat naar onze workshop in Eindhoven. Halen we de 24u niet, dan krijg je een dagvergoeding van €100/dag.</p></details>
       <details class="faq-item"><summary>Heb ik technische kennis nodig?</summary><p>Nee. Wij verzorgen installatie, programmering en training. Voor dagelijks gebruik volstaat een 2-uurs training. Aanpassingen aan taken doen wij op afstand of on-site.</p></details>
       <details class="faq-item"><summary>Kan ik tussentijds opzeggen?</summary><p>Het eerste jaar zit je vast. Daarna is het contract maandelijks opzegbaar met 1 maand opzegtermijn.</p></details>
       <details class="faq-item"><summary>Wat met mijn data en AVG?</summary><p>Camera-streams en sensordata blijven on-prem of in EU-cloud (Hetzner FSN). Wij sluiten een verwerkersovereenkomst per klant en zijn AI-act compliant als deployer.</p></details>
@@ -1227,44 +1146,69 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
   <div class="container">
     <div class="contact-wrap">
       <div class="contact-info">
-        <div class="section-eyebrow">Plan een demo</div>
-        <h2>Zien is geloven. Letterlijk.</h2>
+        <span class="section-eyebrow">Plan een demo</span>
+        <h2 style="margin-top:14px">Zien is geloven. <em>Letterlijk.</em></h2>
         <p>Wij brengen een robot bij je langs voor een live demo. Geen kosten, geen verplichtingen. Binnen 5 werkdagen op locatie.</p>
-        <div class="ci"><div class="ci-icon">📍</div><span><b>HQ Eindhoven</b>High Tech Campus</span></div>
-        <div class="ci"><div class="ci-icon">✉️</div><span><b>hallo@botlease.nl</b>Reactie &lt; 4 werkuren</span></div>
-        <div class="ci"><div class="ci-icon">⚡</div><span><b>Demo op locatie</b>Binnen 5 werkdagen</span></div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-8 8-13a8 8 0 10-16 0c0 5 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
+          <span><b>HQ Eindhoven</b><span class="ci-sub">High Tech Campus</span></span>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 6l8 6 8-6"/></svg></div>
+          <span><b>hallo@botlease.nl</b><span class="ci-sub">Reactie &lt; 4 werkuren</span></span>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+          <span><b>Demo op locatie</b><span class="ci-sub">Binnen 5 werkdagen</span></span>
+        </div>
       </div>
-      <form class="lead-form" onsubmit="handleSubmit(event)">
-        <label>Bedrijfsnaam</label>
-        <input type="text" name="bedrijf" required placeholder="Jouw bedrijf B.V.">
-        <label>Jouw naam</label>
-        <input type="text" name="naam" required placeholder="Voor- en achternaam">
-        <label>E-mail</label>
-        <input type="email" name="email" required placeholder="naam@bedrijf.nl">
-        <label>Interesse</label>
-        <select name="interesse">
-          <option>Algemene demo</option>
-          <option>Unitree G1 / H1</option>
-          <option>1X NEO</option>
-          <option>Agility Digit</option>
-          <option>Apptronik Apollo</option>
-          <option>Figure 02</option>
-          <option>Advies — weet nog niet welke</option>
-        </select>
-        <label>Use-case (optioneel)</label>
-        <textarea name="bericht" placeholder="Wat zou je willen automatiseren?"></textarea>
-        <button class="btn primary" type="submit">Plan mijn demo →</button>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="naam">Naam</label>
+          <input id="naam" name="naam" required placeholder="Voor- en achternaam">
+        </div>
+        <div class="field">
+          <label for="bedrijf">Bedrijf</label>
+          <input id="bedrijf" name="bedrijf" required placeholder="Naam van je organisatie">
+        </div>
+        <div class="field">
+          <label for="email">Werk-emailadres</label>
+          <input id="email" name="email" type="email" required placeholder="naam@bedrijf.nl">
+        </div>
+        <div class="field">
+          <label for="usecase">Voorgestelde use-case</label>
+          <select id="usecase" name="usecase">
+            <option>3PL / fulfillment</option>
+            <option>Productie / assemblage</option>
+            <option>Hospitality / retail</option>
+            <option>Zorg / instellingen</option>
+            <option>R&D / onderzoek</option>
+            <option>Anders / weet ik nog niet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bericht">Bericht (optioneel)</label>
+          <textarea id="bericht" name="bericht" placeholder="Wat zou je willen oplossen met een humanoïde robot?"></textarea>
+        </div>
+        <button type="submit" class="btn lg">
+          Plan een gratis intake
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-note">Wij reageren binnen 4 werkuren · Geen sales-spam · GDPR-compliant</p>
       </form>
     </div>
   </div>
 </section>
 
-<section style="padding:80px 0">
+<section style="padding:60px 0 120px">
   <div class="container">
-    <div class="cta-block">
-      <h2>Klaar voor je eerste robotcollega?</h2>
-      <p>Pilot vanaf €1.500. Lease vanaf €899/mnd. Geen investering vooraf. Beslis na 4 weken.</p>
-      <a href="#contact" class="btn lg">Start een gesprek →</a>
+    <div class="cta-block reveal">
+      <h2>Klaar voor je eerste <em>robotcollega</em>?</h2>
+      <p>Pilot vanaf €1.500. Lease vanaf €290/mnd. Geen investering vooraf. Beslis na 4 weken.</p>
+      <a href="#contact" class="btn lg">
+        Start een gesprek
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -1277,18 +1221,7 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
           <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
           BotLease
         </div>
-        <p class="tag">Nederlands eerste full-service leasemaatschappij voor humanoïde robots. Wij maken robotica toegankelijk voor het MKB.</p>
-      </div>
-      <div>
-        <h5>Robots (EU-gebouwd)</h5>
-        <ul>
-          <li><a href="/robots/neura-4ne1-gen3">NEURA 4NE-1 Gen 3.5</a></li>
-          <li><a href="/robots/neura-4ne1-mini">NEURA 4NE-1 Mini</a></li>
-          <li><a href="/robots/pal-kangaroo">PAL Kangaroo</a></li>
-          <li><a href="/robots/pal-tiago-pro">PAL TIAGo Pro</a></li>
-          <li><a href="/robots/pollen-reachy-2">Pollen Reachy 2</a></li>
-          <li><a href="/robots">Alle 15 modellen →</a></li>
-        </ul>
+        <p class="tag">Nederlands eerste full-service leasemaatschappij voor humanoïde robots. Wij maken robotica toegankelijk voor het MKB — EU-gebouwd, AI-Act compliant.</p>
       </div>
       <div>
         <h5>Gidsen + tools</h5>
@@ -1303,10 +1236,10 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
       <div>
         <h5>Sectoren + steden</h5>
         <ul>
-          <li><a href="/sectoren/3pl-fulfillment">3PL & fulfillment</a></li>
-          <li><a href="/sectoren/productie-assemblage">Productie & assemblage</a></li>
-          <li><a href="/sectoren/hospitality-retail">Hospitality & retail</a></li>
-          <li><a href="/sectoren/zorg-instellingen">Zorg & instellingen</a></li>
+          <li><a href="/sectoren/3pl-fulfillment">3PL &amp; fulfillment</a></li>
+          <li><a href="/sectoren/productie-assemblage">Productie &amp; assemblage</a></li>
+          <li><a href="/sectoren/hospitality-retail">Hospitality &amp; retail</a></li>
+          <li><a href="/sectoren/zorg-instellingen">Zorg &amp; instellingen</a></li>
           <li><a href="/leasen">Leasen per stad →</a></li>
         </ul>
       </div>
@@ -1315,28 +1248,113 @@ footer { padding:56px 0 36px; border-top:1px solid var(--line); background:var(-
         <ul>
           <li><a href="/over">Over BotLease</a></li>
           <li><a href="/methodologie">Methodologie</a></li>
-          <li><a href="/nieuws">Nieuws & analyse</a></li>
+          <li><a href="/nieuws">Nieuws &amp; analyse</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bot">
-      <div>© 2026 BotLease B.V. — KvK <span style="color:var(--ink-2)">XXXXXXXX</span> · BTW <span style="color:var(--ink-2)">NLXXXXXXXXXB01</span></div>
+      <div>© 2026 BotLease B.V. — KvK <span style="color:var(--fg-2)">XXXXXXXX</span> · BTW <span style="color:var(--fg-2)">NLXXXXXXXXXB01</span></div>
       <div>Eindhoven · Nederland</div>
     </div>
   </div>
 </footer>
 
 <script>
+// Mouse-follow spotlight in hero
+(function(){
+  var spot = document.getElementById('spotlight');
+  if (!spot) return;
+  var hero = document.querySelector('header.hero');
+  hero.addEventListener('mousemove', function(e){
+    var rect = hero.getBoundingClientRect();
+    spot.style.left = (e.clientX - rect.left) + 'px';
+    spot.style.top  = (e.clientY - rect.top) + 'px';
+    spot.style.opacity = 1;
+  });
+  hero.addEventListener('mouseleave', function(){ spot.style.opacity = 0; });
+})();
+
+// Reveal-on-scroll via IntersectionObserver
+(function(){
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.1, rootMargin:'0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+// Animated counters (data-count attribute)
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var animated = false;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        document.querySelectorAll('[data-count]').forEach(function(el){
+          var target = parseInt(el.dataset.count);
+          var dur = 1200;
+          var start = performance.now();
+          function step(now) {
+            var t = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = Math.round(target * eased);
+            if (t < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+    });
+  }, { threshold:0.3 });
+  var first = document.querySelector('[data-count]');
+  if (first) io.observe(first);
+})();
+
+// Contact form handler — POST naar /api/contact.js (Vercel serverless function)
+// Function stuurt email naar hallo@botlease.nl via Resend.
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Verzonden ✓ — wij nemen contact op';
-  btn.style.background = '#5be584';
-  btn.style.color = '#0a0a0c';
+  var form = e.target;
+  var btn  = form.querySelector('button[type="submit"]');
+  var note = form.querySelector('.form-note');
+  var origBtn  = btn.innerHTML;
+  var origNote = note ? note.textContent : '';
   btn.disabled = true;
-  setTimeout(()=>{ e.target.reset(); btn.textContent='Plan mijn demo →'; btn.style.background=''; btn.style.color=''; btn.disabled=false; }, 4000);
+  btn.innerHTML = 'Versturen…';
+  var data = Object.fromEntries(new FormData(form));
+
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+    .then(function(res){
+      if (res.ok && res.body.success) {
+        form.innerHTML = '<div style="text-align:center;padding:24px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:18px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Space Grotesk\',sans-serif;font-size:22px;margin-bottom:10px">' + (res.body.message || 'Bedankt — we nemen contact op.') + '</h3><p style="color:var(--fg-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd naar je email. Check ook je spam-folder.</p></div>';
+        if (window.plausible) window.plausible('Contact form submit');
+      } else {
+        var msg = (res.body && res.body.error) ? res.body.error : 'Er ging iets mis — probeer het later of stuur een mail naar hallo@botlease.nl';
+        if (note) { note.textContent = msg; note.style.color = '#fb7185'; }
+        btn.disabled = false;
+        btn.innerHTML = origBtn;
+      }
+    })
+    .catch(function(err){
+      if (note) { note.textContent = 'Netwerkfout. Mail direct naar hallo@botlease.nl — sorry!'; note.style.color = '#fb7185'; }
+      btn.disabled = false;
+      btn.innerHTML = origBtn;
+    });
 }
 </script>
 

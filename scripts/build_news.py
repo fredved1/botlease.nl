@@ -809,6 +809,8 @@ def render_robots() -> str:
 Allow: /
 Disallow: /api/
 Disallow: /backend/
+Disallow: /admin
+Disallow: /admin.html
 
 Sitemap: {SITE_URL}/sitemap.xml
 """

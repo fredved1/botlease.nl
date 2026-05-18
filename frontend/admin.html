@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Lease-aanvragen | BotLease</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#050507; --bg-2:#0a0a0e; --bg-3:#131318; --bg-elev:#1c1c24;
+  --border:rgba(255,255,255,0.06); --border-h:rgba(255,255,255,0.12);
+  --fg:#fafafa; --fg-2:#a1a1aa; --fg-3:#71717a;
+  --accent:#f97316; --green:#22c55e; --rose:#fb7185;
+}
+body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--fg); min-height:100vh; }
+h1,h2,h3 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.025em; }
+button { font-family:inherit; cursor:pointer; }
+input { font-family:inherit; }
+
+/* Login */
+.login-wrap {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  background:
+    radial-gradient(800px 600px at 50% 30%, rgba(249,115,22,0.12), transparent 60%),
+    var(--bg);
+}
+.login-card {
+  background:var(--bg-2); border:1px solid var(--border); border-radius:18px;
+  padding:40px; max-width:440px; width:100%;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.login-card .brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:18px; margin-bottom:28px; }
+.brand-mark { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--accent), #fb923c); display:flex; align-items:center; justify-content:center; }
+.login-card h1 { font-size:24px; margin-bottom:8px; }
+.login-card p { color:var(--fg-2); font-size:14.5px; margin-bottom:24px; }
+.field { margin-bottom:18px; }
+.field label { display:block; font-size:13px; color:var(--fg-2); margin-bottom:8px; font-weight:500; }
+.field input {
+  width:100%; padding:13px 16px;
+  background:var(--bg-3); border:1px solid var(--border);
+  border-radius:10px; color:var(--fg); font-size:14.5px;
+}
+.field input:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(249,115,22,0.15); }
+.btn {
+  display:inline-flex; align-items:center; gap:8px; padding:13px 22px;
+  border-radius:999px; font-weight:600; font-size:14px; font-family:inherit;
+  background:var(--accent); color:#fff; border:none;
+  transition:transform .15s, box-shadow .2s;
+  box-shadow:0 8px 20px -6px rgba(249,115,22,0.4);
+}
+.btn:hover { transform:translateY(-1px); box-shadow:0 12px 28px -6px rgba(249,115,22,0.5); }
+.btn.full { width:100%; justify-content:center; }
+.err { color:var(--rose); font-size:13.5px; margin-top:12px; min-height:18px; }
+
+/* Dashboard */
+.dash { display:none; padding:0 32px 60px; }
+.dash.in { display:block; }
+.topbar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:24px 0; border-bottom:1px solid var(--border); margin-bottom:32px;
+}
+.topbar h1 { font-size:22px; }
+.topbar .meta { display:flex; gap:18px; align-items:center; font-size:13px; color:var(--fg-3); }
+.topbar .logout {
+  padding:8px 14px; border-radius:999px; background:transparent;
+  color:var(--fg-2); border:1px solid var(--border-h);
+  font-size:13px;
+}
+.topbar .logout:hover { background:var(--bg-3); color:var(--fg); }
+
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px; }
+.stat-card {
+  background:var(--bg-2); border:1px solid var(--border); border-radius:14px;
+  padding:18px 22px;
+}
+.stat-card .v { font-family:'Space Grotesk'; font-weight:700; font-size:28px; letter-spacing:-0.02em; color:var(--accent); }
+.stat-card .l { font-size:12px; color:var(--fg-3); text-transform:uppercase; letter-spacing:0.08em; margin-top:2px; font-weight:500; }
+
+.toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; gap:12px; flex-wrap:wrap; }
+.search-input {
+  padding:10px 16px; min-width:260px;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:8px; color:var(--fg); font-size:14px;
+}
+.search-input:focus { outline:none; border-color:var(--accent); }
+.toolbar-actions { display:flex; gap:10px; }
+.toolbar-actions button {
+  padding:10px 18px; border-radius:8px;
+  background:var(--bg-2); border:1px solid var(--border);
+  color:var(--fg); font-size:13.5px; font-weight:500;
+}
+.toolbar-actions button:hover { background:var(--bg-3); border-color:var(--border-h); }
+
+table {
+  width:100%; border-collapse:collapse; border:1px solid var(--border);
+  background:var(--bg-2); border-radius:14px; overflow:hidden;
+}
+thead { background:var(--bg-3); }
+th, td {
+  padding:14px 18px; text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:14px; vertical-align:top;
+}
+th {
+  font-family:'Space Grotesk'; font-size:11.5px; font-weight:600;
+  color:var(--fg-3); text-transform:uppercase; letter-spacing:0.1em;
+}
+tbody tr:hover { background:var(--bg-3); }
+tbody tr:last-child td { border-bottom:none; }
+.cell-date { color:var(--fg-3); font-family:'JetBrains Mono', monospace; font-size:12.5px; white-space:nowrap; }
+.cell-name { font-weight:500; }
+.cell-email a { color:var(--accent); text-decoration:none; }
+.cell-email a:hover { text-decoration:underline; }
+.cell-msg { color:var(--fg-2); font-size:13.5px; max-width:360px; line-height:1.5; }
+.empty { text-align:center; color:var(--fg-3); padding:60px 20px; }
+
+@media (max-width:780px) {
+  .stats-row { grid-template-columns:repeat(2,1fr); }
+  .cell-msg { max-width:200px; }
+  th.col-date, td.cell-date { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="login">
+  <div class="login-card">
+    <div class="brand">
+      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="white"/><circle cx="15" cy="14" r="1.2" fill="white"/><path d="M12 5v4"/></svg></div>
+      BotLease Admin
+    </div>
+    <h1>Lease-aanvragen</h1>
+    <p>Voer je admin-wachtwoord in om binnenkomende aanvragen te bekijken.</p>
+    <form id="login-form">
+      <div class="field">
+        <label for="pw">Wachtwoord</label>
+        <input id="pw" type="password" required autocomplete="current-password" autofocus>
+      </div>
+      <button type="submit" class="btn full">Inloggen →</button>
+      <div class="err" id="login-err"></div>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash" id="dash">
+  <div class="topbar">
+    <h1>Lease-aanvragen</h1>
+    <div class="meta">
+      <span id="last-refresh">Bezig met laden…</span>
+      <button class="logout" id="btn-logout">Uitloggen</button>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="v" id="stat-total">0</div><div class="l">Totaal aanvragen</div></div>
+    <div class="stat-card"><div class="v" id="stat-week">0</div><div class="l">Deze week</div></div>
+    <div class="stat-card"><div class="v" id="stat-month">0</div><div class="l">Deze maand</div></div>
+    <div class="stat-card"><div class="v" id="stat-today">0</div><div class="l">Vandaag</div></div>
+  </div>
+
+  <div class="toolbar">
+    <input class="search-input" id="search" placeholder="Zoek naam, bedrijf, email of bericht…" type="search">
+    <div class="toolbar-actions">
+      <button id="btn-refresh">↻ Vernieuw</button>
+      <button id="btn-csv">⬇ Export CSV</button>
+    </div>
+  </div>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th class="col-date">Datum</th>
+        <th>Naam</th>
+        <th>Bedrijf</th>
+        <th>Email</th>
+        <th>Sector + bericht</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr><td colspan="5" class="empty">Bezig met laden…</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+var STORAGE_KEY = 'botlease_admin_pw';
+var rowsCache = [];
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];
+  });
+}
+
+function fmtDate(s) {
+  if (!s) return '—';
+  var d = new Date(s);
+  if (isNaN(d.getTime())) return s;
+  return d.toLocaleString('nl-NL', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
+}
+
+function render(rows) {
+  var search = document.getElementById('search').value.toLowerCase().trim();
+  var filtered = search
+    ? rows.filter(function(r){
+        var hay = [r.name, r.company, r.email, r.message].join(' ').toLowerCase();
+        return hay.indexOf(search) > -1;
+      })
+    : rows;
+
+  var tbody = document.getElementById('tbody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" class="empty">' + (search ? 'Geen resultaten voor "' + escapeHtml(search) + '"' : 'Nog geen aanvragen') + '</td></tr>';
+    return;
+  }
+  tbody.innerHTML = filtered.map(function(r){
+    return '<tr>' +
+      '<td class="cell-date">' + escapeHtml(fmtDate(r.created_at)) + '</td>' +
+      '<td class="cell-name">' + escapeHtml(r.name || '—') + '</td>' +
+      '<td>' + escapeHtml(r.company || '—') + '</td>' +
+      '<td class="cell-email"><a href="mailto:' + encodeURIComponent(r.email||'') + '?subject=Re:%20Lease-aanvraag%20BotLease">' + escapeHtml(r.email || '—') + '</a></td>' +
+      '<td class="cell-msg">' + escapeHtml(r.message || '—') + '</td>' +
+      '</tr>';
+  }).join('');
+}
+
+function renderStats(rows) {
+  var now = Date.now();
+  var oneDay = 86400000;
+  var today = 0, week = 0, month = 0;
+  rows.forEach(function(r){
+    var t = new Date(r.created_at).getTime();
+    if (isNaN(t)) return;
+    var age = now - t;
+    if (age < oneDay) today++;
+    if (age < 7 * oneDay) week++;
+    if (age < 30 * oneDay) month++;
+  });
+  document.getElementById('stat-total').textContent = rows.length;
+  document.getElementById('stat-week').textContent = week;
+  document.getElementById('stat-month').textContent = month;
+  document.getElementById('stat-today').textContent = today;
+}
+
+function loadData() {
+  var pw = sessionStorage.getItem(STORAGE_KEY);
+  if (!pw) { showLogin(); return; }
+  document.getElementById('last-refresh').textContent = 'Laden…';
+  fetch('/api/admin-list', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ password: pw })
+  })
+  .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+  .then(function(res){
+    if (!res.ok) {
+      if (res.body.error && res.body.error.toLowerCase().indexOf('wachtwoord') > -1) {
+        sessionStorage.removeItem(STORAGE_KEY);
+        showLogin('Sessie verlopen. Log opnieuw in.');
+        return;
+      }
+      document.getElementById('tbody').innerHTML = '<tr><td colspan="5" class="empty">Fout: ' + escapeHtml(res.body.error || 'Onbekend') + '</td></tr>';
+      return;
+    }
+    rowsCache = res.body.rows || [];
+    renderStats(rowsCache);
+    render(rowsCache);
+    document.getElementById('last-refresh').textContent = 'Laatst vernieuwd ' + new Date().toLocaleTimeString('nl-NL');
+  })
+  .catch(function(){
+    document.getElementById('tbody').innerHTML = '<tr><td colspan="5" class="empty">Netwerkfout</td></tr>';
+  });
+}
+
+function showLogin(errMsg) {
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('dash').classList.remove('in');
+  document.getElementById('login-err').textContent = errMsg || '';
+  setTimeout(function(){ document.getElementById('pw').focus(); }, 50);
+}
+
+function showDash() {
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('dash').classList.add('in');
+  loadData();
+}
+
+document.getElementById('login-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var pw = document.getElementById('pw').value;
+  var btn = e.target.querySelector('button');
+  btn.disabled = true; btn.textContent = 'Inloggen…';
+  fetch('/api/admin-list', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ password: pw })
+  })
+  .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+  .then(function(res){
+    if (res.ok) {
+      sessionStorage.setItem(STORAGE_KEY, pw);
+      showDash();
+    } else {
+      document.getElementById('login-err').textContent = res.body.error || 'Login mislukt';
+      btn.disabled = false; btn.textContent = 'Inloggen →';
+    }
+  })
+  .catch(function(){
+    document.getElementById('login-err').textContent = 'Netwerkfout';
+    btn.disabled = false; btn.textContent = 'Inloggen →';
+  });
+});
+
+document.getElementById('search').addEventListener('input', function(){ render(rowsCache); });
+document.getElementById('btn-refresh').addEventListener('click', loadData);
+document.getElementById('btn-logout').addEventListener('click', function(){
+  sessionStorage.removeItem(STORAGE_KEY);
+  showLogin('Uitgelogd.');
+});
+document.getElementById('btn-csv').addEventListener('click', function(){
+  if (!rowsCache.length) return alert('Geen data');
+  var headers = ['datum','naam','bedrijf','email','telefoon','bericht'];
+  var lines = [headers.join(';')];
+  rowsCache.forEach(function(r){
+    var row = [
+      r.created_at || '',
+      (r.name || '').replace(/;/g,','),
+      (r.company || '').replace(/;/g,','),
+      r.email || '',
+      r.phone || '',
+      (r.message || '').replace(/\r?\n/g,' ').replace(/;/g,','),
+    ];
+    lines.push(row.map(function(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }).join(';'));
+  });
+  var blob = new Blob([lines.join('\n')], { type:'text/csv;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'botlease-aanvragen-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// Auto-login if password in sessionStorage
+if (sessionStorage.getItem(STORAGE_KEY)) showDash();
+</script>
+
+</body>
+</html>

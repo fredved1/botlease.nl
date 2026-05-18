@@ -5,6 +5,45 @@ Voor #1-ranking zijn nu **off-page acties** nodig. Hieronder concrete stappen, p
 
 ---
 
+## PRIORITY 0 — env vars in Vercel (10 min) — KRITIEK voor formulieren
+
+Voor het contactformulier + admin dashboard te laten werken: zet drie env vars
+in Vercel (Settings → Environment Variables):
+
+### 1. RESEND_API_KEY — voor email naar hallo@botlease.nl
+
+1. Maak gratis account op https://resend.com (gebruik hallo@botlease.nl)
+2. Kopieer de API key uit "API Keys"
+3. Vercel → botlease-v2 → Settings → Environment Variables:
+   - Name: `RESEND_API_KEY`
+   - Value: `re_xxx...` (van Resend)
+   - Environments: Production, Preview, Development
+4. (Optioneel) verifieer botlease.nl als sender domain in Resend → dan kun je
+   `RESEND_FROM = BotLease <noreply@botlease.nl>` toevoegen voor mooier afzender-adres.
+   Tot je dat doet komt mail van `onboarding@resend.dev` — dat werkt prima.
+
+### 2. ADMIN_PASSWORD — voor /admin dashboard
+
+1. Verzin een lang random wachtwoord (bv. `openssl rand -base64 24` of bitwarden)
+2. Vercel → botlease-v2 → Settings → Environment Variables:
+   - Name: `ADMIN_PASSWORD`
+   - Value: jouw random string
+3. Bezoek https://botlease.nl/admin om aanvragen te bekijken (login met dit wachtwoord)
+
+### 3. Supabase env vars (al gezet) — backup van aanvragen
+
+`NEXT_PUBLIC_SUPABASE_URL` en `NEXT_PUBLIC_SUPABASE_ANON_KEY` zijn al ingesteld
+en zorgen voor backup naar Supabase database. Geen actie nodig.
+
+### Na env var setup: deploy opnieuw
+
+Vercel deployt automatisch elke commit. Force redeploy:
+```bash
+vercel --prod --yes
+```
+
+---
+
 ## PRIORITY 1 — deze week doen
 
 ### 1.1 Google Search Console verifiëren (15 min)
