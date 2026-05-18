@@ -525,12 +525,20 @@ ORG_SCHEMA = json.dumps({
 
 # ---------------------------------------------------------------- builders
 
+def article_image(a: dict) -> str:
+    art = art_for(a["slug"])
+    if art.get("photo"):
+        return f"{SITE_URL}{art['photo']}"
+    return f"{SITE_URL}/img/robots/apollo.png"
+
+
 def article_jsonld(a: dict) -> str:
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": a["title"],
         "description": a["subtitle"],
+        "image": [article_image(a)],
         "datePublished": a["date"] + "T08:00:00+01:00",
         "dateModified": a["date"] + "T08:00:00+01:00",
         "author": {"@type": "Organization", "name": a.get("author", "BotLease Redactie")},
@@ -540,6 +548,18 @@ def article_jsonld(a: dict) -> str:
         "keywords": ", ".join(a.get("tags", [])),
         "articleSection": a.get("category", "Nieuws"),
         "inLanguage": "nl-NL",
+    }, ensure_ascii=False)
+
+
+def breadcrumb_jsonld(a: dict) -> str:
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws/"},
+            {"@type": "ListItem", "position": 3, "name": a["title"], "item": f"{SITE_URL}/nieuws/{a['slug']}"},
+        ]
     }, ensure_ascii=False)
 
 
@@ -566,6 +586,7 @@ def render_article(a: dict, related: list) -> str:
 <meta property="og:url" content="{SITE_URL}/nieuws/{a['slug']}">
 <meta property="og:site_name" content="BotLease">
 <meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="{article_image(a)}">
 <meta property="article:published_time" content="{a['date']}T08:00:00+01:00">
 <meta property="article:section" content="{escape(a.get('category', 'Nieuws'))}">
 {''.join(f'<meta property="article:tag" content="{escape(t)}">' for t in a.get('tags', []))}
@@ -573,6 +594,7 @@ def render_article(a: dict, related: list) -> str:
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(a['title'])}">
 <meta name="twitter:description" content="{escape(a['subtitle'])}">
+<meta name="twitter:image" content="{article_image(a)}">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -580,6 +602,7 @@ def render_article(a: dict, related: list) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{ARTICLE_CSS}</style>
 <script type="application/ld+json">{article_jsonld(a)}</script>
+<script type="application/ld+json">{breadcrumb_jsonld(a)}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 </head>
 <body>
@@ -677,6 +700,11 @@ def render_listing(articles: list) -> str:
 <meta property="og:description" content="Dagelijkse analyses over humanoïde robots, Nederlandse use-cases en marktontwikkelingen.">
 <meta property="og:url" content="{SITE_URL}/nieuws/">
 <meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BotLease Nieuws — humanoïde robots in Nederland">
+<meta name="twitter:description" content="Dagelijkse analyses over Unitree, Figure, Apptronik, Agility, 1X — voor de Nederlandse markt.">
+<meta name="twitter:image" content="{SITE_URL}/img/robots/apollo.png">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -684,6 +712,7 @@ def render_listing(articles: list) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist_jsonld}</script>
+<script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws/"}}]}}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 </head>
 <body>
