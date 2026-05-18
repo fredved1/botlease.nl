@@ -34,159 +34,169 @@
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  /* Surfaces — shadcn zinc dark */
-  --bg:           #0a0a0a;
-  --bg-2:         #141414;
-  --bg-3:         #1f1f1f;
-  --bg-card:      #0f0f0f;
-  --bg-elevated:  #1a1a1a;
-  /* Aliases voor build scripts die deze referenties hadden */
-  --bg-dark:      #1a1a1a;
-  --bg-darker:    #050505;
+  /* Apple-exact colors */
+  --bg:          #fbfbfd;
+  --bg-2:        #f5f5f7;
+  --bg-3:        #eeeef2;
+  --bg-card:     #ffffff;
+  --bg-dark:     #000000;
+  --bg-dark-2:   #1d1d1f;
 
-  /* Borders — subtle */
-  --border:        #262626;
-  --border-hover:  #3a3a3a;
-  --border-strong: #525252;
-  --line:          #262626;
-  --line-2:        #3a3a3a;
+  /* Borders */
+  --border:        #d2d2d7;
+  --border-hover:  #86868b;
+  --border-strong: #6e6e73;
+  --border-dark:   #424245;
+  --line:          #d2d2d7;
+  --line-2:        #86868b;
 
-  /* Ink (text) */
-  --ink:    #fafafa;
-  --ink-2:  #a3a3a3;
-  --ink-3:  #737373;
-  --ink-4:  #525252;
-  --ink-on-dark:    #fafafa;
-  --ink-2-on-dark:  #a3a3a3;
-  --ink-3-on-dark:  #737373;
+  /* Text — Apple greys */
+  --ink:    #1d1d1f;
+  --ink-2:  #6e6e73;
+  --ink-3:  #86868b;
+  --ink-4:  #a1a1a6;
+  --ink-on-dark:   #f5f5f7;
+  --ink-2-on-dark: #86868b;
+  --ink-3-on-dark: #6e6e73;
 
-  /* Accent — minimal, near-white voor primaire actions */
-  --accent:       #fafafa;
-  --accent-2:     #e5e5e5;
-  --accent-deep:  #d4d4d4;
-  --accent-soft:  rgba(250,250,250,0.06);
-  --accent-line:  rgba(250,250,250,0.18);
+  /* Accent — Apple blue */
+  --accent:       #0066cc;
+  --accent-2:     #2997ff;
+  --accent-deep:  #0058ad;
+  --accent-soft:  #e8f0fe;
+  --accent-line:  #b8d4f1;
 
-  /* Semantic — subtiel, alleen voor specifieke contexts */
-  --green:      #22c55e;
-  --green-soft: rgba(34,197,94,0.10);
-  --green-line: rgba(34,197,94,0.25);
-  --blue:       #60a5fa;
-  --blue-soft:  rgba(96,165,250,0.10);
-  --rose:       #fb7185;
+  /* Semantic */
+  --green:      #30d158;
+  --green-soft: #e6f8eb;
+  --green-line: #b4ecbf;
+  --blue:       #0066cc;
+  --blue-soft:  #e8f0fe;
+  --rose:       #ff453a;
 
-  /* Radius — shadcn default 0.5rem */
-  --r-sm: 6px;
-  --r:    8px;
-  --r-lg: 10px;
-  --r-xl: 14px;
+  /* Radius — Apple style */
+  --r-sm:  8px;
+  --r:     12px;
+  --r-lg:  18px;
+  --r-xl:  24px;
+  --r-2xl: 980px;
 
-  /* Shadows — minimaal, voor depth */
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.45);
-  --shadow-lg: 0 24px 56px -16px rgba(0,0,0,0.6);
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 24px 56px -16px rgba(0,0,0,0.14);
 }
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
-  line-height:1.6; -webkit-font-smoothing:antialiased;
+  font-size:17px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Space Grotesk', system-ui, sans-serif;
-  letter-spacing:-0.025em; font-weight:600;
-  color:var(--ink); line-height:1.1;
+  font-family:'Inter', -apple-system, sans-serif;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:var(--ink); line-height:1.05;
 }
-.serif { font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spacing:-0.015em; }
 a { color:inherit; text-decoration:none; }
 img,svg { display:block; max-width:100%; }
 button { font-family:inherit; cursor:pointer; }
-::selection { background:var(--ink); color:var(--bg); }
+::selection { background:#000; color:#fff; }
 
-.container { max-width:1200px; margin:0 auto; padding:0 24px; }
-.narrow    { max-width:760px;  margin:0 auto; padding:0 24px; }
-@media (min-width:768px) { .container, .narrow { padding-inline:32px; } }
+.container { max-width:1280px; margin:0 auto; padding:0 22px; }
+.narrow    { max-width:820px;  margin:0 auto; padding:0 22px; }
+@media (min-width:780px) { .container, .narrow { padding-inline:40px; } }
 
-/* Nav */
+/* Nav — Apple compact */
 nav.top {
-  position:sticky; top:0; z-index:80;
-  background:rgba(10,10,10,0.72);
+  position:sticky; top:0; z-index:90;
+  background:rgba(251,251,253,0.72);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  height:48px;
 }
-nav.top .row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-.brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:600; font-size:18px; letter-spacing:-0.01em; color:var(--ink); }
+nav.top .row { display:flex; align-items:center; justify-content:space-between; height:100%; }
+.brand {
+  display:flex; align-items:center; gap:8px;
+  font-weight:600; font-size:15px; letter-spacing:-0.02em;
+  color:var(--ink);
+}
 .brand-mark {
-  width:28px; height:28px; border-radius:7px;
-  background:var(--ink);
+  width:22px; height:22px; background:var(--ink); border-radius:5px;
   display:flex; align-items:center; justify-content:center;
 }
 .brand-mark svg path { stroke:var(--bg); }
 .brand-mark svg circle[fill] { fill:var(--bg) !important; }
-.nav-links { display:flex; gap:4px; align-items:center; }
+.nav-links { display:flex; gap:0; align-items:center; }
 .nav-links a {
-  color:var(--ink-2); font-size:14px; font-weight:500;
-  padding:8px 14px; border-radius:6px;
-  transition:color .15s, background .15s;
+  color:var(--ink-2); font-size:12.5px; font-weight:400;
+  padding:0 10px; transition:color .15s;
 }
-.nav-links a:hover, .nav-links a.active { color:var(--ink); background:var(--bg-3); }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
 
-/* Buttons — shadcn style */
+/* Buttons — Apple pill */
 .btn {
-  display:inline-flex; align-items:center; gap:6px;
-  padding:10px 18px; border-radius:8px;
-  font-weight:500; font-size:14px; font-family:'Inter',sans-serif;
-  background:var(--ink); color:var(--bg);
-  border:1px solid var(--ink); cursor:pointer;
-  transition:background .15s, opacity .15s;
+  display:inline-flex; align-items:center; gap:4px;
+  padding:11px 22px; border-radius:980px;
+  font-size:17px; font-weight:400; font-family:inherit;
+  background:var(--accent); color:#fff; border:none;
+  cursor:pointer; transition:background .15s;
   white-space:nowrap; text-decoration:none;
 }
-.btn:hover { background:var(--accent-2); border-color:var(--accent-2); }
-.btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--border-strong); }
-.btn.ghost:hover { background:var(--bg-3); border-color:var(--border-hover); }
-.btn.accent { background:var(--ink); border-color:var(--ink); color:var(--bg); }
-.btn.accent:hover { background:var(--accent-2); }
-.btn.lg { padding:13px 24px; font-size:15px; border-radius:9px; }
-.btn svg { width:14px; height:14px; }
+.btn:hover { background:var(--accent-deep); }
+.btn.ghost {
+  background:transparent; color:var(--accent);
+  padding:11px 0;
+}
+.btn.ghost:hover { background:transparent; color:var(--accent-2); text-decoration:underline; }
+.btn.lg { padding:13px 26px; font-size:17px; }
+.btn svg { width:11px; height:11px; }
 
 /* Footer */
-footer { padding:48px 0 24px; border-top:1px solid var(--border); background:var(--bg); margin-top:56px; }
-footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; color:var(--ink-3); font-size:13px; align-items:center; }
+footer { padding:40px 0 24px; background:var(--bg-2); border-top:1px solid var(--border); color:var(--ink-2); font-size:12px; line-height:1.5; margin-top:0; }
+footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; align-items:center; max-width:1280px; margin:0 auto; padding:0 22px; }
 footer a { color:var(--ink-2); transition:color .15s; }
 footer a:hover { color:var(--ink); }
+@media (min-width:780px) { footer .row { padding-inline:40px; } }
 
 @media (max-width:780px) { .nav-links { display:none; } }
 
-/* Section common */
-section { padding:56px 0; }
-@media (min-width:768px) { section { padding:72px 0; } }
-section.subtle { background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-section.dark { background:var(--bg); }
-
-.section-eyebrow {
-  display:inline-block;
-  font-size:12.5px; font-weight:600; letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--ink-3);
-  margin-bottom:16px;
+/* Sections — Apple style */
+section { padding:80px 0; }
+@media (min-width:780px) { section { padding:120px 0; } }
+section.scene.dark, section.dark {
+  background:var(--bg-dark); color:var(--ink-on-dark);
 }
+section.scene.dark h2, section.dark h2 { color:var(--ink-on-dark); }
+section.scene.dark h3, section.dark h3 { color:var(--ink-on-dark); }
+section.scene.dark p, section.dark p { color:var(--ink-2-on-dark); }
+section.subtle { background:var(--bg-2); }
+
+.eyebrow, .section-eyebrow {
+  display:inline-block;
+  font-size:14px; font-weight:600;
+  color:var(--accent);
+  margin-bottom:8px; letter-spacing:-0.005em;
+}
+section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 
 /* Reveal */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease; }
   .reveal.in { opacity:1; transform:translateY(0); }
 }
 
 /* Breadcrumbs */
-.crumbs { display:flex; gap:8px; font-size:13px; color:var(--ink-3); margin-bottom:24px; flex-wrap:wrap; }
-.crumbs a { color:var(--ink-3); transition:color .15s; }
-.crumbs a:hover { color:var(--ink); }
+.crumbs { display:flex; gap:8px; font-size:13px; color:var(--ink-2); margin-bottom:24px; flex-wrap:wrap; }
+.crumbs a { color:var(--ink-2); transition:color .15s; }
+.crumbs a:hover { color:var(--accent); }
 .crumbs .sep { color:var(--ink-4); }
 
 .article-hero { padding:80px 0 30px; }
@@ -464,17 +474,17 @@ article.full blockquote {
 <nav class="top">
   <div class="container row">
     <a class="brand" href="/">
-      <div class="brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
+      <div class="brand-mark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
       BotLease
     </a>
     <div class="nav-links">
       <a href="/robots">Robots</a>
+      <a href="/sectoren">Sectoren</a>
       <a href="/vergelijken">Vergelijken</a>
       <a href="/kosten">Kosten</a>
-      <a href="/gids/humanoide-robot-leasen">Gids</a>
       <a href="/nieuws">Nieuws</a>
     </div>
-    <a href="/#contact" class="btn">Plan demo</a>
+    <a href="/#contact" class="btn" style="padding:5px 14px; font-size:13px;">Plan demo</a>
   </div>
 </nav>
 
@@ -534,9 +544,9 @@ article.full blockquote {
 
 
 <footer>
-  <div class="container row">
-    <div>© 2026 BotLease — Amsterdam · KvK 95943420 (eenmanszaak)</div>
-    <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/vergelijken">Vergelijken</a> · <a href="/kosten">Kosten</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · <a href="/sitemap.xml">Sitemap</a></div>
+  <div class="row">
+    <div>© 2026 BotLease — KvK 95943420 · Vrouwengelukhof 58, 1061BS Amsterdam</div>
+    <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/sectoren">Sectoren</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · hallo@botlease.nl</div>
   </div>
 </footer>
 
