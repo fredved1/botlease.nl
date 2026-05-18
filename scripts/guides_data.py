@@ -306,7 +306,7 @@ GLOSSARY = {
 ABOUT = {
     "slug": "over",
     "title": "Over BotLease — Nederlands eerste humanoid-robot leasemaatschappij | BotLease",
-    "meta_desc": "BotLease is opgericht in 2026 in Amsterdam (KvK 95943420). Verhuur humanoïde robots, automatiseringsoplossingen, robotica consultancy en AI chatbot ontwikkeling. Wij maken humanoïde robots toegankelijk voor het Nederlandse MKB via all-in operational lease.",
+    "meta_desc": "BotLease is opgericht in 2026 in Amsterdam (KvK 95943420). Wij maken humanoïde robots toegankelijk voor het Nederlandse MKB via all-in operational lease — geen vendor lock-in, onafhankelijk advies, EU-first.",
     "keywords": "BotLease over ons, BotLease team, humanoid robot bedrijf Nederland, BotLease Eindhoven, robot leasemaatschappij Nederland",
     "h1": "Over BotLease.",
     "tagline": "Wij maken humanoïde robots toegankelijk voor het Nederlandse MKB. Geen vendor lock-in. Onafhankelijk advies. EU-first.",
@@ -341,7 +341,7 @@ ABOUT = {
             "id": "team",
             "h": "Team",
             "body": [
-                "BotLease is in 2026 opgericht in Amsterdam als eenmanszaak (KvK 95943420). Vestiging: Vrouwengelukhof 58, 1061BS Amsterdam. Activiteiten: verhuur humanoïde robots, toekomstgerichte automatiseringsoplossingen, consultancy in robotica, ontwikkeling AI chatbots. Het team combineert achtergronden uit operational leasing (Pon, Athlon), robotica (TU Delft, TU/e) en SaaS-engineering.",
+                "BotLease is in 2026 opgericht in Amsterdam als eenmanszaak (KvK 95943420). Het team combineert achtergronden uit operational leasing (Pon, Athlon), robotica (TU Delft, TU/e) en SaaS-engineering.",
                 "Voor pers- of analist-aanvragen: <a href=\"mailto:hallo@botlease.nl\">hallo@botlease.nl</a>.",
             ],
         },

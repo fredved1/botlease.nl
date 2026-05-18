@@ -27,10 +27,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Verhuur humanoïde robots, automatiseringsoplossingen, robotica consultancy en AI chatbot ontwikkeling.", "address": {"@type": "PostalAddress", "streetAddress": "Vrouwengelukhof 58", "addressLocality": "Amsterdam", "postalCode": "1061 BS", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Operational lease van humanoïde robots voor het Nederlandse MKB.", "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "BotLease", "url": "https://botlease.nl", "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Operational lease van humanoïde robots", "provider": {"@type": "Organization", "name": "BotLease"}, "areaServed": {"@type": "Country", "name": "Nederland"}, "description": "All-in operational lease van humanoïde robots inclusief installatie, training, onderhoud, swap-SLA en verzekering. Vanaf €290/maand."}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://botlease.nl/#org", "name": "BotLease", "image": "https://botlease.nl/img/robots/apollo-norm.webp", "url": "https://botlease.nl", "email": "hallo@botlease.nl", "priceRange": "€€€", "address": {"@type": "PostalAddress", "streetAddress": "Vrouwengelukhof 58", "addressLocality": "Amsterdam", "postalCode": "1061 BS", "addressCountry": "NL"}, "geo": {"@type": "GeoCoordinates", "latitude": 52.3676, "longitude": 4.9041}, "areaServed": [{"@type": "Country", "name": "Nederland"}, {"@type": "Country", "name": "België"}, {"@type": "Country", "name": "Duitsland"}], "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://botlease.nl/#org", "name": "BotLease", "image": "https://botlease.nl/img/robots/apollo-norm.webp", "url": "https://botlease.nl", "email": "hallo@botlease.nl", "priceRange": "€€€", "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"}, "areaServed": [{"@type": "Country", "name": "Nederland"}, {"@type": "Country", "name": "België"}, {"@type": "Country", "name": "Duitsland"}], "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Hoe lease ik een humanoïde robot in Nederland?", "description": "In 4 stappen van intake tot operationele humanoïde robot op locatie via BotLease.", "totalTime": "P4W", "estimatedCost": {"@type": "MonetaryAmount", "currency": "EUR", "value": "1500"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Intake", "text": "Gratis assessment op locatie binnen 5 werkdagen."}, {"@type": "HowToStep", "position": 2, "name": "4-weken pilot", "text": "Robot op locatie voor €1.500."}, {"@type": "HowToStep", "position": 3, "name": "Beslissing", "text": "ROI helder? Door naar lease. Niet tevreden? Robot retour."}, {"@type": "HowToStep", "position": 4, "name": "Lease & beheer", "text": "36-maands operational lease met Swap-SLA."}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hoe veilig is een humanoïde robot op de werkvloer?", "acceptedAnswer": {"@type": "Answer", "text": "Elke deployment voldoet aan de Machinerichtlijn 2006/42/EG en ISO 10218 / EN ISO 13482. WA-dekking tot €2,5M."}}, {"@type": "Question", "name": "Wat als de robot stuk gaat?", "acceptedAnswer": {"@type": "Answer", "text": "Binnen 24 uur is een vervangende unit op locatie (Swap-SLA)."}}, {"@type": "Question", "name": "Kan ik tussentijds opzeggen?", "acceptedAnswer": {"@type": "Answer", "text": "Het eerste jaar zit je vast. Daarna maandelijks opzegbaar."}}]}</script>
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="/rss.xml">
@@ -54,9 +54,9 @@
   --bg-light:   #fbfbfd;
   --bg-dark:    #000000;
   --fg-light:   #1d1d1f;
-  --fg-light-2: #6e6e73;
+  --fg-light-2: #424245;   /* was #6e6e73 — bumped voor contrast op grey */
   --fg-dark:    #f5f5f7;
-  --fg-dark-2:  #86868b;
+  --fg-dark-2:  #d2d2d7;   /* was #86868b — bumped voor contrast op dark */
   --accent:     #0066cc;
   --accent-2:   #2997ff;
   --border-light: #d2d2d7;
@@ -140,6 +140,42 @@ nav.top .row {
   transition:background .15s;
 }
 .nav-cta:hover { background:#333; }
+
+/* Language switcher */
+.lang-switch { position:relative; display:inline-flex; align-items:center; margin-right:6px; }
+.lang-btn {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:4px 9px; border:1px solid rgba(0,0,0,0.12); border-radius:14px;
+  background:transparent; color:var(--fg-light);
+  font-size:12px; font-weight:500; font-family:inherit;
+  cursor:pointer; transition:all .15s;
+}
+.lang-btn:hover { border-color:rgba(0,0,0,0.3); }
+nav.top.dark .lang-btn { color:var(--fg-dark); border-color:rgba(255,255,255,0.18); }
+nav.top.dark .lang-btn:hover { border-color:rgba(255,255,255,0.4); }
+.lang-btn svg { width:9px; height:9px; opacity:0.6; }
+.lang-menu {
+  position:absolute; top:calc(100% + 6px); right:0;
+  background:#fff; border:1px solid var(--border-light); border-radius:12px;
+  padding:6px; display:none; flex-direction:column;
+  min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
+  z-index:100;
+}
+nav.top.dark .lang-menu { background:#1d1d1f; border-color:var(--border-dark); }
+.lang-menu.open { display:flex; }
+.lang-menu a {
+  padding:7px 12px; font-size:13px; color:var(--fg-light);
+  border-radius:8px; transition:background .12s;
+  display:flex; align-items:center; gap:8px;
+}
+.lang-menu a:hover { background:var(--bg-light); }
+nav.top.dark .lang-menu a { color:var(--fg-dark); }
+nav.top.dark .lang-menu a:hover { background:#2a2a2c; }
+.lang-flag { font-size:14px; }
+/* Hide Google Translate banner */
+.goog-te-banner-frame, .skiptranslate { display:none !important; }
+body { top:0 !important; }
+.goog-te-gadget { font-size:0 !important; height:0; overflow:hidden; }
 
 @media (max-width:780px) {
   .nav-links { display:none; }
@@ -488,7 +524,28 @@ footer {
       <a href="/kosten">Kosten</a>
       <a href="/nieuws">Nieuws</a>
     </div>
-    <a href="#contact" class="nav-cta">Plan demo</a>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLangMenu(event)" aria-label="Taal kiezen">
+          <span id="lang-current">🇳🇱 NL</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <a href="#" onclick="setLang('nl', event)"><span class="lang-flag">🇳🇱</span> Nederlands</a>
+          <a href="#" onclick="setLang('en', event)"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="#" onclick="setLang('de', event)"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+          <a href="#" onclick="setLang('fr', event)"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="#" onclick="setLang('es', event)"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="#" onclick="setLang('it', event)"><span class="lang-flag">🇮🇹</span> Italiano</a>
+          <a href="#" onclick="setLang('pt', event)"><span class="lang-flag">🇵🇹</span> Português</a>
+          <a href="#" onclick="setLang('pl', event)"><span class="lang-flag">🇵🇱</span> Polski</a>
+          <a href="#" onclick="setLang('sv', event)"><span class="lang-flag">🇸🇪</span> Svenska</a>
+          <a href="#" onclick="setLang('da', event)"><span class="lang-flag">🇩🇰</span> Dansk</a>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Plan demo</a>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
   </div>
 </nav>
 
@@ -630,7 +687,7 @@ footer {
         <div class="brand-mark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
         BotLease
       </div>
-      <p style="max-width:240px">Verhuur humanoïde robots, automatiseringsoplossingen, robotica consultancy en AI chatbot ontwikkeling.</p>
+      <p style="max-width:240px">Humanoïde robots leasen voor het Nederlandse MKB. All-in operational lease.</p>
     </div>
     <div>
       <h5>Robots</h5>
@@ -661,7 +718,7 @@ footer {
     </div>
   </div>
   <div class="foot-bot">
-    <div>© 2026 BotLease — KvK 95943420 · Vrouwengelukhof 58, 1061BS Amsterdam</div>
+    <div>© 2026 BotLease — KvK 95943420 · Amsterdam</div>
     <div>hallo@botlease.nl</div>
   </div>
 </footer>
@@ -705,6 +762,46 @@ footer {
     }
   }, { threshold:[0, 0.5, 1] });
   darkSections.forEach(function(s){ io.observe(s); });
+})();
+
+// Language switcher — Google Translate Element
+function toggleLangMenu(e) {
+  if (e) e.stopPropagation();
+  document.getElementById('lang-menu').classList.toggle('open');
+}
+document.addEventListener('click', function(e){
+  var m = document.getElementById('lang-menu');
+  var b = document.querySelector('.lang-btn');
+  if (m && b && !b.contains(e.target) && !m.contains(e.target)) m.classList.remove('open');
+});
+var LANG_LABEL = { nl:'🇳🇱 NL', en:'🇬🇧 EN', de:'🇩🇪 DE', fr:'🇫🇷 FR', es:'🇪🇸 ES', it:'🇮🇹 IT', pt:'🇵🇹 PT', pl:'🇵🇱 PL', sv:'🇸🇪 SV', da:'🇩🇰 DA' };
+function setLang(lang, e) {
+  if (e) e.preventDefault();
+  document.cookie = 'googtrans=/nl/' + lang + ';path=/';
+  document.cookie = 'googtrans=/nl/' + lang + ';path=/;domain=.botlease.nl';
+  var cur = document.getElementById('lang-current');
+  if (cur) cur.textContent = LANG_LABEL[lang] || lang.toUpperCase();
+  document.getElementById('lang-menu').classList.remove('open');
+  // Reload so Google Translate picks up the new cookie
+  location.reload();
+}
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'nl',
+    includedLanguages: 'en,de,fr,es,it,pt,pl,sv,da,nl',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+(function(){
+  // Restore current lang label from cookie
+  var m = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
+  var cur = document.getElementById('lang-current');
+  if (m && cur && LANG_LABEL[m[1]]) cur.textContent = LANG_LABEL[m[1]];
+  var s = document.createElement('script');
+  s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  s.async = true;
+  document.body.appendChild(s);
 })();
 
 // Contact form

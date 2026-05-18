@@ -13,6 +13,18 @@ import sys
 from pathlib import Path
 from PIL import Image, ImageOps
 
+# rembg AI background removal — isnet-general-use beter dan default U2Net
+try:
+    from rembg import remove as rembg_remove
+    from rembg import new_session
+    REMBG_AVAILABLE = True
+    # isnet-general-use is sterker dan default u2net voor edge-cases
+    REMBG_SESSION = new_session("isnet-general-use")
+except ImportError:
+    REMBG_AVAILABLE = False
+    REMBG_SESSION = None
+    print("⚠ rembg not installed — falling back to white-bg color-key")
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC_DIR = ROOT / "frontend" / "img" / "robots"
 
@@ -69,20 +81,22 @@ def remove_white_bg(img, threshold=235):
 
 def normalize(src_path: Path, out_path: Path):
     """Resize image to fit TARGET_W × TARGET_H × SCALE, centered, transparent bg.
-    Detecteert witte achtergrond en maakt die transparent (voor product-photos)."""
+    Gebruikt rembg AI voor échte bg-removal (foliage, lavender, editorial bgs)."""
     img = Image.open(src_path)
-
-    # Apply EXIF orientation if any
     img = ImageOps.exif_transpose(img)
 
-    # Convert to RGBA for transparency
-    if img.mode != "RGBA":
-        img = img.convert("RGBA")
-
-    # Witte achtergrond → transparant (product photos like Unitree shop shots)
-    if has_white_bg(img):
-        img = remove_white_bg(img)
-        print(f"  (white bg detected → transparant)")
+    if REMBG_AVAILABLE:
+        # AI bg removal — isnet-general-use voor scherpere randen
+        img_rgba = img.convert("RGBA") if img.mode != "RGBA" else img
+        img = rembg_remove(img_rgba, session=REMBG_SESSION)
+        print(f"  (rembg isnet → bg verwijderd)")
+    else:
+        # Fallback: white-only color-key
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
+        if has_white_bg(img):
+            img = remove_white_bg(img)
+            print(f"  (white bg → transparant)")
 
     # Compute scale to fit within (TARGET_W × SCALE, TARGET_H × SCALE)
     max_w = int(TARGET_W * SCALE)

@@ -28,14 +28,14 @@ BASE_CSS = """
   --line:          #d2d2d7;
   --line-2:        #86868b;
 
-  /* Text — Apple greys */
+  /* Text — Apple greys, but darker for better contrast on grey tiles */
   --ink:    #1d1d1f;
-  --ink-2:  #6e6e73;
-  --ink-3:  #86868b;
-  --ink-4:  #a1a1a6;
+  --ink-2:  #424245;   /* was #6e6e73 — bumped for contrast op grey bg */
+  --ink-3:  #6e6e73;   /* was #86868b */
+  --ink-4:  #86868b;
   --ink-on-dark:   #f5f5f7;
-  --ink-2-on-dark: #86868b;
-  --ink-3-on-dark: #6e6e73;
+  --ink-2-on-dark: #d2d2d7;  /* was #86868b — meer contrast op dark */
+  --ink-3-on-dark: #a1a1a6;
 
   /* Accent — Apple blue */
   --accent:       #0066cc;
@@ -119,6 +119,37 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 }
 .nav-links a:hover, .nav-links a.active { color:var(--ink); }
 
+/* Language switcher */
+.lang-switch { position:relative; display:inline-flex; align-items:center; margin-right:6px; }
+.lang-btn {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:4px 9px; border:1px solid rgba(0,0,0,0.12); border-radius:14px;
+  background:transparent; color:var(--ink);
+  font-size:12px; font-weight:500; font-family:inherit;
+  cursor:pointer; transition:all .15s;
+}
+.lang-btn:hover { border-color:rgba(0,0,0,0.3); }
+.lang-btn svg { width:9px; height:9px; opacity:0.6; }
+.lang-menu {
+  position:absolute; top:calc(100% + 6px); right:0;
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:6px; display:none; flex-direction:column;
+  min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
+  z-index:100;
+}
+.lang-menu.open { display:flex; }
+.lang-menu a {
+  padding:7px 12px; font-size:13px; color:var(--ink);
+  border-radius:8px; transition:background .12s;
+  display:flex; align-items:center; gap:8px;
+}
+.lang-menu a:hover { background:var(--bg-2); }
+.lang-flag { font-size:14px; }
+/* Hide Google Translate banner */
+.goog-te-banner-frame, .skiptranslate { display:none !important; }
+body { top:0 !important; }
+.goog-te-gadget { font-size:0 !important; height:0; overflow:hidden; }
+
 /* Buttons — Apple pill */
 .btn {
   display:inline-flex; align-items:center; gap:4px;
@@ -192,16 +223,56 @@ NAV_HTML = """
       <a href="/kosten">Kosten</a>
       <a href="/nieuws">Nieuws</a>
     </div>
-    <a href="/#contact" class="btn" style="padding:5px 14px; font-size:13px;">Plan demo</a>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLangMenu(event)" aria-label="Taal kiezen">
+          <span id="lang-current">🇳🇱 NL</span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <a href="#" onclick="setLang('nl', event)"><span class="lang-flag">🇳🇱</span> Nederlands</a>
+          <a href="#" onclick="setLang('en', event)"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="#" onclick="setLang('de', event)"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+          <a href="#" onclick="setLang('fr', event)"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="#" onclick="setLang('es', event)"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="#" onclick="setLang('it', event)"><span class="lang-flag">🇮🇹</span> Italiano</a>
+          <a href="#" onclick="setLang('pt', event)"><span class="lang-flag">🇵🇹</span> Português</a>
+          <a href="#" onclick="setLang('pl', event)"><span class="lang-flag">🇵🇱</span> Polski</a>
+          <a href="#" onclick="setLang('sv', event)"><span class="lang-flag">🇸🇪</span> Svenska</a>
+          <a href="#" onclick="setLang('da', event)"><span class="lang-flag">🇩🇰</span> Dansk</a>
+        </div>
+      </div>
+      <a href="/#contact" class="btn" style="padding:5px 14px; font-size:13px;">Plan demo</a>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
   </div>
 </nav>
+"""
+
+LANG_JS = """
+<script>
+function toggleLangMenu(e){if(e)e.stopPropagation();document.getElementById('lang-menu').classList.toggle('open');}
+document.addEventListener('click',function(e){var m=document.getElementById('lang-menu'),b=document.querySelector('.lang-btn');if(m&&b&&!b.contains(e.target)&&!m.contains(e.target))m.classList.remove('open');});
+var LANG_LABEL={nl:'🇳🇱 NL',en:'🇬🇧 EN',de:'🇩🇪 DE',fr:'🇫🇷 FR',es:'🇪🇸 ES',it:'🇮🇹 IT',pt:'🇵🇹 PT',pl:'🇵🇱 PL',sv:'🇸🇪 SV',da:'🇩🇰 DA'};
+function setLang(lang,e){if(e)e.preventDefault();document.cookie='googtrans=/nl/'+lang+';path=/';document.cookie='googtrans=/nl/'+lang+';path=/;domain=.botlease.nl';var cur=document.getElementById('lang-current');if(cur)cur.textContent=LANG_LABEL[lang]||lang.toUpperCase();document.getElementById('lang-menu').classList.remove('open');location.reload();}
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'nl',includedLanguages:'en,de,fr,es,it,pt,pl,sv,da,nl',autoDisplay:false,layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');}
+(function(){var m=document.cookie.match(/googtrans=\\/[a-z]+\\/([a-z]+)/);var cur=document.getElementById('lang-current');if(m&&cur&&LANG_LABEL[m[1]])cur.textContent=LANG_LABEL[m[1]];var s=document.createElement('script');s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);})();
+</script>
 """
 
 FOOTER_HTML = """
 <footer>
   <div class="row">
-    <div>© 2026 BotLease — KvK 95943420 · Vrouwengelukhof 58, 1061BS Amsterdam</div>
+    <div>© 2026 BotLease — KvK 95943420 · Amsterdam</div>
     <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/sectoren">Sectoren</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · hallo@botlease.nl</div>
   </div>
 </footer>
+<script>
+function toggleLangMenu(e){if(e)e.stopPropagation();document.getElementById('lang-menu').classList.toggle('open');}
+document.addEventListener('click',function(e){var m=document.getElementById('lang-menu'),b=document.querySelector('.lang-btn');if(m&&b&&!b.contains(e.target)&&!m.contains(e.target))m.classList.remove('open');});
+var LANG_LABEL={nl:'🇳🇱 NL',en:'🇬🇧 EN',de:'🇩🇪 DE',fr:'🇫🇷 FR',es:'🇪🇸 ES',it:'🇮🇹 IT',pt:'🇵🇹 PT',pl:'🇵🇱 PL',sv:'🇸🇪 SV',da:'🇩🇰 DA'};
+function setLang(lang,e){if(e)e.preventDefault();document.cookie='googtrans=/nl/'+lang+';path=/';document.cookie='googtrans=/nl/'+lang+';path=/;domain=.botlease.nl';var cur=document.getElementById('lang-current');if(cur)cur.textContent=LANG_LABEL[lang]||lang.toUpperCase();document.getElementById('lang-menu').classList.remove('open');location.reload();}
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'nl',includedLanguages:'en,de,fr,es,it,pt,pl,sv,da,nl',autoDisplay:false,layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');}
+(function(){var m=document.cookie.match(/googtrans=\\/[a-z]+\\/([a-z]+)/);var cur=document.getElementById('lang-current');if(m&&cur&&LANG_LABEL[m[1]])cur.textContent=LANG_LABEL[m[1]];var s=document.createElement('script');s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);})();
+</script>
 """
