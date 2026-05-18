@@ -3,6 +3,7 @@
 Generates sector landing pages (/sectoren/<slug>) and city landing pages (/leasen/<slug>).
 """
 from __future__ import annotations
+import re
 import json
 import sys
 from html import escape
@@ -122,6 +123,13 @@ ORG_SCHEMA = json.dumps({
 }, ensure_ascii=False)
 
 
+def _fmt_nl(html: str) -> str:
+    """Convert digit-comma-digit (Python thousand separator) to digit-dot-digit (NL format).
+    Does NOT touch CSS/JSON/JS commas."""
+    import re
+    return re.sub(r'(\d),(\d)', r'\1.\2', html)
+
+
 def robot_card(slug: str) -> str:
     r = by_slug(slug)
     if not r:
@@ -133,7 +141,7 @@ def robot_card(slug: str) -> str:
           <h4>{escape(r['name'])}</h4>
           <span class="p">€{r['lease_eur']:,}/mnd</span>
         </div>
-      </a>""".replace(",", ".")
+      </a>"""
 
 
 def render_sector(s: dict) -> str:

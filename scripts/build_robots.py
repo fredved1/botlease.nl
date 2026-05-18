@@ -5,6 +5,7 @@ Generates:
 - frontend/robots/index.html        — overview / robots-hub
 """
 from __future__ import annotations
+import re
 import json
 import sys
 from html import escape
@@ -262,6 +263,13 @@ ORG_SCHEMA = json.dumps({
 }, ensure_ascii=False)
 
 
+def _fmt_nl(html: str) -> str:
+    """Convert digit-comma-digit (Python thousand separator) to digit-dot-digit (NL format).
+    Does NOT touch CSS/JSON/JS commas."""
+    import re
+    return re.sub(r'(\d),(\d)', r'\1.\2', html)
+
+
 def product_jsonld(r: dict) -> str:
     return json.dumps({
         "@context": "https://schema.org",
@@ -450,7 +458,7 @@ def render_robot(r: dict, related: list) -> str:
         f"{r['name']} ({r['vendor']}, {r['vendor_country']}) leasen via BotLease vanaf €{r['lease_eur']:,}/maand. "
         f"All-in operational lease: installatie, training, onderhoud, swap-SLA, verzekering. "
         f"{r['tagline']}"
-    ).replace(",", ".")
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="nl">
@@ -645,7 +653,7 @@ function handleWaitlistSubmit(e) {{
 </script>
 </body>
 </html>
-""".replace(",", ".")
+"""
 
 
 def render_hub() -> str:

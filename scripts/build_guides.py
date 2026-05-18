@@ -11,6 +11,7 @@ Generates:
 - /vergelijken/<a>-vs-<b>.html           (head-to-head pages)
 """
 from __future__ import annotations
+import re
 import json
 import sys
 from html import escape
@@ -212,6 +213,13 @@ ORG_SCHEMA = json.dumps({
     "logo": f"{SITE_URL}/logo.png",
     "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"},
 }, ensure_ascii=False)
+
+
+def _fmt_nl(html: str) -> str:
+    """Convert digit-comma-digit (Python thousand separator) to digit-dot-digit (NL format).
+    Does NOT touch CSS/JSON/JS commas."""
+    import re
+    return re.sub(r'(\d),(\d)', r'\1.\2', html)
 
 
 def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool = False) -> str:
@@ -758,7 +766,7 @@ def render_comparison_hub() -> str:
             <div class="cmp-arr">€{r['lease_eur']:,}/mnd</div>
             <div style="font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; margin-top:2px">{escape(r['category'])}</div>
           </div>
-        </a>""".replace(",", ".") for r in ROBOTS
+        </a>""" for r in ROBOTS
     )
 
     breadcrumb = json.dumps({
@@ -866,7 +874,7 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
           </div>
           <p style="color:var(--ink-2); font-size:14.5px; line-height:1.65; margin-bottom:14px">{escape(r['short'])}</p>
           <a class="btn ghost" href="/robots/{r['slug']}">Bekijk detail →</a>
-        </div>""".replace(",", ".")
+        </div>"""
 
     h1 = f"{a['name']} vs {b['name']} — vergelijking 2026"
     title = f"{h1} | BotLease"
@@ -969,7 +977,7 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
 {FOOTER_HTML}
 </body>
 </html>
-""".replace(",", ".")
+"""
 
 
 def render_gids_hub() -> str:
