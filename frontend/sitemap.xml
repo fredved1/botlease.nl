@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://botlease.nl/</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://botlease.nl/gids/humanoide-robot-leasen</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.98</priority></url>
-  <url><loc>https://botlease.nl/robots/</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://botlease.nl/gids/ai-act-machineverordening</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
-  <url><loc>https://botlease.nl/vergelijken</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.92</priority></url>
-  <url><loc>https://botlease.nl/kosten</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
-  <url><loc>https://botlease.nl/sectoren/</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://botlease.nl/leasen/</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://botlease.nl/nieuws/</loc><lastmod>2026-05-18</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/gids/</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/begrippen</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://botlease.nl/over</loc><lastmod>2026-05-18</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://botlease.nl/methodologie</loc><lastmod>2026-05-18</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/unitree-g1-vs-neura-4ne1-mini</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/unitree-h1-2-vs-ubtech-walker-s2</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/pal-kangaroo-vs-unitree-h1-2</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/unitree-r1-vs-engineai-se01</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/vergelijken/apptronik-apollo-vs-figure-02</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/robots/neura-4ne1-mini</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/neura-4ne1-gen3</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/pal-kangaroo</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/pal-tiago-pro</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/pollen-reachy-2</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/unitree-r1</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/unitree-g1</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/unitree-h1-2</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/unitree-h2</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/engineai-se01</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/ubtech-walker-s2</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/apptronik-apollo</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/figure-02</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/agility-digit</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/robots/1x-neo</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://botlease.nl/sectoren/3pl-fulfillment</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/sectoren/productie-assemblage</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/sectoren/hospitality-retail</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/sectoren/zorg-instellingen</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://botlease.nl/leasen/amsterdam</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://botlease.nl/leasen/rotterdam</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://botlease.nl/leasen/eindhoven</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://botlease.nl/leasen/utrecht</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://botlease.nl/leasen/den-haag</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://botlease.nl/gids/humanoide-robot-leasen</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.98</priority></url>
+  <url><loc>https://botlease.nl/robots/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://botlease.nl/gids/ai-act-machineverordening</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://botlease.nl/vergelijken</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://botlease.nl/kosten</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://botlease.nl/sectoren/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://botlease.nl/leasen/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://botlease.nl/nieuws/</loc><lastmod>2026-05-20</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/gids/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/begrippen</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/over</loc><lastmod>2026-05-20</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://botlease.nl/methodologie</loc><lastmod>2026-05-20</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/unitree-g1-vs-neura-4ne1-mini</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/unitree-h1-2-vs-ubtech-walker-s2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/pal-kangaroo-vs-unitree-h1-2</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/unitree-r1-vs-engineai-se01</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/vergelijken/apptronik-apollo-vs-figure-02</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/robots/neura-4ne1-mini</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/neura-4ne1-gen3</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/pal-kangaroo</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/pal-tiago-pro</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/pollen-reachy-2</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/unitree-r1</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/unitree-g1</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/unitree-h1-2</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/unitree-h2</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/engineai-se01</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/ubtech-walker-s2</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/apptronik-apollo</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/figure-02</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/agility-digit</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/robots/1x-neo</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://botlease.nl/sectoren/3pl-fulfillment</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/sectoren/productie-assemblage</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/sectoren/hospitality-retail</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/sectoren/zorg-instellingen</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://botlease.nl/leasen/amsterdam</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/leasen/rotterdam</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/leasen/eindhoven</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/leasen/utrecht</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/leasen/den-haag</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://botlease.nl/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://botlease.nl/nieuws/iso-werkt-aan-nieuwe-veiligheidsnorm-voor-huishoudrobots-kritiek-op-gebrek-aan-l</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/eu-machineverordening-2027-werkgevers-checklist</loc><lastmod>2026-05-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://botlease.nl/nieuws/autonome-40-tons-materiaalhandler-markeert-sprong-naar-zware-zelfsturende-roboti</loc><lastmod>2026-05-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/ubtech-walker-s2-1000-units-commerciele-volwassenheid</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot</loc><lastmod>2026-05-12</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://botlease.nl/nieuws/hello-robot-lanceert-stretch-4-pragmatisch-alternatief-voor-humanoiden</loc><lastmod>2026-05-12</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</loc><lastmod>2026-05-11</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</loc><lastmod>2026-05-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</loc><lastmod>2026-05-09</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

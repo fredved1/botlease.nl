@@ -6,7 +6,23 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Mon, 18 May 2026 14:52:44 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 13:27:20 +0000</lastBuildDate>
+    <item>
+      <title>krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk</title>
+      <link>https://botlease.nl/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk</guid>
+      <pubDate>Wed, 20 May 2026 08:00:00 +0100</pubDate>
+      <category>Markt</category>
+      <description><![CDATA[Investeerders pompten in 2025 een recordbedrag van 40,7 miljard dollar in robotica, maar de economische doorbraak laat nog op zich wachten.]]></description>
+    </item>
+    <item>
+      <title>ISO werkt aan nieuwe veiligheidsnorm voor huishoudrobots: kritiek op gebrek aan limieten</title>
+      <link>https://botlease.nl/nieuws/iso-werkt-aan-nieuwe-veiligheidsnorm-voor-huishoudrobots-kritiek-op-gebrek-aan-l</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/iso-werkt-aan-nieuwe-veiligheidsnorm-voor-huishoudrobots-kritiek-op-gebrek-aan-l</guid>
+      <pubDate>Tue, 19 May 2026 08:00:00 +0100</pubDate>
+      <category>Regelgeving</category>
+      <description><![CDATA[De update van ISO 13482 komt op een cruciaal moment, maar onderzoekers waarschuwen dat handhaving en concrete testmethodes ontbreken.]]></description>
+    </item>
     <item>
       <title>NEURA Robotics × Bosch: wat de Duitse alliantie betekent voor Nederlandse maakbedrijven</title>
       <link>https://botlease.nl/nieuws/neura-robotics-bosch-deal-nederlandse-maakindustrie</link>
@@ -22,6 +38,14 @@
       <pubDate>Fri, 15 May 2026 08:00:00 +0100</pubDate>
       <category>Regelgeving</category>
       <description><![CDATA[Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?]]></description>
+    </item>
+    <item>
+      <title>autonome 40-tons materiaalhandler markeert sprong naar zware zelfsturende robotica</title>
+      <link>https://botlease.nl/nieuws/autonome-40-tons-materiaalhandler-markeert-sprong-naar-zware-zelfsturende-roboti</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/autonome-40-tons-materiaalhandler-markeert-sprong-naar-zware-zelfsturende-roboti</guid>
+      <pubDate>Fri, 15 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[ETH Zürich demonstreert eerste volledig autonome oplossing op een echte 40-tons hydraulische kraan — een doorbraak voor bulkverwerking in havens en recycling.]]></description>
     </item>
     <item>
       <title>Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</title>
@@ -46,6 +70,14 @@
       <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
       <category>Industrie</category>
       <description><![CDATA[De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.]]></description>
+    </item>
+    <item>
+      <title>Hello Robot lanceert Stretch 4: pragmatisch alternatief voor humanoïden</title>
+      <link>https://botlease.nl/nieuws/hello-robot-lanceert-stretch-4-pragmatisch-alternatief-voor-humanoiden</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/hello-robot-lanceert-stretch-4-pragmatisch-alternatief-voor-humanoiden</guid>
+      <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Terwijl humanoïde robots de aandacht opeisen, mikt Hello Robot met Stretch 4 op betaalbare, veilige inzet in huis en zorg.]]></description>
     </item>
     <item>
       <title>Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen</title>
