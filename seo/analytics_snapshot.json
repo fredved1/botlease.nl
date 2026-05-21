@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-05-21T08:16:21.530037+00:00",
+  "website_id": "185bb2a6-3057-420f-9f3b-babb2776450f",
+  "periods": {
+    "24h": {
+      "stats": {
+        "pageviews": 0,
+        "visitors": 0,
+        "visits": 0,
+        "bounces": 0,
+        "totaltime": 0,
+        "comparison": {
+          "pageviews": 0,
+          "visitors": 0,
+          "visits": 0,
+          "bounces": 0,
+          "totaltime": 0
+        }
+      },
+      "top_pages": [],
+      "top_referrers": [],
+      "countries": [],
+      "devices": [],
+      "os": [],
+      "browsers": [],
+      "events": []
+    },
+    "7d": {
+      "stats": {
+        "pageviews": 0,
+        "visitors": 0,
+        "visits": 0,
+        "bounces": 0,
+        "totaltime": 0,
+        "comparison": {
+          "pageviews": 0,
+          "visitors": 0,
+          "visits": 0,
+          "bounces": 0,
+          "totaltime": 0
+        }
+      },
+      "top_pages": [],
+      "top_referrers": [],
+      "countries": [],
+      "devices": [],
+      "os": [],
+      "browsers": [],
+      "events": []
+    },
+    "30d": {
+      "stats": {
+        "pageviews": 0,
+        "visitors": 0,
+        "visits": 0,
+        "bounces": 0,
+        "totaltime": 0,
+        "comparison": {
+          "pageviews": 0,
+          "visitors": 0,
+          "visits": 0,
+          "bounces": 0,
+          "totaltime": 0
+        }
+      },
+      "top_pages": [],
+      "top_referrers": [],
+      "countries": [],
+      "devices": [],
+      "os": [],
+      "browsers": [],
+      "events": []
+    }
+  }
+}
