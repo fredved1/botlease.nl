@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-05-21T08:16:21.530037+00:00",
+  "generated_at": "2026-05-22T15:03:59.364359+00:00",
   "website_id": "185bb2a6-3057-420f-9f3b-babb2776450f",
   "periods": {
     "24h": {
       "stats": {
-        "pageviews": 0,
-        "visitors": 0,
-        "visits": 0,
-        "bounces": 0,
+        "pageviews": 1,
+        "visitors": 1,
+        "visits": 1,
+        "bounces": 1,
         "totaltime": 0,
         "comparison": {
           "pageviews": 0,
@@ -17,20 +17,45 @@
           "totaltime": 0
         }
       },
-      "top_pages": [],
+      "top_pages": [
+        {
+          "x": "/",
+          "y": 1
+        }
+      ],
       "top_referrers": [],
-      "countries": [],
-      "devices": [],
-      "os": [],
-      "browsers": [],
+      "countries": [
+        {
+          "x": "US",
+          "y": 1
+        }
+      ],
+      "devices": [
+        {
+          "x": "desktop",
+          "y": 1
+        }
+      ],
+      "os": [
+        {
+          "x": "Windows 10",
+          "y": 1
+        }
+      ],
+      "browsers": [
+        {
+          "x": "chrome",
+          "y": 1
+        }
+      ],
       "events": []
     },
     "7d": {
       "stats": {
-        "pageviews": 0,
-        "visitors": 0,
-        "visits": 0,
-        "bounces": 0,
+        "pageviews": 1,
+        "visitors": 1,
+        "visits": 1,
+        "bounces": 1,
         "totaltime": 0,
         "comparison": {
           "pageviews": 0,
@@ -40,20 +65,45 @@
           "totaltime": 0
         }
       },
-      "top_pages": [],
+      "top_pages": [
+        {
+          "x": "/",
+          "y": 1
+        }
+      ],
       "top_referrers": [],
-      "countries": [],
-      "devices": [],
-      "os": [],
-      "browsers": [],
+      "countries": [
+        {
+          "x": "US",
+          "y": 1
+        }
+      ],
+      "devices": [
+        {
+          "x": "desktop",
+          "y": 1
+        }
+      ],
+      "os": [
+        {
+          "x": "Windows 10",
+          "y": 1
+        }
+      ],
+      "browsers": [
+        {
+          "x": "chrome",
+          "y": 1
+        }
+      ],
       "events": []
     },
     "30d": {
       "stats": {
-        "pageviews": 0,
-        "visitors": 0,
-        "visits": 0,
-        "bounces": 0,
+        "pageviews": 1,
+        "visitors": 1,
+        "visits": 1,
+        "bounces": 1,
         "totaltime": 0,
         "comparison": {
           "pageviews": 0,
@@ -63,12 +113,37 @@
           "totaltime": 0
         }
       },
-      "top_pages": [],
+      "top_pages": [
+        {
+          "x": "/",
+          "y": 1
+        }
+      ],
       "top_referrers": [],
-      "countries": [],
-      "devices": [],
-      "os": [],
-      "browsers": [],
+      "countries": [
+        {
+          "x": "US",
+          "y": 1
+        }
+      ],
+      "devices": [
+        {
+          "x": "desktop",
+          "y": 1
+        }
+      ],
+      "os": [
+        {
+          "x": "Windows 10",
+          "y": 1
+        }
+      ],
+      "browsers": [
+        {
+          "x": "chrome",
+          "y": 1
+        }
+      ],
       "events": []
     }
   }
