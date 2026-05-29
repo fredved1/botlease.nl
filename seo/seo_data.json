@@ -286,6 +286,113 @@
   ],
   "checks": [
     {
+      "date": "2026-05-29",
+      "method": "rank-bot (Google.nl direct scrape, weekly automated)",
+      "notes": "Automatische weekly check. 0/23 keywords nu in top 30. Volgende run: vrijdag.",
+      "ranks": {
+        "humanoide-robot-leasen-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "smartrobot.solutions",
+            "nlrobotics.nl"
+          ]
+        },
+        "humanoid-robot-lease-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "smartrobot.solutions",
+            "robotverhuur.nl"
+          ]
+        },
+        "humanoide-robot-huren-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoide-robot-prijs": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "robot-leasen-mkb": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-g1-leasen-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h1-leasen": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h2-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "neura-4ne1-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "pal-kangaroo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "apollo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "figure-02-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "1x-neo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-3pl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-productie": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-hospitality": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-zorg": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-amsterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-rotterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-eindhoven": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "ai-act-machineverordening": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease-nl": {
+          "position": 0,
+          "top_competitors": []
+        }
+      }
+    },
+    {
       "date": "2026-05-22",
       "method": "rank-bot (Google.nl direct scrape, weekly automated)",
       "notes": "Automatische weekly check. 0/23 keywords nu in top 30. Volgende run: vrijdag.",
