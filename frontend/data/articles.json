@@ -1,5 +1,61 @@
 [
   {
+    "slug": "shadow-walker-diy-robot-uit-1987-met-luchtspieren",
+    "title": "Shadow Walker: DIY-robot uit 1987 met luchtspieren",
+    "subtitle": "Een Britse fotograaf bouwde in zijn zolderkamer een tweebenige humanoid op pneumatische spieren - een vergeten voorloper van moderne actuator-technologie.",
+    "date": "2026-05-31",
+    "category": "R&D",
+    "tags": [
+      "humanoide-robotica",
+      "actuatoren",
+      "geschiedenis",
+      "pneumatiek",
+      "biped"
+    ]
+  },
+  {
+    "slug": "eco-score-robots-duurzaamheidslabel-in-opmars",
+    "title": "Eco-Score robots: duurzaamheidslabel in opmars",
+    "subtitle": "IEEE Spectrum belicht in Video Friday een nieuw Eco-Label voor robots, terwijl Boston Dynamics en Agility nieuwe vaardigheden tonen.",
+    "date": "2026-05-29",
+    "category": "Markt",
+    "tags": [
+      "Eco-Score",
+      "duurzaamheid",
+      "Boston Dynamics",
+      "Agility Robotics",
+      "EU AI Act"
+    ]
+  },
+  {
+    "slug": "atlas-tilt-koelkast-humanoide-wordt-industrieel",
+    "title": "Atlas tilt koelkast: humanoïde wordt industrieel",
+    "subtitle": "Boston Dynamics laat zien hoe reinforcement learning Atlas leert om zware objecten te hanteren met whole-body control, een stap richting echte industriële inzet.",
+    "date": "2026-05-22",
+    "category": "R&D",
+    "tags": [
+      "Boston Dynamics",
+      "Atlas",
+      "reinforcement learning",
+      "industrie",
+      "humanoïde"
+    ]
+  },
+  {
+    "slug": "interface-wordt-de-bottleneck-van-physical-ai",
+    "title": "Interface wordt de bottleneck van Physical AI",
+    "subtitle": "Hardware en VLA-modellen schalen razendsnel, maar de mens-machine-interface blijft hangen in scherm, knop en stem.",
+    "date": "2026-05-21",
+    "category": "R&D",
+    "tags": [
+      "physical-ai",
+      "interfaces",
+      "humanoide-robots",
+      "vla-modellen",
+      "operator"
+    ]
+  },
+  {
     "slug": "krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk",
     "title": "krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk",
     "subtitle": "Investeerders pompten in 2025 een recordbedrag van 40,7 miljard dollar in robotica, maar de economische doorbraak laat nog op zich wachten.",

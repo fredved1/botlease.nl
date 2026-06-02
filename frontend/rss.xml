@@ -6,7 +6,39 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Wed, 20 May 2026 13:27:20 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 15:50:56 +0000</lastBuildDate>
+    <item>
+      <title>Shadow Walker: DIY-robot uit 1987 met luchtspieren</title>
+      <link>https://botlease.nl/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren</guid>
+      <pubDate>Sun, 31 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Een Britse fotograaf bouwde in zijn zolderkamer een tweebenige humanoid op pneumatische spieren - een vergeten voorloper van moderne actuator-technologie.]]></description>
+    </item>
+    <item>
+      <title>Eco-Score robots: duurzaamheidslabel in opmars</title>
+      <link>https://botlease.nl/nieuws/eco-score-robots-duurzaamheidslabel-in-opmars</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/eco-score-robots-duurzaamheidslabel-in-opmars</guid>
+      <pubDate>Fri, 29 May 2026 08:00:00 +0100</pubDate>
+      <category>Markt</category>
+      <description><![CDATA[IEEE Spectrum belicht in Video Friday een nieuw Eco-Label voor robots, terwijl Boston Dynamics en Agility nieuwe vaardigheden tonen.]]></description>
+    </item>
+    <item>
+      <title>Atlas tilt koelkast: humanoïde wordt industrieel</title>
+      <link>https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel</guid>
+      <pubDate>Fri, 22 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Boston Dynamics laat zien hoe reinforcement learning Atlas leert om zware objecten te hanteren met whole-body control, een stap richting echte industriële inzet.]]></description>
+    </item>
+    <item>
+      <title>Interface wordt de bottleneck van Physical AI</title>
+      <link>https://botlease.nl/nieuws/interface-wordt-de-bottleneck-van-physical-ai</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/interface-wordt-de-bottleneck-van-physical-ai</guid>
+      <pubDate>Thu, 21 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Hardware en VLA-modellen schalen razendsnel, maar de mens-machine-interface blijft hangen in scherm, knop en stem.]]></description>
+    </item>
     <item>
       <title>krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk</title>
       <link>https://botlease.nl/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk</link>
