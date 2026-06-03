@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Generates:
-- frontend/robots/<slug>.html       — per-robot landing page (long-tail SEO)
-- frontend/robots/index.html        — overview / robots-hub
+- frontend/robots/<slug>.html       - per-robot landing page (long-tail SEO)
+- frontend/robots/index.html        - overview / robots-hub
 """
 from __future__ import annotations
 import re
@@ -18,12 +18,12 @@ SITE_URL = "https://botlease.nl"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from robots_data import ROBOTS, available_robots, waitlist_robots  # noqa: E402
-from seo_common import HEAD_SEO  # noqa: E402
+from seo_common import HEAD_SEO, trim_desc  # noqa: E402
 from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML, FONTS_LINK  # noqa: E402
 
 PAGE_CSS = BASE_CSS + """
 /* Tier badges voor robotpagina's */
-.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Space Grotesk'; }
+.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Inter'; }
 .tier-eu      { background:var(--green-soft); color:var(--green); border:1px solid var(--green-line); }
 .tier-value   { background:var(--accent-soft); color:var(--accent-deep); border:1px solid var(--accent-line); }
 .tier-premium { background:var(--blue-soft); color:var(--blue); border:1px solid #bfdbfe; }
@@ -39,7 +39,7 @@ ROBOT_CSS = """
   .r-hero-grid { grid-template-columns:1.2fr 1fr; gap:64px; }
 }
 .r-hero h1 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(36px, 4.6vw, 58px);
   margin:14px 0 18px; letter-spacing:-0.035em; line-height:1.06;
 }
@@ -78,13 +78,13 @@ ROBOT_CSS = """
 @media (min-width:880px) { .r-quick-grid { grid-template-columns:repeat(6, 1fr); gap:20px; } }
 .r-quick-item { display:flex; flex-direction:column; gap:4px; }
 .r-quick-item .v {
-  font-family:'Space Grotesk'; font-size:22px; font-weight:600;
+  font-family:'Inter'; font-size:22px; font-weight:600;
   letter-spacing:-0.02em; color:var(--ink);
 }
 .r-quick-item .l { font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
 
 section h2 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(26px, 3vw, 40px);
   margin-bottom:16px; letter-spacing:-0.025em; line-height:1.1;
 }
@@ -99,10 +99,10 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .usecase-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .usecase-card .n {
-  font-family:'Space Grotesk'; color:var(--accent-deep);
+  font-family:'Inter'; color:var(--accent-deep);
   font-weight:600; font-size:11.5px; margin-bottom:8px; letter-spacing:0.08em;
 }
-.usecase-card h4 { font-family:'Space Grotesk'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
+.usecase-card h4 { font-family:'Inter'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
 .usecase-card p { color:var(--ink-2); font-size:14.5px; line-height:1.55; }
 
 .spec-table {
@@ -124,7 +124,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .price-row { display:flex; align-items:baseline; gap:6px; margin-bottom:10px; }
 .price-row b {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:48px; letter-spacing:-0.025em; color:var(--ink);
 }
 .price-row .per { color:var(--ink-3); font-size:15px; }
@@ -145,23 +145,23 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   display:block; color:inherit;
 }
 .compare-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
-.compare-card .vname { font-family:'Space Grotesk'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
+.compare-card .vname { font-family:'Inter'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
 .compare-card .vmeta { color:var(--ink-3); font-size:13px; margin-bottom:10px; }
-.compare-card .vprice { font-family:'Space Grotesk'; color:var(--accent); font-size:15px; font-weight:600; }
+.compare-card .vprice { font-family:'Inter'; color:var(--accent); font-size:15px; font-weight:600; }
 
 .cta-strip {
   padding:48px; background:var(--bg-dark); color:var(--ink-on-dark);
   border-radius:20px; text-align:center; margin-top:48px;
 }
 .cta-strip h3 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
 .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
-/* Video facade — iframe laadt pas bij klik */
+/* Video facade - iframe laadt pas bij klik */
 .video-wrap {
   position:relative; border-radius:16px; overflow:hidden;
   aspect-ratio:16/9; background:var(--bg-darker);
@@ -184,7 +184,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .video-wrap .vlabel {
   position:absolute; bottom:20px; left:24px; right:24px;
-  color:white; font-family:'Space Grotesk'; font-weight:600; font-size:17px;
+  color:white; font-family:'Inter'; font-weight:600; font-size:17px;
   text-shadow:0 2px 12px rgba(0,0,0,0.9);
   pointer-events:none;
 }
@@ -200,7 +200,7 @@ LISTING_CSS = """
   margin-bottom:16px;
 }
 .hub-hero h1 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(36px, 5vw, 64px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.05;
 }
@@ -209,24 +209,24 @@ LISTING_CSS = """
 @media (min-width:768px) { .hub-section { padding:64px 0 80px; } }
 .hub-section .head { margin-bottom:32px; }
 .hub-section h2 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(26px, 3vw, 38px);
   margin-bottom:10px; letter-spacing:-0.025em; line-height:1.1;
 }
 .hub-section p.lede { color:var(--ink-2); font-size:16px; max-width:720px; line-height:1.55; }
 
-.hub-grid { display:grid; grid-template-columns:1fr; gap:20px; }
-@media (min-width:640px) { .hub-grid { grid-template-columns:repeat(2,1fr); } }
-@media (min-width:1024px) { .hub-grid { grid-template-columns:repeat(3,1fr); } }
+.hub-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+@media (min-width:780px) { .hub-grid { grid-template-columns:repeat(3,1fr); gap:16px; } }
+@media (min-width:1100px) { .hub-grid { grid-template-columns:repeat(4,1fr); gap:18px; } }
 .hub-card {
   background:var(--bg-card); border:1px solid var(--border);
-  border-radius:14px; overflow:hidden;
-  transition:transform .25s, border-color .25s, box-shadow .25s;
+  border-radius:12px; overflow:hidden;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
   display:flex; flex-direction:column; color:inherit;
 }
-.hub-card:hover { transform:translateY(-3px); border-color:var(--border-hover); box-shadow:var(--shadow-md); }
+.hub-card:hover { transform:translateY(-2px); border-color:var(--border-hover); box-shadow:var(--shadow-sm); }
 .hub-thumb {
-  aspect-ratio:4/3;
+  aspect-ratio:5/3;
   background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-card) 100%);
   position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:center;
@@ -234,21 +234,35 @@ LISTING_CSS = """
 }
 .hub-thumb::before {
   content:""; position:absolute; inset:0;
-  background:radial-gradient(45% 35% at 50% 50%, var(--accent-soft) 0%, transparent 70%);
+  background:radial-gradient(40% 30% at 50% 60%, var(--accent-soft) 0%, transparent 70%);
 }
 .hub-thumb img {
-  max-height:80%; max-width:72%; width:auto; height:auto;
+  max-height:78%; max-width:55%; width:auto; height:auto;
   object-fit:contain; position:relative; z-index:2;
-  filter:drop-shadow(0 14px 28px rgba(28,25,23,0.15));
+  filter:drop-shadow(0 8px 16px rgba(28,25,23,0.12));
 }
-.hub-card-body { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
-.hub-card .vendor { color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:6px; }
-.hub-card h3 { font-family:'Space Grotesk'; font-weight:600; font-size:19px; margin-bottom:6px; color:var(--ink); letter-spacing:-0.015em; }
-.hub-card p.tag { color:var(--ink-2); font-size:13.5px; line-height:1.5; margin-bottom:14px; flex:1; }
-.hub-card .foot { display:flex; justify-content:space-between; align-items:center; padding-top:14px; border-top:1px solid var(--border); }
-.hub-card .price-mini { font-family:'Space Grotesk'; font-weight:600; font-size:16px; color:var(--ink); }
-.hub-card .price-mini .per { color:var(--ink-3); font-size:12px; font-weight:400; }
-.hub-card .arr { color:var(--accent); font-weight:600; font-size:13.5px; }
+.hub-card-body { padding:14px 16px 16px; display:flex; flex-direction:column; flex:1; }
+.hub-card .vendor { color:var(--ink-3); font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
+.hub-card h3 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.01em; line-height:1.2; }
+.hub-card p.tag { color:var(--ink-2); font-size:12.5px; line-height:1.45; margin-bottom:8px; }
+.hub-tags {
+  position:absolute; top:10px; left:10px; right:10px; z-index:3;
+  display:flex; flex-wrap:wrap; gap:5px;
+  pointer-events:none;
+}
+.hub-tag {
+  display:inline-block; padding:3px 9px; border-radius:999px;
+  font-size:10.5px; font-weight:600; letter-spacing:0.01em;
+  background:rgba(255,255,255,0.92); color:var(--ink);
+  border:1px solid rgba(255,255,255,0.6);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 1px 3px rgba(0,0,0,0.08);
+  white-space:nowrap;
+}
+.hub-card .foot { display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid var(--border); }
+.hub-card .price-mini { font-family:'Inter'; font-weight:600; font-size:14px; color:var(--ink); }
+.hub-card .price-mini .per { color:var(--ink-3); font-size:11px; font-weight:400; }
+.hub-card .arr { color:var(--accent); font-weight:600; font-size:12.5px; }
 """
 # NAV_HTML + FOOTER_HTML komen uit style_base.py
 
@@ -264,10 +278,12 @@ ORG_SCHEMA = json.dumps({
 
 
 def _fmt_nl(html: str) -> str:
-    """Convert digit-comma-digit (Python thousand separator) to digit-dot-digit (NL format).
-    Does NOT touch CSS/JSON/JS commas."""
+    """NL thousand separator (€1,295 -> €1.295) — scoped to euro amounts ONLY.
+    The previous global (\\d),(\\d) regex corrupted every rgba()/grid/JSON comma in
+    the document (e.g. rgba(251,251,253,0.72) -> rgba(251.251.253.0.72)); this only
+    touches commas that sit inside a € amount, so CSS/JSON/JS are never altered."""
     import re
-    return re.sub(r'(\d),(\d)', r'\1.\2', html)
+    return re.sub(r'€\d{1,3}(?:,\d{3})+', lambda m: m.group(0).replace(",", "."), html)
 
 
 def product_jsonld(r: dict) -> str:
@@ -323,17 +339,54 @@ def breadcrumb_jsonld(r: dict) -> str:
     }, ensure_ascii=False)
 
 
+def _best_youtube_thumb(vid: str) -> str:
+    """Pre-flight check welke YouTube-thumbnail variant 16:9 én aanwezig is.
+
+    YouTube genereert maxresdefault/hq720 niet voor élke video; de generieke
+    onerror-fallback is onbetrouwbaar (race conditions, CSP). Daarom bakken we
+    de juiste URL bij build-time in de HTML. Resultaat wordt gecached in
+    seo/youtube_thumbs.json zodat we niet bij elke build 15× HTTP HEAD doen.
+    """
+    import json as _json
+    import urllib.request as _ur
+    cache_path = ROOT / "seo" / "youtube_thumbs.json"
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    if cache_path.exists():
+        cache = _json.loads(cache_path.read_text())
+    else:
+        cache = {}
+    if vid in cache:
+        return cache[vid]
+    # Probeer in volgorde van kwaliteit, alleen 16:9 varianten
+    for variant in ("maxresdefault", "hq720", "mqdefault"):
+        url = f"https://i.ytimg.com/vi/{vid}/{variant}.jpg"
+        try:
+            req = _ur.Request(url, method="HEAD")
+            with _ur.urlopen(req, timeout=4) as resp:
+                if resp.status == 200 and int(resp.headers.get("Content-Length", 0)) > 3000:
+                    cache[vid] = url
+                    cache_path.write_text(_json.dumps(cache, indent=2))
+                    return url
+        except Exception:
+            continue
+    # Ultieme fallback - mqdefault is bij YouTube altijd aanwezig
+    fallback = f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg"
+    cache[vid] = fallback
+    cache_path.write_text(_json.dumps(cache, indent=2))
+    return fallback
+
+
 def video_section(r: dict) -> str:
     vid = r.get("video_id")
     if not vid:
         return ""
-    title = r.get("video_title") or f"{r['name']} — officiële demonstratie"
-    thumb = f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"
+    title = r.get("video_title") or f"{r['name']} - officiële demonstratie"
+    thumb = _best_youtube_thumb(vid)
     return f"""
 <section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
   <div class="container">
     <div class="section-eyebrow">In actie</div>
-    <h2 style="margin-bottom:8px">{escape(r['name'])} — officiële demo.</h2>
+    <h2 style="margin-bottom:8px">{escape(r['name'])} - officiële demo.</h2>
     <p class="lede" style="margin-bottom:32px">{escape(title)}. Bron: {escape(r['vendor'])}.</p>
     <div class="video-wrap" data-video-id="{vid}" role="button" aria-label="Speel video af: {escape(title)}">
       <img src="{thumb}" alt="{escape(title)}" loading="lazy"
@@ -352,7 +405,7 @@ def video_jsonld(r: dict) -> str:
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "VideoObject",
-        "name": r.get("video_title") or f"{r['name']} — officiële demonstratie",
+        "name": r.get("video_title") or f"{r['name']} - officiële demonstratie",
         "description": f"Officiële demonstratie van de {r['name']} humanoïde robot door {r['vendor']}.",
         "thumbnailUrl": [f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"],
         "uploadDate": "2025-01-01",
@@ -362,11 +415,93 @@ def video_jsonld(r: dict) -> str:
     }, ensure_ascii=False)
 
 
+TAG_TO_SECTOR = {
+    "Industrie": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Industrieel": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Heavy-duty": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Cobot": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Mass-production": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Auto-industrie": ("productie-assemblage", "Productie &amp; assemblage"),
+    "Hospitality": ("hospitality-retail", "Hospitality &amp; retail"),
+    "Sociale-AI": ("hospitality-retail", "Hospitality &amp; retail"),
+    "Service": ("hospitality-retail", "Hospitality &amp; retail"),
+    "Demo": ("hospitality-retail", "Hospitality &amp; retail"),
+    "Events": ("hospitality-retail", "Hospitality &amp; retail"),
+    "3PL": ("3pl-fulfillment", "3PL &amp; fulfillment"),
+    "Inspectie": ("3pl-fulfillment", "3PL &amp; fulfillment"),
+    "Payload": ("3pl-fulfillment", "3PL &amp; fulfillment"),
+    "Education": ("zorg-instellingen", "Zorg &amp; instellingen"),
+}
+
+
+def relevant_sectors(r: dict) -> list[tuple[str, str]]:
+    """Mappet de tags van een robot op tot 3 sector-pagina's (uniek, geordend)."""
+    seen = []
+    for tag in r.get("tags", []):
+        if tag in TAG_TO_SECTOR:
+            slug_label = TAG_TO_SECTOR[tag]
+            if slug_label not in seen:
+                seen.append(slug_label)
+        if len(seen) >= 3:
+            break
+    return seen
+
+
+def faq_for_robot(r: dict) -> list[dict]:
+    """Genereer 5 sectie-relevante FAQ Q&A's per robot voor on-page + FAQPage schema."""
+    name = r["name"]
+    price = f"€{r['lease_eur']:,}/mnd".replace(",", ".")
+    setup = f"€{r['setup_eur']:,}".replace(",", ".")
+    purchase = f"€{r['purchase_eur']:,}".replace(",", ".")
+    is_avail = r["category"] == "available"
+
+    levertijd = "Doorgaans 6-10 weken na bevestigde intake en getekend contract." if is_avail else \
+        f"Niet direct leverbaar in 2026. Wij accepteren refundable reserveringen - zodra {r['vendor']} 3rd-party EU-verkoop opent (verwacht 2027) bemiddelt BotLease als eerste."
+
+    sectoren = relevant_sectors(r)
+    sector_str = ", ".join(label.replace("&amp;", "&") for _, label in sectoren) if sectoren else "diverse sectoren afhankelijk van de configuratie"
+
+    return [
+        {
+            "q": f"Wat kost een {name} leasen via BotLease?",
+            "a": f"{name} leasen kost {price} all-in operational lease (36 maanden). De eenmalige setup-fee is {setup} en dekt installatie, training en integratie op locatie. De all-in maandprijs omvat preventief + correctief onderhoud, swap-SLA (vervangende unit binnen 24u), WA-verzekering tot €2,5M en 24/7 Nederlandstalige helpdesk.",
+        },
+        {
+            "q": f"Wat is de levertijd van een {name} in Nederland?",
+            "a": levertijd,
+        },
+        {
+            "q": f"Voor welke sectoren is de {name} geschikt?",
+            "a": f"De {name} is geoptimaliseerd voor {sector_str}. Specifieke use-cases die bewezen of getest zijn: {', '.join(r['use_cases'][:3]).lower()}. Tijdens de gratis intake bepalen we of dit model past bij jouw concrete werkvloer.",
+        },
+        {
+            "q": f"Kan ik een {name} ook kopen in plaats van leasen?",
+            "a": f"De publieke aanschafprijs van een {name} ligt rond {purchase}. Operational lease via BotLease is meestal aantrekkelijker omdat het kapitaalslag voorkomt, de service-stack (onderhoud, swap, verzekering, compliance) is inbegrepen, en wij het restwaarde-risico dragen. Voor 5+ units kunnen we ook hybride structuren bespreken.",
+        },
+        {
+            "q": f"Voldoet de {name} aan de EU AI-Act en Machineverordening?",
+            "a": f"BotLease regelt voor elke deployment de EU AI-Act risicoanalyse en de CE-conformiteitsverklaring onder Machineverordening 2023/1230. De {name} wordt alleen ingezet binnen een gedefinieerde werkzone met menselijk toezicht (human-in-the-loop). De technische documentatie blijft up-to-date gedurende de leasetermijn.",
+        },
+    ]
+
+
+def faqpage_jsonld(r: dict) -> str:
+    faqs = faq_for_robot(r)
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
+            for f in faqs
+        ],
+    }, ensure_ascii=False)
+
+
 def render_robot(r: dict, related: list) -> str:
     tier_class = {"eu": "tier-eu", "value": "tier-value", "premium": "tier-premium"}.get(r["tier"], "tier-eu")
     photo_url = f"{SITE_URL}{r['photo']}"
     use_cases_html = "".join(
-        f'<div class="usecase-card"><div class="n">USE-CASE {i+1:02d}</div><h4>{escape(uc.split(":")[0] if ":" in uc else uc[:60])}</h4><p>{escape(uc)}</p></div>'
+        f'<div class="usecase-card"><div class="n">{i+1:02d}</div><h4>{escape(uc)}</h4></div>'
         for i, uc in enumerate(r["use_cases"])
     )
     specs_html = "".join(
@@ -386,7 +521,7 @@ def render_robot(r: dict, related: list) -> str:
         '<p style="background:rgba(255,201,102,0.1); border:1px solid rgba(255,201,102,0.3); '
         'border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">'
         '⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. '
-        '<a href="#wachtlijst" style="color:#ffd166; text-decoration:underline">Reserveer plek op wachtlijst</a> — '
+        '<a href="#wachtlijst" style="color:#ffd166; text-decoration:underline">Reserveer plek op wachtlijst</a> - '
         'BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>'
     ) if r["category"] == "waitlist" else ""
 
@@ -400,7 +535,7 @@ def render_robot(r: dict, related: list) -> str:
       <div>
         <div class="section-eyebrow">Wachtlijst</div>
         <h2 style="margin:14px 0 16px">Reserveer een plek voor de {escape(r['name'])}.</h2>
-        <p class="lede" style="margin-bottom:24px">Deze robot is in 2026 nog niet open verkocht voor EU-derden. BotLease heeft directe lijnen met {escape(r['vendor'])} en kan prioriteit-toegang regelen zodra commerciële verkoop opent — verwacht {('Q4 2026 / Q1 2027' if r['slug'] != '1x-neo' else 'Q1 2027')}.</p>
+        <p class="lede" style="margin-bottom:24px">Deze robot is in 2026 nog niet open verkocht voor EU-derden. BotLease heeft directe lijnen met {escape(r['vendor'])} en kan prioriteit-toegang regelen zodra commerciële verkoop opent - verwacht {('Q4 2026 / Q1 2027' if r['slug'] != '1x-neo' else 'Q1 2027')}.</p>
         <p style="color:var(--ink-2); font-size:14.5px; line-height:1.6">Wat krijg je door je aan te melden:</p>
         <ul style="color:var(--ink-2); font-size:14.5px; line-height:1.7; padding-left:22px; margin:14px 0 0">
           <li>Priority access zodra eerste EU-units beschikbaar zijn</li>
@@ -453,98 +588,122 @@ def render_robot(r: dict, related: list) -> str:
   @media (min-width: 880px) {{ .waitlist-grid {{ grid-template-columns: 1fr 1fr !important; gap: 64px !important; align-items: start; }} }}
 </style>"""
 
-    # Dedicated ORDER form sectie alleen voor available robots
+    # Voor waitlist-robots: eigen prijssectie met "Reserveer plek" CTA (geen aanvraag-form)
+    waitlist_price_section = ""
+    if r["category"] == "waitlist":
+        waitlist_price_section = f"""
+<section id="price">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start">
+      <div>
+        <div class="section-eyebrow">Lease-prijs (indicatief)</div>
+        <h2>All-in vanaf €{r['lease_eur']:,}/mnd.</h2>
+        <p class="lede">36 maanden operational lease zodra leverbaar voor 3rd-party EU-derden. Definitieve prijs en condities afhankelijk van fabrikants-release.</p>
+        <p style="color:var(--ink-3); font-size:14px">Aanschafprijs publiek: <b style="color:var(--ink)">€{r['purchase_eur']:,}</b>.</p>
+      </div>
+      <div class="price-block">
+        <div class="price-row"><b>€{r['lease_eur']:,}</b><span class="per">/mnd · 36 mnd</span></div>
+        <div class="setup">+ €{r['setup_eur']:,} eenmalige setup (installatie, training, integratie)</div>
+        <ul>
+          <li>Installatie + 2-uurs training operators</li>
+          <li>Preventief + correctief onderhoud</li>
+          <li>Swap-SLA: vervangende unit binnen 24u</li>
+          <li>WA-verzekering tot €2,5M + casco</li>
+          <li>24/7 helpdesk Nederlands</li>
+          <li>Software-updates en remote tuning</li>
+        </ul>
+        <a class="btn" href="#wachtlijst" style="display:block; text-align:center">Reserveer plek →</a>
+      </div>
+    </div>
+  </div>
+</section>"""
+
+    # Unified AANVRAAG form - alleen voor available robots (waitlist heeft eigen form)
     order_form = ""
     if r["category"] == "available":
         order_form = f"""
-<section id="bestel" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+<section id="aanvraag" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr; gap:32px; max-width:1080px; margin:0 auto" class="order-grid">
+    <div style="display:grid; grid-template-columns:1fr; gap:48px; max-width:1080px; margin:0 auto" class="aanvraag-grid">
       <div>
-        <div class="section-eyebrow">// Direct bestellen</div>
-        <h2 style="margin:14px 0 14px">Bestel direct een {escape(r['name'])}.</h2>
-        <p class="lede" style="margin-bottom:20px">Skip de demo en bestel meteen — wij verzorgen de hele intake, integratie en levering binnen 6-10 weken na bevestiging.</p>
-        <ul style="color:var(--ink-2); font-size:14px; line-height:1.7; padding-left:0; list-style:none; margin-bottom:14px">
-          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ <b style="color:var(--ink)">€{r['lease_eur']:,}/mnd</b> all-in (36 mnd)</li>
-          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ + €{r['setup_eur']:,} eenmalige setup</li>
-          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ Installatie + training + Swap-SLA + verzekering inbegrepen</li>
-          <li style="padding-left:22px; position:relative; margin-bottom:6px">→ Eerste jaar vast, daarna maandelijks opzegbaar</li>
-        </ul>
-        <p style="color:var(--ink-3); font-size:12.5px; line-height:1.55">// Voor pilot-eerst (€1.500, 4 weken) — gebruik 'Plan demo' bovenaan.</p>
+        <div class="section-eyebrow">Lease-prijs &amp; aanvraag</div>
+        <h2 style="margin:14px 0 14px">Vraag deze {escape(r['name'])} aan.</h2>
+        <p class="lede" style="margin-bottom:24px">All-in operational lease, 36 maanden. Geen investering vooraf, per maand opzegbaar na jaar 1.</p>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-hover); border-radius:14px; padding:24px; margin-bottom:24px">
+          <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:8px">
+            <b style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€{r['lease_eur']:,}</b>
+            <span style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
+          </div>
+          <div style="color:var(--ink-2); font-size:13.5px; margin-bottom:14px">+ €{r['setup_eur']:,} eenmalige setup (installatie, training, integratie)</div>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--ink-2); font-size:13.5px; line-height:1.7">
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Preventief + correctief onderhoud</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Swap-SLA: vervangende unit binnen 24u</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> WA-verzekering tot €2,5M + casco</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> 24/7 helpdesk Nederlands</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Software-updates en remote tuning</li>
+          </ul>
+        </div>
+
+        <p style="color:var(--ink-3); font-size:13px; line-height:1.55">Aanschafprijs publiek: <b style="color:var(--ink)">€{r['purchase_eur']:,}</b> - wij dragen het restwaarde-risico. Vrijblijvend, reactie binnen 1-2 werkdagen.</p>
       </div>
-      <form onsubmit="handleOrderSubmit(event)" data-robot-slug="{r['slug']}" data-robot-name="{escape(r['name'])}"
-            style="background:var(--bg-3); border:2px solid var(--border-2); padding:24px">
-        <div style="margin-bottom:14px">
-          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Naam</label>
-          <input name="naam" required placeholder="Voor- en achternaam"
-                 style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+      <form onsubmit="handleAanvraagSubmit(event)" data-robot-slug="{r['slug']}" data-robot-name="{escape(r['name'])}"
+            style="background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:32px">
+        <div style="margin-bottom:18px">
+          <label for="aanv-naam" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Naam</label>
+          <input id="aanv-naam" name="naam" required placeholder="Voor- en achternaam"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
         </div>
-        <div style="margin-bottom:14px">
-          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Bedrijf + KvK</label>
-          <input name="bedrijf" required placeholder="Bedrijfsnaam (incl. KvK indien beschikbaar)"
-                 style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+        <div style="margin-bottom:18px">
+          <label for="aanv-bedrijf" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Bedrijf</label>
+          <input id="aanv-bedrijf" name="bedrijf" required placeholder="Naam van je organisatie"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px">
           <div>
-            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Email</label>
-            <input name="email" type="email" required placeholder="naam@bedrijf.nl"
-                   style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+            <label for="aanv-email" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Werk-email</label>
+            <input id="aanv-email" name="email" type="email" required placeholder="naam@bedrijf.nl"
+                   style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
           </div>
           <div>
-            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Telefoon</label>
-            <input name="telefoon" placeholder="+31 ..."
-                   style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
+            <label for="aanv-telefoon" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Telefoon <span style="color:var(--ink-3); font-weight:400">(optioneel)</span></label>
+            <input id="aanv-telefoon" name="telefoon" placeholder="+31 ..."
+                   style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
           </div>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px">
-          <div>
-            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Aantal units</label>
-            <select name="aantal"
-                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
-              <option value="1">1 unit</option>
-              <option value="2">2 units</option>
-              <option value="3">3 units (-8%)</option>
-              <option value="5">5 units (-8%)</option>
-              <option value="10">10+ units (-15%)</option>
-            </select>
-          </div>
-          <div>
-            <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Contractduur</label>
-            <select name="contract_months"
-                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px">
-              <option value="36">36 mnd (standaard)</option>
-              <option value="24">24 mnd (+7%)</option>
-              <option value="12">12 mnd (+15%)</option>
-            </select>
-          </div>
+        <div style="margin-bottom:18px">
+          <label for="aanv-stadium" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Waar sta je in het proces?</label>
+          <select id="aanv-stadium" name="usecase"
+                 style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
+            <option>Eerst meer info / oriënterend gesprek</option>
+            <option>Pilot van 4 weken (€1.500) - indien beschikbaar</option>
+            <option>Concrete lease-aanvraag (1 unit)</option>
+            <option>Bulk-traject (3+ units)</option>
+            <option>Anders - leg ik uit in bericht</option>
+          </select>
+          <p style="font-size:11.5px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">We bevestigen in het gesprek welk model voor jou geschikt is en welke vorm van kennismaking - online toelichting, video-demo of fysieke pilot - op dat moment realistisch is.</p>
         </div>
-        <div style="margin-bottom:14px">
-          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Leveringsadres</label>
-          <textarea name="adres" required placeholder="Straat + nr&#10;Postcode + plaats" rows="2"
-                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px; resize:vertical"></textarea>
+        <div style="margin-bottom:18px">
+          <label for="aanv-bericht" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Wat wil je oplossen? <span style="color:var(--ink-3); font-weight:400">(optioneel)</span></label>
+          <textarea id="aanv-bericht" name="bericht" placeholder="Use-case, sector, deadline, vragen…"
+                    style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px; min-height:96px; resize:vertical"></textarea>
         </div>
-        <div style="margin-bottom:14px">
-          <label style="display:block; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-2); margin-bottom:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em">Bericht (optioneel)</label>
-          <textarea name="bericht" placeholder="Specifieke configuratie, deadline, etc." rows="2"
-                    style="width:100%; padding:11px 13px; background:rgba(0,0,0,0.5); border:2px solid var(--border-2); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px; resize:vertical"></textarea>
-        </div>
-        <button type="submit" class="btn lg"
-                style="width:100%; justify-content:center">Verstuur bestelling</button>
-        <p class="form-note" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-3); margin-top:12px; text-align:center">// Vrijblijvend · Wij sturen offerte ter bevestiging binnen 4 werkuren</p>
+        <button type="submit" class="btn" style="width:100%; justify-content:center">Vraag aan</button>
+        <p class="form-note" style="color:var(--ink-3); font-size:12.5px; margin-top:12px; text-align:center">Reactie binnen 1-2 werkdagen · Geen verplichting</p>
       </form>
     </div>
   </div>
 </section>
 <style>
-  @media (min-width: 880px) {{ .order-grid {{ grid-template-columns: 1fr 1fr !important; gap: 56px !important; align-items: start; }} }}
+  @media (min-width: 880px) {{ .aanvraag-grid {{ grid-template-columns: 1fr 1fr !important; gap: 64px !important; align-items: start; }} }}
 </style>"""
 
-    title_kw = f"{r['name']} leasen in Nederland — vanaf €{r['lease_eur']:,}/mnd | BotLease".replace(",", ".")
+    title_kw = f"{r['name']} leasen in Nederland - vanaf €{r['lease_eur']:,}/mnd | BotLease".replace(",", ".")
+    # Cap meta-desc onder Google's ~155-char cut-off voor maximale CTR
     meta_desc = (
-        f"{r['name']} ({r['vendor']}, {r['vendor_country']}) leasen via BotLease vanaf €{r['lease_eur']:,}/maand. "
-        f"All-in operational lease: installatie, training, onderhoud, swap-SLA, verzekering. "
-        f"{r['tagline']}"
-    )
+        f"{r['name']} leasen in Nederland vanaf €{r['lease_eur']:,}/mnd. "
+        f"All-in operational lease: installatie, training, onderhoud, swap-SLA, verzekering."
+    ).replace(",", ".")
 
     return f"""<!DOCTYPE html>
 <html lang="nl">
@@ -559,23 +718,24 @@ def render_robot(r: dict, related: list) -> str:
 <link rel="canonical" href="{SITE_URL}/robots/{r['slug']}">
 
 <meta property="og:type" content="product">
-<meta property="og:title" content="{escape(r['name'])} leasen — €{r['lease_eur']:,}/mnd | BotLease">
+<meta property="og:title" content="{escape(r['name'])} leasen - €{r['lease_eur']:,}/mnd | BotLease">
 <meta property="og:description" content="{escape(r['tagline'])}">
 <meta property="og:url" content="{SITE_URL}/robots/{r['slug']}">
 <meta property="og:image" content="{photo_url}">
 <meta property="og:site_name" content="BotLease">
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{escape(r['name'])} leasen — €{r['lease_eur']:,}/mnd">
+<meta name="twitter:title" content="{escape(r['name'])} leasen - €{r['lease_eur']:,}/mnd">
 <meta name="twitter:description" content="{escape(r['tagline'])}">
 <meta name="twitter:image" content="{photo_url}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{ROBOT_CSS}</style>
 <script type="application/ld+json">{product_jsonld(r)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(r)}</script>
+<script type="application/ld+json">{faqpage_jsonld(r)}</script>
 {f'<script type="application/ld+json">{video_jsonld(r)}</script>' if r.get('video_id') else ''}
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
@@ -594,16 +754,16 @@ def render_robot(r: dict, related: list) -> str:
       <div>
         <span class="tier-badge {tier_class}">{escape(r['badge'])}</span>
         <div class="vendor" style="margin-top:18px">{escape(r['vendor'])} · {escape(r['vendor_country'])}</div>
-        <h1>{escape(r['name'])} leasen.</h1>
+        <h1>{escape(r['name'])} leasen in Nederland.</h1>
         <p class="tag">{escape(r['tagline'])}</p>
         <p class="lede">{escape(r['short'])}</p>
         {waitlist_notice}
         <div class="r-hero-cta">
-          {('<a class="btn" href="#bestel">Bestel direct →</a><a class="btn ghost" href="/#contact">Plan eerst demo</a>') if r['category'] == 'available' else ('<a class="btn" href="#wachtlijst">Reserveer plek →</a><a class="btn ghost" href="/#contact">Plan demo</a>')}
+          {('<a class="btn" href="#aanvraag">Vraag aan →</a>') if r['category'] == 'available' else ('<a class="btn" href="#wachtlijst">Reserveer plek →</a>')}
         </div>
       </div>
       <div class="r-hero-art">
-        <img src="{r['photo']}" alt="{escape(r['name'])} humanoïde robot — {escape(r['vendor'])}" width="{r['photo_dims'][0]}" height="{r['photo_dims'][1]}">
+        <img src="{r['photo']}" alt="{escape(r['name'])} humanoïde robot - {escape(r['vendor'])}" width="{r['photo_dims'][0]}" height="{r['photo_dims'][1]}">
       </div>
     </div>
   </div>
@@ -626,8 +786,16 @@ def render_robot(r: dict, related: list) -> str:
   <div class="container">
     <div class="section-eyebrow">Toepassingen</div>
     <h2>Waar verdient een {escape(r['name'])} zich terug?</h2>
-    <p class="lede">Specifieke use-cases waar dit model getest of bewezen is — niet generiek "robots zijn handig".</p>
+    <p class="lede">Specifieke use-cases waar dit model getest of bewezen is - niet generiek "robots zijn handig".</p>
     <div class="usecases-grid">{use_cases_html}</div>
+    {('<div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:10px; align-items:center"><span style="color:var(--ink-3); font-size:13.5px; font-weight:500; margin-right:6px">Geschikt voor sector:</span>' + "".join(f'<a href="/sectoren/{slug}" style="display:inline-block; padding:6px 14px; border-radius:999px; background:var(--bg-2); border:1px solid var(--border); color:var(--ink); font-size:13px; font-weight:500; text-decoration:none">{label} →</a>' for slug, label in relevant_sectors(r)) + '</div>') if relevant_sectors(r) else ''}
+
+    <div style="margin-top:28px; padding:18px 22px; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; font-size:14px; color:var(--ink-2); line-height:1.55">
+      Nieuw met humanoid-lease? Lees onze <a href="/gids/humanoide-robot-leasen" style="color:var(--accent); font-weight:600; text-decoration:underline">complete gids over humanoïde robots leasen</a> -
+      hoe het werkt, kosten, ROI-berekening en EU AI-Act compliance.
+      Of bekijk <a href="/vergelijken/lease-vs-koop" style="color:var(--accent); font-weight:600; text-decoration:underline">lease vs. koop</a> en
+      <a href="/kosten" style="color:var(--accent); font-weight:600; text-decoration:underline">de volledige prijslijst</a>.
+    </div>
   </div>
 </section>
 
@@ -645,28 +813,15 @@ def render_robot(r: dict, related: list) -> str:
 
 {waitlist_form}
 
-<section id="price">
+{waitlist_price_section}
+
+<section>
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start">
-      <div>
-        <div class="section-eyebrow">Lease-prijs</div>
-        <h2>All-in vanaf €{r['lease_eur']:,}/mnd.</h2>
-        <p class="lede">36 maanden operational lease. Geen investering vooraf. Per maand opzegbaar na jaar 1.</p>
-        <p style="color:var(--ink-3); font-size:14px">Aanschafprijs publiek: <b style="color:var(--ink)">€{r['purchase_eur']:,}</b> — wij dragen het restwaarde-risico.</p>
-      </div>
-      <div class="price-block">
-        <div class="price-row"><b>€{r['lease_eur']:,}</b><span class="per">/mnd · 36 mnd</span></div>
-        <div class="setup">+ €{r['setup_eur']:,} eenmalige setup (installatie, training, integratie)</div>
-        <ul>
-          <li>Installatie + 2-uurs training operators</li>
-          <li>Preventief + correctief onderhoud</li>
-          <li>Swap-SLA: vervangende unit binnen 24u</li>
-          <li>WA-verzekering tot €2,5M + casco</li>
-          <li>24/7 helpdesk Nederlands</li>
-          <li>Software-updates en remote tuning</li>
-        </ul>
-        <a class="btn" href="/#contact" style="display:block; text-align:center">Vraag offerte →</a>
-      </div>
+    <div class="section-eyebrow">Veelgestelde vragen</div>
+    <h2>{escape(r['name'])} - vraag &amp; antwoord.</h2>
+    <div style="max-width:820px; margin-top:24px">
+      {"".join(f'<details style="border-top:1px solid var(--border); padding:0"><summary style="cursor:pointer; list-style:none; padding:20px 6px; font-size:17px; font-weight:500; letter-spacing:-0.01em; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:20px">{escape(f["q"])}<span style="color:var(--ink-3); font-size:22px; font-weight:300">+</span></summary><p style="padding:0 6px 22px; font-size:15.5px; line-height:1.6; color:var(--ink-2); max-width:680px">{escape(f["a"])}</p></details>' for f in faq_for_robot(r))}
+      <div style="border-top:1px solid var(--border)"></div>
     </div>
   </div>
 </section>
@@ -675,18 +830,7 @@ def render_robot(r: dict, related: list) -> str:
   <div class="container">
     <div class="section-eyebrow">Alternatieven</div>
     <h2>Vergelijk met andere modellen.</h2>
-    <p class="lede">Twijfel over het juiste model? Vergelijk specs, prijs en use-cases. Of plan een gratis intake — wij adviseren onafhankelijk.</p>
     <div class="compare-grid">{related_html}</div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="cta-strip">
-      <h3>Klaar voor een demo van de {escape(r['name'])}?</h3>
-      <p>Gratis intake op locatie · binnen 5 werkdagen · geen verplichtingen</p>
-      <a class="btn" href="/#contact">Plan een demo →</a>
-    </div>
   </div>
 </section>
 
@@ -725,21 +869,21 @@ function handleWaitlistSubmit(e) {{
     .then(function(r){{ return r.json().then(function(j){{ return {{ ok:r.ok, body:j }}; }}); }})
     .then(function(res){{
       if (res.ok && res.body.success) {{
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Space Grotesk\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
-        if (window.plausible) window.plausible('Waitlist signup', {{ props:{{ robot: data.robot_slug }} }});
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Inter\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
+        if (window.umami) window.umami.track('waitlist_signup', {{ robot: data.robot_slug }});
       }} else {{
-        if (note) {{ note.textContent = (res.body && res.body.error) || 'Er ging iets mis — probeer opnieuw'; note.style.color = '#dc2626'; }}
+        if (note) {{ note.textContent = (res.body && res.body.error) || 'Er ging iets mis - probeer opnieuw'; note.style.color = '#dc2626'; }}
         btn.disabled = false; btn.innerHTML = origBtn;
       }}
     }})
     .catch(function(){{
-      if (note) {{ note.textContent = 'Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }}
+      if (note) {{ note.textContent = 'Netwerkfout - mail naar hallo@botlease.nl'; note.style.color = '#dc2626'; }}
       btn.disabled = false; btn.innerHTML = origBtn;
     }});
 }}
 
-// Bestelformulier handler → POST /api/contact met type=order
-function handleOrderSubmit(e) {{
+// Aanvraag-formulier handler → POST /api/contact met type=order
+function handleAanvraagSubmit(e) {{
   e.preventDefault();
   var form = e.target;
   var btn  = form.querySelector('button[type="submit"]');
@@ -759,18 +903,41 @@ function handleOrderSubmit(e) {{
     .then(function(r){{ return r.json().then(function(j){{ return {{ ok:r.ok, body:j }}; }}); }})
     .then(function(res){{
       if (res.ok && res.body.success) {{
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(74,222,128,0.1);border:2px solid rgba(74,222,128,0.3);margin-bottom:18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'JetBrains Mono\\',monospace;font-weight:600;font-size:18px;margin-bottom:8px;color:#fff">Bestelling ontvangen</h3><p style="font-family:\\'JetBrains Mono\\',monospace;color:#a3a3a3;font-size:12px;line-height:1.5">// Wij sturen offerte ter bevestiging binnen 4 werkuren naar je inbox.</p></div>';
-        if (window.plausible) window.plausible('Order submit', {{ props:{{ robot: data.robot_slug, qty: data.aantal }} }});
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Inter\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Aanvraag ontvangen</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">We nemen binnen 1-2 werkdagen contact op via je email om de aanvraag te bespreken.</p></div>';
+        if (window.umami) window.umami.track('cta_aanvraag_submit', {{ source: 'robot', robot: data.robot_slug }});
       }} else {{
         if (note) {{ note.textContent = '// ' + ((res.body && res.body.error) || 'Probeer opnieuw'); note.style.color = '#f87171'; }}
         btn.disabled = false; btn.innerHTML = origBtn;
       }}
     }})
     .catch(function(){{
-      if (note) {{ note.textContent = '// Netwerkfout — mail naar hallo@botlease.nl'; note.style.color = '#f87171'; }}
+      if (note) {{ note.textContent = '// Netwerkfout - mail naar hallo@botlease.nl'; note.style.color = '#f87171'; }}
       btn.disabled = false; btn.innerHTML = origBtn;
     }});
 }}
+
+// Umami: aanvraag-form view + outbound source tracking
+(function() {{
+  function track(name, data) {{
+    if (window.umami && typeof window.umami.track === 'function') {{
+      window.umami.track(name, data || {{}});
+    }}
+  }}
+  var form = document.querySelector('form[onsubmit*="Aanvraag"]') || document.querySelector('form[onsubmit*="Waitlist"]');
+  if (form && 'IntersectionObserver' in window) {{
+    var fired = false, robot = form.dataset.robotSlug || '';
+    var io = new IntersectionObserver(function(es) {{
+      es.forEach(function(e) {{
+        if (e.isIntersecting && !fired) {{
+          fired = true;
+          track('cta_aanvraag_view', {{ source: 'robot', robot: robot }});
+          io.disconnect();
+        }}
+      }});
+    }}, {{ threshold: 0.3 }});
+    io.observe(form);
+  }}
+}})();
 </script>
 </body>
 </html>
@@ -778,10 +945,16 @@ function handleOrderSubmit(e) {{
 
 
 def render_hub() -> str:
+    # Filter status/tier tags die al via tier-badge worden getoond
+    SKIP_TAGS = {"EU-gebouwd", "Wachtlijst", "Bestseller", "Premium", "Instap", "Made in NL"}
+
     def card(r):
         price_text = f'€{r["lease_eur"]:,}/mnd'.replace(",", ".")
+        use_tags = [t for t in r.get("tags", []) if t not in SKIP_TAGS][:3]
+        tags_html = "".join(f'<span class="hub-tag">{escape(t)}</span>' for t in use_tags)
         return f"""<a href="/robots/{r['slug']}" class="hub-card">
             <div class="hub-thumb">
+              <div class="hub-tags">{tags_html}</div>
               <img src="{r['photo']}" alt="{escape(r['name'])} humanoïde robot" loading="lazy">
             </div>
             <div class="hub-card-body">
@@ -802,7 +975,7 @@ def render_hub() -> str:
     itemlist = json.dumps({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "BotLease robot catalogus — humanoïde robots voor lease in Nederland",
+        "name": "BotLease robot catalogus - humanoïde robots voor lease in Nederland",
         "itemListElement": [
             {"@type": "ListItem", "position": i+1, "url": f"{SITE_URL}/robots/{r['slug']}", "name": r["name"]}
             for i, r in enumerate(ROBOTS)
@@ -814,14 +987,14 @@ def render_hub() -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Humanoïde robots leasen Nederland — catalogus 2026 | BotLease</title>
-<meta name="description" content="Vergelijk alle leverbare humanoïde robots in Nederland: NEURA 4NE-1, Unitree G1/H1-2/H2/R1, PAL Kangaroo, Pollen Reachy 2, UBTECH Walker S2, EngineAI SE01. Vanaf €290/mnd all-in lease. EU-gebouwde modellen prioriteit voor AI-Act compliance.">
+<title>Humanoïde robots leasen | catalogus 2026 | BotLease</title>
+<meta name="description" content="Catalogus humanoïde robots in Nederland - 15 modellen leasen vanaf €290/mnd. NEURA, PAL, Unitree, UBTECH, Apptronik vergeleken. All-in operational lease.">
 <meta name="keywords" content="humanoide robot leasen Nederland, NEURA 4NE-1, Unitree leasen, PAL Robotics Kangaroo, Apptronik Apollo, Figure 02, humanoid catalogus 2026, robot huren MKB Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/robots/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Humanoïde robots leasen Nederland — 15 modellen vergelijken | BotLease">
+<meta property="og:title" content="Humanoïde robots leasen Nederland - 15 modellen vergelijken | BotLease">
 <meta property="og:description" content="Complete catalogus humanoïde robots voor lease in Nederland: EU-gebouwd (NEURA, PAL, Pollen), Aziatisch (Unitree, UBTECH, EngineAI), wachtlijst (Apptronik, Figure, 1X NEO).">
 <meta property="og:url" content="{SITE_URL}/robots/">
 <meta property="og:image" content="{SITE_URL}/img/robots/neura-4ne1.webp">
@@ -831,7 +1004,7 @@ def render_hub() -> str:
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
@@ -844,7 +1017,7 @@ def render_hub() -> str:
   <div class="container">
     <div class="eyebrow">Catalogus 2026</div>
     <h1>Humanoïde robots leasen in Nederland.</h1>
-    <p>15 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, PAL, Pollen) eerst — voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
+    <p>15 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, PAL, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
   </div>
 </section>
 
@@ -852,7 +1025,7 @@ def render_hub() -> str:
   <div class="container">
     <div class="head">
       <span class="tier-badge tier-eu">EU-gebouwd · direct leverbaar</span>
-      <h2 style="margin-top:14px">Europese humanoids — korte supply chain, EU AI-Act compliant.</h2>
+      <h2 style="margin-top:14px">Europese humanoids - korte supply chain, EU AI-Act compliant.</h2>
       <p class="lede">Geproduceerd in Duitsland (NEURA), Spanje (PAL) en Frankrijk (Pollen). EU AI-Act + Machineverordening 2023/1230 ready vanaf dag 1. Geen importheffingen, EU-talige support, GDPR by design.</p>
     </div>
     <div class="hub-grid">{eu_cards}</div>
@@ -863,7 +1036,7 @@ def render_hub() -> str:
   <div class="container">
     <div class="head">
       <span class="tier-badge tier-value">Aziatisch · direct leverbaar</span>
-      <h2 style="margin-top:14px">Value-modellen uit China — agressief geprijsd, snel leverbaar.</h2>
+      <h2 style="margin-top:14px">Value-modellen uit China - agressief geprijsd, snel leverbaar.</h2>
       <p class="lede">Unitree, UBTECH en EngineAI verkopen via shop/EU-distributeurs. 6-10 weken levertijd. Lagere instapprijs maar let op AI-Act compliance assessment (BotLease regelt dit per deployment).</p>
     </div>
     <div class="hub-grid">{value_cards}</div>
@@ -874,8 +1047,8 @@ def render_hub() -> str:
   <div class="container">
     <div class="head">
       <span class="tier-badge tier-premium">Wachtlijst 2026/2027</span>
-      <h2 style="margin-top:14px">Premium Amerikaans/Aziatisch — wachtlijst.</h2>
-      <p class="lede">Bewezen modellen die nog niet open verkocht worden in EU. Apptronik Apollo, Figure 02/03, Boston Dynamics Atlas — allemaal in pilot bij grote OEMs (Mercedes, BMW, Hyundai). BotLease faciliteert priority access zodra EU-verkoop open gaat.</p>
+      <h2 style="margin-top:14px">Premium Amerikaans/Aziatisch - wachtlijst.</h2>
+      <p class="lede">Bewezen modellen die nog niet open verkocht worden in EU. Apptronik Apollo, Figure 02/03, Boston Dynamics Atlas - allemaal in pilot bij grote OEMs (Mercedes, BMW, Hyundai). BotLease faciliteert priority access zodra EU-verkoop open gaat.</p>
     </div>
     <div class="hub-grid">{waitlist}</div>
   </div>
@@ -893,8 +1066,8 @@ def build():
         related = [x for x in ROBOTS if x["slug"] != r["slug"] and x["tier"] == r["tier"]]
         if len(related) < 3:
             related += [x for x in ROBOTS if x["slug"] != r["slug"] and x not in related]
-        (ROBOT_DIR / f"{r['slug']}.html").write_text(render_robot(r, related[:3]), encoding="utf-8")
-    (ROBOT_DIR / "index.html").write_text(render_hub(), encoding="utf-8")
+        (ROBOT_DIR / f"{r['slug']}.html").write_text(_fmt_nl(render_robot(r, related[:3])), encoding="utf-8")
+    (ROBOT_DIR / "index.html").write_text(_fmt_nl(render_hub()), encoding="utf-8")
     print(f"✅ Built {len(ROBOTS)} robot pages + hub at /robots/")
 
 

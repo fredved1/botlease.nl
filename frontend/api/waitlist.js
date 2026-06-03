@@ -2,16 +2,20 @@ const SUPABASE_URL = process.env.SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.s
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const _src = req.headers.origin || req.headers.referer || '';
+  const _ok = /^https?:\/\/(www\.)?botlease\.nl/.test(_src) || /^https:\/\/[a-z0-9-]+\.vercel\.app/.test(_src) || /^http:\/\/localhost(:\d+)?/.test(_src);
+  if (req.headers.origin && _ok) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (!_ok) return res.status(403).json({ error: 'Verboden' });
 
-  const { email, source } = req.body || {};
-  if (!email || !email.includes('@')) {
+  const { email, source, website, _gotcha } = req.body || {};
+  if (website || _gotcha) return res.status(200).json({ ok: true, position: 848 }); // honeypot
+  if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Ongeldig e-mailadres' });
   }
 

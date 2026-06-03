@@ -45,16 +45,19 @@ async function tryModel(model, messages) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const _src = req.headers.origin || req.headers.referer || '';
+  const _ok = /^https?:\/\/(www\.)?botlease\.nl/.test(_src) || /^https:\/\/[a-z0-9-]+\.vercel\.app/.test(_src) || /^http:\/\/localhost(:\d+)?/.test(_src);
+  if (req.headers.origin && _ok) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
   if (req.method !== 'POST') return res.status(405).end();
+  if (!_ok) return res.status(403).json({ error: 'Verboden' });
 
-  const { messages, model: preferredModel } = req.body;
-  if (!messages) return res.status(400).json({ error: 'Geen berichten' });
+  const { messages, model: preferredModel } = req.body || {};
+  if (!messages || !Array.isArray(messages) || messages.length > 30) return res.status(400).json({ error: 'Ongeldige invoer' });
 
   // Bouw volgorde: gekozen model eerst, daarna de rest als fallback
   const order = preferredModel && ALL_MODELS.includes(preferredModel)

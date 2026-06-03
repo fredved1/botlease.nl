@@ -3,6 +3,17 @@ Allow: /
 Disallow: /api/
 Disallow: /backend/
 Disallow: /admin
-Disallow: /admin.html
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /kennisbank
+Disallow: /index-chatbot-backup
+Disallow: /index-old
+Disallow: /chatbot-landing
+Disallow: /chatbot-split
+Disallow: /chatbot-test
+Disallow: /*?utm_*
 
 Sitemap: https://botlease.nl/sitemap.xml
+Sitemap: https://botlease.nl/sitemap-images.xml
+Sitemap: https://botlease.nl/sitemap-news.xml

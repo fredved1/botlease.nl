@@ -151,7 +151,7 @@ async function sendConfirmation(data) {
       <p style="font-size:15px;line-height:1.6;margin-top:24px">Vragen tussendoor? Antwoord op deze email of bel direct.</p>
       <p style="font-size:15px;line-height:1.6">— Team BotLease</p>
       <hr style="border:none;border-top:1px solid #e4e4e7;margin:24px 0">
-      <p style="font-size:12px;color:#71717a">BotLease B.V. · Eindhoven · hallo@botlease.nl · botlease.nl</p>
+      <p style="font-size:12px;color:#71717a">BotLease B.V. · Amsterdam · hallo@botlease.nl · botlease.nl</p>
     </div>
   `;
   const resp = await fetch('https://api.resend.com/emails', {
@@ -214,7 +214,10 @@ async function backupToSupabase(data) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const _src = req.headers.origin || req.headers.referer || '';
+  const _ok = /^https?:\/\/(www\.)?botlease\.nl/.test(_src) || /^https:\/\/[a-z0-9-]+\.vercel\.app/.test(_src) || /^http:\/\/localhost(:\d+)?/.test(_src);
+  if (req.headers.origin && _ok) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -222,8 +225,13 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+  if (!_ok) return res.status(403).json({ error: 'Verboden' });
 
   const data = req.body || {};
+  // Honeypot: bots vullen het verborgen veld, mensen niet → stille success
+  if (data.website || data._gotcha) {
+    return res.status(200).json({ success: true, message: 'Bedankt! We nemen binnen 4 werkuren contact op.' });
+  }
   const naam       = data.naam     || data.name    || '';
   const email      = data.email    || '';
   const bedrijf    = data.bedrijf  || data.company || '';

@@ -63,3 +63,6 @@ server_test.log
 *.db
 *.sqlite
 localStorage/supabase/
+
+# News-bot deploy worktree (transient)
+.deploy-worktree/

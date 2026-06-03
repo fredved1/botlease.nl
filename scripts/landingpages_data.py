@@ -1,4 +1,4 @@
-# Landing pages — sectoren en steden voor long-tail SEO.
+# Landing pages - sectoren en steden voor long-tail SEO.
 # Iedere pagina is zelfstandig waardevol: realistische ROI-cijfers,
 # specifieke robots per use-case, lokale/sectorale context.
 
@@ -6,18 +6,18 @@ SECTORS = [
     {
         "slug": "3pl-fulfillment",
         "name": "3PL & E-commerce fulfillment",
-        "title_kw": "Humanoïde robots in 3PL en e-commerce fulfillment Nederland",
+        "title_kw": "Humanoïde robots in 3PL en fulfillment",
         "h1": "Humanoïde robots voor 3PL en e-commerce fulfillment.",
-        "tagline": "Tote-handling, decanting en pick-pack — door humanoids waar AMR's tekortschieten.",
+        "tagline": "Tote-handling, decanting en pick-pack - door humanoids waar AMR's tekortschieten.",
         "intro": (
             "De Nederlandse 3PL- en e-commerce-sector heeft het zwaar: 4 op de 10 magazijnen melden tekort aan personeel, "
             "loonkosten stijgen 5-7% per jaar, en piekuren (Black Friday, Sinterklaas) eisen flexibele capaciteit die "
             "vaste teams niet kunnen leveren. Humanoïde robots zijn geen vervanging voor AMRs of klassieke "
-            "robotarmen — ze vullen het gat waar geen vaste infrastructuur past, en waar zachte trays, ongelijke "
+            "robotarmen - ze vullen het gat waar geen vaste infrastructuur past, en waar zachte trays, ongelijke "
             "totes en menselijke routes vereist zijn."
         ),
         "metrics": [
-            ("11–14 mnd", "Typische ROI-periode"),
+            ("11-14 mnd", "Typische ROI-periode"),
             ("1,3 FTE", "Vervangbaar per robot in 2-ploegen"),
             ("24/7", "Inzetbaarheid in 3 shifts"),
             ("€28/uur", "Vermeden loonkosten gemiddeld"),
@@ -27,7 +27,7 @@ SECTORS = [
                 "h": "Tote- en pakkethandling",
                 "body": (
                     "Een Agility Digit of Apptronik Apollo werkt zonder gids tussen bestaande shelving en conveyor-zones. "
-                    "Geen aanpassing van vloer of looppaden nodig — de robot navigeert wat menselijke werknemers ook gebruiken. "
+                    "Geen aanpassing van vloer of looppaden nodig - de robot navigeert wat menselijke werknemers ook gebruiken. "
                     "Bij GXO Wentzville en Amazon-pilots zijn meer dan 100.000 totes verwerkt zonder dat de magazijn-layout "
                     "aangepast hoefde te worden."
                 ),
@@ -37,14 +37,14 @@ SECTORS = [
                 "body": (
                     "Voor het overpakken van inkomende pallets naar magazijntotes is een humanoid sneller dan een gespecialiseerde "
                     "decanting-robot omdat de SKU-mix te groot is voor pre-programmering. Een Digit of Walker S2 hanteert "
-                    "tassen, dozen en losse items met dezelfde 2-armige greep — geen gripper-swap, geen jig."
+                    "tassen, dozen en losse items met dezelfde 2-armige greep - geen gripper-swap, geen jig."
                 ),
             },
             {
                 "h": "Cycle-counting buiten piek",
                 "body": (
                     "Tussen 23:00 en 06:00 kan een Unitree G1 met SLAM-stack autonoom door het magazijn lopen en RFID-tags "
-                    "scannen. Voor een 1.200 m² fulfillment-locatie levert dat ~2 FTE per week aan besparing — bij €28/uur "
+                    "scannen. Voor een 1.200 m² fulfillment-locatie levert dat ~2 FTE per week aan besparing - bij €28/uur "
                     "is dat €58.000 per jaar."
                 ),
             },
@@ -55,7 +55,7 @@ SECTORS = [
              "Dat hangt af van tote-grootte (8-25 kg), aisle-breedte (1,2 m of meer voor full-size, 0,8 m voor compact), en of "
              "de pilot in een 2-ploeg of 3-ploeg moet draaien. Tijdens de gratis intake meten we dit op locatie."),
             ("Werkt de robot met onze WMS?",
-             "Ja — alle humanoids ondersteunen REST/OPC-UA koppeling met SAP EWM, Manhattan, Blue Yonder, Körber en de grote "
+             "Ja - alle humanoids ondersteunen REST/OPC-UA koppeling met SAP EWM, Manhattan, Blue Yonder, Körber en de grote "
              "Nederlandse WMS-leveranciers. BotLease verzorgt de integratie."),
             ("Hoe gaat het bij piek (Black Friday)?",
              "Surge-lease: extra units voor 6-12 weken tegen weekprijs. Geen jaarcontract, snel op- en afschalen. Dit is de "
@@ -65,17 +65,17 @@ SECTORS = [
     {
         "slug": "productie-assemblage",
         "name": "Productie en assemblage",
-        "title_kw": "Humanoïde robots in productie en assemblage Nederland",
+        "title_kw": "Humanoïde robots in productie",
         "h1": "Humanoïde robots voor productie en assemblage.",
-        "tagline": "Kitting, parts-handling en kwaliteitscontrole — voor mixed-mens-robot productielijnen.",
+        "tagline": "Kitting, parts-handling en kwaliteitscontrole - voor mixed-mens-robot productielijnen.",
         "intro": (
             "Nederlandse maakbedrijven kampen met een aanhoudend personeelstekort in productie: gemiddeld 12% openstaande "
             "vacatures in de metaal- en machine-industrie (CBS, Q1 2026). Tegelijk vragen klanten meer maatwerk en kortere "
-            "doorlooptijden. Humanoïde robots zijn ideaal voor de stappen die nu mensenwerk zijn omdat ze niet jig-baar zijn — "
+            "doorlooptijden. Humanoïde robots zijn ideaal voor de stappen die nu mensenwerk zijn omdat ze niet jig-baar zijn - "
             "kitting, materiaaltransport tussen werkstations, inspectie van onderdelen."
         ),
         "metrics": [
-            ("13–18 mnd", "Typische ROI-periode"),
+            ("13-18 mnd", "Typische ROI-periode"),
             ("24/7", "Productieve uptime mogelijk"),
             ("0 jigs", "Geen kostbare aanpassingen aan lijn"),
             ("€60-90k", "Vermeden FTE-kost per jaar"),
@@ -85,7 +85,7 @@ SECTORS = [
                 "h": "Kitting voor assemblage",
                 "body": (
                     "Apptronik Apollo verzamelt componenten in een Mercedes-fabriek voor opvolgende montage. De Apollo doet "
-                    "geen 'mens-werk' — hij verzorgt deeltaken (kitting, parts-handling, kwaliteitscontrole) die anders door "
+                    "geen 'mens-werk' - hij verzorgt deeltaken (kitting, parts-handling, kwaliteitscontrole) die anders door "
                     "een operator gedaan moeten worden. Ideaal voor mixed-flow lijnen."
                 ),
             },
@@ -101,7 +101,7 @@ SECTORS = [
                 "h": "Inline kwaliteitscontrole",
                 "body": (
                     "Een NEURA 4NE-1 inspecteert componenten met de geïntegreerde 4K-camera + thermische sensor. De "
-                    "AI-engine herkent afwijkingen die mensen makkelijk missen na 4 uur. Geen aparte inspectiestation nodig — "
+                    "AI-engine herkent afwijkingen die mensen makkelijk missen na 4 uur. Geen aparte inspectiestation nodig - "
                     "robot scant naast de productielijn."
                 ),
             },
@@ -123,9 +123,9 @@ SECTORS = [
     {
         "slug": "hospitality-retail",
         "name": "Hospitality en retail",
-        "title_kw": "Humanoïde robots in hospitality en retail Nederland",
+        "title_kw": "Humanoïde robots in hospitality",
         "h1": "Humanoïde robots voor hospitality en retail.",
-        "tagline": "Lobby-host, room-service en nachtelijke voorraadtelling — verhoogt service én bespaart op personeel.",
+        "tagline": "Lobby-host, room-service en nachtelijke voorraadtelling - verhoogt service én bespaart op personeel.",
         "intro": (
             "Hotels met meer dan 80 kamers en retailers boven 1.000 m² zien een groeiende interesse in humanoid-hosts. "
             "Niet als gimmick: data van de eerste 50 Europese pilots laat zien dat hotels gemiddeld 0,3-0,5 ster winnen op "
@@ -133,7 +133,7 @@ SECTORS = [
             "(avond/nacht) en in betere gastervaring tijdens piek."
         ),
         "metrics": [
-            ("+0,3–0,5★", "Gemiddelde gastenscore-verbetering"),
+            ("+0,3-0,5★", "Gemiddelde gastenscore-verbetering"),
             ("30%", "Minder routinewerk voor personeel"),
             ("2 FTE/wk", "Bespaard op nachtelijke voorraadtelling"),
             ("€58k/jr", "Typische besparing per retail-locatie"),
@@ -143,7 +143,7 @@ SECTORS = [
                 "h": "Lobby-host bij hotels",
                 "body": (
                     "Een 1X NEO (vanaf Q1 2027) of Unitree H2 begroet gasten in de lobby, wijst de weg, en haalt bagage op "
-                    "tussen lobby en lift. De check-in zelf blijft mensenwerk — de robot vult de service-gaten 's avonds "
+                    "tussen lobby en lift. De check-in zelf blijft mensenwerk - de robot vult de service-gaten 's avonds "
                     "en 's nachts in. Best voor 80+ kamerhotels waar gemiddelde wachttijden onder druk staan."
                 ),
             },
@@ -152,7 +152,7 @@ SECTORS = [
                 "body": (
                     "Tussen 23:00 en 06:00 kan een Unitree G1 met camera-vision en SLAM-stack autonoom door een winkel "
                     "lopen en RFID/barcode-tags scannen. Voor een 1.200 m² retailer: ~2 FTE per week aan handmatige "
-                    "telling besparen — bij €28/uur is dat €58.000 per jaar."
+                    "telling besparen - bij €28/uur is dat €58.000 per jaar."
                 ),
             },
             {
@@ -168,10 +168,10 @@ SECTORS = [
         "questions": [
             ("Hoe reageren gasten op een robot?",
              "Bij de meeste pilots: positief. 65% van de gasten interacteert vrijwillig binnen 24 uur, 80% rapporteert "
-             "geen ongemak. Belangrijk: training van personeel om bij te springen wanneer de robot vastloopt — gasten "
+             "geen ongemak. Belangrijk: training van personeel om bij te springen wanneer de robot vastloopt - gasten "
              "voelen zich snel ongemakkelijk bij een 'kapotte' robot."),
             ("Werkt dit in een kleiner hotel of winkel?",
-             "Onder 80 kamers (hotels) of 800 m² (retail) is de ROI moeilijk te halen — dan zit je in event-mode of "
+             "Onder 80 kamers (hotels) of 800 m² (retail) is de ROI moeilijk te halen - dan zit je in event-mode of "
              "marketing-stunts. Goedkoper alternatief: huur per event in plaats van leasen."),
             ("Wat zegt AVG/GDPR over robot-cameras?",
              "Camera-streams blijven on-prem of op EU-cloud (Hetzner FSN). BotLease sluit een DPA per klant en is "
@@ -181,9 +181,9 @@ SECTORS = [
     {
         "slug": "zorg-instellingen",
         "name": "Zorg en instellingen",
-        "title_kw": "Humanoïde robots in zorg en instellingen Nederland",
+        "title_kw": "Humanoïde robots in de zorg",
         "h1": "Humanoïde robots in zorginstellingen.",
-        "tagline": "Linnen- en materiaaltransport — voor de niet-zorgtaken die nu zorgmedewerkers doen.",
+        "tagline": "Linnen- en materiaaltransport - voor de niet-zorgtaken die nu zorgmedewerkers doen.",
         "intro": (
             "Nederlandse zorginstellingen verliezen jaarlijks 10-15% van zorgmedewerkers aan logistieke taken: linnen "
             "verplaatsen, materiaal aanvullen, voedseldistributie. Humanoïde robots zijn geen oplossing voor zorgtaken "
@@ -193,7 +193,7 @@ SECTORS = [
         ),
         "metrics": [
             ("0,6 FTE", "Vrijgespeeld zorgpersoneel per robot"),
-            ("18–24 mnd", "Typische ROI-periode"),
+            ("18-24 mnd", "Typische ROI-periode"),
             ("EU-built", "Voor GDPR + AI-Act compliance"),
             ("24/7", "Ondersteuning bij personeelstekort"),
         ],
@@ -217,7 +217,7 @@ SECTORS = [
             {
                 "h": "Voedseldistributie tijdens piekuren",
                 "body": (
-                    "Ontbijt- en avondserveerronde tussen keuken en kamers — vaak 1-2 zorgmedewerkers die anders direct "
+                    "Ontbijt- en avondserveerronde tussen keuken en kamers - vaak 1-2 zorgmedewerkers die anders direct "
                     "zorg konden bieden. Een PAL TIAGo of Unitree H2 (sociale interactie) verzorgt deze ronde."
                 ),
             },
@@ -225,11 +225,11 @@ SECTORS = [
         "recommended_robots": ["pal-tiago-pro", "neura-4ne1-mini", "unitree-g1", "unitree-h2"],
         "questions": [
             ("Mag dit volgens de Wet zorg en dwang?",
-             "Ja — de robot voert geen zorghandelingen uit, alleen logistiek. Geen impact op Wzd-protocollen. De "
+             "Ja - de robot voert geen zorghandelingen uit, alleen logistiek. Geen impact op Wzd-protocollen. De "
              "AVG-verwerking van patiëntdata blijft een zorgvuldigheidspunt: camera-streams blijven on-prem, geen "
              "patiëntdata wordt opgeslagen."),
             ("Werkt dit in de nacht?",
-             "Ja — humanoids zijn ideaal voor nachtelijke logistiek omdat ze geen rust nodig hebben en omdat het "
+             "Ja - humanoids zijn ideaal voor nachtelijke logistiek omdat ze geen rust nodig hebben en omdat het "
              "personeelstekort 's nachts het scherpst is. Battery-swap automatisch via dockingstation."),
             ("Hoe veilig is dit naast kwetsbare patiënten?",
              "Cobot-compliante modellen (PAL, NEURA, 4NE-1 Mini) hebben kracht-detectie: bij aanraking stoppen ze "
@@ -246,7 +246,7 @@ CITIES = [
         "intro": (
             "Amsterdam is Nederlands grootste cluster voor e-commerce-hoofdkantoren, tech-scale-ups en luxe hospitality. "
             "BotLease levert humanoids op locatie binnen Schiphol-corridor, Zuidoost (Amstel Business Park) en Westpoort "
-            "(Sloterdijk fulfillment) — gemiddeld 5 werkdagen na intake."
+            "(Sloterdijk fulfillment) - gemiddeld 5 werkdagen na intake."
         ),
         "sectors_in_focus": ["3pl-fulfillment", "hospitality-retail"],
         "local_hooks": (
@@ -274,7 +274,7 @@ CITIES = [
     {
         "slug": "eindhoven",
         "name": "Eindhoven",
-        "title_kw": "Humanoïde robot leasen Eindhoven Brainport",
+        "title_kw": "Humanoïde robot leasen Eindhoven",
         "intro": (
             "Eindhoven Brainport is Nederlands maakindustrie-hart: ASML, NXP, Philips, VDL. BotLease bedient deze regio actief vanuit "
             "Amsterdam met demo-units op voorraad voor pilots binnen 5 werkdagen. Sterk netwerk in Helmond "
@@ -293,7 +293,7 @@ CITIES = [
         "title_kw": "Humanoïde robot leasen Utrecht",
         "intro": (
             "Utrecht is het knooppunt voor zorginstellingen (UMC Utrecht), universitair onderzoek en logistieke knooppunten "
-            "rond A12/A2. BotLease levert humanoids binnen 2 uur vanaf Eindhoven HQ — handig voor zorg- en onderzoeksprojecten "
+            "rond A12/A2. BotLease levert humanoids binnen 2 uur vanaf Eindhoven HQ - handig voor zorg- en onderzoeksprojecten "
             "in regio Utrecht-Nieuwegein."
         ),
         "sectors_in_focus": ["zorg-instellingen", "3pl-fulfillment"],
@@ -315,7 +315,7 @@ CITIES = [
         "sectors_in_focus": ["hospitality-retail", "3pl-fulfillment"],
         "local_hooks": (
             "Voor Scheveningse hotels en hospitality-cluster (Kurhaus, Steigenberger) zijn Unitree H2 of NEO ideaal voor "
-            "lobby-host. Voor government R&D en defensie-pilots zijn EU-gebouwde modellen (NEURA, PAL) verplicht — "
+            "lobby-host. Voor government R&D en defensie-pilots zijn EU-gebouwde modellen (NEURA, PAL) verplicht - "
             "geen Chinese hardware in security-toepassingen."
         ),
     },

@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BotLease Nieuws — humanoïde robots in Nederland</title>
+    <title>BotLease Nieuws - humanoïde robots in Nederland</title>
     <link>https://botlease.nl/nieuws/</link>
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Wed, 20 May 2026 13:27:20 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 15:44:27 +0000</lastBuildDate>
+    <item>
+      <title>Shadow Walker: DIY-robot uit 1987 met luchtspieren</title>
+      <link>https://botlease.nl/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren</guid>
+      <pubDate>Sun, 31 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Een Britse fotograaf bouwde in zijn zolderkamer een tweebenige humanoid op pneumatische spieren - een vergeten voorloper van moderne actuator-technologie.]]></description>
+    </item>
+    <item>
+      <title>Eco-Score robots: duurzaamheidslabel in opmars</title>
+      <link>https://botlease.nl/nieuws/eco-score-robots-duurzaamheidslabel-in-opmars</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/eco-score-robots-duurzaamheidslabel-in-opmars</guid>
+      <pubDate>Fri, 29 May 2026 08:00:00 +0100</pubDate>
+      <category>Markt</category>
+      <description><![CDATA[IEEE Spectrum belicht in Video Friday een nieuw Eco-Label voor robots, terwijl Boston Dynamics en Agility nieuwe vaardigheden tonen.]]></description>
+    </item>
+    <item>
+      <title>Atlas tilt koelkast: humanoïde wordt industrieel</title>
+      <link>https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel</guid>
+      <pubDate>Fri, 22 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Boston Dynamics laat zien hoe reinforcement learning Atlas leert om zware objecten te hanteren met whole-body control, een stap richting echte industriële inzet.]]></description>
+    </item>
+    <item>
+      <title>Interface wordt de bottleneck van Physical AI</title>
+      <link>https://botlease.nl/nieuws/interface-wordt-de-bottleneck-van-physical-ai</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/interface-wordt-de-bottleneck-van-physical-ai</guid>
+      <pubDate>Thu, 21 May 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Hardware en VLA-modellen schalen razendsnel, maar de mens-machine-interface blijft hangen in scherm, knop en stem.]]></description>
+    </item>
+    <item>
+      <title>Markt-stand mei 2026: hoeveel humanoïde robots zijn leverbaar in Nederland?</title>
+      <link>https://botlease.nl/nieuws/humanoid-robot-lease-nederland-marktstand-mei-2026</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/humanoid-robot-lease-nederland-marktstand-mei-2026</guid>
+      <pubDate>Wed, 20 May 2026 08:00:00 +0100</pubDate>
+      <category>Marktstand</category>
+      <description><![CDATA[We brengen de NL-leverbaarheid van 15 humanoid-modellen in kaart - wat kan vandaag worden besteld, wat staat op wachtlijst, en wat zijn realistische prijzen.]]></description>
+    </item>
     <item>
       <title>krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk</title>
       <link>https://botlease.nl/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk</link>
@@ -45,7 +85,7 @@
       <guid isPermaLink="true">https://botlease.nl/nieuws/autonome-40-tons-materiaalhandler-markeert-sprong-naar-zware-zelfsturende-roboti</guid>
       <pubDate>Fri, 15 May 2026 08:00:00 +0100</pubDate>
       <category>R&amp;D</category>
-      <description><![CDATA[ETH Zürich demonstreert eerste volledig autonome oplossing op een echte 40-tons hydraulische kraan — een doorbraak voor bulkverwerking in havens en recycling.]]></description>
+      <description><![CDATA[ETH Zürich demonstreert eerste volledig autonome oplossing op een echte 40-tons hydraulische kraan - een doorbraak voor bulkverwerking in havens en recycling.]]></description>
     </item>
     <item>
       <title>Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn</title>
@@ -53,7 +93,7 @@
       <guid isPermaLink="true">https://botlease.nl/nieuws/unitree-g1-mkb-vijf-rendabele-toepassingen</guid>
       <pubDate>Thu, 14 May 2026 08:00:00 +0100</pubDate>
       <category>Toepassingen</category>
-      <description><![CDATA[De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.]]></description>
+      <description><![CDATA[De Unitree G1 kost €16.000 - maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.]]></description>
     </item>
     <item>
       <title>UBTECH Walker S2 hit 1.000 units: betekent dit commerciële volwassenheid?</title>
@@ -61,7 +101,7 @@
       <guid isPermaLink="true">https://botlease.nl/nieuws/ubtech-walker-s2-1000-units-commerciele-volwassenheid</guid>
       <pubDate>Wed, 13 May 2026 08:00:00 +0100</pubDate>
       <category>Industrie</category>
-      <description><![CDATA[December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt — en moet je nu kopen?]]></description>
+      <description><![CDATA[December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt - en moet je nu kopen?]]></description>
     </item>
     <item>
       <title>Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</title>
@@ -85,7 +125,7 @@
       <guid isPermaLink="true">https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</guid>
       <pubDate>Mon, 11 May 2026 08:00:00 +0100</pubDate>
       <category>Toepassingen</category>
-      <description><![CDATA[Geen marketing — wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.]]></description>
+      <description><![CDATA[Geen marketing - wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.]]></description>
     </item>
     <item>
       <title>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</title>
@@ -109,10 +149,10 @@
       <guid isPermaLink="true">https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland</guid>
       <pubDate>Fri, 08 May 2026 08:00:00 +0100</pubDate>
       <category>Toepassingen</category>
-      <description><![CDATA[Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL — en wat de cijfers zeggen.]]></description>
+      <description><![CDATA[Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL - en wat de cijfers zeggen.]]></description>
     </item>
     <item>
-      <title>Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?</title>
+      <title>Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 - wat zegt dat over Nederland?</title>
       <link>https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland</link>
       <guid isPermaLink="true">https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland</guid>
       <pubDate>Tue, 05 May 2026 08:00:00 +0100</pubDate>

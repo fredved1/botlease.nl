@@ -1,5 +1,76 @@
 [
   {
+    "slug": "shadow-walker-diy-robot-uit-1987-met-luchtspieren",
+    "title": "Shadow Walker: DIY-robot uit 1987 met luchtspieren",
+    "subtitle": "Een Britse fotograaf bouwde in zijn zolderkamer een tweebenige humanoid op pneumatische spieren - een vergeten voorloper van moderne actuator-technologie.",
+    "date": "2026-05-31",
+    "category": "R&D",
+    "tags": [
+      "humanoide-robotica",
+      "actuatoren",
+      "geschiedenis",
+      "pneumatiek",
+      "biped"
+    ]
+  },
+  {
+    "slug": "eco-score-robots-duurzaamheidslabel-in-opmars",
+    "title": "Eco-Score robots: duurzaamheidslabel in opmars",
+    "subtitle": "IEEE Spectrum belicht in Video Friday een nieuw Eco-Label voor robots, terwijl Boston Dynamics en Agility nieuwe vaardigheden tonen.",
+    "date": "2026-05-29",
+    "category": "Markt",
+    "tags": [
+      "Eco-Score",
+      "duurzaamheid",
+      "Boston Dynamics",
+      "Agility Robotics",
+      "EU AI Act"
+    ]
+  },
+  {
+    "slug": "atlas-tilt-koelkast-humanoide-wordt-industrieel",
+    "title": "Atlas tilt koelkast: humanoïde wordt industrieel",
+    "subtitle": "Boston Dynamics laat zien hoe reinforcement learning Atlas leert om zware objecten te hanteren met whole-body control, een stap richting echte industriële inzet.",
+    "date": "2026-05-22",
+    "category": "R&D",
+    "tags": [
+      "Boston Dynamics",
+      "Atlas",
+      "reinforcement learning",
+      "industrie",
+      "humanoïde"
+    ]
+  },
+  {
+    "slug": "interface-wordt-de-bottleneck-van-physical-ai",
+    "title": "Interface wordt de bottleneck van Physical AI",
+    "subtitle": "Hardware en VLA-modellen schalen razendsnel, maar de mens-machine-interface blijft hangen in scherm, knop en stem.",
+    "date": "2026-05-21",
+    "category": "R&D",
+    "tags": [
+      "physical-ai",
+      "interfaces",
+      "humanoide-robots",
+      "vla-modellen",
+      "operator"
+    ]
+  },
+  {
+    "slug": "humanoid-robot-lease-nederland-marktstand-mei-2026",
+    "title": "Markt-stand mei 2026: hoeveel humanoïde robots zijn leverbaar in Nederland?",
+    "subtitle": "We brengen de NL-leverbaarheid van 15 humanoid-modellen in kaart - wat kan vandaag worden besteld, wat staat op wachtlijst, en wat zijn realistische prijzen.",
+    "date": "2026-05-20",
+    "category": "Marktstand",
+    "tags": [
+      "Marktstand",
+      "Catalogus",
+      "Leverbaarheid",
+      "Prijzen",
+      "EU AI-Act",
+      "2026"
+    ]
+  },
+  {
     "slug": "krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk",
     "title": "krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk",
     "subtitle": "Investeerders pompten in 2025 een recordbedrag van 40,7 miljard dollar in robotica, maar de economische doorbraak laat nog op zich wachten.",
@@ -58,7 +129,7 @@
   {
     "slug": "autonome-40-tons-materiaalhandler-markeert-sprong-naar-zware-zelfsturende-roboti",
     "title": "autonome 40-tons materiaalhandler markeert sprong naar zware zelfsturende robotica",
-    "subtitle": "ETH Zürich demonstreert eerste volledig autonome oplossing op een echte 40-tons hydraulische kraan — een doorbraak voor bulkverwerking in havens en recycling.",
+    "subtitle": "ETH Zürich demonstreert eerste volledig autonome oplossing op een echte 40-tons hydraulische kraan - een doorbraak voor bulkverwerking in havens en recycling.",
     "date": "2026-05-15",
     "category": "R&D",
     "tags": [
@@ -72,7 +143,7 @@
   {
     "slug": "unitree-g1-mkb-vijf-rendabele-toepassingen",
     "title": "Unitree G1 voor het MKB: vijf toepassingen die nu al rendabel zijn",
-    "subtitle": "De Unitree G1 kost €16.000 — maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.",
+    "subtitle": "De Unitree G1 kost €16.000 - maar het zijn niet de hardware-kosten die over winstgevendheid beslissen.",
     "date": "2026-05-14",
     "category": "Toepassingen",
     "tags": [
@@ -87,7 +158,7 @@
   {
     "slug": "ubtech-walker-s2-1000-units-commerciele-volwassenheid",
     "title": "UBTECH Walker S2 hit 1.000 units: betekent dit commerciële volwassenheid?",
-    "subtitle": "December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt — en moet je nu kopen?",
+    "subtitle": "December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt - en moet je nu kopen?",
     "date": "2026-05-13",
     "category": "Industrie",
     "tags": [
@@ -129,7 +200,7 @@
   {
     "slug": "humanoid-fulfillment-pilots-nederland-2026",
     "title": "Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen",
-    "subtitle": "Geen marketing — wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.",
+    "subtitle": "Geen marketing - wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.",
     "date": "2026-05-11",
     "category": "Toepassingen",
     "tags": [
@@ -174,7 +245,7 @@
   {
     "slug": "agility-digit-fulfillment-pilot-3pl-nederland",
     "title": "Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie",
-    "subtitle": "Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL — en wat de cijfers zeggen.",
+    "subtitle": "Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL - en wat de cijfers zeggen.",
     "date": "2026-05-08",
     "category": "Toepassingen",
     "tags": [
@@ -188,7 +259,7 @@
   },
   {
     "slug": "goldman-sachs-38-miljard-humanoid-markt-nederland",
-    "title": "Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 — wat zegt dat over Nederland?",
+    "title": "Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 - wat zegt dat over Nederland?",
     "subtitle": "Een upgrade van een upgrade van een upgrade van een marktvoorspelling. De NL-translatie.",
     "date": "2026-05-05",
     "category": "Markt",

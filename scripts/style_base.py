@@ -1,4 +1,4 @@
-"""Shared design system — Apple.com cinematic stijl.
+"""Shared design system - Apple.com cinematic stijl.
 
 Inter font, alternerend zwart/wit secties, rounded tiles, Apple pill buttons.
 Geen mono, geen brutalist grid lines.
@@ -28,16 +28,16 @@ BASE_CSS = """
   --line:          #d2d2d7;
   --line-2:        #86868b;
 
-  /* Text — Apple greys, but darker for better contrast on grey tiles */
+  /* Text - Apple greys, but darker for better contrast on grey tiles */
   --ink:    #1d1d1f;
-  --ink-2:  #424245;   /* was #6e6e73 — bumped for contrast op grey bg */
+  --ink-2:  #424245;   /* was #6e6e73 - bumped for contrast op grey bg */
   --ink-3:  #6e6e73;   /* was #86868b */
   --ink-4:  #86868b;
   --ink-on-dark:   #f5f5f7;
-  --ink-2-on-dark: #d2d2d7;  /* was #86868b — meer contrast op dark */
+  --ink-2-on-dark: #d2d2d7;  /* was #86868b - meer contrast op dark */
   --ink-3-on-dark: #a1a1a6;
 
-  /* Accent — Apple blue */
+  /* Accent - Apple blue */
   --accent:       #0066cc;
   --accent-2:     #2997ff;
   --accent-deep:  #0058ad;
@@ -52,7 +52,7 @@ BASE_CSS = """
   --blue-soft:  #e8f0fe;
   --rose:       #ff453a;
 
-  /* Radius — Apple style */
+  /* Radius - Apple style */
   --r-sm:  8px;
   --r:     12px;
   --r-lg:  18px;
@@ -91,7 +91,7 @@ button { font-family:inherit; cursor:pointer; }
 .narrow    { max-width:820px;  margin:0 auto; padding:0 22px; }
 @media (min-width:780px) { .container, .narrow { padding-inline:40px; } }
 
-/* Nav — Apple compact */
+/* Nav - Apple compact */
 nav.top {
   position:sticky; top:0; z-index:90;
   background:rgba(251,251,253,0.72);
@@ -150,7 +150,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 body { top:0 !important; }
 .goog-te-gadget { font-size:0 !important; height:0; overflow:hidden; }
 
-/* Buttons — Apple pill */
+/* Buttons - Apple pill */
 .btn {
   display:inline-flex; align-items:center; gap:4px;
   padding:11px 22px; border-radius:980px;
@@ -177,7 +177,7 @@ footer a:hover { color:var(--ink); }
 
 @media (max-width:780px) { .nav-links { display:none; } }
 
-/* Sections — Apple style */
+/* Sections - Apple style */
 section { padding:80px 0; }
 @media (min-width:780px) { section { padding:120px 0; } }
 section.scene.dark, section.dark {
@@ -213,7 +213,7 @@ NAV_HTML = """
 <nav class="top">
   <div class="container row">
     <a class="brand" href="/">
-      <div class="brand-mark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
+      <div class="brand-mark"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5 V19"/><path d="M7 5 H13.5 C16.5 5 16.5 12 13.5 12 H7"/><path d="M7 12 H14.5 C17.5 12 17.5 19 14.5 19 H7"/></svg></div>
       BotLease
     </a>
     <div class="nav-links">
@@ -263,7 +263,7 @@ function googleTranslateElementInit(){new google.translate.TranslateElement({pag
 FOOTER_HTML = """
 <footer>
   <div class="row">
-    <div>© 2026 BotLease — KvK 95943420 · Amsterdam</div>
+    <div>© 2026 BotLease - KvK 95943420 · Amsterdam</div>
     <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/sectoren">Sectoren</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · hallo@botlease.nl</div>
   </div>
 </footer>

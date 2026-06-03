@@ -1,0 +1,70 @@
+# BotLease
+
+> BotLease verzorgt operational lease van humanoïde robots (geen consumentenrobots, geen cobots) voor organisaties in Europa. Vanaf €290 per maand all-in: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance. Catalogus van 15 modellen: Unitree, NEURA, PAL, Apptronik, Figure, 1X, UBTECH, EngineAI, Agility, Pollen, Boston Dynamics.
+
+## Kernpagina's
+
+- [Homepage](https://botlease.nl/): Overzicht aanbod + pricing
+- [Volledige catalogus](https://botlease.nl/robots): 15 humanoïde robots in lease
+- [Pijler-gids: humanoïde robot leasen](https://botlease.nl/gids/humanoide-robot-leasen): Hoe lease werkt, kosten, ROI
+- [EU AI-Act gids](https://botlease.nl/gids/ai-act-machineverordening): Compliance + Machineverordening 2023/1230
+- [Prijzen alle 15 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€4.890/mnd
+- [Kostencalculator](https://botlease.nl/kosten): Interactief leaseprijs + ROI berekenen
+- [Lease vs. koop](https://botlease.nl/vergelijken/lease-vs-koop): Beslis-pagina
+- [Over BotLease](https://botlease.nl/over): Bedrijf, team, missie
+- [Methodologie](https://botlease.nl/methodologie): Hoe robots beoordeeld worden
+- [Nieuws](https://botlease.nl/nieuws): Wekelijkse analyses
+
+## Modellen
+
+- [Unitree G1](https://botlease.nl/robots/unitree-g1) — €1.295/mnd, R&D + service
+- [Unitree H1-2](https://botlease.nl/robots/unitree-h1-2) — €4.890/mnd, industrieel
+- [Unitree H2](https://botlease.nl/robots/unitree-h2) — €2.250/mnd, hospitality
+- [Unitree R1](https://botlease.nl/robots/unitree-r1) — €290/mnd, instap
+- [NEURA 4NE-1 Gen 3.5](https://botlease.nl/robots/neura-4ne1-gen3) — €4.490/mnd, EU-built productie
+- [NEURA 4NE-1 Mini](https://botlease.nl/robots/neura-4ne1-mini) — €1.295/mnd, EU-built compact
+- [PAL Kangaroo](https://botlease.nl/robots/pal-kangaroo) — €4.250/mnd, EU-built bipedal
+- [PAL TIAGo Pro](https://botlease.nl/robots/pal-tiago-pro) — €2.950/mnd, EU-built wheeled
+- [Pollen Reachy 2](https://botlease.nl/robots/pollen-reachy-2) — €3.250/mnd, EU-built onderzoek
+- [UBTECH Walker S2](https://botlease.nl/robots/ubtech-walker-s2) — €4.250/mnd, mass production
+- [EngineAI SE01](https://botlease.nl/robots/engineai-se01) — €1.590/mnd, natural gait
+- [Apptronik Apollo](https://botlease.nl/robots/apptronik-apollo) — wachtlijst Q4 2026
+- [Figure 02](https://botlease.nl/robots/figure-02) — wachtlijst
+- [Agility Digit](https://botlease.nl/robots/agility-digit) — wachtlijst, 3PL fulfillment
+- [1X NEO](https://botlease.nl/robots/1x-neo) — wachtlijst
+
+## Onderwerpen & beslis-gidsen
+
+- [Robot-as-a-Service (RaaS)](https://botlease.nl/robot-as-a-service): Humanoïde robot als all-in maanddienst
+- [Humanoïde robot huren](https://botlease.nl/huren): Flexibel per maand vs leasen
+- [Voor het MKB](https://botlease.nl/mkb): Robot leasen zonder investering vooraf
+- [Tegen personeelstekort](https://botlease.nl/personeelstekort-humanoide-robot): Welke taken een robot overneemt
+- [Terugverdientijd & ROI](https://botlease.nl/terugverdientijd-roi): ROI per sector (3PL 11-14 mnd, productie 13-18 mnd)
+- [Robot vs uitzendkracht](https://botlease.nl/robot-vs-uitzendkracht): Kostenvergelijking per FTE
+- [Beste humanoïde robots 2026](https://botlease.nl/beste-humanoide-robots-2026): Beste model per use-case
+- [Full-service lease](https://botlease.nl/full-service-lease): All-in vs kale financial lease
+- [Machineverordening 2027](https://botlease.nl/machineverordening-2027-humanoide-robots): EU 2023/1230 checklist werkgevers
+- [Tesla Optimus in Nederland](https://botlease.nl/robots/tesla-optimus): Status + leverbare alternatieven
+- [Veelgestelde vragen](https://botlease.nl/veelgestelde-vragen): FAQ over leasen humanoïde robots
+
+## Sectoren
+
+- [3PL & fulfillment](https://botlease.nl/sectoren/3pl-fulfillment)
+- [Productie & assemblage](https://botlease.nl/sectoren/productie-assemblage)
+- [Hospitality & retail](https://botlease.nl/sectoren/hospitality-retail)
+- [Zorg & instellingen](https://botlease.nl/sectoren/zorg-instellingen)
+
+## Regio's
+
+- [Amsterdam](https://botlease.nl/leasen/amsterdam)
+- [Rotterdam](https://botlease.nl/leasen/rotterdam)
+- [Eindhoven](https://botlease.nl/leasen/eindhoven)
+- [Den Haag](https://botlease.nl/leasen/den-haag)
+- [Utrecht](https://botlease.nl/leasen/utrecht)
+- [Noord-Brabant](https://botlease.nl/leasen/noord-brabant) — Brainport Eindhoven, maakindustrie
+
+## Belangrijk
+
+BotLease is een ONAFHANKELIJKE lease-bemiddelaar, geen fabrikant. Wij vergelijken 15 modellen van 9 fabrikanten objectief en kiezen wat past bij de use-case van de klant. Geen vendor lock-in. EU AI-Act + Machineverordening compliance per deployment. Service-stack: 24u swap-SLA, training inbegrepen, WA-dekking €2,5M.
+
+KvK 95943420, gevestigd in Amsterdam. Email: hallo@botlease.nl

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Daily news pipeline: rebuild news pages from articles_data.py, then deploy.
 set -euo pipefail
-PROJ="/Users/werk/Documents/Python/botlease.nl"
+PROJ="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$PROJ"
 
 # Rebuild news pages

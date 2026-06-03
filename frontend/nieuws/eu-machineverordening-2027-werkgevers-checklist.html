@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026 | BotLease Nieuws</title>
+<title>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026</title>
 <meta name="description" content="Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?">
 <meta name="keywords" content="Machineverordening, Regelgeving, Compliance, Werkgever, EU, humanoide robot, robot lease, Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -29,7 +29,7 @@
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="https://botlease.nl/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -50,16 +50,16 @@
   --line:          #d2d2d7;
   --line-2:        #86868b;
 
-  /* Text — Apple greys, but darker for better contrast on grey tiles */
+  /* Text - Apple greys, but darker for better contrast on grey tiles */
   --ink:    #1d1d1f;
-  --ink-2:  #424245;   /* was #6e6e73 — bumped for contrast op grey bg */
+  --ink-2:  #424245;   /* was #6e6e73 - bumped for contrast op grey bg */
   --ink-3:  #6e6e73;   /* was #86868b */
   --ink-4:  #86868b;
   --ink-on-dark:   #f5f5f7;
-  --ink-2-on-dark: #d2d2d7;  /* was #86868b — meer contrast op dark */
+  --ink-2-on-dark: #d2d2d7;  /* was #86868b - meer contrast op dark */
   --ink-3-on-dark: #a1a1a6;
 
-  /* Accent — Apple blue */
+  /* Accent - Apple blue */
   --accent:       #0066cc;
   --accent-2:     #2997ff;
   --accent-deep:  #0058ad;
@@ -74,7 +74,7 @@
   --blue-soft:  #e8f0fe;
   --rose:       #ff453a;
 
-  /* Radius — Apple style */
+  /* Radius - Apple style */
   --r-sm:  8px;
   --r:     12px;
   --r-lg:  18px;
@@ -113,7 +113,7 @@ button { font-family:inherit; cursor:pointer; }
 .narrow    { max-width:820px;  margin:0 auto; padding:0 22px; }
 @media (min-width:780px) { .container, .narrow { padding-inline:40px; } }
 
-/* Nav — Apple compact */
+/* Nav - Apple compact */
 nav.top {
   position:sticky; top:0; z-index:90;
   background:rgba(251,251,253,0.72);
@@ -172,7 +172,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 body { top:0 !important; }
 .goog-te-gadget { font-size:0 !important; height:0; overflow:hidden; }
 
-/* Buttons — Apple pill */
+/* Buttons - Apple pill */
 .btn {
   display:inline-flex; align-items:center; gap:4px;
   padding:11px 22px; border-radius:980px;
@@ -199,7 +199,7 @@ footer a:hover { color:var(--ink); }
 
 @media (max-width:780px) { .nav-links { display:none; } }
 
-/* Sections — Apple style */
+/* Sections - Apple style */
 section { padding:80px 0; }
 @media (min-width:780px) { section { padding:120px 0; } }
 section.scene.dark, section.dark {
@@ -241,7 +241,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .hero-banner-pattern { display:none; }
 .hero-banner-label {
   position:absolute; top:18px; left:20px;
-  font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600;
+  font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:0.1em;
   color:var(--accent-deep);
   padding:4px 12px; background:var(--bg-card);
@@ -258,23 +258,50 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
-  font-family:'Space Grotesk'; color:var(--accent-deep);
+  font-family:'Inter'; color:var(--accent-deep);
   font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.full h1 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(34px, 4.5vw, 56px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 article.full .subtitle { font-size:19px; color:var(--ink-2); margin-bottom:32px; line-height:1.5; }
 article.full .body { padding:32px 0 0; }
 article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); margin-bottom:22px; line-height:1.78; }
+
+/* TL;DR callout */
+.tldr {
+  position:relative;
+  background:var(--accent-soft);
+  border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;
+  padding:22px 28px 22px 28px;
+  margin:0 0 36px;
+}
+.tldr-label {
+  display:inline-block;
+  font-family:'Inter', sans-serif;
+  font-size:11px; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent-deep);
+  margin-bottom:8px;
+}
+.tldr p {
+  font-family:'Inter', sans-serif;
+  font-size:16.5px !important;
+  font-weight:500;
+  color:var(--ink) !important;
+  margin-bottom:0 !important;
+  line-height:1.55 !important;
+}
+@media (min-width:768px) { .tldr { padding:26px 32px; } .tldr p { font-size:17px !important; } }
 article.full .body ul { padding-left:24px; }
 article.full .body li { margin-bottom:8px; color:var(--ink); }
 article.full .body h2 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:30px; margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
 }
 article.full .body h3 { font-size:21px; margin:36px 0 14px; }
@@ -284,11 +311,11 @@ article.full .body strong, article.full .body b { color:var(--ink); font-weight:
 article.full blockquote {
   border-left:3px solid var(--accent);
   padding:8px 0 8px 24px; margin:32px 0;
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:22px; color:var(--ink); line-height:1.4;
 }
 .sources { margin-top:64px; padding:32px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; }
-.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Space Grotesk'; font-weight:600; }
+.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Inter'; font-weight:600; }
 .sources ol { padding-left:22px; }
 .sources li { color:var(--ink-2); font-size:14.5px; margin-bottom:8px; }
 .sources a { color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); }
@@ -300,14 +327,14 @@ article.full blockquote {
   border-radius:20px; text-align:center;
 }
 .cta-strip h3 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
 .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 .related { margin-top:80px; padding-top:48px; border-top:1px solid var(--border); }
-.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Space Grotesk'; font-weight:600; }
+.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Inter'; font-weight:600; }
 .related-grid { display:grid; grid-template-columns:1fr; gap:18px; }
 @media (min-width:640px) { .related-grid { grid-template-columns:1fr 1fr; } }
 .related a {
@@ -317,14 +344,52 @@ article.full blockquote {
 }
 .related a:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .related .cat { font-size:11px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-.related .t { font-family:'Space Grotesk'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
+.related .t { font-family:'Inter'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026", "description": "Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?", "image": ["https://botlease.nl/img/robots/apollo.png"], "datePublished": "2026-05-15T08:00:00+01:00", "dateModified": "2026-05-15T08:00:00+01:00", "author": {"@type": "Organization", "name": "BotLease Redactie"}, "publisher": {"@type": "Organization", "name": "BotLease", "logo": {"@type": "ImageObject", "url": "https://botlease.nl/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://botlease.nl/nieuws/eu-machineverordening-2027-werkgevers-checklist"}, "keywords": "Machineverordening, Regelgeving, Compliance, Werkgever, EU", "articleSection": "Regelgeving", "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "https://botlease.nl/nieuws/"}, {"@type": "ListItem", "position": 3, "name": "EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026", "item": "https://botlease.nl/nieuws/eu-machineverordening-2027-werkgevers-checklist"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots.", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"}, "sameAs": []}</script>
-<meta name="google-site-verification" content="REPLACE-WITH-GSC-TOKEN">
-<meta name="msvalidate.01" content="REPLACE-WITH-BING-TOKEN">
-<script defer data-domain="botlease.nl" src="https://plausible.io/js/script.outbound-links.js"></script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script>
+(function(){
+  function t(name, data){
+    try{
+      navigator.sendBeacon('/api/track', JSON.stringify({
+        type:'event',
+        name:name||undefined,
+        data:data||undefined,
+        url:location.pathname+location.search,
+        title:document.title,
+        referrer:document.referrer||'',
+        screen:screen.width+'x'+screen.height,
+        language:navigator.language
+      }));
+    }catch(e){}
+  }
+  // Page view
+  t();
+  // Expose for custom events
+  window.bl_track = t;
+  // Outbound clicks
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="http"]');
+    if (a && a.hostname && a.hostname !== location.hostname) {
+      t('outbound', {url: a.href.slice(0,200)});
+    }
+  });
+  // Scroll depth
+  var fired = {};
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement, b = document.body;
+    var pct = Math.round(((h.scrollTop||b.scrollTop)/((h.scrollHeight||b.scrollHeight)-h.clientHeight))*100);
+    [50, 90].forEach(function(m){
+      if (pct >= m && !fired[m]) { fired[m] = 1; t('scroll', {depth: m}); }
+    });
+  }, {passive: true});
+})();
+</script>
 </head>
 <body>
 
@@ -505,7 +570,7 @@ article.full blockquote {
 <nav class="top">
   <div class="container row">
     <a class="brand" href="/">
-      <div class="brand-mark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 9h14v10H5z"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 5v4"/></svg></div>
+      <div class="brand-mark"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5 V19"/><path d="M7 5 H13.5 C16.5 5 16.5 12 13.5 12 H7"/><path d="M7 12 H14.5 C17.5 12 17.5 19 14.5 19 H7"/></svg></div>
       BotLease
     </a>
     <div class="nav-links">
@@ -561,11 +626,14 @@ article.full blockquote {
       <h1>EU Machineverordening 2023/1230 telt af: checklist voor werkgevers in 2026</h1>
       <p class="subtitle">Vanaf 20 januari 2027 verplicht. Wat moet je dit jaar al doen om straks niet stilgezet te worden?</p>
       <div class="body">
-        <p><strong>De Machineverordening (EU) 2023/1230 vervangt de oude Machinerichtlijn 2006/42/EG vanaf 20 januari 2027. Voor humanoid-werkgevers betekent dat: nieuwe cybersecurity-eisen, AI-veiligheid, software-update-verplichting. Wij namen de tekst van 178 pagina&#x27;s door en destilleerden hem tot 8 concrete acties voor Nederlandse werkgevers.</strong></p>
+        <aside class="tldr">
+          <span class="tldr-label">TL;DR</span>
+          <p>De Machineverordening (EU) 2023/1230 vervangt de oude Machinerichtlijn 2006/42/EG vanaf 20 januari 2027. Voor humanoid-werkgevers betekent dat: nieuwe cybersecurity-eisen, AI-veiligheid, software-update-verplichting. Wij namen de tekst van 178 pagina&#x27;s door en destilleerden hem tot 8 concrete acties voor Nederlandse werkgevers.</p>
+        </aside>
         <h2>Actie 1: inventariseer welke machines onder de nieuwe regels vallen</h2>
 <p>Niet alle robots vallen onder de Machineverordening. Cobots wel. Industriële armrobots wel. Humanoids absoluut wel. AGVs en AMRs ook. Een eenvoudige checklist: als het beweegt en aandrijving heeft, valt het er waarschijnlijk onder. BotLease maakt een gratis inventarisatie voor klanten.</p>
 <h2>Actie 2: check cybersecurity-eisen</h2>
-<p>Nieuw in 2027: machines moeten beveiligd zijn tegen hacking. Concreet: secure boot, encrypted communication, software-update-mechanisme. Voor EU-gebouwde robots (NEURA, PAL, Pollen) is dit baked-in. Voor Chinese modellen moet je dit nu al laten testen — kan 2-3 weken duren per model.</p>
+<p>Nieuw in 2027: machines moeten beveiligd zijn tegen hacking. Concreet: secure boot, encrypted communication, software-update-mechanisme. Voor EU-gebouwde robots (NEURA, PAL, Pollen) is dit baked-in. Voor Chinese modellen moet je dit nu al laten testen - kan 2-3 weken duren per model.</p>
 <h2>Actie 3: AI-component apart laten beoordelen</h2>
 <p>Als de machine AI gebruikt om beslissingen te nemen (en alle humanoids doen dat), valt het AI-component ook onder de AI-Act. Dubbele conformiteit dus. BotLease's <a href="/gids/ai-act-machineverordening">complete AI-Act gids</a> heeft de details.</p>
 <h2>Actie 4: digital documentation klaarzetten</h2>
@@ -578,28 +646,60 @@ article.full blockquote {
 <p>Vanaf 2027 verplicht: ernstige incidenten (letsel, dataverlies, productiestop &gt;4 uur) moeten gemeld worden bij de AI-Office in Brussel binnen 15 dagen. Wij faciliteren dit als provider en helpen je het juiste meldingsformulier in te vullen.</p>
 <h2>Actie 8: OR/personeel informeren</h2>
 <p>Werknemers moeten weten dat ze met AI-systemen werken. Transparantieverklaring is verplicht. Voor OR-overleg: BotLease levert standaard-templates die je kunt gebruiken. Sluit verwerkersovereenkomst (DPA) met BotLease vóór deployment.</p>
-<h2>Tijdpad — wanneer moet wat?</h2>
+<h2>Tijdpad - wanneer moet wat?</h2>
 <p><b>Nu (2026):</b> inventarisatie + plan opstellen. <b>Q4 2026:</b> alle compliance-stappen afronden voor bestaande deployments. <b>20 jan 2027:</b> Machineverordening verplicht. <b>2 aug 2027:</b> AI-Act volledig van toepassing.</p>
 <p>Volledig overzicht: <a href="/gids/ai-act-machineverordening">EU AI-Act + Machineverordening gids</a>. Vragen? <a href="/#contact">Plan een gratis intake</a>.</p>
       </div>
-      <section class="sources"><h3>Bronnen</h3><ol><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1230" target="_blank" rel="noopener nofollow">EU Machineverordening 2023/1230 — officiële tekst</a></li>
-<li><a href="https://www.twobirds.com/en/insights/2026/smart-robots,-dual-regulations-navigating-the-ai-act-and-machinery-compliance" target="_blank" rel="noopener nofollow">Bird &amp; Bird — Smart Robots dual regulations</a></li>
-<li><a href="https://digital.nemko.com/regulations/eu-machinery-regulation" target="_blank" rel="noopener nofollow">Nemko — EU Machinery Regulation overview</a></li></ol></section>
+      <section class="sources"><h3>Bronnen</h3><ol><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1230" target="_blank" rel="noopener nofollow">EU Machineverordening 2023/1230 - officiële tekst</a></li>
+<li><a href="https://www.twobirds.com/en/insights/2026/smart-robots,-dual-regulations-navigating-the-ai-act-and-machinery-compliance" target="_blank" rel="noopener nofollow">Bird &amp; Bird - Smart Robots dual regulations</a></li>
+<li><a href="https://digital.nemko.com/regulations/eu-machinery-regulation" target="_blank" rel="noopener nofollow">Nemko - EU Machinery Regulation overview</a></li></ol></section>
       <div class="tags"><span>Machineverordening</span><span>Regelgeving</span><span>Compliance</span><span>Werkgever</span><span>EU</span></div>
       <div class="cta-strip">
         <h3>Klaar om dit zelf te ervaren?</h3>
         <p>Een pilot van 4 weken kost €1.500. Lease vanaf €899/mnd. Beslis na 4 weken.</p>
         <a class="btn" href="/#contact">Plan een demo →</a>
       </div>
-      <div class="related"><h3>Lees verder</h3><div class="related-grid"><a href="/nieuws/krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk"><div class="cat">Markt</div><div class="t">krijgt robotica zijn eigen ChatGPT-moment? de kloof tussen belofte en praktijk</div></a><a href="/nieuws/iso-werkt-aan-nieuwe-veiligheidsnorm-voor-huishoudrobots-kritiek-op-gebrek-aan-l"><div class="cat">Regelgeving</div><div class="t">ISO werkt aan nieuwe veiligheidsnorm voor huishoudrobots: kritiek op gebrek aan limieten</div></a></div></div>
+      <div class="related"><h3>Lees verder</h3><div class="related-grid"><a href="/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren"><div class="cat">R&amp;D</div><div class="t">Shadow Walker: DIY-robot uit 1987 met luchtspieren</div></a><a href="/nieuws/eco-score-robots-duurzaamheidslabel-in-opmars"><div class="cat">Markt</div><div class="t">Eco-Score robots: duurzaamheidslabel in opmars</div></a></div></div>
     </article>
   </div>
 </section>
 
+<script>
+// Umami: news-article tracking
+(function() {
+  function track(name, data) {
+    if (window.umami && typeof window.umami.track === 'function') {
+      window.umami.track(name, data || {});
+    }
+  }
+  var slug = 'eu-machineverordening-2027-werkgevers-checklist';
+  // Outbound source clicks (bronnen sectie)
+  document.querySelectorAll('.sources a[href^="http"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      track('outbound_source', { slug: slug, url: link.href.slice(0, 80) });
+    });
+  });
+  // Internal product link clicks from article body
+  document.querySelectorAll('article.full .body a[href^="/"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      track('article_internal_click', { slug: slug, target: link.getAttribute('href') });
+    });
+  });
+  // Scroll depth — fire at 50% + 90%
+  var fired50 = false, fired90 = false;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement, b = document.body;
+    var pct = (h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight) * 100;
+    if (pct > 50 && !fired50) { fired50 = true; track('article_scroll_50', { slug: slug }); }
+    if (pct > 90 && !fired90) { fired90 = true; track('article_scroll_90', { slug: slug }); }
+  }, { passive: true });
+})();
+</script>
+
 
 <footer>
   <div class="row">
-    <div>© 2026 BotLease — KvK 95943420 · Amsterdam</div>
+    <div>© 2026 BotLease - KvK 95943420 · Amsterdam</div>
     <div><a href="/">Home</a> · <a href="/robots">Robots</a> · <a href="/sectoren">Sectoren</a> · <a href="/nieuws">Nieuws</a> · <a href="/over">Over</a> · hallo@botlease.nl</div>
   </div>
 </footer>

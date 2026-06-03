@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from html import escape
 from pathlib import Path
 
@@ -28,7 +28,7 @@ SITE_URL = "https://botlease.nl"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from articles_data import ARTICLES  # noqa: E402
-from seo_common import HEAD_SEO  # noqa: E402
+from seo_common import HEAD_SEO, trim_desc  # noqa: E402
 from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML, FONTS_LINK  # noqa: E402
 
 
@@ -71,22 +71,129 @@ def render_sources(sources) -> str:
 PAGE_CSS = BASE_CSS  # editorial light tokens + base styles from style_base.py
 
 LISTING_CSS = """
-.news-hero { padding:80px 0 40px; }
-@media (min-width:768px) { .news-hero { padding:120px 0 60px; } }
+.news-hero { padding:80px 0 28px; }
+@media (min-width:768px) { .news-hero { padding:120px 0 36px; } }
 .eyebrow {
   display:inline-block; color:var(--accent); font-size:12.5px;
   text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
   margin-bottom:16px;
 }
 .news-hero h1 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
-  font-size:clamp(36px, 5vw, 64px);
-  margin-bottom:18px; letter-spacing:-0.035em; line-height:1.05;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-size:clamp(40px, 5.5vw, 72px);
+  margin-bottom:18px; letter-spacing:-0.035em; line-height:1.02;
 }
-.news-hero p { color:var(--ink-2); font-size:18px; max-width:680px; line-height:1.55; }
-.news-feed { padding:40px 0 96px; }
+.news-hero .lede { color:var(--ink-2); font-size:18.5px; max-width:680px; line-height:1.55; margin-bottom:24px; }
+.news-hero .badge-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:8px; }
+.live-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--accent-soft); color:var(--accent-deep);
+  border:1px solid var(--accent-line);
+  padding:6px 14px; border-radius:999px;
+  font-family:'Inter'; font-size:12px; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase;
+}
+.live-badge::before {
+  content:""; width:8px; height:8px; border-radius:50%;
+  background:var(--accent); box-shadow:0 0 0 0 var(--accent);
+  animation:livepulse 2s infinite;
+}
+@keyframes livepulse {
+  0%   { box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); }
+  70%  { box-shadow:0 0 0 9px color-mix(in srgb, var(--accent) 0%, transparent); }
+  100% { box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+.update-meta { color:var(--ink-3); font-size:13px; }
+
+/* Category filter chips */
+.cat-filter {
+  display:flex; flex-wrap:wrap; gap:8px; padding:6px 0 0;
+  border-top:1px solid var(--border); margin-top:32px; padding-top:22px;
+}
+.cat-chip {
+  font-family:'Inter'; font-size:13px; font-weight:600;
+  padding:7px 16px; border-radius:999px;
+  background:transparent; color:var(--ink-2);
+  border:1px solid var(--border); cursor:pointer;
+  transition:all .15s;
+}
+.cat-chip:hover { border-color:var(--accent); color:var(--accent); }
+.cat-chip.active {
+  background:var(--ink); color:var(--bg-card); border-color:var(--ink);
+}
+
+/* Lead story - full-bleed hero */
+.lead-story {
+  position:relative; overflow:hidden;
+  border-radius:18px;
+  margin-bottom:48px;
+  background:#1c1917;
+  min-height:380px;
+}
+@media (min-width:880px) { .lead-story { min-height:520px; } }
+.lead-story-photo {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transition:transform .6s;
+}
+.lead-story:hover .lead-story-photo { transform:scale(1.03); }
+.lead-story-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.88) 100%);
+}
+.lead-story-content {
+  position:absolute; inset:auto 0 0 0;
+  padding:32px 36px 36px; color:#fff;
+}
+@media (min-width:880px) { .lead-story-content { padding:48px 56px 52px; max-width:780px; } }
+.lead-story .cat-tag {
+  display:inline-block;
+  font-family:'Inter'; font-size:11px; font-weight:700;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:5px 12px; border-radius:999px;
+  background:var(--accent); color:#fff;
+  margin-bottom:18px;
+}
+.lead-story h2 {
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-size:clamp(28px, 3.5vw, 44px);
+  line-height:1.12; letter-spacing:-0.025em;
+  margin-bottom:14px; color:#fff;
+}
+.lead-story h2 a { color:#fff; }
+.lead-story h2 a:hover { color:var(--accent-soft); }
+.lead-story p.lede {
+  color:rgba(255,255,255,0.85); font-size:16.5px; line-height:1.55;
+  max-width:680px; margin-bottom:18px;
+}
+.lead-story .meta-row {
+  display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+  color:rgba(255,255,255,0.7); font-size:13px;
+}
+.lead-story .source-chip {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25);
+  padding:3px 10px; border-radius:999px;
+  color:#fff; font-size:12px; font-weight:500;
+}
+
+/* Sub-featured row - 2 columns */
+.sub-features {
+  display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:48px;
+}
+@media (min-width:768px) { .sub-features { grid-template-columns:1fr 1fr; gap:24px; } }
+
+/* Main grid - 3 columns */
+.news-feed { padding:24px 0 96px; }
+.news-grid-title {
+  font-family:'Inter'; font-size:13px; text-transform:uppercase;
+  letter-spacing:0.12em; font-weight:600; color:var(--ink-3);
+  margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border);
+}
 .news-grid { display:grid; grid-template-columns:1fr; gap:20px; }
-@media (min-width:768px) { .news-grid { grid-template-columns:1fr 1fr; gap:24px; } }
+@media (min-width:680px) { .news-grid { grid-template-columns:1fr 1fr; gap:24px; } }
+@media (min-width:1024px) { .news-grid { grid-template-columns:repeat(3, 1fr); gap:24px; } }
+
 article.card {
   background:var(--bg-card); border:1px solid var(--border);
   border-radius:14px; padding:0; overflow:hidden;
@@ -97,40 +204,36 @@ article.card:hover {
   transform:translateY(-3px); border-color:var(--border-hover);
   box-shadow:var(--shadow-md);
 }
-article.card .card-body { padding:24px 26px 26px; display:flex; flex-direction:column; flex:1; }
-article.card .meta { display:flex; gap:10px; align-items:center; margin-bottom:14px; }
+article.card .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; }
+article.card .meta { display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
 article.card .cat {
-  font-family:'Space Grotesk'; color:var(--accent-deep);
-  font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
+  font-family:'Inter'; color:var(--accent-deep);
+  font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
-article.card .date { color:var(--ink-3); font-size:13px; }
+article.card .date { color:var(--ink-3); font-size:12.5px; }
 article.card h2 {
-  font-family:'Space Grotesk'; font-weight:600;
-  font-size:20px; line-height:1.25; margin-bottom:10px; letter-spacing:-0.02em;
+  font-family:'Inter'; font-weight:600;
+  font-size:18px; line-height:1.28; margin-bottom:10px; letter-spacing:-0.015em;
 }
 article.card h2 a { color:var(--ink); }
 article.card h2 a:hover { color:var(--accent); }
-article.card p.lede { color:var(--ink-2); font-size:14.5px; line-height:1.55; margin-bottom:20px; flex:1; }
+article.card p.lede { color:var(--ink-2); font-size:14px; line-height:1.55; margin-bottom:18px; flex:1; }
 article.card .footer-line {
   display:flex; justify-content:space-between; align-items:center;
-  padding-top:18px; border-top:1px solid var(--border);
-  font-size:13px; color:var(--ink-3);
+  padding-top:14px; border-top:1px solid var(--border);
+  font-size:12.5px; color:var(--ink-3); gap:10px;
 }
-article.card .read-more { color:var(--accent); font-weight:600; }
-article.card.featured {
-  background:linear-gradient(180deg, var(--bg-card) 0%, var(--accent-soft) 100%);
-  border-color:var(--accent-line);
+article.card .read-more { color:var(--accent); font-weight:600; white-space:nowrap; }
+article.card .src {
+  font-size:11px; color:var(--ink-3); font-weight:500;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
-@media (min-width:880px) { article.card.featured { grid-column:span 2; } }
-article.card.featured h2 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
-  font-size:28px; max-width:680px; letter-spacing:-0.025em; line-height:1.15;
-}
-article.card.featured p.lede { font-size:16px; max-width:680px; }
+
+/* Thumbnail */
 .card-thumb {
-  position:relative; height:160px; overflow:hidden;
+  position:relative; height:200px; overflow:hidden;
   background:var(--bg-2);
   border-bottom:1px solid var(--border);
 }
@@ -138,26 +241,29 @@ article.card.featured p.lede { font-size:16px; max-width:680px; }
   position:absolute; inset:0;
   background:radial-gradient(60% 80% at 80% 50%, color-mix(in srgb, var(--art-tint, var(--accent)) 14%, transparent) 0%, transparent 70%);
 }
-.card-thumb-art, .card-thumb-photo {
+.card-thumb-art, .card-thumb-photo:not(.cover) {
   position:absolute; right:22px; top:50%; transform:translateY(-50%);
   height:140px; width:auto; max-width:55%; object-fit:contain;
   filter:drop-shadow(0 8px 20px rgba(28,25,23,0.15));
   transition:transform .35s;
 }
+.card-thumb-photo.cover {
+  /* External hero image - fill entire thumb area */
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  transition:transform .6s;
+}
+article.card:hover .card-thumb-photo.cover { transform:scale(1.04); }
 article.card:hover .card-thumb-art,
-article.card:hover .card-thumb-photo { transform:translateY(-50%) scale(1.05); }
-article.card.featured .card-thumb {
-  height:220px;
-  background:linear-gradient(180deg, var(--bg-2) 0%, var(--accent-soft) 100%);
-}
-article.card.featured .card-thumb-art,
-article.card.featured .card-thumb-photo { height:200px; right:48px; max-width:50%; }
-@media (max-width:780px) {
-  article.card.featured h2 { font-size:24px; }
-  article.card.featured .card-thumb { height:160px; }
-  article.card.featured .card-thumb-art,
-  article.card.featured .card-thumb-photo { height:140px; right:22px; }
-}
+article.card:hover .card-thumb-photo:not(.cover) { transform:translateY(-50%) scale(1.05); }
+
+/* Sub-feature variant */
+.thumb-sub.card-thumb { height:260px; }
+
+/* Sub-feature card body slightly larger */
+article.card.sub-featured h2 { font-size:21px; line-height:1.22; }
+article.card.sub-featured p.lede { font-size:15px; }
 """
 
 ARTICLE_CSS = """
@@ -172,7 +278,7 @@ ARTICLE_CSS = """
 .hero-banner-pattern { display:none; }
 .hero-banner-label {
   position:absolute; top:18px; left:20px;
-  font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600;
+  font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:0.1em;
   color:var(--accent-deep);
   padding:4px 12px; background:var(--bg-card);
@@ -189,23 +295,50 @@ ARTICLE_CSS = """
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
-  font-family:'Space Grotesk'; color:var(--accent-deep);
+  font-family:'Inter'; color:var(--accent-deep);
   font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.full h1 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(34px, 4.5vw, 56px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 article.full .subtitle { font-size:19px; color:var(--ink-2); margin-bottom:32px; line-height:1.5; }
 article.full .body { padding:32px 0 0; }
 article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); margin-bottom:22px; line-height:1.78; }
+
+/* TL;DR callout */
+.tldr {
+  position:relative;
+  background:var(--accent-soft);
+  border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;
+  padding:22px 28px 22px 28px;
+  margin:0 0 36px;
+}
+.tldr-label {
+  display:inline-block;
+  font-family:'Inter', sans-serif;
+  font-size:11px; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent-deep);
+  margin-bottom:8px;
+}
+.tldr p {
+  font-family:'Inter', sans-serif;
+  font-size:16.5px !important;
+  font-weight:500;
+  color:var(--ink) !important;
+  margin-bottom:0 !important;
+  line-height:1.55 !important;
+}
+@media (min-width:768px) { .tldr { padding:26px 32px; } .tldr p { font-size:17px !important; } }
 article.full .body ul { padding-left:24px; }
 article.full .body li { margin-bottom:8px; color:var(--ink); }
 article.full .body h2 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:30px; margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
 }
 article.full .body h3 { font-size:21px; margin:36px 0 14px; }
@@ -215,11 +348,11 @@ article.full .body strong, article.full .body b { color:var(--ink); font-weight:
 article.full blockquote {
   border-left:3px solid var(--accent);
   padding:8px 0 8px 24px; margin:32px 0;
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:22px; color:var(--ink); line-height:1.4;
 }
 .sources { margin-top:64px; padding:32px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; }
-.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Space Grotesk'; font-weight:600; }
+.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Inter'; font-weight:600; }
 .sources ol { padding-left:22px; }
 .sources li { color:var(--ink-2); font-size:14.5px; margin-bottom:8px; }
 .sources a { color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); }
@@ -231,14 +364,14 @@ article.full blockquote {
   border-radius:20px; text-align:center;
 }
 .cta-strip h3 {
-  font-family:'Fraunces', Georgia, serif; font-weight:500;
+  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
 .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 .related { margin-top:80px; padding-top:48px; border-top:1px solid var(--border); }
-.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Space Grotesk'; font-weight:600; }
+.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Inter'; font-weight:600; }
 .related-grid { display:grid; grid-template-columns:1fr; gap:18px; }
 @media (min-width:640px) { .related-grid { grid-template-columns:1fr 1fr; } }
 .related a {
@@ -248,11 +381,11 @@ article.full blockquote {
 }
 .related a:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .related .cat { font-size:11px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-.related .t { font-family:'Space Grotesk'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
+.related .t { font-family:'Inter'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
 """
 
 
-# NAV_HTML + FOOTER_HTML komen uit style_base.py — geen lokale override
+# NAV_HTML + FOOTER_HTML komen uit style_base.py - geen lokale override
 
 # ---------------------------------------------------------------- SVG art library
 # Reused across listing + article pages. Mirrors the silhouettes on the homepage,
@@ -487,10 +620,29 @@ def article_hero_banner(a: dict) -> str:
     )
 
 
-def card_thumb(a: dict) -> str:
-    """Compact thumbnail at the top of a listing card."""
+def _local_img(u):
+    """Alleen lokale/owned images toestaan; externe (IEEE/yt) URLs weren tegen perf + copyright."""
+    u = (u or "").strip()
+    return u if u.startswith("/") else ""
+
+
+def card_thumb(a: dict, *, variant: str = "default") -> str:
+    """Thumbnail at top of a listing card.
+    variant: 'hero' (full-bleed huge), 'sub' (medium), 'default' (compact).
+    Gebruikt alleen een LOKAAL hero-beeld (geen externe hotlinks); valt anders terug op de owned art-mapping."""
+    hero_url = _local_img(a.get("hero_image_url", ""))
     art = art_for(a["slug"])
-    if art.get("photo"):
+    alt = escape(a.get("hero_image_alt") or a.get("title", "")[:120])
+    fallback_photo = art.get("photo") or "/img/robots/apollo.png"
+    fallback_alt = escape(art.get("alt", "Humanoïde robot"))
+    if hero_url:
+        # Hotlink original, fallback to local photo via onerror
+        media = (
+            f'<img class="card-thumb-photo cover" src="{escape(hero_url)}" '
+            f'alt="{alt}" loading="lazy" '
+            f'onerror="this.onerror=null;this.src=\'{fallback_photo}\';this.alt=\'{fallback_alt}\';this.classList.remove(\'cover\')">'
+        )
+    elif art.get("photo"):
         media = (
             f'<img class="card-thumb-photo" src="{art["photo"]}" '
             f'alt="{escape(art["alt"])}" loading="lazy">'
@@ -502,7 +654,7 @@ def card_thumb(a: dict) -> str:
             f'<use href="#{art["symbol"]}"/></svg>'
         )
     return (
-        f'<div class="card-thumb" style="--art-tint:{art["tint"]}">'
+        f'<div class="card-thumb thumb-{variant}" style="--art-tint:{art["tint"]}">'
         f'  <div class="card-thumb-pattern"></div>'
         f'  {media}'
         f'</div>'
@@ -570,8 +722,8 @@ def render_article(a: dict, related: list) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{escape(a['title'])} | BotLease Nieuws</title>
-<meta name="description" content="{escape(a['subtitle'])}">
+<title>{escape(a['title'] + (' | BotLease' if len(a['title']) <= 56 else ''))}</title>
+<meta name="description" content="{escape(trim_desc(a['subtitle']))}">
 <meta name="keywords" content="{escape(', '.join(a.get('tags', [])))}, humanoide robot, robot lease, Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="author" content="BotLease">
@@ -579,7 +731,7 @@ def render_article(a: dict, related: list) -> str:
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="{escape(a['title'])}">
-<meta property="og:description" content="{escape(a['subtitle'])}">
+<meta property="og:description" content="{escape(trim_desc(a['subtitle']))}">
 <meta property="og:url" content="{SITE_URL}/nieuws/{a['slug']}">
 <meta property="og:site_name" content="BotLease">
 <meta property="og:locale" content="nl_NL">
@@ -590,13 +742,13 @@ def render_article(a: dict, related: list) -> str:
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(a['title'])}">
-<meta name="twitter:description" content="{escape(a['subtitle'])}">
+<meta name="twitter:description" content="{escape(trim_desc(a['subtitle']))}">
 <meta name="twitter:image" content="{article_image(a)}">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{ARTICLE_CSS}</style>
 <script type="application/ld+json">{article_jsonld(a)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(a)}</script>
@@ -625,9 +777,12 @@ def render_article(a: dict, related: list) -> str:
         <span>{a.get('reading_time', 5)} min lezen</span>
       </div>
       <h1>{escape(a['title'])}</h1>
-      <p class="subtitle">{escape(a['subtitle'])}</p>
+      <p class="subtitle">{escape(trim_desc(a['subtitle']))}</p>
       <div class="body">
-        <p><strong>{escape(a['intro'])}</strong></p>
+        <aside class="tldr">
+          <span class="tldr-label">TL;DR</span>
+          <p>{escape(a.get('tldr') or a['intro'])}</p>
+        </aside>
         {render_body(a['body'])}
       </div>
       {render_sources(a.get('sources', []))}
@@ -642,6 +797,38 @@ def render_article(a: dict, related: list) -> str:
   </div>
 </section>
 
+<script>
+// Umami: news-article tracking
+(function() {{
+  function track(name, data) {{
+    if (window.umami && typeof window.umami.track === 'function') {{
+      window.umami.track(name, data || {{}});
+    }}
+  }}
+  var slug = '{a['slug']}';
+  // Outbound source clicks (bronnen sectie)
+  document.querySelectorAll('.sources a[href^="http"]').forEach(function(link) {{
+    link.addEventListener('click', function() {{
+      track('outbound_source', {{ slug: slug, url: link.href.slice(0, 80) }});
+    }});
+  }});
+  // Internal product link clicks from article body
+  document.querySelectorAll('article.full .body a[href^="/"]').forEach(function(link) {{
+    link.addEventListener('click', function() {{
+      track('article_internal_click', {{ slug: slug, target: link.getAttribute('href') }});
+    }});
+  }});
+  // Scroll depth — fire at 50% + 90%
+  var fired50 = false, fired90 = false;
+  window.addEventListener('scroll', function() {{
+    var h = document.documentElement, b = document.body;
+    var pct = (h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight) * 100;
+    if (pct > 50 && !fired50) {{ fired50 = true; track('article_scroll_50', {{ slug: slug }}); }}
+    if (pct > 90 && !fired90) {{ fired90 = true; track('article_scroll_90', {{ slug: slug }}); }}
+  }}, {{ passive: true }});
+}})();
+</script>
+
 {FOOTER_HTML}
 </body>
 </html>
@@ -650,22 +837,102 @@ def render_article(a: dict, related: list) -> str:
 
 def render_listing(articles: list) -> str:
     articles_sorted = sorted(articles, key=lambda a: a["date"], reverse=True)
+
+    # Collect unique categories for filter chips
+    cats_seen = []
+    for a in articles_sorted:
+        c = a.get("category", "Nieuws")
+        if c not in cats_seen:
+            cats_seen.append(c)
+
+    cat_chips_html = '<button class="cat-chip active" data-filter="all">Alles</button>' + "".join(
+        f'<button class="cat-chip" data-filter="{escape(c)}">{escape(c)}</button>'
+        for c in cats_seen
+    )
+
+    def source_chip(a: dict, dark: bool = False) -> str:
+        src_name = a.get("source_name", "").strip()
+        src_url = a.get("source_url", "").strip()
+        if not src_name:
+            return ""
+        cls = "source-chip" if dark else "src"
+        if src_url and not dark:
+            return f'<span class="{cls}">Bron: {escape(src_name)}</span>'
+        return f'<span class="{cls}">{escape(src_name)}</span>'
+
+    # --- Lead story (first article) - full-bleed photo treatment ---
+    lead_html = ""
+    if articles_sorted:
+        a = articles_sorted[0]
+        hero_url = _local_img(a.get("hero_image_url", ""))
+        art = art_for(a["slug"])
+        if hero_url:
+            photo_src = hero_url
+            photo_alt = escape(a.get("hero_image_alt") or a["title"][:120])
+            fallback = art.get("photo") or "/img/robots/apollo.png"
+            photo_tag = (
+                f'<img class="lead-story-photo" src="{escape(photo_src)}" alt="{photo_alt}" '
+                f'onerror="this.onerror=null;this.src=\'{fallback}\'">'
+            )
+        else:
+            photo = art.get("photo") or "/img/robots/apollo.png"
+            photo_tag = f'<img class="lead-story-photo" src="{photo}" alt="{escape(art.get("alt", a["title"]))}">'
+
+        meta_bits = [f'<span>{escape(fmt_date_nl(a["date"]))}</span>',
+                     f'<span>{a.get("reading_time", 5)} min lezen</span>']
+        sc = source_chip(a, dark=True)
+        if sc:
+            meta_bits.append(sc)
+
+        lead_html = f'''
+        <article class="lead-story" data-cat="{escape(a.get("category", "Nieuws"))}">
+          {photo_tag}
+          <div class="lead-story-overlay"></div>
+          <div class="lead-story-content">
+            <span class="cat-tag">{escape(a.get("category", "Nieuws"))}</span>
+            <h2><a href="/nieuws/{a["slug"]}">{escape(a["title"])}</a></h2>
+            <p class="lede">{escape(trim_desc(a["subtitle"], 220))}</p>
+            <div class="meta-row">{"".join(meta_bits)}</div>
+          </div>
+          <a href="/nieuws/{a["slug"]}" style="position:absolute;inset:0;z-index:5" aria-label="Lees: {escape(a["title"])}"></a>
+        </article>'''
+
+    # --- Sub-features (next 2 articles) - medium card with photo ---
+    sub_html = ""
+    for a in articles_sorted[1:3]:
+        sub_html += f'''
+        <article class="card sub-featured" data-cat="{escape(a.get("category", "Nieuws"))}">
+          {card_thumb(a, variant="sub")}
+          <div class="card-body">
+            <div class="meta">
+              <span class="cat">{escape(a.get("category", "Nieuws"))}</span>
+              <span class="date">{escape(fmt_date_nl(a["date"]))}</span>
+            </div>
+            <h2><a href="/nieuws/{a["slug"]}">{escape(a["title"])}</a></h2>
+            <p class="lede">{escape(trim_desc(a["subtitle"], 180))}</p>
+            <div class="footer-line">
+              {source_chip(a) or f'<span>{a.get("reading_time", 5)} min lezen</span>'}
+              <a class="read-more" href="/nieuws/{a["slug"]}">Lees →</a>
+            </div>
+          </div>
+        </article>'''
+
+    # --- Main grid (article 4 onwards) - 3 col ---
     cards = []
-    for i, a in enumerate(articles_sorted):
-        featured = " featured" if i == 0 else ""
+    for a in articles_sorted[3:]:
         cards.append(f'''
-        <article class="card{featured}">
+        <article class="card" data-cat="{escape(a.get("category", "Nieuws"))}">
           {card_thumb(a)}
           <div class="card-body">
             <div class="meta">
-              <span class="cat">{escape(a.get('category', 'Nieuws'))}</span>
-              <span class="date">{escape(fmt_date_nl(a['date']))}</span>
+              <span class="cat">{escape(a.get("category", "Nieuws"))}</span>
+              <span class="date">{escape(fmt_date_nl(a["date"]))}</span>
             </div>
-            <h2><a href="/nieuws/{a['slug']}">{escape(a['title'])}</a></h2>
-            <p class="lede">{escape(a['subtitle'])}</p>
+            <h2><a href="/nieuws/{a["slug"]}">{escape(a["title"])}</a></h2>
+            <p class="lede">{escape(trim_desc(a["subtitle"], 140))}</p>
             <div class="footer-line">
-              <span>{a.get('reading_time', 5)} min lezen</span>
-              <a class="read-more" href="/nieuws/{a['slug']}">Lees artikel →</a>
+              {source_chip(a) or f'<span>{a.get("reading_time", 5)} min</span>'}
+              <a class="read-more" href="/nieuws/{a["slug"]}">Lees →</a>
             </div>
           </div>
         </article>''')
@@ -673,7 +940,7 @@ def render_listing(articles: list) -> str:
     itemlist_jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "BotLease — Nieuws over humanoïde robots",
+        "name": "BotLease - Nieuws over humanoïde robots",
         "itemListElement": [
             {"@type": "ListItem", "position": idx + 1,
              "url": f"{SITE_URL}/nieuws/{a['slug']}",
@@ -688,26 +955,26 @@ def render_listing(articles: list) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nieuws & analyse over humanoïde robots in Nederland | BotLease</title>
-<meta name="description" content="Dagelijks nieuws en analyses over humanoïde robots: Unitree, Figure, Apptronik, Agility, 1X. Use-cases, regelgeving, marktanalyses en pilot-data uit Nederland.">
+<meta name="description" content="Dagelijks nieuws over humanoïde robots - Unitree, Figure, Apptronik, Agility, 1X. Use-cases, regelgeving en pilot-data uit Nederland.">
 <meta name="keywords" content="humanoide robot nieuws, robot Nederland, Unitree nieuws, Figure 02, Apollo Apptronik, Agility Digit, robot lease nieuws, AI Act robot">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/nieuws/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="BotLease Nieuws — humanoïde robots in Nederland">
+<meta property="og:title" content="BotLease Nieuws - humanoïde robots in Nederland">
 <meta property="og:description" content="Dagelijkse analyses over humanoïde robots, Nederlandse use-cases en marktontwikkelingen.">
 <meta property="og:url" content="{SITE_URL}/nieuws/">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BotLease Nieuws — humanoïde robots in Nederland">
-<meta name="twitter:description" content="Dagelijkse analyses over Unitree, Figure, Apptronik, Agility, 1X — voor de Nederlandse markt.">
+<meta name="twitter:title" content="BotLease Nieuws - humanoïde robots in Nederland">
+<meta name="twitter:description" content="Dagelijkse analyses over Unitree, Figure, Apptronik, Agility, 1X - voor de Nederlandse markt.">
 <meta name="twitter:image" content="{SITE_URL}/img/robots/apollo.png">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist_jsonld}</script>
 <script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws/"}}]}}</script>
@@ -720,17 +987,40 @@ def render_listing(articles: list) -> str:
 
 <section class="news-hero">
   <div class="container">
-    <div class="eyebrow">Nieuws & analyse</div>
-    <h1>Humanoïde robots in Nederland.</h1>
-    <p>Dagelijkse analyses over de humanoid-revolutie: nieuwe modellen, pilot-data, regelgeving en wat het betekent voor het Nederlandse MKB. Geschreven door de BotLease redactie, gekoppeld aan publieke bronnen.</p>
+    <div class="badge-row">
+      <span class="live-badge">Dagelijks bijgewerkt</span>
+      <span class="update-meta">Laatste update: {escape(fmt_date_nl(articles_sorted[0]["date"]) if articles_sorted else "-")}</span>
+    </div>
+    <div class="eyebrow">Nieuws over humanoïde robots</div>
+    <h1>De humanoid-redactie van Europa.</h1>
+    <p class="lede">Elke dag nieuwe analyses over de humanoid-revolutie: pilots bij Mercedes, BMW en Foxconn, nieuwe modellen uit Europa en Azië, EU AI-Act updates en wat het betekent voor jouw werkvloer. Bronnen worden per artikel vermeld.</p>
+    <div class="cat-filter" role="tablist">{cat_chips_html}</div>
   </div>
 </section>
 
 <section class="news-feed">
   <div class="container">
-    <div class="news-grid">{''.join(cards)}</div>
+    {lead_html}
+    {f'<div class="sub-features">{sub_html}</div>' if sub_html else ''}
+    {f'<h2 class="news-grid-title">Meer nieuws</h2><div class="news-grid">{"".join(cards)}</div>' if cards else ''}
   </div>
 </section>
+
+<script>
+  // Category filter
+  (function() {{
+    const chips = document.querySelectorAll('.cat-chip');
+    const items = document.querySelectorAll('[data-cat]');
+    chips.forEach(c => c.addEventListener('click', () => {{
+      chips.forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      const f = c.dataset.filter;
+      items.forEach(it => {{
+        it.style.display = (f === 'all' || it.dataset.cat === f) ? '' : 'none';
+      }});
+    }}));
+  }})();
+</script>
 
 {FOOTER_HTML}
 </body>
@@ -747,17 +1037,20 @@ def render_sitemap(articles: list) -> str:
         from landingpages_data import SECTORS, CITIES
     except ImportError:
         SECTORS, CITIES = [], []
+    # Vercel cleanUrls + trailingSlash:false → géén trailing slash in sitemap URLs.
+    # Eerder hadden /robots/, /sectoren/, /leasen/, /nieuws/, /gids/ trailing slash,
+    # wat een 308 redirect uitlokte op elke crawl. Crawl-budget verspild - nu opgelost.
     urls = [
         (SITE_URL + "/", "1.0", "weekly"),
         (SITE_URL + "/gids/humanoide-robot-leasen", "0.98", "monthly"),
-        (SITE_URL + "/robots/", "0.95", "weekly"),
+        (SITE_URL + "/robots", "0.95", "weekly"),
         (SITE_URL + "/gids/ai-act-machineverordening", "0.92", "monthly"),
         (SITE_URL + "/vergelijken", "0.92", "weekly"),
         (SITE_URL + "/kosten", "0.92", "monthly"),
-        (SITE_URL + "/sectoren/", "0.9", "weekly"),
-        (SITE_URL + "/leasen/", "0.9", "weekly"),
-        (SITE_URL + "/nieuws/", "0.85", "daily"),
-        (SITE_URL + "/gids/", "0.85", "monthly"),
+        (SITE_URL + "/sectoren", "0.9", "weekly"),
+        (SITE_URL + "/leasen", "0.9", "weekly"),
+        (SITE_URL + "/nieuws", "0.85", "daily"),
+        (SITE_URL + "/gids", "0.85", "monthly"),
         (SITE_URL + "/begrippen", "0.75", "monthly"),
         (SITE_URL + "/over", "0.7", "yearly"),
         (SITE_URL + "/methodologie", "0.7", "yearly"),
@@ -772,6 +1065,9 @@ def render_sitemap(articles: list) -> str:
     ]
     for h in head_to_heads:
         urls.append((f"{SITE_URL}/vergelijken/{h}", "0.8", "monthly"))
+    # Beslis-pagina's (decision pillars) - hoge intent + zero competition
+    urls.append((f"{SITE_URL}/vergelijken/lease-vs-koop", "0.9", "monthly"))
+    urls.append((f"{SITE_URL}/vergelijken/humanoid-vs-cobot", "0.9", "monthly"))
     for r in ROBOTS:
         urls.append((f"{SITE_URL}/robots/{r['slug']}", "0.85", "weekly"))
     for s in SECTORS:
@@ -780,12 +1076,85 @@ def render_sitemap(articles: list) -> str:
         urls.append((f"{SITE_URL}/leasen/{c['slug']}", "0.75", "weekly"))
     for a in articles:
         urls.append((f"{SITE_URL}/nieuws/{a['slug']}", "0.7", "weekly", a["date"]))
+    # Resolveer elke URL naar het bestand om de echte mtime te lezen - Google ziet zo
+    # echte freshness, niet een statische build-datum.
+    def lastmod_for(url: str) -> str:
+        path = url.replace(SITE_URL, "").strip("/")
+        candidates = []
+        if not path:
+            candidates = [FRONTEND / "index.html"]
+        else:
+            candidates = [
+                FRONTEND / f"{path}.html",
+                FRONTEND / path / "index.html",
+                FRONTEND / path,
+            ]
+        for c in candidates:
+            if c.exists():
+                return datetime.fromtimestamp(c.stat().st_mtime, timezone.utc).strftime("%Y-%m-%d")
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         url, prio, freq = u[0], u[1], u[2]
-        lastmod = u[3] if len(u) > 3 else datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        lastmod = u[3] if len(u) > 3 else lastmod_for(url)
         out.append(f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><changefreq>{freq}</changefreq><priority>{prio}</priority></url>")
+    out.append("</urlset>")
+    return "\n".join(out)
+
+
+def render_image_sitemap() -> str:
+    """Image sitemap voor Google Images traffic - alle robot photos + hero."""
+    try:
+        from robots_data import ROBOTS
+    except ImportError:
+        ROBOTS = []
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+           '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
+    # Homepage hero
+    out.append(f"""  <url>
+    <loc>{SITE_URL}/</loc>
+    <image:image><image:loc>{SITE_URL}/img/hero/hero-robot.webp</image:loc>
+      <image:title>Humanoïde robot leasen Nederland - BotLease catalogus 2026</image:title>
+      <image:caption>BotLease - Nederlands eerste lease-maatschappij voor humanoïde robots, vanaf €290/mnd</image:caption>
+    </image:image>
+  </url>""")
+    # Robot detail pages, each with hero image
+    for r in ROBOTS:
+        out.append(f"""  <url>
+    <loc>{SITE_URL}/robots/{r['slug']}</loc>
+    <image:image><image:loc>{SITE_URL}{r['photo']}</image:loc>
+      <image:title>{r['name']} humanoïde robot - {r['vendor']}</image:title>
+      <image:caption>{r['name']} leasen in Nederland vanaf €{r['lease_eur']:,}/mnd via BotLease</image:caption>
+    </image:image>
+  </url>""")
+    out.append("</urlset>")
+    return "\n".join(out).replace(",", ".")
+
+
+def render_news_sitemap(articles: list) -> str:
+    """News sitemap met <news:news> namespace - voor Google News indexering."""
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+           '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']
+    # Alleen recente (<30 dagen) articles, dat is wat Google News indexeert
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).date().isoformat()
+    for a in articles:
+        if a["date"] < cutoff:
+            continue
+        out.append(f"""  <url>
+    <loc>{SITE_URL}/nieuws/{a['slug']}</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BotLease</news:name>
+        <news:language>nl</news:language>
+      </news:publication>
+      <news:publication_date>{a['date']}</news:publication_date>
+      <news:title>{a['title']}</news:title>
+    </news:news>
+  </url>""")
     out.append("</urlset>")
     return "\n".join(out)
 
@@ -796,9 +1165,20 @@ Allow: /
 Disallow: /api/
 Disallow: /backend/
 Disallow: /admin
-Disallow: /admin.html
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /kennisbank
+Disallow: /index-chatbot-backup
+Disallow: /index-old
+Disallow: /chatbot-landing
+Disallow: /chatbot-split
+Disallow: /chatbot-test
+Disallow: /*?utm_*
 
 Sitemap: {SITE_URL}/sitemap.xml
+Sitemap: {SITE_URL}/sitemap-images.xml
+Sitemap: {SITE_URL}/sitemap-news.xml
 """
 
 
@@ -820,7 +1200,7 @@ def render_rss(articles: list) -> str:
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BotLease Nieuws — humanoïde robots in Nederland</title>
+    <title>BotLease Nieuws - humanoïde robots in Nederland</title>
     <link>{SITE_URL}/nieuws/</link>
     <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
@@ -839,14 +1219,20 @@ def build():
 
     articles_sorted = sorted(ARTICLES, key=lambda a: a["date"], reverse=True)
 
-    # Per artikel — "related" = next 2 nieuwere/oudere
+    # Per artikel - "related" = next 2 nieuwere/oudere
     for i, a in enumerate(articles_sorted):
         related = [x for x in articles_sorted if x["slug"] != a["slug"]][:2]
         (NEWS_DIR / f"{a['slug']}.html").write_text(render_article(a, related), encoding="utf-8")
 
     (NEWS_DIR / "index.html").write_text(render_listing(articles_sorted), encoding="utf-8")
-    (FRONTEND / "sitemap.xml").write_text(render_sitemap(articles_sorted), encoding="utf-8")
-    (FRONTEND / "robots.txt").write_text(render_robots(), encoding="utf-8")
+    # sitemap.xml / sitemap-images.xml / robots.txt worden NIET meer door de news-bot
+    # overschreven: deze bevatten alle 73 pagina's (incl. de SEO-landingspagina's) en
+    # worden los onderhouden. render_sitemap() hier kent alleen nieuws + een verouderde
+    # statische lijst → zou de 13 nieuwe pagina's uit de sitemap gooien. (1 juni 2026)
+    # (FRONTEND / "sitemap.xml").write_text(render_sitemap(articles_sorted), encoding="utf-8")
+    # (FRONTEND / "sitemap-images.xml").write_text(render_image_sitemap(), encoding="utf-8")
+    # (FRONTEND / "robots.txt").write_text(render_robots(), encoding="utf-8")
+    (FRONTEND / "sitemap-news.xml").write_text(render_news_sitemap(articles_sorted), encoding="utf-8")
     (FRONTEND / "rss.xml").write_text(render_rss(articles_sorted), encoding="utf-8")
 
     data_summary = [

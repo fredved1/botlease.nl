@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>SEO Dashboard — BotLease (intern)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+  background: #fafaf9; color: #1c1917;
+  font-size: 14px; line-height: 1.5;
+  padding: 32px 24px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+h1 {
+  font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+h2 {
+  font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
+  margin: 36px 0 14px;
+  padding-bottom: 8px; border-bottom: 1px solid #e7e5e4;
+}
+.muted { color: #737373; font-size: 13px; margin-bottom: 24px; }
+.stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  margin: 24px 0;
+}
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat {
+  background: #fff; border: 1px solid #e7e5e4; border-radius: 10px;
+  padding: 16px 18px;
+}
+.stat .label { color: #737373; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.stat .v { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; }
+.stat .sub { color: #a3a3a3; font-size: 11px; margin-top: 2px; }
+table {
+  width: 100%; border-collapse: collapse;
+  background: #fff; border: 1px solid #e7e5e4; border-radius: 10px;
+  overflow: hidden;
+}
+th, td {
+  text-align: left; padding: 10px 14px;
+  border-bottom: 1px solid #f5f5f4;
+  font-size: 13px; vertical-align: top;
+}
+th { background: #fafaf9; font-weight: 600; font-size: 11px; color: #525252; text-transform: uppercase; letter-spacing: 0.04em; }
+tr:last-child td { border-bottom: none; }
+.pill {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600;
+}
+.pill-great { background: #d1fae5; color: #065f46; }
+.pill-good  { background: #dbeafe; color: #1e40af; }
+.pill-okay  { background: #fef3c7; color: #92400e; }
+.pill-meh   { background: #f3f4f6; color: #525252; }
+.pill-bad   { background: #fee2e2; color: #991b1b; }
+ul { list-style: none; padding: 0; }
+ul li { padding-left: 24px; position: relative; }
+ul li::before { content: "□"; position: absolute; left: 0; color: #a3a3a3; font-size: 16px; line-height: 1; top: 1px; }
+.card {
+  background: #fff; border: 1px solid #e7e5e4; border-radius: 10px;
+  padding: 20px 22px;
+}
+.banner {
+  background: #fef3c7; border: 1px solid #fde68a; border-radius: 10px;
+  padding: 14px 18px; font-size: 13px; color: #78350f; margin-bottom: 28px;
+}
+.banner strong { color: #92400e; }
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+.footnote { color: #a3a3a3; font-size: 11px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e7e5e4; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>SEO Dashboard</h1>
+<p class="muted">Intern overzicht — botlease.nl rankings, fixes en concurrentie. Gegenereerd: 31-05-2026 09:40.</p>
+
+<div class="banner" style="background:#fff7ed; border-left:3px solid #f59e0b; color:#7c2d12">
+  <strong>Actie vereist: Google re-crawl.</strong> De site is technisch maximaal (73/73 URLs 200, 288 JSON-LD blokken valide, mobile-first, &minus;52% paginagewicht via lazy-loaded Google Translate, IndexNow voor alle 73 URLs, verse sitemap-lastmod, llms.txt met alle pagina's). <b>MAAR:</b> <code>site:botlease.nl</code> toont in Google nog steeds de oude Milo-chatbot-homepage ("AI-assistent in 15 minuten | &euro;49/maand") &mdash; Google heeft de nieuwe humanoid-lease-site nog niet opnieuw gecrawld, waardoor de hele site onzichtbaar is voor de doeltermen.
+  <p style="margin-top:10px; font-size:13px"><b>Deblokkeer dit (alleen jij kunt dit):</b> Google Search Console &rarr; property verifi&euml;ren &rarr; homepage URL-inspectie &rarr; "Indexering aanvragen" + sitemap indienen op <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a>. IndexNow bereikt Bing/Yandex w&eacute;l, maar Google niet. Pas na de re-crawl renderen de 13 nieuwe pagina's + fundering in Google.</p>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="label">Keywords gevolgd</div>
+    <div class="v">34</div>
+    <div class="sub">P0-P2 prioriteit</div>
+  </div>
+  <div class="stat">
+    <div class="label">Rankings (top 30)</div>
+    <div class="v" style="color:#16a34a">1 / 34</div>
+    <div class="sub">2%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Top 10</div>
+    <div class="v" style="color:#16a34a">1</div>
+    <div class="sub">eerste pagina Google</div>
+  </div>
+  <div class="stat">
+    <div class="label">Laatste check</div>
+    <div class="v" style="font-size:18px">2026-05-31</div>
+    <div class="sub">site:botlease.nl via WebSearch</div>
+  </div>
+</div>
+
+
+<h2>Analytics - Live verkeer</h2>
+<div class="card" style="background:linear-gradient(135deg, #f0fdf4, #ecfdf5); border-color:#bbf7d0">
+  <p style="margin-bottom:14px; font-size:15px"><b>Vercel Web Analytics + Speed Insights</b> draait live op alle pagina's. Per-pagina views, top referrers, devices, landen, Core Web Vitals.</p>
+  <a href="https://vercel.com/fredved1s-projects/botlease-v2/analytics" target="_blank"
+     style="display:inline-block; padding:10px 18px; background:#0070f3; color:#fff; border-radius:8px; font-weight:600; font-size:14px; text-decoration:none">
+    Open Vercel Analytics dashboard &rarr;
+  </a>
+  <p style="margin-top:12px; font-size:12.5px; color:#525252">
+    Status afgelopen 7 dagen (laatste check): <b>12 bezoekers, 13 page views, 9 vanuit google.com</b> &mdash; Google indexeert organisch.
+  </p>
+</div>
+
+<h2>Keyword rankings</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Prio</th>
+      <th>Keyword → doelpagina</th>
+      <th>Positie</th>
+      <th>Trend</th>
+      <th>Intent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>humanoide robot leasen Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/" style="color:#737373">/</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>humanoid robot lease Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/" style="color:#737373">/</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>humanoide robot huren Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/huren" style="color:#737373">/huren</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>humanoide robot prijs Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/prijzen" style="color:#737373">/prijzen</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>robot leasen MKB Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/" style="color:#737373">/</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>Unitree G1 leasen Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/unitree-g1" style="color:#737373">/robots/unitree-g1</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>Unitree H1-2 leasen Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/unitree-h1-2" style="color:#737373">/robots/unitree-h1-2</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>Unitree H2 Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/unitree-h2" style="color:#737373">/robots/unitree-h2</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>NEURA 4NE-1 leasen Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/neura-4ne1-gen3" style="color:#737373">/robots/neura-4ne1-gen3</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>PAL Kangaroo Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/pal-kangaroo" style="color:#737373">/robots/pal-kangaroo</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>Apptronik Apollo Nederland leasen</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/apptronik-apollo" style="color:#737373">/robots/apptronik-apollo</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>Figure 02 robot Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/figure-02" style="color:#737373">/robots/figure-02</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>1X NEO Nederland kopen</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/1x-neo" style="color:#737373">/robots/1x-neo</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>humanoid robot 3PL fulfillment Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/sectoren/3pl-fulfillment" style="color:#737373">/sectoren/3pl-fulfillment</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>humanoid robot productie assemblage</b><br><span style="color:#737373; font-size:11px">→ <a href="/sectoren/productie-assemblage" style="color:#737373">/sectoren/productie-assemblage</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoid robot hospitality Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/sectoren/hospitality-retail" style="color:#737373">/sectoren/hospitality-retail</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoid robot zorg Nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/sectoren/zorg-instellingen" style="color:#737373">/sectoren/zorg-instellingen</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>humanoid robot leasen Amsterdam</b><br><span style="color:#737373; font-size:11px">→ <a href="/leasen/amsterdam" style="color:#737373">/leasen/amsterdam</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoid robot leasen Rotterdam</b><br><span style="color:#737373; font-size:11px">→ <a href="/leasen/rotterdam" style="color:#737373">/leasen/rotterdam</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoid robot leasen Eindhoven</b><br><span style="color:#737373; font-size:11px">→ <a href="/leasen/eindhoven" style="color:#737373">/leasen/eindhoven</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>EU AI Act humanoid robot Machineverordening</b><br><span style="color:#737373; font-size:11px">→ <a href="/gids/ai-act-machineverordening" style="color:#737373">/gids/ai-act-machineverordening</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>BotLease</b><br><span style="color:#737373; font-size:11px">→ <a href="/" style="color:#737373">/</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">navigational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#dc2626; color:#fff; font-size:10px; font-weight:600">P0</span></td>
+      <td><b>botlease.nl</b><br><span style="color:#737373; font-size:11px">→ <a href="/" style="color:#737373">/</a></span></td>
+      <td><span class="pill pill-great">#1</span></td>
+      <td><span style="color:#a3a3a3">—</span></td>
+      <td style="color:#737373; font-size:12px">navigational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>robot as a service nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robot-as-a-service" style="color:#737373">/robot-as-a-service</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">commercial</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>humanoide robot leasen mkb</b><br><span style="color:#737373; font-size:11px">→ <a href="/mkb" style="color:#737373">/mkb</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoide robot personeelstekort</b><br><span style="color:#737373; font-size:11px">→ <a href="/personeelstekort-humanoide-robot" style="color:#737373">/personeelstekort-humanoide-robot</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>terugverdientijd humanoide robot</b><br><span style="color:#737373; font-size:11px">→ <a href="/terugverdientijd-roi" style="color:#737373">/terugverdientijd-roi</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>beste humanoide robot bedrijven</b><br><span style="color:#737373; font-size:11px">→ <a href="/beste-humanoide-robots-2026" style="color:#737373">/beste-humanoide-robots-2026</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">commercial</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoide robot vs uitzendkracht</b><br><span style="color:#737373; font-size:11px">→ <a href="/robot-vs-uitzendkracht" style="color:#737373">/robot-vs-uitzendkracht</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">commercial</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>full-service lease humanoide robot</b><br><span style="color:#737373; font-size:11px">→ <a href="/full-service-lease" style="color:#737373">/full-service-lease</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">commercial</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>machineverordening 2027 robots</b><br><span style="color:#737373; font-size:11px">→ <a href="/machineverordening-2027-humanoide-robots" style="color:#737373">/machineverordening-2027-humanoide-robots</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>tesla optimus leasen nederland</b><br><span style="color:#737373; font-size:11px">→ <a href="/robots/tesla-optimus" style="color:#737373">/robots/tesla-optimus</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">commercial</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#ea580c; color:#fff; font-size:10px; font-weight:600">P1</span></td>
+      <td><b>wat kost een humanoide robot</b><br><span style="color:#737373; font-size:11px">→ <a href="/prijzen" style="color:#737373">/prijzen</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">informational</td>
+    </tr>
+    <tr>
+      <td><span style="display:inline-block; padding:2px 7px; border-radius:6px; background:#a3a3a3; color:#fff; font-size:10px; font-weight:600">P2</span></td>
+      <td><b>humanoide robot leasen Noord-Brabant</b><br><span style="color:#737373; font-size:11px">→ <a href="/leasen/noord-brabant" style="color:#737373">/leasen/noord-brabant</a></span></td>
+      <td><span class="pill pill-bad">niet in top 30</span></td>
+      <td></td>
+      <td style="color:#737373; font-size:12px">transactional</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Concurrentie</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Domein</th>
+      <th>Dreiging</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody><tr><td><b>smartrobot.solutions</b><br><span style="color:#737373; font-size:11px">Nijmegen, NL</span></td><td><span class="pill pill-bad">high</span></td><td style="color:#525252; font-size:12.5px">Ranked #1 NL competitor — verkoop+verhuur, gevestigd</td></tr><tr><td><b>robotverhuur.nl</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-okay">medium</span></td><td style="color:#525252; font-size:12.5px">Event-rental focus, ranked voor &#x27;huren&#x27; keywords</td></tr><tr><td><b>eventbots.nl</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Pepper/Sanbot/NAO event-rentals, smaller</td></tr><tr><td><b>roboticscenter.ai</b><br><span style="color:#737373; font-size:11px">Amsterdam, NL</span></td><td><span class="pill pill-okay">medium</span></td><td style="color:#525252; font-size:12.5px">Lease aggregator vanaf $800/mnd, ranked Amsterdam term</td></tr><tr><td><b>droneland.nl</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Verkoopt Unitree H1, breder dronewinkel</td></tr><tr><td><b>elektor.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Verkoopt Unitree G1, electronics-shop</td></tr><tr><td><b>futurobots.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-okay">medium</span></td><td style="color:#525252; font-size:12.5px">Maandelijkse Unitree G1 huur, professional setup</td></tr><tr><td><b>deltarobots.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-okay">medium</span></td><td style="color:#525252; font-size:12.5px">Verkoopt + verhuurt Unitree G1, breder robotica-shop</td></tr><tr><td><b>robwelding.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Industrial welding robots + lease, niet humanoid-focus maar wel SEO-actief</td></tr><tr><td><b>4mysmarthome.nl</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Content-marketing blog over robot leasing — geen lessor maar genereert leads</td></tr><tr><td><b>innowayrobotics.nl</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Service/industriele robots, ranked op &#x27;hoe duur is een robot&#x27; content</td></tr><tr><td><b>industrialfairs.com</b><br><span style="color:#737373; font-size:11px">NL/BE</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">B2B trade-fair platform, ranked op robot kopen/huren/leasen content</td></tr><tr><td><b>ef-robotics.de</b><br><span style="color:#737373; font-size:11px">Duitsland</span></td><td><span class="pill pill-bad">high</span></td><td style="color:#525252; font-size:12.5px">DE leader — ranked #1-3 op NL search-results ondanks DE-only. Sterke content + DR.</td></tr><tr><td><b>roboter-spezialist.de</b><br><span style="color:#737373; font-size:11px">Duitsland</span></td><td><span class="pill pill-bad">high</span></td><td style="color:#525252; font-size:12.5px">DE-vergelijker, ranked NL searches op generieke content</td></tr><tr><td><b>finyo.de</b><br><span style="color:#737373; font-size:11px">Duitsland</span></td><td><span class="pill pill-okay">medium</span></td><td style="color:#525252; font-size:12.5px">DE lease-financier, dekt humanoid in blog-content</td></tr><tr><td><b>universal-robots.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Cobot focus, adjacent — financiert via DLL</td></tr><tr><td><b>abnamrolease.com</b><br><span style="color:#737373; font-size:11px">NL</span></td><td><span class="pill pill-good">low</span></td><td style="color:#525252; font-size:12.5px">Generic equipment lease, niet humanoid-specifiek</td></tr>
+  </tbody>
+</table>
+
+<h2>Fixes — nog te doen</h2>
+<div class="card">
+  <ul><li style="margin-bottom:10px"><b>Google Search Console verifiëren + sitemap submitten</b><br><span style="color:#737373; font-size:13px">In frontend/index.html staat &lt;meta name=&quot;google-site-verification&quot; content=&quot;REPLACE-WITH-GSC-TOKEN&quot;&gt;. Maak GSC-account aan, krijg de echte token, vervang. Submit https://botlease.nl/sitemap.xml en vraag indexing aan voor /, /robots/, /gids/, /kosten, /vergelijken.</span></li><li style="margin-bottom:10px"><b>Bing Webmaster Tools verifiëren</b><br><span style="color:#737373; font-size:13px">Vervang &lt;meta name=&quot;msvalidate.01&quot; content=&quot;REPLACE-WITH-BING-TOKEN&quot;&gt; met echte token. Bing rankt 5-10% van NL searches, kost niets.</span></li><li style="margin-bottom:10px"><b>SerpAPI of DataForSEO account voor automatische rank-tracking</b><br><span style="color:#737373; font-size:13px">~$10-50/mnd. Zonder dit moeten rank-checks handmatig in seo_data.json. Alternatief: GSC Performance data wekelijks exporteren (gratis, accurater).</span></li><li style="margin-bottom:10px"><b>Concurrentie-audit Smartrobot.solutions</b><br><span style="color:#737373; font-size:13px">Welke backlinks hebben ze? Welke pagina&#x27;s converteren? Wat is hun publicatiefrequentie? Audit-agent doet dit nu in achtergrond — wachten op SEO_AUDIT.md.</span></li><li style="margin-bottom:10px"><b>Eerste 5 backlinks scoren</b><br><span style="color:#737373; font-size:13px">Rockingrobots.nl (Nederlandse robotica-pers), Hacker News Show HN, Indiehackers, LinkedIn artikel, Reddit /r/robotics. Plus Crunchbase + LinkedIn company page. Domain authority bouwen op.</span></li><li style="margin-bottom:10px"><b>FAQ-blok op elke robot-pagina (5-8 vragen)</b><br><span style="color:#737373; font-size:13px">Long-tail keyword targeting. Vragen als: &#x27;Hoe lang duurt levering Unitree G1?&#x27;, &#x27;Kan ik een Unitree G1 leasen voor minder dan 36 mnd?&#x27; etc. FAQPage schema toevoegen.</span></li><li style="margin-bottom:10px"><b>Alt-text audit op alle robot foto&#x27;s</b><br><span style="color:#737373; font-size:13px">Elke robot-foto moet bevatten: model + &#x27;humanoide robot&#x27; + &#x27;leasen&#x27; + prijs. Voor image-search SEO. Check hub-thumbs, hero-art, tile-photos.</span></li></ul>
+</div>
+
+<h2>Fixes — afgevinkt</h2>
+<div class="card">
+  <ul style="list-style:none"><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">5 legacy chatbot HTML-bestanden uit /frontend/ verwijderd</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">301-redirects voor 5 oude chatbot-URLs</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">robots.txt: legacy paden + utm-params disallow</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Alle 53 meta-descriptions onder 155 display-chars</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">&#x27;Geschikt voor sector&#x27; link-block op elke robot-pagina</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">H1 &#x27;in Nederland&#x27; op elke robot-pagina</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Sitemap lastmod gebruikt file mtime</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">X-Robots-Tag noindex op /admin/*</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">1-jaar cache-headers op WebP/JPG/PNG</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">FAQ-blok + FAQPage schema op alle 15 robot-pagina&#x27;s</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">LocalBusiness schema op 5 stadspagina&#x27;s</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">ItemList schema op 6 vergelijkingspagina&#x27;s</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Vergelijken-pages uitgebreid van ~300 naar ~2700 woorden</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Logo: van robot-icoon naar sober monogram &quot;B&quot;</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">12 outreach-drafts in /OUTREACH/ — kant-en-klaar copy-paste</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">5 stadspagina&#x27;s: 270 → 2.100 woorden (8× boost)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">4 sectorpagina&#x27;s: 436-498 → 1.716-1.791 woorden (4× boost)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Sectoren-hub en leasen-hub: 140-187 → 1.200+ woorden</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">IndexNow protocol live + 53 URLs gepingt naar Bing/Yandex</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Image sitemap + News sitemap toegevoegd</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">2 nieuwe beslis-pagina&#x27;s: lease-vs-koop + humanoid-vs-cobot</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-19</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">/over uitgebreid met founder-narrative (Thomas, AI-pivot) + team-disciplines + KvK trust-block</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Nieuw artikel 20/05: marktstand mei 2026 — 15 modellen leverbaarheid</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Catalogus-hub compacter: 4 kolommen, 55% foto-grootte (was 72%)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Sitemap: trailing slashes verwijderd van 5 hub-URLs</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">GSC/Bing placeholders uit publieke HTML weggehaald</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">hreflang opgeschoond — alleen `nl` + x-default</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Dashboard datum-sortering gefixt</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Vercel Analytics + Speed Insights aangezet</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-22</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Wayback Machine: 24 URLs gearchiveerd</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">llms.txt voor AI-search</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Robot-pages cross-link naar /gids pillar</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">TL;DR block bovenaan elk nieuwsartikel</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Em-dashes verwijderd uit alle content</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Magazine-layout /nieuws + dagelijks-bijgewerkt badge</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">News-bot draait wekelijks op VPS (Opus 4.7)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Rank-bot wekelijks via DDG scrape</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-20</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Titles ingekort naar SERP-vriendelijke lengte</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">IndexNow #6 ping</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-21</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Content cluster: &#x27;humanoide robot kopen vs leasen&#x27; pillar page</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">13 nieuwe SEO-pagina&#x27;s gebouwd + live (RaaS, huren, prijzen, mkb, personeelstekort, ROI, FAQ-hub, beste-robots-2026, robot-vs-uitzendkracht, full-service-lease, machineverordening-2027, tesla-optimus, leasen/noord-brabant)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Site-breed mobile-first: hamburgermenu + responsive patch op alle 73 pagina&#x27;s (0 overflow op 320/375px)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Google Translate lazy-loaded -&gt; homepage 1119KB naar 542KB (-52%); CWV LCP &lt;600ms / CLS &lt;0.02</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Prijsdata gereconcilieerd: robotpagina&#x27;s + calculator canoniek, 9 verouderde gids-prijzen gecorrigeerd</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">2 nieuws-titels met kleine letter gecorrigeerd (casing) over alle voorkomens</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Interne links: nieuwe pagina&#x27;s in homepage-footer + &#x27;Lees verder&#x27;-blokken op 4 sector-pagina&#x27;s</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">Alle 73 URLs opnieuw via IndexNow (Bing/Yandex) + verse sitemap-lastmod op 10 gewijzigde pagina&#x27;s</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">llms.txt uitgebreid met alle 13 nieuwe pagina&#x27;s (AI-search dekking)</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li><li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">OUTREACH/13-actieplan-30-dagen.md: getimed off-page + re-crawl uitvoeringsschema</s> <span style="color:#16a34a; font-weight:600; font-size:11px">✓ 2026-05-31</span></li></ul>
+</div>
+
+<h2>Hoe dit dashboard bijgewerkt wordt</h2>
+<div class="card" style="font-size:13.5px; line-height:1.6">
+  <p style="margin-bottom:10px"><b>1. Nieuwe rank-check toevoegen</b> — open <code>seo/seo_data.json</code> en voeg een nieuw entry toe aan de <code>checks</code> array met datum + posities per keyword. Voor handmatige checks: ga naar Google in een incognito venster, zoek het keyword, tel waar botlease.nl staat (0 = niet in top 30).</p>
+  <p style="margin-bottom:10px"><b>2. Fix afvinken</b> — verplaats een entry van <code>fixes_open</code> naar <code>fixes_done</code> met datum.</p>
+  <p style="margin-bottom:10px"><b>3. Rebuild dashboard</b> — <code>python3 scripts/build_seo_dashboard.py</code>.</p>
+  <p><b>4. Echte automatisering</b> — voor wekelijkse automatische rank-tracking, koppel een SerpAPI of DataForSEO account (~$10-50/mnd). Of zet up Google Search Console (gratis) en exporteer wekelijks de "Performance" data — dat is de echte waarheid.</p>
+</div>
+
+<p class="footnote">
+  Intern dashboard — niet indexeerbaar (noindex). Niet linken vanaf publieke pagina's. Toegang via <code>/admin/seo</code>.<br>
+  Brondata: <code>seo/seo_data.json</code> · Builder: <code>scripts/build_seo_dashboard.py</code>
+</p>
+
+</div>
+</body>
+</html>
