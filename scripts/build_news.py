@@ -272,7 +272,9 @@ ARTICLE_CSS = """
 .hero-banner {
   position:relative; width:100%; height:240px;
   border-radius:14px; overflow:hidden; margin-bottom:36px;
-  background:var(--accent-soft);
+  background:
+    radial-gradient(78% 125% at 80% 120%, color-mix(in srgb, var(--art-tint, var(--accent)) 45%, transparent), transparent 68%),
+    linear-gradient(120deg, var(--bg-2) 0%, var(--accent-soft) 72%);
   border:1px solid var(--accent-line);
 }
 .hero-banner-pattern { display:none; }
@@ -285,13 +287,13 @@ ARTICLE_CSS = """
   border:1px solid var(--accent-line); border-radius:999px;
 }
 .hero-banner-art, .hero-banner-photo {
-  position:absolute; right:32px; top:50%; transform:translateY(-50%);
-  height:88%; width:auto; max-width:48%; object-fit:contain;
-  filter:drop-shadow(0 18px 36px rgba(28,25,23,0.18));
+  position:absolute; right:26px; bottom:-8px; top:auto; transform:none;
+  height:114%; width:auto; max-width:52%; object-fit:contain; object-position:bottom right;
+  filter:drop-shadow(0 22px 42px rgba(28,25,23,0.24));
 }
 @media (max-width:780px) {
   .hero-banner { height:180px; }
-  .hero-banner-art, .hero-banner-photo { right:18px; height:84%; max-width:55%; }
+  .hero-banner-art, .hero-banner-photo { right:14px; height:118%; max-width:58%; }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
