@@ -20,20 +20,20 @@ const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 // Bij een bestelling weet jij meteen bij welke leverancier je het kunt ordenen.
 const SOURCE_BY_SLUG = {
   // EU-gebouwd — direct contact met fabrikant
-  'neura-4ne1-mini':   'NEURA Robotics direct · sales@neura-robotics.com · Metzingen (DE) · 6-10 wk',
-  'neura-4ne1-gen3':   'NEURA Robotics direct · sales@neura-robotics.com · Metzingen (DE) · via Bosch supply · 8-12 wk',
-  'pal-kangaroo':      'PAL Robotics · sales@pal-robotics.com · Barcelona (ES) · 8-12 wk',
-  'pal-tiago-pro':     'PAL Robotics · sales@pal-robotics.com · Barcelona (ES) · 6-10 wk',
-  'pollen-reachy-2':   'Pollen Robotics (Hugging Face) · contact@pollen-robotics.com · Bordeaux (FR) · 4-8 wk',
+  'neura-4ne1-mini':   'NEURA Robotics direct · info@neura-robotics.com · Metzingen (DE) · 6-10 wk',
+  'neura-4ne1-gen3':   'NEURA Robotics direct · info@neura-robotics.com · Metzingen (DE) · via Bosch supply · 8-12 wk',
+  'pal-kangaroo':      'PAL Robotics · business@pal-robotics.com · Barcelona (ES) · 8-12 wk',
+  'pal-tiago-pro':     'PAL Robotics · business@pal-robotics.com · Barcelona (ES) · 6-10 wk',
+  'pollen-reachy-2':   'Pollen Robotics (Hugging Face) · sales@pollen-robotics.com · Bordeaux (FR) · 4-8 wk',
   // Aziatisch — via EU distributeurs of direct
   'unitree-r1':        'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct (shop.unitree.com) · 6-8 wk',
   'unitree-g1':        'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct (shop.unitree.com) · 6-8 wk',
   'unitree-h1-2':      'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct · 8-10 wk',
   'unitree-h2':        'Unitree direct (shop.unitree.com) · 8-10 wk · let op: AI-Act assessment vereist',
-  'engineai-se01':     'EngineAI direct · sales@engineai.com · Shenzhen (CN) · 10-14 wk',
-  'ubtech-walker-s2':  'UBTECH Europe (contact@ubtrobot.com) · BACK-UP: UBTECH direct China · 12-16 wk',
+  'engineai-se01':     'EngineAI direct · sales@engineai.com.cn · Shenzhen (CN) · 10-14 wk',
+  'ubtech-walker-s2':  'UBTECH direct · sales@ubtrobot.com · EU-distributeur: OrcaRobot Nijmegen (richard@orcarobot.com) · Terra Robotics DACH (mail@terra-robotics.de) · 12-16 wk',
   // Wachtlijst — niet leverbaar nu
-  'apptronik-apollo':  'WACHTLIJST 2026/2027 · Apptronik (apptronik.com/contact) · pre-order via BotLease',
+  'apptronik-apollo':  'WACHTLIJST 2026/2027 · Apptronik (apptronik.com/contact-us) · pre-order via BotLease',
   'figure-02':         'WACHTLIJST 2027 · Figure (figure.ai) · enterprise pilot only',
   'agility-digit':     'WACHTLIJST · Agility Robotics direct (RaaS only) · pre-order via BotLease',
   '1x-neo':            'WACHTLIJST Q1 2027 · 1X Technologies (1x.tech/order) · EU shipping Q1 2027',
