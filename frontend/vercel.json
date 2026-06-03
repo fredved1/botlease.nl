@@ -9,6 +9,7 @@
     { "source": "/googled352441549b06d7c", "destination": "/api/google-verify" }
   ],
   "redirects": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.botlease.nl" }], "destination": "https://botlease.nl/$1", "permanent": true },
     { "source": "/chatbot-landing", "destination": "/", "permanent": true },
     { "source": "/chatbot-landing.html", "destination": "/", "permanent": true },
     { "source": "/chatbot-split", "destination": "/", "permanent": true },
