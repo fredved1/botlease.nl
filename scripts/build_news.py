@@ -593,13 +593,57 @@ ART_BY_SLUG = {
 }
 
 
-def art_for(slug: str) -> dict:
-    return ART_BY_SLUG.get(slug, DEFAULT_ART)
+# Gevarieerde eigen-beheer robotfoto's (genormaliseerd webp) zodat ELK artikel een
+# eigen, relevante hero krijgt i.p.v. steeds dezelfde DEFAULT_ART.
+PHOTO_POOL = [
+    ("/img/robots/g1-norm.webp",         "Unitree G1 humanoïde robot"),
+    ("/img/robots/apollo-norm.webp",     "Apptronik Apollo humanoïde robot"),
+    ("/img/robots/digit-norm.webp",      "Agility Digit robot"),
+    ("/img/robots/figure02-norm.webp",   "Figure 02 humanoïde robot"),
+    ("/img/robots/neura-4ne1-norm.webp", "NEURA 4NE-1 humanoïde robot"),
+    ("/img/robots/walker-s-norm.webp",   "UBTECH Walker S2 robot"),
+    ("/img/robots/h1-norm.webp",         "Unitree H1 humanoïde robot"),
+    ("/img/robots/kangaroo-norm.webp",   "PAL Kangaroo humanoïde robot"),
+    ("/img/robots/neo-norm.webp",        "1X NEO humanoïde robot"),
+    ("/img/robots/reachy2-norm.webp",    "Pollen Reachy 2 robot"),
+    ("/img/robots/se01-norm.webp",       "EngineAI SE01 humanoïde robot"),
+    ("/img/robots/h2-norm.webp",         "Unitree H2 humanoïde robot"),
+    ("/img/robots/tiago-pro-norm.webp",  "PAL TIAGo Pro robot"),
+    ("/img/robots/r1-norm.webp",         "Unitree R1 humanoïde robot"),
+]
+TINT_POOL = ["#5be584", "#6ea8ff", "#ff5e1f", "#ffb098", "#ffc966", "#b794f6", "#4fd1c5", "#f6849c"]
+# (keyword, index in PHOTO_POOL) — specifiekste eerst.
+KW_PHOTO = [
+    ("apptronik", 1), ("apollo", 1), ("agility", 2), ("digit", 2), ("figure", 3),
+    ("neura", 4), ("4ne", 4), ("ubtech", 5), ("walker", 5), ("kangaroo", 7),
+    ("tiago", 12), ("pollen", 9), ("reachy", 9), ("engineai", 10), ("se01", 10),
+    ("1x neo", 8), ("unitree h1", 6), ("h1-2", 6), ("unitree h2", 11),
+    ("unitree r1", 13), ("unitree g1", 0), ("g1 edu", 0), ("unitree", 0),
+]
+
+
+def art_for(a) -> dict:
+    """Hero-art voor een artikel: expliciete mapping > keyword-match op robot/merk
+    > deterministische rotatie, zodat elk artikel een eigen, relevante foto krijgt."""
+    if isinstance(a, str):
+        slug, text = a, a.lower()
+    else:
+        slug = a.get("slug", "")
+        text = (a.get("title", "") + " " + " ".join(a.get("tags") or [])).lower()
+    if slug in ART_BY_SLUG:
+        return ART_BY_SLUG[slug]
+    for kw, idx in KW_PHOTO:
+        if kw in text:
+            ph, alt = PHOTO_POOL[idx]
+            return {"photo": ph, "alt": alt, "tint": TINT_POOL[idx % len(TINT_POOL)], "symbol": None}
+    h = sum(ord(c) for c in slug)
+    ph, alt = PHOTO_POOL[h % len(PHOTO_POOL)]
+    return {"photo": ph, "alt": alt, "tint": TINT_POOL[h % len(TINT_POOL)], "symbol": None}
 
 
 def article_hero_banner(a: dict) -> str:
     """Banner above the article title: gradient + foto of abstract motief."""
-    art = art_for(a["slug"])
+    art = art_for(a)
     if art.get("photo"):
         media = (
             f'<img class="hero-banner-photo" src="{art["photo"]}" '
@@ -631,7 +675,7 @@ def card_thumb(a: dict, *, variant: str = "default") -> str:
     variant: 'hero' (full-bleed huge), 'sub' (medium), 'default' (compact).
     Gebruikt alleen een LOKAAL hero-beeld (geen externe hotlinks); valt anders terug op de owned art-mapping."""
     hero_url = _local_img(a.get("hero_image_url", ""))
-    art = art_for(a["slug"])
+    art = art_for(a)
     alt = escape(a.get("hero_image_alt") or a.get("title", "")[:120])
     fallback_photo = art.get("photo") or "/img/robots/apollo.png"
     fallback_alt = escape(art.get("alt", "Humanoïde robot"))
@@ -675,7 +719,7 @@ ORG_SCHEMA = json.dumps({
 # ---------------------------------------------------------------- builders
 
 def article_image(a: dict) -> str:
-    art = art_for(a["slug"])
+    art = art_for(a)
     if art.get("photo"):
         return f"{SITE_URL}{art['photo']}"
     return f"{SITE_URL}/img/robots/apollo.png"
@@ -789,7 +833,7 @@ def render_article(a: dict, related: list) -> str:
       <div class="tags">{''.join(f'<span>{escape(t)}</span>' for t in a.get('tags', []))}</div>
       <div class="cta-strip">
         <h3>Klaar om dit zelf te ervaren?</h3>
-        <p>Een pilot van 4 weken kost €1.500. Lease vanaf €899/mnd. Beslis na 4 weken.</p>
+        <p>Een pilot van 4 weken kost €1.500. Lease vanaf €290/mnd. Beslis na 4 weken.</p>
         <a class="btn" href="/#contact">Plan een demo →</a>
       </div>
       {f'<div class="related"><h3>Lees verder</h3><div class="related-grid">{related_html}</div></div>' if related_html else ''}
@@ -865,7 +909,7 @@ def render_listing(articles: list) -> str:
     if articles_sorted:
         a = articles_sorted[0]
         hero_url = _local_img(a.get("hero_image_url", ""))
-        art = art_for(a["slug"])
+        art = art_for(a)
         if hero_url:
             photo_src = hero_url
             photo_alt = escape(a.get("hero_image_alt") or a["title"][:120])
