@@ -45,6 +45,17 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
+// Wrap email body in a proper HTML document with a UTF-8 charset declaration.
+// Without this, Outlook/Hotmail can mis-decode the multibyte chars (emoji, ·, —,
+// ï) and truncate the message ("wordt niet volledig weergegeven").
+function wrapEmail(inner, bg) {
+  return `<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">` +
+    `<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">` +
+    `<meta name="viewport" content="width=device-width,initial-scale=1"></head>` +
+    `<body style="margin:0;padding:0;background:${bg || '#ffffff'};-webkit-text-size-adjust:100%">${inner}</body></html>`;
+}
+
 async function sendNotification(data) {
   if (!RESEND_API_KEY) {
     console.warn('[contact] RESEND_API_KEY ontbreekt — email niet verstuurd. Submission:', data);
@@ -87,9 +98,9 @@ async function sendNotification(data) {
 
   const waitlistBlock = isWaitlist ? `<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 18px;margin-bottom:14px"><p style="margin:0;font-size:14px;color:#c2410c"><b>Type:</b> Wachtlijst-aanmelding voor ${escapeHtml(data.robot_name || data.robot_slug)}</p></div>` : '';
 
-  const html = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:640px;margin:0 auto;padding:24px;background:#faf9f6;color:#1c1917">
-      <h2 style="font-family:'Space Grotesk',sans-serif;color:#1c1917;margin:0 0 18px;font-size:22px">${escapeHtml(heading)}</h2>
+  const html = wrapEmail(`
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;max-width:640px;margin:0 auto;padding:24px;background:#faf9f6;color:#1c1917">
+      <h2 style="font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#1c1917;margin:0 0 18px;font-size:22px">${escapeHtml(heading)}</h2>
       ${orderBlock}
       ${waitlistBlock}
       <div style="background:white;border:1px solid #e7e5e0;border-radius:10px;padding:24px;margin-bottom:14px">
@@ -110,7 +121,7 @@ async function sendNotification(data) {
         Reageer op deze email om direct te antwoorden.
       </p>
     </div>
-  `;
+  `, '#faf9f6');
 
   const resp = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -137,9 +148,9 @@ async function sendNotification(data) {
 
 async function sendConfirmation(data) {
   if (!RESEND_API_KEY || !data.email) return { skipped: true };
-  const html = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f7f7f9;color:#08080a">
-      <h2 style="font-family:'Space Grotesk',sans-serif;color:#08080a;margin:0 0 18px;font-size:22px">Bedankt voor je aanvraag — BotLease</h2>
+  const html = wrapEmail(`
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f7f7f9;color:#08080a">
+      <h2 style="font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#08080a;margin:0 0 18px;font-size:22px">Bedankt voor je aanvraag - BotLease</h2>
       <p style="font-size:15px;line-height:1.6">Hallo ${escapeHtml(data.naam)},</p>
       <p style="font-size:15px;line-height:1.6">Bedankt voor je interesse in humanoïde robot leasing via BotLease. We hebben je aanvraag goed ontvangen en nemen binnen <b>4 werkuren</b> contact op via ${escapeHtml(data.email)}.</p>
       <p style="font-size:15px;line-height:1.6">In de tussentijd kun je vrijblijvend rondkijken:</p>
@@ -153,7 +164,7 @@ async function sendConfirmation(data) {
       <hr style="border:none;border-top:1px solid #e4e4e7;margin:24px 0">
       <p style="font-size:12px;color:#71717a">BotLease B.V. · Amsterdam · hallo@botlease.nl · botlease.nl</p>
     </div>
-  `;
+  `, '#f7f7f9');
   const resp = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
