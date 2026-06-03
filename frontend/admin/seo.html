@@ -79,21 +79,11 @@ code { background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12p
 <div class="container">
 
 <h1>SEO Dashboard</h1>
-<p class="muted">Intern overzicht — botlease.nl rankings, fixes en concurrentie. Gegenereerd: 29-05-2026 17:01.</p>
+<p class="muted">Intern overzicht — botlease.nl rankings, fixes en concurrentie. Gegenereerd: 03-06-2026 15:49.</p>
 
-<div class="banner" style="background:#fef3c7; border-left-color:#f59e0b; color:#78350f">
-  <strong>🚧 KRITIEKE BLOCKER — actie van jou nodig.</strong> Site is technisch 100% klaar (alle 16 hoofd-URLs returnen 200, JSON-LD valide, sitemap correct, geen placeholders). Maar <code>site:botlease.nl</code> toont in Google nog STEEDS alleen de oude chatbot-pagina. Reden: low-authority nieuw domein zonder GSC-verificatie = ~2-6 weken organic recrawl-cyclus. <b>Versnellen kan alleen door:</b>
-  <ol style="margin:10px 0 0 20px; line-height:1.7">
-    <li>Token uit Google Search Console kopiëren (URL-prefix verificatie van <code>https://botlease.nl/</code>)</li>
-    <li><code>vercel env add BOTLEASE_GSC_TOKEN production</code> → token plakken</li>
-    <li>Rebuild + deploy: <code>python3 scripts/build_robots.py && python3 scripts/build_guides.py && python3 scripts/build_landingpages.py && python3 scripts/build_news.py && vercel --prod --yes</code></li>
-    <li>In GSC → URL Inspection → "Request indexing" voor homepage + /robots + /gids/humanoide-robot-leasen + /kosten + /vergelijken</li>
-  </ol>
-  Stap 1-4 → Google crawlt binnen 24-72h → eerste impressies binnen 3-10 dagen.
-</div>
-
-<div class="banner">
-  <strong>Hoe rank-data werkt:</strong> komt van handmatige WebSearch-batch, geen live GSC API. Run <code>python3 scripts/build_seo_dashboard.py</code> na het bijwerken van <code>seo/seo_data.json</code>.
+<div class="banner" style="background:#fff7ed; border-left:3px solid #f59e0b; color:#7c2d12">
+  <strong>Actie vereist: Google re-crawl.</strong> De site is technisch maximaal (73/73 URLs 200, 288 JSON-LD blokken valide, mobile-first, &minus;52% paginagewicht via lazy-loaded Google Translate, IndexNow voor alle 73 URLs, verse sitemap-lastmod, llms.txt met alle pagina's). <b>MAAR:</b> <code>site:botlease.nl</code> toont in Google nog steeds de oude Milo-chatbot-homepage ("AI-assistent in 15 minuten | &euro;49/maand") &mdash; Google heeft de nieuwe humanoid-lease-site nog niet opnieuw gecrawld, waardoor de hele site onzichtbaar is voor de doeltermen.
+  <p style="margin-top:10px; font-size:13px"><b>Deblokkeer dit (alleen jij kunt dit):</b> Google Search Console &rarr; property verifi&euml;ren &rarr; homepage URL-inspectie &rarr; "Indexering aanvragen" + sitemap indienen op <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a>. IndexNow bereikt Bing/Yandex w&eacute;l, maar Google niet. Pas na de re-crawl renderen de 13 nieuwe pagina's + fundering in Google.</p>
 </div>
 
 <div class="stats">
@@ -120,31 +110,17 @@ code { background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12p
 </div>
 
 
-<h2>Analytics — Umami</h2>
-<p class="muted" style="margin-top:-8px">Snapshot: 2026-05-29T15:01:38. Live dashboard: <a href="https://analytics.botlease.nl" target="_blank">analytics.botlease.nl</a></p>
-
-<div class="stats">
-  <div class="stat"><div class="label">Pageviews 24h</div><div class="v">36</div><div class="sub">14 unieke bezoekers</div></div>
-  <div class="stat"><div class="label">Pageviews 7d</div><div class="v">46</div><div class="sub">17 unieke bezoekers</div></div>
-  <div class="stat"><div class="label">Pageviews 30d</div><div class="v">47</div><div class="sub">18 unieke bezoekers</div></div>
-  <div class="stat"><div class="label">Sessieduur 7d</div><div class="v">477s</div><div class="sub">cumulatief</div></div>
+<h2>Analytics - Live verkeer</h2>
+<div class="card" style="background:linear-gradient(135deg, #f0fdf4, #ecfdf5); border-color:#bbf7d0">
+  <p style="margin-bottom:14px; font-size:15px"><b>Vercel Web Analytics + Speed Insights</b> draait live op alle pagina's. Per-pagina views, top referrers, devices, landen, Core Web Vitals.</p>
+  <a href="https://vercel.com/fredved1s-projects/botlease-v2/analytics" target="_blank"
+     style="display:inline-block; padding:10px 18px; background:#0070f3; color:#fff; border-radius:8px; font-weight:600; font-size:14px; text-decoration:none">
+    Open Vercel Analytics dashboard &rarr;
+  </a>
+  <p style="margin-top:12px; font-size:12.5px; color:#525252">
+    Status afgelopen 7 dagen (laatste check): <b>12 bezoekers, 13 page views, 9 vanuit google.com</b> &mdash; Google indexeert organisch.
+  </p>
 </div>
-
-<h2 style="font-size:15px; border:none; padding-bottom:0; margin-top:32px">Funnel — afgelopen 7 dagen</h2>
-<div class="stats">
-  <div class="stat"><div class="label">Aanvraag form views</div><div class="v">0</div><div class="sub">cta_aanvraag_view</div></div>
-  <div class="stat"><div class="label">Aanvraag submits</div><div class="v" style="color:#16a34a">0</div><div class="sub">conversie 0.0%</div></div>
-  <div class="stat"><div class="label">Model-card kliks</div><div class="v">0</div><div class="sub">interest signal</div></div>
-  <div class="stat"><div class="label">Wachtlijst signups</div><div class="v">0</div><div class="sub">Apollo/Figure/etc</div></div>
-</div>
-
-<div style="display:grid; grid-template-columns:1fr; gap:16px; margin-top:18px">
-  <div class="card"><b>Top pagina's (7d)</b><table style="width:100%"><tbody><tr><td style="font-size:12.5px">/</td><td style="width:40%"><div style="background:#dbeafe; height:6px; width:100%; border-radius:3px; display:inline-block"></div></td><td style="text-align:right; font-variant-numeric:tabular-nums; color:#525252">17</td></tr></tbody></table></div>
-  <div class="card"><b>Top referrers (7d)</b><p style="color:#a3a3a3; font-size:12.5px">(geen data)</p></div>
-  <div class="card"><b>Landen (7d)</b><table style="width:100%"><tbody><tr><td style="font-size:12.5px">US</td><td style="width:40%"><div style="background:#dbeafe; height:6px; width:100%; border-radius:3px; display:inline-block"></div></td><td style="text-align:right; font-variant-numeric:tabular-nums; color:#525252">17</td></tr></tbody></table></div>
-  <div class="card"><b>Events (7d)</b><p style="color:#a3a3a3; font-size:12.5px">(geen data)</p></div>
-</div>
-
 
 <h2>Keyword rankings</h2>
 <table>
