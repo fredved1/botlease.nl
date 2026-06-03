@@ -6,7 +6,6 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /dashboard
 Disallow: /login
-Disallow: /kennisbank
 Disallow: /index-chatbot-backup
 Disallow: /index-old
 Disallow: /chatbot-landing

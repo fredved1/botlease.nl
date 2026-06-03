@@ -23,7 +23,7 @@
   ],
   "headers": [
     {
-      "source": "/admin/(.*)",
+      "source": "/(admin|dashboard|login|kennisbank)(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet" }
       ]

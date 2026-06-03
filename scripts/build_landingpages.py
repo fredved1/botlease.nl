@@ -119,7 +119,7 @@ ORG_SCHEMA = json.dumps({
     "name": "BotLease",
     "url": SITE_URL,
     "logo": f"{SITE_URL}/logo.png",
-    "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "NL"},
+    "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
 }, ensure_ascii=False)
 
 
