@@ -20,14 +20,14 @@
       "kw": "humanoide robot huren Nederland",
       "intent": "transactional",
       "priority": "P0",
-      "target_page": "/huren"
+      "target_page": "/"
     },
     {
       "id": "humanoide-robot-prijs",
       "kw": "humanoide robot prijs Nederland",
       "intent": "informational",
       "priority": "P1",
-      "target_page": "/prijzen"
+      "target_page": "/kosten"
     },
     {
       "id": "robot-leasen-mkb",
@@ -161,83 +161,6 @@
       "intent": "navigational",
       "priority": "P0",
       "target_page": "/"
-    },
-    {
-      "id": "robot-as-a-service",
-      "kw": "robot as a service nederland",
-      "intent": "commercial",
-      "priority": "P1",
-      "target_page": "/robot-as-a-service"
-    },
-    {
-      "id": "humanoide-robot-mkb",
-      "kw": "humanoide robot leasen mkb",
-      "intent": "transactional",
-      "priority": "P1",
-      "target_page": "/mkb"
-    },
-    {
-      "id": "robot-personeelstekort",
-      "kw": "humanoide robot personeelstekort",
-      "intent": "informational",
-      "priority": "P2",
-      "target_page": "/personeelstekort-humanoide-robot"
-    },
-    {
-      "id": "terugverdientijd-roi",
-      "kw": "terugverdientijd humanoide robot",
-      "intent": "informational",
-      "priority": "P2",
-      "target_page": "/terugverdientijd-roi"
-    },
-    {
-      "id": "beste-humanoide-robot",
-      "kw": "beste humanoide robot bedrijven",
-      "intent": "commercial",
-      "priority": "P2",
-      "target_page": "/beste-humanoide-robots-2026"
-    },
-    {
-      "id": "robot-vs-uitzendkracht",
-      "kw": "humanoide robot vs uitzendkracht",
-      "intent": "commercial",
-      "priority": "P2",
-      "target_page": "/robot-vs-uitzendkracht"
-    },
-    {
-      "id": "full-service-lease",
-      "kw": "full-service lease humanoide robot",
-      "intent": "commercial",
-      "priority": "P2",
-      "target_page": "/full-service-lease"
-    },
-    {
-      "id": "machineverordening-2027",
-      "kw": "machineverordening 2027 robots",
-      "intent": "informational",
-      "priority": "P2",
-      "target_page": "/machineverordening-2027-humanoide-robots"
-    },
-    {
-      "id": "tesla-optimus-nl",
-      "kw": "tesla optimus leasen nederland",
-      "intent": "commercial",
-      "priority": "P2",
-      "target_page": "/robots/tesla-optimus"
-    },
-    {
-      "id": "wat-kost-humanoide-robot",
-      "kw": "wat kost een humanoide robot",
-      "intent": "informational",
-      "priority": "P1",
-      "target_page": "/prijzen"
-    },
-    {
-      "id": "robot-leasen-noord-brabant",
-      "kw": "humanoide robot leasen Noord-Brabant",
-      "intent": "transactional",
-      "priority": "P2",
-      "target_page": "/leasen/noord-brabant"
     }
   ],
   "competitors": [
@@ -362,6 +285,220 @@
     }
   ],
   "checks": [
+    {
+      "date": "2026-05-29",
+      "method": "rank-bot (Google.nl direct scrape, weekly automated)",
+      "notes": "Automatische weekly check. 0/23 keywords nu in top 30. Volgende run: vrijdag.",
+      "ranks": {
+        "humanoide-robot-leasen-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "smartrobot.solutions",
+            "nlrobotics.nl"
+          ]
+        },
+        "humanoid-robot-lease-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "smartrobot.solutions",
+            "robotverhuur.nl"
+          ]
+        },
+        "humanoide-robot-huren-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoide-robot-prijs": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "robot-leasen-mkb": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-g1-leasen-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h1-leasen": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h2-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "neura-4ne1-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "pal-kangaroo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "apollo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "figure-02-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "1x-neo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-3pl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-productie": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-hospitality": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-zorg": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-amsterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-rotterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-eindhoven": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "ai-act-machineverordening": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease-nl": {
+          "position": 0,
+          "top_competitors": []
+        }
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "method": "rank-bot (Google.nl direct scrape, weekly automated)",
+      "notes": "Automatische weekly check. 0/23 keywords nu in top 30. Volgende run: vrijdag.",
+      "ranks": {
+        "humanoide-robot-leasen-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "nlrobotics.nl",
+            "smartrobot.solutions"
+          ]
+        },
+        "humanoid-robot-lease-nl": {
+          "position": 0,
+          "top_competitors": [
+            "robotleasen.com",
+            "smartrobot.solutions",
+            "robotverhuur.nl"
+          ]
+        },
+        "humanoide-robot-huren-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoide-robot-prijs": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "robot-leasen-mkb": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-g1-leasen-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h1-leasen": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "unitree-h2-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "neura-4ne1-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "pal-kangaroo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "apollo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "figure-02-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "1x-neo-nl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-3pl": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-productie": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-hospitality": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-zorg": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-amsterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-rotterdam": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "humanoid-eindhoven": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "ai-act-machineverordening": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease": {
+          "position": 0,
+          "top_competitors": []
+        },
+        "brand-botlease-nl": {
+          "position": 0,
+          "top_competitors": []
+        }
+      }
+    },
     {
       "date": "2026-05-20T10:30",
       "method": "WebSearch (Claude tool) — na 5× IndexNow ping + logo.png + LocalBusiness fix + leasing-ervaring narrative",
@@ -576,82 +713,6 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-05-22",
-      "method": "WebSearch (handmatige rank-check, na site rewrite + Wayback + IndexNow + cross-links)",
-      "notes": "Belangrijke voortgang sinds 20 mei: Vercel Analytics laat 12 bezoekers in 7 dagen zien, waarvan 9 vanuit google.com. Google indexeert dus organisch ondanks geen GSC-verificatie. site:botlease.nl toont alleen oude chatbot-page, maar google.com/search?q=humanoid+robot+leasen+Nederland toont nog steeds NL+DE concurrenten zonder botlease.nl in top 30.",
-      "ranks": {
-        "humanoide-robot-leasen-nl": {
-          "position": 0,
-          "top_competitors": [
-            "universal-robots.com",
-            "omron.nl",
-            "proflease.nl",
-            "robwelding.com",
-            "grenke.nl"
-          ]
-        },
-        "unitree-g1-leasen-nl": {
-          "position": 0,
-          "top_competitors": [
-            "robotverhuur.nl",
-            "smartrobot.solutions",
-            "elektor.com",
-            "droneland.nl"
-          ]
-        },
-        "humanoid-3pl": {
-          "position": 0,
-          "top_competitors": [
-            "ensun.io",
-            "nimble.ai",
-            "awl.nl",
-            "smartroboticsbv.com"
-          ]
-        },
-        "brand-botlease-nl": {
-          "position": 1,
-          "top_competitors": [],
-          "note": "site:botlease.nl returnt nog steeds alleen oude chatbot-pagina - nieuwe content NIET in index"
-        }
-      }
-    },
-    {
-      "date": "2026-05-31",
-      "method": "site:botlease.nl via WebSearch + on-site build/deploy sprint (geen per-keyword NL-geo rank-check; vereist GSC/SerpAPI)",
-      "notes": "On-site sprint: 13 nieuwe pagina's live (RaaS, huren, prijzen, mkb, personeelstekort, ROI, FAQ-hub, beste-robots, robot-vs-uitzendkracht, full-service, machineverordening-2027, tesla-optimus, noord-brabant). Site nu 73 pagina's, 288 JSON-LD blokken (0 fouten), mobile-first, -52% paginagewicht (Translate lazy-load), prijsdata gereconcilieerd, interne links verrijkt, alle 73 URLs opnieuw via IndexNow + verse sitemap-lastmod, llms.txt bijgewerkt. BLOKKER ONGEWIJZIGD: site:botlease.nl toont in Google NOG STEEDS de oude Milo-chatbot-homepage; live site is 100% correct maar Google heeft niet opnieuw gecrawld. Doeltermen daardoor nog niet in top 30. #1 actie blijft: GSC homepage-herindexering + sitemap indienen (alleen gebruiker; IndexNow bereikt Google niet).",
-      "ranks": {
-        "brand-botlease-nl": {
-          "position": 1,
-          "top_competitors": [
-            "(Google toont nog oude Milo-homepage, maar botlease.nl staat #1 voor eigen domein)"
-          ]
-        },
-        "humanoide-robot-leasen-nl": {
-          "position": 0,
-          "top_competitors": [
-            "universal-robots.com",
-            "omron.nl",
-            "ef-robotics.de",
-            "smartrobot.solutions"
-          ]
-        },
-        "wat-kost-humanoide-robot": {
-          "position": 0,
-          "top_competitors": [
-            "smartservant.nl",
-            "innowayrobotics.nl"
-          ]
-        },
-        "robot-as-a-service": {
-          "position": 0,
-          "top_competitors": [
-            "deloitte.com/nl",
-            "rpaexperts.nl"
-          ]
-        }
-      }
     }
   ],
   "fixes_done": [
@@ -850,123 +911,6 @@
       "date": "2026-05-20",
       "notes": "checks array werd niet op datum gesorteerd. 'Laatste check' toonde verkeerde datum. Opgelost door pre-sort in build_seo_dashboard.py.",
       "impact": "low (intern)"
-    },
-    {
-      "title": "Vercel Analytics + Speed Insights aangezet",
-      "date": "2026-05-22",
-      "notes": "Tracker scripts /_vercel/insights + /_vercel/speed-insights/script.js op alle pages. Dashboard zichtbaar in Vercel UI."
-    },
-    {
-      "title": "Wayback Machine: 24 URLs gearchiveerd",
-      "date": "2026-05-21",
-      "notes": "archive.org als domain authority backlink + Google crawl signal"
-    },
-    {
-      "title": "llms.txt voor AI-search",
-      "date": "2026-05-21",
-      "notes": "ChatGPT/Claude/Perplexity sitemap"
-    },
-    {
-      "title": "Robot-pages cross-link naar /gids pillar",
-      "date": "2026-05-21",
-      "notes": "Van 0 naar 15 refs - betere internal linking"
-    },
-    {
-      "title": "TL;DR block bovenaan elk nieuwsartikel",
-      "date": "2026-05-21",
-      "notes": "Hogere featured-snippet kans + betere UX"
-    },
-    {
-      "title": "Em-dashes verwijderd uit alle content",
-      "date": "2026-05-21",
-      "notes": "588 dashes geruimd over alle data + build scripts"
-    },
-    {
-      "title": "Magazine-layout /nieuws + dagelijks-bijgewerkt badge",
-      "date": "2026-05-20",
-      "notes": "Lead story, sub-features, 3-col grid, category filter"
-    },
-    {
-      "title": "News-bot draait wekelijks op VPS (Opus 4.7)",
-      "date": "2026-05-20",
-      "notes": "Vrijdag 17:00 - autonoom 4 nieuwe artikelen per week"
-    },
-    {
-      "title": "Rank-bot wekelijks via DDG scrape",
-      "date": "2026-05-20",
-      "notes": "23 keywords automatisch gemeten"
-    },
-    {
-      "title": "Titles ingekort naar SERP-vriendelijke lengte",
-      "date": "2026-05-21",
-      "notes": "47/60 pages onder 70 chars"
-    },
-    {
-      "title": "IndexNow #6 ping",
-      "date": "2026-05-21",
-      "notes": "60 URLs naar Bing/Yandex"
-    },
-    {
-      "id": "content-clusters",
-      "title": "Content cluster: 'humanoide robot kopen vs leasen' pillar page",
-      "notes": "Long-form gids (3000+ woorden) die alle koop-vs-lease keywords vangt. Wordt hub voor /kosten, /vergelijken, robot-pagina's. -> AFGEROND: /prijzen (per-model koop vs lease tabel), /robot-as-a-service, /full-service-lease + bestaande /vergelijken/lease-vs-koop vormen het cluster.",
-      "impact": "high",
-      "effort": "1 dag",
-      "date": "2026-05-31"
-    },
-    {
-      "id": "seo-pages-13",
-      "title": "13 nieuwe SEO-pagina's gebouwd + live (RaaS, huren, prijzen, mkb, personeelstekort, ROI, FAQ-hub, beste-robots-2026, robot-vs-uitzendkracht, full-service-lease, machineverordening-2027, tesla-optimus, leasen/noord-brabant)",
-      "date": "2026-05-31",
-      "impact": "critical"
-    },
-    {
-      "id": "mobile-first",
-      "title": "Site-breed mobile-first: hamburgermenu + responsive patch op alle 73 pagina's (0 overflow op 320/375px)",
-      "date": "2026-05-31",
-      "impact": "high"
-    },
-    {
-      "id": "perf-translate",
-      "title": "Google Translate lazy-loaded -> homepage 1119KB naar 542KB (-52%); CWV LCP <600ms / CLS <0.02",
-      "date": "2026-05-31",
-      "impact": "high"
-    },
-    {
-      "id": "prijs-reconciliatie",
-      "title": "Prijsdata gereconcilieerd: robotpagina's + calculator canoniek, 9 verouderde gids-prijzen gecorrigeerd",
-      "date": "2026-05-31",
-      "impact": "medium"
-    },
-    {
-      "id": "nieuws-titels",
-      "title": "2 nieuws-titels met kleine letter gecorrigeerd (casing) over alle voorkomens",
-      "date": "2026-05-31",
-      "impact": "low"
-    },
-    {
-      "id": "interne-links-2",
-      "title": "Interne links: nieuwe pagina's in homepage-footer + 'Lees verder'-blokken op 4 sector-pagina's",
-      "date": "2026-05-31",
-      "impact": "medium"
-    },
-    {
-      "id": "indexnow-73",
-      "title": "Alle 73 URLs opnieuw via IndexNow (Bing/Yandex) + verse sitemap-lastmod op 10 gewijzigde pagina's",
-      "date": "2026-05-31",
-      "impact": "medium"
-    },
-    {
-      "id": "llms-update-2",
-      "title": "llms.txt uitgebreid met alle 13 nieuwe pagina's (AI-search dekking)",
-      "date": "2026-05-31",
-      "impact": "low"
-    },
-    {
-      "id": "actieplan-30d",
-      "title": "OUTREACH/13-actieplan-30-dagen.md: getimed off-page + re-crawl uitvoeringsschema",
-      "date": "2026-05-31",
-      "impact": "medium"
     }
   ],
   "fixes_open": [
@@ -1011,6 +955,13 @@
       "notes": "Long-tail keyword targeting. Vragen als: 'Hoe lang duurt levering Unitree G1?', 'Kan ik een Unitree G1 leasen voor minder dan 36 mnd?' etc. FAQPage schema toevoegen.",
       "impact": "high",
       "effort": "3-4 uur"
+    },
+    {
+      "id": "content-clusters",
+      "title": "Content cluster: 'humanoide robot kopen vs leasen' pillar page",
+      "notes": "Long-form gids (3000+ woorden) die alle koop-vs-lease keywords vangt. Wordt hub voor /kosten, /vergelijken, robot-pagina's.",
+      "impact": "high",
+      "effort": "1 dag"
     },
     {
       "id": "image-alt-audit",
