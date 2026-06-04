@@ -515,6 +515,20 @@ def render_simple(g: dict, kind: str = "over") -> str:
         ],
     }, ensure_ascii=False)
 
+    person_jsonld = json.dumps({
+        "@context": "https://schema.org", "@type": "Person",
+        "@id": f"{SITE_URL}/#founder",
+        "name": "Thomas Vedder",
+        "jobTitle": "Oprichter",
+        "worksFor": {"@id": f"{SITE_URL}/#organization"},
+        "url": f"{SITE_URL}/over",
+        "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service",
+                       "conversational AI", "EU AI-Act", "MKB-automatisering"],
+        "description": ("Oprichter van BotLease. Achtergrond in conversational AI en "
+                        "taalmodellen (2022–2025); richtte BotLease op om humanoïde-"
+                        "robotlease toegankelijk te maken voor het Nederlandse MKB."),
+    }, ensure_ascii=False) if kind == "over" else ""
+
     return f"""<!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -536,6 +550,7 @@ def render_simple(g: dict, kind: str = "over") -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
+{f'<script type="application/ld+json">{person_jsonld}</script>' if person_jsonld else ''}
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
 </head>
