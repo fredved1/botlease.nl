@@ -533,6 +533,33 @@ def render_robot(r: dict, related: list) -> str:
         'BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>'
     ) if r["category"] == "waitlist" else ""
 
+    # GEO BLUF: "In het kort"-box (gelabelde feiten, citeerbaar door LLM's)
+    _tldr_best = "; ".join((uc.rstrip('.')[:1].lower() + uc.rstrip('.')[1:]) for uc in r["use_cases"][:3])
+    _tldr_tag = r["tagline"].rstrip()
+    if not _tldr_tag.endswith('.'):
+        _tldr_tag += '.'
+    _tldr_avail = (
+        f"Op wachtlijst — BotLease regelt priority-access bij {escape(r['vendor'])} zodra de EU-verkoop opent (verwacht Q4 2026 / Q1 2027)."
+        if r["category"] == "waitlist"
+        else "Direct leverbaar in Nederland — pilot binnen circa 5 werkdagen, productieve lease in 6–10 weken."
+    )
+    tldr_html = f"""<section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0">
+  <div class="container">
+    <div style="max-width:840px">
+      <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
+        <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} — humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
+        <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief installatie, training, onderhoud en swap-SLA (vervangende unit binnen 24 uur).</li>
+        <li><b style="color:var(--ink)">Beste voor:</b> {escape(_tldr_best)}.</li>
+        <li><b style="color:var(--ink)">Leverbaarheid:</b> {_tldr_avail}</li>
+      </ul>
+      <p style="margin:14px 0 0; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · leaseprijs indicatief, all-in per maand.</p>
+    </div>
+  </div>
+</section>
+
+"""
+
     # Dedicated waitlist form sectie alleen voor waitlist-modellen
     waitlist_form = ""
     if r["category"] == "waitlist":
@@ -777,7 +804,7 @@ def render_robot(r: dict, related: list) -> str:
   </div>
 </section>
 
-<section class="r-quick">
+{tldr_html}<section class="r-quick">
   <div class="container">
     <div class="r-quick-grid">
       <div class="r-quick-item"><span class="v">{r['height_cm']} cm</span><span class="l">Hoogte</span></div>

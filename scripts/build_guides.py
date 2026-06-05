@@ -795,6 +795,41 @@ def render_comparison_hub() -> str:
         </a>""" for r in ROBOTS
     )
 
+    # Editoriale "beste per use-case 2026" picks (data-grounded)
+    _rob = {r["slug"]: r for r in ROBOTS}
+    PICKS = [
+        ("🥇", "Beste instapmodel", "unitree-r1", "Laagste drempel om te starten — volwaardige bipedal voor demo's, onderzoek en lichte taken."),
+        ("⚖️", "Beste prijs-kwaliteit allround", "unitree-g1", "Het werkpaard: bewezen, breed inzetbaar voor service en R&D, scherpe maandprijs."),
+        ("🇪🇺", "Beste EU-gebouwd", "neura-4ne1-mini", "In Duitsland gebouwd — kortste levertijd, lokale support en compliance ingebouwd."),
+        ("📦", "Beste voor logistiek &amp; fulfilment (3PL)", "agility-digit", "Purpose-built voor warehouse: tassen tillen, bins verplaatsen. Draait al bij echte 3PL-pilots."),
+        ("🏭", "Beste voor zware productie", "unitree-h1-2", "Hoogste payload en snelheid in de catalogus — gemaakt voor industrieel tilwerk."),
+        ("🔬", "Beste voor onderzoek &amp; manipulatie", "pollen-reachy-2", "Open-source en EU-gebouwd (Frankrijk) — ideaal voor labs en fijne grijptaken."),
+    ]
+    pick_cards = "".join(
+        f"""<a href="/robots/{slug}" class="cmp-card">
+        <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-size:30px">{emoji}</div>
+        <div>
+          <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); font-weight:700; margin-bottom:3px">{award}</div>
+          <div class="cmp-title">{escape(_rob[slug]['name'])}{' · wachtlijst' if _rob[slug]['tier'] == 'premium' else ''}</div>
+          <div class="cmp-sub">{why}</div>
+        </div>
+        <div style="text-align:right"><div class="cmp-arr">€{_rob[slug]['lease_eur']:,}/mnd</div></div>
+      </a>""" for emoji, award, slug, why in PICKS
+    )
+
+    _ranked = sorted(ROBOTS, key=lambda r: (r["tier"] == "premium", r["lease_eur"]))
+    itemlist_jsonld = json.dumps({
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": "Beste humanoïde robots om te leasen in Nederland (2026)",
+        "description": "Vergelijking van 15 humanoïde robots beschikbaar voor operational lease in Nederland, gerangschikt op leverbaarheid en maandprijs.",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": len(_ranked),
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "url": f"{SITE_URL}/robots/{r['slug']}", "name": r["name"]}
+            for i, r in enumerate(_ranked)
+        ],
+    }, ensure_ascii=False)
+
     breadcrumb = json.dumps({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -808,9 +843,9 @@ def render_comparison_hub() -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Humanoïde robots vergelijken - 15 modellen naast elkaar | BotLease</title>
-<meta name="description" content="Vergelijk 15 humanoïde robots in Nederland - NEURA, Unitree, PAL, Apptronik, Figure. Specs, prijzen en use-cases naast elkaar.">
-<meta name="keywords" content="humanoide robots vergelijken, robot vergelijking, beste humanoid robot Nederland, vergelijk humanoid lease">
+<title>Beste humanoïde robots leasen 2026 — 15 modellen vergeleken | BotLease</title>
+<meta name="description" content="Welke humanoïde robot is in 2026 het beste om te leasen? Onze keuze per use-case (instap, EU-gebouwd, 3PL, productie) + 15 modellen vergeleken op prijs, specs en leverbaarheid in Nederland.">
+<meta name="keywords" content="beste humanoide robot leasen 2026, humanoide robots vergelijken, robot vergelijking, beste humanoid robot Nederland, vergelijk humanoid lease">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/vergelijken">
 <meta property="og:type" content="website">
@@ -824,6 +859,7 @@ def render_comparison_hub() -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
+<script type="application/ld+json">{itemlist_jsonld}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
 </head>
@@ -833,9 +869,19 @@ def render_comparison_hub() -> str:
 <section class="g-hero">
   <div class="container">
     <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><span>Vergelijken</span></nav>
-    <span class="eyebrow">Vergelijken</span>
-    <h1>Vergelijk 15 humanoïde robots in Nederland.</h1>
-    <p class="tag">Specs, prijs, use-case, leverbaarheid - naast elkaar. Klik een robot voor de detailpagina, of bekijk onze populaire head-to-head vergelijkingen onderaan.</p>
+    <span class="eyebrow">Vergelijken · 2026</span>
+    <h1>Beste humanoïde robots om te leasen in 2026.</h1>
+    <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 15 modellen naast elkaar — specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line); padding:60px 0">
+  <div class="container">
+    <span class="eyebrow">Onze keuze · 2026</span>
+    <h2 style="margin:14px 0 10px">Beste humanoïde robot per use-case in 2026</h2>
+    <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 15 — beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand, inclusief installatie, training, onderhoud en swap-SLA.</p>
+    <div class="cmp-grid">{pick_cards}</div>
+    <p style="margin-top:20px; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · 15 modellen, prijzen all-in per maand.</p>
   </div>
 </section>
 
