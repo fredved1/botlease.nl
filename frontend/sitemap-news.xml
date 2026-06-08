@@ -188,26 +188,4 @@
       <news:title>Waarom EU-gebouwde humanoids winnen in 2026: NEURA, PAL, Pollen-analyse</news:title>
     </news:news>
   </url>
-  <url>
-    <loc>https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland</loc>
-    <news:news>
-      <news:publication>
-        <news:name>BotLease</news:name>
-        <news:language>nl</news:language>
-      </news:publication>
-      <news:publication_date>2026-05-08</news:publication_date>
-      <news:title>Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://botlease.nl/nieuws/goldman-sachs-38-miljard-humanoid-markt-nederland</loc>
-    <news:news>
-      <news:publication>
-        <news:name>BotLease</news:name>
-        <news:language>nl</news:language>
-      </news:publication>
-      <news:publication_date>2026-05-05</news:publication_date>
-      <news:title>Goldman Sachs voorspelt $38 miljard humanoid-markt in 2035 - wat zegt dat over Nederland?</news:title>
-    </news:news>
-  </url>
 </urlset>

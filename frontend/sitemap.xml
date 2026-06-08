@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://botlease.nl/</loc><lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://botlease.nl/</loc><lastmod>2026-06-08</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://botlease.nl/auteur/thomas-vedder</loc><lastmod>2026-06-08</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://botlease.nl/contact</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://botlease.nl/privacy</loc><lastmod>2026-06-08</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://botlease.nl/gids/humanoide-robot-leasen</loc><lastmod>2026-05-30</lastmod><changefreq>monthly</changefreq><priority>0.98</priority></url>
   <url><loc>https://botlease.nl/robots</loc><lastmod>2026-05-30</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
   <url><loc>https://botlease.nl/gids/ai-act-machineverordening</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>

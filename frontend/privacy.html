@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="nl"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, follow">
-<title>Pagina niet gevonden (404) — BotLease</title>
-<link rel="canonical" href="https://botlease.nl/404">
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy | BotLease</title>
+<meta name="description" content="Privacybeleid van BotLease B.V. — welke gegevens we verwerken, cookies, je rechten onder de AVG.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://botlease.nl/privacy">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy | BotLease">
+<meta property="og:url" content="https://botlease.nl/privacy">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -207,13 +212,50 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .crumbs a { color:var(--ink-2); transition:color .15s; }
 .crumbs a:hover { color:var(--accent); }
 .crumbs .sep { color:var(--ink-4); }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"PrivacyPolicy","name":"Privacybeleid BotLease","url":"https://botlease.nl/privacy","publisher":{"@type":"Organization","name":"BotLease","url":"https://botlease.nl"}}</script>
 
-.nf { text-align:center; padding:120px 0 100px; }
-.nf .code { font-size:clamp(72px,14vw,140px); font-weight:800; letter-spacing:-0.04em; color:var(--ink); line-height:1; }
-.nf h1 { font-size:clamp(24px,3vw,34px); margin:8px 0 14px; }
-.nf p { color:var(--ink-2); font-size:18px; max-width:520px; margin:0 auto 28px; }
-.nf .links { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-</style></head>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script>
+(function(){
+  function t(name, data){
+    try{
+      navigator.sendBeacon('/api/track', JSON.stringify({
+        type:'event',
+        name:name||undefined,
+        data:data||undefined,
+        url:location.pathname+location.search,
+        title:document.title,
+        referrer:document.referrer||'',
+        screen:screen.width+'x'+screen.height,
+        language:navigator.language
+      }));
+    }catch(e){}
+  }
+  // Page view
+  t();
+  // Expose for custom events
+  window.bl_track = t;
+  // Outbound clicks
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="http"]');
+    if (a && a.hostname && a.hostname !== location.hostname) {
+      t('outbound', {url: a.href.slice(0,200)});
+    }
+  });
+  // Scroll depth
+  var fired = {};
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement, b = document.body;
+    var pct = Math.round(((h.scrollTop||b.scrollTop)/((h.scrollHeight||b.scrollHeight)-h.clientHeight))*100);
+    [50, 90].forEach(function(m){
+      if (pct >= m && !fired[m]) { fired[m] = 1; t('scroll', {depth: m}); }
+    });
+  }, {passive: true});
+})();
+</script>
+</head>
 <body>
 
 <nav class="top">
@@ -254,21 +296,29 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   </div>
 </nav>
 
-<section class="nf">
-  <div class="container">
-    <div class="code">404</div>
-    <h1>Deze pagina bestaat niet (meer)</h1>
-    <p>De link is mogelijk verouderd of verkeerd getypt. Geen zorgen, we wijzen je de weg naar humanoïde robots leasen.</p>
-    <div class="links">
-      <a class="btn" href="/robots">Bekijk de 15 robots</a>
-      <a class="btn ghost" href="/kosten">Bereken je lease &rarr;</a>
-    </div>
-    <p style="margin-top:34px;font-size:15px">Of ga naar
-      <a href="/" style="color:var(--accent)">home</a> ·
-      <a href="/nieuws" style="color:var(--accent)">nieuws</a> ·
-      <a href="/leasen" style="color:var(--accent)">leasen per stad</a> ·
-      <a href="/gids/humanoide-robot-leasen" style="color:var(--accent)">de lease-gids</a>
-    </p>
+<section style="padding:92px 0 56px">
+  <div class="container" style="max-width:780px">
+    <nav class="crumbs" style="margin-bottom:14px"><a href="/">Home</a><span class="sep">/</span><span>Privacy</span></nav>
+    <h1 style="margin:0 0 6px">Privacy</h1>
+    <p style="color:var(--ink-3,#888);font-size:13px;margin:0 0 22px">Laatst bijgewerkt: 8 juni 2026</p>
+<div style="color:var(--ink-2,#444);font-size:15.5px;line-height:1.65">
+<p>BotLease B.V. ("BotLease", "wij") respecteert je privacy en verwerkt persoonsgegevens zorgvuldig en conform de AVG (GDPR). Dit beleid legt uit welke gegevens we verwerken en waarom.</p>
+<h2 style="font-size:18px;margin:26px 0 8px">Welke gegevens we verwerken</h2>
+<ul style="line-height:1.7;padding-left:20px">
+<li><b>Contact- en aanvraagformulieren:</b> naam, bedrijf, e-mailadres en je bericht. We gebruiken deze uitsluitend om je aanvraag te beantwoorden.</li>
+<li><b>Gebruiksstatistieken:</b> geanonimiseerde, cookieloze bezoekstatistieken (welke pagina's worden bekeken) om de site te verbeteren.</li>
+</ul>
+<h2 style="font-size:18px;margin:26px 0 8px">Hoe we gegevens verwerken</h2>
+<p>Formulierinzendingen worden per e-mail bezorgd via onze e-maildienstverlener (Resend) en kunnen voor opvolging worden bewaard. Statistieken verzamelen we via privacyvriendelijke analytics (Vercel Analytics en een zelf-gehoste Umami-instantie) — beide werken zonder tracking-cookies en zonder je te identificeren.</p>
+<h2 style="font-size:18px;margin:26px 0 8px">Cookies</h2>
+<p>We gebruiken alleen een functionele cookie voor je taalkeuze (vertaalfunctie). Onze analytics zijn cookieloos. Mocht de site in de toekomst advertenties van derden tonen, dan kunnen die partijen eigen cookies plaatsen; we melden dat dan hier en vragen waar nodig toestemming.</p>
+<h2 style="font-size:18px;margin:26px 0 8px">Bewaartermijn</h2>
+<p>We bewaren aanvraaggegevens niet langer dan nodig voor de afhandeling en eventuele opvolging, en verwijderen ze daarna.</p>
+<h2 style="font-size:18px;margin:26px 0 8px">Je rechten</h2>
+<p>Je hebt recht op inzage, correctie en verwijdering van je gegevens, en je kunt bezwaar maken tegen verwerking. Stuur daarvoor een e-mail naar <a href="mailto:hallo@botlease.nl">hallo@botlease.nl</a>.</p>
+<h2 style="font-size:18px;margin:26px 0 8px">Contact &amp; verwerkingsverantwoordelijke</h2>
+<p>BotLease B.V. · KvK 95943420 · Amsterdam, Nederland · <a href="mailto:hallo@botlease.nl">hallo@botlease.nl</a></p>
+</div>
   </div>
 </section>
 
@@ -287,4 +337,5 @@ function googleTranslateElementInit(){new google.translate.TranslateElement({pag
 (function(){var m=document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);var cur=document.getElementById('lang-current');if(m&&cur&&LANG_LABEL[m[1]])cur.textContent=LANG_LABEL[m[1]];var s=document.createElement('script');s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);})();
 </script>
 
-</body></html>
+</body>
+</html>

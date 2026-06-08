@@ -31,6 +31,12 @@ from articles_data import ARTICLES  # noqa: E402
 from seo_common import HEAD_SEO, trim_desc  # noqa: E402
 from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML, FONTS_LINK  # noqa: E402
 
+# E-E-A-T: vaste, verifieerbare auteur i.p.v. anonieme "Redactie"
+NEWS_AUTHOR_NAME = "Thomas Vedder"
+NEWS_AUTHOR_SLUG = "thomas-vedder"
+NEWS_AUTHOR_URL = f"{SITE_URL}/auteur/{NEWS_AUTHOR_SLUG}"
+NEWS_AUTHOR_ROLE = "Oprichter & redactie"
+
 
 # ---------------------------------------------------------------- helpers
 def fmt_date_nl(iso: str) -> str:
@@ -743,12 +749,15 @@ def article_jsonld(a: dict) -> str:
         "image": [article_image(a)],
         "datePublished": a["date"] + "T08:00:00+01:00",
         "dateModified": a["date"] + "T08:00:00+01:00",
-        "author": {"@type": "Organization", "name": a.get("author", "BotLease Redactie")},
+        "author": {"@type": "Person", "name": NEWS_AUTHOR_NAME, "url": NEWS_AUTHOR_URL,
+                    "jobTitle": NEWS_AUTHOR_ROLE, "worksFor": {"@id": f"{SITE_URL}/#organization"}},
         "publisher": {"@type": "Organization", "name": "BotLease",
                       "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.png"}},
         "mainEntityOfPage": {"@type": "WebPage", "@id": f"{SITE_URL}/nieuws/{a['slug']}"},
+        "citation": [s[1] for s in a.get("sources", []) if isinstance(s, (list, tuple)) and len(s) >= 2],
         "keywords": ", ".join(a.get("tags", [])),
         "articleSection": a.get("category", "Nieuws"),
+        "isAccessibleForFree": True,
         "inLanguage": "nl-NL",
     }, ensure_ascii=False)
 
@@ -779,7 +788,7 @@ def render_article(a: dict, related: list) -> str:
 <meta name="description" content="{escape(trim_desc(a['subtitle']))}">
 <meta name="keywords" content="{escape(', '.join(a.get('tags', [])))}, humanoide robot, robot lease, Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta name="author" content="BotLease">
+<meta name="author" content="{escape(NEWS_AUTHOR_NAME)}">
 <link rel="canonical" href="{SITE_URL}/nieuws/{a['slug']}">
 
 <meta property="og:type" content="article">
@@ -825,6 +834,8 @@ def render_article(a: dict, related: list) -> str:
     <article class="full">
       <div class="meta">
         <span class="cat">{escape(a.get('category', 'Nieuws'))}</span>
+        <span>Door <a href="/auteur/{NEWS_AUTHOR_SLUG}" rel="author" style="color:inherit; text-decoration:underline">{escape(NEWS_AUTHOR_NAME)}</a></span>
+        <span>·</span>
         <span>{escape(fmt_date_nl(a['date']))}</span>
         <span>·</span>
         <span>{a.get('reading_time', 5)} min lezen</span>
@@ -1081,6 +1092,90 @@ def render_listing(articles: list) -> str:
 """
 
 
+def render_author_page(articles: list) -> str:
+    """E-E-A-T auteurspagina voor de vaste redacteur (named author + Person-schema)."""
+    recent = sorted(articles, key=lambda a: a["date"], reverse=True)[:8]
+    cards = "".join(
+        f'<a href="/nieuws/{a["slug"]}" class="ap-card">'
+        f'<span class="ap-cat">{escape(a.get("category", "Nieuws"))}</span>'
+        f'<span class="ap-t">{escape(a["title"])}</span>'
+        f'<span class="ap-d">{escape(fmt_date_nl(a["date"]))}</span></a>'
+        for a in recent
+    )
+    person = json.dumps({
+        "@context": "https://schema.org", "@type": "Person",
+        "@id": f"{SITE_URL}/#founder",
+        "name": NEWS_AUTHOR_NAME, "jobTitle": "Oprichter, BotLease",
+        "url": NEWS_AUTHOR_URL, "worksFor": {"@id": f"{SITE_URL}/#organization"},
+        "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service",
+                       "EU AI-Act", "conversational AI", "Nederlandse maakindustrie"],
+        "description": ("Oprichter van BotLease en redacteur van het BotLease-nieuws over humanoïde "
+                        "robots in Nederland en Europa. Achtergrond in conversational AI en taalmodellen."),
+    }, ensure_ascii=False)
+    breadcrumb = json.dumps({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws/"},
+            {"@type": "ListItem", "position": 3, "name": NEWS_AUTHOR_NAME, "item": NEWS_AUTHOR_URL},
+        ],
+    }, ensure_ascii=False)
+    return f"""<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{escape(NEWS_AUTHOR_NAME)} — auteur &amp; redactie | BotLease</title>
+<meta name="description" content="{escape(NEWS_AUTHOR_NAME)}, oprichter van BotLease en redacteur van het nieuws over humanoïde robots in Nederland. Achtergrond, expertise en artikelen.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="{escape(NEWS_AUTHOR_NAME)}">
+<link rel="canonical" href="{NEWS_AUTHOR_URL}">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{escape(NEWS_AUTHOR_NAME)} — BotLease">
+<meta property="og:url" content="{NEWS_AUTHOR_URL}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>{PAGE_CSS}
+.ap-wrap{{max-width:760px;margin:0 auto}}
+.ap-head{{display:flex;gap:20px;align-items:center;margin:10px 0 24px}}
+.ap-av{{width:82px;height:82px;border-radius:50%;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:var(--ink-2);flex:none}}
+.ap-role{{color:var(--ink-3);font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}}
+.ap-card{{display:flex;flex-direction:column;gap:3px;padding:13px 0;border-bottom:1px solid var(--line);text-decoration:none}}
+.ap-cat{{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:700}}
+.ap-t{{color:var(--ink);font-weight:600;font-size:15.5px}}
+.ap-d{{color:var(--ink-3);font-size:12.5px}}
+</style>
+<script type="application/ld+json">{person}</script>
+<script type="application/ld+json">{breadcrumb}</script>
+<script type="application/ld+json">{ORG_SCHEMA}</script>
+{HEAD_SEO}
+</head>
+<body>
+{NAV_HTML}
+<section style="padding:90px 0 50px">
+  <div class="narrow ap-wrap">
+    <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><a href="/nieuws">Nieuws</a><span class="sep">/</span><span>{escape(NEWS_AUTHOR_NAME)}</span></nav>
+    <div class="ap-head">
+      <div class="ap-av">TV</div>
+      <div>
+        <div class="ap-role">{escape(NEWS_AUTHOR_ROLE)}</div>
+        <h1 style="margin:2px 0 0">{escape(NEWS_AUTHOR_NAME)}</h1>
+      </div>
+    </div>
+    <p style="color:var(--ink-2);font-size:17px;line-height:1.6">Oprichter van <a href="/over">BotLease</a> en verantwoordelijk voor de redactie van ons nieuws over humanoïde robots in Nederland en Europa. Achtergrond in conversational AI, taalmodellen en MKB-software (2022–2025) — van daaruit ontstond het patroon achter BotLease: nieuwe technologie wordt pas écht bruikbaar voor het bredere bedrijfsleven zodra iemand de financiering, het onderhoud en de compliance overneemt.</p>
+    <p style="color:var(--ink-2);font-size:15.5px;line-height:1.6">In het nieuws duidt Thomas internationale ontwikkelingen (Figure, Unitree, Apptronik, NEURA) consequent vanuit één vraag: <em>wat betekent dit concreet voor Nederlandse werkgevers?</em> — met echte leasecijfers, leverbaarheid en de stand van de EU-regelgeving (AI-Act, Machineverordening 2023/1230).</p>
+    <p style="color:var(--ink-3);font-size:13.5px">Contact of persvragen: <a href="mailto:hallo@botlease.nl">hallo@botlease.nl</a></p>
+    <h2 style="font-size:18px;margin:30px 0 4px">Artikelen van {escape(NEWS_AUTHOR_NAME)}</h2>
+    {cards}
+  </div>
+</section>
+{FOOTER_HTML}
+</body>
+</html>
+"""
+
+
 def render_sitemap(articles: list) -> str:
     try:
         from robots_data import ROBOTS
@@ -1205,7 +1300,7 @@ def render_news_sitemap(articles: list) -> str:
         <news:language>nl</news:language>
       </news:publication>
       <news:publication_date>{a['date']}</news:publication_date>
-      <news:title>{a['title']}</news:title>
+      <news:title>{escape(a['title'])}</news:title>
     </news:news>
   </url>""")
     out.append("</urlset>")
@@ -1278,6 +1373,11 @@ def build():
         (NEWS_DIR / f"{a['slug']}.html").write_text(render_article(a, related), encoding="utf-8")
 
     (NEWS_DIR / "index.html").write_text(render_listing(articles_sorted), encoding="utf-8")
+
+    # E-E-A-T auteurspagina
+    (FRONTEND / "auteur").mkdir(parents=True, exist_ok=True)
+    (FRONTEND / "auteur" / f"{NEWS_AUTHOR_SLUG}.html").write_text(
+        render_author_page(articles_sorted), encoding="utf-8")
     # sitemap.xml / sitemap-images.xml / robots.txt worden NIET meer door de news-bot
     # overschreven: deze bevatten alle 73 pagina's (incl. de SEO-landingspagina's) en
     # worden los onderhouden. render_sitemap() hier kent alleen nieuws + een verouderde
