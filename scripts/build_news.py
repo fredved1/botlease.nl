@@ -28,6 +28,7 @@ SITE_URL = "https://botlease.nl"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from articles_data import ARTICLES  # noqa: E402
+from robots_data import ROBOTS as _LEASE_ROBOTS  # noqa: E402
 from seo_common import HEAD_SEO, trim_desc  # noqa: E402
 from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML, FONTS_LINK  # noqa: E402
 
@@ -774,6 +775,64 @@ def breadcrumb_jsonld(a: dict) -> str:
     }, ensure_ascii=False)
 
 
+# --- Eigen lease-data ("moat"): koppel artikel aan modellen + toon BotLease-prijzen ---
+_ROBOT_BY_SLUG = {r["slug"]: r for r in _LEASE_ROBOTS}
+_TAG_TO_SLUGS = {
+    "unitree": ["unitree-r1", "unitree-g1", "unitree-h2", "unitree-h1-2"],
+    "r1": ["unitree-r1"], "g1": ["unitree-g1"], "h2": ["unitree-h2"],
+    "h1-2": ["unitree-h1-2"], "h1": ["unitree-h1-2"],
+    "apptronik": ["apptronik-apollo"], "apollo": ["apptronik-apollo"],
+    "agility": ["agility-digit"], "digit": ["agility-digit"],
+    "figure": ["figure-02"],
+    "neura": ["neura-4ne1-mini", "neura-4ne1-gen3"],
+    "4ne-1": ["neura-4ne1-mini", "neura-4ne1-gen3"], "4ne1": ["neura-4ne1-mini", "neura-4ne1-gen3"],
+    "pal": ["pal-tiago-pro", "pal-kangaroo"], "tiago": ["pal-tiago-pro"], "kangaroo": ["pal-kangaroo"],
+    "pollen": ["pollen-reachy-2"], "reachy": ["pollen-reachy-2"],
+    "ubtech": ["ubtech-walker-s2"], "walker": ["ubtech-walker-s2"],
+    "engineai": ["engineai-se01"], "se01": ["engineai-se01"],
+    "1x": ["1x-neo"], "neo": ["1x-neo"],
+}
+_LEASE_FALLBACK = ["unitree-r1", "unitree-g1", "neura-4ne1-mini"]  # generieke anker-modellen
+
+
+def _eur(n):
+    return "€" + f"{n:,}".replace(",", ".")
+
+
+def lease_data_box(a: dict) -> str:
+    """BotLease-eigen leaseprijzen voor de in het artikel genoemde modellen (citeerbare data)."""
+    hay = " ".join(a.get("tags", [])).lower()  # alleen schone tags, geen titel (voorkomt valse matches)
+    slugs, seen = [], set()
+    for kw, sl in _TAG_TO_SLUGS.items():
+        if re.search(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])", hay):
+            for s in sl:
+                if s not in seen:
+                    seen.add(s)
+                    slugs.append(s)
+    generic = not slugs
+    if generic:
+        slugs = _LEASE_FALLBACK
+    robots = sorted((_ROBOT_BY_SLUG[s] for s in slugs if s in _ROBOT_BY_SLUG),
+                    key=lambda r: r["lease_eur"])[:4]
+    if not robots:
+        return ""
+    rows = "".join(
+        f'<tr><td style="padding:4px 0">{escape(r["name"])}</td>'
+        f'<td style="text-align:right;white-space:nowrap;font-weight:600">{_eur(r["lease_eur"])}/mnd</td>'
+        f'<td style="text-align:right;color:var(--ink-3);font-size:12.5px;padding-left:10px">'
+        f'{"wachtlijst" if r["tier"] == "premium" else "leverbaar"}</td></tr>'
+        for r in robots
+    )
+    intro = ("Indicatieve all-in leaseprijzen bij BotLease voor vergelijkbare modellen:" if generic
+             else "De in dit artikel genoemde modellen, met de actuele all-in leaseprijs bij BotLease:")
+    return f"""<aside style="margin:30px 0;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--bg-2)">
+  <div style="font-weight:700;font-size:15px;margin-bottom:4px">Wat kost dit leasen bij BotLease?</div>
+  <p style="color:var(--ink-2);font-size:13.5px;margin:0 0 12px">{intro}</p>
+  <table style="width:100%;border-collapse:collapse;font-size:14px"><tbody>{rows}</tbody></table>
+  <p style="color:var(--ink-3);font-size:12.5px;margin:12px 0 0">All-in per maand, inclusief installatie, training, onderhoud en swap-SLA. <a href="/vergelijken" style="color:var(--accent)">Vergelijk alle 15 modellen →</a></p>
+</aside>"""
+
+
 def render_article(a: dict, related: list) -> str:
     related_html = "".join(
         f'<a href="/nieuws/{r["slug"]}"><div class="cat">{escape(r["category"])}</div><div class="t">{escape(r["title"])}</div></a>'
@@ -848,6 +907,7 @@ def render_article(a: dict, related: list) -> str:
           <p>{escape(a.get('tldr') or a['intro'])}</p>
         </aside>
         {render_body(a['body'])}
+        {lease_data_box(a)}
       </div>
       {render_sources(a.get('sources', []))}
       <div class="tags">{''.join(f'<span>{escape(t)}</span>' for t in a.get('tags', []))}</div>
