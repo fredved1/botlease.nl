@@ -599,6 +599,28 @@ def llm_rewrite(item: dict) -> dict | None:
     return None
 
 
+def editorial_gate(rewrite: dict, item: dict) -> tuple[bool, str]:
+    """Redactionele kwaliteitspoort: weiger dunne single-source rehash vóór publicatie
+    (anti scaled-content). FAIL-OPEN: bij interne fout publiceren we (return True)."""
+    try:
+        secs = [s for s in rewrite.get("body_sections", []) if isinstance(s, dict)]
+        paras = [p for p in (str(s.get("p", "") or "").strip() for s in secs) if p]
+        body_chars = sum(len(p) for p in paras)
+        nl = str(rewrite.get("nl_angle", "") or "").strip()
+        intro = str(rewrite.get("intro", "") or "").strip()
+        if len(paras) < 3:
+            return False, f"te weinig alinea's ({len(paras)})"
+        if body_chars < 800:
+            return False, f"body te dun ({body_chars} tekens)"
+        if len(nl) < 100:
+            return False, f"NL-duiding te dun ({len(nl)} tekens)"
+        if len(intro) < 80:
+            return False, f"intro te dun ({len(intro)} tekens)"
+        return True, "ok"
+    except Exception as e:
+        return True, f"gate-fout, fail-open ({str(e)[:60]})"
+
+
 # ---------------------------------------------------------------- article writer
 
 def article_to_python(item: dict, rewrite: dict) -> str:
@@ -635,7 +657,7 @@ def article_to_python(item: dict, rewrite: dict) -> str:
         "category": {repr(rewrite["category"])},
         "date": {repr(item["published"])},
         "reading_time": {reading_time},
-        "author": "BotLease Redactie",
+        "author": "Thomas Vedder",
         "source_name": {repr(item["source_name"])},
         "source_url": {repr(item["url"])},
         "hero_image_url": {repr(item.get("image", ""))},
@@ -818,6 +840,10 @@ def main():
             rewrite = llm_rewrite(item)
             if not rewrite:
                 log("  skip — llm failed")
+                continue
+            ok_edit, reason = editorial_gate(rewrite, item)
+            if not ok_edit:
+                log(f"  skip — redactie-poort: {reason}")
                 continue
             slug = slugify(rewrite["title"])
             article_py = article_to_python(item, rewrite)
