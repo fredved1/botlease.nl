@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://botlease.nl/nieuws/robomni-nieuwe-benchmark-voor-robothanden</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BotLease</news:name>
+        <news:language>nl</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-08</news:publication_date>
+      <news:title>RobOmni: nieuwe benchmark voor robothanden</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://botlease.nl/nieuws/humanoide-robots-tonen-vooruitgang-in-balans</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BotLease</news:name>
+        <news:language>nl</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-05</news:publication_date>
+      <news:title>Humanoide robots tonen vooruitgang in balans</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://botlease.nl/nieuws/shadow-walker-diy-robot-uit-1987-met-luchtspieren</loc>
     <news:news>
       <news:publication>
@@ -43,6 +65,17 @@
       </news:publication>
       <news:publication_date>2026-05-21</news:publication_date>
       <news:title>Interface wordt de bottleneck van Physical AI</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://botlease.nl/nieuws/open-source-ai-maakt-robots-eindelijk-slimmer</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BotLease</news:name>
+        <news:language>nl</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-21</news:publication_date>
+      <news:title>Open source AI maakt robots eindelijk slimmer</news:title>
     </news:news>
   </url>
   <url>
@@ -175,17 +208,6 @@
       </news:publication>
       <news:publication_date>2026-05-10</news:publication_date>
       <news:title>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</loc>
-    <news:news>
-      <news:publication>
-        <news:name>BotLease</news:name>
-        <news:language>nl</news:language>
-      </news:publication>
-      <news:publication_date>2026-05-09</news:publication_date>
-      <news:title>Waarom EU-gebouwde humanoids winnen in 2026: NEURA, PAL, Pollen-analyse</news:title>
     </news:news>
   </url>
 </urlset>

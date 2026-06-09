@@ -1,5 +1,33 @@
 [
   {
+    "slug": "robomni-nieuwe-benchmark-voor-robothanden",
+    "title": "RobOmni: nieuwe benchmark voor robothanden",
+    "subtitle": "Daimon Robotics en Galbot lanceren samen een open meetlat voor tactiele waarneming en fijne manipulatie bij humanoïde robots.",
+    "date": "2026-06-08",
+    "category": "R&D",
+    "tags": [
+      "benchmark",
+      "tactiele perceptie",
+      "manipulatie",
+      "embodied AI",
+      "humanoïden"
+    ]
+  },
+  {
+    "slug": "humanoide-robots-tonen-vooruitgang-in-balans",
+    "title": "Humanoide robots tonen vooruitgang in balans",
+    "subtitle": "Video Friday toont nieuwe humanoide robots van Deep Robotics, IHMC en Generative Bionics, met focus op balans en outdoor-tests.",
+    "date": "2026-06-05",
+    "category": "R&D",
+    "tags": [
+      "humanoide robots",
+      "balanscontrole",
+      "IHMC",
+      "Deep Robotics",
+      "EU AI Act"
+    ]
+  },
+  {
     "slug": "shadow-walker-diy-robot-uit-1987-met-luchtspieren",
     "title": "Shadow Walker: DIY-robot uit 1987 met luchtspieren",
     "subtitle": "Een Britse fotograaf bouwde in zijn zolderkamer een tweebenige humanoid op pneumatische spieren - een vergeten voorloper van moderne actuator-technologie.",
@@ -53,6 +81,20 @@
       "humanoide-robots",
       "vla-modellen",
       "operator"
+    ]
+  },
+  {
+    "slug": "open-source-ai-maakt-robots-eindelijk-slimmer",
+    "title": "Open source AI maakt robots eindelijk slimmer",
+    "subtitle": "Hugging Face, Nvidia en Alibaba investeren in open-source platforms die humanoïde robots laten redeneren en beslissen.",
+    "date": "2026-05-21",
+    "category": "R&D",
+    "tags": [
+      "open source",
+      "AI",
+      "ROS",
+      "Hugging Face",
+      "Nvidia"
     ]
   },
   {
