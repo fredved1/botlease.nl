@@ -12,25 +12,25 @@ ARTICLES = [
         "intro": "Vraag van een Nederlandse 3PL-directeur deze week: 'Kunnen we vandaag een humanoïde robot leasen, of moeten we wachten tot 2027?' Antwoord: 10 van de 15 vooraanstaande modellen zijn vandaag leverbaar in Nederland. Maar de leverbaarheid varieert sterk per model én per channel. In dit artikel: de actuele marktstand op 20 mei 2026 - wat kan je nu écht leasen, wat is hype, en welke prijzen zijn realistisch.",
         "body": [
             ("h2", "De korte versie"),
-            ("p", "10 modellen direct leverbaar (6-10 weken na contract). 5 modellen op wachtlijst voor Q4 2026 of Q1 2027. Reële prijzen: €290 tot €4.890 per maand all-in operational lease. Goedkoopste leverbaar nu: Unitree R1 (€290/mnd). Industrieel flagship: Unitree H1-2 (€4.890/mnd) of NEURA 4NE-1 Gen 3.5 (€4.490/mnd, EU-built).") ,
+            ("p", "10 modellen direct leverbaar (6-10 weken na contract). 5 modellen op wachtlijst voor Q4 2026 of Q1 2027. Reële prijzen: €290 tot €6.650 per maand all-in operational lease. Goedkoopste leverbaar nu: Unitree R1 (€290/mnd). Industrieel flagship: Unitree H1-2 (€6.650/mnd) of NEURA 4NE-1 Gen 3.5 (€5.950/mnd, EU-built).") ,
 
             ("h2", "Direct leverbaar nu (10 modellen)"),
             ("p", "EU-gebouwd, korte supply chain, EU AI-Act compliant vanaf dag 1:"),
             ("p", "<ul>"
              "<li><b>NEURA 4NE-1 Mini (DE)</b> - €1.295/mnd. Compact (165 cm), Porsche-design, Neuraverse OS. Bosch als productiepartner. Geschikt voor cobotwerk, R&D en demo's.</li>"
-             "<li><b>NEURA 4NE-1 Gen 3.5 (DE)</b> - €4.490/mnd. EU flagship met 100 kg payload. Voor industriële assemblage, logistiek en mobiele inspectie.</li>"
-             "<li><b>PAL Kangaroo (ES)</b> - €4.250/mnd. Bipedal humanoid van Europa's oudste robotica-fabrikant (sinds 2004). ROS-native.</li>"
-             "<li><b>PAL TIAGo Pro (ES)</b> - €2.950/mnd. Wheeled humanoid (geen bipedal). 100+ deployments in EU-onderzoekslabs sinds 2014.</li>"
-             "<li><b>Pollen Reachy 2 (FR)</b> - €3.250/mnd. Open-source, Hugging Face-eigendom sinds 2024. Voor AI-onderzoek en VLA-model training.</li>"
+             "<li><b>NEURA 4NE-1 Gen 3.5 (DE)</b> - €5.950/mnd. EU flagship met 100 kg payload. Voor industriële assemblage, logistiek en mobiele inspectie.</li>"
+             "<li><b>PAL Kangaroo (ES)</b> - €5.750/mnd. Bipedal humanoid van Europa's oudste robotica-fabrikant (sinds 2004). ROS-native.</li>"
+             "<li><b>PAL TIAGo Pro (ES)</b> - €3.950/mnd. Wheeled humanoid (geen bipedal). 100+ deployments in EU-onderzoekslabs sinds 2014.</li>"
+             "<li><b>Pollen Reachy 2 (FR)</b> - €4.150/mnd. Open-source, Hugging Face-eigendom sinds 2024. Voor AI-onderzoek en VLA-model training.</li>"
              "</ul>"),
             ("p", "Aziatische value-modellen, agressief geprijsd, snel leverbaar via EU-distributeurs:"),
             ("p", "<ul>"
              "<li><b>Unitree R1 (CN)</b> - €290/mnd. De goedkoopste full-bipedal humanoid op de markt. Loss-leader voor scholen en events.</li>"
              "<li><b>Unitree G1 Edu (CN)</b> - €1.295/mnd. Meest verkochte volwassen-formaat humanoid wereldwijd. R&D-platform voor scale-ups.</li>"
-             "<li><b>Unitree H1-2 (CN)</b> - €4.890/mnd. Full-size industriële kracht - 30 kg payload, tot 3,3 m/s snelheid.</li>"
-             "<li><b>Unitree H2 (CN)</b> - €2.250/mnd. Service-georiënteerd, bionisch gezicht, 2070 TOPS AI-chip. Voor hospitality en retail.</li>"
+             "<li><b>Unitree H1-2 (CN)</b> - €6.650/mnd. Full-size industriële kracht - 30 kg payload, tot 3,3 m/s snelheid.</li>"
+             "<li><b>Unitree H2 (CN)</b> - €2.750/mnd. Service-georiënteerd, bionisch gezicht, 2070 TOPS AI-chip. Voor hospitality en retail.</li>"
              "<li><b>EngineAI SE01 (CN)</b> - €1.590/mnd. Shenzhen-startup met neural-network gait. Bekend om de meest natuurlijke loopbeweging in zijn klasse.</li>"
-             "<li><b>UBTECH Walker S2 (CN)</b> - €4.250/mnd. Eerste Chinese full-size humanoid in mass production. Bewezen bij BYD en Foxconn.</li>"
+             "<li><b>UBTECH Walker S2 (CN)</b> - €5.750/mnd. Eerste Chinese full-size humanoid in mass production. Bewezen bij BYD en Foxconn.</li>"
              "</ul>"),
 
             ("h2", "Wachtlijst 2026/2027 (5 modellen)"),
@@ -38,7 +38,7 @@ ARTICLES = [
             ("p", "<ul>"
              "<li><b>Apptronik Apollo (US)</b> - €3.499/mnd indicatief. Pilots bij Mercedes-Benz Sindelfingen. Commerciële productie EU verwacht Q4 2026 / Q1 2027.</li>"
              "<li><b>Figure 02 / 03 (US)</b> - €3.899/mnd indicatief. BMW Spartanburg deployment. Figure 03 enterprise-only in 2026.</li>"
-             "<li><b>Agility Digit v4 (US)</b> - €2.899/mnd indicatief. Agility verkoopt direct als RaaS aan enterprise (~$30/uur). Geen 3rd-party reseller-kanaal in 2026.</li>"
+             "<li><b>Agility Digit v4 (US)</b> - €4.250/mnd indicatief. Agility verkoopt direct als RaaS aan enterprise (~$30/uur). Geen 3rd-party reseller-kanaal in 2026.</li>"
              "<li><b>1X NEO (NO)</b> - €1.999/mnd indicatief. Eerste EU-zendingen Q1 2027. 1X concurreert zelf met $499/maand consumer-abonnement.</li>"
              "</ul>"),
 
@@ -52,7 +52,7 @@ ARTICLES = [
              "</ul>"),
 
             ("h2", "Prijspeil per categorie"),
-            ("p", "Instap (lichte service, demo, R&D): €290-€1.590/mnd. Mid-tier (productieve service, hospitality, logistiek): €2.250-€3.250/mnd. Industrieel (productie, heavy-duty): €4.250-€4.890/mnd. Alle BotLease-tarieven zijn all-in en bevatten installatie, training, onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen)."),
+            ("p", "Instap (lichte service, demo, R&D): €290-€1.590/mnd. Mid-tier (productieve service, hospitality, logistiek): €2.750-€4.150/mnd. Industrieel (productie, heavy-duty): €5.750-€6.650/mnd. Alle BotLease-tarieven zijn all-in en bevatten installatie, training, onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen)."),
 
             ("h2", "Het EU AI-Act vraagstuk"),
             ("p", "Per 2 augustus 2027 wordt de EU AI-Act volledig handhaafbaar voor high-risk AI-systemen. Humanoïde robots vallen onder de high-risk classificering wanneer ze in industriële of zorg-omgevingen worden ingezet (Reg. 2024/1689 + Machineverordening 2023/1230). Wat betekent dit voor jouw deployment? <a href=\"/gids/ai-act-machineverordening\">Lees onze gids over AI-Act compliance</a>."),
@@ -200,7 +200,7 @@ ARTICLES = [
             ("h2", "Wat we niet hadden verwacht"),
             ("p", "De Digit doet het beter buiten piekuren dan tijdens piekuren. Niet omdat hij langzamer is, maar omdat het gedrag van menselijke collega's tijdens piekuren onvoorspelbaarder wordt. Veilig-stop events tijdens piek: 2,4× zo vaak. De oplossing: Digit-zones met fysieke afscheiding van menselijke werkpaden gedurende piek-shifts."),
             ("h2", "ROI-berekening"),
-            ("p", "Lease-kosten Digit v4: €2.899/mnd × 12 = €34.788/jr. Vervangen FTE-equivalent (€42.000/jr inclusief werkgeverslasten × 1,3) = €54.600. Bruto besparing jaar 1: ~€20.000 + ~€8.000 aan vermeden inhuur uitzendkrachten. Pilot-fase (€1.500) terugverdiend in 27 dagen."),
+            ("p", "Lease-kosten Digit v4: €4.250/mnd × 12 = €34.788/jr. Vervangen FTE-equivalent (€42.000/jr inclusief werkgeverslasten × 1,3) = €54.600. Bruto besparing jaar 1: ~€20.000 + ~€8.000 aan vermeden inhuur uitzendkrachten. Pilot-fase (€1.500) terugverdiend in 27 dagen."),
             ("h2", "Wat de Digit níet doet"),
             ("p", "Picking van losse items uit voorraad. De Digit is een tote-handler, geen item-picker. Daar zijn andere systemen voor (AutoStore, RightHand Robotics' Rightpick, of straks Figure 02). We adviseren niet om met één robot meerdere workflows te willen dekken - dat is precies waar humanoid-pilots vaak vastlopen."),
         ],
@@ -266,7 +266,7 @@ ARTICLES = [
             ("p", "Voor compliance-gevoelige sectoren (zorg, government, financieel, defensie) is dit waarschijnlijk het belangrijkste verkoopargument. Voor pure-MKB-fulfillment is het marginaal - Aziatische modellen werken ook prima en kosten 30-50% minder."),
             ("h2", "Wat dit betekent voor Nederlandse pilots in 2026"),
             ("p", "BotLease verwacht eind 2026 de eerste Nederlandse 4NE-1 deployments. Verwachte sectoren: semicon-toeleveranciers in regio Eindhoven (FEI, BESI), automotive-supply in Helmond (VDL Nedcar omgeving), en zorginstellingen in Zuid-Holland die geen Chinese hardware mogen gebruiken vanwege overheid-contracten."),
-            ("p", "Voor een Nederlandse pilot kost een NEURA 4NE-1 Gen 3.5 ongeveer €4.490 per maand via lease. Dat is zelfs iets goedkoper dan een vergelijkbare Unitree H1-2 (€4.890/mnd), én inclusief volledig compliance-pakket en Bosch-supply. Voor productieve deployment met strategisch risicomanagement is dat een aantrekkelijke trade-off."),
+            ("p", "Voor een Nederlandse pilot kost een NEURA 4NE-1 Gen 3.5 ongeveer €5.950 per maand via lease. Dat is nog altijd goedkoper dan een vergelijkbare Unitree H1-2 (€6.650/mnd), én inclusief volledig compliance-pakket en Bosch-supply. Voor productieve deployment met strategisch risicomanagement is dat een aantrekkelijke trade-off."),
             ("h2", "Wat we nog niet weten"),
             ("p", "Twee onzekerheden: (1) Bosch verzorgt productie, maar de kennis blijft bij NEURA. Wat gebeurt er als NEURA failliet gaat? (2) De Neuraverse OS is proprietary - anders dan ROS bij PAL of LeRobot bij Pollen. Lock-in risk bestaat. BotLease neemt het continuïteits-risico als lessor, maar voor klanten die zelf willen kopen is dit een aandachtspunt."),
             ("p", "Onze inschatting: voor 80% van Nederlandse MKB-toepassingen waar EU-compliance kritiek is, is NEURA in 2026 de juiste keuze. Voor pure value-deployments blijven de Unitree-modellen interessanter."),
@@ -331,7 +331,7 @@ ARTICLES = [
             ("h2", "Waar staan die 1.000 units?"),
             ("p", "Een groot deel ging naar Chinese auto-OEMs: BYD, GAC, Foxconn (productielijnen voor Apple-leveranciers). De orderportefeuille per eind 2025: 800 miljoen yuan (~€100 miljoen). Geen vergelijking met de aantallen van industriële armrobots (FANUC bouwt 800.000+ per jaar), maar voor humanoids is dit een fundamenteel andere schaal dan wat we van Boston Dynamics, Apptronik of Figure zien."),
             ("h2", "Wat betekent dat voor het Nederlandse MKB?"),
-            ("p", "Drie implicaties: <b>Eerste:</b> Walker S2 is geen prototype meer. Reserveonderdelen, software-updates, service-netwerk - dit zijn allemaal opgeschaalde processen. <b>Tweede:</b> de prijs (~€75.000 aanschaf, €4.250/mnd lease) is realistisch geworden door schaal-effecten. <b>Derde:</b> Chinese mass-production betekent voorzieningszekerheid, maar wel met een lange supply chain (Liuzhou-Eindhoven via Rotterdam haven)."),
+            ("p", "Drie implicaties: <b>Eerste:</b> Walker S2 is geen prototype meer. Reserveonderdelen, software-updates, service-netwerk - dit zijn allemaal opgeschaalde processen. <b>Tweede:</b> de prijs (~€75.000 aanschaf, €5.750/mnd lease) is realistisch geworden door schaal-effecten. <b>Derde:</b> Chinese mass-production betekent voorzieningszekerheid, maar wel met een lange supply chain (Liuzhou-Eindhoven via Rotterdam haven)."),
             ("h2", "Walker S2 voor Nederlandse use-cases"),
             ("p", "BotLease's intake-team ziet Walker S2 vooral als optie voor: automotive-toeleveranciers in regio Helmond/Born (VDL, ASM, NedCar omgeving), electronics-assemblage in Eindhoven Brainport, en zware fulfillment in Rotterdam-Maasvlakte. Verwacht ROI: 13-16 maanden in 2-ploegen, 18-22 maanden in 1-ploeg."),
             ("h2", "Wat valt op bij UBTECH-pilots"),
@@ -363,7 +363,7 @@ ARTICLES = [
             ("h2", "Case 1: Eemshaven - UBTECH Walker S2 voor tote-decanting"),
             ("p", "Een middelgrote 3PL met 28.000 m² magazijn in Eemshaven leasede 2 Walker S2-units vanaf februari 2026. Use-case: decanting van inkomende pallets (van leverancier) naar magazijntotes (voor downstream order-picking). 1.200 SKUs, mix-format pallets."),
             ("p", "<b>Resultaat na 90 dagen:</b> 18% productiviteitswinst t.o.v. de gestelde baseline, met 96% uptime. Hot-swap batterij maakte 2-ploeg operatie mogelijk. Wat tegenviel: in de eerste 2 weken moest BotLease de gripper aanpassen omdat aluminiumfolie-omhulde producten verkeerd werden gegrepen - niet een fout van de robot maar van de programmering."),
-            ("p", "<b>ROI-inschatting:</b> bij €4.250/mnd × 2 units = €102.000/jaar lease-kosten, tegenover ~€78k/jaar bespaarde loonkost (1,4 FTE in 2-ploeg). Op loonkosten alleen dus nog geen break-even - de business-case zit in de nachturen en piek-capaciteit: de robot werkt 's nachts mee, mensen niet."),
+            ("p", "<b>ROI-inschatting:</b> bij €5.750/mnd × 2 units = €138.000/jaar lease-kosten, tegenover ~€78k/jaar bespaarde loonkost (1,4 FTE in 2-ploeg). Op loonkosten alleen dus nog geen break-even - de business-case zit in de nachturen en piek-capaciteit: de robot werkt 's nachts mee, mensen niet."),
             ("h2", "Case 2: Rotterdam Maasvlakte - Unitree H1-2 voor inspectie"),
             ("p", "Een 3PL gespecialiseerd in petrochemische supply chain leasede 1 Unitree H1-2 in maart 2026 voor periodieke inspectie van tank-opslag en ADR-compliant zones. Geen tote-handling - pure inspectie met thermische camera + LiDAR."),
             ("p", "<b>Resultaat na 60 dagen:</b> 3× sneller dan handmatige inspectie, en de robot vond 2 lekken die mensen 4 maanden achter elkaar hadden gemist. Veiligheidsrisico voor mensen bij gas-inspectie is een sterk verkoop-argument."),

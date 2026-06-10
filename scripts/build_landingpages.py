@@ -365,7 +365,7 @@ def render_city(c: dict) -> str:
         },
         {
             "q": f"Hoeveel kost een humanoïde robot leasen in {c['name']}?",
-            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €4.890/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten installatie, training, onderhoud, 24u swap-SLA, WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk.",
+            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €6.650/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten installatie, training, onderhoud, 24u swap-SLA, WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk.",
         },
     ]
     city_faq_html = "".join(
@@ -399,7 +399,7 @@ def render_city(c: dict) -> str:
         "image": f"{SITE_URL}/img/robots/apollo-norm.webp",
         "url": f"{SITE_URL}/leasen/{c['slug']}",
         "email": "hallo@botlease.nl",
-        "priceRange": "€290 - €4.890 per maand",
+        "priceRange": "€290 - €6.650 per maand",
         "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressRegion": "Noord-Holland", "addressCountry": "NL"},
         "areaServed": [
             {"@type": "City", "name": c["name"]},

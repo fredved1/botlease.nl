@@ -41,8 +41,8 @@ Formule (gepubliceerd op /methodologie): aanschaf/36 + 25%/jr service-reserve + 
 | Cash-marge/mnd (service tegen reële kosten ±10%/jr, aanname) | +€14 | **+€311** | +€186 |
 
 **Conclusies:**
-- **De G1-klasse is de business.** R1 is een marketing-haakje (bewust). 
-- ⚠️ **Walker S2 staat onder de eigen kostprijs geprijsd** (formule-conform ≈ €6.800/mnd). **Beslispunt: prijs verhogen (richting ≥€5.500) of betere inkoop regelen vóór de eerste industriële deal.**
+- **De G1-klasse is de business.** R1 is een marketing-haakje (bewust).
+- ✅ **BESLUIT GENOMEN (10 juni):** alle 8 onder-kostprijs-modellen geherprijsd naar kostendekkend +~10%: H2 €2.750 · TIAGo €3.950 · Reachy €4.150 · Digit €4.250 (indicatief) · Kangaroo €5.750 · Walker S2 €5.750 · Gen 3.5 €5.950 · H1-2 €6.650. Site-breed doorgevoerd (incl. schema's, calculator, llms.txt, artikelen, afgeleide ROI-sommen). Range nu €290-€6.650. Elke deal is nu minimaal kostendekkend; betere inkoopprijzen (leveranciers-deals) vergroten de marge direct.
 - De gepubliceerde prijzen bevatten vrijwel geen marge; winst hangt op werkelijke servicekosten < reserve. Bij herijking (na leveranciers-deals) prijzen formule-conform maken.
 - **Pilot (€1.500/4 wk) is acquisitiekost, geen omzet**: reële kosten €2.000-3.500 en bij conversie wordt de fee gecrediteerd. Zo boeken, zo budgetteren.
 
@@ -93,7 +93,7 @@ Eén founder-salaris (€3k/mnd) vergt ~8-12 lopende G1's (€184-276k vloot) ó
 5. **Founder-bandbreedte** (alles solo) → automatisering staat (nieuws, CRM, mail-capture); focus beperken tot: leverancier-deal, demo-omzet, Atlas Copco.
 
 ## 10. Beslispunten voor Thomas (niemand anders kan deze nemen)
-1. Walker S2: prijs naar ≥€5.500 of inkoop-deal — vóór eerste industriële offerte.
+1. ~~Walker S2-prijs~~ ✅ gedaan (10 juni): hele catalogus kostendekkend geherprijsd.
 2. Contracttermijn: 12 mnd opzegbaar handhaven (marketing) of 24 mnd vast (cash-veilig)?
 3. Demo-unit: wachten op consignatie-antwoorden (2 wk) en anders R1 kopen?
 4. Automation Xperience 17-18 juni: ga je? (Sterkste aanrader van het marktonderzoek.)

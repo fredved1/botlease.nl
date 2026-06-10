@@ -7,7 +7,7 @@ _Laatst bijgewerkt: 2026-06-04_
 ## Feitenkaart (citeerbaar)
 
 - **Wat:** operational lease (Robot-as-a-Service) van humanoïde robots voor zakelijke gebruikers in NL/EU. Geen consumentenrobots, geen cobots.
-- **Prijs:** all-in vanaf **€290/maand** (Unitree R1) tot **€4.890/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
+- **Prijs:** all-in vanaf **€290/maand** (Unitree R1) tot **€6.650/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
 - **Inbegrepen in de lease:** installatie, operator-training, onderhoud, **swap-SLA (vervangende unit bij storing)**, verzekering die per deployment wordt geregeld, en EU AI-Act + CE-conformiteit.
 - **Pilot:** 4 weken voor €1.500, daarna beslissen. Gemiddelde ROI in 3PL: 11–14 maanden.
 - **Levertijd:** intake binnen ~5 werkdagen; levering doorgaans 6–10 weken vanaf fabrikant.
@@ -24,7 +24,7 @@ _Laatst bijgewerkt: 2026-06-04_
 - [Volledige catalogus](https://botlease.nl/robots): 15 humanoïde robots in lease
 - [Pijler-gids: humanoïde robot leasen](https://botlease.nl/gids/humanoide-robot-leasen): Hoe lease werkt, kosten, ROI
 - [EU AI-Act gids](https://botlease.nl/gids/ai-act-machineverordening): Compliance + Machineverordening 2023/1230
-- [Prijzen alle 15 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€4.890/mnd
+- [Prijzen alle 15 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€6.650/mnd
 - [Kostencalculator](https://botlease.nl/kosten): Interactief leaseprijs + ROI berekenen
 - [Lease vs. koop](https://botlease.nl/vergelijken/lease-vs-koop): Beslis-pagina
 - [Over BotLease](https://botlease.nl/over): Bedrijf, team, missie
@@ -35,18 +35,18 @@ _Laatst bijgewerkt: 2026-06-04_
 
 - [Unitree R1](https://botlease.nl/robots/unitree-r1) — €290/mnd, instap full-bipedal
 - [Unitree G1](https://botlease.nl/robots/unitree-g1) — €1.295/mnd, R&D + service
-- [Unitree H2](https://botlease.nl/robots/unitree-h2) — €2.250/mnd, hospitality
-- [Unitree H1-2](https://botlease.nl/robots/unitree-h1-2) — €4.890/mnd, industrieel
+- [Unitree H2](https://botlease.nl/robots/unitree-h2) — €2.750/mnd, hospitality
+- [Unitree H1-2](https://botlease.nl/robots/unitree-h1-2) — €6.650/mnd, industrieel
 - [NEURA 4NE-1 Mini](https://botlease.nl/robots/neura-4ne1-mini) — €1.295/mnd, EU-built compact
-- [NEURA 4NE-1 Gen 3.5](https://botlease.nl/robots/neura-4ne1-gen3) — €4.490/mnd, EU-built productie
-- [PAL TIAGo Pro](https://botlease.nl/robots/pal-tiago-pro) — €2.950/mnd, EU-built wheeled
-- [PAL Kangaroo](https://botlease.nl/robots/pal-kangaroo) — €4.250/mnd, EU-built bipedal
-- [Pollen Reachy 2](https://botlease.nl/robots/pollen-reachy-2) — €3.250/mnd, EU-built onderzoek
+- [NEURA 4NE-1 Gen 3.5](https://botlease.nl/robots/neura-4ne1-gen3) — €5.950/mnd, EU-built productie
+- [PAL TIAGo Pro](https://botlease.nl/robots/pal-tiago-pro) — €3.950/mnd, EU-built wheeled
+- [PAL Kangaroo](https://botlease.nl/robots/pal-kangaroo) — €5.750/mnd, EU-built bipedal
+- [Pollen Reachy 2](https://botlease.nl/robots/pollen-reachy-2) — €4.150/mnd, EU-built onderzoek
 - [EngineAI SE01](https://botlease.nl/robots/engineai-se01) — €1.590/mnd, natural gait
-- [UBTECH Walker S2](https://botlease.nl/robots/ubtech-walker-s2) — €4.250/mnd, mass production
+- [UBTECH Walker S2](https://botlease.nl/robots/ubtech-walker-s2) — €5.750/mnd, mass production
 - [Apptronik Apollo](https://botlease.nl/robots/apptronik-apollo) — €3.499/mnd indicatief, wachtlijst Q4 2026
 - [Figure 02](https://botlease.nl/robots/figure-02) — €3.899/mnd indicatief, wachtlijst
-- [Agility Digit](https://botlease.nl/robots/agility-digit) — €2.899/mnd indicatief, wachtlijst, 3PL fulfillment
+- [Agility Digit](https://botlease.nl/robots/agility-digit) — €4.250/mnd indicatief, wachtlijst, 3PL fulfillment
 - [1X NEO](https://botlease.nl/robots/1x-neo) — €1.999/mnd indicatief, wachtlijst
 
 ## Onderwerpen & beslis-gidsen

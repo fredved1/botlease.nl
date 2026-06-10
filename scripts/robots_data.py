@@ -64,7 +64,7 @@ ROBOTS = [
         "battery_hours": 4,
         "dof": 39,
         "speed_ms": 1.5,
-        "lease_eur": 4490,
+        "lease_eur": 5950,
         "setup_eur": 6500,
         "purchase_eur": 98000,
         "use_cases": [
@@ -103,7 +103,7 @@ ROBOTS = [
         "battery_hours": 4,
         "dof": 35,
         "speed_ms": 1.4,
-        "lease_eur": 4250,
+        "lease_eur": 5750,
         "setup_eur": 5500,
         "purchase_eur": 95000,
         "use_cases": [
@@ -141,7 +141,7 @@ ROBOTS = [
         "battery_hours": 8,
         "dof": 17,
         "speed_ms": 1.0,
-        "lease_eur": 2950,
+        "lease_eur": 3950,
         "setup_eur": 3000,
         "purchase_eur": 65000,
         "use_cases": [
@@ -179,7 +179,7 @@ ROBOTS = [
         "battery_hours": 6,
         "dof": 28,
         "speed_ms": 0.8,
-        "lease_eur": 3250,
+        "lease_eur": 4150,
         "setup_eur": 3500,
         "purchase_eur": 68000,
         "use_cases": [
@@ -293,7 +293,7 @@ ROBOTS = [
         "battery_hours": 2,
         "dof": 27,
         "speed_ms": 3.3,
-        "lease_eur": 4890,
+        "lease_eur": 6650,
         "setup_eur": 5500,
         "purchase_eur": 110000,
         "use_cases": [
@@ -330,7 +330,7 @@ ROBOTS = [
         "battery_hours": 3,
         "dof": 31,
         "speed_ms": 2.5,
-        "lease_eur": 2250,
+        "lease_eur": 2750,
         "setup_eur": 2500,
         "purchase_eur": 45000,
         "use_cases": [
@@ -405,7 +405,7 @@ ROBOTS = [
         "battery_hours": 4,
         "dof": 41,
         "speed_ms": 2.0,
-        "lease_eur": 4250,
+        "lease_eur": 5750,
         "setup_eur": 4500,
         "purchase_eur": 95000,
         "use_cases": [
@@ -516,7 +516,7 @@ ROBOTS = [
         "battery_hours": 4,
         "dof": 32,
         "speed_ms": 1.5,
-        "lease_eur": 2899,
+        "lease_eur": 4250,
         "setup_eur": 4500,
         "purchase_eur": 70000,
         "use_cases": [
