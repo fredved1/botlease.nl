@@ -14,7 +14,7 @@ const RESEND_FROM    = process.env.RESEND_FROM    || 'BotLease <onboarding@resen
 const NOTIFY_TO      = 'hallo@botlease.nl';
 
 // CRM op de VPS — elke aanvraag wordt daar gelogd (vervangt de dode Supabase-backup)
-const CRM_URL    = process.env.CRM_WEBHOOK_URL    || 'https://api.heymilo.nl/crm/api/lead';
+const CRM_URL    = process.env.CRM_WEBHOOK_URL    || 'https://crm.botlease.nl/api/lead';
 const CRM_SECRET = process.env.CRM_WEBHOOK_SECRET || '';
 
 // Sourcing info per robot — INTERNAL ONLY, alleen in admin email zichtbaar.
