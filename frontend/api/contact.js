@@ -1,5 +1,5 @@
 // Vercel serverless function — handles contact form submissions
-// Sends email to hallo@botlease.nl via Resend (resend.com) + backup to Supabase
+// Sends email to hallo@botlease.nl via Resend (resend.com) + logt elke aanvraag in het CRM (VPS)
 //
 // REQUIRED ENV VARS (set in Vercel project settings):
 //   RESEND_API_KEY      → API key from resend.com (free 3000/mo)
@@ -7,14 +7,15 @@
 //                         set to "BotLease <noreply@botlease.nl>" na domain verification
 //
 // OPTIONAL (Supabase backup, oude config):
-//   NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY
+//   CRM_WEBHOOK_URL / CRM_WEBHOOK_SECRET   → CRM op de VPS (zie scripts/crm_server.py)
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
 const RESEND_FROM    = process.env.RESEND_FROM    || 'BotLease <onboarding@resend.dev>';
 const NOTIFY_TO      = 'hallo@botlease.nl';
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://hzexwxpnsqggbxklpues.supabase.co';
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// CRM op de VPS — elke aanvraag wordt daar gelogd (vervangt de dode Supabase-backup)
+const CRM_URL    = process.env.CRM_WEBHOOK_URL    || 'https://api.heymilo.nl/crm/api/lead';
+const CRM_SECRET = process.env.CRM_WEBHOOK_SECRET || '';
 
 // Sourcing info per robot — INTERNAL ONLY, alleen in admin email zichtbaar.
 // Bij een bestelling weet jij meteen bij welke leverancier je het kunt ordenen.
@@ -184,10 +185,9 @@ async function sendConfirmation(data) {
   return resp.ok ? await resp.json() : { error: true };
 }
 
-async function backupToSupabase(data) {
-  if (!SUPABASE_KEY) return { skipped: true };
+async function backupToCRM(data) {
+  if (!CRM_SECRET) return { skipped: true };
   try {
-    // Prefix message with type tag zodat admin dashboard kan filteren
     let prefix;
     if (data.type === 'order') {
       prefix = `[BESTELLING: ${data.robot_name || data.robot_slug} × ${data.aantal || 1}${data.contract_months ? ' · ' + data.contract_months + 'mnd' : ''}]`;
@@ -196,31 +196,30 @@ async function backupToSupabase(data) {
     } else {
       prefix = `[${data.usecase || 'algemeen'}]`;
     }
-    // Voor orders: voeg leveringsadres toe in message
     const msgBody = data.type === 'order'
       ? [data.adres ? `Leveringsadres: ${data.adres}` : '', data.bericht || ''].filter(Boolean).join('\n\n')
       : (data.bericht || '');
-    const resp = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+    const resp = await fetch(CRM_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Prefer': 'return=minimal',
+        'X-CRM-Secret': CRM_SECRET,
       },
       body: JSON.stringify({
         name:    data.naam,
         email:   data.email,
         phone:   data.telefoon || '',
         company: data.bedrijf  || '',
-        message: `${prefix} ${msgBody}`.trim(),
+        subject: prefix,
+        message: msgBody,
+        source:  'formulier',
       }),
     });
     if (!resp.ok) {
-      console.warn('[contact] Supabase backup failed:', await resp.text());
+      console.warn('[contact] CRM backup failed:', await resp.text());
     }
   } catch (e) {
-    console.warn('[contact] Supabase exception:', e.message);
+    console.warn('[contact] CRM exception:', e.message);
   }
 }
 
@@ -270,12 +269,12 @@ export default async function handler(req, res) {
   const results = await Promise.allSettled([
     sendNotification(submission),
     sendConfirmation(submission),
-    backupToSupabase(submission),
+    backupToCRM(submission),
   ]);
 
   // Log results
   results.forEach((r, i) => {
-    const label = ['notify', 'confirm', 'supabase'][i];
+    const label = ['notify', 'confirm', 'crm'][i];
     if (r.status === 'rejected') console.error(`[contact] ${label} failed:`, r.reason);
   });
 
