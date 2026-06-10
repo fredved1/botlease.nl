@@ -1,0 +1,193 @@
+{
+  "leads": [
+    {
+      "id": "lead0",
+      "name": "Atlas Copco Airpower (humanoid taskforce)",
+      "status": "Holdmail verstuurd",
+      "date": "5-6-2026",
+      "note": "Wacht op leverancier + specialist voor het echte gesprek"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "fab0",
+      "name": "PAL Robotics",
+      "contact": "business@pal-robotics.com",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab1",
+      "name": "Pollen Robotics",
+      "contact": "sales@pollen-robotics.com",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab2",
+      "name": "EngineAI",
+      "contact": "sales@engineai.com.cn",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab3",
+      "name": "UBTECH",
+      "contact": "sales@ubtrobot.com",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab4",
+      "name": "Unitree",
+      "contact": "sales_global@unitree.com",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab5",
+      "name": "NEURA Robotics",
+      "contact": "info@neura-robotics.com",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "fab6",
+      "name": "1X Technologies",
+      "contact": "press@1x.tech",
+      "group": "Fabrikanten",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis0",
+      "name": "Terra Robotics",
+      "contact": "mail@terra-robotics.de",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis1",
+      "name": "Generation Robots",
+      "contact": "contact@generationrobots.com",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis2",
+      "name": "QUADRUPED / MyBotShop",
+      "contact": "info@quadruped.de",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis3",
+      "name": "Synergy Tech (Unitree ES)",
+      "contact": "info@synergytech.es",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis4",
+      "name": "RoboCorpus",
+      "contact": "jordi.hurssel@robocorpus.be",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis5",
+      "name": "INGEN Innovations",
+      "contact": "services@ingen-geosciences.com",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis6",
+      "name": "Leobotics",
+      "contact": "contact@leobotics.fr",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis7",
+      "name": "RobotShop Europe",
+      "contact": "marketplace@robotshop.com",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "dis8",
+      "name": "OrcaRobot (UBTECH EU/NL)",
+      "contact": "richard@orcarobot.com",
+      "group": "EU-distributeurs",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "frm0",
+      "name": "Apptronik",
+      "contact": "apptronik.com/contact-us",
+      "group": "Alleen via formulier",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "frm1",
+      "name": "Agility Robotics",
+      "contact": "agilityrobotics.com/sales",
+      "group": "Alleen via formulier",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "frm2",
+      "name": "Figure AI",
+      "contact": "figure.ai/company",
+      "group": "Alleen via formulier",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    },
+    {
+      "id": "frm3",
+      "name": "INNOV8 Group",
+      "contact": "innov8.fr/contact-us",
+      "group": "Alleen via formulier",
+      "status": "Gemaild",
+      "date": "5-6-2026",
+      "note": ""
+    }
+  ]
+}
