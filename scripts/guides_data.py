@@ -31,7 +31,7 @@ PILLAR_GUIDE = {
             "h": "2. Humanoïde robot kopen of leasen - wat is verstandig in 2026?",
             "body": [
                 "Een Unitree G1 kost €16.000 aanschaf. Apptronik Apollo wordt rond de €48.000. Een NEURA 4NE-1 Gen 3.5 is €98.000. Maar dat is alleen de hardware. Tel daar bij op: installatie (€5-15k afhankelijk van complexiteit), training operators (€2-4k), software-integratie met je WMS/MES (€5-25k), eerste-jaarsonderhoud + reserveonderdelen (~15% van de aanschafprijs), verzekering (~3% van de aanschafprijs per jaar). Dan praat je over een Total Cost of Ownership van €35k-€170k in jaar 1.",
-                "<b>Waarom leasen voor MKB?</b> Drie redenen: (1) Geen investering vooraf - de €100k+ blijft op je balans als werkkapitaal. (2) Geen restwaarde-risico - humanoïde robots zijn nieuwe technologie, niemand weet wat ze in 3 jaar waard zijn. (3) Geen onderhoudslast - wij vervangen binnen 24 uur (<a href=\"/methodologie#swap-sla\">Swap-SLA</a>) en doen preventief onderhoud op afstand.",
+                "<b>Waarom leasen voor MKB?</b> Drie redenen: (1) Geen investering vooraf - de €100k+ blijft op je balans als werkkapitaal. (2) Geen restwaarde-risico - humanoïde robots zijn nieuwe technologie, niemand weet wat ze in 3 jaar waard zijn. (3) Geen onderhoudslast - wij regelen vervanging bij storing (<a href=\"/methodologie#swap-sla\">Swap-SLA</a>) en doen preventief onderhoud op afstand.",
                 "<b>Wanneer kopen?</b> Alleen als je 24/7 één specifieke taak hebt, weet dat de robot 5+ jaar meegaat, en je een eigen onderhoudsteam hebt. Voor 95% van de Nederlandse MKB-bedrijven is dat niet zo. Voor R&D bij scale-ups en universiteiten kan koop wel logisch zijn (lange afschrijftermijn, eigen kennis).",
                 "<a href=\"/kosten\">Bereken hier wat een specifieke robot voor jouw situatie kost</a> - vergelijkt koop vs. lease voor alle 15 modellen.",
             ],
@@ -56,7 +56,7 @@ PILLAR_GUIDE = {
             "body": [
                 "Eerlijke prijzen - niet de \"vanaf €XXX\" marketing-flauwekul. Hier is hoe BotLease leaseprijzen berekent:",
                 "<b>Formule:</b> Lease prijs/mnd = (Aanschafprijs / 36 maanden) + 25% service + 8% verzekering + 30% marge. Voor een €22.000 robot (instapklasse) komt dat neer op ongeveer €1.295/mnd. Voor een €95.000-€110.000 robot ongeveer €4.250-€4.890/mnd.",
-                "<b>Wat zit er in:</b> Installatie + 2-uurs operatortraining, preventief én correctief onderhoud, alle onderdelen, swap-SLA (vervangende unit binnen 24 uur op locatie), WA-verzekering tot €2,5M + casco, 24/7 helpdesk in het Nederlands, software-updates en remote tuning, integratie met je WMS/MES tijdens onboarding.",
+                "<b>Wat zit er in:</b> Installatie + 2-uurs operatortraining, preventief én correctief onderhoud, alle onderdelen, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld + casco, helpdesk op werkdagen in het Nederlands, software-updates en remote tuning, integratie met je WMS/MES tijdens onboarding.",
                 "<b>Wat zit er niet in:</b> Pilot (€1.500 voor 4 weken), end-of-contract demontage (€500), elektriciteitskosten op locatie (~€30/mnd), custom integraties die langer dan 40 uur duren (€95/uur).",
                 "<b>Volume-korting:</b> Vanaf 3 units krijg je 8% korting op de leaseprijs. Vanaf 10 units 15%.",
                 "<b>Contracttermijn:</b> 36 maanden standaard. 24 maanden +7%. 12 maanden +15%. Vast eerste jaar, daarna maandelijks opzegbaar met 1 maand opzegtermijn.",
@@ -129,7 +129,7 @@ PILLAR_GUIDE = {
         ("Hoe lang duurt het tot een robot operationeel is?",
          "Intake binnen 5 werkdagen. Pilot start gemiddeld 10 werkdagen na intake. Productieve inzet vanaf week 2 van de pilot. Lease-contract start na 4-weken pilot."),
         ("Wat als de robot stuk gaat?",
-         "Swap-SLA: binnen 24 uur is een vervangende unit op locatie. De defecte gaat naar onze workshop in Eindhoven. Halen we de 24u niet, dan krijg je een dagvergoeding van €100/dag."),
+         "Swap-SLA: bij een storing regelen we een vervangende unit, doorgaans binnen enkele werkdagen. De defecte gaat naar onze workshop in Eindhoven. Halen we de 24u niet, dan krijg je een dagvergoeding van €100/dag."),
         ("Kan ik tussentijds opzeggen?",
          "Het eerste jaar zit je vast (anders is de pilot-investering niet rendabel voor ons). Daarna maandelijks opzegbaar met 1 maand opzegtermijn. Geen boete."),
         ("Heb ik technische kennis nodig om een robot te bedienen?",
@@ -325,7 +325,7 @@ ABOUT = {
             "h": "Waarom BotLease en niet rechtstreeks bij de fabrikant?",
             "body": [
                 "Drie redenen:",
-                "<ul><li><b>Geen vendor lock-in.</b> Unitree heeft alleen Unitree. Apptronik heeft alleen Apollo. Wij hebben 15 modellen van 7 fabrikanten - we adviseren wat past, niet wat we verkopen.</li><li><b>Lokale support.</b> Onze workshop staat in Eindhoven. Een defecte robot is er binnen 24 uur uit en een vervangende staat klaar. Geen container uit Shenzhen die 6 weken duurt.</li><li><b>EU AI-Act + Machineverordening compliance.</b> Wij dragen de juridische last als provider. Fabrikanten in China of Texas snappen EU-regelgeving niet altijd. Wij wel - zie onze <a href=\"/gids/ai-act-machineverordening\">AI-Act gids</a>.</li></ul>",
+                "<ul><li><b>Geen vendor lock-in.</b> Unitree heeft alleen Unitree. Apptronik heeft alleen Apollo. Wij hebben 15 modellen van 7 fabrikanten - we adviseren wat past, niet wat we verkopen.</li><li><b>Lokale support.</b> Service en omruil regelen we vanuit Nederland. Bij een storing staat er zo snel mogelijk een vervangende unit klaar. Geen container uit Shenzhen die 6 weken duurt.</li><li><b>EU AI-Act + Machineverordening compliance.</b> Wij dragen de juridische last als provider. Fabrikanten in China of Texas snappen EU-regelgeving niet altijd. Wij wel - zie onze <a href=\"/gids/ai-act-machineverordening\">AI-Act gids</a>.</li></ul>",
             ],
         },
         {
@@ -374,7 +374,7 @@ ABOUT = {
                 "<li><b>Website:</b> botlease.nl</li>"
                 "<li><b>Service-gebied:</b> Nederland (België en Duitsland-grens op aanvraag)</li>"
                 "<li><b>Compliance:</b> EU AI-Act Reg. 2024/1689 + Machineverordening 2023/1230 per deployment beoordeeld</li>"
-                "<li><b>Verzekering:</b> WA tot €2,5M + casco per geleased asset</li>"
+                "<li><b>Verzekering:</b> WA + casco worden per deployment geregeld</li>"
                 "<li><b>Algemene voorwaarden:</b> beschikbaar op aanvraag voor due-diligence trajecten</li>"
                 "</ul>",
             ],
@@ -415,7 +415,7 @@ METHODOLOGY = {
             "id": "swap-sla",
             "h": "Swap-SLA - wat beloven we precies",
             "body": [
-                "Onze Swap-SLA: bij defect of storing langer dan 4 uur, vervangende unit binnen 24 uur op locatie. Logistiek vanaf Eindhoven workshop.",
+                "Onze Swap-SLA: bij defect of storing langer dan 4 uur, vervangende unit doorgaans binnen enkele werkdagen op locatie. Logistiek vanaf Eindhoven workshop.",
                 "<b>Service-niveau:</b>",
                 "<ul><li><b>P1 (productie-stop):</b> respons binnen 30 min, technicus on-site of swap binnen 24u.</li><li><b>P2 (degraded):</b> respons binnen 2 uur, fix of swap binnen 48u.</li><li><b>P3 (operationeel met workaround):</b> respons binnen 8 uur, fix binnen 5 werkdagen.</li></ul>",
                 "<b>Dekkingsgebied:</b> heel Nederland binnen 24u, België/Duitsland-grens binnen 36u.",

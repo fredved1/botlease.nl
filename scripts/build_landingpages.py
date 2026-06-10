@@ -357,7 +357,7 @@ def render_city(c: dict) -> str:
         },
         {
             "q": f"Werkt BotLease in {c['name']} met lokale onderhouds-partners?",
-            "a": f"Ja. Onze swap-SLA (vervangende unit binnen 24u) wordt uitgevoerd door regionale field engineers. Voor {c['name']} en omgeving werken we samen met technische partners die gemiddeld binnen 2 uur op locatie zijn.",
+            "a": f"Ja. Onze swap-SLA (vervangende unit bij storing) wordt uitgevoerd door regionale field engineers. Voor {c['name']} en omgeving werken we samen met technische partners die gemiddeld binnen 2 uur op locatie zijn.",
         },
         {
             "q": f"Voldoen humanoïde robots in {c['name']} aan de EU AI-Act?",
@@ -365,7 +365,7 @@ def render_city(c: dict) -> str:
         },
         {
             "q": f"Hoeveel kost een humanoïde robot leasen in {c['name']}?",
-            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €4.890/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten installatie, training, onderhoud, 24u swap-SLA, WA-verzekering tot €2,5M en Nederlandstalige helpdesk.",
+            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €4.890/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten installatie, training, onderhoud, 24u swap-SLA, WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk.",
         },
     ]
     city_faq_html = "".join(
@@ -580,7 +580,7 @@ def render_cities_hub() -> str:
 <html lang="nl"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Humanoïde robot leasen per regio | BotLease</title>
-<meta name="description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 4 werkuren.">
+<meta name="description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.">
 <link rel="canonical" href="{SITE_URL}/leasen/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Humanoïde robot leasen per stad | BotLease">
@@ -597,7 +597,7 @@ def render_cities_hub() -> str:
 <section class="lp-hero"><div class="container">
   <span class="eyebrow">Leasen per stad</span>
   <h1>Humanoïde robot leasen per stad.</h1>
-  <p class="tag">Lokale levering, sectorspecifiek advies, intake binnen 4 werkuren.</p>
+  <p class="tag">Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.</p>
 </div></section>
 <section class="body"><div class="container">
   <div class="r-grid" style="grid-template-columns:repeat(2,1fr)">{cards}</div>

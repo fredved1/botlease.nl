@@ -472,7 +472,7 @@ def faq_for_robot(r: dict) -> list[dict]:
     return [
         {
             "q": f"Wat kost een {name} leasen via BotLease?",
-            "a": f"{name} leasen kost {price} all-in operational lease (36 maanden). De eenmalige setup-fee is {setup} en dekt installatie, training en integratie op locatie. De all-in maandprijs omvat preventief + correctief onderhoud, swap-SLA (vervangende unit binnen 24u), WA-verzekering tot €2,5M en 24/7 Nederlandstalige helpdesk.",
+            "a": f"{name} leasen kost {price} all-in operational lease (36 maanden). De eenmalige setup-fee is {setup} en dekt installatie, training en integratie op locatie. De all-in maandprijs omvat preventief + correctief onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen).",
         },
         {
             "q": f"Wat is de levertijd van een {name} in Nederland?",
@@ -560,7 +560,7 @@ def render_robot(r: dict, related: list) -> str:
     _tldr_avail = (
         f"Op wachtlijst — BotLease regelt priority-access bij {escape(r['vendor'])} zodra de EU-verkoop opent (verwacht Q4 2026 / Q1 2027)."
         if r["category"] == "waitlist"
-        else "Direct leverbaar in Nederland — pilot binnen circa 5 werkdagen, productieve lease in 6–10 weken."
+        else "Leverbaar in Nederland — intake binnen 5 werkdagen, levering doorgaans 6–10 weken."
     )
     tldr_html = f"""<section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0">
   <div class="container">
@@ -568,7 +568,7 @@ def render_robot(r: dict, related: list) -> str:
       <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
         <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} — humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
-        <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief installatie, training, onderhoud en swap-SLA (vervangende unit binnen 24 uur).</li>
+        <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief installatie, training, onderhoud en swap-SLA (vervangende unit bij storing).</li>
         <li><b style="color:var(--ink)">Beste voor:</b> {escape(_tldr_best)}.</li>
         <li><b style="color:var(--ink)">Leverbaarheid:</b> {_tldr_avail}</li>
 {_tldr_h2h}      </ul>
@@ -600,6 +600,7 @@ def render_robot(r: dict, related: list) -> str:
       </div>
       <form onsubmit="handleWaitlistSubmit(event)" data-robot-slug="{r['slug']}" data-robot-name="{escape(r['name'])}"
             style="background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:32px">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <div style="margin-bottom:18px">
           <label for="wl-naam" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Naam</label>
           <input id="wl-naam" name="naam" required placeholder="Voor- en achternaam"
@@ -633,7 +634,7 @@ def render_robot(r: dict, related: list) -> str:
         </div>
         <button type="submit" class="btn"
                 style="width:100%; justify-content:center">Reserveer plek op wachtlijst</button>
-        <p class="form-note" style="color:var(--ink-3); font-size:12.5px; margin-top:12px; text-align:center">Geen verplichting · Reactie binnen 4 werkuren</p>
+        <p class="form-note" style="color:var(--ink-3); font-size:12.5px; margin-top:12px; text-align:center">Geen verplichting · Reactie binnen 1-2 werkdagen</p>
       </form>
     </div>
   </div>
@@ -662,8 +663,8 @@ def render_robot(r: dict, related: list) -> str:
           <li>Installatie + 2-uurs training operators</li>
           <li>Preventief + correctief onderhoud</li>
           <li>Swap-SLA: vervangende unit binnen 24u</li>
-          <li>WA-verzekering tot €2,5M + casco</li>
-          <li>24/7 helpdesk Nederlands</li>
+          <li>WA-verzekering wordt per deployment geregeld + casco</li>
+          <li>helpdesk op werkdagen Nederlands</li>
           <li>Software-updates en remote tuning</li>
         </ul>
         <a class="btn" href="#wachtlijst" style="display:block; text-align:center">Reserveer plek →</a>
@@ -693,8 +694,8 @@ def render_robot(r: dict, related: list) -> str:
           <ul style="list-style:none; padding:0; margin:0; color:var(--ink-2); font-size:13.5px; line-height:1.7">
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Preventief + correctief onderhoud</li>
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Swap-SLA: vervangende unit binnen 24u</li>
-            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> WA-verzekering tot €2,5M + casco</li>
-            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> 24/7 helpdesk Nederlands</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> WA-verzekering wordt per deployment geregeld + casco</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> helpdesk op werkdagen Nederlands</li>
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Software-updates en remote tuning</li>
           </ul>
         </div>
@@ -703,6 +704,7 @@ def render_robot(r: dict, related: list) -> str:
       </div>
       <form onsubmit="handleAanvraagSubmit(event)" data-robot-slug="{r['slug']}" data-robot-name="{escape(r['name'])}"
             style="background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:32px">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <div style="margin-bottom:18px">
           <label for="aanv-naam" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Naam</label>
           <input id="aanv-naam" name="naam" required placeholder="Voor- en achternaam"

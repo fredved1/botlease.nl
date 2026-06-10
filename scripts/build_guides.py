@@ -700,7 +700,7 @@ def render_costs(g: dict) -> str:
         <li><b>Onderdelen</b> - alle reserveonderdelen inbegrepen.</li>
         <li><b>Swap-SLA</b> - vervangende unit binnen 24u op locatie (anders €100/dag vergoeding).</li>
         <li><b>Verzekering</b> - WA tot €2,5M + casco.</li>
-        <li><b>24/7 helpdesk</b> - Nederlands sprekende engineers.</li>
+        <li><b>helpdesk op werkdagen</b> - Nederlands sprekende engineers.</li>
         <li><b>Software-updates</b> + remote tuning + AI-Act compliance maintenance.</li>
       </ul>
       <h2 style="margin-top:48px; margin-bottom:16px">Wat zit er NIET in?</h2>

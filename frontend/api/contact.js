@@ -160,7 +160,7 @@ async function sendConfirmation(data) {
         <li><a href="https://botlease.nl/gids/humanoide-robot-leasen" style="color:#f97316">Complete lease-gids</a></li>
         <li><a href="https://botlease.nl/kosten" style="color:#f97316">Bereken je lease-prijs</a></li>
       </ul>
-      <p style="font-size:15px;line-height:1.6;margin-top:24px">Vragen tussendoor? Antwoord op deze email of bel direct.</p>
+      <p style="font-size:15px;line-height:1.6;margin-top:24px">Vragen tussendoor? Antwoord gewoon op deze e-mail.</p>
       <p style="font-size:15px;line-height:1.6">— Team BotLease</p>
       <hr style="border:none;border-top:1px solid #e4e4e7;margin:24px 0">
       <p style="font-size:12px;color:#71717a">BotLease B.V. · Amsterdam · hallo@botlease.nl · botlease.nl</p>
@@ -242,7 +242,7 @@ export default async function handler(req, res) {
   const data = req.body || {};
   // Honeypot: bots vullen het verborgen veld, mensen niet → stille success
   if (data.website || data._gotcha) {
-    return res.status(200).json({ success: true, message: 'Bedankt! We nemen binnen 4 werkuren contact op.' });
+    return res.status(200).json({ success: true, message: 'Bedankt! We nemen binnen 1-2 werkdagen contact op.' });
   }
   const naam       = data.naam     || data.name    || '';
   const email      = data.email    || '';
@@ -287,13 +287,13 @@ export default async function handler(req, res) {
     console.log('[contact] SUBMISSION (Resend not configured):', JSON.stringify(submission));
     return res.status(200).json({
       success: true,
-      message: 'Bedankt! We nemen binnen 4 werkuren contact op.',
+      message: 'Bedankt! We nemen binnen 1-2 werkdagen contact op.',
       _note: 'Resend not configured — check Vercel logs',
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: `Bedankt ${naam}! We nemen binnen 4 werkuren contact op via ${email}.`,
+    message: `Bedankt ${naam}! We nemen binnen 1-2 werkdagen contact op via ${email}.`,
   });
 }

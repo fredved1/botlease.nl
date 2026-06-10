@@ -8,9 +8,9 @@ _Laatst bijgewerkt: 2026-06-04_
 
 - **Wat:** operational lease (Robot-as-a-Service) van humanoïde robots voor zakelijke gebruikers in NL/EU. Geen consumentenrobots, geen cobots.
 - **Prijs:** all-in vanaf **€290/maand** (Unitree R1) tot **€4.890/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
-- **Inbegrepen in de lease:** installatie, operator-training, onderhoud, **swap-SLA (vervangende unit binnen 24 uur)**, verzekering tot €2,5M, en EU AI-Act + CE-conformiteit.
+- **Inbegrepen in de lease:** installatie, operator-training, onderhoud, **swap-SLA (vervangende unit bij storing)**, verzekering die per deployment wordt geregeld, en EU AI-Act + CE-conformiteit.
 - **Pilot:** 4 weken voor €1.500, daarna beslissen. Gemiddelde ROI in 3PL: 11–14 maanden.
-- **Levertijd:** pilot binnen ~5 werkdagen na intake; productieve lease 6–10 weken vanaf fabrikant.
+- **Levertijd:** intake binnen ~5 werkdagen; levering doorgaans 6–10 weken vanaf fabrikant.
 - **Looptijd:** 36-maands operational lease, na het eerste jaar maandelijks opzegbaar.
 - **Sectoren:** 3PL & fulfillment, productie & assemblage, hospitality & retail, zorg.
 - **Compliance:** EU AI-Act, Machineverordening (EU) 2023/1230, CE, ISO 10218 / EN ISO 13482.

@@ -52,7 +52,7 @@ ARTICLES = [
              "</ul>"),
 
             ("h2", "Prijspeil per categorie"),
-            ("p", "Instap (lichte service, demo, R&D): €290-€1.590/mnd. Mid-tier (productieve service, hospitality, logistiek): €2.250-€3.250/mnd. Industrieel (productie, heavy-duty): €4.250-€4.890/mnd. Alle BotLease-tarieven zijn all-in en bevatten installatie, training, onderhoud, swap-SLA (vervangende unit binnen 24u), WA-verzekering tot €2,5M en 24/7 Nederlandstalige helpdesk."),
+            ("p", "Instap (lichte service, demo, R&D): €290-€1.590/mnd. Mid-tier (productieve service, hospitality, logistiek): €2.250-€3.250/mnd. Industrieel (productie, heavy-duty): €4.250-€4.890/mnd. Alle BotLease-tarieven zijn all-in en bevatten installatie, training, onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen)."),
 
             ("h2", "Het EU AI-Act vraagstuk"),
             ("p", "Per 2 augustus 2027 wordt de EU AI-Act volledig handhaafbaar voor high-risk AI-systemen. Humanoïde robots vallen onder de high-risk classificering wanneer ze in industriële of zorg-omgevingen worden ingezet (Reg. 2024/1689 + Machineverordening 2023/1230). Wat betekent dit voor jouw deployment? <a href=\"/gids/ai-act-machineverordening\">Lees onze gids over AI-Act compliance</a>."),
@@ -161,7 +161,7 @@ ARTICLES = [
             ("h2", "OR-aspect: instemmingsrecht onder de WOR"),
             ("p", "Onderschat dit niet. Op grond van artikel 27 van de Wet op de ondernemingsraden (WOR) heeft de OR instemmingsrecht bij regelingen die de werkomgeving wezenlijk veranderen. De introductie van een humanoid valt daar onder. Praktisch: betrek de OR vroeg, vóór de pilot. Wij hebben een standaard OR-document beschikbaar voor BotLease-klanten."),
             ("h2", "Aansprakelijkheid: wie als de robot schade veroorzaakt?"),
-            ("p", "Dit is het meest gestelde juridische vraagstuk. De wettelijke productaansprakelijkheid ligt bij de fabrikant (richtlijn 85/374/EEG, herzien in EU 2024/2853). Werkgever-aansprakelijkheid voor schade aan derden ligt bij de werkgever zelf. BotLease's WA-verzekering tot €2,5M dekt het deployer-risico. De fabrikant-aansprakelijkheid is gedekt via Apptronik/Figure/Unitree's eigen verzekeringspolissen."),
+            ("p", "Dit is het meest gestelde juridische vraagstuk. De wettelijke productaansprakelijkheid ligt bij de fabrikant (richtlijn 85/374/EEG, herzien in EU 2024/2853). Werkgever-aansprakelijkheid voor schade aan derden ligt bij de werkgever zelf. BotLease's WA-verzekering wordt per deployment geregeld dekt het deployer-risico. De fabrikant-aansprakelijkheid is gedekt via Apptronik/Figure/Unitree's eigen verzekeringspolissen."),
             ("h2", "Samengevat"),
             ("p", "Een Nederlandse MKB-er die een humanoid inzet, moet vóór deployment: (1) een AI-Act deployer-registratie hebben, (2) een Machineverordening-conformiteitsbeoordeling, (3) een AVG-verwerkersovereenkomst, (4) OR-instemming, (5) WA-verzekering. Bij een BotLease-contract worden 1-3 en 5 door ons verzorgd. Punten 4 is altijd de verantwoordelijkheid van de werkgever zelf, maar wij leveren wel de stukken."),
         ],

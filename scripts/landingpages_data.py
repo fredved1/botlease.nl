@@ -233,7 +233,7 @@ SECTORS = [
              "personeelstekort 's nachts het scherpst is. Battery-swap automatisch via dockingstation."),
             ("Hoe veilig is dit naast kwetsbare patiënten?",
              "Cobot-compliante modellen (PAL, NEURA, 4NE-1 Mini) hebben kracht-detectie: bij aanraking stoppen ze "
-             "binnen 50ms. Werkzones worden in de intake gedefinieerd. WA-dekking tot €2,5M is inbegrepen."),
+             "binnen 50ms. Werkzones worden in de intake gedefinieerd. WA-dekking wordt per deployment geregeld is inbegrepen."),
         ],
     },
 ]
