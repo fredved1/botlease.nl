@@ -160,8 +160,8 @@ def render_sector(s: dict) -> str:
     robots_html = "".join(robot_card(slug) for slug in s["recommended_robots"])
     qa_html = "".join(f'<div class="qa-item"><h4>{escape(q)}</h4><p>{escape(a)}</p></div>' for q, a in s["questions"])
 
-    title = f"{s['title_kw']} - vanaf €890/mnd | BotLease"
-    desc = f"{s['name']} met humanoïde robots: ROI, robotmodellen, regelgeving. {s['tagline']} BotLease verzorgt all-in lease vanaf €890/maand."
+    title = f"{s['title_kw']} - vanaf €290/mnd | BotLease"
+    desc = f"{s['name']} met humanoïde robots: ROI, robotmodellen, regelgeving. {s['tagline']} BotLease verzorgt all-in lease vanaf €290/maand."
 
     qa_jsonld = json.dumps({
         "@context": "https://schema.org",
@@ -276,7 +276,13 @@ def render_sector(s: dict) -> str:
 """
 
 
+_CITY_LINKS = {"amsterdam": "Amsterdam", "den-haag": "Den Haag", "eindhoven": "Eindhoven",
+               "noord-brabant": "Noord-Brabant", "rotterdam": "Rotterdam", "utrecht": "Utrecht"}
+
+
 def render_city(c: dict) -> str:
+    _other_cities = " · ".join(f'<a href="/leasen/{s}" style="color:var(--accent)">{n}</a>'
+                               for s, n in _CITY_LINKS.items() if s != c.get("slug"))
     sectors_html = "".join(
         f'<a href="/sectoren/{slug}" style="display:inline-block; margin:0 8px 8px 0; padding:8px 14px; '
         f'background:var(--bg-3); border:1px solid var(--line); border-radius:999px; font-size:13px; color:var(--ink-2)">'
@@ -502,6 +508,12 @@ def render_city(c: dict) -> str:
       <p>Gratis intake op locatie · 4-weken pilot voor €1.500 · beslis na de pilot</p>
       <a class="btn" href="/#contact">Plan een demo →</a>
     </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line); padding:36px 0">
+  <div class="container">
+    <p style="color:var(--ink-2); font-size:14.5px"><b style="color:var(--ink)">Ook actief in:</b> {_other_cities} · <a href="/leasen" style="color:var(--accent)">alle regio's →</a></p>
   </div>
 </section>
 

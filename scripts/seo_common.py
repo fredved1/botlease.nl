@@ -85,7 +85,12 @@ def trim_desc(s: str, max_len: int = 150) -> str:
     if len(s) <= max_len:
         return s
     cut = s[:max_len]
+    # liefst afkappen op een zinsgrens (voorkomt "…en wat zijn realistische.")
+    for sep in (". ", "! ", "? "):
+        idx = cut.rfind(sep)
+        if idx >= 80:
+            return cut[:idx + 1]
     last_space = cut.rfind(" ")
-    if last_space > max_len - 25:
+    if last_space > 0:
         cut = cut[:last_space]
-    return cut.rstrip(", .") + "."
+    return cut.rstrip(",;: .") + "…"

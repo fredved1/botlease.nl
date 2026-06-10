@@ -608,6 +608,9 @@ def editorial_gate(rewrite: dict, item: dict) -> tuple[bool, str]:
         body_chars = sum(len(p) for p in paras)
         nl = str(rewrite.get("nl_angle", "") or "").strip()
         intro = str(rewrite.get("intro", "") or "").strip()
+        title = str(rewrite.get("title", "") or "")
+        if len(title) > 80:
+            return False, f"titel te lang ({len(title)} tekens, max 80)"
         if len(paras) < 3:
             return False, f"te weinig alinea's ({len(paras)})"
         if body_chars < 800:
@@ -655,7 +658,7 @@ def article_to_python(item: dict, rewrite: dict) -> str:
         "title": {repr(rewrite["title"])},
         "subtitle": {repr(rewrite["subtitle"])},
         "category": {repr(rewrite["category"])},
-        "date": {repr(item["published"])},
+        "date": {repr(date_cls.today().isoformat())},
         "reading_time": {reading_time},
         "author": "Thomas Vedder",
         "source_name": {repr(item["source_name"])},
@@ -705,6 +708,29 @@ def run(cmd: list[str], cwd: Path | None = None) -> str:
     return r.stdout.strip()
 
 
+
+def update_main_sitemap(slugs: list) -> None:
+    """Voegt nieuwe nieuws-URLs toe aan frontend/sitemap.xml (merge — raakt
+    bestaande entries niet aan; build_news schrijft deze sitemap bewust niet)."""
+    sm = ROOT / "frontend" / "sitemap.xml"
+    try:
+        xml = sm.read_text(encoding="utf-8")
+        today = date_cls.today().isoformat()
+        new = ""
+        for slug in slugs:
+            loc = f"https://botlease.nl/nieuws/{slug}"
+            if loc in xml:
+                continue
+            new += (f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod>"
+                    f"<changefreq>monthly</changefreq><priority>0.7</priority></url>\n")
+        if new:
+            xml = xml.replace("</urlset>", new + "</urlset>")
+            _atomic_write(sm, xml)
+            log(f"sitemap.xml: +{new.count('<url>')} nieuws-URLs")
+    except Exception as e:
+        log(f"WARN sitemap.xml update faalde: {str(e)[:120]}")
+
+
 def git_commit_and_push(slugs: list[str]) -> None:
     token = os.environ.get("GH_REPO_TOKEN", "").strip()
     titles = ", ".join(slugs)
@@ -721,6 +747,7 @@ def git_commit_and_push(slugs: list[str]) -> None:
         "frontend/data/articles.json",
         "frontend/rss.xml",
         "frontend/sitemap-news.xml",
+        "frontend/sitemap.xml",
     ]
     existing = [p for p in paths if (ROOT / p).exists()]
     run(["git", "add", *existing], cwd=ROOT)
@@ -869,6 +896,8 @@ def main():
     if not published_slugs:
         log("no articles published this run.")
         return 0
+
+    update_main_sitemap(published_slugs)
 
     # 4. Optionally rebuild
     if args.rebuild or args.commit:

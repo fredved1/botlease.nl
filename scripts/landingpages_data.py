@@ -159,7 +159,7 @@ SECTORS = [
                 "h": "Marketing-events en activaties",
                 "body": (
                     "Op B2B-beurzen trekt een humanoid 2-3× zoveel gekwalificeerde leads als een conventionele stand. "
-                    "Unitree G1 (€899/mnd) of R1 (€290/mnd) zijn het juiste prijspunt: groot genoeg voor impact, klein "
+                    "Unitree G1 (€1.295/mnd) of R1 (€290/mnd) zijn het juiste prijspunt: groot genoeg voor impact, klein "
                     "genoeg om geen veiligheidshek te vereisen."
                 ),
             },

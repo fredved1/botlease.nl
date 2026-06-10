@@ -415,7 +415,7 @@ def video_jsonld(r: dict) -> str:
         "@type": "VideoObject",
         "name": r.get("video_title") or f"{r['name']} - officiële demonstratie",
         "description": f"Officiële demonstratie van de {r['name']} humanoïde robot door {r['vendor']}.",
-        "thumbnailUrl": [f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"],
+        "thumbnailUrl": [f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg", f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"],
         "uploadDate": "2025-01-01",
         "contentUrl": f"https://www.youtube.com/watch?v={vid}",
         "embedUrl": f"https://www.youtube.com/embed/{vid}",
@@ -505,6 +505,21 @@ def faqpage_jsonld(r: dict) -> str:
     }, ensure_ascii=False)
 
 
+
+# Head-to-head vergelijkingen per robot (interne links robotpagina → /vergelijken/*)
+_H2H_LINKS = {
+  "unitree-g1": [("NEURA 4NE-1 Mini", "/vergelijken/unitree-g1-vs-neura-4ne1-mini")],
+  "neura-4ne1-mini": [("Unitree G1", "/vergelijken/unitree-g1-vs-neura-4ne1-mini")],
+  "unitree-h1-2": [("UBTECH Walker S2", "/vergelijken/unitree-h1-2-vs-ubtech-walker-s2"), ("PAL Kangaroo", "/vergelijken/pal-kangaroo-vs-unitree-h1-2")],
+  "ubtech-walker-s2": [("Unitree H1-2", "/vergelijken/unitree-h1-2-vs-ubtech-walker-s2")],
+  "neura-4ne1-gen3": [("Apptronik Apollo", "/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo")],
+  "apptronik-apollo": [("NEURA 4NE-1 Gen 3.5", "/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo"), ("Figure 02", "/vergelijken/apptronik-apollo-vs-figure-02")],
+  "pal-kangaroo": [("Unitree H1-2", "/vergelijken/pal-kangaroo-vs-unitree-h1-2")],
+  "unitree-r1": [("EngineAI SE01", "/vergelijken/unitree-r1-vs-engineai-se01")],
+  "engineai-se01": [("Unitree R1", "/vergelijken/unitree-r1-vs-engineai-se01")],
+  "figure-02": [("Apptronik Apollo", "/vergelijken/apptronik-apollo-vs-figure-02")],
+}
+
 def render_robot(r: dict, related: list) -> str:
     tier_class = {"eu": "tier-eu", "value": "tier-value", "premium": "tier-premium"}.get(r["tier"], "tier-eu")
     photo_url = f"{SITE_URL}{r['photo']}"
@@ -538,6 +553,10 @@ def render_robot(r: dict, related: list) -> str:
     _tldr_tag = r["tagline"].rstrip()
     if not _tldr_tag.endswith('.'):
         _tldr_tag += '.'
+    _h2h = _H2H_LINKS.get(r["slug"], [])
+    _tldr_h2h = ("        <li><b style=\"color:var(--ink)\">Direct vergelijken:</b> "
+                 + " · ".join(f'<a href="{href}" style="color:var(--accent)">vs {nm} →</a>' for nm, href in _h2h)
+                 + "</li>\n") if _h2h else ""
     _tldr_avail = (
         f"Op wachtlijst — BotLease regelt priority-access bij {escape(r['vendor'])} zodra de EU-verkoop opent (verwacht Q4 2026 / Q1 2027)."
         if r["category"] == "waitlist"
@@ -552,7 +571,7 @@ def render_robot(r: dict, related: list) -> str:
         <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief installatie, training, onderhoud en swap-SLA (vervangende unit binnen 24 uur).</li>
         <li><b style="color:var(--ink)">Beste voor:</b> {escape(_tldr_best)}.</li>
         <li><b style="color:var(--ink)">Leverbaarheid:</b> {_tldr_avail}</li>
-      </ul>
+{_tldr_h2h}      </ul>
       <p style="margin:14px 0 0; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · leaseprijs indicatief, all-in per maand.</p>
     </div>
   </div>

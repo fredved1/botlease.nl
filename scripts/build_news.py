@@ -47,11 +47,44 @@ def fmt_date_nl(iso: str) -> str:
     return f"{d.day} {mnd[d.month-1]} {d.year}"
 
 
+# Auto-link: eerste vermelding van een catalogusmodel in de artikel-body → robotpagina
+# (interne links nieuws → commercieel; langste naam eerst zodat "Unitree H1-2" niet op "H1" matcht)
+_MODEL_LINKS = [
+    ("NEURA 4NE-1 Gen 3.5", "neura-4ne1-gen3"),
+    ("NEURA 4NE-1 Mini", "neura-4ne1-mini"),
+    ("Apptronik Apollo", "apptronik-apollo"),
+    ("Unitree H1-2", "unitree-h1-2"),
+    ("Unitree G1", "unitree-g1"),
+    ("Unitree R1", "unitree-r1"),
+    ("Unitree H2", "unitree-h2"),
+    ("EngineAI SE01", "engineai-se01"),
+    ("PAL Kangaroo", "pal-kangaroo"),
+    ("TIAGo Pro", "pal-tiago-pro"),
+    ("Agility Digit", "agility-digit"),
+    ("Walker S2", "ubtech-walker-s2"),
+    ("Reachy 2", "pollen-reachy-2"),
+    ("Figure 02", "figure-02"),
+    ("1X NEO", "1x-neo"),
+]
+
+
+def _linkify_models(html: str, done: set) -> str:
+    for name, slug in _MODEL_LINKS:
+        if slug in done or name not in html:
+            continue
+        if "<a " in html:  # alinea bevat al een link — overslaan (geen geneste anchors riskeren)
+            continue
+        html = html.replace(name, f'<a href="/robots/{slug}">{name}</a>', 1)
+        done.add(slug)
+    return html
+
+
 def render_body(body) -> str:
     out = []
+    _linked: set = set()
     for tag, content in body:
         if tag == "p":
-            out.append(f"<p>{content}</p>")
+            out.append(f"<p>{_linkify_models(content, _linked)}</p>")
         elif tag == "h2":
             out.append(f"<h2>{escape(content)}</h2>")
         elif tag == "h3":
@@ -741,15 +774,26 @@ def article_image(a: dict) -> str:
     return f"{SITE_URL}/img/robots/apollo.png"
 
 
+def og_image_for(a: dict) -> str:
+    """1200×630 merk-variant voor og:image/Discover (≥1200px breed vereist).
+    Valt terug op de originele foto als de og-variant (nog) niet gegenereerd is."""
+    photo = art_for(a).get("photo") or "/img/robots/apollo.png"
+    stem = Path(photo).stem.replace("-norm", "")
+    og_rel = f"/img/og/{stem}-og.jpg"
+    if (FRONTEND / og_rel.lstrip("/")).exists():
+        return f"{SITE_URL}{og_rel}"
+    return article_image(a)
+
+
 def article_jsonld(a: dict) -> str:
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": a["title"],
         "description": a["subtitle"],
-        "image": [article_image(a)],
-        "datePublished": a["date"] + "T08:00:00+01:00",
-        "dateModified": a["date"] + "T08:00:00+01:00",
+        "image": [og_image_for(a), article_image(a)],
+        "datePublished": a["date"] + "T08:00:00+02:00",
+        "dateModified": a["date"] + "T08:00:00+02:00",
         "author": {"@type": "Person", "name": NEWS_AUTHOR_NAME, "url": NEWS_AUTHOR_URL,
                     "jobTitle": NEWS_AUTHOR_ROLE, "worksFor": {"@id": f"{SITE_URL}/#organization"}},
         "publisher": {"@type": "Organization", "name": "BotLease",
@@ -769,7 +813,7 @@ def breadcrumb_jsonld(a: dict) -> str:
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
-            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws/"},
+            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws"},
             {"@type": "ListItem", "position": 3, "name": a["title"], "item": f"{SITE_URL}/nieuws/{a['slug']}"},
         ]
     }, ensure_ascii=False)
@@ -856,8 +900,10 @@ def render_article(a: dict, related: list) -> str:
 <meta property="og:url" content="{SITE_URL}/nieuws/{a['slug']}">
 <meta property="og:site_name" content="BotLease">
 <meta property="og:locale" content="nl_NL">
-<meta property="og:image" content="{article_image(a)}">
-<meta property="article:published_time" content="{a['date']}T08:00:00+01:00">
+<meta property="og:image" content="{og_image_for(a)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="{a['date']}T08:00:00+02:00">
 <meta property="article:section" content="{escape(a.get('category', 'Nieuws'))}">
 {''.join(f'<meta property="article:tag" content="{escape(t)}">' for t in a.get('tags', []))}
 
@@ -1082,14 +1128,14 @@ def render_listing(articles: list) -> str:
 <meta name="description" content="Dagelijks nieuws over humanoïde robots - Unitree, Figure, Apptronik, Agility, 1X. Use-cases, regelgeving en pilot-data uit Nederland.">
 <meta name="keywords" content="humanoide robot nieuws, robot Nederland, Unitree nieuws, Figure 02, Apollo Apptronik, Agility Digit, robot lease nieuws, AI Act robot">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="{SITE_URL}/nieuws/">
+<link rel="canonical" href="{SITE_URL}/nieuws">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="BotLease Nieuws - humanoïde robots in Nederland">
 <meta property="og:description" content="Dagelijkse analyses over humanoïde robots, Nederlandse use-cases en marktontwikkelingen.">
-<meta property="og:url" content="{SITE_URL}/nieuws/">
+<meta property="og:url" content="{SITE_URL}/nieuws">
 <meta property="og:locale" content="nl_NL">
-<meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
+<meta property="og:image" content="{SITE_URL}/img/og/g1-og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BotLease Nieuws - humanoïde robots in Nederland">
 <meta name="twitter:description" content="Dagelijkse analyses over Unitree, Figure, Apptronik, Agility, 1X - voor de Nederlandse markt.">
@@ -1101,7 +1147,7 @@ def render_listing(articles: list) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist_jsonld}</script>
-<script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws/"}}]}}</script>
+<script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws"}}]}}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
 </head>
@@ -1165,7 +1211,7 @@ def render_author_page(articles: list) -> str:
     person = json.dumps({
         "@context": "https://schema.org", "@type": "Person",
         "@id": f"{SITE_URL}/#founder",
-        "name": NEWS_AUTHOR_NAME, "jobTitle": "Oprichter, BotLease",
+        "name": NEWS_AUTHOR_NAME, "jobTitle": "Oprichter",
         "url": NEWS_AUTHOR_URL, "worksFor": {"@id": f"{SITE_URL}/#organization"},
         "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service",
                        "EU AI-Act", "conversational AI", "Nederlandse maakindustrie"],
@@ -1176,7 +1222,7 @@ def render_author_page(articles: list) -> str:
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
-            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws/"},
+            {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": f"{SITE_URL}/nieuws"},
             {"@type": "ListItem", "position": 3, "name": NEWS_AUTHOR_NAME, "item": NEWS_AUTHOR_URL},
         ],
     }, ensure_ascii=False)
@@ -1193,6 +1239,7 @@ def render_author_page(articles: list) -> str:
 <meta property="og:type" content="profile">
 <meta property="og:title" content="{escape(NEWS_AUTHOR_NAME)} — BotLease">
 <meta property="og:url" content="{NEWS_AUTHOR_URL}">
+<meta property="og:image" content="{SITE_URL}/img/og/g1-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1348,7 +1395,7 @@ def render_news_sitemap(articles: list) -> str:
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
            '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']
     # Alleen recente (<30 dagen) articles, dat is wat Google News indexeert
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).date().isoformat()
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=2)).date().isoformat()
     for a in articles:
         if a["date"] < cutoff:
             continue
@@ -1409,7 +1456,7 @@ def render_rss(articles: list) -> str:
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BotLease Nieuws - humanoïde robots in Nederland</title>
-    <link>{SITE_URL}/nieuws/</link>
+    <link>{SITE_URL}/nieuws</link>
     <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>

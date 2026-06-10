@@ -6,7 +6,7 @@ Iedere guide is autoritair, lang en geoptimaliseerd voor primary/secondary keywo
 PILLAR_GUIDE = {
     "slug": "humanoide-robot-leasen",
     "title": "Humanoïde robot leasen in Nederland - complete gids 2026 | BotLease",
-    "meta_desc": "Complete gids voor humanoïde robot lease in Nederland: 15 modellen vergeleken, prijzen €290-4.490/mnd, EU AI-Act compliance, ROI per sector, het 4-weken pilot-proces. Inclusief vergelijking koop vs lease en checklist voor MKB.",
+    "meta_desc": "Complete gids humanoïde robot lease in Nederland: 15 modellen, prijzen €290-4.890/mnd, EU AI-Act compliance, ROI per sector en het 4-weken pilot-proces.",
     "keywords": "humanoide robot leasen, humanoid robot lease Nederland, humanoide robot huren, robot lease MKB, humanoide robot kopen of leasen, humanoide robot prijs Nederland",
     "h1": "Humanoïde robot leasen in Nederland: de complete gids voor 2026.",
     "tagline": "15 modellen vergeleken, eerlijke prijzen, EU AI-Act compliance en het pilot-traject - geschreven voor Nederlandse MKB-ondernemers die weten wat ze willen.",
@@ -42,9 +42,9 @@ PILLAR_GUIDE = {
             "body": [
                 "Marktonderzoek van mei 2026 levert een gefilterd, eerlijk overzicht. Veel modellen die in de media verschijnen (Tesla Optimus, Boston Dynamics Atlas, Figure 02) zijn nog niet open verkocht in EU - alleen pilot-deployments bij specifieke OEMs. Dit zijn de modellen die je vandaag of binnen 12 maanden kunt leasen.",
                 "<b>EU-gebouwd - strategische kern (5 modellen):</b>",
-                "<ul><li><a href=\"/robots/neura-4ne1-mini\">NEURA 4NE-1 Mini</a> (€890/mnd) - Duitse cobot, artificial skin, Porsche-design.</li><li><a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a> (€4.490/mnd) - industrieel flagship, 100 kg payload, Bosch partner.</li><li><a href=\"/robots/pal-kangaroo\">PAL Kangaroo</a> (€3.490/mnd) - Spaanse bipedal, 20+ jaar heritage, ROS-native.</li><li><a href=\"/robots/pal-tiago-pro\">PAL TIAGo Pro</a> (€1.890/mnd) - wheeled humanoid, 100+ EU-deployments.</li><li><a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> (€2.690/mnd) - open-source, Hugging Face-owned.</li></ul>",
+                "<ul><li><a href=\"/robots/neura-4ne1-mini\">NEURA 4NE-1 Mini</a> (€1.295/mnd) - Duitse cobot, artificial skin, Porsche-design.</li><li><a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a> (€4.490/mnd) - industrieel flagship, 100 kg payload, Bosch partner.</li><li><a href=\"/robots/pal-kangaroo\">PAL Kangaroo</a> (€4.250/mnd) - Spaanse bipedal, 20+ jaar heritage, ROS-native.</li><li><a href=\"/robots/pal-tiago-pro\">PAL TIAGo Pro</a> (€2.950/mnd) - wheeled humanoid, 100+ EU-deployments.</li><li><a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> (€3.250/mnd) - open-source, Hugging Face-owned.</li></ul>",
                 "<b>Aziatisch leverbaar - best value (6 modellen):</b>",
-                "<ul><li><a href=\"/robots/unitree-r1\">Unitree R1</a> (€290/mnd) - instap, demo + education.</li><li><a href=\"/robots/unitree-g1\">Unitree G1</a> (€899/mnd) - bestseller, R&D + hospitality.</li><li><a href=\"/robots/unitree-h1-2\">Unitree H1-2</a> (€3.990/mnd) - full-size industrieel.</li><li><a href=\"/robots/unitree-h2\">Unitree H2</a> (€1.890/mnd) - service met bionisch gezicht.</li><li><a href=\"/robots/engineai-se01\">EngineAI SE01</a> (€1.290/mnd) - natuurlijke gait.</li><li><a href=\"/robots/ubtech-walker-s2\">UBTECH Walker S2</a> (€3.290/mnd) - auto-industrie, mass production.</li></ul>",
+                "<ul><li><a href=\"/robots/unitree-r1\">Unitree R1</a> (€290/mnd) - instap, demo + education.</li><li><a href=\"/robots/unitree-g1\">Unitree G1</a> (€1.295/mnd) - bestseller, R&D + hospitality.</li><li><a href=\"/robots/unitree-h1-2\">Unitree H1-2</a> (€4.890/mnd) - full-size industrieel.</li><li><a href=\"/robots/unitree-h2\">Unitree H2</a> (€2.250/mnd) - service met bionisch gezicht.</li><li><a href=\"/robots/engineai-se01\">EngineAI SE01</a> (€1.590/mnd) - natuurlijke gait.</li><li><a href=\"/robots/ubtech-walker-s2\">UBTECH Walker S2</a> (€4.250/mnd) - auto-industrie, mass production.</li></ul>",
                 "<b>Wachtlijst 2026/2027 - reserveer voor priority access (4 modellen):</b>",
                 "<ul><li><a href=\"/robots/apptronik-apollo\">Apptronik Apollo</a> - Mercedes-Benz pilot, EU Q4 2026.</li><li><a href=\"/robots/figure-02\">Figure 02 / 03</a> - BMW deployment, derde partijen Q1 2027+.</li><li><a href=\"/robots/agility-digit\">Agility Digit v4</a> - Amazon/GXO RaaS, EU-distributie nog niet open.</li><li><a href=\"/robots/1x-neo\">1X NEO</a> - Noorwegen, EU-shipping Q1 2027.</li></ul>",
                 "Vergelijk modellen direct in onze <a href=\"/vergelijken\">vergelijkingstool</a> of bekijk de <a href=\"/robots\">volledige catalogus</a> met filters per tier, payload en prijs.",
@@ -55,7 +55,7 @@ PILLAR_GUIDE = {
             "h": "4. Hoeveel kost humanoïde robot leasing in 2026?",
             "body": [
                 "Eerlijke prijzen - niet de \"vanaf €XXX\" marketing-flauwekul. Hier is hoe BotLease leaseprijzen berekent:",
-                "<b>Formule:</b> Lease prijs/mnd = (Aanschafprijs / 36 maanden) + 25% service + 8% verzekering + 30% marge. Voor een €20.000 robot komt dat neer op ongeveer €890/mnd. Voor een €100.000 robot ongeveer €4.000/mnd.",
+                "<b>Formule:</b> Lease prijs/mnd = (Aanschafprijs / 36 maanden) + 25% service + 8% verzekering + 30% marge. Voor een €22.000 robot (instapklasse) komt dat neer op ongeveer €1.295/mnd. Voor een €95.000-€110.000 robot ongeveer €4.250-€4.890/mnd.",
                 "<b>Wat zit er in:</b> Installatie + 2-uurs operatortraining, preventief én correctief onderhoud, alle onderdelen, swap-SLA (vervangende unit binnen 24 uur op locatie), WA-verzekering tot €2,5M + casco, 24/7 helpdesk in het Nederlands, software-updates en remote tuning, integratie met je WMS/MES tijdens onboarding.",
                 "<b>Wat zit er niet in:</b> Pilot (€1.500 voor 4 weken), end-of-contract demontage (€500), elektriciteitskosten op locatie (~€30/mnd), custom integraties die langer dan 40 uur duren (€95/uur).",
                 "<b>Volume-korting:</b> Vanaf 3 units krijg je 8% korting op de leaseprijs. Vanaf 10 units 15%.",
@@ -70,7 +70,7 @@ PILLAR_GUIDE = {
                 "Vier vragen om het juiste model te kiezen:",
                 "<b>Vraag 1: Wat is je primaire taak?</b> Demo + R&D → <a href=\"/robots/unitree-r1\">Unitree R1</a>, <a href=\"/robots/unitree-g1\">Unitree G1</a>, <a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a>. Industriële kitting + parts-handling → <a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a>, <a href=\"/robots/ubtech-walker-s2\">UBTECH Walker S2</a>. 3PL tote-handling → <a href=\"/robots/agility-digit\">Digit</a> (wachtlijst) of <a href=\"/robots/unitree-h1-2\">Unitree H1-2</a>. Service in publieke ruimtes → <a href=\"/robots/unitree-h2\">Unitree H2</a>, <a href=\"/robots/1x-neo\">1X NEO</a> (wachtlijst).",
                 "<b>Vraag 2: Is EU AI-Act compliance kritiek voor je?</b> Zo ja, kies EU-gebouwd. NEURA, PAL en Pollen zijn vanaf dag 1 EU AI-Act + Machineverordening 2023/1230 ready. Aziatische modellen vereisen een conformity assessment per deployment (verzorgen wij, maar duurt 2-4 weken extra).",
-                "<b>Vraag 3: Welk budget heb je?</b> €290-900/mnd → R1, G1, NEURA Mini, H2. €1.500-2.500/mnd → TIAGo, EngineAI, Reachy. €3.000-4.500/mnd → H1-2, Walker S2, PAL Kangaroo, NEURA Gen 3.5, Apollo. Wachtlijst niet inbegrepen.",
+                "<b>Vraag 3: Welk budget heb je?</b> €290-1.300/mnd → R1, G1, NEURA Mini. €1.500-3.000/mnd → EngineAI SE01, H2, TIAGo Pro. €3.200-4.900/mnd → Reachy 2, Walker S2, PAL Kangaroo, NEURA Gen 3.5, H1-2, Apollo. Wachtlijst niet inbegrepen.",
                 "<b>Vraag 4: Hoe complex is je werkvloer?</b> Eenvoudige aisle-layout + dezelfde taak elke dag → goedkoper Aziatisch model. Mixed-mens-robot productielijnen + veranderende SKUs → premium cobot (NEURA, Apollo).",
                 "Twijfel? <a href=\"/#contact\">Plan een gratis intake</a> - wij komen langs en adviseren onafhankelijk welk model past. We verkopen niet één merk: we verkopen wat past.",
             ],
@@ -103,7 +103,7 @@ PILLAR_GUIDE = {
             "h": "8. ROI per sector - wat verdien je terug?",
             "body": [
                 "Op basis van publieke pilot-data uit EU/VS en onze eigen modellen - eerlijke cijfers, geen marketing.",
-                "<b><a href=\"/sectoren/3pl-fulfillment\">3PL & e-commerce fulfillment</a>:</b> 11-14 maanden ROI. Een UBTECH Walker S2 of (vanaf 2027) Apollo vervangt ~1,3 FTE in 2-ploegen. Bij €28/uur loonkost en 1,3 FTE × 2.080 uur/jaar = €76k bespaarde loonkosten/jaar. Met €3.290/mnd lease (€39.480/jaar) is netto resultaat ~€36k/jaar.",
+                "<b><a href=\"/sectoren/3pl-fulfillment\">3PL & e-commerce fulfillment</a>:</b> 11-14 maanden ROI. Een UBTECH Walker S2 of (vanaf 2027) Apollo vervangt ~1,3 FTE in 2-ploegen. Bij €28/uur loonkost en 1,3 FTE × 2.080 uur/jaar = €76k bespaarde loonkosten/jaar. Met €4.250/mnd lease (€51.000/jaar) is netto resultaat ~€25k/jaar.",
                 "<b><a href=\"/sectoren/productie-assemblage\">Productie & assemblage</a>:</b> 13-18 maanden ROI. Een NEURA 4NE-1 Gen 3.5 in een mixed-assembly cel vervangt geen FTE, maar versnelt cyclustijd met 15-25%. Voor een lijn met €2M omzet/jaar is dat €300-500k extra capaciteit.",
                 "<b><a href=\"/sectoren/hospitality-retail\">Hospitality & retail</a>:</b> 18-24 maanden ROI. Een Unitree G1 doet nachtelijke voorraadtelling = 2 FTE/week × €28/uur × 50 weken = €58k/jaar. Plus de gastenscore-uplift van een lobby-host (NEO of H2).",
                 "<b><a href=\"/sectoren/zorg-instellingen\">Zorg & instellingen</a>:</b> 18-30 maanden ROI. Lastiger om in geld uit te drukken want primair is het personeelsbehoud, niet kostenbesparing. Gemiddeld 0,6 FTE vrijgespeeld voor zorgtaken per robot. Voor een 200-bedden instelling: ~€42k/jaar bespaarde wervings- en inwerkkosten + betere zorgkwaliteit.",
@@ -251,7 +251,7 @@ AI_ACT_GUIDE = {
 GLOSSARY = {
     "slug": "begrippen",
     "title": "Humanoïde robot terminologie - begrippenlijst | BotLease",
-    "meta_desc": "Begrippenlijst humanoïde robotica: van AGV en cobot tot SLAM en VLA-model. 40+ termen kort en helder uitgelegd, inclusief Nederlandse context en lease-implicaties.",
+    "meta_desc": "Begrippenlijst humanoïde robotica: van AGV en cobot tot SLAM en VLA-model. 40+ termen kort uitgelegd, met Nederlandse context en lease-implicaties.",
     "keywords": "humanoide robot begrippen, robot terminologie, humanoid robot Nederlandse termen, cobot uitleg, SLAM robot, VLA model uitleg",
     "h1": "Humanoïde robot begrippen - 40+ termen uitgelegd.",
     "tagline": "De woordenlijst die je nodig hebt om gesprekken over humanoid-leasing te kunnen volgen. Kort, helder, met Nederlandse context.",
@@ -406,7 +406,7 @@ METHODOLOGY = {
                 "Geheim klein recept (waarom geheim? niet - zie hier):",
                 "<b>Maandprijs = (Aanschafprijs / 36) + (Aanschafprijs × 0,25 / 12) + (Aanschafprijs × 0,08 / 12) + Marge.</b>",
                 "<ul><li>Aanschafprijs / 36: lineaire afschrijving over 36 maanden.</li><li>×0,25/12: 25% jaarlijkse service+onderdelen-reserve = 2,08%/mnd.</li><li>×0,08/12: 8% jaarlijkse verzekering = 0,67%/mnd.</li><li>Marge: typisch 30% bovenop bovenstaande basis-kost.</li></ul>",
-                "Voor een €20.000 robot komt dat neer op: €556 (afschrijving) + €417 (service) + €133 (verzekering) = €1.106 basis. Plus 30% marge = €1.438. Wij ronden naar beneden af op €890/mnd om aantrekkelijk te zijn - verlies op marge i.p.v. op klant.",
+                "Voor een €22.000 robot komt dat neer op: €611 (afschrijving) + €458 (service) + €147 (verzekering) = €1.216 basis. Plus marge kom je rond €1.580 uit. Wij prijzen de instapklasse op €1.295/mnd - we leveren marge in om aantrekkelijk te blijven, verlies op marge i.p.v. op klant.",
                 "<b>Volume-korting:</b> 3+ units = -8%. 10+ units = -15%. Per-unit marge daalt maar absoluut volume compenseert.",
                 "<b>Korter contract:</b> 24 maanden = +7%. 12 maanden = +15%. Reden: snellere afschrijving over kortere termijn.",
             ],
@@ -446,9 +446,9 @@ METHODOLOGY = {
 
 COSTS_PAGE = {
     "slug": "kosten",
-    "title": "Wat kost een humanoïde robot leasen? Calculator + uitleg | BotLease",
+    "title": "Lease-calculator humanoïde robot — bereken je maandbedrag | BotLease",
     "meta_desc": "Bereken de exacte leaseprijs van 15 humanoïde robotmodellen. Vergelijk koop vs lease over 36 maanden inclusief installatie, onderhoud, verzekering. Eerlijke prijzen vanaf €290/maand.",
     "keywords": "humanoide robot kosten, humanoide robot prijs Nederland, robot lease calculator, hoeveel kost humanoid robot, robot leasen kosten",
-    "h1": "Wat kost een humanoïde robot leasen?",
+    "h1": "Lease-calculator: bereken je humanoïde-robot maandbedrag.",
     "tagline": "Eerlijke prijzen - bereken hieronder de exacte kosten voor jouw situatie. Inclusief vergelijking koop vs lease.",
 }

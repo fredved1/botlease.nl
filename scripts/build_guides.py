@@ -301,7 +301,7 @@ def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool
         "image": f"{SITE_URL}{og_image}",
         "datePublished": "2026-05-18T08:00:00+02:00",
         "dateModified": "2026-05-18T08:00:00+02:00",
-        "author": {"@type": "Organization", "name": "BotLease Redactie"},
+        "author": {"@type": "Person", "name": "Thomas Vedder", "url": f"{SITE_URL}/auteur/thomas-vedder"},
         "publisher": {"@type": "Organization", "name": "BotLease",
                       "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.png"}},
         "mainEntityOfPage": {"@type": "WebPage", "@id": f"{SITE_URL}/gids/{g['slug']}"},
@@ -520,13 +520,13 @@ def render_simple(g: dict, kind: str = "over") -> str:
         "@id": f"{SITE_URL}/#founder",
         "name": "Thomas Vedder",
         "jobTitle": "Oprichter",
+        "url": f"{SITE_URL}/auteur/thomas-vedder",
         "worksFor": {"@id": f"{SITE_URL}/#organization"},
-        "url": f"{SITE_URL}/over",
         "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service",
-                       "conversational AI", "EU AI-Act", "MKB-automatisering"],
-        "description": ("Oprichter van BotLease. Achtergrond in conversational AI en "
-                        "taalmodellen (2022–2025); richtte BotLease op om humanoïde-"
-                        "robotlease toegankelijk te maken voor het Nederlandse MKB."),
+                       "EU AI-Act", "conversational AI", "Nederlandse maakindustrie"],
+        "description": ("Oprichter van BotLease en redacteur van het BotLease-nieuws over "
+                        "humanoïde robots in Nederland en Europa. Achtergrond in "
+                        "conversational AI en taalmodellen."),
     }, ensure_ascii=False) if kind == "over" else ""
 
     return f"""<!DOCTYPE html>
@@ -676,14 +676,14 @@ def render_costs(g: dict) -> str:
         <p style="font-size:13px; color:var(--ink-3); margin-top:18px">Volume-korting: 3+ units −8%, 10+ units −15%. BTW excl.</p>
       </div>
       <div class="calc-out">
-        <div class="vbig" id="out-monthly">€890</div>
+        <div class="vbig" id="out-monthly">€1.295</div>
         <div class="vsub">per maand, all-in lease (excl. BTW)</div>
 
         <div class="vrow"><span class="k">Eenmalige setup</span><span class="v" id="out-setup">€2.500</span></div>
-        <div class="vrow"><span class="k">Totaal contractwaarde</span><span class="v" id="out-total">€34.040</span></div>
-        <div class="vrow"><span class="k">Aanschafprijs (publiek)</span><span class="v" id="out-purchase">€19.999</span></div>
+        <div class="vrow"><span class="k">Totaal contractwaarde</span><span class="v" id="out-total">€49.120</span></div>
+        <div class="vrow"><span class="k">Aanschafprijs (publiek)</span><span class="v" id="out-purchase">€22.000</span></div>
         <div class="vrow"><span class="k">Vermeden loonkosten/jr</span><span class="v" id="out-savings">€58.240</span></div>
-        <div class="vrow"><span class="k">Geschatte ROI-periode</span><span class="v" id="out-roi">6,9 mnd</span></div>
+        <div class="vrow"><span class="k">Geschatte ROI-periode</span><span class="v" id="out-roi">10,1 mnd</span></div>
 
         <div class="calc-summary" id="out-summary">
           Selecteer een model om de berekening te starten.
@@ -820,7 +820,7 @@ def render_comparison_hub() -> str:
     _ranked = sorted(ROBOTS, key=lambda r: (r["tier"] == "premium", r["lease_eur"]))
     itemlist_jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "ItemList",
-        "name": "Beste humanoïde robots om te leasen in Nederland (2026)",
+        "name": "Humanoïde robots vergelijken in Nederland (2026)",
         "description": "Vergelijking van 15 humanoïde robots beschikbaar voor operational lease in Nederland, gerangschikt op leverbaarheid en maandprijs.",
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
         "numberOfItems": len(_ranked),
@@ -843,9 +843,9 @@ def render_comparison_hub() -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beste humanoïde robots leasen 2026 — 15 modellen vergeleken | BotLease</title>
-<meta name="description" content="Welke humanoïde robot is in 2026 het beste om te leasen? Onze keuze per use-case (instap, EU-gebouwd, 3PL, productie) + 15 modellen vergeleken op prijs, specs en leverbaarheid in Nederland.">
-<meta name="keywords" content="beste humanoide robot leasen 2026, humanoide robots vergelijken, robot vergelijking, beste humanoid robot Nederland, vergelijk humanoid lease">
+<title>Humanoïde robots vergelijken: 15 modellen naast elkaar (2026) | BotLease</title>
+<meta name="description" content="Vergelijk 15 humanoïde robots op prijs, specs en leverbaarheid in Nederland. Alle leaseprijzen all-in per maand, van €290 tot €4.890. Inclusief onze keuze per use-case.">
+<meta name="keywords" content="humanoide robots vergelijken, robot vergelijking, humanoid robot specs prijzen, vergelijk humanoid lease">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/vergelijken">
 <meta property="og:type" content="website">
@@ -870,7 +870,7 @@ def render_comparison_hub() -> str:
   <div class="container">
     <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><span>Vergelijken</span></nav>
     <span class="eyebrow">Vergelijken · 2026</span>
-    <h1>Beste humanoïde robots om te leasen in 2026.</h1>
+    <h1>Vergelijk 15 humanoïde robots — specs, prijs en leverbaarheid.</h1>
     <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 15 modellen naast elkaar — specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
   </div>
 </section>
@@ -878,8 +878,8 @@ def render_comparison_hub() -> str:
 <section style="border-top:1px solid var(--line); padding:60px 0">
   <div class="container">
     <span class="eyebrow">Onze keuze · 2026</span>
-    <h2 style="margin:14px 0 10px">Beste humanoïde robot per use-case in 2026</h2>
-    <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 15 — beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand, inclusief installatie, training, onderhoud en swap-SLA.</p>
+    <h2 style="margin:14px 0 10px">Onze keuze per use-case</h2>
+    <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 15 — beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand. Lees ook de volledige ranking: <a href="/beste-humanoide-robots-2026" style="color:var(--accent)">de beste humanoïde robots voor bedrijven (2026) →</a></p>
     <div class="cmp-grid">{pick_cards}</div>
     <p style="margin-top:20px; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · 15 modellen, prijzen all-in per maand.</p>
   </div>
@@ -897,12 +897,13 @@ def render_comparison_hub() -> str:
     <span class="eyebrow">Populaire head-to-heads</span>
     <h2 style="margin:14px 0 28px">Direct vergelijken - top 6 vergelijkingen.</h2>
     <div class="cmp-grid">
-      <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · €899 vs €890 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €3.990 vs €3.290</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · beide €1.295 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €4.890 vs €4.250</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">EU vs US</div><div><div class="cmp-title">NEURA 4NE-1 Gen 3.5 vs Apptronik Apollo</div><div class="cmp-sub">EU-flagship vs US-wachtlijst · €4.490 vs €3.499</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/pal-kangaroo-vs-unitree-h1-2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">ES vs CN</div><div><div class="cmp-title">PAL Kangaroo vs Unitree H1-2</div><div class="cmp-sub">EU-veteraan vs CN-value · €3.490 vs €3.990</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/unitree-r1-vs-engineai-se01" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">R1 vs SE</div><div><div class="cmp-title">Unitree R1 vs EngineAI SE01</div><div class="cmp-sub">Instap demo vs natural gait · €290 vs €1.290</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/pal-kangaroo-vs-unitree-h1-2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">ES vs CN</div><div><div class="cmp-title">PAL Kangaroo vs Unitree H1-2</div><div class="cmp-sub">EU-veteraan vs CN-value · €4.250 vs €4.890</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-r1-vs-engineai-se01" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">R1 vs SE</div><div><div class="cmp-title">Unitree R1 vs EngineAI SE01</div><div class="cmp-sub">Instap demo vs natural gait · €290 vs €1.590</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/apptronik-apollo-vs-figure-02" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">Apollo vs F2</div><div><div class="cmp-title">Apptronik Apollo vs Figure 02</div><div class="cmp-sub">Mercedes-pilot vs BMW-pilot · €3.499 vs €3.899</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/humanoid-vs-cobot" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H vs C</div><div><div class="cmp-title">Humanoïde robot vs cobot</div><div class="cmp-sub">Welke automatisering past bij jouw proces? · beslisgids</div></div><div class="cmp-arr">Vergelijk →</div></a>
     </div>
   </div>
 </section>
@@ -950,7 +951,10 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
 
     h1 = f"{a['name']} vs {b['name']} - vergelijking 2026"
     title = f"{h1} | BotLease"
-    meta_desc = f"Side-by-side vergelijking {a['name']} vs {b['name']}: specs, prijs, use-case, leverbaarheid. €{a['lease_eur']:,}/mnd vs €{b['lease_eur']:,}/mnd. Welke past bij jouw situatie?".replace(",", ".")
+    def _eu(n):
+        return "€" + f"{n:,}".replace(",", ".")
+    meta_desc = (f"Side-by-side vergelijking {a['name']} vs {b['name']}: specs, prijs, use-case en leverbaarheid. "
+                 f"{_eu(a['lease_eur'])}/mnd vs {_eu(b['lease_eur'])}/mnd, all-in lease.")
     slug = f"{slug_a}-vs-{slug_b}"
     breadcrumb = json.dumps({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -1412,7 +1416,7 @@ def build():
              "<li><b>Vaste taak, vaste plek.</b> Pick-and-place bij dezelfde lopende band, soldeerwerk aan dezelfde productlijn, schroeven aan hetzelfde frame. Een cobot blinkt uit in herhaaldelijk identiek werk.</li>"
              "<li><b>Hoge precisie, zware payload.</b> Een UR20 tilt 20 kg met 0,05mm precisie. Een Unitree G1 tilt 3 kg, met menselijke (niet sub-millimeter) precisie.</li>"
              "<li><b>24/7 operatie.</b> Cobots hebben geen batterij - stroom-aansluiting, draaien continu. Humanoids draaien typisch 2-4 uur per laadbeurt.</li>"
-             "<li><b>Lager prijspunt.</b> UR3e cobot vanaf €27.000 koop, €450/mnd lease via UR Financial Services × DLL. Humanoids beginnen bij €290/mnd (R1) en zijn typisch €899-€4.890/mnd.</li>"
+             "<li><b>Lager prijspunt.</b> UR3e cobot vanaf €27.000 koop, €450/mnd lease via UR Financial Services × DLL. Humanoids beginnen bij €290/mnd (R1) en zijn typisch €1.295-€4.890/mnd.</li>"
              "<li><b>Bewezen ROI-modellen.</b> Cobots staan al 10 jaar in productie. Voor één-taak workflows zijn de ROI-berekeningen bekend en betrouwbaar.</li>"
              "</ul>"),
             ("Wanneer kies je een humanoïde robot",
