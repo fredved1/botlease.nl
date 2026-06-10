@@ -213,6 +213,8 @@ async function backupToCRM(data) {
         subject: prefix,
         message: msgBody,
         source:  'formulier',
+        robot:   data.robot_name || data.robot_slug || '',
+        sourcing: data.type === 'order' ? (SOURCE_BY_SLUG[data.robot_slug] || '') : '',
       }),
     });
     if (!resp.ok) {
