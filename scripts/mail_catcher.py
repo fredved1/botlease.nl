@@ -42,6 +42,13 @@ def text_from(msg) -> str:
 
 
 class CRMHandler:
+    async def handle_RCPT(self, server, session, envelope, address, rcpt_options):
+        # alleen post voor ons eigen capture-domein — weert relay-probes en scanner-spam
+        if not address.lower().endswith("@in.botlease.nl"):
+            return "550 not relaying to that domain"
+        envelope.rcpt_tos.append(address)
+        return "250 OK"
+
     async def handle_DATA(self, server, session, envelope):
         try:
             if len(envelope.content) > MAX_BYTES:
