@@ -6,7 +6,8 @@ _Laatst bijgewerkt: 11-6-2026_
 
 | Bedrijf | Status | Datum | Notitie |
 |---|---|---|---|
-| Atlas Copco Airpower (humanoid taskforce) | Holdmail verstuurd | 5-6-2026 | Wacht op leverancier + specialist voor het echte gesprek |
+| Atlas Copco Airpower (humanoid taskforce) | Holdmail verstuurd | 5-6-2026 | 1-pager klaar (send-atlas-onepager.html) — versturen wanneer Thomas wil |
+| VR Expert B.V. (Dante Spekman) | In gesprek ⭐ | 9-6-2026 | Bestelling G1 Edu ×1 + verhuur-verkenning Benelux/DACH; 3 vragen gemaild 11-6, wacht op antwoord |
 
 ## Leveranciers & distributeurs
 
@@ -14,31 +15,31 @@ _Laatst bijgewerkt: 11-6-2026_
 ### Fabrikanten
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
-| PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 |  |
-| Pollen Robotics | sales@pollen-robotics.com | Gemaild | 5-6-2026 |  |
-| EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 |  |
-| UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 |  |
-| Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 |  |
-| NEURA Robotics | info@neura-robotics.com | Gemaild | 5-6-2026 |  |
-| 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 |  |
+| PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 | Alexandre testte order-flow; speelse reply 11-6 → partner-gesprek |
+| Pollen Robotics | sales@pollen-robotics.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: standaard-klant + staffels, G1 4-5wk, CE ✓; selection table gevraagd 11-6 |
+| NEURA Robotics | info@neura-robotics.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 
 ### EU-distributeurs
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
-| Terra Robotics | mail@terra-robotics.de | Gemaild | 5-6-2026 |  |
-| Generation Robots | contact@generationrobots.com | Gemaild | 5-6-2026 |  |
-| QUADRUPED / MyBotShop | info@quadruped.de | Gemaild | 5-6-2026 |  |
-| Synergy Tech (Unitree ES) | info@synergytech.es | Gemaild | 5-6-2026 |  |
-| RoboCorpus | jordi.hurssel@robocorpus.be | Gemaild | 5-6-2026 |  |
-| INGEN Innovations | services@ingen-geosciences.com | Gemaild | 5-6-2026 |  |
-| Leobotics | contact@leobotics.fr | Gemaild | 5-6-2026 |  |
-| RobotShop Europe | marketplace@robotshop.com | Gemaild | 5-6-2026 |  |
-| OrcaRobot (UBTECH EU/NL) | richard@orcarobot.com | Gemaild | 5-6-2026 |  |
+| Terra Robotics | mail@terra-robotics.de | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Generation Robots | contact@generationrobots.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| QUADRUPED / MyBotShop | info@quadruped.de | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Synergy Tech (Unitree ES) | info@synergytech.es | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| RoboCorpus | jordi.hurssel@robocorpus.be | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| INGEN Innovations | services@ingen-geosciences.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Leobotics | contact@leobotics.fr | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| RobotShop Europe | marketplace@robotshop.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| OrcaRobot (UBTECH EU/NL) | richard@orcarobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 
 ### Alleen via formulier
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
-| Apptronik | apptronik.com/contact-us | Gemaild | 5-6-2026 |  |
-| Agility Robotics | agilityrobotics.com/sales | Gemaild | 5-6-2026 |  |
-| Figure AI | figure.ai/company | Gemaild | 5-6-2026 |  |
-| INNOV8 Group | innov8.fr/contact-us | Gemaild | 5-6-2026 |  |
+| Apptronik | apptronik.com/contact-us | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Agility Robotics | agilityrobotics.com/sales | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| Figure AI | figure.ai/company | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| INNOV8 Group | innov8.fr/contact-us | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
