@@ -53,6 +53,9 @@ class CRMHandler:
         try:
             if len(envelope.content) > MAX_BYTES:
                 return "552 Message too large"
+            # BCC-logboek: stuurt Thomas een mail met BCC naar verstuurd@in.botlease.nl,
+            # dan loggen we die als uitgaande mail (geen nieuwe lead).
+            is_outgoing = any(r.lower().startswith("verstuurd@") for r in envelope.rcpt_tos)
             msg = email.message_from_bytes(envelope.content, policy=email.policy.default)
             frm = str(msg.get("From", envelope.mail_from or ""))[:300]
             m = re.search(r"<([^>]+)>", frm)
@@ -60,12 +63,20 @@ class CRMHandler:
             from_name = re.sub(r"<[^>]*>", "", frm).strip(' "')[:200] or from_email
             subject = str(msg.get("Subject", ""))[:300]
             body = text_from(msg)
+            to_hdr = str(msg.get("To", ""))[:200]
             with sqlite3.connect(DB) as con:
-                con.execute(
-                    "INSERT INTO leads (created, updated, source, name, company, email, phone,"
-                    " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
-                    (now(), now(), "mail", from_name, "", from_email, "",
-                     subject, body, "nieuw", ""))
+                if is_outgoing:
+                    con.execute(
+                        "INSERT INTO leads (created, updated, source, name, company, email, phone,"
+                        " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                        (now(), now(), "uitgaand", f"AAN: {to_hdr}", "", to_hdr, "",
+                         subject, body[:2000], "beantwoord", "Automatisch gelogd via BCC verstuurd@in.botlease.nl"))
+                else:
+                    con.execute(
+                        "INSERT INTO leads (created, updated, source, name, company, email, phone,"
+                        " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                        (now(), now(), "mail", from_name, "", from_email, "",
+                         subject, body, "nieuw", ""))
             print(f"[mail] lead opgeslagen van {from_email}: {subject[:60]}")
             return "250 Message accepted for delivery"
         except Exception as e:
