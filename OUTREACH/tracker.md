@@ -15,7 +15,7 @@ _Laatst bijgewerkt: 11-6-2026_
 ### Fabrikanten
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
-| PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 | Alexandre testte order-flow; speelse reply 11-6 → partner-gesprek |
+| PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 | ⚠️ 11-6: Alexandre in A'dam, wil f2f; formeel bezwaar tegen PAL-producten op site → ALLES verwijderd (zelfde middag, 13 modellen over); excuus + meeting-reply via WhatsApp |
 | Pollen Robotics | sales@pollen-robotics.com | Antwoord ontvangen | 5-6-2026 | Santiago Pavon: misverstand-reply VERSTUURD 11-6 ✓ (Reachy 2 + Mini als bureau-demo); wacht op antwoord |
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:12) |
 | UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:19, via BCC-log) |
