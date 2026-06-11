@@ -19,7 +19,7 @@ _Laatst bijgewerkt: 11-6-2026_
 | Pollen Robotics | sales@pollen-robotics.com | Antwoord ontvangen | 5-6-2026 | Santiago Pavon: misverstand-reply VERSTUURD 11-6 ✓ (Reachy 2 + Mini als bureau-demo); wacht op antwoord |
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:12) |
 | UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:19, via BCC-log) |
-| Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: standaard-klant + staffels, G1 4-5wk, CE ✓; selection table gevraagd 11-6 |
+| Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: selection table + CE-cert ONTVANGEN 11-6 ✓; condities: staffel >$50k, 100% vooruit, 4-5wk incl. verzending, $1500/unit shipping; offerte U1+U2 aangevraagd |
 | NEURA Robotics | info@neura-robotics.com | Antwoord ontvangen | 5-6-2026 | Kristina Naumoska: wil use-case-info; beantwoord 11-6 als lease-partner |
 | 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
 
