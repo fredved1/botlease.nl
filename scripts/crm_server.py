@@ -16,7 +16,9 @@ Endpoints (pad-prefix /crm wordt gestript voor compatibiliteit):
 """
 import json
 import os
+import smtplib
 import sqlite3
+from email.message import EmailMessage
 import socketserver
 import http.server
 from datetime import datetime, timezone
@@ -28,6 +30,10 @@ DB = BASE / "crm.db"
 PORT = 8788
 ACCESS_KEY = os.environ.get("CRM_ACCESS_KEY", "")
 WEBHOOK_SECRET = os.environ.get("CRM_WEBHOOK_SECRET", "")
+SMTP_HOST = os.environ.get("CRM_SMTP_HOST", "smtp.hostnet.nl")
+SMTP_PORT = int(os.environ.get("CRM_SMTP_PORT", "587"))
+SMTP_USER = os.environ.get("CRM_SMTP_USER", "hallo@botlease.nl")
+SMTP_PASS = os.environ.get("CRM_SMTP_PASS", "")  # leeg = direct-versturen uitgeschakeld
 
 STATUSES = ["nieuw", "beantwoord", "in gesprek", "offerte", "gewonnen", "verloren", "on hold"]
 
@@ -209,7 +215,7 @@ textarea{width:100%;resize:vertical;margin-top:8px}
 </div>
 <script>
 const KEY=new URLSearchParams(location.search).get('key')||'';
-const STATUSES=__STATUSES__;
+const STATUSES=__STATUSES__;const CANSEND=__CANSEND__;
 let LEADS=[],OUT=[],TASKS=[],FILTER='alles',ZOEK='',OPENID=null;
 const flash=()=>{const s=document.getElementById('saved');s.style.opacity=1;setTimeout(()=>s.style.opacity=0,1400);};
 const esc=s=>{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;};
@@ -230,12 +236,23 @@ function drawTasks(){
  const el=document.getElementById('v-werk');el.innerHTML='';
  if(!open.length){el.innerHTML='<div class="leeg"><b>🎉</b>Alles afgewerkt — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
  const rij=t=>{const ico=(t.title.match(/^\S+/)||['•'])[0];const tt=t.title.replace(/^\S+\s*/,'');
-  const mb=t.mail_to?`<a class="btn" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️ Open mail</a>`:'';
-  return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts">${mb}<button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;};
+  const send=CANSEND&&t.mail_to?`<button class="btn" onclick="verstuur(${t.id},this)">📨 Verstuur</button>`:'';
+  const mb=t.mail_to?`<a class="btn ${CANSEND?'gh':''}" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️</a><button class="btn gh" title="Kopieer netjes opgemaakt (voor replies)" onclick='richCopy(${JSON.stringify(t.mail_body)})'>📋</button>`:'';
+  void 0;
+  return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts">${send}${mb}<button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;};
  if(mails.length){el.insertAdjacentHTML('beforeend','<div class="sectie">✉️ Mails versturen ('+mails.length+')</div>'+mails.map(rij).join(''));}
  if(acties.length){el.insertAdjacentHTML('beforeend','<div class="sectie">Acties ('+acties.length+')</div>'+acties.map(rij).join(''));}
  if(done.length){el.insertAdjacentHTML('beforeend',`<div class="klaarlog">✓ Afgerond (${done.length}): ${done.slice(-6).map(t=>esc(t.title.replace(/^\S+\s*/,''))).join(' · ')}</div>`);}
 }
+async function verstuur(id,btn){const t=TASKS.find(x=>x.id===id);
+ if(!confirm('Versturen naar '+t.mail_to+'?'))return;
+ btn.disabled=true;btn.textContent='Versturen…';
+ try{await api('api/send',{id:id});flash();t.status='klaar';drawTasks();}
+ catch(e){btn.disabled=false;btn.textContent='📨 Verstuur';alert('Versturen mislukt — gebruik de ✉️-knop.');}}
+function richCopy(body){
+ const html=body.split(/\n\n+/).map(p=>'<p style="margin:0 0 12px;font-family:Calibri,Arial,sans-serif;font-size:11pt">'+p.replace(/\n/g,'<br>')+'</p>').join('');
+ const item=new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([body],{type:'text/plain'})});
+ navigator.clipboard.write([item]).then(()=>flash());}
 async function taakKlaar(id){await api('api/task-update',{id:id,status:'klaar'});flash();TASKS.find(t=>t.id===id).status='klaar';drawTasks();}
 
 /* ── leads ── */
@@ -338,7 +355,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if path in ("/", "/index.html"):
             if not self._authed(q):
                 return self._send(401, "<h3>401 - open de volledige link met ?key=...</h3>".encode(), "text/html; charset=utf-8")
-            return self._send(200, PAGE.replace("__STATUSES__", json.dumps(STATUSES)).encode(), "text/html; charset=utf-8")
+            return self._send(200, PAGE.replace("__STATUSES__", json.dumps(STATUSES)).replace("__CANSEND__", "true" if SMTP_PASS else "false").encode(), "text/html; charset=utf-8")
         if path == "/api/leads":
             if not self._authed(q):
                 return self._send(401, {"error": "unauthorized"})
@@ -379,6 +396,36 @@ class Handler(http.server.BaseHTTPRequestHandler):
                      str(d.get("mail_to") or "")[:200], str(d.get("mail_subject") or "")[:300],
                      str(d.get("mail_body") or "")[:8000], "open"))
             return self._send(200, {"ok": True, "id": cur.lastrowid})
+        if path == "/api/send":  # direct versturen vanuit de werklijst (user klikt)
+            if not SMTP_PASS:
+                return self._send(400, {"error": "SMTP niet geconfigureerd"})
+            if not isinstance(d.get("id"), int):
+                return self._send(400, {"error": "geen id"})
+            with db() as con:
+                task = con.execute("SELECT * FROM tasks WHERE id=?", (d["id"],)).fetchone()
+            if not task or not task["mail_to"]:
+                return self._send(404, {"error": "taak niet gevonden of geen mail"})
+            try:
+                msg = EmailMessage()
+                msg["From"] = f"Thomas Vedder | BotLease <{SMTP_USER}>"
+                msg["To"] = task["mail_to"]
+                msg["Subject"] = task["mail_subject"]
+                msg.set_content(task["mail_body"])
+                with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=25) as s:
+                    s.starttls()
+                    s.login(SMTP_USER, SMTP_PASS)
+                    s.send_message(msg)
+            except Exception as e:
+                return self._send(502, {"error": f"versturen mislukt: {str(e)[:160]}"})
+            with db() as con:
+                con.execute("UPDATE tasks SET status='klaar', updated=? WHERE id=?", (now(), d["id"]))
+                con.execute(
+                    "INSERT INTO leads (created, updated, source, name, company, email, phone,"
+                    " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                    (now(), now(), "uitgaand", f"AAN: {task['mail_to']}", "", task["mail_to"], "",
+                     task["mail_subject"], task["mail_body"][:2000], "beantwoord",
+                     "Direct verstuurd vanuit het CRM"))
+            return self._send(200, {"ok": True})
         if path == "/api/task-update":
             if d.get("status") in ("open", "klaar") and isinstance(d.get("id"), int):
                 with db() as con:
