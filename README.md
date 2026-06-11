@@ -1,100 +1,28 @@
-# BotLease - AI-automatisering zonder risico
+# botlease.nl
 
-Full-stack applicatie voor BotLease, een AI-automatiseringsbedrijf opgericht door Thomas Vedder.
+Statische site voor **BotLease B.V.** — operational lease, verhuur en verkoop van humanoïde robots (NL/EU).
 
-## 🚀 Project Structuur
+## Structuur
+| Map | Wat |
+|---|---|
+| `frontend/` | de site (webroot op Vercel, project **botlease-v2**) — 85+ pagina's, `frontend/vercel.json` is de actieve config |
+| `scripts/` | generators (`build_robots/news/guides/landingpages.py` + `style_base.py`/`seo_common.py`), news-bot, CRM/mail-catcher (draaien op VPS), OG-beeld-generator |
+| `docs/` | businessplan v2, concurrentie/haalbaarheid, verkoopdocs (`docs/archief/` = oude versies) |
+| `OUTREACH/` | leveranciers-tracker, één-klik-mailpagina's, GEO-offsite-plan |
+| `seo/` | keyword-targets + wekelijkse snapshots (analytics/rank-bots) |
+| `archive/` | oud chatbot-tijdperk (vóór de humanoid-pivot) — niet meer in gebruik |
 
+## Deployen
+Push naar master deployt **niet** automatisch. Vanaf een schone checkout:
 ```
-botlease/
-├── frontend/          # Vercel frontend
-│   ├── index.html     # Main website
-│   ├── api/           # API routes
-│   │   └── contact.js # Contact form
-│   ├── package.json   # Dependencies
-│   └── vercel.json    # Vercel config
-├── backend/           # Flask chatbot backend
-│   ├── app.py         # Main Flask app
-│   ├── requirements.txt
-│   ├── Dockerfile     # Docker config
-│   └── README.md      # Backend docs
-└── README.md          # Project overview
-```
-
-## 🛠️ Tech Stack
-
-### Frontend
-- Pure HTML/CSS/JavaScript
-- Vercel hosting
-- Vercel Postgres voor contact forms
-
-### Backend
-- Flask + Python
-- Google Gemini AI
-- Azure/Railway hosting
-
-## 📦 Installatie
-
-### Frontend
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Run locally
-vercel dev
-
-# Deploy to Vercel
-vercel --prod
+git worktree add --detach /tmp/bl origin/master && cp -r .vercel /tmp/bl/.vercel
+cd /tmp/bl && vercel --prod --yes
 ```
 
-### Backend
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+## ⚠️ Belangrijk vóór je rebuildt
+~57 pagina's bevatten een hand-geïnjecteerde `#mobile-first-patch` (hamburgermenu) die de generators **niet** produceren. Nieuws (`frontend/nieuws/`) is wél veilig te rebuilden; al het andere: generator aanpassen én live HTML in-place patchen. Prijzen: bron = `scripts/robots_data.py` (canon v2, €290–€6.650).
 
-# Create .env file (see backend/.env.example)
-python app.py
-```
-
-## 🔧 Environment Variables
-
-### Frontend (Vercel)
-- Automatisch geconfigureerd voor Vercel Postgres
-
-### Backend
-- `GEMINI_API_KEY`: Google AI API key
-- `GEMINI_MODEL`: Model naam (default: gemini-2.0-flash-exp)
-
-## 🚀 Deployment
-
-### Frontend
-1. Push naar GitHub
-2. Verbind met Vercel
-3. Automatische deployments bij elke push
-
-### Backend opties
-1. **Azure App Service** (aanrader voor enterprise)
-2. **Railway** (makkelijk en snel)
-3. **Docker** (voor custom hosting)
-
-## 📝 Features
-
-- ✅ Moderne, professionele website
-- ✅ Geïntegreerde AI chatbot
-- ✅ Contact formulier met database opslag
-- ✅ Responsive design
-- ✅ No cure, no pay messaging
-- ✅ Thomas Vedder's persoonlijke verhaal
-
-## 👤 Contact
-
-**Thomas Vedder**  
-Founder BotLease  
-AI-specialist met overheid ervaring
-
-## 📄 License
-
-© 2024 BotLease. All rights reserved.
+## Backend (VPS 185.107.90.42)
+- **CRM**: `https://crm.botlease.nl/?key=…` (systemd `botlease-crm`, SQLite) — alle aanvragen/bestellingen/mails als leads
+- **Mail-capture**: `botlease-mail` (SMTP :25, `in.botlease.nl`) → CRM
+- News-bot: wekelijks (cron-afronding pending)

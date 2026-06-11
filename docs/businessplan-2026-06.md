@@ -46,6 +46,16 @@ Formule (gepubliceerd op /methodologie): aanschaf/36 + 25%/jr service-reserve + 
 - De gepubliceerde prijzen bevatten vrijwel geen marge; winst hangt op werkelijke servicekosten < reserve. Bij herijking (na leveranciers-deals) prijzen formule-conform maken.
 - **Pilot (€1.500/4 wk) is acquisitiekost, geen omzet**: reële kosten €2.000-3.500 en bij conversie wordt de fee gecrediteerd. Zo boeken, zo budgetteren.
 
+**Verhuur-ladder (vastgesteld 11 juni — live op /huren en /robot-huren-evenement):** drie inkomstenvormen op dezelfde inkooplijn, oplopend in commitment:
+
+| Vorm | Unitree R1 | Unitree G1 | Logica |
+|---|---:|---:|---|
+| Eventdag (incl. operator) | €750/dag | €1.450/dag | hoogste marge per dag; funnel-instap |
+| Maandhuur (flex, min. 1 mnd) | €690/mnd | €2.450/mnd | ±1,9× lease = flexpremie; dekt leegstand, transport en refurb tussen huurders |
+| Operational lease (36 mnd) | €290/mnd | €1.295/mnd | structureel; volume |
+
+Maandhuur-economie: een G1 op €2.450/mnd zit ~€1.180/mnd boven de eigen kostprijsformule — per maand de winstgevendste vorm, mits bezetting (leegstand is het risico; daarom alleen R1/G1 actief aangeboden, rest op aanvraag). De funnel is: eventdag → maandhuur → lease. Pilot (€1.500) blijft uitsluitend lease-opstap. Belangrijk: vorige versie van /huren bood maandhuur per ongeluk aan tegen léaseprijs (€290) — gefixt.
+
 ## 5. Cash-model (de levensader)
 
 Lease op eigen balans = robot vooraf kopen (€8k-€110k), klant betaalt per maand; terugverdientijd aanschaf 18-28 maanden, terwijl het contract na 12 maanden opzegbaar is. **Voor een eenmanszaak zonder kapitaal onhoudbaar — daarom:**
@@ -68,7 +78,7 @@ Eén founder-salaris (€3k/mnd) vergt ~8-12 lopende G1's (€184-276k vloot) ó
 ## 7. 90-dagen go-to-market (10 juni – 8 september)
 
 **Week 1-2:** leveranciers-follow-up versturen (klaar: `OUTREACH/send-links-followup.html` — vraagt consignatie-demo + partnerprijzen) · off-site GEO-lijst plaatsen (LinkedIn, directories, Wikidata — klaar in `OUTREACH/geo-offsite-plan.md`) · **Automation Xperience 17-18 juni, Den Bosch bezoeken** (distributeur-gesprekken + leads + content) · Atlas Copco warm houden met een 1-pager "EU-leveranciersstatus humanoids".
-**Week 3-6:** verhuur-/eventpagina live met publieke dagprijs ("humanoid huren voor beurs/event") · eerste boekingen via ingehuurde unit van distributeur (broker-model, 30-50% marge, €0 capex) · LinkedIn founder-content 3×/week (build-in-public).
+**Week 3-6:** ✅ verhuur-/eventpagina live (11 juni) met publieke dagprijs ("humanoid huren voor beurs/event") · eerste boekingen via ingehuurde unit van distributeur (broker-model, 30-50% marge, €0 capex) · LinkedIn founder-content 3×/week (build-in-public).
 **Week 7-10:** Atlas Copco-pilotpropositie klaar (3 mnd, afgebakende taak, compliance-pakket) · **WoTS-outreach** (Jaarbeurs, 22-25 sept): 20-30 standhouders mailen — "humanoid op je stand, per dag incl. operator".
 **Week 11-13:** WoTS-boekingen draaien; elke verhuring eindigt met de lease-vraag; tweede leveranciersronde met bewijs.
 
