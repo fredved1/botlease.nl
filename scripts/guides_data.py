@@ -6,13 +6,13 @@ Iedere guide is autoritair, lang en geoptimaliseerd voor primary/secondary keywo
 PILLAR_GUIDE = {
     "slug": "humanoide-robot-leasen",
     "title": "Humanoïde robot leasen in Nederland - complete gids 2026 | BotLease",
-    "meta_desc": "Complete gids humanoïde robot lease in Nederland: 15 modellen, prijzen €290-6.650/mnd, EU AI-Act compliance, ROI per sector en het 4-weken pilot-proces.",
+    "meta_desc": "Complete gids humanoïde robot lease in Nederland: 13 modellen, prijzen €290-6.650/mnd, EU AI-Act compliance, ROI per sector en het 4-weken pilot-proces.",
     "keywords": "humanoide robot leasen, humanoid robot lease Nederland, humanoide robot huren, robot lease MKB, humanoide robot kopen of leasen, humanoide robot prijs Nederland",
     "h1": "Humanoïde robot leasen in Nederland: de complete gids voor 2026.",
-    "tagline": "15 modellen vergeleken, eerlijke prijzen, EU AI-Act compliance en het pilot-traject - geschreven voor Nederlandse MKB-ondernemers die weten wat ze willen.",
+    "tagline": "13 modellen vergeleken, eerlijke prijzen, EU AI-Act compliance en het pilot-traject - geschreven voor Nederlandse MKB-ondernemers die weten wat ze willen.",
     "tldr": [
         "Lease-prijzen lopen van €290/mnd (Unitree R1, instap) tot €5.950/mnd (NEURA 4NE-1 Gen 3.5, industrieel). All-in inclusief installatie, training, onderhoud, swap-SLA en verzekering.",
-        "Vijf modellen zijn EU-gebouwd (NEURA in Duitsland, PAL in Spanje, Pollen in Frankrijk) - dat is strategisch belangrijk voor de EU AI-Act die vanaf 2 augustus 2026 volledig van kracht is.",
+        "Drie modellen zijn EU-gebouwd (NEURA in Duitsland, Pollen in Frankrijk) - dat is strategisch belangrijk voor de EU AI-Act die vanaf 2 augustus 2026 volledig van kracht is.",
         "Apptronik Apollo, Figure 02, 1X NEO en Boston Dynamics Atlas zijn pas vanaf Q4 2026 / Q1 2027 commercieel verkrijgbaar voor derden in EU. Reserveer-mogelijkheid via BotLease.",
         "Typische pilot kost €1.500 voor 4 weken. ROI loopt van 11-14 maanden (3PL) tot 18-24 maanden (zorg). Geen investering vooraf, opzegbaar per maand na jaar 1.",
     ],
@@ -23,7 +23,7 @@ PILLAR_GUIDE = {
             "body": [
                 "Humanoïde robot leasing is een vorm van operational lease waarbij een leasemaatschappij (zoals BotLease) eigenaar blijft van de robot en deze als dienst aan een eindgebruiker beschikbaar stelt - typisch voor 36 maanden, met installatie, training, onderhoud, swap-SLA en verzekering inbegrepen. De gebruiker betaalt een vaste maandprijs en draagt geen restwaarde-risico.",
                 "Het belangrijkste verschil met klassieke robotleasing (zoals industriële arm-robots): humanoïdes zijn <b>multi-task</b>, ze passen in bestaande menselijke werkomgevingen zonder dat de vloer of werkstations aangepast hoeven worden. Dat maakt humanoid leasing aantrekkelijk voor MKB-bedrijven die anders nooit voor robotica zouden kiezen - zoals 3PLs met fluctuerende volumes, productiebedrijven met SKU-mix, hotels met piekuren, of zorginstellingen met logistiek-tekort.",
-                "<a href=\"/robots\">In onze catalogus</a> staan 15 modellen, ingedeeld in drie categorieën: <a href=\"/robots#eu-gebouwd\">EU-gebouwd</a> (NEURA 4NE-1, PAL Kangaroo, Pollen Reachy 2 - strategisch belangrijk voor EU AI-Act compliance), Aziatisch leverbaar (Unitree, UBTECH, EngineAI - best value), en wachtlijst 2026/2027 (Apptronik Apollo, Figure 02, 1X NEO).",
+                "<a href=\"/robots\">In onze catalogus</a> staan 13 modellen, ingedeeld in drie categorieën: <a href=\"/robots#eu-gebouwd\">EU-gebouwd</a> (NEURA 4NE-1, NEURA 4NE-1, Pollen Reachy 2 - strategisch belangrijk voor EU AI-Act compliance), Aziatisch leverbaar (Unitree, UBTECH, EngineAI - best value), en wachtlijst 2026/2027 (Apptronik Apollo, Figure 02, 1X NEO).",
             ],
         },
         {
@@ -33,16 +33,16 @@ PILLAR_GUIDE = {
                 "Een Unitree G1 kost €16.000 aanschaf. Apptronik Apollo wordt rond de €48.000. Een NEURA 4NE-1 Gen 3.5 is €98.000. Maar dat is alleen de hardware. Tel daar bij op: installatie (€5-15k afhankelijk van complexiteit), training operators (€2-4k), software-integratie met je WMS/MES (€5-25k), eerste-jaarsonderhoud + reserveonderdelen (~15% van de aanschafprijs), verzekering (~3% van de aanschafprijs per jaar). Dan praat je over een Total Cost of Ownership van €35k-€170k in jaar 1.",
                 "<b>Waarom leasen voor MKB?</b> Drie redenen: (1) Geen investering vooraf - de €100k+ blijft op je balans als werkkapitaal. (2) Geen restwaarde-risico - humanoïde robots zijn nieuwe technologie, niemand weet wat ze in 3 jaar waard zijn. (3) Geen onderhoudslast - wij regelen vervanging bij storing (<a href=\"/methodologie#swap-sla\">Swap-SLA</a>) en doen preventief onderhoud op afstand.",
                 "<b>Wanneer kopen?</b> Alleen als je 24/7 één specifieke taak hebt, weet dat de robot 5+ jaar meegaat, en je een eigen onderhoudsteam hebt. Voor 95% van de Nederlandse MKB-bedrijven is dat niet zo. Voor R&D bij scale-ups en universiteiten kan koop wel logisch zijn (lange afschrijftermijn, eigen kennis).",
-                "<a href=\"/kosten\">Bereken hier wat een specifieke robot voor jouw situatie kost</a> - vergelijkt koop vs. lease voor alle 15 modellen.",
+                "<a href=\"/kosten\">Bereken hier wat een specifieke robot voor jouw situatie kost</a> - vergelijkt koop vs. lease voor alle 13 modellen.",
             ],
         },
         {
             "id": "modellen",
-            "h": "3. Welke 15 modellen zijn nu in Nederland leverbaar?",
+            "h": "3. Welke 13 modellen zijn nu in Nederland leverbaar?",
             "body": [
                 "Marktonderzoek van mei 2026 levert een gefilterd, eerlijk overzicht. Veel modellen die in de media verschijnen (Tesla Optimus, Boston Dynamics Atlas, Figure 02) zijn nog niet open verkocht in EU - alleen pilot-deployments bij specifieke OEMs. Dit zijn de modellen die je vandaag of binnen 12 maanden kunt leasen.",
                 "<b>EU-gebouwd - strategische kern (5 modellen):</b>",
-                "<ul><li><a href=\"/robots/neura-4ne1-mini\">NEURA 4NE-1 Mini</a> (€1.295/mnd) - Duitse cobot, artificial skin, Porsche-design.</li><li><a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a> (€5.950/mnd) - industrieel flagship, 100 kg payload, Bosch partner.</li><li><a href=\"/robots/pal-kangaroo\">PAL Kangaroo</a> (€5.750/mnd) - Spaanse bipedal, 20+ jaar heritage, ROS-native.</li><li><a href=\"/robots/pal-tiago-pro\">PAL TIAGo Pro</a> (€3.950/mnd) - wheeled humanoid, 100+ EU-deployments.</li><li><a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> (€4.150/mnd) - open-source, Hugging Face-owned.</li></ul>",
+                "<ul><li><a href=\"/robots/neura-4ne1-mini\">NEURA 4NE-1 Mini</a> (€1.295/mnd) - Duitse cobot, artificial skin, Porsche-design.</li><li><a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a> (€5.950/mnd) - industrieel flagship, 100 kg payload, Bosch partner.</li><li>20+ jaar heritage, ROS-native.</li><li>100+ EU-deployments.</li><li><a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> (€4.150/mnd) - open-source, Hugging Face-owned.</li></ul>",
                 "<b>Aziatisch leverbaar - best value (6 modellen):</b>",
                 "<ul><li><a href=\"/robots/unitree-r1\">Unitree R1</a> (€290/mnd) - instap, demo + education.</li><li><a href=\"/robots/unitree-g1\">Unitree G1</a> (€1.295/mnd) - bestseller, R&D + hospitality.</li><li><a href=\"/robots/unitree-h1-2\">Unitree H1-2</a> (€6.650/mnd) - full-size industrieel.</li><li><a href=\"/robots/unitree-h2\">Unitree H2</a> (€2.750/mnd) - service met bionisch gezicht.</li><li><a href=\"/robots/engineai-se01\">EngineAI SE01</a> (€1.590/mnd) - natuurlijke gait.</li><li><a href=\"/robots/ubtech-walker-s2\">UBTECH Walker S2</a> (€5.750/mnd) - auto-industrie, mass production.</li></ul>",
                 "<b>Wachtlijst 2026/2027 - reserveer voor priority access (4 modellen):</b>",
@@ -69,7 +69,7 @@ PILLAR_GUIDE = {
             "body": [
                 "Vier vragen om het juiste model te kiezen:",
                 "<b>Vraag 1: Wat is je primaire taak?</b> Demo + R&D → <a href=\"/robots/unitree-r1\">Unitree R1</a>, <a href=\"/robots/unitree-g1\">Unitree G1</a>, <a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a>. Industriële kitting + parts-handling → <a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5</a>, <a href=\"/robots/ubtech-walker-s2\">UBTECH Walker S2</a>. 3PL tote-handling → <a href=\"/robots/agility-digit\">Digit</a> (wachtlijst) of <a href=\"/robots/unitree-h1-2\">Unitree H1-2</a>. Service in publieke ruimtes → <a href=\"/robots/unitree-h2\">Unitree H2</a>, <a href=\"/robots/1x-neo\">1X NEO</a> (wachtlijst).",
-                "<b>Vraag 2: Is EU AI-Act compliance kritiek voor je?</b> Zo ja, kies EU-gebouwd. NEURA, PAL en Pollen zijn vanaf dag 1 EU AI-Act + Machineverordening 2023/1230 ready. Aziatische modellen vereisen een conformity assessment per deployment (verzorgen wij, maar duurt 2-4 weken extra).",
+                "<b>Vraag 2: Is EU AI-Act compliance kritiek voor je?</b> Zo ja, kies EU-gebouwd. NEURA en Pollen zijn vanaf dag 1 EU AI-Act + Machineverordening 2023/1230 ready. Aziatische modellen vereisen een conformity assessment per deployment (verzorgen wij, maar duurt 2-4 weken extra).",
                 "<b>Vraag 3: Welk budget heb je?</b> €290-1.300/mnd → R1, G1, NEURA Mini. €1.600-2.800/mnd → SE01, H2. €3.500-6.700/mnd → TIAGo Pro, Reachy 2, Walker S2, Kangaroo, Gen 3.5, H1-2 (en wachtlijst-modellen, indicatief).",
                 "<b>Vraag 4: Hoe complex is je werkvloer?</b> Eenvoudige aisle-layout + dezelfde taak elke dag → goedkoper Aziatisch model. Mixed-mens-robot productielijnen + veranderende SKUs → premium cobot (NEURA, Apollo).",
                 "Twijfel? <a href=\"/#contact\">Plan een gratis intake</a> - wij komen langs en adviseren onafhankelijk welk model past. We verkopen niet één merk: we verkopen wat past.",
@@ -121,7 +121,7 @@ PILLAR_GUIDE = {
     ],
     "faq": [
         ("Wat is het verschil tussen humanoid robot en cobot?",
-         "Een cobot (collaborative robot) is meestal een arm-robot zonder benen, vastgemonteerd op een tafel of machine. Een humanoid heeft twee benen en twee armen - meer mobiel, maar ook complexer. Sommige modellen (NEURA 4NE-1 Mini, PAL TIAGo Pro) zitten tussen beide in: humanoid bovenlichaam op een wheeled basis."),
+         "Een cobot (collaborative robot) is meestal een arm-robot zonder benen, vastgemonteerd op een tafel of machine. Een humanoid heeft twee benen en twee armen - meer mobiel, maar ook complexer. Sommige modellen (NEURA 4NE-1 Mini, NEURA 4NE-1 Mini) zitten tussen beide in: humanoid bovenlichaam op een wheeled basis."),
         ("Welke is de goedkoopste humanoide robot in Nederland?",
          "Unitree R1 - lease vanaf €290/maand (aanschafprijs $4.900). Geschikt voor demo, education en lichte hospitality. Niet voor productiewerk."),
         ("Is humanoide robot leasing AVG/GDPR compliant?",
@@ -151,7 +151,7 @@ AI_ACT_GUIDE = {
         "EU AI-Act treedt volledig in werking op 2 augustus 2026. Humanoïdes vallen vrijwel altijd onder \"high-risk AI\" als ze veiligheidskritisch zijn.",
         "EU Machineverordening 2023/1230 vervangt de oude Machinerichtlijn vanaf 20 januari 2027. Nieuwe cybersecurity- en AI-vereisten.",
         "Dubbele conformiteit vereist: CE-markering (Machineverordening) + AI Act conformity assessment per gebruikssituatie.",
-        "EU-gebouwde leveranciers (NEURA, PAL, Pollen) hebben de meeste documentatie al klaar. US/CN-modellen vereisen extra assessment van 2-4 weken.",
+        "EU-gebouwde leveranciers (NEURA, Pollen) hebben de meeste documentatie al klaar. US/CN-modellen vereisen extra assessment van 2-4 weken.",
         "Werkgever (deployer) verplichtingen: risicoanalyse, post-market monitoring, transparantie naar werknemers. BotLease verzorgt dit binnen het pilot-traject.",
     ],
     "sections": [
@@ -207,7 +207,7 @@ AI_ACT_GUIDE = {
             "h": "6. Waarom EU-gebouwde robots in voordeel zijn",
             "body": [
                 "Een veelgemaakt misverstand: \"als de robot CE-gemarkeerd is, ben ik klaar\". Niet meer in 2026/2027. De AI-Act voegt een aparte conformity assessment toe die <i>per AI-systeem</i> beoordeeld wordt - niet alleen per hardware-model.",
-                "EU-gebouwde modellen - <a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1</a>, <a href=\"/robots/pal-kangaroo\">PAL Kangaroo</a>, <a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> - hebben de meeste compliance-documentatie al klaar omdat de fabrikanten zelf EU-bedrijven zijn. NEURA werkt direct met TÜV Süd, PAL is Spaans + 20+ jaar EU-gecertificeerd. Voor jou als deployer betekent dat: kortere onboarding, minder juridische risico, lagere kans op verrassingen.",
+                "EU-gebouwde modellen - <a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1</a>, <a href=\"/robots/pollen-reachy-2\">Pollen Reachy 2</a> - hebben de meeste compliance-documentatie al klaar omdat de fabrikanten zelf EU-bedrijven zijn. NEURA werkt direct met TÜV Süd. Voor jou als deployer betekent dat: kortere onboarding, minder juridische risico, lagere kans op verrassingen.",
                 "Aziatische modellen - <a href=\"/robots/unitree-g1\">Unitree</a>, <a href=\"/robots/ubtech-walker-s2\">UBTECH</a>, <a href=\"/robots/engineai-se01\">EngineAI</a> - vereisen extra werk. BotLease voert per locatie een conformity assessment uit (2-4 weken extra) en houdt EU-specifieke patches bij. Niet onmogelijk, wel meer werk.",
                 "Amerikaanse modellen - <a href=\"/robots/apptronik-apollo\">Apptronik Apollo</a>, <a href=\"/robots/figure-02\">Figure</a>, <a href=\"/robots/1x-neo\">1X NEO</a> - zijn pas eind 2026 / Q1 2027 EU-leverbaar omdat de fabrikanten nu zelf hun documentatie EU-klaar maken. Daarom staan ze op onze <a href=\"/robots#waitlist\">wachtlijst</a>.",
             ],
@@ -290,7 +290,7 @@ GLOSSARY = {
         ("Pick and place", "Robottaak: object oppakken en ergens anders neerzetten. Klassiek voor armrobots, lastiger voor humanoids vanwege vrijheid in bewegingstrajecten."),
         ("Provider (AI-Act)", "Onder AI-Act: organisatie die een AI-systeem ontwikkelt of in EU op de markt brengt. Fabrikant + BotLease zijn beide provider voor lease-modellen."),
         ("RaaS", "Robots as a Service. Lease-vorm waarbij je per uur of per taak betaalt i.p.v. vast per maand. Agility verkoopt Digit alleen als RaaS in de VS. BotLease biedt vooral klassieke maandlease."),
-        ("ROS / ROS 2", "Robot Operating System. Open-source softwareraamwerk voor robots. PAL Kangaroo + TIAGo zijn ROS-native - voordeel voor universiteiten/labs die ROS-stack al hebben."),
+        ("ROS / ROS 2", "Robot Operating System. Open-source softwareraamwerk voor robots. NEURA 4NE-1 + TIAGo zijn ROS-native - voordeel voor universiteiten/labs die ROS-stack al hebben."),
         ("Sim-to-real", "AI-training in simulatie, daarna deployment op echte robot. Veel humanoid-fabrikanten gebruiken NVIDIA Isaac voor sim-to-real training."),
         ("SLAM", "Simultaneous Localization And Mapping. Techniek waarmee robots autonoom in een ruimte navigeren zonder vooraf gemaakte kaart. Vereist voor humanoid-deployment in onbekende ruimtes."),
         ("Swap-SLA", "Service Level Agreement voor vervanging bij defect. BotLease garandeert vervangende unit binnen 24u op locatie. Als we de SLA missen: dagvergoeding van €100/dag."),
@@ -325,7 +325,7 @@ ABOUT = {
             "h": "Waarom BotLease en niet rechtstreeks bij de fabrikant?",
             "body": [
                 "Drie redenen:",
-                "<ul><li><b>Geen vendor lock-in.</b> Unitree heeft alleen Unitree. Apptronik heeft alleen Apollo. Wij hebben 15 modellen van 7 fabrikanten - we adviseren wat past, niet wat we verkopen.</li><li><b>Lokale support.</b> Service en omruil regelen we vanuit Nederland. Bij een storing staat er zo snel mogelijk een vervangende unit klaar. Geen container uit Shenzhen die 6 weken duurt.</li><li><b>EU AI-Act + Machineverordening compliance.</b> Wij dragen de juridische last als provider. Fabrikanten in China of Texas snappen EU-regelgeving niet altijd. Wij wel - zie onze <a href=\"/gids/ai-act-machineverordening\">AI-Act gids</a>.</li></ul>",
+                "<ul><li><b>Geen vendor lock-in.</b> Unitree heeft alleen Unitree. Apptronik heeft alleen Apollo. Wij hebben 13 modellen van 7 fabrikanten - we adviseren wat past, niet wat we verkopen.</li><li><b>Lokale support.</b> Service en omruil regelen we vanuit Nederland. Bij een storing staat er zo snel mogelijk een vervangende unit klaar. Geen container uit Shenzhen die 6 weken duurt.</li><li><b>EU AI-Act + Machineverordening compliance.</b> Wij dragen de juridische last als provider. Fabrikanten in China of Texas snappen EU-regelgeving niet altijd. Wij wel - zie onze <a href=\"/gids/ai-act-machineverordening\">AI-Act gids</a>.</li></ul>",
             ],
         },
         {

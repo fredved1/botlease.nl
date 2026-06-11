@@ -94,9 +94,6 @@ KEYWORDS = [
     r"\bUnitree\b",
     r"\bNEURA Robotics\b",
     r"\b4NE-?1\b",
-    r"\bPAL Robotics\b",
-    r"\bKangaroo robot\b",
-    r"\bTIAGo\b",
     r"\bAgility Robotics\b",
     r"\bDigit robot\b",
     r"\bAtlas (robot|humanoid)\b",
@@ -532,7 +529,7 @@ INTERNE LINKS — bouw er minstens 2-3 in waar relevant (markdown link-syntax in
 - /vergelijken/lease-vs-koop — beslis-pagina
 - /sectoren/3pl-fulfillment — 3PL sector-pagina
 - /sectoren/productie-assemblage — productie sector-pagina
-- /robots/unitree-g1, /robots/neura-4ne1-gen3, /robots/apptronik-apollo, /robots/pal-kangaroo, etc. — model-pagina's (alleen linken als het model in artikel genoemd wordt)
+- /robots/unitree-g1, /robots/neura-4ne1-gen3, /robots/apptronik-apollo, etc. — model-pagina's (alleen linken als het model in artikel genoemd wordt)
 
 Schrijf hier een Nederlandstalig BotLease-artikel van. Geef EXACT JSON terug volgens het schema."""
 

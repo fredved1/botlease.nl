@@ -1,6 +1,5 @@
 # BotLease
 
-> BotLease verzorgt operational lease van humanoïde robots (geen consumentenrobots, geen cobots) voor organisaties in Europa. All-in vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance. Catalogus van 15 modellen van 10 fabrikanten: Unitree, NEURA, PAL, Apptronik, Figure, 1X, UBTECH, EngineAI, Agility, Pollen.
 
 _Laatst bijgewerkt: 2026-06-04_
 
@@ -21,10 +20,10 @@ _Laatst bijgewerkt: 2026-06-04_
 ## Kernpagina's
 
 - [Homepage](https://botlease.nl/): Overzicht aanbod + pricing
-- [Volledige catalogus](https://botlease.nl/robots): 15 humanoïde robots in lease
+- [Volledige catalogus](https://botlease.nl/robots): 13 humanoïde robots in lease
 - [Pijler-gids: humanoïde robot leasen](https://botlease.nl/gids/humanoide-robot-leasen): Hoe lease werkt, kosten, ROI
 - [EU AI-Act gids](https://botlease.nl/gids/ai-act-machineverordening): Compliance + Machineverordening 2023/1230
-- [Prijzen alle 15 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€6.650/mnd
+- [Prijzen alle 13 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€6.650/mnd
 - [Kostencalculator](https://botlease.nl/kosten): Interactief leaseprijs + ROI berekenen
 - [Lease vs. koop](https://botlease.nl/vergelijken/lease-vs-koop): Beslis-pagina
 - [Over BotLease](https://botlease.nl/over): Bedrijf, team, missie
@@ -39,8 +38,6 @@ _Laatst bijgewerkt: 2026-06-04_
 - [Unitree H1-2](https://botlease.nl/robots/unitree-h1-2) — €6.650/mnd, industrieel
 - [NEURA 4NE-1 Mini](https://botlease.nl/robots/neura-4ne1-mini) — €1.295/mnd, EU-built compact
 - [NEURA 4NE-1 Gen 3.5](https://botlease.nl/robots/neura-4ne1-gen3) — €5.950/mnd, EU-built productie
-- [PAL TIAGo Pro](https://botlease.nl/robots/pal-tiago-pro) — €3.950/mnd, EU-built wheeled
-- [PAL Kangaroo](https://botlease.nl/robots/pal-kangaroo) — €5.750/mnd, EU-built bipedal
 - [Pollen Reachy 2](https://botlease.nl/robots/pollen-reachy-2) — €4.150/mnd, EU-built onderzoek
 - [EngineAI SE01](https://botlease.nl/robots/engineai-se01) — €1.590/mnd, natural gait
 - [UBTECH Walker S2](https://botlease.nl/robots/ubtech-walker-s2) — €5.750/mnd, mass production

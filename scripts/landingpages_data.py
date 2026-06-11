@@ -188,7 +188,7 @@ SECTORS = [
             "Nederlandse zorginstellingen verliezen jaarlijks 10-15% van zorgmedewerkers aan logistieke taken: linnen "
             "verplaatsen, materiaal aanvullen, voedseldistributie. Humanoïde robots zijn geen oplossing voor zorgtaken "
             "zelf (dat blijft mensenwerk), maar voor het wegnemen van die logistieke last waardoor zorgmedewerkers "
-            "meer tijd hebben voor patiënten. EU-gebouwde modellen (PAL TIAGo, NEURA 4NE-1 Mini) zijn first choice "
+            "meer tijd hebben voor patiënten. EU-gebouwde modellen (NEURA 4NE-1 Mini) zijn first choice "
             "vanwege GDPR + EU AI-Act compliance."
         ),
         "metrics": [
@@ -201,7 +201,7 @@ SECTORS = [
             {
                 "h": "Linnen- en wasgoedtransport",
                 "body": (
-                    "PAL TIAGo Pro (wheeled, EU-gebouwd in Barcelona) transporteert linnenkarren tussen wasrij en "
+                    "NEURA 4NE-1 Mini (wheeled, EU-gebouwd in Barcelona) transporteert linnenkarren tussen wasrij en "
                     "afdelingen. Werkt veilig naast patiënten, heeft EN ISO 13482 cobot-compliance, en wordt al in "
                     "meerdere Spaanse en Italiaanse ziekenhuizen ingezet."
                 ),
@@ -218,11 +218,11 @@ SECTORS = [
                 "h": "Voedseldistributie tijdens piekuren",
                 "body": (
                     "Ontbijt- en avondserveerronde tussen keuken en kamers - vaak 1-2 zorgmedewerkers die anders direct "
-                    "zorg konden bieden. Een PAL TIAGo of Unitree H2 (sociale interactie) verzorgt deze ronde."
+                    "zorg konden bieden. Een Unitree H2 (sociale interactie) verzorgt deze ronde."
                 ),
             },
         ],
-        "recommended_robots": ["pal-tiago-pro", "neura-4ne1-mini", "unitree-g1", "unitree-h2"],
+        "recommended_robots": ["neura-4ne1-mini", "unitree-g1", "unitree-h2"],
         "questions": [
             ("Mag dit volgens de Wet zorg en dwang?",
              "Ja - de robot voert geen zorghandelingen uit, alleen logistiek. Geen impact op Wzd-protocollen. De "
@@ -232,7 +232,7 @@ SECTORS = [
              "Ja - humanoids zijn ideaal voor nachtelijke logistiek omdat ze geen rust nodig hebben en omdat het "
              "personeelstekort 's nachts het scherpst is. Battery-swap automatisch via dockingstation."),
             ("Hoe veilig is dit naast kwetsbare patiënten?",
-             "Cobot-compliante modellen (PAL, NEURA, 4NE-1 Mini) hebben kracht-detectie: bij aanraking stoppen ze "
+             "Cobot-compliante modellen (NEURA 4NE-1 Mini) hebben kracht-detectie: bij aanraking stoppen ze "
              "binnen 50ms. Werkzones worden in de intake gedefinieerd. WA-dekking wordt per deployment geregeld is inbegrepen."),
         ],
     },
@@ -298,7 +298,7 @@ CITIES = [
         ),
         "sectors_in_focus": ["zorg-instellingen", "3pl-fulfillment"],
         "local_hooks": (
-            "Voor UMC Utrecht-omgeving en zorginstellingen in Nieuwegein/Houten is een PAL TIAGo Pro of NEURA 4NE-1 Mini "
+            "Voor UMC Utrecht-omgeving en zorginstellingen in Nieuwegein/Houten is een NEURA 4NE-1 Mini of NEURA 4NE-1 Mini "
             "uitstekend voor materiaaltransport en lichte logistiek. Voor logistieke knooppunten Lage Weide is Agility "
             "Digit of Unitree H1-2 een goede tote-handling keuze."
         ),

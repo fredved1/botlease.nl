@@ -58,8 +58,6 @@ _MODEL_LINKS = [
     ("Unitree R1", "unitree-r1"),
     ("Unitree H2", "unitree-h2"),
     ("EngineAI SE01", "engineai-se01"),
-    ("PAL Kangaroo", "pal-kangaroo"),
-    ("TIAGo Pro", "pal-tiago-pro"),
     ("Agility Digit", "agility-digit"),
     ("Walker S2", "ubtech-walker-s2"),
     ("Reachy 2", "pollen-reachy-2"),
@@ -631,7 +629,7 @@ ART_BY_SLUG = {
     "humanoid-fulfillment-pilots-nederland-2026":
         {"photo": "/img/robots/digit.jpg", "alt": "Humanoid robots in Nederlandse fulfillment", "tint": "#ffb098", "symbol": None},
     "eu-gebouwd-humanoid-voordeel-2026":
-        {"photo": "/img/robots/kangaroo.png", "alt": "PAL Kangaroo EU-gebouwde humanoid", "tint": "#5be584", "symbol": None},
+        {"photo": "/img/robots/neura-4ne1-norm.webp", "alt": "EU-gebouwde humanoïde robot", "tint": "#f6849c", "symbol": None},
 }
 
 
@@ -645,20 +643,17 @@ PHOTO_POOL = [
     ("/img/robots/neura-4ne1-norm.webp", "NEURA 4NE-1 humanoïde robot"),
     ("/img/robots/walker-s-norm.webp",   "UBTECH Walker S2 robot"),
     ("/img/robots/h1-norm.webp",         "Unitree H1 humanoïde robot"),
-    ("/img/robots/kangaroo-norm.webp",   "PAL Kangaroo humanoïde robot"),
     ("/img/robots/neo-norm.webp",        "1X NEO humanoïde robot"),
     ("/img/robots/reachy2-norm.webp",    "Pollen Reachy 2 robot"),
     ("/img/robots/se01-norm.webp",       "EngineAI SE01 humanoïde robot"),
     ("/img/robots/h2-norm.webp",         "Unitree H2 humanoïde robot"),
-    ("/img/robots/tiago-pro-norm.webp",  "PAL TIAGo Pro robot"),
     ("/img/robots/r1-norm.webp",         "Unitree R1 humanoïde robot"),
 ]
 TINT_POOL = ["#5be584", "#6ea8ff", "#ff5e1f", "#ffb098", "#ffc966", "#b794f6", "#4fd1c5", "#f6849c"]
 # (keyword, index in PHOTO_POOL) — specifiekste eerst.
 KW_PHOTO = [
     ("apptronik", 1), ("apollo", 1), ("agility", 2), ("digit", 2), ("figure", 3),
-    ("neura", 4), ("4ne", 4), ("ubtech", 5), ("walker", 5), ("kangaroo", 7),
-    ("tiago", 12), ("pollen", 9), ("reachy", 9), ("engineai", 10), ("se01", 10),
+    ("neura", 4), ("4ne", 4), ("ubtech", 5), ("walker", 5), ("pollen", 9), ("reachy", 9), ("engineai", 10), ("se01", 10),
     ("1x neo", 8), ("unitree h1", 6), ("h1-2", 6), ("unitree h2", 11),
     ("unitree r1", 13), ("unitree g1", 0), ("g1 edu", 0), ("unitree", 0),
 ]
@@ -758,7 +753,7 @@ ORG_SCHEMA = json.dumps({
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
-    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "PAL Robotics", "EngineAI", "Pollen Robotics"],
+    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"],
     "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"},
     "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"},
     "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]},
@@ -830,7 +825,7 @@ _TAG_TO_SLUGS = {
     "figure": ["figure-02"],
     "neura": ["neura-4ne1-mini", "neura-4ne1-gen3"],
     "4ne-1": ["neura-4ne1-mini", "neura-4ne1-gen3"], "4ne1": ["neura-4ne1-mini", "neura-4ne1-gen3"],
-    "pal": ["pal-tiago-pro", "pal-kangaroo"], "tiago": ["pal-tiago-pro"], "kangaroo": ["pal-kangaroo"],
+    
     "pollen": ["pollen-reachy-2"], "reachy": ["pollen-reachy-2"],
     "ubtech": ["ubtech-walker-s2"], "walker": ["ubtech-walker-s2"],
     "engineai": ["engineai-se01"], "se01": ["engineai-se01"],
@@ -1314,7 +1309,6 @@ def render_sitemap(articles: list) -> str:
         "unitree-g1-vs-neura-4ne1-mini",
         "unitree-h1-2-vs-ubtech-walker-s2",
         "neura-4ne1-gen3-vs-apptronik-apollo",
-        "pal-kangaroo-vs-unitree-h1-2",
         "unitree-r1-vs-engineai-se01",
         "apptronik-apollo-vs-figure-02",
     ]

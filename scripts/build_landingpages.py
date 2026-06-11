@@ -125,7 +125,7 @@ ORG_SCHEMA = json.dumps({
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
-    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "PAL Robotics", "EngineAI", "Pollen Robotics"],
+    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"],
     "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"},
     "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"},
     "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]},

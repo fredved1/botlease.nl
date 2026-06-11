@@ -23,8 +23,6 @@ const SOURCE_BY_SLUG = {
   // EU-gebouwd — direct contact met fabrikant
   'neura-4ne1-mini':   'NEURA Robotics direct · info@neura-robotics.com · Metzingen (DE) · 6-10 wk',
   'neura-4ne1-gen3':   'NEURA Robotics direct · info@neura-robotics.com · Metzingen (DE) · via Bosch supply · 8-12 wk',
-  'pal-kangaroo':      'PAL Robotics · business@pal-robotics.com · Barcelona (ES) · 8-12 wk',
-  'pal-tiago-pro':     'PAL Robotics · business@pal-robotics.com · Barcelona (ES) · 6-10 wk',
   'pollen-reachy-2':   'Pollen Robotics (Hugging Face) · sales@pollen-robotics.com · Bordeaux (FR) · 4-8 wk',
   // Aziatisch — via EU distributeurs of direct
   'unitree-r1':        'PRIMAIR: RobotShop EU (eu.robotshop.com) · BACK-UP: Unitree direct (shop.unitree.com) · 6-8 wk',

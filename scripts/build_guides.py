@@ -218,7 +218,7 @@ ORG_SCHEMA = json.dumps({
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
-    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "PAL Robotics", "EngineAI", "Pollen Robotics"],
+    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"],
     "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"},
     "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"},
     "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]},
@@ -843,14 +843,14 @@ def render_comparison_hub() -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Humanoïde robots vergelijken: 15 modellen naast elkaar (2026) | BotLease</title>
+<title>Humanoïde robots vergelijken: 13 modellen naast elkaar (2026) | BotLease</title>
 <meta name="description" content="Vergelijk 15 humanoïde robots op prijs, specs en leverbaarheid in Nederland. Alle leaseprijzen all-in per maand, van €290 tot €6.650. Inclusief onze keuze per use-case.">
 <meta name="keywords" content="humanoide robots vergelijken, robot vergelijking, humanoid robot specs prijzen, vergelijk humanoid lease">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/vergelijken">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Humanoïde robots vergelijken | BotLease">
-<meta property="og:description" content="15 modellen naast elkaar - specs, prijs, use-case.">
+<meta property="og:description" content="13 modellen naast elkaar - specs, prijs, use-case.">
 <meta property="og:url" content="{SITE_URL}/vergelijken">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -871,7 +871,7 @@ def render_comparison_hub() -> str:
     <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><span>Vergelijken</span></nav>
     <span class="eyebrow">Vergelijken · 2026</span>
     <h1>Vergelijk 15 humanoïde robots — specs, prijs en leverbaarheid.</h1>
-    <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 15 modellen naast elkaar — specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
+    <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 13 modellen naast elkaar — specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
   </div>
 </section>
 
@@ -881,7 +881,7 @@ def render_comparison_hub() -> str:
     <h2 style="margin:14px 0 10px">Onze keuze per use-case</h2>
     <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 15 — beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand. Lees ook de volledige ranking: <a href="/beste-humanoide-robots-2026" style="color:var(--accent)">de beste humanoïde robots voor bedrijven (2026) →</a></p>
     <div class="cmp-grid">{pick_cards}</div>
-    <p style="margin-top:20px; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · 15 modellen, prijzen all-in per maand.</p>
+    <p style="margin-top:20px; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · 13 modellen, prijzen all-in per maand.</p>
   </div>
 </section>
 
@@ -900,7 +900,6 @@ def render_comparison_hub() -> str:
       <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · beide €1.295 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €6.650 vs €5.750</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">EU vs US</div><div><div class="cmp-title">NEURA 4NE-1 Gen 3.5 vs Apptronik Apollo</div><div class="cmp-sub">EU-flagship vs US-wachtlijst · €5.950 vs €3.499</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/pal-kangaroo-vs-unitree-h1-2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">ES vs CN</div><div><div class="cmp-title">PAL Kangaroo vs Unitree H1-2</div><div class="cmp-sub">EU-veteraan vs CN-value · €5.750 vs €6.650</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/unitree-r1-vs-engineai-se01" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">R1 vs SE</div><div><div class="cmp-title">Unitree R1 vs EngineAI SE01</div><div class="cmp-sub">Instap demo vs natural gait · €290 vs €1.590</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/apptronik-apollo-vs-figure-02" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">Apollo vs F2</div><div><div class="cmp-title">Apptronik Apollo vs Figure 02</div><div class="cmp-sub">Mercedes-pilot vs BMW-pilot · €3.499 vs €3.899</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/humanoid-vs-cobot" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H vs C</div><div><div class="cmp-title">Humanoïde robot vs cobot</div><div class="cmp-sub">Welke automatisering past bij jouw proces? · beslisgids</div></div><div class="cmp-arr">Vergelijk →</div></a>
@@ -1151,7 +1150,7 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
 
       <h2 style="margin-top:36px">Wanneer kies je géén van beide?</h2>
       <p style="color:var(--ink-2); font-size:15.5px; line-height:1.7; margin-bottom:10px"><b>{escape(a['name'])} past niet voor:</b> {escape(not_for(a))}</p>
-      <p style="color:var(--ink-2); font-size:15.5px; line-height:1.7">; <b>{escape(b['name'])} past niet voor:</b> {escape(not_for(b))} In die gevallen is de catalogus van 15 modellen op <a href="/robots">/robots</a> de betere ingang - vooral de modellen in een aangrenzende prijsklasse of met een afwijkende footprint.</p>
+      <p style="color:var(--ink-2); font-size:15.5px; line-height:1.7">; <b>{escape(b['name'])} past niet voor:</b> {escape(not_for(b))} In die gevallen is de catalogus van 13 modellen op <a href="/robots">/robots</a> de betere ingang - vooral de modellen in een aangrenzende prijsklasse of met een afwijkende footprint.</p>
 
       <h2 style="margin-top:36px">Veelgestelde vragen</h2>
       <div style="margin-top:14px">
@@ -1335,7 +1334,6 @@ def build():
         ("unitree-g1", "neura-4ne1-mini"),
         ("unitree-h1-2", "ubtech-walker-s2"),
         ("neura-4ne1-gen3", "apptronik-apollo"),
-        ("pal-kangaroo", "unitree-h1-2"),
         ("unitree-r1", "engineai-se01"),
         ("apptronik-apollo", "figure-02"),
     ]
@@ -1386,7 +1384,7 @@ def build():
             ("Welke modellen leasen, welke kopen",
              "<ul style='line-height:1.75'>"
              "<li><b>Sterk lease-case:</b> Unitree G1, NEURA 4NE-1 Mini, EngineAI SE01 - relatief snel verouderend, restwaarde valt hard.</li>"
-             "<li><b>Sterk koop-case:</b> PAL TIAGo Pro, PAL Kangaroo - EU-veteranen, stabiele platforms, hoge restwaarde behoud.</li>"
+             "<li><b>Sterk koop-case:</b> Pollen Reachy 2 - EU-gebouwd, stabiel platform met lange supporthistorie. </li>"
              "<li><b>Alleen lease (te onzeker voor koop):</b> Apptronik Apollo, Figure 02 - wachtlijst, prijs nog niet stabiel.</li>"
              "</ul>"
              "<p>Voor specifiek advies per situatie: <a href='/kosten'>gebruik onze kosten-calculator</a> of plan een intake.</p>"),

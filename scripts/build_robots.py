@@ -278,7 +278,7 @@ ORG_SCHEMA = json.dumps({
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
-    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "PAL Robotics", "EngineAI", "Pollen Robotics"],
+    "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"],
     "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"},
     "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"},
     "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]},
@@ -510,11 +510,10 @@ def faqpage_jsonld(r: dict) -> str:
 _H2H_LINKS = {
   "unitree-g1": [("NEURA 4NE-1 Mini", "/vergelijken/unitree-g1-vs-neura-4ne1-mini")],
   "neura-4ne1-mini": [("Unitree G1", "/vergelijken/unitree-g1-vs-neura-4ne1-mini")],
-  "unitree-h1-2": [("UBTECH Walker S2", "/vergelijken/unitree-h1-2-vs-ubtech-walker-s2"), ("PAL Kangaroo", "/vergelijken/pal-kangaroo-vs-unitree-h1-2")],
+  "unitree-h1-2": [("UBTECH Walker S2", "/vergelijken/unitree-h1-2-vs-ubtech-walker-s2"), ],
   "ubtech-walker-s2": [("Unitree H1-2", "/vergelijken/unitree-h1-2-vs-ubtech-walker-s2")],
   "neura-4ne1-gen3": [("Apptronik Apollo", "/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo")],
   "apptronik-apollo": [("NEURA 4NE-1 Gen 3.5", "/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo"), ("Figure 02", "/vergelijken/apptronik-apollo-vs-figure-02")],
-  "pal-kangaroo": [("Unitree H1-2", "/vergelijken/pal-kangaroo-vs-unitree-h1-2")],
   "unitree-r1": [("EngineAI SE01", "/vergelijken/unitree-r1-vs-engineai-se01")],
   "engineai-se01": [("Unitree R1", "/vergelijken/unitree-r1-vs-engineai-se01")],
   "figure-02": [("Apptronik Apollo", "/vergelijken/apptronik-apollo-vs-figure-02")],
@@ -1044,13 +1043,13 @@ def render_hub() -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Humanoïde robots leasen | catalogus 2026 | BotLease</title>
-<meta name="description" content="Catalogus humanoïde robots in Nederland - 15 modellen leasen vanaf €290/mnd. NEURA, PAL, Unitree, UBTECH, Apptronik vergeleken. All-in operational lease.">
-<meta name="keywords" content="humanoide robot leasen Nederland, NEURA 4NE-1, Unitree leasen, PAL Robotics Kangaroo, Apptronik Apollo, Figure 02, humanoid catalogus 2026, robot huren MKB Nederland">
+<meta name="description" content="Catalogus humanoïde robots in Nederland - 13 modellen leasen vanaf €290/mnd. NEURA, PAL, Unitree, UBTECH, Apptronik vergeleken. All-in operational lease.">
+<meta name="keywords" content="humanoide robot leasen Nederland, NEURA 4NE-1, Unitree leasen, Apptronik Apollo, Figure 02, humanoid catalogus 2026, robot huren MKB Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/robots/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Humanoïde robots leasen Nederland - 15 modellen vergelijken | BotLease">
+<meta property="og:title" content="Humanoïde robots leasen Nederland - 13 modellen vergelijken | BotLease">
 <meta property="og:description" content="Complete catalogus humanoïde robots voor lease in Nederland: EU-gebouwd (NEURA, PAL, Pollen), Aziatisch (Unitree, UBTECH, EngineAI), wachtlijst (Apptronik, Figure, 1X NEO).">
 <meta property="og:url" content="{SITE_URL}/robots/">
 <meta property="og:image" content="{SITE_URL}/img/robots/neura-4ne1.webp">
@@ -1073,7 +1072,7 @@ def render_hub() -> str:
   <div class="container">
     <div class="eyebrow">Catalogus 2026</div>
     <h1>Humanoïde robots leasen in Nederland.</h1>
-    <p>15 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, PAL, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
+    <p>13 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, PAL, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
   </div>
 </section>
 
@@ -1082,7 +1081,7 @@ def render_hub() -> str:
     <div class="head">
       <span class="tier-badge tier-eu">EU-gebouwd · direct leverbaar</span>
       <h2 style="margin-top:14px">Europese humanoids - korte supply chain, EU AI-Act compliant.</h2>
-      <p class="lede">Geproduceerd in Duitsland (NEURA), Spanje (PAL) en Frankrijk (Pollen). EU AI-Act + Machineverordening 2023/1230 ready vanaf dag 1. Geen importheffingen, EU-talige support, GDPR by design.</p>
+      <p class="lede">Geproduceerd in Duitsland (NEURA) en Frankrijk (Pollen). EU AI-Act + Machineverordening 2023/1230 ready vanaf dag 1. Geen importheffingen, EU-talige support, GDPR by design.</p>
     </div>
     <div class="hub-grid">{eu_cards}</div>
   </div>

@@ -19,8 +19,8 @@ ARTICLES = [
             ("p", "<ul>"
              "<li><b>NEURA 4NE-1 Mini (DE)</b> - €1.295/mnd. Compact (165 cm), Porsche-design, Neuraverse OS. Bosch als productiepartner. Geschikt voor cobotwerk, R&D en demo's.</li>"
              "<li><b>NEURA 4NE-1 Gen 3.5 (DE)</b> - €5.950/mnd. EU flagship met 100 kg payload. Voor industriële assemblage, logistiek en mobiele inspectie.</li>"
-             "<li><b>PAL Kangaroo (ES)</b> - €5.750/mnd. Bipedal humanoid van Europa's oudste robotica-fabrikant (sinds 2004). ROS-native.</li>"
-             "<li><b>PAL TIAGo Pro (ES)</b> - €3.950/mnd. Wheeled humanoid (geen bipedal). 100+ deployments in EU-onderzoekslabs sinds 2014.</li>"
+             "<li><b>NEURA 4NE-1 (ES)</b> - €5.750/mnd. Bipedal humanoid van Europa's oudste robotica-fabrikant (sinds 2004). ROS-native.</li>"
+             "<li><b>NEURA 4NE-1 Mini (ES)</b> - €3.950/mnd. Wheeled humanoid (geen bipedal). 100+ deployments in EU-onderzoekslabs sinds 2014.</li>"
              "<li><b>Pollen Reachy 2 (FR)</b> - €4.150/mnd. Open-source, Hugging Face-eigendom sinds 2024. Voor AI-onderzoek en VLA-model training.</li>"
              "</ul>"),
             ("p", "Aziatische value-modellen, agressief geprijsd, snel leverbaar via EU-distributeurs:"),
@@ -393,11 +393,11 @@ ARTICLES = [
         "date": "2026-05-09",
         "reading_time": 7,
         "author": "BotLease Redactie",
-        "intro": "In het humanoid-debat krijgt EU-supply zelden de aandacht die het verdient. Apollo en Figure halen alle koppen. Unitree wint op prijs. Maar als je naar Nederlandse pilots in 2026 kijkt, zie je een trend: serieuze MKB-bedrijven kiezen steeds vaker NEURA (Duitsland), PAL Robotics (Spanje) of Pollen Robotics (Frankrijk). Hier is waarom dat geen toeval is.",
+        "intro": "In het humanoid-debat krijgt EU-supply zelden de aandacht die het verdient. Apollo en Figure halen alle koppen. Unitree wint op prijs. Maar als je naar Nederlandse pilots in 2026 kijkt, zie je een trend: serieuze MKB-bedrijven kiezen steeds vaker NEURA (Duitsland), NEURA (Spanje) of Pollen Robotics (Frankrijk). Hier is waarom dat geen toeval is.",
         "body": [
             ("h2", "Voordeel 1: EU AI-Act + Machineverordening conformiteit baked-in"),
             ("p", "Vanaf 2 augustus 2026 is de EU AI-Act volledig van toepassing. Vanaf 20 januari 2027 vervangt de Machineverordening 2023/1230 de oude Machinerichtlijn. Voor non-EU-fabrikanten betekent dit: documentatie aanpassen, TÜV-tests laten doen, conformity assessments uitvoeren. Voor EU-fabrikanten: niets nieuws. NEURA werkt sinds 2024 met TÜV Süd, PAL sinds 2004 (20+ jaar EU-gecertificeerd), Pollen sinds 2016."),
-            ("p", "Concreet voor jouw deployment: een NEURA 4NE-1 of PAL Kangaroo is op dag 1 EU-compliant. Een Unitree of Apptronik vereist 2-4 weken extra assessment per locatie (dat doen wij, maar duurt langer). Voor compliance-gevoelige sectoren (zorg, defensie, financieel) is dat verschil tussen project-go en project-no-go."),
+            ("p", "Concreet voor jouw deployment: een NEURA 4NE-1 of NEURA 4NE-1 is op dag 1 EU-compliant. Een Unitree of Apptronik vereist 2-4 weken extra assessment per locatie (dat doen wij, maar duurt langer). Voor compliance-gevoelige sectoren (zorg, defensie, financieel) is dat verschil tussen project-go en project-no-go."),
             ("h2", "Voordeel 2: korte supply chain"),
             ("p", "Een onderdeel bestellen uit Shenzhen of Texas duurt 6-8 weken via lucht (duur), 8-12 weken via zee (goedkoop). Voor een productieve humanoid die stilstaat is dat allebei te lang. NEURA's productieketen via Bosch dekt heel Europa in onder 48 uur. PAL stuurt vanuit Barcelona binnen 72 uur naar elke EU-locatie. Pollen heeft een Hugging Face-backed distributie via Frankrijk."),
             ("p", "BotLease voorraad: we houden onderdelen voor EU-modellen op voorraad in Eindhoven, voor Aziatische modellen alleen de meest-gevraagde. Voor exotische onderdelen vereisen Aziatische modellen een wachttijd."),
@@ -415,11 +415,11 @@ ARTICLES = [
         ],
         "sources": [
             ("NEURA Robotics - bedrijfsachtergrond", "https://neura-robotics.com/"),
-            ("PAL Robotics - 20 jaar Barcelona", "https://pal-robotics.com/"),
+            ("NEURA - 20 jaar Barcelona", "https://pal-robotics.com/"),
             ("Pollen Robotics via Hugging Face acquisition", "https://huggingface.co/blog/reachy-mini"),
             ("EU AI Office - Risicogerichte regelgeving", "https://artificialintelligenceact.eu/"),
         ],
-        "tags": ["NEURA", "PAL Robotics", "Pollen Robotics", "EU-gebouwd", "Compliance", "Markt"],
+        "tags": ["NEURA", "Pollen Robotics", "EU-gebouwd", "Compliance", "Markt"],
     },
     {
         "slug": 'krijgt-robotica-zijn-eigen-chatgpt-moment-de-kloof-tussen-belofte-en-praktijk',
