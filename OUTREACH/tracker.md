@@ -1,6 +1,6 @@
 # BotLease — outreach tracker
 
-_Laatst bijgewerkt: 5-6-2026_
+_Laatst bijgewerkt: 11-6-2026_
 
 ## Inkomende leads
 
