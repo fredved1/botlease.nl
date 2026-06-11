@@ -94,163 +94,213 @@ PAGE = r"""<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfbfd;--bg2:#f5f5f7;--card:#fff;--line:#e5e5e7;--ink:#1d1d1f;--ink2:#424245;--ink3:#6e6e73;
+:root{--bg:#fbfbfd;--bg2:#f5f5f7;--card:#fff;--line:#ececf0;--line2:#d2d2d7;--ink:#1d1d1f;--ink2:#424245;--ink3:#86868b;
 --accent:#0066cc;--accent-soft:#e8f0fe;--green:#1d8a3f;--green-soft:#e6f8eb;--amber:#b45309;--amber-soft:#fef3c7;
---red:#b91c1c;--red-soft:#fee2e2;--purple:#6d28d9;--purple-soft:#ede9fe;--r:14px}
+--red:#b91c1c;--red-soft:#fee2e2;--purple:#6d28d9;--purple-soft:#ede9fe}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.mark{width:34px;height:34px;background:var(--ink);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
-h1{font-size:22px;font-weight:800;letter-spacing:-0.02em}
-.sub{color:var(--ink3);font-size:13px;margin:2px 0 18px}
-#saved{color:var(--green);font-size:12.5px;font-weight:600;opacity:0;transition:opacity .3s;margin-left:10px}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:86px}
-.stat b{display:block;font-size:20px;letter-spacing:-0.02em}
-.stat span{font-size:11.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
-.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px 90px}
+
+/* ── header ── */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.85);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.hdr-in{max-width:880px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:11px}
+.mark{width:30px;height:30px;background:var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+.hdr h1{font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+#saved{margin-left:auto;color:var(--green);font-size:12px;font-weight:600;opacity:0;transition:opacity .3s}
+
+/* ── tabs ── */
+.tabs{display:flex;gap:4px;margin:18px 0 20px;background:var(--bg2);border-radius:12px;padding:4px;width:max-content;max-width:100%}
+.tab{border:none;background:transparent;border-radius:9px;padding:8px 18px;font:600 13.5px 'Inter';color:var(--ink2);cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tab.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tab .n{background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;border-radius:99px;padding:1px 7px;min-width:18px;text-align:center}
+.tab:not(.on) .n{background:var(--line2);color:var(--ink2)}
+
+/* ── werklijst ── */
+.sectie{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin:18px 2px 8px}
+.taak{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 16px;margin-bottom:8px;transition:border-color .15s}
+.taak:hover{border-color:var(--line2)}
+.taak .ico{font-size:17px;flex:none;width:26px;text-align:center}
+.taak .tx{flex:1;min-width:0}
+.taak .tt{font-weight:600;font-size:14px}
+.taak .nt{color:var(--ink3);font-size:12.5px;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.taak .acts{display:flex;gap:8px;flex:none;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:5px;border:none;border-radius:99px;padding:8px 15px;font:600 12.5px 'Inter';cursor:pointer;text-decoration:none;background:var(--accent);color:#fff;white-space:nowrap}
+.btn:hover{background:#0058ad}
+.btn.gh{background:var(--bg2);color:var(--ink2)}
+.btn.gh:hover{background:var(--line)}
+.btn.kl{background:transparent;border:1.5px solid var(--line2);color:var(--ink3);width:32px;height:32px;border-radius:99px;padding:0;justify-content:center;font-size:14px}
+.btn.kl:hover{border-color:var(--green);color:var(--green);background:var(--green-soft)}
+.klaarlog{color:var(--ink3);font-size:12px;margin-top:14px;line-height:1.7}
+.leeg{text-align:center;color:var(--ink3);padding:48px 0;font-size:14px}
+.leeg b{display:block;font-size:30px;margin-bottom:8px}
+
+/* ── leads ── */
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 14px;font:600 12.5px 'Inter';color:var(--ink2);cursor:pointer}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-#zoek{flex:1;min-width:160px;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:14px 'Inter';background:var(--card)}
-.lead{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
-.lead.s-nieuw{border-left:4px solid var(--accent)}
-.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
-.who{font-weight:700;font-size:16px}.who small{font-weight:500;color:var(--ink3);font-size:13.5px}
-.tijd{font-size:12px;color:var(--ink3)}
-.badges{display:flex;gap:6px;margin:6px 0 2px;flex-wrap:wrap}
-.badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 10px;border-radius:99px;background:var(--bg2);color:var(--ink2)}
-.badge.order{background:var(--amber-soft);color:var(--amber)}
-.badge.mail{background:var(--purple-soft);color:var(--purple)}
-.badge.st-nieuw{background:var(--accent-soft);color:var(--accent)}
-.badge.st-beantwoord,.badge.st-gewonnen{background:var(--green-soft);color:var(--green)}
-.badge.st-in-gesprek,.badge.st-offerte{background:var(--amber-soft);color:var(--amber)}
-.badge.st-verloren{background:var(--red-soft);color:var(--red)}
-.badge.st-on-hold{background:var(--bg2);color:var(--ink3)}
-.contact{font-size:13.5px;color:var(--ink2);margin:4px 0}
-.contact a{color:var(--accent);text-decoration:none;font-weight:600}
-.msg{white-space:pre-wrap;font-size:14px;color:var(--ink2);background:var(--bg2);border-radius:10px;padding:12px 14px;margin:10px 0;max-height:130px;overflow:hidden;cursor:pointer;position:relative}
-.msg.open{max-height:none}
-.msg.clamp:not(.open)::after{content:"meer tonen ▾";position:absolute;bottom:0;left:0;right:0;padding:22px 14px 8px;background:linear-gradient(transparent,var(--bg2) 60%);color:var(--accent);font-weight:600;font-size:12.5px}
-.supplier{background:var(--accent-soft);border:1px solid #b8d4f1;border-radius:10px;padding:11px 14px;margin:10px 0;font-size:13.5px}
-.supplier b{color:var(--accent)}
-.acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
-select,textarea,input{font:13.5px 'Inter';border:1px solid var(--line);border-radius:9px;padding:7px 10px;background:var(--card);color:var(--ink)}
+#zoek{flex:1;min-width:150px;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:13.5px 'Inter';background:var(--card);outline:none}
+#zoek:focus{border-color:var(--accent)}
+.lead{background:var(--card);border:1px solid var(--line);border-radius:13px;margin-bottom:8px;overflow:hidden;transition:border-color .15s}
+.lead:hover{border-color:var(--line2)}
+.lhead{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none}
+.av{width:36px;height:36px;border-radius:99px;background:var(--bg2);color:var(--ink2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none}
+.av.nieuw{background:var(--accent-soft);color:var(--accent)}
+.av.gewonnen,.av.beantwoord{background:var(--green-soft);color:var(--green)}
+.av.in-gesprek,.av.offerte{background:var(--amber-soft);color:var(--amber)}
+.av.verloren{background:var(--red-soft);color:var(--red)}
+.lwie{flex:1;min-width:0}
+.lnaam{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lsub{color:var(--ink3);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lmeta{display:flex;align-items:center;gap:8px;flex:none}
+.badge{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:99px;background:var(--bg2);color:var(--ink2);white-space:nowrap}
+.badge.b-nieuw{background:var(--accent-soft);color:var(--accent)}
+.badge.b-beantwoord,.badge.b-gewonnen{background:var(--green-soft);color:var(--green)}
+.badge.b-in-gesprek,.badge.b-offerte{background:var(--amber-soft);color:var(--amber)}
+.badge.b-verloren{background:var(--red-soft);color:var(--red)}
+.badge.b-on-hold{background:var(--bg2);color:var(--ink3)}
+.tijd{font-size:11.5px;color:var(--ink3);white-space:nowrap}
+.pijl{color:var(--ink3);font-size:11px;transition:transform .2s}
+.lead.open .pijl{transform:rotate(90deg)}
+.lbody{display:none;padding:2px 16px 16px;border-top:1px solid var(--line)}
+.lead.open .lbody{display:block}
+.lrij{font-size:13px;color:var(--ink2);margin:9px 0 7px}
+.lrij a{color:var(--accent);text-decoration:none;font-weight:600}
+.msg{white-space:pre-wrap;font-size:13.5px;color:var(--ink2);background:var(--bg2);border-radius:10px;padding:11px 13px;margin:8px 0}
+.supplier{background:var(--accent-soft);border:1px solid #cfe0f7;border-radius:10px;padding:10px 13px;margin:8px 0;font-size:13px}
+.lacts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+select,textarea,input{font:13px 'Inter';border:1px solid var(--line2);border-radius:9px;padding:7px 10px;background:var(--card);color:var(--ink);outline:none}
+select:focus,textarea:focus,input:focus{border-color:var(--accent)}
 textarea{width:100%;resize:vertical;margin-top:8px}
-.btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:99px;padding:8px 16px;font:600 13px 'Inter';cursor:pointer;text-decoration:none}
-.btn.ghost{background:var(--bg2);color:var(--ink)}
-details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin-bottom:18px}
-summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--ink2)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 8px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
-.leeg{text-align:center;color:var(--ink3);padding:40px 0}
-</style></head><body><div class="wrap">
-<header><div class="mark">B</div><h1>BotLease CRM</h1><span id="saved">opgeslagen ✓</span></header>
-<div class="sub">Site-aanvragen, bestellingen en mails aan hallo@botlease.nl — automatisch verzameld. De mail-notificaties blijf je gewoon ontvangen.</div>
-<div class="stats" id="stats"></div>
-<h2 style="font-size:16px;margin:6px 0 8px">📋 Werklijst <span id="taakteller" style="color:#6e6e73;font-weight:500;font-size:13px"></span></h2>
-<div id="tasks"></div>
-<hr style="border:none;border-top:1px solid var(--line);margin:20px 0">
-<details><summary>＋ Handmatig toevoegen (bv. mail plakken)</summary>
-  <div class="grid">
-    <input id="a-name" placeholder="Naam">
-    <input id="a-company" placeholder="Bedrijf">
-    <input id="a-email" placeholder="E-mail">
-    <input id="a-subject" placeholder="Onderwerp">
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 8px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.taak{flex-wrap:wrap}.taak .acts{margin-left:40px}}
+#addpanel{display:none;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;margin-bottom:14px}
+#addpanel.show{display:block}
+
+/* ── verstuurd ── */
+.out{display:flex;gap:12px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);font-size:13px}
+.out .t{color:var(--ink3);font-size:11.5px;flex:none;width:88px}
+.out .a{font-weight:600;flex:none;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.out .s{color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style></head><body>
+<div class="hdr"><div class="hdr-in"><div class="mark">B</div><h1>BotLease CRM</h1><span id="saved">opgeslagen ✓</span></div></div>
+<div class="wrap">
+<div class="tabs">
+  <button class="tab on" id="tab-werk" onclick="toon('werk')">📋 Werklijst <span class="n" id="n-werk">0</span></button>
+  <button class="tab" id="tab-leads" onclick="toon('leads')">👥 Leads <span class="n" id="n-leads">0</span></button>
+  <button class="tab" id="tab-uit" onclick="toon('uit')">📤 Verstuurd <span class="n" id="n-uit">0</span></button>
+</div>
+
+<div id="v-werk"></div>
+
+<div id="v-leads" style="display:none">
+  <div class="bar" id="filters"></div>
+  <div id="addpanel">
+    <div class="grid">
+      <input id="a-name" placeholder="Naam"><input id="a-company" placeholder="Bedrijf">
+      <input id="a-email" placeholder="E-mail"><input id="a-subject" placeholder="Onderwerp">
+    </div>
+    <textarea id="a-message" rows="4" placeholder="Plak hier de mail of het bericht…"></textarea>
+    <div class="lacts"><button class="btn" onclick="addLead()">Toevoegen</button></div>
   </div>
-  <textarea id="a-message" rows="5" placeholder="Plak hier de mail of het bericht…"></textarea>
-  <div class="acts"><button class="btn" onclick="addLead()">Toevoegen</button></div>
-</details>
-<div class="bar" id="filters"></div>
-<div id="list"><div class="leeg">laden…</div></div>
+  <div id="list"></div>
+</div>
+
+<div id="v-uit" style="display:none"></div>
+</div>
 <script>
 const KEY=new URLSearchParams(location.search).get('key')||'';
 const STATUSES=__STATUSES__;
-let LEADS=[],FILTER='alles',ZOEK='';
+let LEADS=[],OUT=[],TASKS=[],FILTER='alles',ZOEK='',OPENID=null;
 const flash=()=>{const s=document.getElementById('saved');s.style.opacity=1;setTimeout(()=>s.style.opacity=0,1400);};
+const esc=s=>{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;};
 async function api(p,body){const r=await fetch(p+(p.includes('?')?'&':'?')+'key='+encodeURIComponent(KEY),
  body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{});
- if(!r.ok){document.getElementById('list').innerHTML='<div class="leeg">Geen toegang ('+r.status+') — open de volledige link mét ?key=…</div>';throw 0;}
+ if(!r.ok){document.querySelector('.wrap').insertAdjacentHTML('afterbegin','<div class="leeg">Geen toegang — open de volledige link mét ?key=…</div>');throw 0;}
  return r.json();}
-const esc=s=>{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;};
-const cls=s=>'st-'+s.replace(/ /g,'-');
 function ago(iso){if(!iso)return'';const m=(Date.now()-new Date(iso))/60000;
- if(m<60)return Math.max(1,m|0)+' min geleden';if(m<1440)return (m/60|0)+' uur geleden';
- const d=m/1440|0;return d===1?'gisteren':d+' dagen geleden';}
-function stats(){const c={};LEADS.forEach(l=>c[l.status]=(c[l.status]||0)+1);
- const open=(c['nieuw']||0)+(c['in gesprek']||0)+(c['offerte']||0);
- document.getElementById('stats').innerHTML=
-  `<div class="stat"><b>${LEADS.length}</b><span>totaal</span></div>`+
-  `<div class="stat"><b style="color:var(--accent)">${c['nieuw']||0}</b><span>nieuw</span></div>`+
-  `<div class="stat"><b style="color:var(--amber)">${open}</b><span>open</span></div>`+
-  `<div class="stat"><b style="color:var(--green)">${c['gewonnen']||0}</b><span>gewonnen</span></div>`;}
-function filters(){const f=['alles','nieuw','open','gewonnen'];
- document.getElementById('filters').innerHTML=f.map(x=>`<button class="chip ${FILTER===x?'on':''}" onclick="FILTER='${x}';draw()">${x[0].toUpperCase()+x.slice(1)}</button>`).join('')+
- `<input id="zoek" placeholder="Zoeken…" value="${esc(ZOEK)}" oninput="ZOEK=this.value;draw(true)">`;}
-function visible(l){
- if(FILTER==='nieuw'&&l.status!=='nieuw')return false;
+ if(m<60)return Math.max(1,m|0)+'m';if(m<1440)return (m/60|0)+'u';const d=m/1440|0;return d===1?'1d':d+'d';}
+function toon(t){['werk','leads','uit'].forEach(x=>{document.getElementById('v-'+x).style.display=x===t?'':'none';
+ document.getElementById('tab-'+x).classList.toggle('on',x===t);});}
+
+/* ── werklijst ── */
+function drawTasks(){
+ const open=TASKS.filter(t=>t.status==='open'),done=TASKS.filter(t=>t.status==='klaar');
+ document.getElementById('n-werk').textContent=open.length;
+ const mails=open.filter(t=>t.mail_to),acties=open.filter(t=>!t.mail_to);
+ const el=document.getElementById('v-werk');el.innerHTML='';
+ if(!open.length){el.innerHTML='<div class="leeg"><b>🎉</b>Alles afgewerkt — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
+ const rij=t=>{const ico=(t.title.match(/^\S+/)||['•'])[0];const tt=t.title.replace(/^\S+\s*/,'');
+  const mb=t.mail_to?`<a class="btn" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️ Open mail</a>`:'';
+  return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts">${mb}<button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;};
+ if(mails.length){el.insertAdjacentHTML('beforeend','<div class="sectie">✉️ Mails versturen ('+mails.length+')</div>'+mails.map(rij).join(''));}
+ if(acties.length){el.insertAdjacentHTML('beforeend','<div class="sectie">Acties ('+acties.length+')</div>'+acties.map(rij).join(''));}
+ if(done.length){el.insertAdjacentHTML('beforeend',`<div class="klaarlog">✓ Afgerond (${done.length}): ${done.slice(-6).map(t=>esc(t.title.replace(/^\S+\s*/,''))).join(' · ')}</div>`);}
+}
+async function taakKlaar(id){await api('api/task-update',{id:id,status:'klaar'});flash();TASKS.find(t=>t.id===id).status='klaar';drawTasks();}
+
+/* ── leads ── */
+function filters(){const f=[['alles','Alle'],['nieuw','Nieuw'],['open','Open'],['gewonnen','Gewonnen']];
+ document.getElementById('filters').innerHTML=f.map(([k,l])=>`<button class="chip ${FILTER===k?'on':''}" onclick="FILTER='${k}';drawLeads()">${l}</button>`).join('')+
+ `<input id="zoek" placeholder="Zoeken…" value="${esc(ZOEK)}" oninput="ZOEK=this.value;drawLeads(true)">`+
+ `<button class="chip" onclick="document.getElementById('addpanel').classList.toggle('show')">＋ Toevoegen</button>`;}
+function visible(l){if(FILTER==='nieuw'&&l.status!=='nieuw')return false;
  if(FILTER==='open'&&!['nieuw','in gesprek','offerte'].includes(l.status))return false;
  if(FILTER==='gewonnen'&&l.status!=='gewonnen')return false;
  if(ZOEK){const h=(l.name+' '+l.company+' '+l.email+' '+l.subject+' '+l.message).toLowerCase();
-  if(!h.includes(ZOEK.toLowerCase()))return false;}
- return true;}
+  if(!h.includes(ZOEK.toLowerCase()))return false;}return true;}
 let timers={};
-function draw(keepFocus){
- stats();if(!keepFocus)filters();
+function drawLeads(keepFocus){
+ document.getElementById('n-leads').textContent=LEADS.filter(l=>l.status==='nieuw').length||LEADS.length;
+ if(!keepFocus)filters();
  const el=document.getElementById('list');el.innerHTML='';
  const rows=LEADS.filter(visible);
- if(!rows.length){el.innerHTML='<div class="leeg">Geen leads in deze weergave.</div>';return;}
+ if(!rows.length){el.innerHTML='<div class="leeg"><b>📭</b>Geen leads in deze weergave.</div>';return;}
  rows.forEach(l=>{
-  const d=document.createElement('div');d.className='lead s-'+l.status.replace(/ /g,'-');
+  const ini=(l.name||'?').replace(/[^A-Za-z0-9 ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()||'?';
+  const st=l.status.replace(/ /g,'-');
   const isOrder=(l.subject||'').includes('BESTELLING')||!!l.sourcing;
-  const reSub=encodeURIComponent('Re: uw aanvraag bij BotLease');
-  d.innerHTML=`
-   <div class="top"><div class="who">${esc(l.name)||'(geen naam)'} ${l.company?`<small>· ${esc(l.company)}</small>`:''}</div>
-   <div class="tijd">#${l.id} · ${ago(l.created)}</div></div>
-   <div class="badges">
-     <span class="badge ${l.source==='mail'?'mail':''} ${isOrder?'order':''}">${isOrder?'bestelling':esc(l.source)}</span>
-     <span class="badge ${cls(l.status)}">${esc(l.status)}</span>
-     ${l.robot?`<span class="badge">${esc(l.robot)}</span>`:''}
-   </div>
-   ${l.subject?`<div class="contact">${esc(l.subject)}</div>`:''}
-   <div class="contact">${l.email?`<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`:''} ${l.phone?' · '+esc(l.phone):''}</div>
-   ${l.message?`<div class="msg" onclick="this.classList.toggle('open')">${esc(l.message)}</div>`:''}
-   ${l.sourcing?`<div class="supplier">📦 <b>Bestellen bij:</b> ${esc(l.sourcing)}</div>`:''}
-   <div class="acts">
-     <select data-id="${l.id}" class="st">${STATUSES.map(s=>`<option ${s===l.status?'selected':''}>${s}</option>`).join('')}</select>
-     ${l.email?`<a class="btn" href="mailto:${esc(l.email)}?subject=${reSub}">✉️ Beantwoorden</a>`:''}
-   </div>
-   <textarea class="nt" data-id="${l.id}" rows="2" placeholder="Notities / opvolging…">${esc(l.notes)}</textarea>`;
+  const d=document.createElement('div');d.className='lead'+(OPENID===l.id?' open':'');
+  d.innerHTML=`<div class="lhead" onclick="klap(${l.id})">
+    <div class="av ${st}">${ini}</div>
+    <div class="lwie"><div class="lnaam">${esc(l.name)||'(geen naam)'}${l.company?' · '+esc(l.company):''}</div>
+    <div class="lsub">${esc(l.subject||l.email||'')}</div></div>
+    <div class="lmeta">${isOrder?'<span class="badge" style="background:var(--amber-soft);color:var(--amber)">bestelling</span>':''}<span class="badge b-${st}">${esc(l.status)}</span><span class="tijd">${ago(l.created)}</span><span class="pijl">▶</span></div></div>
+   <div class="lbody">
+    <div class="lrij">${l.email?`<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>`:''} ${l.phone?' · '+esc(l.phone):''} ${l.robot?' · '+esc(l.robot):''}</div>
+    ${l.message?`<div class="msg">${esc(l.message)}</div>`:''}
+    ${l.sourcing?`<div class="supplier">📦 <b>Bestellen bij:</b> ${esc(l.sourcing)}</div>`:''}
+    <div class="lacts">
+      <select data-id="${l.id}" class="st">${STATUSES.map(s=>`<option ${s===l.status?'selected':''}>${s}</option>`).join('')}</select>
+      ${l.email?`<a class="btn gh" href="mailto:${esc(l.email)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent('Re: uw aanvraag bij BotLease')}">✉️ Beantwoorden</a>`:''}
+    </div>
+    <textarea class="nt-edit" data-id="${l.id}" rows="2" placeholder="Notities / opvolging…">${esc(l.notes)}</textarea>
+   </div>`;
   el.appendChild(d);});
- el.querySelectorAll('.msg').forEach(m=>{if(m.scrollHeight>140)m.classList.add('clamp');});
  el.querySelectorAll('select.st').forEach(s=>s.onchange=async e=>{
   await api('api/update',{id:+e.target.dataset.id,status:e.target.value});
-  const L=LEADS.find(x=>x.id==e.target.dataset.id);L.status=e.target.value;flash();draw();});
- el.querySelectorAll('textarea.nt').forEach(t=>t.oninput=e=>{clearTimeout(timers[e.target.dataset.id]);
+  LEADS.find(x=>x.id==e.target.dataset.id).status=e.target.value;flash();drawLeads();});
+ el.querySelectorAll('textarea.nt-edit').forEach(t=>t.oninput=e=>{clearTimeout(timers[e.target.dataset.id]);
   timers[e.target.dataset.id]=setTimeout(async()=>{await api('api/update',{id:+e.target.dataset.id,notes:e.target.value});flash();},500);});}
-async function load(){LEADS=await api('api/leads');draw();loadTasks();}
-async function loadTasks(){
-  const ts=await api('api/tasks');
-  const open=ts.filter(t=>t.status==='open'), done=ts.filter(t=>t.status==='klaar');
-  document.getElementById('taakteller').textContent=open.length+' open · '+done.length+' klaar';
-  const el=document.getElementById('tasks');el.innerHTML='';
-  if(!open.length){el.innerHTML='<div style="color:#6e6e73;font-size:13.5px;padding:6px 0">🎉 Alles gedaan — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
-  open.forEach(t=>{
-    const d=document.createElement('div');d.className='lead';d.style.borderLeft='4px solid #b45309';
-    const mailBtn=t.mail_to?`<a class="btn" style="background:#0066cc;color:#fff" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️ Open mail</a>`:'';
-    d.innerHTML=`<div class="top"><div class="who">${esc(t.title)}</div><div class="tijd">#${t.id}</div></div>
-      ${t.note?`<div class="contact">${esc(t.note)}</div>`:''}
-      <div class="acts">${mailBtn}<button class="btn" style="background:#e8e8ed;color:#1d1d1f" onclick="taakKlaar(${t.id})">✓ Klaar</button></div>`;
-    el.appendChild(d);});
-  if(done.length){const dd=document.createElement('div');dd.style.cssText='color:#6e6e73;font-size:12.5px;margin-top:4px';
-    dd.textContent='Afgerond: '+done.slice(-5).map(t=>t.title).join(' · ');el.appendChild(dd);}
-}
-async function taakKlaar(id){await api('api/task-update',{id:id,status:'klaar'});flash();loadTasks();}
+function klap(id){OPENID=OPENID===id?null:id;drawLeads();}
 async function addLead(){const v=id=>document.getElementById(id).value;
  await api('api/add',{name:v('a-name'),company:v('a-company'),email:v('a-email'),subject:v('a-subject'),message:v('a-message'),source:'handmatig'});
- ['a-name','a-company','a-email','a-subject','a-message'].forEach(i=>document.getElementById(i).value='');flash();load();}
+ ['a-name','a-company','a-email','a-subject','a-message'].forEach(i=>document.getElementById(i).value='');
+ document.getElementById('addpanel').classList.remove('show');flash();load();}
+
+/* ── verstuurd ── */
+function drawOut(){document.getElementById('n-uit').textContent=OUT.length;
+ const el=document.getElementById('v-uit');
+ el.innerHTML=OUT.length?OUT.map(o=>`<div class="out"><span class="t">${(o.created||'').slice(5,16).replace('T',' ')}</span><span class="a">${esc((o.name||'').replace(/^AAN: /,''))}</span><span class="s">${esc(o.subject)}</span></div>`).join('')
+  :'<div class="leeg"><b>📤</b>Nog geen gelogde uitgaande mails — zet verstuurd@in.botlease.nl in je BCC.</div>';}
+
+async function load(){
+ const all=await api('api/leads');
+ OUT=all.filter(l=>l.source==='uitgaand');
+ LEADS=all.filter(l=>l.source!=='uitgaand');
+ TASKS=await api('api/tasks');
+ drawTasks();drawLeads();drawOut();}
 load();
-</script></div></body></html>"""
+</script></body></html>"""
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
