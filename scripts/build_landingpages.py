@@ -361,7 +361,7 @@ def render_city(c: dict) -> str:
         },
         {
             "q": f"Voldoen humanoïde robots in {c['name']} aan de EU AI-Act?",
-            "a": f"Ja. BotLease regelt voor elke deployment in {c['name']} de EU AI-Act risicoanalyse en CE-conformiteit onder Machineverordening 2023/1230. Voor government / defensie-toepassingen in {c['name']} (relevant in regio Den Haag) zetten wij uitsluitend EU-gebouwde modellen in (NEURA, PAL, Pollen).",
+            "a": f"Ja. BotLease regelt voor elke deployment in {c['name']} de EU AI-Act risicoanalyse en CE-conformiteit onder Machineverordening 2023/1230. Voor government / defensie-toepassingen in {c['name']} (relevant in regio Den Haag) zetten wij uitsluitend EU-gebouwde modellen in (NEURA, Pollen).",
         },
         {
             "q": f"Hoeveel kost een humanoïde robot leasen in {c['name']}?",

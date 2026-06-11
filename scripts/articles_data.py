@@ -61,7 +61,7 @@ ARTICLES = [
             ("p", "Drie vragen om jezelf te stellen:"),
             ("p", "<ol>"
              "<li><b>Heb je een use-case die in 2026 productief moet zijn?</b> Dan focus op de 10 direct-leverbare modellen - niet op de Apollo of Figure (te onzeker).</li>"
-             "<li><b>Is EU AI-Act compliance kritiek (zorg, government, financieel)?</b> Dan EU-gebouwde modellen prioriteit (NEURA, PAL, Pollen).</li>"
+             "<li><b>Is EU AI-Act compliance kritiek (zorg, government, financieel)?</b> Dan EU-gebouwde modellen prioriteit (NEURA, Pollen).</li>"
              "<li><b>Is budget de hoofdfactor?</b> Dan begin met een Unitree G1 (€1.295/mnd) of een R1 (€290/mnd) als loss-leader om team-comfort te bouwen, en schaal later op.</li>"
              "</ol>"),
             ("p", "<a href=\"/robots\">Bekijk de volledige catalogus</a> voor spec-tabellen per model, of <a href=\"/#contact\">plan een gratis 30-min intake</a> om je situatie te bespreken."),
@@ -268,7 +268,7 @@ ARTICLES = [
             ("p", "BotLease verwacht eind 2026 de eerste Nederlandse 4NE-1 deployments. Verwachte sectoren: semicon-toeleveranciers in regio Eindhoven (FEI, BESI), automotive-supply in Helmond (VDL Nedcar omgeving), en zorginstellingen in Zuid-Holland die geen Chinese hardware mogen gebruiken vanwege overheid-contracten."),
             ("p", "Voor een Nederlandse pilot kost een NEURA 4NE-1 Gen 3.5 ongeveer €5.950 per maand via lease. Dat is nog altijd goedkoper dan een vergelijkbare Unitree H1-2 (€6.650/mnd), én inclusief volledig compliance-pakket en Bosch-supply. Voor productieve deployment met strategisch risicomanagement is dat een aantrekkelijke trade-off."),
             ("h2", "Wat we nog niet weten"),
-            ("p", "Twee onzekerheden: (1) Bosch verzorgt productie, maar de kennis blijft bij NEURA. Wat gebeurt er als NEURA failliet gaat? (2) De Neuraverse OS is proprietary - anders dan ROS bij PAL of LeRobot bij Pollen. Lock-in risk bestaat. BotLease neemt het continuïteits-risico als lessor, maar voor klanten die zelf willen kopen is dit een aandachtspunt."),
+            ("p", "Twee onzekerheden: (1) Bosch verzorgt productie, maar de kennis blijft bij NEURA. Wat gebeurt er als NEURA failliet gaat? (2) De Neuraverse OS is proprietary - anders dan LeRobot bij Pollen. Lock-in risk bestaat. BotLease neemt het continuïteits-risico als lessor, maar voor klanten die zelf willen kopen is dit een aandachtspunt."),
             ("p", "Onze inschatting: voor 80% van Nederlandse MKB-toepassingen waar EU-compliance kritiek is, is NEURA in 2026 de juiste keuze. Voor pure value-deployments blijven de Unitree-modellen interessanter."),
             ("p", "Meer over de 4NE-1: <a href=\"/robots/neura-4ne1-gen3\">NEURA 4NE-1 Gen 3.5 detail-pagina</a>. Vergelijk met andere modellen via onze <a href=\"/vergelijken\">vergelijkingstool</a>."),
         ],
@@ -293,7 +293,7 @@ ARTICLES = [
             ("h2", "Actie 1: inventariseer welke machines onder de nieuwe regels vallen"),
             ("p", "Niet alle robots vallen onder de Machineverordening. Cobots wel. Industriële armrobots wel. Humanoids absoluut wel. AGVs en AMRs ook. Een eenvoudige checklist: als het beweegt en aandrijving heeft, valt het er waarschijnlijk onder. BotLease maakt een gratis inventarisatie voor klanten."),
             ("h2", "Actie 2: check cybersecurity-eisen"),
-            ("p", "Nieuw in 2027: machines moeten beveiligd zijn tegen hacking. Concreet: secure boot, encrypted communication, software-update-mechanisme. Voor EU-gebouwde robots (NEURA, PAL, Pollen) is dit baked-in. Voor Chinese modellen moet je dit nu al laten testen - kan 2-3 weken duren per model."),
+            ("p", "Nieuw in 2027: machines moeten beveiligd zijn tegen hacking. Concreet: secure boot, encrypted communication, software-update-mechanisme. Voor EU-gebouwde robots (NEURA, Pollen) is dit baked-in. Voor Chinese modellen moet je dit nu al laten testen - kan 2-3 weken duren per model."),
             ("h2", "Actie 3: AI-component apart laten beoordelen"),
             ("p", "Als de machine AI gebruikt om beslissingen te nemen (en alle humanoids doen dat), valt het AI-component ook onder de AI-Act. Dubbele conformiteit dus. BotLease's <a href=\"/gids/ai-act-machineverordening\">complete AI-Act gids</a> heeft de details."),
             ("h2", "Actie 4: digital documentation klaarzetten"),
@@ -399,10 +399,10 @@ ARTICLES = [
             ("p", "Vanaf 2 augustus 2026 is de EU AI-Act volledig van toepassing. Vanaf 20 januari 2027 vervangt de Machineverordening 2023/1230 de oude Machinerichtlijn. Voor non-EU-fabrikanten betekent dit: documentatie aanpassen, TÜV-tests laten doen, conformity assessments uitvoeren. Voor EU-fabrikanten: niets nieuws. NEURA werkt sinds 2024 met TÜV Süd, PAL sinds 2004 (20+ jaar EU-gecertificeerd), Pollen sinds 2016."),
             ("p", "Concreet voor jouw deployment: een NEURA 4NE-1 of NEURA 4NE-1 is op dag 1 EU-compliant. Een Unitree of Apptronik vereist 2-4 weken extra assessment per locatie (dat doen wij, maar duurt langer). Voor compliance-gevoelige sectoren (zorg, defensie, financieel) is dat verschil tussen project-go en project-no-go."),
             ("h2", "Voordeel 2: korte supply chain"),
-            ("p", "Een onderdeel bestellen uit Shenzhen of Texas duurt 6-8 weken via lucht (duur), 8-12 weken via zee (goedkoop). Voor een productieve humanoid die stilstaat is dat allebei te lang. NEURA's productieketen via Bosch dekt heel Europa in onder 48 uur. PAL stuurt vanuit Barcelona binnen 72 uur naar elke EU-locatie. Pollen heeft een Hugging Face-backed distributie via Frankrijk."),
+            ("p", "Een onderdeel bestellen uit Shenzhen of Texas duurt 6-8 weken via lucht (duur), 8-12 weken via zee (goedkoop). Voor een productieve humanoid die stilstaat is dat allebei te lang. NEURA's productieketen via Bosch dekt heel Europa in onder 48 uur. Pollen heeft een Hugging Face-backed distributie via Frankrijk."),
             ("p", "BotLease voorraad: we houden onderdelen voor EU-modellen op voorraad in Eindhoven, voor Aziatische modellen alleen de meest-gevraagde. Voor exotische onderdelen vereisen Aziatische modellen een wachttijd."),
             ("h2", "Voordeel 3: GDPR by design"),
-            ("p", "Onder GDPR is een Amerikaanse cloud-provider (waar veel US-fabrikanten data heen sturen) problematisch sinds het Schrems II-arrest. EU-fabrikanten zijn van origine GDPR-compliant: hun data-infrastructuur staat in de EU. NEURA gebruikt AWS Frankfurt. PAL gebruikt Hetzner. Pollen Hugging Face EU. Voor klanten met patiëntdata, productie-IP of medewerkers-data is dit een hard verkoopargument."),
+            ("p", "Onder GDPR is een Amerikaanse cloud-provider (waar veel US-fabrikanten data heen sturen) problematisch sinds het Schrems II-arrest. EU-fabrikanten zijn van origine GDPR-compliant: hun data-infrastructuur staat in de EU. NEURA gebruikt AWS Frankfurt. Pollen Hugging Face EU. Voor klanten met patiëntdata, productie-IP of medewerkers-data is dit een hard verkoopargument."),
             ("h2", "Het prijs-nadeel van EU-gebouwd"),
             ("p", "Eerlijk: EU-modellen zijn 30-50% duurder dan vergelijkbare Aziatische. NEURA 4NE-1 Gen 3.5 is €98.000. Unitree H1-2 met vergelijkbare payload is €99.900 (vergelijkbaar), maar de Unitree's <b>operationele</b> kost is lager vanwege goedkopere onderdelen-supply. Op pure aanschafprijs win Aziatische modellen consistent."),
             ("p", "Voor lease verdwijnt dat verschil grotendeels - BotLease neemt het inkooprisico over, en de leaseprijs reflecteert serviceniveau meer dan aanschafprijs. €1.295/mnd NEURA 4NE-1 Mini is identiek geprijsd aan €1.295/mnd Unitree G1, terwijl aanschaf 25% verschilt."),

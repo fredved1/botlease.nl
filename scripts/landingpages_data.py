@@ -315,7 +315,7 @@ CITIES = [
         "sectors_in_focus": ["hospitality-retail", "3pl-fulfillment"],
         "local_hooks": (
             "Voor Scheveningse hotels en hospitality-cluster (Kurhaus, Steigenberger) zijn Unitree H2 of NEO ideaal voor "
-            "lobby-host. Voor government R&D en defensie-pilots zijn EU-gebouwde modellen (NEURA, PAL) verplicht - "
+            "lobby-host. Voor government R&D en defensie-pilots zijn EU-gebouwde modellen (NEURA) verplicht - "
             "geen Chinese hardware in security-toepassingen."
         ),
     },

@@ -1043,14 +1043,14 @@ def render_hub() -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Humanoïde robots leasen | catalogus 2026 | BotLease</title>
-<meta name="description" content="Catalogus humanoïde robots in Nederland - 13 modellen leasen vanaf €290/mnd. NEURA, PAL, Unitree, UBTECH, Apptronik vergeleken. All-in operational lease.">
+<meta name="description" content="Catalogus humanoïde robots in Nederland - 13 modellen leasen vanaf €290/mnd. NEURA, Unitree, UBTECH, Apptronik vergeleken. All-in operational lease.">
 <meta name="keywords" content="humanoide robot leasen Nederland, NEURA 4NE-1, Unitree leasen, Apptronik Apollo, Figure 02, humanoid catalogus 2026, robot huren MKB Nederland">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/robots/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Humanoïde robots leasen Nederland - 13 modellen vergelijken | BotLease">
-<meta property="og:description" content="Complete catalogus humanoïde robots voor lease in Nederland: EU-gebouwd (NEURA, PAL, Pollen), Aziatisch (Unitree, UBTECH, EngineAI), wachtlijst (Apptronik, Figure, 1X NEO).">
+<meta property="og:description" content="Complete catalogus humanoïde robots voor lease in Nederland: EU-gebouwd (NEURA, Pollen), Aziatisch (Unitree, UBTECH, EngineAI), wachtlijst (Apptronik, Figure, 1X NEO).">
 <meta property="og:url" content="{SITE_URL}/robots/">
 <meta property="og:image" content="{SITE_URL}/img/robots/neura-4ne1.webp">
 <meta property="og:locale" content="nl_NL">
@@ -1072,7 +1072,7 @@ def render_hub() -> str:
   <div class="container">
     <div class="eyebrow">Catalogus 2026</div>
     <h1>Humanoïde robots leasen in Nederland.</h1>
-    <p>13 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, PAL, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
+    <p>13 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
   </div>
 </section>
 
