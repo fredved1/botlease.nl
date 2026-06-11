@@ -16,7 +16,7 @@ _Laatst bijgewerkt: 11-6-2026_
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
 | PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 | Alexandre testte order-flow; speelse reply 11-6 → partner-gesprek |
-| Pollen Robotics | sales@pollen-robotics.com | Antwoord ontvangen | 5-6-2026 | Santiago Pavon: geen lease-model, wees op Reachy Mini ($399) — misverstand; reply klaar (wij bedoelen Reachy 2) |
+| Pollen Robotics | sales@pollen-robotics.com | Antwoord ontvangen | 5-6-2026 | Santiago Pavon: misverstand-reply VERSTUURD 11-6 ✓ (Reachy 2 + Mini als bureau-demo); wacht op antwoord |
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:12) |
 | UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:19, via BCC-log) |
 | Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: standaard-klant + staffels, G1 4-5wk, CE ✓; selection table gevraagd 11-6 |
@@ -33,7 +33,7 @@ _Laatst bijgewerkt: 11-6-2026_
 | RoboCorpus | jordi.hurssel@robocorpus.be | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
 | INGEN Innovations | services@ingen-geosciences.com | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
 | Leobotics | contact@leobotics.fr | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
-| RobotShop Europe | marketplace@robotshop.com | Antwoord ontvangen | 5-6-2026 | Louise (8-6): reseller op offertebasis, min. order $2k / $5.5k jr — MAKKELIJKSTE KANAAL; offerte G1 EDU gevraagd 11-6 |
+| RobotShop Europe | marketplace@robotshop.com | Antwoord ontvangen | 5-6-2026 | Louise (8-6): reseller, min $2k/$5.5k jr; offerte G1 EDU AANGEVRAAGD 11-6 ✓ (13:42, ticket T1121128); wacht op offerte |
 | OrcaRobot (UBTECH EU/NL) | richard@orcarobot.com | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
 
 ### Alleen via formulier
