@@ -71,10 +71,20 @@ class CRMHandler:
                         " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                         (now(), now(), "uitgaand", f"AAN: {to_hdr}", "", to_hdr, "",
                          subject, body[:2000], "beantwoord", "Automatisch gelogd via BCC verstuurd@in.botlease.nl"))
-                    # taak afvinken als deze mail bij een open taak hoort
+                    # taak afvinken als deze mail bij een open taak hoort:
+                    # 1) exacte adres-match; 2) anders domein-match, maar alleen als
+                    #    er precies één open taak op dat domein wacht (tickets/aliassen).
                     con.execute("UPDATE tasks SET status='klaar', updated=? WHERE status='open'"
                                 " AND mail_to != '' AND instr(lower(?), lower(mail_to)) > 0",
                                 (now(), to_hdr))
+                    doms = set(re.findall(r"@([a-z0-9.-]+\.[a-z]{2,})", to_hdr.lower()))
+                    for dom in doms:
+                        open_dom = con.execute(
+                            "SELECT id FROM tasks WHERE status='open' AND lower(mail_to) LIKE ?",
+                            (f"%@{dom}",)).fetchall()
+                        if len(open_dom) == 1:
+                            con.execute("UPDATE tasks SET status='klaar', updated=? WHERE id=?",
+                                        (now(), open_dom[0][0]))
                 else:
                     con.execute(
                         "INSERT INTO leads (created, updated, source, name, company, email, phone,"
