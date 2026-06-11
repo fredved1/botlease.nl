@@ -434,7 +434,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 msg["From"] = f"Thomas Vedder | BotLease <{SMTP_USER}>"
                 msg["To"] = task["mail_to"]
                 msg["Subject"] = task["mail_subject"]
-                msg.set_content(task["mail_body"])
+                body = task["mail_body"].rstrip()
+                if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
+                    body += "\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | hallo@botlease.nl\nwww.botlease.nl"
+                msg.set_content(body)
                 with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=25) as s:
                     s.starttls()
                     s.login(SMTP_USER, SMTP_PASS)
