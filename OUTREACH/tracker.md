@@ -20,7 +20,7 @@ _Laatst bijgewerkt: 11-6-2026_
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 | UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 | Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: standaard-klant + staffels, G1 4-5wk, CE ✓; selection table gevraagd 11-6 |
-| NEURA Robotics | info@neura-robotics.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| NEURA Robotics | info@neura-robotics.com | Antwoord ontvangen | 5-6-2026 | Kristina Naumoska: wil use-case-info; beantwoord 11-6 als lease-partner |
 | 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 
 ### EU-distributeurs
@@ -33,7 +33,7 @@ _Laatst bijgewerkt: 11-6-2026_
 | RoboCorpus | jordi.hurssel@robocorpus.be | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 | INGEN Innovations | services@ingen-geosciences.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 | Leobotics | contact@leobotics.fr | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
-| RobotShop Europe | marketplace@robotshop.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
+| RobotShop Europe | marketplace@robotshop.com | Antwoord ontvangen | 5-6-2026 | Louise (8-6): reseller op offertebasis, min. order $2k / $5.5k jr — MAKKELIJKSTE KANAAL; offerte G1 EDU gevraagd 11-6 |
 | OrcaRobot (UBTECH EU/NL) | richard@orcarobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 |
 
 ### Alleen via formulier
