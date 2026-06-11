@@ -229,6 +229,8 @@ async function api(p,body){const r=await fetch(p+(p.includes('?')?'&':'?')+'key=
  return r.json();}
 function ago(iso){if(!iso)return'';const m=(Date.now()-new Date(iso))/60000;
  if(m<60)return Math.max(1,m|0)+'m';if(m<1440)return (m/60|0)+'u';const d=m/1440|0;return d===1?'1d':d+'d';}
+function wanneer(iso){if(!iso)return'';const d=new Date(iso),m=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+ const z=n=>String(n).padStart(2,'0');return d.getDate()+' '+m[d.getMonth()]+' '+z(d.getHours())+':'+z(d.getMinutes());}
 function toon(t){['werk','leads','uit'].forEach(x=>{document.getElementById('v-'+x).style.display=x===t?'':'none';
  document.getElementById('tab-'+x).classList.toggle('on',x===t);});}
 
@@ -236,11 +238,11 @@ function toon(t){['werk','leads','uit'].forEach(x=>{document.getElementById('v-'
 function drawTasks(){
  const open=TASKS.filter(t=>t.status==='open'),done=TASKS.filter(t=>t.status==='klaar');
  document.getElementById('n-werk').textContent=open.length;
- const mails=open.filter(t=>t.mail_to),acties=open.filter(t=>!t.mail_to);
+ const mails=open.filter(t=>t.mail_to).sort((a,b)=>(b.created||'').localeCompare(a.created||'')),acties=open.filter(t=>!t.mail_to);
  const el=document.getElementById('v-werk');el.innerHTML='';
  if(!open.length){el.innerHTML='<div class="leeg"><b>🎉</b>Alles afgewerkt — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
  const rij=t=>{const ico=(t.title.match(/^\S+/)||['•'])[0];const tt=t.title.replace(/^\S+\s*/,'');
-  if(!t.mail_to){return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts"><button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;}
+  if(!t.mail_to){return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts"><span class="tijd">${wanneer(t.created)}</span><button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;}
   const lead=window.ALLLEADS?ALLLEADS.find(x=>x.id===t.lead_id):null;
   const isOpen=TOPEN===t.id;
   const mailto=`mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}`;
@@ -248,7 +250,7 @@ function drawTasks(){
     <div style="display:flex;align-items:center;gap:14px;cursor:pointer" onclick="tklap(${t.id})">
       <div class="ico">${ico}</div>
       <div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div>
-      <div class="acts"><span style="font-size:11.5px;color:var(--ink3)">${isOpen?'sluiten':'bekijk mail'}</span><span class="pijl" style="${isOpen?'transform:rotate(90deg)':''}">▶</span></div>
+      <div class="acts"><span class="tijd">${wanneer(t.created)}</span><span style="font-size:11.5px;color:var(--ink3)">${isOpen?'sluiten':'bekijk mail'}</span><span class="pijl" style="${isOpen?'transform:rotate(90deg)':''}">▶</span></div>
     </div>
     ${isOpen?`<div style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px">
       ${lead&&lead.message?`<div class="sectie" style="margin-top:2px">📥 Origineel bericht van ${esc(lead.name||lead.email)}</div><div class="msg" style="max-height:180px;overflow:auto">${esc(lead.message)}</div>`:''}
