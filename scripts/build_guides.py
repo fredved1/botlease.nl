@@ -895,7 +895,7 @@ def render_comparison_hub() -> str:
 <section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:60px 0">
   <div class="container">
     <span class="eyebrow">Populaire head-to-heads</span>
-    <h2 style="margin:14px 0 28px">Direct vergelijken - top 6 vergelijkingen.</h2>
+    <h2 style="margin:14px 0 28px">Direct vergelijken - top 5 vergelijkingen.</h2>
     <div class="cmp-grid">
       <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · beide €1.295 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
       <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €6.650 vs €5.750</div></div><div class="cmp-arr">Vergelijk →</div></a>

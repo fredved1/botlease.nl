@@ -12,7 +12,7 @@ ARTICLES = [
         "intro": "Vraag van een Nederlandse 3PL-directeur deze week: 'Kunnen we vandaag een humanoïde robot leasen, of moeten we wachten tot 2027?' Antwoord: 10 van de 15 vooraanstaande modellen zijn vandaag leverbaar in Nederland. Maar de leverbaarheid varieert sterk per model én per channel. In dit artikel: de actuele marktstand op 20 mei 2026 - wat kan je nu écht leasen, wat is hype, en welke prijzen zijn realistisch.",
         "body": [
             ("h2", "De korte versie"),
-            ("p", "10 modellen direct leverbaar (6-10 weken na contract). 5 modellen op wachtlijst voor Q4 2026 of Q1 2027. Reële prijzen: €290 tot €6.650 per maand all-in operational lease. Goedkoopste leverbaar nu: Unitree R1 (€290/mnd). Industrieel flagship: Unitree H1-2 (€6.650/mnd) of NEURA 4NE-1 Gen 3.5 (€5.950/mnd, EU-built).") ,
+            ("p", "9 modellen direct leverbaar (6-10 weken na contract). 4 modellen op wachtlijst voor Q4 2026 of Q1 2027. Reële prijzen: €290 tot €6.650 per maand all-in operational lease. Goedkoopste leverbaar nu: Unitree R1 (€290/mnd). Industrieel flagship: Unitree H1-2 (€6.650/mnd) of NEURA 4NE-1 Gen 3.5 (€5.950/mnd, EU-built).") ,
 
             ("h2", "Direct leverbaar nu (10 modellen)"),
             ("p", "EU-gebouwd, korte supply chain, EU AI-Act compliant vanaf dag 1:"),
@@ -33,7 +33,7 @@ ARTICLES = [
              "<li><b>UBTECH Walker S2 (CN)</b> - €5.750/mnd. Eerste Chinese full-size humanoid in mass production. Bewezen bij BYD en Foxconn.</li>"
              "</ul>"),
 
-            ("h2", "Wachtlijst 2026/2027 (5 modellen)"),
+            ("h2", "Wachtlijst 2026/2027 (4 modellen)"),
             ("p", "Bewezen modellen die nog niet open verkocht worden voor EU-derden - wel beschikbaar voor reservering:"),
             ("p", "<ul>"
              "<li><b>Apptronik Apollo (US)</b> - €3.499/mnd indicatief. Pilots bij Mercedes-Benz Sindelfingen. Commerciële productie EU verwacht Q4 2026 / Q1 2027.</li>"
@@ -749,7 +749,7 @@ ARTICLES = [
             ("h2", 'Wat betekent dit voor Europese inzet?'),
             ("p", "De video's tonen progressie, maar geen van de geportretteerde robots is vandaag inzetbaar in een Nederlandse productiehal of magazijn zonder uitgebreide risicobeoordeling. De EU AI Act classificeert humanoide systemen die naast mensen werken al snel als hoog-risico, met eisen aan logging, transparantie en menselijk toezicht. Daarnaast vraagt de Machineverordening (Verordening 2023/1230) om een CE-traject waarin balansherstel niet als bonus telt, maar als <b>aantoonbaar veiligheidskenmerk</b>. Wie nu oriënteert, doet er goed aan om eerst de <a href='/vergelijken/lease-vs-koop'>lease-versus-koop afweging</a> en de <a href='/kosten'>totale kosten</a> in kaart te brengen voor pilots in plaats van te kiezen op basis van virale beelden."),
             ("h2", 'Van demo naar pilot'),
-            ("p", "Het patroon in deze Video Friday is herkenbaar: indrukwekkende fragmenten, beperkte context. Voor Nederlandse werkgevers die serieus kijken naar humanoide robotica is de relevante stap niet de volgende virale clip, maar een gestructureerde pilot met meetbare KPI's: uptime, MTBF, energieverbruik en de hoeveelheid menselijk ingrijpen per shift. Een vergelijking tussen volwassen platforms in onze <a href='/robots'>catalogus van vijftien modellen</a> levert in de meeste gevallen meer op dan wachten op de volgende generatie."),
+            ("p", "Het patroon in deze Video Friday is herkenbaar: indrukwekkende fragmenten, beperkte context. Voor Nederlandse werkgevers die serieus kijken naar humanoide robotica is de relevante stap niet de volgende virale clip, maar een gestructureerde pilot met meetbare KPI's: uptime, MTBF, energieverbruik en de hoeveelheid menselijk ingrijpen per shift. Een vergelijking tussen volwassen platforms in onze <a href='/robots'>catalogus van dertien modellen</a> levert in de meeste gevallen meer op dan wachten op de volgende generatie."),
             ("h2", "Wat betekent dit voor Nederland?"),
             ("p", "Voor Nederlandse productie- en logistieke bedrijven blijft de boodschap nuchter: balansdemo's zijn interessant signaal, geen koopargument. De combinatie van EU AI Act, Machineverordening en een nog jonge servicemarkt maakt dat een gefaseerde pilot via <a href='/gids/humanoide-robot-leasen'>lease-constructies</a> vrijwel altijd verstandiger is dan vroege aanschaf. Pas wanneer een platform meetbaar presteert in een echte werkomgeving, is opschaling te verdedigen."),
         ],
