@@ -14,11 +14,11 @@ _Laatst bijgewerkt: 5-6-2026_
 ### Fabrikanten
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
-| PAL Robotics | business@pal-robotics.com | Gemaild | 5-6-2026 |  |
+| PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 |  |
 | Pollen Robotics | sales@pollen-robotics.com | Gemaild | 5-6-2026 |  |
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 |  |
 | UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 |  |
-| Unitree | sales_global@unitree.com | Gemaild | 5-6-2026 |  |
+| Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 |  |
 | NEURA Robotics | info@neura-robotics.com | Gemaild | 5-6-2026 |  |
 | 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 |  |
 
