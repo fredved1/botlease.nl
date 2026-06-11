@@ -66,6 +66,10 @@ def init_db():
             title TEXT NOT NULL, note TEXT DEFAULT '',
             mail_to TEXT DEFAULT '', mail_subject TEXT DEFAULT '', mail_body TEXT DEFAULT '',
             status TEXT NOT NULL DEFAULT 'open')""")
+        try:
+            con.execute("ALTER TABLE tasks ADD COLUMN lead_id INTEGER DEFAULT 0")
+        except sqlite3.OperationalError:
+            pass
         # migraties: robot + sourcing (leveranciers-info bij bestellingen)
         for col in ("robot", "sourcing"):
             try:
@@ -236,14 +240,33 @@ function drawTasks(){
  const el=document.getElementById('v-werk');el.innerHTML='';
  if(!open.length){el.innerHTML='<div class="leeg"><b>🎉</b>Alles afgewerkt — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
  const rij=t=>{const ico=(t.title.match(/^\S+/)||['•'])[0];const tt=t.title.replace(/^\S+\s*/,'');
-  const send=CANSEND&&t.mail_to?`<button class="btn" onclick="verstuur(${t.id},this)">📨 Verstuur</button>`:'';
-  const mb=t.mail_to?`<a class="btn ${CANSEND?'gh':''}" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️</a><button class="btn gh" title="Kopieer netjes opgemaakt (voor replies)" onclick='richCopy(${JSON.stringify(t.mail_body)})'>📋</button>`:'';
-  void 0;
-  return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts">${send}${mb}<button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;};
+  if(!t.mail_to){return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts"><button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;}
+  const lead=window.ALLLEADS?ALLLEADS.find(x=>x.id===t.lead_id):null;
+  const isOpen=TOPEN===t.id;
+  const mailto=`mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}`;
+  return `<div class="taak mailtaak ${isOpen?'open':''}" style="flex-direction:column;align-items:stretch;gap:0">
+    <div style="display:flex;align-items:center;gap:14px;cursor:pointer" onclick="tklap(${t.id})">
+      <div class="ico">${ico}</div>
+      <div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div>
+      <div class="acts"><span style="font-size:11.5px;color:var(--ink3)">${isOpen?'sluiten':'bekijk mail'}</span><span class="pijl" style="${isOpen?'transform:rotate(90deg)':''}">▶</span></div>
+    </div>
+    ${isOpen?`<div style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px">
+      ${lead&&lead.message?`<div class="sectie" style="margin-top:2px">📥 Origineel bericht van ${esc(lead.name||lead.email)}</div><div class="msg" style="max-height:180px;overflow:auto">${esc(lead.message)}</div>`:''}
+      <div class="sectie" style="margin-top:10px">📝 Concept-antwoord · aan ${esc(t.mail_to)} · onderwerp: ${esc(t.mail_subject)}</div>
+      <div class="msg" style="max-height:none">${esc(t.mail_body)}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <a class="btn" href="${mailto}">✉️ Open in mailprogramma</a>
+        ${CANSEND?`<button class="btn gh" onclick="verstuur(${t.id},this)">📨 Direct versturen</button>`:''}
+        <button class="btn gh" title="Kopieer netjes opgemaakt" onclick='richCopy(${JSON.stringify(t.mail_body)})'>📋 Kopieer</button>
+        <button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button>
+      </div></div>`:''}
+  </div>`;};
  if(mails.length){el.insertAdjacentHTML('beforeend','<div class="sectie">✉️ Mails versturen ('+mails.length+')</div>'+mails.map(rij).join(''));}
  if(acties.length){el.insertAdjacentHTML('beforeend','<div class="sectie">Acties ('+acties.length+')</div>'+acties.map(rij).join(''));}
  if(done.length){el.insertAdjacentHTML('beforeend',`<div class="klaarlog">✓ Afgerond (${done.length}): ${done.slice(-6).map(t=>esc(t.title.replace(/^\S+\s*/,''))).join(' · ')}</div>`);}
 }
+let TOPEN=null;
+function tklap(id){TOPEN=TOPEN===id?null:id;drawTasks();}
 async function verstuur(id,btn){const t=TASKS.find(x=>x.id===id);
  if(!confirm('Versturen naar '+t.mail_to+'?'))return;
  btn.disabled=true;btn.textContent='Versturen…';
@@ -312,7 +335,7 @@ function drawOut(){document.getElementById('n-uit').textContent=OUT.length;
 
 async function load(){
  const all=await api('api/leads');
- OUT=all.filter(l=>l.source==='uitgaand');
+ OUT=all.filter(l=>l.source==='uitgaand');window.ALLLEADS=all;
  LEADS=all.filter(l=>l.source!=='uitgaand');
  TASKS=await api('api/tasks');
  drawTasks();drawLeads();drawOut();}
@@ -390,11 +413,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if path == "/api/task":  # taak toevoegen (Claude zet hier werk klaar)
             with db() as con:
                 cur = con.execute(
-                    "INSERT INTO tasks (created, updated, title, note, mail_to, mail_subject, mail_body, status)"
-                    " VALUES (?,?,?,?,?,?,?,?)",
+                    "INSERT INTO tasks (created, updated, title, note, mail_to, mail_subject, mail_body, status, lead_id)"
+                    " VALUES (?,?,?,?,?,?,?,?,?)",
                     (now(), now(), str(d.get("title") or "")[:300], str(d.get("note") or "")[:2000],
                      str(d.get("mail_to") or "")[:200], str(d.get("mail_subject") or "")[:300],
-                     str(d.get("mail_body") or "")[:8000], "open"))
+                     str(d.get("mail_body") or "")[:8000], "open",
+                     d.get("lead_id") if isinstance(d.get("lead_id"), int) else 0))
             return self._send(200, {"ok": True, "id": cur.lastrowid})
         if path == "/api/send":  # direct versturen vanuit de werklijst (user klikt)
             if not SMTP_PASS:

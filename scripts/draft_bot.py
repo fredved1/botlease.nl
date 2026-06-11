@@ -93,10 +93,10 @@ def main() -> int:
         title = f"✉️ Antwoord: {l['name'] or l['email']}" + (f" ({l['company']})" if l["company"] else "")
         note = d.get("note", "Automatisch concept — lees vóór verzenden even na.")
         con.execute(
-            "INSERT INTO tasks (created, updated, title, note, mail_to, mail_subject, mail_body, status)"
-            " VALUES (?,?,?,?,?,?,?,?)",
+            "INSERT INTO tasks (created, updated, title, note, mail_to, mail_subject, mail_body, status, lead_id)"
+            " VALUES (?,?,?,?,?,?,?,?,?)",
             (now(), now(), title[:300], f"[concept door AI] {note}"[:2000],
-             l["email"][:200], str(d.get("subject", ""))[:300], str(d.get("body", ""))[:8000], "open"))
+             l["email"][:200], str(d.get("subject", ""))[:300], str(d.get("body", ""))[:8000], "open", l["id"]))
         con.execute("UPDATE leads SET drafted=1 WHERE id=?", (l["id"],))
         con.commit()
         log(f"lead #{l['id']}: concept klaargezet → taak '{title[:60]}'")
