@@ -271,7 +271,7 @@ ORG_SCHEMA = json.dumps({
     "@type": "Organization",
     "@id": f"{SITE_URL}/#organization",
     "name": "BotLease",
-    "legalName": "BotLease B.V.",
+    "legalName": "BotLease",
     "url": SITE_URL,
     "logo": f"{SITE_URL}/logo.png",
     "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance.",

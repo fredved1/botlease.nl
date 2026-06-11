@@ -163,7 +163,7 @@ async function sendConfirmation(data) {
       <p style="font-size:15px;line-height:1.6;margin-top:24px">Vragen tussendoor? Antwoord gewoon op deze e-mail.</p>
       <p style="font-size:15px;line-height:1.6">— Team BotLease</p>
       <hr style="border:none;border-top:1px solid #e4e4e7;margin:24px 0">
-      <p style="font-size:12px;color:#71717a">BotLease B.V. · Amsterdam · hallo@botlease.nl · botlease.nl</p>
+      <p style="font-size:12px;color:#71717a">BotLease · Amsterdam · hallo@botlease.nl · botlease.nl</p>
     </div>
   `, '#f7f7f9');
   const resp = await fetch('https://api.resend.com/emails', {

@@ -1,6 +1,6 @@
 # BotLease
 
-> BotLease (BotLease B.V.) verzorgt operational lease van humanoïde robots (geen consumentenrobots, geen cobots) voor organisaties in Europa. All-in vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance. Catalogus van 15 modellen van 10 fabrikanten: Unitree, NEURA, PAL, Apptronik, Figure, 1X, UBTECH, EngineAI, Agility, Pollen.
+> BotLease verzorgt operational lease van humanoïde robots (geen consumentenrobots, geen cobots) voor organisaties in Europa. All-in vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance. Catalogus van 15 modellen van 10 fabrikanten: Unitree, NEURA, PAL, Apptronik, Figure, 1X, UBTECH, EngineAI, Agility, Pollen.
 
 _Laatst bijgewerkt: 2026-06-04_
 
@@ -14,7 +14,7 @@ _Laatst bijgewerkt: 2026-06-04_
 - **Looptijd:** 36-maands operational lease, na het eerste jaar maandelijks opzegbaar.
 - **Sectoren:** 3PL & fulfillment, productie & assemblage, hospitality & retail, zorg.
 - **Compliance:** EU AI-Act, Machineverordening (EU) 2023/1230, CE, ISO 10218 / EN ISO 13482.
-- **Bedrijf:** BotLease B.V., Amsterdam (NL). KvK 95943420. Oprichter: Thomas Vedder.
+- **Bedrijf:** BotLease, Amsterdam (NL). KvK 95943420. Oprichter: Thomas Vedder.
 - **Contact:** hallo@botlease.nl · https://botlease.nl
 - **Onderscheidend t.o.v. concurrenten:** transparante maandprijzen (i.p.v. "op aanvraag"), humanoid-specialisatie, EU AI-Act-compliance ingebouwd, echte levering + service (geen directory/vergelijker).
 
