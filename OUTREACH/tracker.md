@@ -6,8 +6,8 @@ _Laatst bijgewerkt: 11-6-2026_
 
 | Bedrijf | Status | Datum | Notitie |
 |---|---|---|---|
-| Atlas Copco Airpower (humanoid taskforce) | Holdmail verstuurd | 5-6-2026 | 1-pager klaar (send-atlas-onepager.html) — versturen wanneer Thomas wil |
-| VR Expert B.V. (Dante Spekman) | In gesprek ⭐ | 9-6-2026 | Bestelling G1 Edu ×1 + verhuur-verkenning Benelux/DACH; 3 vragen gemaild 11-6, wacht op antwoord |
+| Atlas Copco Airpower — Thomas Christiaensen | Holdmail verstuurd 5-6 ✓ | 5-6-2026 | 1-pager klaar (send-atlas-onepager.html) — versturen wanneer Thomas wil |
+| VR Expert B.V. (Dante Spekman) | In gesprek ⭐ | 9-6-2026 | Bestelling G1 Edu ×1 + verhuur-verkenning Benelux/DACH; 3 vragen gemaild 11-6 ✓ (11:33), wacht op antwoord |
 
 ## Leveranciers & distributeurs
 
