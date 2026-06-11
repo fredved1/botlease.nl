@@ -71,6 +71,10 @@ class CRMHandler:
                         " subject, message, status, notes) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                         (now(), now(), "uitgaand", f"AAN: {to_hdr}", "", to_hdr, "",
                          subject, body[:2000], "beantwoord", "Automatisch gelogd via BCC verstuurd@in.botlease.nl"))
+                    # taak afvinken als deze mail bij een open taak hoort
+                    con.execute("UPDATE tasks SET status='klaar', updated=? WHERE status='open'"
+                                " AND mail_to != '' AND instr(lower(?), lower(mail_to)) > 0",
+                                (now(), to_hdr))
                 else:
                     con.execute(
                         "INSERT INTO leads (created, updated, source, name, company, email, phone,"

@@ -54,6 +54,12 @@ def init_db():
             subject TEXT DEFAULT '', message TEXT DEFAULT '',
             status TEXT NOT NULL DEFAULT 'nieuw',
             notes TEXT DEFAULT '')""")
+        con.execute("""CREATE TABLE IF NOT EXISTS tasks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            created TEXT NOT NULL, updated TEXT NOT NULL,
+            title TEXT NOT NULL, note TEXT DEFAULT '',
+            mail_to TEXT DEFAULT '', mail_subject TEXT DEFAULT '', mail_body TEXT DEFAULT '',
+            status TEXT NOT NULL DEFAULT 'open')""")
         # migraties: robot + sourcing (leveranciers-info bij bestellingen)
         for col in ("robot", "sourcing"):
             try:
@@ -142,6 +148,9 @@ summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--ink2)}
 <header><div class="mark">B</div><h1>BotLease CRM</h1><span id="saved">opgeslagen ✓</span></header>
 <div class="sub">Site-aanvragen, bestellingen en mails aan hallo@botlease.nl — automatisch verzameld. De mail-notificaties blijf je gewoon ontvangen.</div>
 <div class="stats" id="stats"></div>
+<h2 style="font-size:16px;margin:6px 0 8px">📋 Werklijst <span id="taakteller" style="color:#6e6e73;font-weight:500;font-size:13px"></span></h2>
+<div id="tasks"></div>
+<hr style="border:none;border-top:1px solid var(--line);margin:20px 0">
 <details><summary>＋ Handmatig toevoegen (bv. mail plakken)</summary>
   <div class="grid">
     <input id="a-name" placeholder="Naam">
@@ -219,7 +228,24 @@ function draw(keepFocus){
   const L=LEADS.find(x=>x.id==e.target.dataset.id);L.status=e.target.value;flash();draw();});
  el.querySelectorAll('textarea.nt').forEach(t=>t.oninput=e=>{clearTimeout(timers[e.target.dataset.id]);
   timers[e.target.dataset.id]=setTimeout(async()=>{await api('api/update',{id:+e.target.dataset.id,notes:e.target.value});flash();},500);});}
-async function load(){LEADS=await api('api/leads');draw();}
+async function load(){LEADS=await api('api/leads');draw();loadTasks();}
+async function loadTasks(){
+  const ts=await api('api/tasks');
+  const open=ts.filter(t=>t.status==='open'), done=ts.filter(t=>t.status==='klaar');
+  document.getElementById('taakteller').textContent=open.length+' open · '+done.length+' klaar';
+  const el=document.getElementById('tasks');el.innerHTML='';
+  if(!open.length){el.innerHTML='<div style="color:#6e6e73;font-size:13.5px;padding:6px 0">🎉 Alles gedaan — nieuwe taken verschijnen hier zodra er iets binnenkomt.</div>';}
+  open.forEach(t=>{
+    const d=document.createElement('div');d.className='lead';d.style.borderLeft='4px solid #b45309';
+    const mailBtn=t.mail_to?`<a class="btn" style="background:#0066cc;color:#fff" href="mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}">✉️ Open mail</a>`:'';
+    d.innerHTML=`<div class="top"><div class="who">${esc(t.title)}</div><div class="tijd">#${t.id}</div></div>
+      ${t.note?`<div class="contact">${esc(t.note)}</div>`:''}
+      <div class="acts">${mailBtn}<button class="btn" style="background:#e8e8ed;color:#1d1d1f" onclick="taakKlaar(${t.id})">✓ Klaar</button></div>`;
+    el.appendChild(d);});
+  if(done.length){const dd=document.createElement('div');dd.style.cssText='color:#6e6e73;font-size:12.5px;margin-top:4px';
+    dd.textContent='Afgerond: '+done.slice(-5).map(t=>t.title).join(' · ');el.appendChild(dd);}
+}
+async function taakKlaar(id){await api('api/task-update',{id:id,status:'klaar'});flash();loadTasks();}
 async function addLead(){const v=id=>document.getElementById(id).value;
  await api('api/add',{name:v('a-name'),company:v('a-company'),email:v('a-email'),subject:v('a-subject'),message:v('a-message'),source:'handmatig'});
  ['a-name','a-company','a-email','a-subject','a-message'].forEach(i=>document.getElementById(i).value='');flash();load();}
@@ -270,6 +296,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 rows = [dict(r) for r in con.execute(
                     "SELECT * FROM leads ORDER BY CASE status WHEN 'nieuw' THEN 0 ELSE 1 END, id DESC")]
             return self._send(200, rows)
+        if path == "/api/tasks":
+            if not self._authed(q):
+                return self._send(401, {"error": "unauthorized"})
+            with db() as con:
+                rows = [dict(r) for r in con.execute(
+                    "SELECT * FROM tasks ORDER BY CASE status WHEN 'open' THEN 0 ELSE 1 END, id ASC")]
+            return self._send(200, rows)
         if path == "/health":
             return self._send(200, {"ok": True})
         return self._send(404, {"error": "not found"})
@@ -284,8 +317,24 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send(401, {"error": "unauthorized"})
             lid = add_lead(d, str(d.get("source") or "formulier")[:40])
             return self._send(200, {"ok": True, "id": lid})
-        if not self._authed(q):
+        _secret_ok = WEBHOOK_SECRET and self.headers.get("X-CRM-Secret", "") == WEBHOOK_SECRET
+        if not (self._authed(q) or _secret_ok):
             return self._send(401, {"error": "unauthorized"})
+        if path == "/api/task":  # taak toevoegen (Claude zet hier werk klaar)
+            with db() as con:
+                cur = con.execute(
+                    "INSERT INTO tasks (created, updated, title, note, mail_to, mail_subject, mail_body, status)"
+                    " VALUES (?,?,?,?,?,?,?,?)",
+                    (now(), now(), str(d.get("title") or "")[:300], str(d.get("note") or "")[:2000],
+                     str(d.get("mail_to") or "")[:200], str(d.get("mail_subject") or "")[:300],
+                     str(d.get("mail_body") or "")[:8000], "open"))
+            return self._send(200, {"ok": True, "id": cur.lastrowid})
+        if path == "/api/task-update":
+            if d.get("status") in ("open", "klaar") and isinstance(d.get("id"), int):
+                with db() as con:
+                    con.execute("UPDATE tasks SET status=?, updated=? WHERE id=?", (d["status"], now(), d["id"]))
+                return self._send(200, {"ok": True})
+            return self._send(400, {"error": "geen velden"})
         if path == "/api/add":
             lid = add_lead(d, str(d.get("source") or "handmatig")[:40])
             return self._send(200, {"ok": True, "id": lid})
