@@ -16,9 +16,9 @@ _Laatst bijgewerkt: 11-6-2026_
 | Bedrijf | Contact | Status | Gemaild op | Notitie |
 |---|---|---|---|---|
 | PAL Robotics | business@pal-robotics.com | Antwoord ontvangen | 5-6-2026 | Alexandre testte order-flow; speelse reply 11-6 → partner-gesprek |
-| Pollen Robotics | sales@pollen-robotics.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:12) |
+| Pollen Robotics | sales@pollen-robotics.com | Antwoord ontvangen | 5-6-2026 | Santiago Pavon: geen lease-model, wees op Reachy Mini ($399) — misverstand; reply klaar (wij bedoelen Reachy 2) |
 | EngineAI | sales@engineai.com.cn | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:12) |
-| UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
+| UBTECH | sales@ubtrobot.com | Gemaild | 5-6-2026 | follow-up #2 verstuurd 11-6 ✓ (13:19, via BCC-log) |
 | Unitree | sales_global@unitree.com | Antwoord ontvangen | 5-6-2026 | Zoe Wang: standaard-klant + staffels, G1 4-5wk, CE ✓; selection table gevraagd 11-6 |
 | NEURA Robotics | info@neura-robotics.com | Antwoord ontvangen | 5-6-2026 | Kristina Naumoska: wil use-case-info; beantwoord 11-6 als lease-partner |
 | 1X Technologies | press@1x.tech | Gemaild | 5-6-2026 | follow-up #2 KLAARSTAAND — nog versturen |
