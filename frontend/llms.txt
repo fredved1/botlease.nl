@@ -5,8 +5,9 @@ _Laatst bijgewerkt: 2026-06-04_
 
 ## Feitenkaart (citeerbaar)
 
-- **Wat:** operational lease (Robot-as-a-Service) van humanoïde robots voor zakelijke gebruikers in NL/EU. Geen consumentenrobots, geen cobots.
-- **Prijs:** all-in vanaf **€290/maand** (Unitree R1) tot **€6.650/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
+- **Wat:** flexibele humanoïde robotica voor zakelijke gebruikers in NL/EU — via **verhuur** (per dag voor events, of flexibel per maand) óf **operational lease** (36 mnd). All-in, eigendom blijft bij BotLease, swap-SLA. Geen consumentenrobots, geen cobots.
+- **Verhuurmodellen:** Eventdag **€750–€1.450/dag** incl. operator (Unitree R1/G1, −30% vanaf dag 2). Flexibele maandhuur **€690–€2.450/maand**, per maand opzegbaar. Operational lease **€290–€6.650/maand** (36 mnd).
+- **Prijs:** all-in vanaf **€290/maand** (Unitree R1, lease) tot **€6.650/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
 - **Inbegrepen in de lease:** installatie, operator-training, onderhoud, **swap-SLA (vervangende unit bij storing)**, verzekering die per deployment wordt geregeld, en EU AI-Act + CE-conformiteit.
 - **Pilot:** 4 weken voor €1.500, daarna beslissen. Gemiddelde ROI in 3PL: 11–14 maanden.
 - **Levertijd:** intake binnen ~5 werkdagen; levering doorgaans 6–10 weken vanaf fabrikant.
@@ -20,7 +21,9 @@ _Laatst bijgewerkt: 2026-06-04_
 ## Kernpagina's
 
 - [Homepage](https://botlease.nl/): Overzicht aanbod + pricing
-- [Volledige catalogus](https://botlease.nl/robots): 13 humanoïde robots in lease
+- [Robot huren voor event](https://botlease.nl/robot-huren-evenement): Eventdag-verhuur incl. operator, €750–€1.450/dag, publieke prijzen
+- [Robot huren per maand](https://botlease.nl/huren): Flexibele maandhuur (opzegbaar), R1 €690/mnd, G1 €2.450/mnd
+- [Volledige catalogus](https://botlease.nl/robots): 13 humanoïde robots — huren of leasen
 - [Pijler-gids: humanoïde robot leasen](https://botlease.nl/gids/humanoide-robot-leasen): Hoe lease werkt, kosten, ROI
 - [EU AI-Act gids](https://botlease.nl/gids/ai-act-machineverordening): Compliance + Machineverordening 2023/1230
 - [Prijzen alle 13 modellen](https://botlease.nl/prijzen): Aanschaf vs lease per model, €290–€6.650/mnd
@@ -30,7 +33,7 @@ _Laatst bijgewerkt: 2026-06-04_
 - [Methodologie](https://botlease.nl/methodologie): Hoe robots beoordeeld worden
 - [Nieuws](https://botlease.nl/nieuws): Wekelijkse analyses
 
-## Modellen (15, met leaseprijs)
+## Modellen (13 in catalogus, met leaseprijs)
 
 - [Unitree R1](https://botlease.nl/robots/unitree-r1) — €290/mnd, instap full-bipedal
 - [Unitree G1](https://botlease.nl/robots/unitree-g1) — €1.295/mnd, R&D + service
