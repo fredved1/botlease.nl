@@ -84,6 +84,7 @@ async function sendNotification(data) {
       <div style="background:#fff;border:2px solid #16a34a;border-radius:10px;padding:24px;margin-bottom:14px">
         <p style="margin:0 0 14px;font-size:13px;color:#16a34a;text-transform:uppercase;letter-spacing:0.08em;font-weight:600">📦 Bestelling</p>
         <p style="margin:4px 0;font-size:16px"><b>Robot:</b> ${escapeHtml(data.robot_name || data.robot_slug)}</p>
+        ${data.vorm ? `<p style="margin:4px 0;font-size:16px"><b>Vorm:</b> ${escapeHtml(data.vorm)}</p>` : ''}
         <p style="margin:4px 0;font-size:16px"><b>Aantal:</b> ${escapeHtml(String(data.aantal || 1))} unit(s)</p>
         ${data.contract_months ? `<p style="margin:4px 0"><b>Contractduur:</b> ${escapeHtml(data.contract_months)} maanden</p>` : ''}
         ${data.adres ? `<p style="margin:8px 0 4px"><b>Leveringsadres:</b></p><p style="margin:0;white-space:pre-wrap;color:#44403c">${escapeHtml(data.adres)}</p>` : ''}
@@ -188,7 +189,7 @@ async function backupToCRM(data) {
   try {
     let prefix;
     if (data.type === 'order') {
-      prefix = `[BESTELLING: ${data.robot_name || data.robot_slug} × ${data.aantal || 1}${data.contract_months ? ' · ' + data.contract_months + 'mnd' : ''}]`;
+      prefix = `[BESTELLING: ${data.robot_name || data.robot_slug} × ${data.aantal || 1}${data.vorm ? ' · ' + data.vorm : ''}${data.contract_months ? ' · ' + data.contract_months + 'mnd' : ''}]`;
     } else if (data.type === 'waitlist') {
       prefix = `[WACHTLIJST: ${data.robot_name || data.robot_slug || 'algemeen'}]`;
     } else {

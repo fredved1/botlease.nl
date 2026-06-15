@@ -650,8 +650,8 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 
         <div style="background:var(--bg-card); border:1px solid var(--border-hover); border-radius:14px; padding:24px; margin-bottom:24px">
           <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:8px">
-            <b style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€5.750</b>
-            <span style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
+            <b id="vform-bedrag" style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€5.750</b>
+            <span id="vform-sub" style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
           </div>
           <div style="font-size:13px; color:var(--ink-2); margin-bottom:14px; padding-top:12px; border-top:1px solid var(--border)"><b style="color:var(--ink)">Ook beschikbaar:</b> maandhuur op aanvraag (flexibel opzegbaar, levertijd 6-10 wk). <a href="/huren" style="color:var(--accent)">Huren →</a></div>
           <div style="color:var(--ink-2); font-size:13.5px; margin-bottom:14px">+ €4.500 eenmalige setup (installatie, training, integratie)</div>
@@ -691,6 +691,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
                    style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
           </div>
         </div>
+        <div style="margin-bottom:18px"><label for="aanv-vorm" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Hoe wil je deze robot?</label><select id="aanv-vorm" name="vorm" onchange="vormKies(this)" style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px"><option value="Operational lease (36 mnd)" data-bedrag="€5.750" data-sub="/mnd · 36 mnd">Leasen — €5.750/mnd (36 mnd)</option><option value="Maandhuur (flexibel)" data-bedrag="op aanvraag" data-sub="flexibel opzegbaar">Maandhuur — op aanvraag (flexibel)</option></select><p style="font-size:11.5px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">De prijs hierboven past zich aan je keuze aan. Twijfel je? Kies leasen — we bespreken in het gesprek wat past.</p></div>
         <div style="margin-bottom:18px">
           <label for="aanv-stadium" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Waar sta je in het proces?</label>
           <select id="aanv-stadium" name="usecase"
@@ -865,5 +866,6 @@ function handleAanvraagSubmit(e) {
   }
 })();
 </script>
+<script>function vormKies(s){var o=s.options[s.selectedIndex];var b=document.getElementById('vform-bedrag'),u=document.getElementById('vform-sub');if(b&&o.dataset.bedrag)b.textContent=o.dataset.bedrag;if(u&&o.dataset.sub)u.textContent=o.dataset.sub;}</script>
 </body>
 </html>
