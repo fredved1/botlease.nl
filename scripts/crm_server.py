@@ -15,9 +15,11 @@ Endpoints (pad-prefix /crm wordt gestript voor compatibiliteit):
   POST /api/update    {id, status?, notes?} bijwerken
 """
 import json
+import imaplib
 import os
 import smtplib
 import sqlite3
+import time
 from email.message import EmailMessage
 import socketserver
 import http.server
@@ -454,7 +456,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 disp = "Thomas Vedder" if sender.startswith("thomas@") else "Thomas Vedder | BotLease"
                 msg["From"] = f"{disp} <{sender}>"
                 msg["To"] = task["mail_to"]
-                msg["Bcc"] = "verstuurd@in.botlease.nl"
                 msg["Subject"] = task["mail_subject"]
                 # echte reply: hang 'm in de oorspronkelijke thread als we de Message-ID kennen
                 if task["lead_id"]:
@@ -471,6 +472,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     s.starttls()
                     s.login(sender, accs[sender])
                     s.send_message(msg)
+                # kopie in de Verzonden-map zetten zodat de mail ook in het mailprogramma verschijnt
+                try:
+                    im = imaplib.IMAP4_SSL(os.environ.get("CRM_IMAP_HOST", "imap.hostnet.nl"), 993)
+                    im.login(sender, accs[sender])
+                    im.append('"INBOX/Verzonden items"', "\\Seen",
+                              imaplib.Time2Internaldate(time.time()), msg.as_bytes())
+                    im.logout()
+                except Exception:
+                    pass  # kopie-in-Verzonden is best-effort; de mail is al onderweg
             except Exception as e:
                 return self._send(502, {"error": f"versturen mislukt: {str(e)[:160]}"})
             with db() as con:
