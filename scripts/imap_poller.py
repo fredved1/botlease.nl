@@ -102,7 +102,7 @@ def poll(con, user, pw, folder, mode):
     typ, st = M.status(f'"{folder}"', "(UIDVALIDITY)")
     uv = re.search(rb"UIDVALIDITY (\d+)", st[0]).group(1).decode()
     typ, d = M.uid("search", None, "ALL")
-    uids = [int(x) for x in d[0].split()]
+    uids = sorted(int(x) for x in d[0].split())
     tag = f"{user}|{folder}"
     k_uv, k_last = f"uidvalidity_{tag}", f"last_uid_{tag}"
     row_uv = con.execute("SELECT v FROM imap_state WHERE k=?", (k_uv,)).fetchone()
@@ -117,9 +117,16 @@ def poll(con, user, pw, folder, mode):
     max_uid = max(uids)
     if row_uv is None or row_uv[0] != uv:
         con.execute("INSERT OR REPLACE INTO imap_state VALUES (?,?)", (k_uv, uv))
-        con.execute("INSERT OR REPLACE INTO imap_state VALUES (?,?)", (k_last, str(max_uid)))
+        # Verzonden-map die voor het eerst verschijnt: laat de laatste paar sends alsnog
+        # binnenkomen (zodat de allereerste mail uit thomas@ ook gelogd wordt), maar cap
+        # op 5 zodat een volle historie nooit in één keer geïmporteerd wordt.
+        if mode == "out":
+            baseline = uids[-6] if len(uids) > 5 else 0
+        else:
+            baseline = max_uid
+        con.execute("INSERT OR REPLACE INTO imap_state VALUES (?,?)", (k_last, str(baseline)))
         con.commit()
-        log(f"{tag}: baseline op UID {max_uid} (geen historie)")
+        log(f"{tag}: baseline op UID {baseline} (was nieuw)")
         M.logout()
         return 0
     last_uid = int(con.execute("SELECT v FROM imap_state WHERE k=?", (k_last,)).fetchone()[0])
