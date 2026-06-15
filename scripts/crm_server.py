@@ -465,8 +465,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
                             "SELECT msgid, name, email, message, created FROM leads WHERE id=?",
                             (task["lead_id"],)).fetchone()
                     if lead and lead["msgid"]:
-                        msg["In-Reply-To"] = lead["msgid"]
-                        msg["References"] = lead["msgid"]
+                        clean_mid = "".join((lead["msgid"] or "").split())  # geen CR/LF in header
+                        if clean_mid:
+                            msg["In-Reply-To"] = clean_mid
+                            msg["References"] = clean_mid
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
                     body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"

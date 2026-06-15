@@ -137,7 +137,7 @@ def poll(con, user, pw, folder, mode):
             continue
         msg = email.message_from_bytes(md[0][1])
         subj = hdr(msg.get("Subject", ""))
-        mid = (msg.get("Message-ID", "") or "")[:300]
+        mid = "".join((msg.get("Message-ID", "") or "").split())[:300]
         if mid and con.execute("SELECT 1 FROM leads WHERE notes LIKE ?", (f"%{mid}%",)).fetchone():
             continue
         if mode == "out":
