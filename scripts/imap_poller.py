@@ -158,11 +158,18 @@ def poll(con, user, pw, folder, mode):
             name, addr = parseaddr(frm)
             if any(p in addr.lower() or p in frm.lower() for p in SKIP_PATTERNS):
                 continue
-            con.execute(
-                "INSERT INTO leads (created,updated,source,name,company,email,phone,subject,message,status,notes,drafted)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,0)",
-                (now(), now(), "mail", name or addr, "", addr, "", subj, body_text(msg)[:8000],
-                 "nieuw", f"via IMAP {user} {mid}"))
+            try:
+                con.execute(
+                    "INSERT INTO leads (created,updated,source,name,company,email,phone,subject,message,status,notes,drafted,msgid)"
+                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,0,?)",
+                    (now(), now(), "mail", name or addr, "", addr, "", subj, body_text(msg)[:8000],
+                     "nieuw", f"via IMAP {user} {mid}", mid))
+            except sqlite3.OperationalError:
+                con.execute(
+                    "INSERT INTO leads (created,updated,source,name,company,email,phone,subject,message,status,notes,drafted)"
+                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,0)",
+                    (now(), now(), "mail", name or addr, "", addr, "", subj, body_text(msg)[:8000],
+                     "nieuw", f"via IMAP {user} {mid}"))
             count += 1
     con.execute("INSERT OR REPLACE INTO imap_state VALUES (?,?)", (k_last, str(max_uid)))
     con.commit()

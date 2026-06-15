@@ -85,8 +85,8 @@ def init_db():
             con.execute("ALTER TABLE tasks ADD COLUMN lead_id INTEGER DEFAULT 0")
         except sqlite3.OperationalError:
             pass
-        # migraties: robot + sourcing (leveranciers-info bij bestellingen)
-        for col in ("robot", "sourcing"):
+        # migraties: robot + sourcing (leveranciers-info bij bestellingen) + msgid (voor echte replies)
+        for col in ("robot", "sourcing", "msgid"):
             try:
                 con.execute(f"ALTER TABLE leads ADD COLUMN {col} TEXT DEFAULT ''")
             except sqlite3.OperationalError:
@@ -456,6 +456,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 msg["To"] = task["mail_to"]
                 msg["Bcc"] = "verstuurd@in.botlease.nl"
                 msg["Subject"] = task["mail_subject"]
+                # echte reply: hang 'm in de oorspronkelijke thread als we de Message-ID kennen
+                if task["lead_id"]:
+                    with db() as con:
+                        lead = con.execute("SELECT msgid FROM leads WHERE id=?", (task["lead_id"],)).fetchone()
+                    if lead and lead["msgid"]:
+                        msg["In-Reply-To"] = lead["msgid"]
+                        msg["References"] = lead["msgid"]
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
                     body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
