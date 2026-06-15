@@ -458,15 +458,24 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 msg["To"] = task["mail_to"]
                 msg["Subject"] = task["mail_subject"]
                 # echte reply: hang 'm in de oorspronkelijke thread als we de Message-ID kennen
+                lead = None
                 if task["lead_id"]:
                     with db() as con:
-                        lead = con.execute("SELECT msgid FROM leads WHERE id=?", (task["lead_id"],)).fetchone()
+                        lead = con.execute(
+                            "SELECT msgid, name, email, message, created FROM leads WHERE id=?",
+                            (task["lead_id"],)).fetchone()
                     if lead and lead["msgid"]:
                         msg["In-Reply-To"] = lead["msgid"]
                         msg["References"] = lead["msgid"]
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
                     body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
+                # geschiedenis citeren onder de reply, zoals een normaal mailprogramma doet
+                if lead and lead["msgid"] and (lead["message"] or "").strip():
+                    quoted = "\n".join("> " + ln for ln in lead["message"].strip().splitlines())
+                    when = (lead["created"] or "")[:10]
+                    who = lead["name"] or lead["email"]
+                    body += f"\n\nOn {when}, {who} <{lead['email']}> wrote:\n{quoted}"
                 msg.set_content(body)
                 with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=25) as s:
                     s.starttls()
