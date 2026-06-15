@@ -35,6 +35,21 @@ SMTP_PORT = int(os.environ.get("CRM_SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("CRM_SMTP_USER", "hallo@botlease.nl")
 SMTP_PASS = os.environ.get("CRM_SMTP_PASS", "")  # leeg = direct-versturen uitgeschakeld
 
+
+def smtp_accounts():
+    """Beschikbare afzenders {adres: wachtwoord}. Uit CRM_IMAP_ACCOUNTS (gedeeld met de IMAP-poller),
+    plus de losse CRM_SMTP_USER/PASS als fallback. Volgorde = keuzevolgorde in de UI."""
+    out = {}
+    raw = os.environ.get("CRM_IMAP_ACCOUNTS", "").strip()
+    if raw:
+        for pair in raw.split(","):
+            if ":" in pair:
+                u, p = pair.split(":", 1)
+                out[u.strip()] = p.strip()
+    if SMTP_USER and SMTP_PASS and SMTP_USER not in out:
+        out = {SMTP_USER: SMTP_PASS, **out}
+    return out
+
 STATUSES = ["nieuw", "beantwoord", "in gesprek", "offerte", "gewonnen", "verloren", "on hold"]
 
 
@@ -219,7 +234,7 @@ textarea{width:100%;resize:vertical;margin-top:8px}
 </div>
 <script>
 const KEY=new URLSearchParams(location.search).get('key')||'';
-const STATUSES=__STATUSES__;const CANSEND=__CANSEND__;
+const STATUSES=__STATUSES__;const CANSEND=__CANSEND__;const SENDERS=__SENDERS__;
 let LEADS=[],OUT=[],TASKS=[],FILTER='alles',ZOEK='',OPENID=null;
 const flash=()=>{const s=document.getElementById('saved');s.style.opacity=1;setTimeout(()=>s.style.opacity=0,1400);};
 const esc=s=>{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;};
@@ -258,7 +273,7 @@ function drawTasks(){
       <div class="msg" style="max-height:none">${esc(t.mail_body)}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
         <a class="btn" href="${mailto}">✉️ Open in mailprogramma</a>
-        ${CANSEND?`<button class="btn gh" onclick="verstuur(${t.id},this)">📨 Direct versturen</button>`:''}
+        ${CANSEND?`<select id="snd${t.id}" style="border:1px solid var(--line2);border-radius:99px;padding:7px 10px;font:12.5px Inter">${SENDERS.map(s=>`<option value="${s}">vanaf ${s}</option>`).join('')}</select><button class="btn gh" onclick="verstuur(${t.id},this)">📨 Verstuur</button>`:''}
         <button class="btn gh" title="Kopieer netjes opgemaakt" onclick='richCopy(${JSON.stringify(t.mail_body)})'>📋 Kopieer</button>
         <button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button>
       </div></div>`:''}
@@ -270,9 +285,10 @@ function drawTasks(){
 let TOPEN=null;
 function tklap(id){TOPEN=TOPEN===id?null:id;drawTasks();}
 async function verstuur(id,btn){const t=TASKS.find(x=>x.id===id);
- if(!confirm('Versturen naar '+t.mail_to+'?'))return;
+ const sel=document.getElementById('snd'+id);const from=sel?sel.value:'';
+ if(!confirm('Versturen naar '+t.mail_to+(from?' vanaf '+from:'')+'?'))return;
  btn.disabled=true;btn.textContent='Versturen…';
- try{await api('api/send',{id:id});flash();t.status='klaar';drawTasks();}
+ try{await api('api/send',{id:id,from:from});flash();t.status='klaar';drawTasks();}
  catch(e){btn.disabled=false;btn.textContent='📨 Verstuur';alert('Versturen mislukt — gebruik de ✉️-knop.');}}
 function richCopy(body){
  const html=body.split(/\n\n+/).map(p=>'<p style="margin:0 0 12px;font-family:Calibri,Arial,sans-serif;font-size:11pt">'+p.replace(/\n/g,'<br>')+'</p>').join('');
@@ -380,7 +396,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if path in ("/", "/index.html"):
             if not self._authed(q):
                 return self._send(401, "<h3>401 - open de volledige link met ?key=...</h3>".encode(), "text/html; charset=utf-8")
-            return self._send(200, PAGE.replace("__STATUSES__", json.dumps(STATUSES)).replace("__CANSEND__", "true" if SMTP_PASS else "false").encode(), "text/html; charset=utf-8")
+            return self._send(200, PAGE.replace("__STATUSES__", json.dumps(STATUSES)).replace("__SENDERS__", json.dumps(list(smtp_accounts().keys()))).replace("__CANSEND__", "true" if smtp_accounts() else "false").encode(), "text/html; charset=utf-8")
         if path == "/api/leads":
             if not self._authed(q):
                 return self._send(401, {"error": "unauthorized"})
@@ -423,26 +439,30 @@ class Handler(http.server.BaseHTTPRequestHandler):
                      d.get("lead_id") if isinstance(d.get("lead_id"), int) else 0))
             return self._send(200, {"ok": True, "id": cur.lastrowid})
         if path == "/api/send":  # direct versturen vanuit de werklijst (user klikt)
-            if not SMTP_PASS:
+            accs = smtp_accounts()
+            if not accs:
                 return self._send(400, {"error": "SMTP niet geconfigureerd"})
             if not isinstance(d.get("id"), int):
                 return self._send(400, {"error": "geen id"})
+            sender = d.get("from") if d.get("from") in accs else next(iter(accs))
             with db() as con:
                 task = con.execute("SELECT * FROM tasks WHERE id=?", (d["id"],)).fetchone()
             if not task or not task["mail_to"]:
                 return self._send(404, {"error": "taak niet gevonden of geen mail"})
             try:
                 msg = EmailMessage()
-                msg["From"] = f"Thomas Vedder | BotLease <{SMTP_USER}>"
+                disp = "Thomas Vedder" if sender.startswith("thomas@") else "Thomas Vedder | BotLease"
+                msg["From"] = f"{disp} <{sender}>"
                 msg["To"] = task["mail_to"]
+                msg["Bcc"] = "verstuurd@in.botlease.nl"
                 msg["Subject"] = task["mail_subject"]
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
-                    body += "\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | hallo@botlease.nl\nwww.botlease.nl"
+                    body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
                 msg.set_content(body)
                 with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=25) as s:
                     s.starttls()
-                    s.login(SMTP_USER, SMTP_PASS)
+                    s.login(sender, accs[sender])
                     s.send_message(msg)
             except Exception as e:
                 return self._send(502, {"error": f"versturen mislukt: {str(e)[:160]}"})
