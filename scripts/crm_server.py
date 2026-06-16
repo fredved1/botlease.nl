@@ -262,7 +262,14 @@ function drawTasks(){
   if(!t.mail_to){return `<div class="taak"><div class="ico">${ico}</div><div class="tx"><div class="tt">${esc(tt)}</div>${t.note?`<div class="nt" title="${esc(t.note)}">${esc(t.note)}</div>`:''}</div><div class="acts"><span class="tijd">${wanneer(t.created)}</span><button class="btn kl" title="Markeer als klaar" onclick="taakKlaar(${t.id})">✓</button></div></div>`;}
   const lead=window.ALLLEADS?ALLLEADS.find(x=>x.id===t.lead_id):null;
   const isOpen=TOPEN===t.id;
-  const mailto=`mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(t.mail_body)}`;
+  // bij een reply: geciteerde geschiedenis onder de body zetten zodat die ook in het mailprogramma zichtbaar is
+  let mailtoBody=t.mail_body;
+  if(lead&&lead.message&&(lead.message||'').trim()){
+    const when=(lead.created||'').slice(0,10);
+    const quoted=lead.message.trim().split('\n').map(function(l){return '> '+l;}).join('\n');
+    mailtoBody=t.mail_body+'\n\nOn '+when+', '+(lead.name||lead.email)+' <'+lead.email+'> wrote:\n'+quoted;
+  }
+  const mailto=`mailto:${encodeURIComponent(t.mail_to)}?bcc=verstuurd%40in.botlease.nl&subject=${encodeURIComponent(t.mail_subject)}&body=${encodeURIComponent(mailtoBody)}`;
   return `<div class="taak mailtaak ${isOpen?'open':''}" style="flex-direction:column;align-items:stretch;gap:0">
     <div style="display:flex;align-items:center;gap:14px;cursor:pointer" onclick="tklap(${t.id})">
       <div class="ico">${ico}</div>
