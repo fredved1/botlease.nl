@@ -2,6 +2,10 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-06-17 (later)
+- **Volledige contact-check gedraaid (geverifieerd schoon, 0 problemen):** 4 replies klaar (Zoe [4], RobotShop [1], RoboCorpus [2] NL, UBTECH [3]), allemaal aan de juiste laatste mail / juiste adres / juiste taal. 5 contacten wachten correct op de ander. Geen verloren mail, geen dubbele leads.
+- **Vangnet `controle.py` gebouwd** (verloren mail / dubbele leads / reply aan juiste+laatste mail) — vaste verificatiestap vóór "klaar". Fixte onderweg: Zoe-reply hing aan oude mail i.p.v. de offerte; RobotShop-adres → Reply-To (marketplace@); Atlas Copco-email; Richard-lead datum.
+
 ## 2026-06-17
 - **⭐ UNITREE-OFFERTE BINNEN (Zoe, 16/6):** G1 EDU U1 $28.900/unit, U2 $36.900/unit + $1.500 shipping (CPT, 100% vooruit, 4-5 wk). Verwerkt in businessplan §5b + `docs/leveranciers/unitree-offerte-2026-06-16.md`. **Vondst:** echte prijs (~€28-35k landed) is hóger dan de €23k op de site → leaseprijs/positionering heroverwegen zodra EU-prijzen (RobotShop/Synergy) ernaast liggen.
 - **Businessplan §5b toegevoegd:** leveranciers + echte inkoopprijzen + alle contacten + klantenpijplijn.
