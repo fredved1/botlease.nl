@@ -2,6 +2,16 @@
 
 Dit bestand wordt automatisch geladen aan het begin van elke sessie. Het is de **wegwijzer** naar het bedrijfshandboek. Lees bij twijfel altijd eerst `docs/handboek/`.
 
+## 🎯 Ons doel (north star) — elke mail en actie dient dit
+**Nu:** van gesprekken naar de EERSTE betaalde deal (concreet: VR Expert binnenhalen), terwijl we een goedkope, betrouwbare inkooplijn vastleggen tegen **reseller-/distributeurprijs waarbij WIJ de klant bezitten.**
+
+Houd elke mail aan deze richting:
+- **Wij kopen in, wij bezitten de klant.** Geen leads weggeven aan leveranciers (de "you get the leads"-framing was alleen ooit een ruil voor een gratis demo-unit).
+- **Nooit voorschieten** — order bij een leverancier pas ná een getekende/aanbetaalde klant.
+- **Verhuur/events = eerste omzet, lease = later.** De markt is nog vroeg.
+- **Onafhankelijk blijven** — nooit merk-exclusiviteit tekenen; dat is juist onze waarde.
+- **Eerlijk, menselijk, geen overpromise.** NL tegen NL/BE-contacten, geen lange streepjes.
+
 ## Wat is dit project
 **BotLease** (botlease.nl) — eenmanszaak van **Thomas Vedder** (KvK 95943420, Amsterdam). Verhuurt, least en verkoopt humanoïde robots aan Nederlandse/EU-organisaties. Geen B.V. (B.V. komt vóór het eerste getekende contract). Statische site in `frontend/`, eigen CRM + mailsysteem op een VPS.
 

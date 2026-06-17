@@ -18,6 +18,7 @@ except Exception:
 con = sqlite3.connect(DB); con.row_factory = sqlite3.Row
 print("\n========== BOTLEASE OCHTENDBRIEFING ==========")
 print(datetime.now().strftime("%A %d %B %Y, %H:%M"))
+print("🎯 DOEL: eerste betaalde deal (VR Expert) + goedkope inkooplijn tegen reseller-prijs (wij bezitten de klant). Nooit voorschieten.")
 
 # laatste dagelijkse controle-uitkomst tonen
 try:
