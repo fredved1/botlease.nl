@@ -24,6 +24,7 @@ Dit bestand wordt automatisch geladen aan het begin van elke sessie. Het is de *
 ## Harde regels (NOOIT overtreden)
 - **Geen koude mails autonoom versturen** naar externe partijen zonder dat Thomas het per geval autoriseert. Replies in lopende gesprekken mogen wél na zijn "stuur jij maar".
 - **Humanizer over elke mail** — menselijk, geen AI-toon, geen em-dashes, geen overpromise.
+- **Taal spiegelen** — Nederlands antwoorden op Nederlandse/Belgische contacten (Dante/VR Expert, Jordi/RoboCorpus), Engels op internationale (Zoe, Dario, Sean, Alexandre). Kijk naar de taal van hún mail.
 - **Geen overpromises op de site**: swap = "vervangende unit bij storing, doorgaans binnen enkele werkdagen" (NOOIT "binnen 24u"/"€100/dag"); verzekering = "per deployment geregeld" (NOOIT een bedrag); helpdesk = "op werkdagen" (NOOIT "24/7 support", wel "24/7 inzetbaar" als robot-eigenschap).
 - **PAL Robotics is verwijderd** (juridisch verzoek) — nooit terugplaatsen. Catalogus = 13 modellen.
 - **Mobile-patch-regel**: ~55 pagina's hebben `<style id="mobile-first-patch">` die de generators NIET emitten → die pagina's **in-place editen, nooit rebuilden**. Nieuws (`frontend/nieuws/`) is wél veilig te rebuilden.
