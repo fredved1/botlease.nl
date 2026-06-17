@@ -31,6 +31,11 @@ SSH met root-key werkt. Draait: nginx (crm.botlease.nl, api.heymilo.nl), de CRM,
 ### Draft-bot (UIT)
 `scripts/draft_bot.py` schrijft automatisch concepten via Claude Code op de VPS — **staat op verzoek uit** (Thomas wil dat ik het via de terminal doe op "update mijn crm"). Heraanzetten: `systemctl enable --now botlease-draft.timer`.
 
+### Dagelijks automatisch (zelf-controlerend systeem)
+- **Mail-poller** (botlease-imap.timer): elke 10 min → altijd de laatste berichten in het CRM.
+- **Dagelijkse controle** (botlease-controle.timer, 07:30): draait controle.py → logt naar /root/botlease-crm/controle-laatste.log.
+- De **ochtendbriefing toont de laatste controle-status** bovenaan (✅ alles klopt / 🔴 let op).
+
 ### Ochtendbriefing
 `ssh root@185.107.90.42 'python3 /root/botlease-crm/briefing.py'` → toont nieuwe mail, open taken, op wie we wachten. **Eerste actie elke sessie.**
 
