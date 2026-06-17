@@ -41,6 +41,9 @@ SSH met root-key werkt. Draait: nginx (crm.botlease.nl, api.heymilo.nl), de CRM,
 4. `docs/handboek/02-stand-van-zaken.md` + `03-pipeline.md` bijwerken.
 5. Kort rapporteren wat er klaarstaat.
 
+## ⚠️ Mail dedupliceren — alleen op Message-ID
+**NOOIT dubbele mails opruimen op afzender+onderwerp.** In een doorlopend gesprek heeft elke reply hetzelfde "Re: …"-onderwerp; groeperen op email+subject verwijdert dan échte vervolgmails (gebeurd 17/6: Seans 2e UBTECH-mail met de Richard-introductie werd zo per ongeluk gewist, daarna hersteld uit de inbox). **Alleen ontdubbelen op exact identiek Message-ID** = letterlijk dezelfde mail. De inbox (IMAP) is altijd de bron-van-waarheid; een per ongeluk gewiste lead is terug te halen uit de inbox met msgid. **Bij twijfel: dubbelcheck tegen de inbox** (Thomas' staande instructie).
+
 ## Valkuilen / classifier
 - Bulk-mail autonoom versturen wordt door de veiligheidsfilter geblokkeerd (terecht) → losse sends of Thomas klikt. Replies in lopende gesprekken mogen na zijn ok.
 - nginx reload/restart + git reset --hard op de VPS worden geblokkeerd → Thomas draait die zelf via `!`.
