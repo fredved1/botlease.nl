@@ -8,6 +8,8 @@ Dit bestand wordt automatisch geladen aan het begin van elke sessie. Het is de *
 ## ⭐ Begin elke sessie zo
 1. **Draai de ochtendbriefing** (toont nieuwe mail, open taken, op wie we wachten):
    `ssh root@185.107.90.42 'python3 /root/botlease-crm/briefing.py'`
+1b. **Draai de controle** (vangnet: verloren mail? dubbele leads? reply aan de juiste/laatste mail?) — vóór je mail-werk "klaar" noemt:
+   `ssh root@185.107.90.42 'python3 /root/botlease-crm/controle.py'` — moet "0 problemen" tonen.
 2. **Lees `docs/handboek/02-stand-van-zaken.md`** — de laatste updates + wie wat deed.
 3. Bij een mail/deal-actie: check `docs/handboek/03-pipeline.md` voor de context.
 
