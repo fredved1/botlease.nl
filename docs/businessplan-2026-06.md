@@ -65,6 +65,39 @@ Lease op eigen balans = robot vooraf kopen (€8k-€110k), klant betaalt per ma
 4. **Beslispunt: opzegbaarheid na 12 mnd heroverwegen** (24 mnd vast, of opzegvergoeding) — anders ligt het restwaarderisico volledig bij BotLease.
 5. Refinancing via equipmentfinanciers: pas realistisch ná 2-3 lopende contracten.
 
+## 5b. Leveranciers, inkoopprijzen & contacten (stand 17 juni 2026)
+
+De leverancierslijn is in opbouw via actieve gesprekken. We verzamelen meerdere inkoopprijzen om de goedkoopste route per deal te kiezen. **Regel: order pas ná getekende/aanbetaalde klant — wij schieten niets voor.**
+
+### Echte inkoopprijzen (G1 EDU — eerste deal, voor VR Expert)
+| Bron | G1 EDU U1 (standaard) | G1 EDU U2 (gevorderd) | Voorwaarden |
+|---|---:|---:|---|
+| **Unitree China** (Zoe Wang) — offerte 16/6 | $28.900 + $1.500 shipping ≈ **€28.000 landed** | $36.900 + $1.500 ≈ **€35.300 landed** | CPT, 100% vooruit, 4-5 wk. Wij = EU-importeur (EORI + invoer-btw 21% terugvorderbaar). CE = RED; Machineverordening-DoC apart opvragen. |
+| **RobotShop EU** (ticket T1121128) | offerte loopt (versie opgegeven) | offerte loopt | EU-route, geen import-gedoe, ETA 8-12 wk. Min. order $2k. Vermoedelijk duurder/unit maar EU-garantie. |
+| **Synergy Tech / Unitree ES** (Dario, CEO) | distributeur-korting loopt | idem | EU-route (Spanje), prijs incl. logistiek. Adviseerde 3-5 G1 U2 + Go2 Pro. |
+
+⚠️ **Belangrijke correctie op de unit-economics:** de site noemde aanschaf G1 Edu **€23.000**; de echte China-prijs is **U1 ~€28.000 / U2 ~€35.000 landed** — hoger. De leaseprijs €1.295/mnd was op €23k gebaseerd. **Te heroverwegen zodra de EU-prijzen (RobotShop/Synergy) ernaast liggen:** óf EU-route is goedkoper, óf leaseprijs/positionering aanpassen. Volledige offerte: `docs/leveranciers/unitree-offerte-2026-06-16.md`.
+
+### Leverancier-contacten (de lijn)
+| Leverancier | Contact | Rol | Status |
+|---|---|---|---|
+| Unitree (China) | Zoe Wang `sales_www@unitree.com` + Wanda (WhatsApp +86 137...) | fabrikant direct, goedkoopst | **offerte ontvangen** |
+| Synergy Tech (ES) | Dario Samaniego (CEO) `dario.samaniego@synergytech.es` | officiële Unitree-distributeur EU | in gesprek (korting + compliance-vragen) |
+| RobotShop EU | Nathy/Louise `support@robotshop.com` (T1121128) | EU-distributeur, lage drempel | offerte loopt |
+| PAL Robotics (ES) | Alexandre Saldes `alexandre.sb@pal-robotics.com` | EU-fabrikant (TIAGo ~€110k, StockBot ~€30k) | partner-pad (formulier) |
+| NEURA (DE) | Kristina Naumoska | EU-fabrikant (Bosch-partner) | in gesprek |
+| RoboCorpus (BE) | Jordi Hurssel + Hamza | distributeur BE | in gesprek |
+| UBTECH | Sean Qin | fabrikant (verwees naar concurrent SmartRobot — niet doen) | direct vragen |
+| Pollen (FR) | Santiago Pavon | EU-fabrikant (Reachy 2) | beantwoord |
+
+### Klanten in de pijplijn
+| Klant | Wat | Status |
+|---|---|---|
+| **VR Expert** (Dante Spekman, Benelux-XR-verhuurder) | G1 Edu, humanoid-verhuur verkennen | ⭐ in gesprek — wacht op compliance-antwoorden (Dario) + prijsvergelijking, dán voorstel |
+| **Atlas Copco** (Thomas Christiaensen, BE-industrie) | humanoid-taskforce, verkennend | hold, 1-pager klaar |
+
+Volledige, levende pijplijn: `docs/handboek/03-pipeline.md`.
+
 ## 6. Twaalf maanden, drie scenario's (cash, excl. founder-salaris)
 
 | | A: site als optie | B: 2 pilots + 1 G1-lease | C: 5 leases (4×G1+1×Walker) |

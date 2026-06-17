@@ -3,8 +3,10 @@
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
 ## 2026-06-17
-- **Bedrijfshandboek aangemaakt** (`CLAUDE.md` + `docs/handboek/`) zodat elke (nieuwe) sessie meteen de stand kent. — Claude, op verzoek Thomas.
-- **3 mails klaargezet voor vandaag** in de CRM-werklijst: [1] RobotShop (versie opgeven → offerte), [2] RoboCorpus (context + reseller-voorwaarden), [3] UBTECH (direct inkopen i.p.v. via concurrent SmartRobot). Zie `03-pipeline.md`.
+- **⭐ UNITREE-OFFERTE BINNEN (Zoe, 16/6):** G1 EDU U1 $28.900/unit, U2 $36.900/unit + $1.500 shipping (CPT, 100% vooruit, 4-5 wk). Verwerkt in businessplan §5b + `docs/leveranciers/unitree-offerte-2026-06-16.md`. **Vondst:** echte prijs (~€28-35k landed) is hóger dan de €23k op de site → leaseprijs/positionering heroverwegen zodra EU-prijzen (RobotShop/Synergy) ernaast liggen.
+- **Businessplan §5b toegevoegd:** leveranciers + echte inkoopprijzen + alle contacten + klantenpijplijn.
+- **Bedrijfshandboek aangemaakt** (`CLAUDE.md` + `docs/handboek/`) zodat elke (nieuwe) sessie meteen de stand kent.
+- **3 mails klaargezet** in de CRM-werklijst: [1] RobotShop (versie opgeven → offerte — nu extra belangrijk: 2e prijs naast Zoe), [2] RoboCorpus, [3] UBTECH. Zie `03-pipeline.md`.
 
 ## 2026-06-16
 - **VR Expert (Dante) stuurde uitgebreide vragenmail** (lease­prijs + wat inbegrepen + compliance/CE/data-naar-China/firmware/kant-en-klaar). Technische+compliance-vragen **doorgespeeld naar Dario (Synergy)** — mail verstuurd vanuit thomas@. Wachten op Dario's antwoord vóór we Dante's voorstel doorrekenen.

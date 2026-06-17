@@ -13,7 +13,7 @@
 
 | Leverancier | Contact | Status | Op wie wachten | Notitie |
 |---|---|---|---|---|
-| **Unitree (China)** | Zoe Wang (sales_www@unitree.com) + Wanda (WhatsApp) | Offerte aangevraagd | Zoe | Selection table + CE-cert (RED) ontvangen; offerte U1+U2 (1+3 stuks) gevraagd. Staffel pas >$50k, 100% vooruit, 4-5wk, $1.500 shipping/unit |
+| **Unitree (China)** | Zoe Wang (sales_www@unitree.com) + Wanda (WhatsApp) | ✅ **Offerte ontvangen** (16/6) | **Ons** | **G1 EDU U1 $28.900, U2 $36.900 + $1.500 shipping** (CPT, 100% vooruit, 4-5wk). Next: order bevestigen → Zoe maakt PI. Pas bestellen ná getekende klant. Detail: `docs/leveranciers/unitree-offerte-2026-06-16.md` |
 | **Synergy Tech (Unitree ES)** | Dario Samaniego, CEO (dario.samaniego@synergytech.es) | In gesprek | Dario | Open voor distributeur-prijzen; technische+compliance-vragen (van VR Expert) doorgespeeld. EU-route = makkelijker dan China |
 | **RobotShop EU** | Nathy/Louise (ticket T1121128, support@robotshop.com) | In gesprek | **Ons** | Wil weten welke G1 EDU-versie → dan offerte. Reply [1] klaar in werklijst. ETA 8-12 wk |
 | **PAL Robotics** | Alexandre Saldes (alexandre.sb@pal-robotics.com) | Partner-pad | Alexandre | Na meeting NDSM; stuurt formulier. Echte prijzen: TIAGo ~€110k, StockBot ~€30k. ⚠️ Niet op de site terugzetten |
