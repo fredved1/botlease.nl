@@ -19,6 +19,20 @@ con = sqlite3.connect(DB); con.row_factory = sqlite3.Row
 print("\n========== BOTLEASE OCHTENDBRIEFING ==========")
 print(datetime.now().strftime("%A %d %B %Y, %H:%M"))
 
+# laatste dagelijkse controle-uitkomst tonen
+try:
+    import os
+    log="/root/botlease-crm/controle-laatste.log"
+    if os.path.exists(log):
+        lines=[l for l in open(log).read().splitlines() if "probleem" in l]
+        mtime=datetime.fromtimestamp(os.path.getmtime(log)).strftime("%d %b %H:%M")
+        if lines:
+            status=lines[-1].strip("= ").strip()
+            ok = status.startswith("0")
+            print(f"\n[controle {mtime}] {'✅ alles klopt' if ok else '🔴 LET OP — ' + status}")
+except Exception:
+    pass
+
 # 2) nieuwe inkomende mail (status nieuw)
 nieuw = con.execute("SELECT created,name,email,subject FROM leads WHERE status='nieuw' AND source='mail' ORDER BY id DESC").fetchall()
 print(f"\n--- NIEUWE MAIL ({len(nieuw)}) ---")
