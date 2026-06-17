@@ -1,0 +1,42 @@
+# CLAUDE.md — lees dit eerst
+
+Dit bestand wordt automatisch geladen aan het begin van elke sessie. Het is de **wegwijzer** naar het bedrijfshandboek. Lees bij twijfel altijd eerst `docs/handboek/`.
+
+## Wat is dit project
+**BotLease** (botlease.nl) — eenmanszaak van **Thomas Vedder** (KvK 95943420, Amsterdam). Verhuurt, least en verkoopt humanoïde robots aan Nederlandse/EU-organisaties. Geen B.V. (B.V. komt vóór het eerste getekende contract). Statische site in `frontend/`, eigen CRM + mailsysteem op een VPS.
+
+## ⭐ Begin elke sessie zo
+1. **Draai de ochtendbriefing** (toont nieuwe mail, open taken, op wie we wachten):
+   `ssh root@185.107.90.42 'python3 /root/botlease-crm/briefing.py'`
+2. **Lees `docs/handboek/02-stand-van-zaken.md`** — de laatste updates + wie wat deed.
+3. Bij een mail/deal-actie: check `docs/handboek/03-pipeline.md` voor de context.
+
+## Het handboek (docs/handboek/)
+| Bestand | Wat |
+|---|---|
+| `01-overzicht.md` | Wat BotLease is, fase, het model (huren/lease/event) |
+| `02-stand-van-zaken.md` | ⭐ Levend logboek: laatste updates, wie deed wat — **houd dit bij** |
+| `03-pipeline.md` | Leveranciers + klanten, status, op wie wachten we — **houd dit bij** |
+| `04-team.md` | Thomas, Marinho (financiering), Ton (sales) |
+| `05-businessplan.md` | Strategie-samenvatting + links naar volledige plannen |
+| `06-techniek.md` | Site, CRM, mail, VPS, deployen, valkuilen |
+
+## Harde regels (NOOIT overtreden)
+- **Geen koude mails autonoom versturen** naar externe partijen zonder dat Thomas het per geval autoriseert. Replies in lopende gesprekken mogen wél na zijn "stuur jij maar".
+- **Humanizer over elke mail** — menselijk, geen AI-toon, geen em-dashes, geen overpromise.
+- **Geen overpromises op de site**: swap = "vervangende unit bij storing, doorgaans binnen enkele werkdagen" (NOOIT "binnen 24u"/"€100/dag"); verzekering = "per deployment geregeld" (NOOIT een bedrag); helpdesk = "op werkdagen" (NOOIT "24/7 support", wel "24/7 inzetbaar" als robot-eigenschap).
+- **PAL Robotics is verwijderd** (juridisch verzoek) — nooit terugplaatsen. Catalogus = 13 modellen.
+- **Mobile-patch-regel**: ~55 pagina's hebben `<style id="mobile-first-patch">` die de generators NIET emitten → die pagina's **in-place editen, nooit rebuilden**. Nieuws (`frontend/nieuws/`) is wél veilig te rebuilden.
+- **Geen secrets in de repo** — wachtwoorden/keys staan in `/root/botlease-crm/env` op de VPS en in mijn privé-geheugen, niet in git.
+
+## Deployen (push alleen deployt NIET)
+```
+git push origin master
+git worktree add --detach /tmp/bl origin/master && cp -r .vercel /tmp/bl/.vercel
+cd /tmp/bl && vercel --prod --yes && cd - && git worktree remove /tmp/bl --force
+```
+
+## Mijn vaste taken (Claude)
+- Inkomende mail → concept-antwoorden klaarzetten in het CRM (werklijst).
+- Na elke deal-/site-update: `docs/handboek/02-stand-van-zaken.md` + `03-pipeline.md` bijwerken.
+- Op verzoek "update mijn crm" / "check inbox": volledige sweep (zie 06-techniek.md).
