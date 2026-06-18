@@ -2,6 +2,14 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-06-18
+- **⭐ RobotShop-offerte binnen (PDF Bid 1482037, t/m 30 juli):** G1 EDU U1 €29.925, U2 €34.200 (5% korting, ex btw). EU, geen import, 18mnd garantie, ETA 8-12 wk. → tweede inkoopprijs. **Voor U2 goedkoper dan China.** PDF in `docs/leveranciers/`. Reply gestuurd (offerte bevestigd + volume-korting gevraagd).
+- **UBTECH (Sean) opent directe lijn** ("you can source directly from UBTech") → reply gestuurd: Walker S2 reseller-prijs gevraagd.
+- **3 inkoopprijzen-overzicht (G1 EDU):** Unitree China ~€28k/€35.3k (import-gedoe) · RobotShop EU €29.925/€34.200 (simpel) · Synergy (Dario) = nog open. Vergelijking in businessplan §5b.
+- **Systeemfout opgelost:** oude mail-catcher (botlease-mail) UIT — die importeerde elke mail nóg eens zonder msgid (= bron dubbele leads). Poller dekt nu alles. + les: nooit handmatig leads inserten voor inkomende mail (poller doet dat al). 2 lessen in 06-techniek.md.
+- **Streepje-garantie:** CRM-versturen strijkt nu automatisch elk em/en-streepje uit onze tekst (Thomas: "never"). 3 niveaus: CLAUDE.md + playbook + verzendfilter.
+- **Businessplan §1 rechtgetrokken:** eenmanszaak (geen B.V.), 13 modellen, tractie geactualiseerd.
+
 ## 2026-06-17 (later)
 - **Volledige contact-check gedraaid (geverifieerd schoon, 0 problemen):** 4 replies klaar (Zoe [4], RobotShop [1], RoboCorpus [2] NL, UBTECH [3]), allemaal aan de juiste laatste mail / juiste adres / juiste taal. 5 contacten wachten correct op de ander. Geen verloren mail, geen dubbele leads.
 - **Vangnet `controle.py` gebouwd** (verloren mail / dubbele leads / reply aan juiste+laatste mail) — vaste verificatiestap vóór "klaar". Fixte onderweg: Zoe-reply hing aan oude mail i.p.v. de offerte; RobotShop-adres → Reply-To (marketplace@); Atlas Copco-email; Richard-lead datum.
