@@ -73,7 +73,7 @@ De leverancierslijn is in opbouw via actieve gesprekken. We verzamelen meerdere 
 | Bron | G1 EDU U1 (standaard) | G1 EDU U2 (gevorderd) | Voorwaarden |
 |---|---:|---:|---|
 | **Unitree China** (Zoe Wang) — offerte 16/6 | $28.900 + $1.500 shipping ≈ **€28.000 landed** | $36.900 + $1.500 ≈ **€35.300 landed** | CPT, 100% vooruit, 4-5 wk. Wij = EU-importeur (EORI + invoer-btw 21% terugvorderbaar). CE = RED; Machineverordening-DoC apart opvragen. |
-| **RobotShop EU** (ticket T1121128) | offerte loopt (versie opgegeven) | offerte loopt | EU-route, geen import-gedoe, ETA 8-12 wk. Min. order $2k. Vermoedelijk duurder/unit maar EU-garantie. |
+| **RobotShop EU** (Bid 1482037, t/m 30 juli) | **€29.925** (5% korting) | **€34.200** (5% korting) | EU-route, geen import-gedoe, verzending gratis/€479, 18mnd garantie, ETA 8-12 wk. Voor U2 zelfs goedkoper dan China. |
 | **Synergy Tech / Unitree ES** (Dario, CEO) | distributeur-korting loopt | idem | EU-route (Spanje), prijs incl. logistiek. Adviseerde 3-5 G1 U2 + Go2 Pro. |
 
 ⚠️ **Belangrijke correctie op de unit-economics:** de site noemde aanschaf G1 Edu **€23.000**; de echte China-prijs is **U1 ~€28.000 / U2 ~€35.000 landed** — hoger. De leaseprijs €1.295/mnd was op €23k gebaseerd. **Te heroverwegen zodra de EU-prijzen (RobotShop/Synergy) ernaast liggen:** óf EU-route is goedkoper, óf leaseprijs/positionering aanpassen. Volledige offerte: `docs/leveranciers/unitree-offerte-2026-06-16.md`.
