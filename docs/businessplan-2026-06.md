@@ -6,9 +6,9 @@
 
 ## 1. Wat BotLease is — en waar het vandaag staat
 
-BotLease B.V. (KvK 95943420, Amsterdam) is de onafhankelijke Nederlandse leasemaatschappij voor humanoïde robots: all-in operational lease (installatie, training, onderhoud, swap-service, compliance) van 15 modellen van 10 fabrikanten, vanaf €290/maand.
+BotLease (eenmanszaak van Thomas Vedder, KvK 95943420, Amsterdam) is de onafhankelijke Nederlandse partij voor humanoïde robots: huren (per dag/maand) of all-in operational lease (installatie, training, onderhoud, swap-service, compliance) van 13 modellen, vanaf €290/maand. B.V.-oprichting staat gepland vóór het eerste getekende contract.
 
-**Wat er staat (gebouwd, live):** complete website met 80+ pagina's, technische SEO/GEO af (net geïndexeerd; resultaat volgt over weken), wekelijkse nieuws-engine, eigen CRM (crm.botlease.nl) waarin elke aanvraag, bestelling én inkomende mail automatisch landt, transparante prijzen (uniek in de markt), 1 warme inkomende lead (Atlas Copco Airpower — humanoid taskforce, België), 16 leveranciers/distributeurs benaderd (follow-up loopt).
+**Wat er staat (gebouwd, live):** complete website (80+ pagina's, technische SEO/GEO af — zie SEO-status hieronder), wekelijkse nieuws-engine, eigen CRM + mailsysteem (crm.botlease.nl) waarin elke aanvraag, bestelling én in/uitgaande mail automatisch landt en zichzelf controleert, transparante prijzen (uniek in de markt). Tractie (juni 2026): warme klant-leads (Atlas Copco taskforce BE; VR Expert — grote Benelux-verhuurder, in gesprek over G1), 16 leveranciers benaderd waarvan meerdere in gesprek met echte offertes (Unitree, RobotShop EU, Synergy, UBTECH, NEURA).
 
 **Wat er niet staat:** omzet, voorraad, personeel, kapitaal.
 
