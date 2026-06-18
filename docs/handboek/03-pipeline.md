@@ -18,7 +18,7 @@
 | **RobotShop EU** | Nathy (marketplace@robotshop.com, ticket T1121128) | ✅ Offerte (Bid 1482037) | hen | **U1 €29.925, U2 €34.200** (5% korting, ex btw, EU, 18mnd garantie, t/m 30 juli). Reply gestuurd (volume-korting gevraagd). PDF in docs/leveranciers/ |
 | **PAL Robotics** | Alexandre Saldes (alexandre.sb@pal-robotics.com) | Partner-pad | Alexandre | Na meeting NDSM; stuurt formulier. Echte prijzen: TIAGo ~€110k, StockBot ~€30k. ⚠️ Niet op de site terugzetten |
 | **NEURA Robotics (DE)** | Kristina Naumoska | In gesprek | NEURA | Beantwoord als lease-partner; haalden $1,4B op |
-| **RoboCorpus (BE)** | Jordi Hurssel (+ collega Hamza) | In gesprek | **Ons** | Geïnteresseerd, wil Teams. Reply [2] klaar (context + reseller-voorwaarden) |
+| **RoboCorpus (BE)** | Jordi Hurssel (+ collega Hamza) | In gesprek | hen | Reply gestuurd 17/6 (NL): context + reseller-voorwaarden gevraagd. Wilden Teams; wij eerst per mail |
 | **UBTECH** | Sean Qin | In gesprek | hen | Opent directe lijn (18/6). Reply gestuurd: Walker S2 reseller-prijs (1+3 stuks) gevraagd |
 | **Pollen Robotics (FR)** | Santiago Pavon | Beantwoord | Pollen | Reachy 2-verduidelijking gestuurd |
 | Overige follow-ups | 1X, Terra, Generation Robots, QUADRUPED, INGEN, Leobotics, OrcaRobot | Gemaild | hen | Geen reactie; laten rusten |
