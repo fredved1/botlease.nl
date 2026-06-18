@@ -166,7 +166,7 @@ ROBOTS = [
     },
     {
         "slug": "unitree-g1",
-        "name": "Unitree G1 Edu",
+        "name": "Unitree G1",
         "vendor": "Unitree Robotics",
         "vendor_country": "China",
         "category": "available",

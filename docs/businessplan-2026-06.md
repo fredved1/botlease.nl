@@ -34,10 +34,10 @@ Formule (gepubliceerd op /methodologie): aanschaf/36 + 25%/jr service-reserve + 
 
 | | R1 (instap) | G1 (werkpaard) | Walker S2 (industrieel) |
 |---|---:|---:|---:|
-| Aanschaf | €8.000 | €23.000 | €95.000 |
+| Aanschaf | €8.000 | €16.000 (basis-G1) | €95.000 |
 | Lease/mnd | €290 | €1.295 | €4.250 |
-| Kostprijs/mnd (eigen formule) | €442 | €1.271 | €5.251 |
-| Marge/mnd (formule) | **−€152** | **+€24** | **−€1.001** |
+| Kostprijs/mnd (eigen formule) | €442 | €884 | €5.251 |
+| Marge/mnd (formule) | **−€152** | **+€411** | **−€1.001** |
 | Cash-marge/mnd (service tegen reële kosten ±10%/jr, aanname) | +€14 | **+€311** | +€186 |
 
 **Conclusies:**
@@ -76,7 +76,7 @@ De leverancierslijn is in opbouw via actieve gesprekken. We verzamelen meerdere 
 | **RobotShop EU** (Bid 1482037, t/m 30 juli) | **€29.925** (5% korting) | **€34.200** (5% korting) | EU-route, geen import-gedoe, verzending gratis/€479, 18mnd garantie, ETA 8-12 wk. Voor U2 zelfs goedkoper dan China. |
 | **Synergy Tech / Unitree ES** (Dario, CEO) | distributeur-korting loopt | idem | EU-route (Spanje), prijs incl. logistiek. Adviseerde 3-5 G1 U2 + Go2 Pro. |
 
-⚠️ **Belangrijke correctie op de unit-economics:** de site noemde aanschaf G1 Edu **€23.000**; de echte China-prijs is **U1 ~€28.000 / U2 ~€35.000 landed** — hoger. De leaseprijs €1.295/mnd was op €23k gebaseerd. **Te heroverwegen zodra de EU-prijzen (RobotShop/Synergy) ernaast liggen:** óf EU-route is goedkoper, óf leaseprijs/positionering aanpassen. Volledige offerte: `docs/leveranciers/unitree-offerte-2026-06-16.md`.
+✅ **OPGELOST (18 juni):** de site noemde 'G1 Edu' op €23k/€1.295, maar de échte G1 EDU kost €28-34k → die lease was verliesgevend. **Besluit:** de standaard-G1 op de site is nu de **basis-G1 (~€16.000)** — lease €1.295/mnd is daarmee weer gezond (+€411/mnd marge). De **G1 EDU (met SDK, voor R&D)** is een aparte optie op aanvraag, vanaf ~€1.750/mnd (kostendekkend). Past bij VR Expert (zij willen kant-en-klaar, geen eigen ontwikkeling). Inkoopprijzen G1 EDU: zie offertes in `docs/leveranciers/`.
 
 ### Leverancier-contacten (de lijn)
 | Leverancier | Contact | Rol | Status |

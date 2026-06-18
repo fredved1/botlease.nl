@@ -26,7 +26,7 @@ ARTICLES = [
             ("p", "Aziatische value-modellen, agressief geprijsd, snel leverbaar via EU-distributeurs:"),
             ("p", "<ul>"
              "<li><b>Unitree R1 (CN)</b> - €290/mnd. De goedkoopste full-bipedal humanoid op de markt. Loss-leader voor scholen en events.</li>"
-             "<li><b>Unitree G1 Edu (CN)</b> - €1.295/mnd. Meest verkochte volwassen-formaat humanoid wereldwijd. R&D-platform voor scale-ups.</li>"
+             "<li><b>Unitree G1 (CN)</b> - €1.295/mnd. Meest verkochte volwassen-formaat humanoid wereldwijd. R&D-platform voor scale-ups.</li>"
              "<li><b>Unitree H1-2 (CN)</b> - €6.650/mnd. Full-size industriële kracht - 30 kg payload, tot 3,3 m/s snelheid.</li>"
              "<li><b>Unitree H2 (CN)</b> - €2.750/mnd. Service-georiënteerd, bionisch gezicht, 2070 TOPS AI-chip. Voor hospitality en retail.</li>"
              "<li><b>EngineAI SE01 (CN)</b> - €1.590/mnd. Shenzhen-startup met neural-network gait. Bekend om de meest natuurlijke loopbeweging in zijn klasse.</li>"
@@ -85,7 +85,7 @@ ARTICLES = [
         "date": "2026-05-14",
         "reading_time": 6,
         "author": "BotLease Redactie",
-        "intro": "Sinds Unitree de G1 Edu in mei 2024 voor $16.000 op de markt zette, is hij de meest verkochte volwassen-formaat humanoid ter wereld geworden. In Nederland zien we vooral R&D-afdelingen en hospitality-pioniers het model leasen. Dit zijn de vijf use-cases waarvan we - op basis van eigen pilot-data en publieke deployments - kunnen zeggen dat ze rendabel zijn binnen 12 maanden.",
+        "intro": "Sinds Unitree de G1 in mei 2024 voor $16.000 op de markt zette, is hij de meest verkochte volwassen-formaat humanoid ter wereld geworden. In Nederland zien we vooral R&D-afdelingen en hospitality-pioniers het model leasen. Dit zijn de vijf use-cases waarvan we - op basis van eigen pilot-data en publieke deployments - kunnen zeggen dat ze rendabel zijn binnen 12 maanden.",
         "body": [
             ("h2", "1. Demo & lobby-host bij hospitality"),
             ("p", "Hotels met meer dan 80 kamers zien gemiddeld een toename van 0,3-0,5 sterren op gastenscore-platforms na introductie van een humanoid lobby-host. De G1 doet niet de check-in zelf - wél begroeting, weg wijzen, en het ophalen van bagage tussen lobby en lift. ROI komt vooral uit verlengde personeelsdekking 's avonds en 's nachts."),
