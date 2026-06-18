@@ -402,6 +402,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         path, q = self._path()
+        if path in ("/overzicht", "/overzicht/"):  # publieke status-pagina voor Ton (geen key, noindex)
+            try:
+                html = open("/root/botlease-crm/overzicht.html", encoding="utf-8").read()
+            except FileNotFoundError:
+                html = "<h3>Overzicht nog niet gepubliceerd</h3>"
+            return self._send(200, html.encode(), "text/html; charset=utf-8")
         if path in ("/", "/index.html"):
             if not self._authed(q):
                 return self._send(401, "<h3>401 - open de volledige link met ?key=...</h3>".encode(), "text/html; charset=utf-8")
