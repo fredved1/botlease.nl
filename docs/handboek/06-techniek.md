@@ -46,6 +46,12 @@ SSH met root-key werkt. Draait: nginx (crm.botlease.nl, api.heymilo.nl), de CRM,
 4. `docs/handboek/02-stand-van-zaken.md` + `03-pipeline.md` bijwerken.
 5. Kort rapporteren wat er klaarstaat.
 
+## ⚠️ Mail-catcher UIT (18/6) — poller dekt alles
+De oude `mail_catcher` (botlease-mail, SMTP :25 via in.botlease.nl-forward) is **uitgezet** — de IMAP-poller leest nu inbound (INBOX) én outbound (Verzonden-map) rechtstreeks, dus de catcher was puur een bron van **dubbele leads zonder msgid**. Niet heraanzetten. (Heraanzetten zou weer no-msgid-duplicaten geven.)
+
+## ⚠️ NOOIT zelf leads INSERTEN voor inkomende mail
+De poller importeert élke inkomende mail al (met msgid). Maak je er handmatig óók een aan, dan krijg je een synthetische duplicaat die niet aan de echte mail-thread hangt (gebeurd 18/6: synthetische UBTECH/RobotShop-leads → reply hing aan de verkeerde). **Werkwijze:** zoek de bestaande poller-lead op (op afzender/msgid), UPDATE die (status/notes), en koppel de reply daaraan. Alleen handmatig INSERTEN voor leads die NIET via mail binnenkomen (bv. telefonisch/WhatsApp).
+
 ## ⚠️ Mail dedupliceren — alleen op Message-ID
 **NOOIT dubbele mails opruimen op afzender+onderwerp.** In een doorlopend gesprek heeft elke reply hetzelfde "Re: …"-onderwerp; groeperen op email+subject verwijdert dan échte vervolgmails (gebeurd 17/6: Seans 2e UBTECH-mail met de Richard-introductie werd zo per ongeluk gewist, daarna hersteld uit de inbox). **Alleen ontdubbelen op exact identiek Message-ID** = letterlijk dezelfde mail. De inbox (IMAP) is altijd de bron-van-waarheid; een per ongeluk gewiste lead is terug te halen uit de inbox met msgid. **Bij twijfel: dubbelcheck tegen de inbox** (Thomas' staande instructie).
 
