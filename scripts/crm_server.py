@@ -479,6 +479,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
                     body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
+                # HARDE GARANTIE: nooit em-dash/en-dash in ONZE tekst (verraadt AI — Thomas: never).
+                # Alleen op ons deel, vóór de geciteerde historie (die is de tekst van de ander).
+                body = (body.replace(" — ", " - ").replace(" – ", " - ")
+                            .replace("—", "-").replace("–", "-"))
                 # geschiedenis citeren onder de reply, zoals een normaal mailprogramma doet
                 if lead and lead["msgid"] and (lead["message"] or "").strip():
                     quoted = "\n".join("> " + ln for ln in lead["message"].strip().splitlines())
