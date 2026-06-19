@@ -1,5 +1,19 @@
 [
   {
+    "slug": "humanoide-robot-loopt-halve-marathon-in-50-minuten",
+    "title": "Humanoide robot loopt halve marathon in 50 minuten",
+    "subtitle": "De Honor Lightning verpulverde het menselijke record met 7 minuten, terwijl topfavoriet Unitree een ijsrugzak nodig had tegen oververhitting.",
+    "date": "2026-06-19",
+    "category": "R&D",
+    "tags": [
+      "humanoide robots",
+      "Unitree",
+      "marathon",
+      "aandrijving",
+      "thermiek"
+    ]
+  },
+  {
     "slug": "robomni-nieuwe-benchmark-voor-robothanden",
     "title": "RobOmni: nieuwe benchmark voor robothanden",
     "subtitle": "Daimon Robotics en Galbot lanceren samen een open meetlat voor tactiele waarneming en fijne manipulatie bij humanoïde robots.",
@@ -277,7 +291,6 @@
     "category": "Markt",
     "tags": [
       "NEURA",
-      "PAL Robotics",
       "Pollen Robotics",
       "EU-gebouwd",
       "Compliance",

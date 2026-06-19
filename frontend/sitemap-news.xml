@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://botlease.nl/nieuws/robomni-nieuwe-benchmark-voor-robothanden</loc>
+    <loc>https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</loc>
     <news:news>
       <news:publication>
         <news:name>BotLease</news:name>
         <news:language>nl</news:language>
       </news:publication>
-      <news:publication_date>2026-06-08</news:publication_date>
-      <news:title>RobOmni: nieuwe benchmark voor robothanden</news:title>
+      <news:publication_date>2026-06-19</news:publication_date>
+      <news:title>Humanoide robot loopt halve marathon in 50 minuten</news:title>
     </news:news>
   </url>
 </urlset>

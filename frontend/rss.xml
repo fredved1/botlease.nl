@@ -6,7 +6,15 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Wed, 10 Jun 2026 16:00:37 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 10:23:52 +0000</lastBuildDate>
+    <item>
+      <title>Humanoide robot loopt halve marathon in 50 minuten</title>
+      <link>https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</guid>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[De Honor Lightning verpulverde het menselijke record met 7 minuten, terwijl topfavoriet Unitree een ijsrugzak nodig had tegen oververhitting.]]></description>
+    </item>
     <item>
       <title>RobOmni: nieuwe benchmark voor robothanden</title>
       <link>https://botlease.nl/nieuws/robomni-nieuwe-benchmark-voor-robothanden</link>
@@ -158,14 +166,6 @@
       <pubDate>Sun, 10 May 2026 08:00:00 +0100</pubDate>
       <category>Regelgeving</category>
       <description><![CDATA[Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.]]></description>
-    </item>
-    <item>
-      <title>Waarom EU-gebouwde humanoids winnen in 2026: NEURA, PAL, Pollen-analyse</title>
-      <link>https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</link>
-      <guid isPermaLink="true">https://botlease.nl/nieuws/eu-gebouwd-humanoid-voordeel-2026</guid>
-      <pubDate>Sat, 09 May 2026 08:00:00 +0100</pubDate>
-      <category>Markt</category>
-      <description><![CDATA[Aziatische modellen winnen op prijs. Amerikaanse op marketing. Maar voor Nederlandse MKB-deployment in 2026 hebben EU-gebouwde robots drie structurele voordelen.]]></description>
     </item>
   </channel>
 </rss>
