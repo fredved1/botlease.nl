@@ -11,9 +11,9 @@ from email.header import decode_header, make_header
 
 DB="/root/botlease-crm/crm.db"
 SKIP=("no-reply","noreply","donotreply","mailer-daemon","postmaster","kvk.nl",
-      "resend","metamail","euipo","news@neura-robotics","notifications@","unitree.cc")
+      "resend","metamail","euipo","news@neura-robotics","notifications@","unitree.cc","hostnet.nl")
 # automatische/waardeloze onderwerpen (ticket-acks, routing, surveys)
-SKIP_SUBJ=("request received","how would you rate","rate the support","my colleague")
+SKIP_SUBJ=("request received","how would you rate","rate the support","my colleague","undeliverable","mail delivery","delivery status")
 def hdr(v):
     try: return str(make_header(decode_header(v or "")))
     except: return v or ""
