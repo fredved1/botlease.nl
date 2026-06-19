@@ -42,10 +42,8 @@ LOG="$LOGDIR/newsbot-$TS.log"
   #    (abonnement). --rebuild zodat de HTML mee gecommit wordt en live kan.
   "$PYTHON" scripts/news_bot.py --commit --rebuild --max="$MAX_ARTICLES"
   echo "news-bot exit: $?"
-
-  # 3) Bijrol-bots (rankings + analytics). Niet kritiek; falen mag de run niet stoppen.
-  [ -f scripts/rank_bot.py ]      && "$PYTHON" scripts/rank_bot.py --commit      2>&1 | tail -3 || true
-  [ -f scripts/analytics_bot.py ] && "$PYTHON" scripts/analytics_bot.py --commit 2>&1 | tail -3 || true
+  # (rank_bot/analytics_bot bewust niet aangeroepen: eigen kapotte push-URL,
+  #  niet kritiek voor publiceren. Apart fixen wanneer de SEO-dashboards nodig zijn.)
 } >"$LOG" 2>&1
 
 # 4) Deploy — alleen als er daadwerkelijk iets gepubliceerd EN gepusht is.
