@@ -1,142 +1,221 @@
 {
-  "generated_at": "2026-05-29T15:01:38.235251+00:00",
+  "generated_at": "2026-06-19T10:33:09.492511+00:00",
   "website_id": "185bb2a6-3057-420f-9f3b-babb2776450f",
   "periods": {
     "24h": {
       "stats": {
-        "pageviews": 36,
-        "visitors": 14,
-        "visits": 15,
-        "bounces": 4,
-        "totaltime": 427,
+        "pageviews": 1,
+        "visitors": 1,
+        "visits": 1,
+        "bounces": 1,
+        "totaltime": 0,
         "comparison": {
-          "pageviews": 4,
-          "visitors": 1,
-          "visits": 1,
-          "bounces": 0,
-          "totaltime": 41
+          "pageviews": 18,
+          "visitors": 6,
+          "visits": 6,
+          "bounces": 3,
+          "totaltime": 782
         }
       },
       "top_pages": [
         {
           "x": "/",
-          "y": 14
+          "y": 1
         }
       ],
-      "top_referrers": [],
+      "top_referrers": [
+        {
+          "x": "google.com",
+          "y": 1
+        }
+      ],
       "countries": [
         {
           "x": "US",
-          "y": 14
+          "y": 1
         }
       ],
       "devices": [
         {
-          "x": "desktop",
-          "y": 10
-        },
-        {
-          "x": "mobile",
-          "y": 4
+          "x": "laptop",
+          "y": 1
         }
       ],
       "os": [
         {
           "x": "Windows 10",
-          "y": 9
-        },
-        {
-          "x": "Android OS",
-          "y": 4
-        },
-        {
-          "x": "Mac OS",
           "y": 1
         }
       ],
       "browsers": [
         {
           "x": "chrome",
-          "y": 8
-        },
-        {
-          "x": "edge-chromium",
-          "y": 6
+          "y": 1
         }
       ],
       "events": []
     },
     "7d": {
       "stats": {
-        "pageviews": 46,
-        "visitors": 17,
-        "visits": 18,
-        "bounces": 5,
-        "totaltime": 477,
+        "pageviews": 64,
+        "visitors": 28,
+        "visits": 28,
+        "bounces": 15,
+        "totaltime": 1345,
         "comparison": {
-          "pageviews": 1,
-          "visitors": 1,
-          "visits": 1,
-          "bounces": 1,
-          "totaltime": 0
+          "pageviews": 161,
+          "visitors": 73,
+          "visits": 74,
+          "bounces": 42,
+          "totaltime": 3408
         }
       },
       "top_pages": [
         {
           "x": "/",
-          "y": 17
+          "y": 25
+        },
+        {
+          "x": "/huren",
+          "y": 6
+        },
+        {
+          "x": "/robots/unitree-g1",
+          "y": 4
+        },
+        {
+          "x": "/robots/neura-4ne1-mini",
+          "y": 3
+        },
+        {
+          "x": "/terugverdientijd-roi",
+          "y": 2
+        },
+        {
+          "x": "/robots/agility-digit",
+          "y": 1
+        },
+        {
+          "x": "/robots/figure-02",
+          "y": 1
+        },
+        {
+          "x": "/robots/neura-4ne1-gen3",
+          "y": 1
+        },
+        {
+          "x": "/robots/pollen-reachy-2",
+          "y": 1
+        },
+        {
+          "x": "/robots/unitree-h1-2",
+          "y": 1
+        },
+        {
+          "x": "/robots/unitree-r1",
+          "y": 1
+        },
+        {
+          "x": "/sectoren",
+          "y": 1
+        },
+        {
+          "x": "/vergelijken",
+          "y": 1
+        },
+        {
+          "x": "/begrippen",
+          "y": 1
+        },
+        {
+          "x": "/beste-humanoide-robots-2026",
+          "y": 1
         }
       ],
-      "top_referrers": [],
+      "top_referrers": [
+        {
+          "x": "google.com",
+          "y": 7
+        }
+      ],
       "countries": [
         {
           "x": "US",
-          "y": 17
+          "y": 28
         }
       ],
       "devices": [
         {
-          "x": "desktop",
-          "y": 10
+          "x": "laptop",
+          "y": 14
         },
         {
           "x": "mobile",
-          "y": 7
+          "y": 13
+        },
+        {
+          "x": "desktop",
+          "y": 1
         }
       ],
       "os": [
-        {
-          "x": "Windows 10",
-          "y": 9
-        },
         {
           "x": "Android OS",
           "y": 7
         },
         {
           "x": "Mac OS",
-          "y": 1
+          "y": 7
+        },
+        {
+          "x": "iOS",
+          "y": 6
+        },
+        {
+          "x": "Windows 10",
+          "y": 5
+        },
+        {
+          "x": "Linux",
+          "y": 3
         }
       ],
       "browsers": [
         {
           "x": "chrome",
-          "y": 11
+          "y": 14
+        },
+        {
+          "x": "ios",
+          "y": 6
+        },
+        {
+          "x": "firefox",
+          "y": 5
         },
         {
           "x": "edge-chromium",
-          "y": 6
+          "y": 2
+        },
+        {
+          "x": "safari",
+          "y": 1
         }
       ],
-      "events": []
+      "events": [
+        {
+          "x": "scroll",
+          "y": 29
+        }
+      ]
     },
     "30d": {
       "stats": {
-        "pageviews": 47,
-        "visitors": 18,
-        "visits": 19,
-        "bounces": 6,
-        "totaltime": 477,
+        "pageviews": 337,
+        "visitors": 146,
+        "visits": 148,
+        "bounces": 79,
+        "totaltime": 6111,
         "comparison": {
           "pageviews": 0,
           "visitors": 0,
@@ -148,51 +227,161 @@
       "top_pages": [
         {
           "x": "/",
-          "y": 18
+          "y": 124
+        },
+        {
+          "x": "/robots/unitree-g1",
+          "y": 13
+        },
+        {
+          "x": "/vergelijken",
+          "y": 12
+        },
+        {
+          "x": "/nieuws",
+          "y": 10
+        },
+        {
+          "x": "/sectoren",
+          "y": 9
+        },
+        {
+          "x": "/robots/pal-kangaroo",
+          "y": 8
+        },
+        {
+          "x": "/over",
+          "y": 7
+        },
+        {
+          "x": "/huren",
+          "y": 7
+        },
+        {
+          "x": "/robots/neura-4ne1-gen3",
+          "y": 5
+        },
+        {
+          "x": "/robots/neura-4ne1-mini",
+          "y": 5
+        },
+        {
+          "x": "/robots/pal-tiago-pro",
+          "y": 4
+        },
+        {
+          "x": "/kosten",
+          "y": 4
+        },
+        {
+          "x": "/robots/pollen-reachy-2",
+          "y": 4
+        },
+        {
+          "x": "/robots/unitree-r1",
+          "y": 4
+        },
+        {
+          "x": "/robots/apptronik-apollo",
+          "y": 3
         }
       ],
-      "top_referrers": [],
+      "top_referrers": [
+        {
+          "x": "google.com",
+          "y": 19
+        },
+        {
+          "x": "fxiaoke.com",
+          "y": 2
+        },
+        {
+          "x": "exmail.qq.com",
+          "y": 1
+        }
+      ],
       "countries": [
         {
           "x": "US",
-          "y": 18
+          "y": 146
         }
       ],
       "devices": [
         {
-          "x": "desktop",
-          "y": 11
+          "x": "laptop",
+          "y": 74
         },
         {
           "x": "mobile",
-          "y": 7
+          "y": 46
+        },
+        {
+          "x": "desktop",
+          "y": 25
+        },
+        {
+          "x": "tablet",
+          "y": 1
         }
       ],
       "os": [
         {
           "x": "Windows 10",
-          "y": 10
-        },
-        {
-          "x": "Android OS",
-          "y": 7
+          "y": 46
         },
         {
           "x": "Mac OS",
-          "y": 1
+          "y": 39
+        },
+        {
+          "x": "iOS",
+          "y": 26
+        },
+        {
+          "x": "Android OS",
+          "y": 21
+        },
+        {
+          "x": "Linux",
+          "y": 14
         }
       ],
       "browsers": [
         {
           "x": "chrome",
-          "y": 12
+          "y": 86
+        },
+        {
+          "x": "ios",
+          "y": 17
         },
         {
           "x": "edge-chromium",
+          "y": 16
+        },
+        {
+          "x": "firefox",
+          "y": 11
+        },
+        {
+          "x": "crios",
+          "y": 7
+        },
+        {
+          "x": "safari",
           "y": 6
         }
       ],
-      "events": []
+      "events": [
+        {
+          "x": "scroll",
+          "y": 173
+        },
+        {
+          "x": "outbound",
+          "y": 1
+        }
+      ]
     }
   }
 }
