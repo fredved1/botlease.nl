@@ -186,6 +186,12 @@ ANTHROPIC_BETA_HEADER = "oauth-2025-04-20"
 CLAUDE_MODEL_PRIMARY = "claude-opus-4-7"
 CLAUDE_MODEL_FALLBACK = "claude-opus-4-7"  # no downgrade — user wants Opus only
 
+# PRIMARY route: the `claude` CLI (Claude Code subscription). Same mechanism the
+# draft-bot uses — it manages its own OAuth + token refresh, so it never silently
+# falls through to a billed API. User rule: news must ALWAYS run via the subscription.
+CLAUDE_BIN = os.environ.get("CLAUDE_BIN", "/usr/local/bin/claude")
+CLAUDE_CLI_MODEL = os.environ.get("NEWS_CLI_MODEL", "opus")
+
 # OpenRouter as backup if OAuth not available
 OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "").strip()
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -375,6 +381,22 @@ def _refresh_claude_token() -> None:
         log(f"  refresh script failed: {e}")
 
 
+def call_claude_cli(system: str, user: str) -> str:
+    """Write via the `claude` CLI = the Claude Code subscription. No API billing,
+    self-refreshing auth. This is the primary route (user rule). The CLI is itself
+    Claude Code, so journalism instructions go in the prompt, not a system field."""
+    prompt = f"{system}\n\n=== BRON ===\n{user}"
+    r = subprocess.run(
+        [CLAUDE_BIN, "-p", prompt, "--model", CLAUDE_CLI_MODEL],
+        capture_output=True, text=True, timeout=300,
+        env={**os.environ, "HOME": os.environ.get("HOME", "/root")},
+    )
+    raw = (r.stdout or "").strip()
+    if not raw:
+        raise RuntimeError(f"claude CLI empty output ({(r.stderr or '')[:160]})")
+    return raw
+
+
 def call_claude_oauth(model: str, system: str, user: str, max_tokens: int = 4000) -> str:
     """Call Anthropic API using Claude Code OAuth token (uses Claude Max subscription).
 
@@ -555,7 +577,12 @@ def llm_rewrite(item: dict) -> dict | None:
 
     # Build a list of (label, fn) callables to try in order.
     attempts = []
-    # Primary: Opus via Claude OAuth (uses the Claude Max subscription, no API billing).
+    # PRIMARY: the `claude` CLI = Claude Code subscription. Self-refreshing auth,
+    # no API billing. User rule: news must always run via the subscription.
+    if Path(CLAUDE_BIN).exists():
+        attempts.append((f"claude-cli:{CLAUDE_CLI_MODEL}",
+                         lambda: call_claude_cli(REWRITE_SYSTEM, user_prompt)))
+    # Fallback A: Opus via Claude OAuth API (same subscription, raw token path).
     if Path(CLAUDE_CREDS_PATH).exists():
         attempts.append((f"claude-oauth:{CLAUDE_MODEL_PRIMARY}",
                          lambda: call_claude_oauth(CLAUDE_MODEL_PRIMARY, REWRITE_SYSTEM, user_prompt, max_tokens=8000)))
