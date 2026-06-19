@@ -6,7 +6,7 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Fri, 19 Jun 2026 10:23:52 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 10:31:54 +0000</lastBuildDate>
     <item>
       <title>Humanoide robot loopt halve marathon in 50 minuten</title>
       <link>https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</link>
@@ -14,6 +14,14 @@
       <pubDate>Fri, 19 Jun 2026 08:00:00 +0100</pubDate>
       <category>R&amp;D</category>
       <description><![CDATA[De Honor Lightning verpulverde het menselijke record met 7 minuten, terwijl topfavoriet Unitree een ijsrugzak nodig had tegen oververhitting.]]></description>
+    </item>
+    <item>
+      <title>Humanoide robots leren bewegen zonder mensvoorbeeld</title>
+      <link>https://botlease.nl/nieuws/humanoide-robots-leren-bewegen-zonder-mensvoorbeeld</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/humanoide-robots-leren-bewegen-zonder-mensvoorbeeld</guid>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Onderzoekers laten een humanoid complexe handelingen vanuit het niets ontdekken, zonder teleoperatie of opgenomen mensbewegingen als blauwdruk.]]></description>
     </item>
     <item>
       <title>RobOmni: nieuwe benchmark voor robothanden</title>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 11 May 2026 08:00:00 +0100</pubDate>
       <category>Toepassingen</category>
       <description><![CDATA[Geen marketing - wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.]]></description>
-    </item>
-    <item>
-      <title>AI-act en Machineverordening: wat verandert er voor Nederlandse werkgevers met humanoïdes in 2026?</title>
-      <link>https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</link>
-      <guid isPermaLink="true">https://botlease.nl/nieuws/ai-act-machineverordening-humanoid-werkgevers-2026</guid>
-      <pubDate>Sun, 10 May 2026 08:00:00 +0100</pubDate>
-      <category>Regelgeving</category>
-      <description><![CDATA[Twee Europese wetten raken elkaar precies waar het humanoid-debat ligt. Een leesbare gids voor MKB-ondernemers.]]></description>
     </item>
   </channel>
 </rss>

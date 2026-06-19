@@ -14,6 +14,20 @@
     ]
   },
   {
+    "slug": "humanoide-robots-leren-bewegen-zonder-mensvoorbeeld",
+    "title": "Humanoide robots leren bewegen zonder mensvoorbeeld",
+    "subtitle": "Onderzoekers laten een humanoid complexe handelingen vanuit het niets ontdekken, zonder teleoperatie of opgenomen mensbewegingen als blauwdruk.",
+    "date": "2026-06-19",
+    "category": "R&D",
+    "tags": [
+      "loco-manipulatie",
+      "humanoide robots",
+      "reinforcement learning",
+      "onderzoek",
+      "EU AI-Act"
+    ]
+  },
+  {
     "slug": "robomni-nieuwe-benchmark-voor-robothanden",
     "title": "RobOmni: nieuwe benchmark voor robothanden",
     "subtitle": "Daimon Robotics en Galbot lanceren samen een open meetlat voor tactiele waarneming en fijne manipulatie bij humanoïde robots.",

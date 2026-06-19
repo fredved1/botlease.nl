@@ -12,4 +12,15 @@
       <news:title>Humanoide robot loopt halve marathon in 50 minuten</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://botlease.nl/nieuws/humanoide-robots-leren-bewegen-zonder-mensvoorbeeld</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BotLease</news:name>
+        <news:language>nl</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-19</news:publication_date>
+      <news:title>Humanoide robots leren bewegen zonder mensvoorbeeld</news:title>
+    </news:news>
+  </url>
 </urlset>
