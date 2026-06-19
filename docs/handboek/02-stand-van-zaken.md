@@ -2,6 +2,12 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-06-19
+- **⭐ Nieuws-engine gerepareerd + weer live.** Oorzaak waarom er sinds ~11 juni niets verscheen: (1) het schrijven liep via OpenRouter en dat tegoed was op (402) → de bot las wel feeds maar schreef niets, stil; (2) de VPS-nieuwsclone hing 100 commits achter + had een dirty tree → `git pull/push` faalde elke run, dus zelfs gegenereerde artikelen bereikten GitHub/site nooit (8 artikelen van 12 juni stonden er onverstuurd). Fixes: schrijven loopt nu primair via de **`claude` CLI (jouw Claude Code-abonnement)**, self-refreshing, geen API-kosten (OAuth-API + OpenRouter als vangnet). Clone herbouwd als schone checkout. **Durable runner** `scripts/run_news_vps.sh` (in git → overleeft her-clone) doet pull → schrijven → commit → push → **deploy** met luide foutdetectie. `VERCEL_TOKEN` op de VPS gezet zodat de VPS zelf deployt (push deployt niet vanzelf; CLI ook geüpgraded 47→54). **2 verse artikelen live**: halve-marathon-robot (50:26, Honor) + MotionDisco (zelf-ontdekte humanoid-skills). Wekelijkse timer (vr 17:00) staat aan.
+- **NEURA (Kristina) + RobotShop (Nathy) reageerden** → 2 concept-replies klaargezet in de werklijst (open, niet verstuurd). RobotShop: **geen reseller mogelijk** (contractueel), 5% standaard, heroverweegt bij volume. NEURA: kwalificeert rond NEURA Gym (intern budget) — past matig op ons model; reply verheldert onze positie + vraagt partnerprijs 4NE-1.
+- **Dario (Synergy) nog geen reactie** → VR Expert-marge + complete Dante-mail wachten nog op zijn compliance-antwoorden.
+- Controle: 0 problemen (mail-dekking, geen dubbele leads, threading ok). 10 van 12 nieuwe mails waren privé recreatie-replies (campings/koophuisje) — bewust buiten het CRM gehouden.
+
 ## 2026-06-18
 - **⭐ RobotShop-offerte binnen (PDF Bid 1482037, t/m 30 juli):** G1 EDU U1 €29.925, U2 €34.200 (5% korting, ex btw). EU, geen import, 18mnd garantie, ETA 8-12 wk. → tweede inkoopprijs. **Voor U2 goedkoper dan China.** PDF in `docs/leveranciers/`. Reply gestuurd (offerte bevestigd + volume-korting gevraagd).
 - **UBTECH (Sean) opent directe lijn** ("you can source directly from UBTech") → reply gestuurd: Walker S2 reseller-prijs gevraagd.

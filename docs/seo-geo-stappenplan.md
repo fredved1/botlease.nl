@@ -52,7 +52,7 @@ De **on-site SEO is technisch af** (sitemap, schema, llms.txt, robots.txt, snelh
 
 | # | Actie | Hoe | Wie |
 |---|---|---|---|
-| 12 | **Wekelijks nieuws publiceren** | De nieuws-engine elke week een vers artikel laten publiceren (verse content = Google crawlt vaker = hogere autoriteit). ⚠️ De automatische wekelijkse run hapert nog (laatste artikel 11 juni) — moet opgezet worden. | Claude (handmatig per week of automatiseren) |
+| 12 | **Wekelijks nieuws publiceren** | De nieuws-engine elke week een vers artikel laten publiceren (verse content = Google crawlt vaker = hogere autoriteit). ✅ **Opgelost 19 juni:** schrijft nu via de claude CLI (abonnement), VPS-clone herbouwd, durable runner `scripts/run_news_vps.sh` doet pull→schrijven→commit→push→deploy. Timer: vrijdag 17:00. Monitoren via `/root/botlease-news/logs/newsbot-latest.log` (RESULT-regel). | Automatisch (timer); Claude monitort |
 | 13 | **Interne links onderhouden** | Nieuwe pagina's/artikelen naar elkaar laten linken; verhuurpagina's blijven doorlinken. | Claude |
 | 14 | **GSC monitoren** | Wekelijks: indexering-status, welke zoekwoorden vertonen, klikken. Bijsturen op wat begint te ranken. | Claude (op afroep) + Thomas |
 | 15 | **Long-tail content uitbreiden** | Per stad/sector pagina's die nog ontbreken (bv. "robot huren beurs Utrecht"), zodra de basis rankt. | Claude |
