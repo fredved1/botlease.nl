@@ -184,7 +184,7 @@ ROBOTS = [
         "speed_ms": 2.0,
         "lease_eur": 1295,
         "setup_eur": 1800,
-        "purchase_eur": 23000,
+        "purchase_eur": 16000,
         "use_cases": [
             "R&D platform bij scale-ups en universiteiten",
             "Hospitality (lobby-host, begroeting)",

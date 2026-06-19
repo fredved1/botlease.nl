@@ -7,6 +7,8 @@
 - **NEURA (Kristina) + RobotShop (Nathy) reageerden** → 2 concept-replies klaargezet in de werklijst (open, niet verstuurd). RobotShop: **geen reseller mogelijk** (contractueel), 5% standaard, heroverweegt bij volume. NEURA: kwalificeert rond NEURA Gym (intern budget) — past matig op ons model; reply verheldert onze positie + vraagt partnerprijs 4NE-1.
 - **Dario (Synergy) nog geen reactie** → VR Expert-marge + complete Dante-mail wachten nog op zijn compliance-antwoorden.
 - Controle: 0 problemen (mail-dekking, geen dubbele leads, threading ok). 10 van 12 nieuwe mails waren privé recreatie-replies (campings/koophuisje) — bewust buiten het CRM gehouden.
+- **Businessplan bijgewerkt naar v1.1** (audit-workflow: 4 dimensies → adversariële verificatie → 7 geverifieerde edits): nieuws-engine als content-/SEO-motor toegevoegd (§1+§8), NEURA-nuance (Gym/co-development, past matig op ons model) + RobotShop reseller-stand aangescherpt (§7), Machineverordening-datum consistent gemaakt (§3: 2023/1230 vanaf jan 2027), Automation Xperience naar verleden (§8), en een interne inconsistentie rechtgetrokken (R1 inkoop €6k→~€5k in §10.1, gelijk aan §4/site).
+- **Prijs-bronfix:** `scripts/robots_data.py` had G1 `purchase_eur` nog op €23.000 terwijl canon + live site €16.000 zijn → bron op €16.000 gezet (latente rebuild-bug). Geen rebuild nodig (live stond al goed).
 
 ## 2026-06-18
 - **⭐ RobotShop-offerte binnen (PDF Bid 1482037, t/m 30 juli):** G1 EDU U1 €29.925, U2 €34.200 (5% korting, ex btw). EU, geen import, 18mnd garantie, ETA 8-12 wk. → tweede inkoopprijs. **Voor U2 goedkoper dan China.** PDF in `docs/leveranciers/`. Reply gestuurd (offerte bevestigd + volume-korting gevraagd).

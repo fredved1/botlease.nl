@@ -1,7 +1,7 @@
 # Businessplan BotLease
 
 *Humanoïde robots huren en leasen voor Nederlandse en Europese organisaties*
-*Versie 1.0 — juni 2026 — vertrouwelijk*
+*Versie 1.1 — bijgewerkt 19 juni 2026 — vertrouwelijk*
 
 ---
 
@@ -11,7 +11,7 @@ BotLease maakt humanoïde robots toegankelijk voor Nederlandse organisaties zond
 
 **Waarom nu.** De humanoid-markt groeit explosief (wereldwijd ~40-50% per jaar), maar is voor het Nederlandse MKB nog te vroeg voor brede inzet. De koopbare vraag van dit moment zit in **events, demonstraties en korte pilots**, niet in grote, structurele uitrol. Dat is precies waar BotLease begint: verhuur levert de eerste omzet en de hoogste marge per maand, en bouwt de klantrelaties en het merk op waarmee we in 2027-2028 de lease-business laten meegroeien als de markt rijpt.
 
-**Wat er staat.** Een complete, vindbare website met transparante prijzen (uniek in NL), een eigen CRM- en mailsysteem dat elke aanvraag automatisch verwerkt, een leverancierslijn met meerdere concrete inkoopoffertes, en de eerste warme klanten in gesprek (waaronder VR Expert, een van de grootste verhuurbedrijven van de Benelux). Omzet en voorraad zijn er nog niet — de fase is: van gesprekken naar de eerste betaalde deal.
+**Wat er staat.** Een complete, vindbare website met transparante prijzen (uniek in NL), een eigen CRM- en mailsysteem dat elke aanvraag automatisch verwerkt, een eigen nieuws-engine die wekelijks autonoom verse SEO-content over de humanoid-markt publiceert en deployt, een leverancierslijn met meerdere concrete inkoopoffertes, en de eerste warme klanten in gesprek (waaronder VR Expert, een van de grootste verhuurbedrijven van de Benelux). Omzet en voorraad zijn er nog niet — de fase is: van gesprekken naar de eerste betaalde deal.
 
 **De ambitie.** Een winstgevend, kapitaalarm verhuur- en leasebedrijf opbouwen dat de overstap maakt van bijverdienste (2026) naar volwaardig bedrijf (2028), met een gefaseerde, risico-beheerste groei en harde stop-criteria om niet jaren door te modderen als de markt te laat komt.
 
@@ -44,7 +44,7 @@ BotLease maakt humanoïde robots toegankelijk voor Nederlandse organisaties zond
 
 **Maar de timing is genuanceerd.** Gartner verwacht dat wereldwijd minder dan 20 bedrijven vóór 2028 humanoids op productieschaal krijgen. Nederland zit in de verkenningsfase: taskforces (zoals bij Atlas Copco), hogescholen en demonstraties, geen koopgolf. De echte grootschalige deployments (GXO met Agility, NEURA met Bosch) zijn Amerikaans en enterprise.
 
-**Drivers:** structurele arbeidskrapte in NL (logistiek, productie, zorg), dalende hardwareprijzen (een Unitree G1 zakte naar ~€16k), en aanscherpende compliance (EU AI-Act, Machineverordening 2027) die een professionele, ontzorgende partij waardevoller maakt.
+**Drivers:** structurele arbeidskrapte in NL (logistiek, productie, zorg), dalende hardwareprijzen (een Unitree G1 zakte naar ~€16k), en aanscherpende compliance (EU AI-Act vanaf aug 2026, Machineverordening 2023/1230 vanaf jan 2027) die een professionele, ontzorgende partij waardevoller maakt.
 
 **Remmers:** de techniek is voor zwaar productiewerk nog onbewezen, restwaardes zijn onzeker, en de meeste MKB-bedrijven kijken nog de kat uit de boom.
 
@@ -121,14 +121,14 @@ We verzamelen meerdere inkoopoffertes om per deal de goedkoopste, betrouwbaarste
 ### Echte inkoopprijzen (G1 EDU — eerste deal)
 | Bron | U1 (standaard) | U2 (gevorderd) | Route |
 |---|---|---|---|
-| **RobotShop EU** (Bid 1482037) | €29.925 | €34.200 | EU, geen import-gedoe, 18 mnd garantie, gratis-€479 verzending. 5% = vaste korting (Unitree staat geen resellers toe) |
+| **RobotShop EU** (Bid 1482037) | €29.925 | €34.200 | EU, geen import-gedoe, 18 mnd garantie, gratis-€479 verzending. 5% is standaardkorting; RobotShop mag contractueel met de fabrikant geen resellers aannemen, maar heroverweegt bij grotere aantallen |
 | **Unitree China** (Zoe Wang) | $28.900 + $1.500 | $36.900 + $1.500 | direct, soms goedkoper, maar EORI + douane + 100% vooruit |
 | **Synergy / Unitree ES** (Dario, distributeur) | distributeur-korting loopt | idem | EU (Spanje), prijs incl. logistiek |
 
 De basis-G1 (~€16k) is fors goedkoper dan de EDU en is het standaardproduct; de EDU is voor klanten die zelf willen ontwikkelen.
 
 ### Leverancier-contacten
-Unitree (Zoe Wang + Wanda via WhatsApp), RobotShop EU (Nathy, ticket T1121128), Synergy Tech ES (Dario Samaniego, CEO), PAL Robotics (Alexandre Saldes — partner-gesprek na ontmoeting), NEURA (Kristina Naumoska), UBTECH (Sean Qin — directe lijn), Pollen (Santiago Pavon). Zestien leveranciers benaderd, meerdere in gesprek met concrete offertes.
+Unitree (Zoe Wang + Wanda via WhatsApp), RobotShop EU (Nathy, ticket T1121128), Synergy Tech ES (Dario Samaniego, CEO), PAL Robotics (Alexandre Saldes — partner-gesprek na ontmoeting), NEURA (Kristina Naumoska — kwalificeert vooral rond "NEURA Gym", een co-developmentroute die intern budget en een strategisch besluit vereist; past matig op ons reseller/lease-model, geen simpele inkooproute), UBTECH (Sean Qin — directe lijn), Pollen (Santiago Pavon). Zestien leveranciers benaderd, meerdere in gesprek met concrete offertes.
 
 ### Inkoopstrategie
 - **EU-route vs China:** EU (RobotShop/Synergy) = geen importrompslomp, EU-garantie, iets duurder per unit. China (Unitree direct) = goedkoper aan de bron, maar EORI-nummer, invoer-btw (terugvorderbaar) en 100% vooruitbetaling. Per deal de goedkoopste route kiezen.
@@ -142,8 +142,8 @@ Unitree (Zoe Wang + Wanda via WhatsApp), RobotShop EU (Nathy, ticket T1121128), 
 **De funnel:** event/demo → betaalde pilot → operational lease.
 
 **Kanalen:**
-- **Inbound via de site (SEO/GEO):** de site is de leadmachine en haalt al aanvragen binnen (Atlas Copco, VR Expert kwamen zo). Doorlopend: ranken op "humanoïde robot huren/leasen", off-site autoriteit (NLrobotics, directories, LinkedIn), AI-zichtbaarheid (llms.txt, gestructureerde data).
-- **Beurzen:** Automation Xperience (Den Bosch), WoTS (Jaarbeurs, sept) — directe leadgeneratie en event-verhuur-verkoop aan standhouders.
+- **Inbound via de site (SEO/GEO):** de site is de leadmachine en haalt al aanvragen binnen (Atlas Copco, VR Expert kwamen zo). Doorlopend: ranken op "humanoïde robot huren/leasen", off-site autoriteit (NLrobotics, directories, LinkedIn), AI-zichtbaarheid (llms.txt, gestructureerde data). Een eigen geautomatiseerde nieuws-engine (draait wekelijks autonoom op de VPS) publiceert en deployt zelf verse SEO-content over de humanoid-markt — een doorlopende contentmotor tegen vrijwel nul kosten die de site blijft voeden en de vindbaarheid op de lange termijn opbouwt. Verkeer en autoriteit moeten zich nog bewijzen.
+- **Beurzen:** Automation Xperience (Den Bosch, 17-18 juni 2026) is achter de rug; de eerstvolgende is WoTS (Jaarbeurs, sept) — directe leadgeneratie en event-verhuur-verkoop aan standhouders.
 - **Partnerships:** met leveranciers (consignatie, referral) en met financiers (Grenke partnerprogramma, DLL vendor finance) als toekomstig kanaal.
 
 **Sales:** Ton voert de gesprekken en sluit. Elke event-/maandhuur-klant wordt afgesloten met de pilot-/lease-vraag ("wat zou dit per maand kosten in jullie operatie?").
@@ -177,7 +177,7 @@ Kostenformule: afschrijving + 25%/jr service-reserve + 8%/jr verzekering.
 | Maandhuur | €2.450/mnd | ~€1.107/mnd | **~+€1.343/mnd** | ~7 maanden verhuur |
 | Eventdag | €1.450/dag | ~€400/dag (operator+transport+slijtage) | **~+€1.050/dag** | ~15 verhuurdagen |
 
-De R1 (instap, €6k) draait op lease bewust dun (marketing-haakje) maar is op events/maandhuur winstgevend. De zwaardere modellen (€45k-€110k) hebben hogere absolute marges maar vergen vraag voordat ze gekocht worden.
+De R1 (instap, ~€5k) draait op lease bewust dun (marketing-haakje) maar is op events/maandhuur winstgevend. De zwaardere modellen (€45k-€110k) hebben hogere absolute marges maar vergen vraag voordat ze gekocht worden.
 
 ### 10.2 Omzet- en winstprojectie (3 jaar, winst vóór belasting, excl. founder-salaris)
 
