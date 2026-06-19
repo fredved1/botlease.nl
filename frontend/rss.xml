@@ -6,7 +6,7 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Fri, 19 Jun 2026 10:31:54 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 15:08:24 +0000</lastBuildDate>
     <item>
       <title>Humanoide robot loopt halve marathon in 50 minuten</title>
       <link>https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</link>
@@ -22,6 +22,14 @@
       <pubDate>Fri, 19 Jun 2026 08:00:00 +0100</pubDate>
       <category>R&amp;D</category>
       <description><![CDATA[Onderzoekers laten een humanoid complexe handelingen vanuit het niets ontdekken, zonder teleoperatie of opgenomen mensbewegingen als blauwdruk.]]></description>
+    </item>
+    <item>
+      <title>Agentic robots: heeft een humanoide wel benen nodig?</title>
+      <link>https://botlease.nl/nieuws/agentic-robots-heeft-een-humanoide-wel-benen-nodig</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/agentic-robots-heeft-een-humanoide-wel-benen-nodig</guid>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[IEEE Spectrum toont Eno, een 'agentic' robot van Genesis die capaciteit boven menselijke vorm stelt, plus NASA-veldtests met een autonome rover.]]></description>
     </item>
     <item>
       <title>RobOmni: nieuwe benchmark voor robothanden</title>
@@ -158,14 +166,6 @@
       <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
       <category>R&amp;D</category>
       <description><![CDATA[Terwijl humanoïde robots de aandacht opeisen, mikt Hello Robot met Stretch 4 op betaalbare, veilige inzet in huis en zorg.]]></description>
-    </item>
-    <item>
-      <title>Humanoid robots in Nederlandse fulfillment: 3 pilot-cases die je in 2026 moet kennen</title>
-      <link>https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</link>
-      <guid isPermaLink="true">https://botlease.nl/nieuws/humanoid-fulfillment-pilots-nederland-2026</guid>
-      <pubDate>Mon, 11 May 2026 08:00:00 +0100</pubDate>
-      <category>Toepassingen</category>
-      <description><![CDATA[Geen marketing - wat echte 3PLs in Eemshaven, Rotterdam en Maasvlakte van humanoid-pilots tussen jan-mei 2026 hebben geleerd.]]></description>
     </item>
   </channel>
 </rss>
