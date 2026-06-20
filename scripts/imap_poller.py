@@ -35,6 +35,13 @@ SKIP_PATTERNS = [
     "news@neura-robotics",
 ]
 
+# Privé recreatie-mail (campings/koophuisjes) hoort NIET in het zakelijke CRM.
+# Subjecten van die persoonlijke campagnes worden volledig genegeerd (in- en uitgaand).
+RECREATIE_SUBJ = [
+    "seizoensplaats", "seizoenplaats", "recreatiewoning", "caravan of chalet",
+    "stacaravan te koop",
+]
+
 
 def now() -> str:
     return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
@@ -139,6 +146,9 @@ def poll(con, user, pw, folder, mode):
         subj = hdr(msg.get("Subject", ""))
         mid = "".join((msg.get("Message-ID", "") or "").split())[:300]
         if mid and con.execute("SELECT 1 FROM leads WHERE notes LIKE ?", (f"%{mid}%",)).fetchone():
+            continue
+        # privé recreatie-mail (campings/koophuisjes) negeren — focus = puur BotLease
+        if any(p in subj.lower() for p in RECREATIE_SUBJ):
             continue
         if mode == "out":
             to = hdr(msg.get("To", ""))
