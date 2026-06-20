@@ -1,7 +1,7 @@
 # Businessplan BotLease
 
 *Humanoïde robots huren en leasen voor Nederlandse en Europese organisaties*
-*Versie 1.1 — bijgewerkt 19 juni 2026 — vertrouwelijk*
+*Versie 1.2 — bijgewerkt 20 juni 2026 — vertrouwelijk*
 
 ---
 
@@ -163,6 +163,73 @@ Unitree (Zoe Wang + Wanda via WhatsApp), RobotShop EU (Nathy, ticket T1121128), 
 **Juridisch:** eenmanszaak nu, B.V. vóór het eerste contract (aansprakelijkheid). Vereist vóór de eerste klant: AVB-verzekering, algemene voorwaarden, en de B.V.-oprichting.
 
 **Compliance — verkoopargument én verplichting:** de EU AI-Act wordt vanaf augustus 2026 volledig van toepassing op high-risk-systemen, de Machineverordening 2023/1230 vanaf januari 2027. Humanoids vallen hier vrijwel allemaal onder. BotLease regelt per deployment de conformity assessment, CE en AVG — precies de drempel die het MKB tegenhoudt, en die geen enkele concurrent in NL claimt. EU-gebouwde modellen (NEURA, Pollen) hebben hierin een voorsprong.
+
+### 9A. Compliance als kerncompetentie — verantwoordelijkheid, moat en risico's
+
+Compliance is voor humanoid-verhuur in Nederland geen formaliteit die je achteraf afvinkt, maar de kern van onze waarde. Wie een bewegende, camera-dragende, AI-aangestuurde robot van een Chinese fabrikant tussen publiek inzet, neemt een keten van wettelijke verantwoordelijkheden op zich die een gemiddelde event- of pilotklant niet kan en niet wil dragen. Precies dat dragen is onze dienst: wij verkopen geen doos, maar een veilige, gedocumenteerde, verzekerde en compliant inzet met één aanspreekpunt. Hieronder per klantvraag wat de regel is en hoe wij het oppakken, daarna wie waarvoor verantwoordelijk is, en eerlijk wat dit als toetredingsdrempel wel en niet betekent.
+
+#### De vijf klantvragen
+
+**1. CE-markering en productveiligheid.** Een complete, zelfstandig functionerende humanoid (zoals de Unitree G1) is juridisch een "machine". Tot 19 januari 2027 geldt de Machinerichtlijn 2006/42/EG (in NL: Warenwetbesluit machines); de Machineverordening (EU) 2023/1230 (OJ-publicatie 29 juni 2023, inwerkingtreding 19 juli 2023) is van toepassing vanaf 20 januari 2027 en werkt dan rechtstreeks in elke lidstaat. Een complete machine hoort te komen met CE-markering, een EU-conformiteitsverklaring (DoC), een technisch dossier (10 jaar te bewaren door de fabrikant) en een gebruiksaanwijzing in de taal van het land van gebruik. Twee zware nuances: een robot die wordt ingebouwd in een grotere installatie kan een "niet voltooide machine" zijn (dan geen CE/DoC maar een inbouwverklaring), en onder 2023/1230 wordt een machine waarvan een veiligheidsfunctie wordt bepaald door zelflerend ML-gedrag hoog-risico, met verplichte keuring door een aangemelde instantie (notified body) — zelfcertificering vervalt dan.
+
+*Hoe BotLease het oppakt:* per unit verzamelen wij vóór de eerste levering de DoC (of inbouwverklaring), het CE-bewijs, de toegepaste normen en de Nederlandstalige handleiding, en maken wij een eigen risicobeoordeling/inzetdossier per event (zone, toezicht, noodstop, snelheidsbegrenzing, publieksafstand). Eerlijk: Unitree positioneert de G1 als civiel R&D-platform, niet als gecertificeerde collaboratieve robot onder ISO, en schuift naleving van lokale wetgeving contractueel naar de gebruiker. Wij hebben geen publiek geverifieerde EU-DoC voor de G1 kunnen vaststellen; die vragen wij dus **per levering schriftelijk op en controleren we**, in plaats van "CE" aan te nemen. We beloven niet dat de G1 volledig industrieel gecertificeerd is — wel dat elke inzet aantoonbaar veilig en gedocumenteerd is.
+
+**2. Data en connectiviteit.** Dit is tegelijk onze grootste blootstelling en ons sterkste onderscheid. Onafhankelijk onderzoek (najaar 2025) stelde vast dat de G1 uit de doos periodiek telemetrie (camerabeeld, audio, GPS, lidar, lokale wifi-namen) naar servers in China stuurt, zonder duidelijke melding of opt-out, plus een live verbinding naar een derde server. China staat niet op de EU-adequaatheidslijst, dus doorgifte van persoonsgegevens mag alleen met aanvullende waarborgen, en na Schrems II is een Standard Contractual Clause voor China in de praktijk onvoldoende zonder Transfer Impact Assessment. Daarbovenop gelden de RED-cybersecurity-eisen (verplicht sinds 1 augustus 2025 voor internet-verbindende apparatuur) en de Cyber Resilience Act ((EU) 2024/2847). Er zijn bovendien gerapporteerde kwetsbaarheden in het Unitree-platform (de UniPwn-bevindingen rond zwakke crypto).
+
+*Hoe BotLease het oppakt:* netwerk-isolatie als standaard — de robot komt nooit op het bedrijfsnetwerk van de klant, maar op een geïsoleerd VLAN of eigen verbinding, met uitgaand verkeer naar de fabriekservers geblokkeerd en Bluetooth uit na setup. Voor gevoelige omgevingen draaien we volledig offline; dat kan, want de G1 EDU heeft een NVIDIA Jetson aan boord die events lokaal aanstuurt zonder fabrikant-cloud. Per inzet leveren we een dataregister, onze beveiligingsmaatregelen op papier, een verwerkersovereenkomst (art. 28 AVG) en input voor de DPIA van de klant (art. 35; de Autoriteit Persoonsgegevens is hier de toezichthouder), plus consent-bewegwijzering bij camerabeeld. Bij events met publiek speelt naast de AVG ook het portretrecht (art. 21 Auteurswet). Eerlijk: wij hebben dit pakket nog niet kant-en-klaar liggen; het opbouwen ervan is onderdeel van de investering vóór de eerste deal.
+
+**3. Firmware en remote toegang.** De G1 draait proprietary firmware met over-the-air updates en standaard fabrikant-connectiviteit. Onbeheerde remote toegang en automatische updates zijn vanuit security- en aansprakelijkheidsoogpunt ongewenst.
+
+*Hoe BotLease het oppakt:* wij beheren firmware bewust in plaats van automatisch toe te laten, leggen per unit de versie vast, controleren of remote toegang uitstaat, en documenteren dit. Updates passen we gecontroleerd toe na verificatie. Dit firmware-beheer is een doorlopende dienst, geen eenmalige handeling — en daarmee een terugkerende reden waarom de klant ons houdt.
+
+**4. EU AI Act ((EU) 2024/1689).** Niet "de robot" wordt beoordeeld, maar de AI-functie. Een AI-systeem in een machine is alleen hoog-risico als de AI een veiligheidsfunctie vervult die een notified-body-beoordeling vereist; een event-/demo-robot die loopt, praat en poseert valt daar normaal buiten en raakt ook geen hoog-risico-toepassing zoals biometrie of HR-selectie. Voor de inzet die VR Expert overweegt is de G1 naar onze inschatting dus **niet** hoog-risico. Wat nu al geldt en wel relevant is: de transparantieplicht (art. 50, vanaf 2 augustus 2026) — kenbaar maken dat men met een AI praat; de plicht tot AI-geletterdheid van bedienend personeel (art. 4, sinds 2 februari 2025); en de verbodsbepalingen (art. 5, sinds 2 februari 2025), waaronder emotieherkenning op de werkplek — een marketingdemo die "emoties afleest" moet daar bewust van wegblijven. De zwaardere hoog-risico-verplichtingen voor AI in machines liggen, na het uitstel via de Digital Omnibus, pas rond 2 augustus 2028.
+
+*Hoe BotLease het oppakt:* per model een schriftelijke classificatie-notitie (waarom niet-hoog-risico), een rolafbakening op papier (Unitree = provider, BotLease = importeur, klant = deployer), en een kant-en-klare transparantie-instructie voor de klant. We rebranden de robot niet en doen geen substantiële AI-wijziging, om te vermijden dat wij onbedoeld zelf "provider" worden (art. 25). Belangrijk en eerlijk: de mei-2026-richtsnoeren over hoog-risico-classificatie (ontwerp, consultatie t/m 23 juni 2026) en de Digital Omnibus (Commissievoorstel 19 nov 2025, voorlopig akkoord 6 mei 2026) zijn **nog niet definitief**; we presenteren ze als zodanig en herbeoordelen zodra ze bekrachtigd zijn.
+
+**5. Turnkey-inzet.** "Komt de robot kant-en-klaar met demo-apps?" Ja en nee, en juist daar zit onze meerwaarde. Met de meegeleverde afstandsbediening en app loopt, gebaart, poseert en interacteert de G1 al op de standaardfirmware. De spectaculaire acrobatiek uit virale video's is géén drukknop — die vergt SDK-werk en is bij publiek bovendien onwenselijk. De G1 weegt ~35 kg met heup/knie-koppels van 90-120 N·m; hij is niet gecertificeerd als collaboratieve robot en hoort niet vrij tussen een ongecontroleerde menigte.
+
+*Hoe BotLease het oppakt:* wij leveren het als ingeregelde dienst — vooraf een geteste show (script, optioneel Nederlandstalige spraak op de EDU-variant), de juiste configuratie, en een ingewerkte begeleider die bedient en de veiligheid bewaakt. Per inzet een risicobeoordeling en een korte deployment-RI&E die de klant in zijn eigen Arbo-RI&E kan opnemen (ISO 13482 voor service-robots is hier het kader, niet de industriële ISO 10218). Operationeel eerlijk: de accu gaat ~2 uur actief mee, laden duurt ~90 minuten, dus voor een eventdag plannen we meerdere accu's en laadrondes — geen autonome robot die de hele dag onbeheerd rondloopt.
+
+#### Wie is verantwoordelijk — het importeurspunt
+
+Het juridische scharnierpunt: **wie een product van buiten de EU/EER voor het eerst op de EU-markt brengt, wordt "importeur" en draagt fabrikant-achtige plichten.** Zodra BotLease rechtstreeks uit China invoert, zijn wij die importeur (art. 3(20) Machineverordening 2023/1230, art. 23 AI Act, art. 6:187 lid 3 BW). Dat betekent: verifiëren dat de conformiteitsbeoordeling is gedaan en CE/DoC/technisch dossier bestaan, onze naam en adres op de unit of verpakking zetten, een kopie van de DoC ter beschikking houden (en het technisch dossier op verzoek beschikbaar), meewerken met markttoezicht (NVWA), en onder de nieuwe Productaansprakelijkheidsrichtlijn (EU) 2024/2853 (vanaf 9 december 2026) als eerste schakel in de keten risicoaansprakelijk zijn voor een gebrekkig product. Twee valmomenten maken de importeur volledig gelijk aan de fabrikant: het product onder eigen merk op de markt brengen, of het zo wijzigen dat de conformiteit wordt geraakt. Daarom rebranden wij niet en sleutelen wij niet aan de veiligheidsbesturing.
+
+Dit is geen last die we ondergaan, maar precies onze rol en ons verdienmodel. De fabrikant (Unitree, China) is praktisch nauwelijks aan te spreken voor een Nederlands slachtoffer; de eindklant is AVG-verwerkingsverantwoordelijke met de DPIA-plicht; de gebruiker is verantwoordelijk voor veilig gebruik op locatie. BotLease neemt bewust de schakel ertussen — de importeurs- en inzetverantwoordelijkheid — en maakt daar een professionele, betaalde dienst van. Inkoopstrategisch heeft dit een directe consequentie: kopen wij in via een reeds in de EU gevestigde distributeur, dan is díé de importeur en zijn wij "distributeur" met een lichter regime en lagere aansprakelijkheid. Voor de eerste deal heeft die EU-route daarom de voorkeur, ook al is de marge iets dunner dan bij directe import.
+
+#### Compliance als dienst én als moat
+
+Eerlijk over de drempelwerking: compliance is een **reële maar overkomelijke** toetredingsdrempel. Voor een hobbyist, een kleine importeur of een klant die "even zelf een robot bestelt" is de last hoog genoeg om af te schrikken — de importeursaansprakelijkheid, het data dichtzetten, de per-inzet-RI&E, de verzekering en het bijhouden van de aanscherpingen in 2027/2028 zijn doorlopend specialistenwerk. De last stapelt bovendien en wordt zwaarder over tijd, wat wie er nu in zit bevoordeelt (first-mover-leercurve). Maar het is geen muur: er is geen vergunning of patent, en een kapitaalkrachtige verhuurder kan dezelfde route kopen via een jurist, een verzekeringsmakelaar en een security-partner. De moat zit daarom niet in de compliance op zichzelf, maar in **het complete pakket** — compliance plus veilige deployment, begeleide show, vlootbeheer, verzekering, één aanspreekpunt en klantbezit.
+
+De strategische kern: een klant die zelf wil importeren, krijgt exact dezelfde last én dezelfde aansprakelijkheid op zijn bord. De compliance-vragen die hij stelt zijn precies de last die hij nu bij ons wil neerleggen. Daarom verkopen wij de uitkomst, niet het onderdeel: zekerheid en ontzorging, niet "een Unitree G1". Twee regels zijn hierin hard: **wij bezitten de klant** (de relatie, het contract, de doorlopende dienst), en **wij geven de leverancierslijn nooit weg.** We delen open wat de klant nodig heeft — DoC/inbouwverklaring, CE-info, NL-handleiding, ons eigen risico- en inzetdossier — maar nooit via welke leverancier of distributeur wij inkopen, tegen welke prijs, of welke marge erop zit. Het volledige interne technische dossier van de fabrikant is sowieso wettelijk voor de toezichthouder, niet voor doorgifte; dat is een eerlijk en legitiem argument om het bij ons te houden. We tekenen geen merk-exclusiviteit (onafhankelijkheid is juist onze waarde) en schieten niets voor (bestellen pas na een getekende of aanbetaalde klant).
+
+#### Compliance-tijdlijn: wat geldt nu vs later
+
+| Geldt nu (juni 2026) | Komt eraan |
+|---|---|
+| Machinerichtlijn 2006/42/EG (CE-machine), tot 20 jan 2027 | Machineverordening (EU) 2023/1230 — 20 jan 2027 |
+| AVG + portretrecht (AP als toezichthouder) | Productaansprakelijkheidsrichtlijn (EU) 2024/2853 — 9 dec 2026 |
+| AI Act art. 5 (verboden) + art. 4 (AI-geletterdheid), sinds 2 feb 2025 | AI Act art. 50 (transparantie) — 2 aug 2026 |
+| AI Act GPAI-regels, sinds 2 aug 2025 | CRA-meldplicht 11 sep 2026; CRA volledig 11 dec 2027 |
+| RED-cybersecurity, sinds 1 aug 2025 | AI Act hoog-risico voor AI-in-machines — ~2 aug 2028 |
+| GPSR (algemene productveiligheid), sinds 13 dec 2024 | |
+
+De last neemt toe over tijd; wie nu de leercurve oploopt, bouwt voorsprong op. Voor klantgesprekken houden we strikt het onderscheid aan tussen wat nu geldt en wat later komt, om niet te overpromisen.
+
+#### Aanpalende regimes om in de gaten te houden
+
+Naast het bovenstaande raken enkele regimes onze inzet indirect: **NIS2 / Cyberbeveiligingswet** (niet voor BotLease zelf, wél voor klanten in vitale sectoren, die daardoor extra eisen aan de toeleveringsketen stellen); de **GPSR** als vangnet naast de Machineverordening; de **Batterijenverordening (EU) 2023/1542** plus **UN38.3 / ADR** voor het vervoer van de lithium-accu naar events; en de markttoezicht- en **recallplicht** (Verordening (EU) 2019/1020), waarbij de importeur een unit kan moeten terugroepen. Tot slot de boete-exposure als context voor het B.V.- en verzekeringsargument: AVG tot €20 mln of 4% omzet, AI Act tot €35 mln of 7% bij verboden praktijken.
+
+#### Wat we hiervoor nog moeten regelen
+
+Op vandaag is deze strategie juist maar nog niet operationeel afgedekt. Vóór de eerste inzet bij VR Expert moet het volgende áf zijn, niet erna:
+
+- **B.V. oprichten** — als eenmanszaak is Thomas privé hoofdelijk aansprakelijk. Een B.V. scheidt het privévermogen, maar is eerlijk gezegd **geen schild voor de productaansprakelijkheid zelf**: is de B.V. de importeur, dan is de B.V. volledig risicoaansprakelijk en kan die "leeglopen", en bestuurdersaansprakelijkheid kan doorprikken bij verwijtbaar handelen. Vermogensscheiding, geen vrijwaring.
+- **AVB met productaansprakelijkheidsdekking** plus een werkmaterieel-/verhuurpolis op de robot (incl. transport, op- en afbouw, diefstal). Let op het reële risico dat polissen productaansprakelijkheid voor import uit derde landen uitsluiten of sterk sublimiteren, en dat een autonoom/AI-bewegende robot als "experimenteel/onbemand" kan worden uitgesloten — premie en voorwaarden vragen we per deployment uit en beloven we niet vooraf als vast bedrag.
+- **Algemene voorwaarden en een getekende verhuur-/leaseovereenkomst** met heldere verantwoordelijkheidsverdeling, waarborgsom, eigen risico bij de huurder en vrijwaring/regres richting de bovenliggende schakel (verzekeraars eisen een getekend contract vóór aanvang als dekkingsvoorwaarde).
+- **Een compliance-/juristpartner** (privacy- en CE-jurist) voor de definitieve verwerkersovereenkomst, de Transfer Impact Assessment en de importeur-conformiteit, plus waar nodig een keuringsinstantie voor het hoog-risico-traject vanaf 2027.
+- **Een per-deployment risicobeoordeling** als vast protocol — RI&E, dataregister, veilig-inzet-instructie en documentenset — zodat er nooit een unit de deur uit gaat zonder dat aansprakelijkheid, dekking en papieren rond zijn.
+
+We doen geen overpromises: wat we beloven, leggen we vast, en de stukken die nog ontbreken zetten we voor déze eerste deal definitief klaar vóór de eerste robot bij de klant draait.
 
 ---
 

@@ -6,7 +6,7 @@
 
 | Wie | Wat | Status | Bal ligt bij | Volgende stap |
 |---|---|---|---|---|
-| **VR Expert — Dante Spekman** ⭐ | Een van de grootste XR-verhuurders EU; wil humanoid-verhuur verkennen (events/beurzen). Bestelde G1 Edu ×1. | In gesprek | **Ons** (na Dario) | Wacht op Dario's compliance-antwoorden → dan marge doorrekenen + complete mail (leaseprijs + compliance) |
+| **VR Expert — Dante Spekman** ⭐ | Een van de grootste XR-verhuurders EU; wil humanoid-verhuur verkennen (events/beurzen). Bestelde G1 Edu ×1. | In gesprek | **Ons** (na Dario) | Wacht op Dario's compliance-antwoorden → dan marge doorrekenen + complete mail (leaseprijs + compliance). ⚠️ **Strategie (Dante = klant die concurrent kan worden):** hij is zelf verhuurder, dus de stap klant→concurrent is klein. Zijn compliance-vragen zijn normaal due-diligence, geen bewijs van overnameplan, maar: **antwoord open over het wát/hóé van veiligheid, gesloten over de inkoopketen.** Nooit inkoopbron/-prijs/marge noemen, geen kale unit zonder operator, geen "testunit om mee te spelen", geen exclusiviteit, niets voorschieten. Verkoop de ontzorgde inzet, niet "een G1". Vroege alarmsignalen: vragen verschuiven naar "welke distributeur", "inkoopprijs", "kaal huren zonder begeleiding". Volledige analyse in businessplan §9A. |
 | **Atlas Copco — Thomas Christiaensen** | Humanoid-taskforce (BE, industrie). Verkennend. | Hold | Ons | 1-pager klaar (`OUTREACH/send-atlas-onepager.html`); sturen wanneer leverancierslijn rond is |
 
 ## 🏭 Leveranciers (inkoop)
