@@ -4,13 +4,15 @@
 
 ---
 
-## Diagnose: waarom ranken we nu niet?
+## Diagnose (bijgewerkt 21 juni)
 
-De **on-site SEO is technisch af** (sitemap, schema, llms.txt, robots.txt, snelheid, transparante prijzen). Dat is noodzakelijk maar niet voldoende. De drie echte knelpunten:
+**Update:** de oude-cache-blokkade is voorbij. De rank-bot (Google.nl, 19 juni) toont **#1 op "humanoïde robot leasen Nederland" + Engelse variant** (2/23 keywords). De overige 21 — inclusief **"huren"** (north-star) en alle modellen/sectoren/steden — staan nog op 0. On-site is af én begint te ranken; de winst zit nu in **off-site autoriteit** + **"huren" omhoog krijgen**. NB: meet NL-rankings met de rank-bot, niet met de WebSearch-tool (US-only → vals "ranken nergens").
 
-1. **Geen autoriteit.** De site is jong en heeft vrijwel geen links van buitenaf. Google heeft geen reden om 'm hoog te zetten of vaak te crawlen.
-2. **We staan niet op de plek die wél rankt.** De pagina [NLrobotics "Humanoids in Nederland"](https://www.nlrobotics.nl/humanoids-in-nederland) staat #1 op onze kernzoekwoorden — die brengt expliciet in kaart wie humanoids verhuurt/verkoopt, en BotLease staat er niet op.
-3. **Oude cache.** Google toonde tot voor kort de oude site-versie. De sitemap-datums zijn ververst (18 juni), wat een vers re-crawl-signaal geeft, maar de herindexering moet nog landen.
+De **on-site SEO is technisch af** (sitemap, schema, llms.txt, robots.txt, snelheid, transparante prijzen). De resterende knelpunten:
+
+1. **Geen autoriteit.** De site is jong en heeft vrijwel geen links van buitenaf. Google heeft weinig reden om 'm breed hoog te zetten of vaak te crawlen.
+2. **NLrobotics = betaald → overgeslagen.** De #1-rankende [NLrobotics "Humanoids in Nederland"](https://www.nlrobotics.nl/humanoids-in-nederland) vraagt geld voor opname/lidmaatschap; pre-eerste-deal niet doen. Gratis alternatieven (LinkedIn, GBP, Crunchbase/Dealroom/Techleap/F6S, Wikidata) leveren dezelfde backlink/autoriteit.
+3. **"Huren" rankt nog 0** terwijl het de eerste-omzet-prioriteit is. Homepage-H1 staat nu op "huren of leasen" (21 juni live); herindexering aangevraagd.
 
 **De drie grootste hefbomen:** (1) op NLrobotics komen, (2) off-site autoriteit opbouwen (Google Bedrijfsprofiel + directories + LinkedIn), (3) verse content blijven publiceren.
 
