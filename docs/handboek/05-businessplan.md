@@ -1,6 +1,6 @@
 # 05 — Businessplan & strategie (samenvatting)
 
-> Volledige documenten: `docs/businessplan-2026-06.md` (businessplan v2) en `docs/concurrentie-haalbaarheid-2026-06.md` (concurrentie + haalbaarheid + stappenplan). Dit is de samenvatting.
+> ⭐ **Het volledige plan (ENIGE bron, v1.3):** `OUTREACH/businessplan-volledig.html` — bevat alles (12 secties incl. compliance §9A, cash-model, scenario's, 90-dagen-GTM, beslispunten). Status voor Ton: `OUTREACH/overzicht-ton.html`. Aanvullende analyse: `docs/concurrentie-haalbaarheid-2026-06.md`. Dit md-bestand is de samenvatting. (Oude losse markdown-plannen staan in `docs/archief/`.)
 
 ## De kern
 De humanoid-markt is **te vroeg voor brede MKB-lease** (Gartner: <20 bedrijven wereldwijd op productieschaal vóór 2028; NL in verkenningsfase). Daarom is de funnel: **event/demo-verhuur → pilots → lease (later)**. Eerste omzet komt uit event-verhuur, niet uit een grote lease-vloot op eigen kapitaal.

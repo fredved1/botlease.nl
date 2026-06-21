@@ -25,5 +25,5 @@ De markt is nog vroeg (Gartner: <20 bedrijven wereldwijd op productieschaal vó�
 - **De site:** `frontend/` (statische HTML, webroot op Vercel).
 - **Generators:** `scripts/build_*.py` + `*_data.py` (let op mobile-patch-regel, zie `06-techniek.md`).
 - **CRM + mail:** VPS 185.107.90.42, dashboard `https://crm.botlease.nl/?key=…` (zie `06-techniek.md`).
-- **Plannen/analyses:** `docs/businessplan-2026-06.md`, `docs/concurrentie-haalbaarheid-2026-06.md`, `docs/leveranciers/`.
+- **Plannen/analyses:** `OUTREACH/businessplan-volledig.html` (volledig plan, enige bron), `OUTREACH/overzicht-ton.html` (status voor Ton), `docs/concurrentie-haalbaarheid-2026-06.md`, `docs/leveranciers/`.
 - **Outreach-tooling:** `OUTREACH/` (tracker + één-klik-mailpagina's).

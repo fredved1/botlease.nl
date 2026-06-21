@@ -1,6 +1,6 @@
 # BotLease — Concurrentie-analyse, haalbaarheid & stappenplan (11 juni 2026)
 
-*Drieledig onderzoek (NL/BE-spelers diep, EU + substituten + financiers, onafhankelijk haalbaarheidsoordeel). Hoort bij `businessplan-2026-06.md`. Eerlijk — inclusief slaagkansen en stop-criteria.*
+*Drieledig onderzoek (NL/BE-spelers diep, EU + substituten + financiers, onafhankelijk haalbaarheidsoordeel). Hoort bij `OUTREACH/businessplan-volledig.html`. Eerlijk — inclusief slaagkansen en stop-criteria.*
 
 ---
 
