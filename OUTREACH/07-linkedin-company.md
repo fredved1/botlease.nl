@@ -11,19 +11,19 @@
    - **Industry:** Industrial Automation
    - **Company size:** 1 (jezelf)
    - **Company type:** Privately held
-   - **Tagline:** Humanoïde robots leasen in Nederland — all-in operational lease vanaf €290/mnd
+   - **Tagline:** Humanoïde robots huren of leasen in Nederland, all-in vanaf €290/mnd
 4. Upload logo (square): gebruik `/frontend/img/hero/hero-robot.webp` of de monogram-B als SVG (zie `style_base.py`)
-5. Cover image: maak een 1584×396 banner met "BotLease — 15 modellen, 1 catalogus, 0 vendor lock-in"
+5. Cover image: maak een 1584×396 banner met "BotLease, 13 modellen, 1 catalogus, 0 vendor lock-in"
 
 ## B. About-sectie copy-paste (NL)
 
-> BotLease is Nederland's eerste lease-maatschappij voor humanoïde robots. Wij maken next-gen robotica toegankelijk voor het Nederlandse MKB via 36-maands operational lease vanaf €290/maand.
+> BotLease is een Nederlandse maatschappij voor het huren en leasen van humanoïde robots. Wij maken next-gen robotica toegankelijk voor het Nederlandse MKB: huren per dag voor events of flexibel per maand, of operational lease over 36 maanden vanaf €290/maand.
 >
-> Onze catalogus omvat 15 modellen — van compact EU-gebouwd (NEURA 4NE-1 Mini, Pollen Reachy 2) tot industrieel flagship (NEURA 4NE-1 Gen 3.5, PAL Kangaroo, UBTECH Walker S2). Plus de Amerikaanse wachtlijst-modellen (Apptronik Apollo, Figure 02/03, Agility Digit, 1X NEO) waar wij prioriteit-toegang voor regelen zodra ze beschikbaar komen.
+> Onze catalogus omvat 13 modellen, van compact EU-gebouwd (NEURA 4NE-1 Mini, Pollen Reachy 2) tot industrieel flagship (NEURA 4NE-1 Gen 3.5, UBTECH Walker S2). Plus de Amerikaanse wachtlijst-modellen (Apptronik Apollo, Figure 02, Agility Digit, 1X NEO) waar wij prioriteit-toegang voor regelen zodra ze beschikbaar komen.
 >
 > Wat ons anders maakt:
-> ✓ Onafhankelijk — geen exclusieve binding aan één fabrikant
-> ✓ All-in service — installatie, training, 24u swap-SLA, verzekering
+> ✓ Onafhankelijk, geen exclusieve binding aan één fabrikant
+> ✓ All-in service: installatie, training, vervangende unit bij storing, verzekering
 > ✓ EU AI-Act compliance per deployment geregeld
 > ✓ Nederlandstalige helpdesk en field engineering
 >
@@ -39,9 +39,9 @@
 >
 > Waarom? In 2025 zijn humanoid-robots commercieel volwassen geworden. Mercedes Sindelfingen draait pilots met Apptronik Apollo. BMW Spartanburg heeft 30.000+ auto's mee-geproduceerd met Figure 02. UBTECH levert massa-productie bij BYD en Foxconn. NEURA Robotics gaat dit najaar in productie met Bosch.
 >
-> Maar voor de Nederlandse MKB-er bleef de drempel hoog: €20k-€100k capex per unit, EU AI-Act paperwork, swap-logistiek, verzekering. Wij regelen dat hele traject voor €290-€4.890/mnd all-in.
+> Maar voor de Nederlandse MKB-er bleef de drempel hoog: €20k-€100k capex per unit, EU AI-Act paperwork, swap-logistiek, verzekering. Wij regelen dat hele traject voor €290-€6.650/mnd all-in.
 >
-> 15 modellen in de catalogus. Onafhankelijk advies. Geen vendor lock-in.
+> 13 modellen in de catalogus. Onafhankelijk advies. Geen vendor lock-in.
 >
 > Eerste pilots starten Q3 2026. Wie wil meedoen? 👇
 >

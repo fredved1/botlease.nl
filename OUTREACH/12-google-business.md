@@ -17,11 +17,11 @@
 
 ## Description (copy-paste)
 
-> BotLease is Nederland's eerste operational-lease maatschappij voor humanoïde robots. Wij leasen 15 modellen aan MKB en mid-market bedrijven in heel Nederland — van compact instapmodellen (vanaf €290/maand) tot industriële flagships (€4.890/maand). All-in service: installatie, training, 24h swap-SLA, verzekering en EU AI-Act compliance.
+> BotLease is een Nederlandse maatschappij voor het huren en leasen van humanoïde robots. Wij verhuren (per dag voor events of flexibel per maand) en leasen 13 modellen aan MKB en mid-market bedrijven in heel Nederland, van compacte instapmodellen (vanaf €290/maand) tot industriële flagships (tot €6.650/maand). All-in service: installatie, training, een vervangende unit bij storing, verzekering per deployment en EU AI-Act compliance.
 >
 > Sectoren: 3PL & fulfillment, productie & assemblage, hospitality & retail, zorg & instellingen, en R&D / onderzoek.
 >
-> Catalogus: NEURA Robotics, PAL Robotics, Pollen Robotics, Unitree, UBTECH, EngineAI, Apptronik, Figure AI, 1X Technologies, Agility Robotics.
+> Catalogus: NEURA Robotics, Pollen Robotics, Unitree, UBTECH, EngineAI, Apptronik, Figure AI, 1X Technologies, Agility Robotics.
 >
 > Onafhankelijk advies — geen exclusieve vendor-binding. Plan een gratis intake op botlease.nl.
 
