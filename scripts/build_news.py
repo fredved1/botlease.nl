@@ -868,7 +868,7 @@ def lease_data_box(a: dict) -> str:
   <div style="font-weight:700;font-size:15px;margin-bottom:4px">Wat kost dit leasen bij BotLease?</div>
   <p style="color:var(--ink-2);font-size:13.5px;margin:0 0 12px">{intro}</p>
   <table style="width:100%;border-collapse:collapse;font-size:14px"><tbody>{rows}</tbody></table>
-  <p style="color:var(--ink-3);font-size:12.5px;margin:12px 0 0">All-in per maand, inclusief installatie, training, onderhoud en swap-SLA. <a href="/vergelijken" style="color:var(--accent)">Vergelijk alle 15 modellen →</a></p>
+  <p style="color:var(--ink-3);font-size:12.5px;margin:12px 0 0">All-in per maand, inclusief installatie, training, onderhoud en swap-SLA. <a href="/vergelijken" style="color:var(--accent)">Vergelijk alle 13 modellen →</a></p>
 </aside>"""
 
 
@@ -1226,7 +1226,7 @@ def render_author_page(articles: list) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{escape(NEWS_AUTHOR_NAME)} — auteur &amp; redactie | BotLease</title>
+<title>{escape(NEWS_AUTHOR_NAME)}, auteur en redactie | BotLease</title>
 <meta name="description" content="{escape(NEWS_AUTHOR_NAME)}, oprichter van BotLease en redacteur van het nieuws over humanoïde robots in Nederland. Achtergrond, expertise en artikelen.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="{escape(NEWS_AUTHOR_NAME)}">

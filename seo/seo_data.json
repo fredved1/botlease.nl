@@ -65,13 +65,6 @@
       "target_page": "/robots/neura-4ne1-gen3"
     },
     {
-      "id": "pal-kangaroo-nl",
-      "kw": "PAL Kangaroo Nederland",
-      "intent": "transactional",
-      "priority": "P2",
-      "target_page": "/robots/pal-kangaroo"
-    },
-    {
       "id": "apollo-nl",
       "kw": "Apptronik Apollo Nederland leasen",
       "intent": "transactional",
@@ -334,10 +327,6 @@
           "position": 0,
           "top_competitors": []
         },
-        "pal-kangaroo-nl": {
-          "position": 0,
-          "top_competitors": []
-        },
         "apollo-nl": {
           "position": 0,
           "top_competitors": []
@@ -441,10 +430,6 @@
           "position": 0,
           "top_competitors": []
         },
-        "pal-kangaroo-nl": {
-          "position": 0,
-          "top_competitors": []
-        },
         "apollo-nl": {
           "position": 0,
           "top_competitors": []
@@ -545,10 +530,6 @@
           "top_competitors": []
         },
         "neura-4ne1-nl": {
-          "position": 0,
-          "top_competitors": []
-        },
-        "pal-kangaroo-nl": {
           "position": 0,
           "top_competitors": []
         },

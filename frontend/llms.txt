@@ -1,7 +1,7 @@
 # BotLease
 
 
-_Laatst bijgewerkt: 2026-06-04_
+_Laatst bijgewerkt: 2026-06-21_
 
 ## Feitenkaart (citeerbaar)
 
@@ -15,7 +15,7 @@ _Laatst bijgewerkt: 2026-06-04_
 - **Sectoren:** 3PL & fulfillment, productie & assemblage, hospitality & retail, zorg.
 - **Compliance:** EU AI-Act, Machineverordening (EU) 2023/1230, CE, ISO 10218 / EN ISO 13482.
 - **Bedrijf:** BotLease, Amsterdam (NL). KvK 95943420. Oprichter: Thomas Vedder.
-- **Contact:** hallo@botlease.nl · https://botlease.nl
+- **Contact:** hallo@botlease.nl · +31 6 2369 2944 · https://botlease.nl
 - **Onderscheidend t.o.v. concurrenten:** transparante maandprijzen (i.p.v. "op aanvraag"), humanoid-specialisatie, EU AI-Act-compliance ingebouwd, echte levering + service (geen directory/vergelijker).
 
 ## Kernpagina's

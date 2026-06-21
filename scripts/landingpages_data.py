@@ -113,7 +113,7 @@ SECTORS = [
              "(detecteert nabijheid voor aanraking), Apptronik Apollo gebruikt force-control. Werkzones worden tijdens de "
              "intake gedefinieerd."),
             ("Past dit binnen de EU Machineverordening?",
-             "De Machineverordening 2023/1230 geldt vanaf 20 jan 2027. EU-gebouwde humanoids (NEURA, PAL) zijn al "
+             "De Machineverordening 2023/1230 geldt vanaf 20 jan 2027. EU-gebouwde humanoids (zoals NEURA) zijn al"
              "voorbereid; bij Amerikaanse/Chinese modellen voert BotLease de conformity assessment uit per deployment."),
             ("Hoeveel personeel hebben we nodig?",
              "Eén operator kan 3-5 humanoids beheren in een normale productielijn. De robot vraagt vooral aandacht bij "
