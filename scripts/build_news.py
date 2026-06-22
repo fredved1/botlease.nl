@@ -678,25 +678,105 @@ def art_for(a) -> dict:
     return {"photo": ph, "alt": alt, "tint": TINT_POOL[h % len(TINT_POOL)], "symbol": None}
 
 
+# ---------------------------------------------------------------- editorial art
+# Uniek, on-brand SVG-beeld per artikel: deterministisch op de slug, kleur per
+# categorie, motief gevarieerd. Vervangt de herhaalde robot-productfoto's zodat
+# elk artikel een eigen "designed" beeld krijgt (geen losse bestanden, inline SVG).
+_ART_PALETTES = {
+    "R&D":          ("#101934", "#0a0e1d", "#6b8cff", "#aebfff"),
+    "Markt":        ("#06241d", "#07130e", "#34d399", "#8df0c4"),
+    "Marktstand":   ("#06212b", "#07141a", "#22d3ee", "#93e9f8"),
+    "Toepassingen": ("#1c1233", "#0d0a1b", "#a78bfa", "#cdbcff"),
+    "Industrie":    ("#251606", "#140b04", "#fb923c", "#ffc99c"),
+    "Regelgeving":  ("#241d06", "#14100a", "#fbbf24", "#ffe49a"),
+    "_default":     ("#16181f", "#0b0c10", "#8aa0c9", "#c5d1e8"),
+}
+
+
+def _art_seed(s: str) -> int:
+    return sum((i + 1) * ord(c) for i, c in enumerate(s)) or 1
+
+
+def _art_rng(seed: int):
+    state = [seed & 0xFFFFFFFF]
+
+    def r():
+        state[0] = (state[0] * 1664525 + 1013904223) & 0xFFFFFFFF
+        return state[0] / 0x100000000
+    return r
+
+
+def editorial_svg(a: dict, *, w: int = 1200, h: int = 480) -> str:
+    """Full-bleed, deterministisch SVG-kunstwerk voor een artikel."""
+    slug = a.get("slug", "x")
+    cat = a.get("category", "Nieuws")
+    base, base2, acc, acc2 = _ART_PALETTES.get(cat, _ART_PALETTES["_default"])
+    seed = _art_seed(slug)
+    rnd = _art_rng(seed)
+    gid = f"e{seed % 100000}"
+    o = [f'<svg class="edart" viewBox="0 0 {w} {h}" preserveAspectRatio="xMidYMid slice" '
+         f'xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(cat)}" '
+         f'style="position:absolute;inset:0;width:100%;height:100%;display:block">']
+    o.append(f'<defs><linearGradient id="{gid}" x1="0" y1="0" x2="1" y2="1">'
+             f'<stop offset="0" stop-color="{base}"/><stop offset="1" stop-color="{base2}"/></linearGradient>'
+             f'<radialGradient id="{gid}r" cx="0.82" cy="0.12" r="0.95">'
+             f'<stop offset="0" stop-color="{acc}" stop-opacity="0.38"/>'
+             f'<stop offset="0.62" stop-color="{acc}" stop-opacity="0"/></radialGradient></defs>')
+    o.append(f'<rect width="{w}" height="{h}" fill="url(#{gid})"/>')
+    o.append(f'<rect width="{w}" height="{h}" fill="url(#{gid}r)"/>')
+    for _ in range(3):
+        o.append(f'<circle cx="{int(rnd()*w)}" cy="{int(rnd()*h)}" r="{int(70+rnd()*230)}" '
+                 f'fill="none" stroke="{acc2}" stroke-opacity="0.07" stroke-width="1.5"/>')
+    variant = seed % 4
+    if variant == 0:  # neuraal netwerk
+        nodes = [(int(70+rnd()*(w-140)), int(55+rnd()*(h-110))) for _ in range(12)]
+        for i, (x, y) in enumerate(nodes):
+            near = sorted((((x-nx)**2+(y-ny)**2), j) for j, (nx, ny) in enumerate(nodes) if j != i)[:2]
+            for _, j in near:
+                nx, ny = nodes[j]
+                o.append(f'<line x1="{x}" y1="{y}" x2="{nx}" y2="{ny}" stroke="{acc}" stroke-opacity="0.20" stroke-width="1"/>')
+        for (x, y) in nodes:
+            rr = 3 + int(rnd()*6)
+            o.append(f'<circle cx="{x}" cy="{y}" r="{rr+9}" fill="{acc}" fill-opacity="0.10"/>')
+            o.append(f'<circle cx="{x}" cy="{y}" r="{rr}" fill="{acc}" fill-opacity="0.9"/>')
+    elif variant == 1:  # concentrische bogen
+        cx, cy = w-70, h+50
+        for k in range(8):
+            o.append(f'<circle cx="{cx}" cy="{cy}" r="{120+k*92}" fill="none" stroke="{acc}" '
+                     f'stroke-opacity="{max(0.04, 0.30-k*0.035):.2f}" stroke-width="2"/>')
+        for _ in range(12):
+            o.append(f'<circle cx="{int(rnd()*w*0.6)}" cy="{int(rnd()*h)}" r="{2+int(rnd()*3)}" fill="{acc2}" fill-opacity="0.5"/>')
+    elif variant == 2:  # puntenraster + scanlijn
+        step = 64
+        for gx in range(60, w, step):
+            for gy in range(48, h, step):
+                hot = rnd() > 0.86
+                o.append(f'<circle cx="{gx}" cy="{gy}" r="{4 if hot else 2}" fill="{acc}" fill-opacity="{0.55 if hot else 0.15}"/>')
+        sx = int(220+rnd()*(w-440))
+        o.append(f'<rect x="{sx}" y="0" width="2" height="{h}" fill="{acc2}" fill-opacity="0.28"/>')
+    else:  # circuit-banen
+        for _ in range(5):
+            x, y = 60, int(45+rnd()*(h-90))
+            path = f'M {x} {y}'
+            cxp = x
+            for _seg in range(4):
+                cxp += int(120+rnd()*170)
+                path += f' H {cxp} V {int(45+rnd()*(h-90))}'
+            o.append(f'<path d="{path}" fill="none" stroke="{acc}" stroke-opacity="0.24" stroke-width="1.5"/>')
+        for _ in range(9):
+            o.append(f'<rect x="{int(rnd()*w)}" y="{int(rnd()*h)}" width="7" height="7" rx="1.5" fill="{acc}" fill-opacity="0.65"/>')
+    o.append(f'<text x="{w-44}" y="{h-34}" text-anchor="end" font-family="Inter,sans-serif" '
+             f'font-size="118" font-weight="800" fill="{acc2}" fill-opacity="0.06">{escape(cat[:2].upper())}</text>')
+    o.append('</svg>')
+    return "".join(o)
+
+
 def article_hero_banner(a: dict) -> str:
-    """Banner above the article title: gradient + foto of abstract motief."""
-    art = art_for(a)
-    if art.get("photo"):
-        media = (
-            f'<img class="hero-banner-photo" src="{art["photo"]}" '
-            f'alt="{escape(art["alt"])}" loading="lazy">'
-        )
-    else:
-        media = (
-            f'<svg class="hero-banner-art" viewBox="0 0 200 320" '
-            f'style="color:{art.get("color", "#ffd166")}" aria-hidden="true">'
-            f'<use href="#{art["symbol"]}"/></svg>'
-        )
+    """Banner boven de artikeltitel: uniek editorial SVG-beeld per artikel."""
     return (
-        f'<div class="hero-banner" style="--art-tint:{art["tint"]}">'
-        f'  <div class="hero-banner-pattern"></div>'
-        f'  <span class="hero-banner-label">{escape(a.get("category", "Nieuws"))}</span>'
-        f'  {media}'
+        f'<div class="hero-banner">'
+        f'{editorial_svg(a)}'
+        f'<span class="hero-banner-label">{escape(a.get("category", "Nieuws"))}</span>'
         f'</div>'
     )
 
@@ -708,36 +788,10 @@ def _local_img(u):
 
 
 def card_thumb(a: dict, *, variant: str = "default") -> str:
-    """Thumbnail at top of a listing card.
-    variant: 'hero' (full-bleed huge), 'sub' (medium), 'default' (compact).
-    Gebruikt alleen een LOKAAL hero-beeld (geen externe hotlinks); valt anders terug op de owned art-mapping."""
-    hero_url = _local_img(a.get("hero_image_url", ""))
-    art = art_for(a)
-    alt = escape(a.get("hero_image_alt") or a.get("title", "")[:120])
-    fallback_photo = art.get("photo") or "/img/robots/apollo.png"
-    fallback_alt = escape(art.get("alt", "Humanoïde robot"))
-    if hero_url:
-        # Hotlink original, fallback to local photo via onerror
-        media = (
-            f'<img class="card-thumb-photo cover" src="{escape(hero_url)}" '
-            f'alt="{alt}" loading="lazy" '
-            f'onerror="this.onerror=null;this.src=\'{fallback_photo}\';this.alt=\'{fallback_alt}\';this.classList.remove(\'cover\')">'
-        )
-    elif art.get("photo"):
-        media = (
-            f'<img class="card-thumb-photo" src="{art["photo"]}" '
-            f'alt="{escape(art["alt"])}" loading="lazy">'
-        )
-    else:
-        media = (
-            f'<svg class="card-thumb-art" viewBox="0 0 200 320" '
-            f'style="color:{art.get("color", "#ffd166")}" aria-hidden="true">'
-            f'<use href="#{art["symbol"]}"/></svg>'
-        )
+    """Thumbnail bovenaan een listing-kaart: uniek editorial SVG-beeld per artikel."""
     return (
-        f'<div class="card-thumb thumb-{variant}" style="--art-tint:{art["tint"]}">'
-        f'  <div class="card-thumb-pattern"></div>'
-        f'  {media}'
+        f'<div class="card-thumb thumb-{variant}">'
+        f'{editorial_svg(a)}'
         f'</div>'
     )
 
@@ -1029,19 +1083,7 @@ def render_listing(articles: list) -> str:
     lead_html = ""
     if articles_sorted:
         a = articles_sorted[0]
-        hero_url = _local_img(a.get("hero_image_url", ""))
-        art = art_for(a)
-        if hero_url:
-            photo_src = hero_url
-            photo_alt = escape(a.get("hero_image_alt") or a["title"][:120])
-            fallback = art.get("photo") or "/img/robots/apollo.png"
-            photo_tag = (
-                f'<img class="lead-story-photo" src="{escape(photo_src)}" alt="{photo_alt}" '
-                f'onerror="this.onerror=null;this.src=\'{fallback}\'">'
-            )
-        else:
-            photo = art.get("photo") or "/img/robots/apollo.png"
-            photo_tag = f'<img class="lead-story-photo" src="{photo}" alt="{escape(art.get("alt", a["title"]))}">'
+        photo_tag = editorial_svg(a)
 
         meta_bits = [f'<span>{escape(fmt_date_nl(a["date"]))}</span>',
                      f'<span>{a.get("reading_time", 5)} min lezen</span>']
