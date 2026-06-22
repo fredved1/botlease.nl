@@ -1,0 +1,368 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_README": [
+    "PROJECT X — per-klant config (ingevuld voor de LOKALE TESTRUN).",
+    "FICTIEF TESTBEDRIJF: 'Twentse Warmte' bestaat NIET. Dit bestand dient om de pipeline end-to-end te demonstreren.",
+    "Alle externe data (domein-availability, keyword-volumes, KvK) is GESIMULEERD/ILLUSTRATIEF — geen echte API-calls gedaan.",
+    "Gebaseerd op client-config.template.json. Velden met _ zijn commentaar en worden door het script genegeerd.",
+    "GEEN secrets in dit bestand: zie 'secrets'-sectie = alleen Key Vault-verwijzingen.",
+    "Onzekerheden medio 2026: model-deployment-types en Foundry-prijzen wijzigen — verifieer bij echte deploy."
+  ],
+
+  "tenant_id": "twentse-warmte-01",
+  "_tenant_id_comment": "Stabiele, korte, kleine-letters id. Drijft deterministische resource-naming (idempotentie). Niet wijzigen na eerste deploy.",
+  "client_display_name": "Twentse Warmte",
+  "created": "2026-06-21",
+  "status": "draft",
+  "_status_comment": "draft | provisioning | live | paused | offboarded — staat op draft want dit is een testrun, niets is uitgerold.",
+
+  "deployment": {
+    "_comment": "Sectie 0 — bepaalt de hele architectuur. Voor een MKB-installateur zonder eigen Azure-team kiezen we model B (bureau-tenant): goedkoper, wij beheren. Tijmens enterprise-klant zou model A (client_tenant) zijn.",
+    "target": "agency_tenant",
+    "_target_comment": "agency_tenant = in onze beheerde EU-Azure. Past bij een installatiebedrijf dat geen eigen Azure-team heeft. (Model A/client_tenant blijft het standaardaanbod voor compliance-zware enterprises.)",
+    "azure_subscription_id": "SIMULATED-0000-0000-0000-testrun",
+    "azure_tenant_id": "SIMULATED-0000-0000-0000-testrun",
+    "azure_region": "westeurope",
+    "_azure_region_comment": "West Europe (Amsterdam) voor NL-residency. Bij VNet/private endpoints moeten ALLE resources in deze regio.",
+    "billing_owner": "agency",
+    "_billing_owner_comment": "agency = wij dragen Azure-verbruik en rekenen all-in door in de maandfee. Past bij een MKB-klant die geen Azure-rekening wil zien.",
+    "agreement_type": "MCA",
+    "_agreement_type_comment": "EA | MCA | PAYG. Onze bureau-tenant draait op MCA, zodat ZDR/Modified Abuse Monitoring aangevraagd kan worden.",
+    "management_access": {
+      "method": "none",
+      "_method_comment": "Bij agency_tenant draait alles in onze eigen tenant; geen Lighthouse-delegatie naar een klant-tenant nodig.",
+      "least_privilege_roles": [],
+      "_least_privilege_roles_comment": "N.v.t. bij agency_tenant."
+    },
+    "private_networking": false,
+    "_private_networking_comment": "Niet nodig voor een MKB-installateur; geen gevoelige data, geen compliance-eis die VNet vraagt. Houdt kosten en complexiteit laag."
+  },
+
+  "company": {
+    "_comment": "Sectie 1 — FICTIEVE basis-identiteit. KvK is verzonnen (illustratief).",
+    "legal_name": "Twentse Warmte B.V.",
+    "trade_names": ["Twentse Warmte"],
+    "kvk": "90000001",
+    "_kvk_comment": "GESIMULEERD/illustratief — geen echt KvK-nummer. Dit bedrijf bestaat niet.",
+    "address": {
+      "street": "Plesmanweg 24",
+      "postal_code": "7602 PD",
+      "city": "Almelo",
+      "country": "NL"
+    },
+    "_address_comment": "Plausibel bedrijventerrein-adres in Almelo (illustratief, geen echte vestiging).",
+    "description": "Twentse Warmte is een installatiebedrijf uit Almelo dat warmtepompen, zonneboilers en complete cv-vervanging verzorgt voor woningeigenaren en VvE's in Twente. We werken met vaste monteurs, leveren een heldere offerte na een gratis warmtescan aan huis, en regelen de ISDE-subsidieaanvraag voor je.",
+    "existing_website": null,
+    "_existing_website_comment": "Geen bestaande site — dit is een nieuwe online-aanwezigheid (mode=register_new).",
+    "social_profiles": {
+      "linkedin": "https://www.linkedin.com/company/twentse-warmte",
+      "_linkedin_comment": "GESIMULEERD — nog aan te maken bij echte onboarding.",
+      "crunchbase": null,
+      "g2": null,
+      "wikidata_qid": null,
+      "_wikidata_qid_comment": "Vul de QID in zodra de Wikidata-entry is aangemaakt; gebruikt in Organization sameAs."
+    }
+  },
+
+  "niche": {
+    "_comment": "Sectie 2 — branche, doelgroep, concurrenten. Lokale-SEO-vriendelijke niche (installatie + ISDE-subsidie + regio Twente).",
+    "industry": "Installatietechniek / verwarmingsinstallateur",
+    "is_ymyl": false,
+    "_is_ymyl_comment": "Geen finance/zorg/juridisch. Wel onderwerpen met geld-impact (subsidie/investering) => fact_check_pass blijft aan, named author verplicht.",
+    "target_audience": "Woningeigenaren (35-65) en VvE-besturen in Twente die hun cv-ketel willen vervangen door een warmtepomp; prijsbewust, subsidiegericht, willen lokale, betrouwbare monteurs.",
+    "competitors": [
+      "https://concurrent-installateur-a.nl",
+      "https://concurrent-installateur-b.nl",
+      "https://concurrent-installateur-c.nl"
+    ],
+    "_competitors_comment": "GESIMULEERD/illustratief — placeholders. Bij echte run levert de klant 3-5 echte concurrent-URL's voor de DataForSEO keyword-gap-analyse.",
+    "key_services": [
+      "Warmtepomp installeren",
+      "Hybride warmtepomp",
+      "Zonneboiler / zonnepanelen-koppeling",
+      "CV-ketel vervangen",
+      "ISDE-subsidie aanvraag + warmtescan"
+    ],
+    "markets": ["NL"],
+    "_markets_comment": "NL-only, regio Twente. Stuurt locatie-parameters (Almelo/Enschede/Hengelo) in keyword-API's en TLD-set.",
+    "languages": ["nl"],
+    "_languages_comment": "Eén taal => één content-pijplijn + één sitemap."
+  },
+
+  "branding": {
+    "_comment": "Sectie 3 — directe input voor de site-generator (CSS-variabelen). Kleuren passen bij warmte (oranje/rood) + vertrouwen (donkerblauw).",
+    "logo_svg_path": "./assets/twentse-warmte/logo.svg",
+    "logo_png_path": "./assets/twentse-warmte/logo.png",
+    "_logo_comment": "GESIMULEERD — assets nog aan te leveren. In de testrun niet gegenereerd.",
+    "colors": {
+      "accent": "#E2562B",
+      "accent_soft": "#fbe7df",
+      "bg": "#ffffff",
+      "bg_card": "#f5f6f8",
+      "text": "#16263a"
+    },
+    "_colors_comment": "Warm oranje-rood (#E2562B) als merkkleur (warmte/energie), diep marineblauw (#16263a) als tekstkleur (vakmanschap/vertrouwen). Worden 1-op-1 de :root CSS-vars.",
+    "font_family": "Inter, system-ui, sans-serif",
+    "tone_of_voice": {
+      "register": "informeel",
+      "_register_comment": "formeel | informeel — Twents-nuchter, jij-vorm.",
+      "address_form": "jij",
+      "_address_form_comment": "jij | u",
+      "example_sentences": [
+        "We komen eerst gewoon bij je langs voor een gratis warmtescan, dan weet je precies waar je aan toe bent.",
+        "Geen verkooppraat: je krijgt een eerlijke offerte en wij regelen de subsidie.",
+        "Een vaste monteur die je naam kent, geen wisselend uitzendvolk."
+      ],
+      "humanizer": true,
+      "_humanizer_comment": "true = stijl-pass die AI-tell-woorden (delve, leverage, moreover) en LANGE STREEPJES (em/en-dash) verwijdert vóór publicatie. Belangrijk voor de nuchtere Twentse toon."
+    },
+    "imagery": {
+      "source": "ai_generated",
+      "_source_comment": "ai_generated (gpt-image-1) voor hero/blog. Klant kan later eigen projectfoto's aanleveren (sterker voor lokale SEO).",
+      "ai_label_required": true,
+      "_ai_label_required_comment": "EU/DE AI-label-plicht 2026 => 'AI-generated'-credit bij gegenereerd beeld."
+    },
+    "legal_footer": {
+      "kvk": "90000001",
+      "vat": "NL900000001B01",
+      "_vat_comment": "GESIMULEERD/illustratief BTW-nummer — niet echt.",
+      "privacy_url": "/privacy",
+      "terms_url": "/voorwaarden"
+    }
+  },
+
+  "domain": {
+    "_comment": "Sectie 4 — domein & DNS. mode=register_new want geen bestaand domein. Availability GESIMULEERD (geen echte WhoisJSON-call).",
+    "mode": "register_new",
+    "_mode_comment": "use_existing | register_new",
+    "primary_domain": "twentsewarmte.nl",
+    "_primary_domain_comment": "Voorkeursdomein uit de shortlist (illustratief 'beschikbaar' — niet echt gecheckt).",
+    "extra_domains": ["twentse-warmte.nl"],
+    "_extra_domains_comment": "Variant met streepje als redirect-vangnet (illustratief).",
+    "name_ideas": ["twentsewarmte", "warmtepomptwente", "almelowarmte"],
+    "_name_ideas_comment": "Seeds voor LLM-shortlist. Elke naam wordt in productie gecheckt op availability EN merkrecht (EUIPO) vóór registratie. Hier GESIMULEERD.",
+    "tlds": [".nl", ".com"],
+    "registrar": "cloudflare",
+    "_registrar_comment": "cloudflare (wholesale, geen markup). Availability-bulkcheck via WhoisJSON/WhoisFreaks — niet uitgevoerd in deze testrun.",
+    "registrant": "client",
+    "_registrant_comment": "Domein op naam van de klant (Twentse Warmte) — schoner bij offboarding.",
+    "dns_managed_by": "agency",
+    "_dns_managed_by_comment": "Wij beheren DNS (SPF/DKIM/DMARC + custom-domain) bij Cloudflare. Nodig vóór oplevering anders auto-replies in spam."
+  },
+
+  "seo_geo": {
+    "_comment": "Sectie 5 — SEO + GEO. Lokale SEO is de kern: 'warmtepomp + plaatsnaam'. Volumes hieronder zijn GESIMULEERD (geen DataForSEO-call).",
+    "seed_keywords": [
+      "warmtepomp almelo",
+      "warmtepomp installateur twente",
+      "hybride warmtepomp kosten",
+      "isde subsidie warmtepomp 2026",
+      "cv ketel vervangen almelo"
+    ],
+    "geo_enabled": true,
+    "_geo_enabled_comment": "true = DataForSEO AI Optimization (citatie-tracking ChatGPT/Perplexity/Gemini/Claude). EERLIJK: KANS, geen garantie. Relevant want kopers vragen AI 'welke warmtepomp-installateur in Twente'.",
+    "author": {
+      "_comment": "E-E-A-T: FICTIEVE echte-persoon-auteur bij de klant. #1 citatie-hefboom. (In echte run = bestaande medewerker.)",
+      "name": "Bram Oude Wesselink",
+      "job_title": "Eigenaar en hoofdmonteur, Twentse Warmte",
+      "bio": "Bram Oude Wesselink (FICTIEF) is eigenaar van Twentse Warmte en al ruim 15 jaar werkzaam als installateur in de regio Almelo. Hij installeerde honderden warmtepompen en cv-systemen en schrijft op deze site over wat een woningeigenaar echt moet weten voordat hij van het gas af gaat.",
+      "_bio_comment": "FICTIEVE persoon. In productie: echte medewerker met echte foto + echt LinkedIn-profiel (E-E-A-T eist een natuurlijk persoon, geen 'AI').",
+      "photo_path": "./assets/twentse-warmte/auteur-bram.jpg",
+      "same_as": [
+        "https://www.linkedin.com/in/bram-oude-wesselink"
+      ],
+      "_same_as_comment": "GESIMULEERD profiel-URL."
+    },
+    "create_wikidata_entry": false,
+    "_create_wikidata_entry_comment": "false in testrun (geen echte entry voor een fictief bedrijf aanmaken). In productie: aan, hoogste ROI per uur voor knowledge-graph.",
+    "search_console_property": "https://www.twentsewarmte.nl",
+    "bing_webmaster_property": "https://www.twentsewarmte.nl",
+    "indexnow_key": "GENERATE_PER_TENANT",
+    "_indexnow_key_comment": "32-char hex; .txt op site-root. Pingt Bing => ook ChatGPT. Google ondersteunt IndexNow NIET (= aparte lijn via sitemaps + GSC).",
+    "schema_types": ["Organization", "LocalBusiness", "Service", "FAQPage", "BlogPosting"],
+    "_schema_types_comment": "LocalBusiness cruciaal voor een lokale installateur. FAQPage = hoogste-impact schema voor AI-citatie.",
+    "emit_llms_txt": true,
+    "validate_schema_in_ci": true,
+    "_validate_schema_in_ci_comment": "Google Rich Results Test API blokkeert deploy bij JSON-LD-fouten."
+  },
+
+  "content_pipeline": {
+    "_comment": "Sectie 6 — blog/content. Evergreen want installatie-onderwerpen (subsidie, kosten, keuzehulp) zijn niet nieuws-gedreven.",
+    "mode": "evergreen",
+    "_mode_comment": "news (RSS) | evergreen (keyword/onderwerp via Grounding with Bing) | both. Hier evergreen.",
+    "rss_feeds": [],
+    "topics": [
+      "warmtepomp kosten en terugverdientijd",
+      "ISDE-subsidie aanvragen stap voor stap",
+      "hybride versus volledige warmtepomp",
+      "warmtepomp in een oudere woning in Twente",
+      "van het gas af: waar begin je"
+    ],
+    "cadence_cron": "0 0 9 * * 2",
+    "_cadence_cron_comment": "NCRONTAB (seconden-veld!). Dinsdag 09:00. Lage cadans bewust — massa AI-content wordt afgestraft (scaled content abuse).",
+    "articles_per_run": 1,
+    "_articles_per_run_comment": "1/week bij start. Conservatief: liever goed dan veel. Opschalen na 4-6 weken monitoren.",
+    "timezone": "W. Europe Standard Time",
+    "_timezone_comment": "Azure Functions cron is default UTC — zonder dit publiceert de bot op het verkeerde uur.",
+    "human_in_the_loop": true,
+    "_human_in_the_loop_comment": "true = approval-stap (mail aan Bram) vóór publicatie. Verstandig bij start + bij subsidie/geld-claims.",
+    "editorial_gate": {
+      "min_paragraphs": 4,
+      "min_body_chars": 900,
+      "min_internal_links": 2,
+      "min_external_sources": 3,
+      "blocklist_words": ["delve", "leverage", "moreover", "in conclusion", "in het huidige landschap", "naadloos", "ontzorgen"],
+      "fact_check_pass": true,
+      "_fact_check_pass_comment": "Tweede LLM-pass: draft tegen bron, PASS/FAIL, markeert elke claim die niet uit de bron volgt. Extra belangrijk bij subsidiebedragen/terugverdientijden (anti-hallucinatie)."
+    },
+    "publish_target": "azure_static_web_apps",
+    "_publish_target_comment": "azure_static_web_apps | azure_blob_static | external_cms",
+    "internal_links_via_embeddings": true,
+    "_internal_links_via_embeddings_comment": "text-embedding-3-small + cosine-similariteit => self-healing link-graph, geen orphans."
+  },
+
+  "leads": {
+    "_comment": "Sectie 7 — inbound capture, AI-respond, kwalificatie, routing. Voor een installateur: 'warmtescan aanvragen' = de conversie.",
+    "channels": ["form", "chat"],
+    "_channels_comment": "form (warmtescan-aanvraag) + chat (snelle vragen over subsidie/kosten). Beide aanraden.",
+    "chat_autonomy": "human_in_loop",
+    "_chat_autonomy_comment": "autonomous | human_in_loop. Chat beantwoordt info-vragen en plant een warmtescan, maar geeft geen bindende prijs/offerte — dat doet Bram. Lager AI-Act-risicoprofiel.",
+    "ai_disclosure_text": "Je chat met de digitale assistent van Twentse Warmte. Voor een persoonlijke offerte word je doorgezet naar Bram.",
+    "_ai_disclosure_text_comment": "EU AI Act Art. 50 — niet-uitschakelbaar, verplicht bij eerste interactie.",
+    "qualification": {
+      "rubric": "custom",
+      "_rubric_comment": "BANT past slecht op consumenten/VvE-installatie. Custom branche-rubriek hieronder. Agent levert JSON {woningtype, eigendom, timeline, subsidie_interesse, postcode_in_servicegebied, score 0-100, qualified, samenvatting}.",
+      "custom_criteria": [
+        "Is het adres een koopwoning of VvE (huurders kunnen niet beslissen)?",
+        "Valt de postcode binnen het servicegebied Twente (Almelo, Hengelo, Enschede, Borne, Wierden, Rijssen e.o.)?",
+        "Wat is de termijn: nu / binnen 3 maanden / oriënterend?",
+        "Bestaande cv-ketel ouder dan 12 jaar of al kapot? (hogere urgentie)",
+        "Interesse in ISDE-subsidie en bereid tot warmtescan aan huis?"
+      ],
+      "qualify_threshold": 60,
+      "_qualify_threshold_comment": "Score waarboven we doorzetten naar Bram. Onder 60 = nurture-mail met keuzehulp-blog i.p.v. direct bellen."
+    },
+    "routing": {
+      "target": "email",
+      "_target_comment": "email | teams | dynamics | hubspot | pipedrive. Installateur zonder CRM => e-mail naar Bram.",
+      "notify_email": "bram@twentsewarmte.nl",
+      "teams_webhook_keyvault_ref": null,
+      "crm": {
+        "type": "none",
+        "_type_comment": "Geen CRM. Lead-mail bevat de volledige JSON-kwalificatie + samenvatting.",
+        "api_key_keyvault_ref": null
+      }
+    },
+    "email": {
+      "_comment": "Auto-reply + notificaties via Azure Communication Services.",
+      "sender_domain": "mail.twentsewarmte.nl",
+      "_sender_domain_comment": "Per tenant geverifieerd; SPF/DKIM/DMARC vereist of mails belanden in spam.",
+      "auto_reply_enabled": true
+    },
+    "anti_spam": {
+      "turnstile": true,
+      "_turnstile_comment": "Cloudflare Turnstile (cookieloos, AVG-vriendelijk). Beschermt tegen mail-bomb-misbruik van het warmtescan-formulier.",
+      "honeypot": true,
+      "rate_limit_per_ip_per_hour": 8
+    },
+    "retention_days": 730,
+    "_retention_days_comment": "2 jaar (marketing). Automatische verwijder/anonimiseer-job in Cosmos/Functions.",
+    "consent_logging": true,
+    "_consent_logging_comment": "Welk privacy-statement de lead zag + wanneer (bewijs rechtmatigheid voor AP)."
+  },
+
+  "existing_systems": {
+    "_comment": "Sectie 8 — wat de klant al heeft. Typische MKB-installateur: weinig tooling.",
+    "crm": "none",
+    "uses_teams": false,
+    "has_google_ads_account": false,
+    "analytics": "umami_selfhosted",
+    "_analytics_comment": "Cookieloos, GDPR-compliant, geen consent-banner. Eén gedeelde Umami over onze tenants.",
+    "downstream_systems": []
+  },
+
+  "azure_ai": {
+    "_comment": "Sectie 9/10 — de AI-laag (Microsoft Foundry). In testrun is de LLM gesimuleerd; deze sectie beschrijft de PRODUCTIE-keuze.",
+    "foundry_setup": "standard_agent",
+    "_foundry_setup_comment": "standard_agent = alle agent-state/gesprekken/files in BYO-resources (Cosmos+Storage+Search). In onze tenant (model B), per-tenant geïsoleerd via resource group + tenantId-partitie.",
+    "model_deployment": {
+      "chat_model": "gpt-4.1-mini",
+      "_chat_model_comment": "Werkpaard voor blog/SEO/lead-replies. GPT-4.1-mini ~$0.40 in / $1.60 out per 1M.",
+      "reasoning_model": "gpt-4.1",
+      "_reasoning_model_comment": "Zwaardere reasoning (bv. kwalificatie-edgecases) waar nodig.",
+      "embedding_model": "text-embedding-3-small",
+      "image_model": "gpt-image-1-mini",
+      "deployment_type": "data_zone_standard_eu",
+      "_deployment_type_comment": "EU-only inference. GPT-5.x is medio 2026 NIET als EU-data-zone beschikbaar => pin op GPT-4o/4.1. Voldoende voor deze workload."
+    },
+    "tools": {
+      "grounding_with_bing": true,
+      "_grounding_with_bing_comment": "~$35/1000 queries — alleen voor blog-research (subsidiebedragen verifiëren), niet per pagina.",
+      "file_search_rag": true,
+      "_file_search_rag_comment": "RAG over eigen kennisbank: ISDE-voorwaarden, prijslijst, FAQ — zodat de chat klopt.",
+      "code_interpreter": false
+    },
+    "byo_stores": {
+      "ai_search_tier": "basic",
+      "_ai_search_tier_comment": "free (dev) | basic (~$75/mnd) | s1. Basic volstaat voor één installateur. VASTE bodemkost 24/7.",
+      "cosmos_ru_per_sec": 3000,
+      "_cosmos_ru_per_sec_comment": "Min. 3000 RU/s vereist of capability host faalt (CapabilityHostProvisioningFailed).",
+      "storage_account": "auto",
+      "key_vault": "auto"
+    }
+  },
+
+  "compliance": {
+    "_comment": "Sectie 10 — AVG/AI Act.",
+    "eu_residency_level": "eu_only_inference",
+    "_eu_residency_level_comment": "data_at_rest_eu | eu_only_inference. We standaardiseren op eu_only_inference (data_zone_standard_eu) zodat dezelfde stack ook compliance-zware klanten bedient.",
+    "modified_abuse_monitoring": true,
+    "_modified_abuse_monitoring_comment": "Geen human review van prompts. Aanvragen via Limited Access-programma (mogelijk op onze MCA-tenant).",
+    "zero_data_retention": false,
+    "_zero_data_retention_comment": "false in testrun: ZDR pas beloven ná bevestigde aanvraag. Voor een installateur niet kritisch; lead-PII blijft sowieso binnen Azure-EU.",
+    "data_controller": "client",
+    "data_processor": "agency",
+    "_data_processor_comment": "Bureau is (sub)verwerker => verwerkersovereenkomst tussen bureau en Twentse Warmte nodig, bóvenop de Microsoft DPA.",
+    "external_apis_allowed": true,
+    "_external_apis_allowed_comment": "DataForSEO/Whois/IndexNow mogen — ALLEEN niet-persoonsgebonden data (keywords/domeinen), nooit lead-PII.",
+    "ai_act_disclosure": true
+  },
+
+  "secrets": {
+    "_comment": "GEEN waarden hier — alleen Key Vault-verwijzingen. Het script haalt ze op via Managed Identity. In testrun niet aangemaakt.",
+    "key_vault_name": "kv-twentse-warmte-01",
+    "references": {
+      "dataforseo_login": "kv:dataforseo-login",
+      "dataforseo_password": "kv:dataforseo-password",
+      "cloudflare_token": "kv:cloudflare-token",
+      "whois_api_key": "kv:whois-api-key",
+      "turnstile_secret": "kv:turnstile-secret"
+    },
+    "auth_method": "managed_identity",
+    "_auth_method_comment": "ManagedIdentityCredential (niet DefaultAzureCredential in productie). Geen keys in code/repo."
+  },
+
+  "commercial": {
+    "_comment": "Sectie 11 — intern. Indicatief voor een MKB-installateur (all-in model B).",
+    "monthly_budget_cap_eur": 350,
+    "_monthly_budget_cap_comment": "Azure Cost Management budget/alert hierop. Bepaalt modelkeuze + AI Search-tier + aantal Bing-queries.",
+    "pricing_model": "all_in_saas",
+    "_pricing_model_comment": "all_in_saas: setup-fee + maandbedrag waarin Azure-verbruik zit (klant ziet geen Azure-rekening). Past bij MKB.",
+    "setup_fee_eur": 1500,
+    "_setup_fee_comment": "Indicatief voor de testdemo (site + onboarding + script-run).",
+    "monthly_fee_eur": 395,
+    "_monthly_fee_comment": "Indicatief: site-hosting + content (1 artikel/wk) + lead-AI + beheer, all-in. Verifieer marge tegen de werkelijke Azure-bodem (~$85-260/mnd)."
+  },
+
+  "provisioning_steps": {
+    "_comment": "Wat het script idempotent zou uitvoeren. In deze LOKALE TESTRUN NIET uitgevoerd (geen Azure) — informatief.",
+    "1": "Resource group + Azure Policy (allowed locations = westeurope) in onze agency-subscription, tenantId=twentse-warmte-01",
+    "2": "Foundry resource + project (standard_agent) + BYO Cosmos/Storage/Search/Key Vault + capability hosts + RBAC (Managed Identity)",
+    "3": "Model-deployments (gpt-4.1-mini/gpt-4.1/text-embedding-3-small/gpt-image-1-mini) als data_zone_standard_eu",
+    "4": "Azure Static Web App (West Europe) + custom domain twentsewarmte.nl + SSL; site bouwen uit branding+niche; mobile-first-patch in template",
+    "5": "Azure Functions: warmtescan-form-endpoint, chat-proxy, mail-trigger (ACS), anti-spam; cron-bots (content di 09:00, sitemap, IndexNow, rank-check)",
+    "6": "ACS Email-domein mail.twentsewarmte.nl verifiëren (SPF/DKIM/DMARC) via Cloudflare",
+    "7": "GSC/Bing-property + IndexNow-key.txt op site-root",
+    "8": "Cost Management budget op 350 EUR; Application Insights alert op '0 published'/fact_check FAIL (loud failure)"
+  }
+}

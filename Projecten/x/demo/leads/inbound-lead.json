@@ -1,0 +1,83 @@
+{
+  "_README": "PROJECT X — Stap 5/6, LOKALE TESTRUN. Een gesimuleerde inbound lead voor het FICTIEVE testbedrijf Twentse Warmte. Persoon, adres, e-mail en telefoonnummer zijn verzonnen voor demonstratie. In productie wordt dit object aangemaakt door de Azure Function die het warmtescan-formulier (of de chat-widget) afvangt, en opgeslagen in Cosmos DB (partition = tenantId).",
+  "lead_id": "lead_2026-06-21_tw_0001",
+  "tenant_id": "twentse-warmte",
+  "received_at": "2026-06-21T14:37:12+02:00",
+  "_received_at_comment": "Europe/Amsterdam (CEST). In Azure Functions altijd WEBSITE_TIME_ZONE = 'W. Europe Standard Time' zetten, anders logt het UTC.",
+  "source": {
+    "channel": "form",
+    "_channel_comment": "form (warmtescan-aanvraag) of chat. Deze lead kwam binnen via het warmtescan-formulier op /contact. Zie chat-transcript.md voor een chat-variant van dezelfde flow.",
+    "page": "/contact",
+    "campaign": "organic",
+    "referrer": "https://www.google.com/",
+    "_referrer_comment": "Gevonden via organische zoekopdracht, vermoedelijk 'warmtescan woning' of 'warmtepomp almelo'.",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15"
+  },
+  "contact": {
+    "name": "Marleen Brinkhuis",
+    "email": "m.brinkhuis@outlook.com",
+    "phone": "+31 6 24 18 77 30",
+    "_phone_comment": "Optioneel veld op het formulier. Gesimuleerd nummer.",
+    "company": null,
+    "_company_comment": "Particuliere woningeigenaar, geen bedrijf. Bij een VvE-aanvraag zou hier de VvE-naam staan."
+  },
+  "property": {
+    "address_street": "Vincent van Goghplein 14",
+    "postal_code": "7606 GT",
+    "city": "Almelo",
+    "_postal_code_comment": "Postcode 7606 valt binnen het servicegebied Twente (Almelo). Gebruikt voor de servicegebied-check in de kwalificatie."
+  },
+  "message": "Hallo, onze cv-ketel is bijna 15 jaar oud en begint te haperen. We wonen in een tussenwoning uit 1998 (koop) en willen graag van het gas af, het liefst dit najaar nog voor de winter. Ik hoorde dat er ISDE-subsidie is voor een warmtepomp. Klopt dat, en komen jullie eerst gratis langs voor een warmtescan? Wat kost zo'n hybride warmtepomp ongeveer? Alvast bedankt.",
+  "form_fields": {
+    "_comment": "De expliciete velden van het warmtescan-formulier op /contact, los van het vrije tekstveld hierboven.",
+    "woningtype": "tussenwoning",
+    "eigendom": "koopwoning",
+    "bouwjaar_indicatie": "1998",
+    "huidige_verwarming": "cv-ketel (gas), ~15 jaar oud",
+    "interesse": [
+      "hybride warmtepomp",
+      "gratis warmtescan",
+      "isde-subsidie"
+    ],
+    "gewenste_termijn": "binnen 3 maanden"
+  },
+  "consent": {
+    "_comment": "AVG-bewijslast: WAT de bezoeker zag/aanvinkte en WANNEER. Bewijst rechtmatigheid van de verwerking richting de Autoriteit Persoonsgegevens.",
+    "privacy_accepted": true,
+    "privacy_statement_version": "2026-06-01",
+    "privacy_statement_url": "https://twentsewarmte.nl/privacy",
+    "consent_timestamp": "2026-06-21T14:37:09+02:00",
+    "consent_text_shown": "Ik ga akkoord dat Twentse Warmte mijn gegevens gebruikt om mijn warmtescan-aanvraag te behandelen. Zie het privacybeleid.",
+    "marketing_optin": false,
+    "_marketing_optin_comment": "Apart, niet voor-aangevinkt (AVG). false => alleen voor deze aanvraag gebruiken, geen nieuwsbrief.",
+    "lawful_basis": "consent_and_precontractual",
+    "_lawful_basis_comment": "Art. 6(1)(a) toestemming + art. 6(1)(b) precontractuele maatregel (de offerte/warmtescan die de lead zelf aanvraagt)."
+  },
+  "ai_disclosure": {
+    "_comment": "EU AI Act Art. 50 — transparantieplicht. Geldt vooral voor de chat-agent, maar we leggen ook bij een formulierlead vast dat de EERSTE reactie en de kwalificatie door AI gebeuren.",
+    "first_response_is_ai": true,
+    "disclosure_text": "Je ontvangt zo automatisch een eerste bevestiging van onze digitale assistent. Voor je persoonlijke offerte neemt Bram (een mens) zelf contact op.",
+    "disclosure_shown_at": "2026-06-21T14:37:12+02:00",
+    "human_in_loop": true,
+    "_human_in_loop_comment": "Bindende prijs/offerte en het plannen van de warmtescan gaan pas door nadat Bram de lead heeft geaccepteerd (zie routing-notification.md)."
+  },
+  "anti_spam": {
+    "_comment": "Vangnet tegen mail-bomb/kostenmisbruik van het auto-reply-formulier.",
+    "turnstile_passed": true,
+    "honeypot_field_empty": true,
+    "ip_rate_limit_ok": true,
+    "client_ip_hash": "sha256:8f3a...c12e",
+    "_client_ip_hash_comment": "IP wordt gehasht opgeslagen (data-minimalisatie), niet plat."
+  },
+  "processing": {
+    "_comment": "Status-velden die de pipeline bijwerkt. In productie zijn dit losse Cosmos-updates per processtap.",
+    "status": "qualified_routed",
+    "_status_flow_comment": "received -> autoreplied -> qualified -> routed -> (human accept/reject) -> closed",
+    "autoreply_sent": true,
+    "autoreply_message_id": "acs-msg-7c41e0a2-sim",
+    "qualification_ref": "qualification.json",
+    "routed_to": "bram@twentsewarmte.nl",
+    "human_decision": "pending",
+    "_human_decision_comment": "Wacht op Accept/Reject van Bram. Geen vervolgactie (afspraak inplannen) vóór die menselijke goedkeuring."
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_README": [
+    "PROJECT X — per-klant config-template ('agency-in-a-box').",
+    "Eén bestand per klant (kopieer dit, vul in, hernoem naar <tenant_id>.config.json).",
+    "Het opzet-script (Bicep/Terraform via GitHub Actions, 'deployment stamp' per klant) consumeert dit.",
+    "Idempotent: je mag het script veilig opnieuw draaien met dezelfde config.",
+    "Velden met _comment ernaast leggen uit waarom/wat. Strikt JSON kent geen commentaar,",
+    "daarom gebruiken we _comment-suffix-velden i.p.v. // ; het script negeert alle keys die met _ beginnen.",
+    "Waarden hieronder zijn VOORBEELDEN (Tijmens eerste klant als sjabloon). Vervang ze.",
+    "GEEN secrets in dit bestand: API-keys/tokens komen in Azure Key Vault (zie 'secrets'-sectie = alleen verwijzingen).",
+    "Onzekerheden medio 2026: model-deployment-types en Foundry-prijzen wijzigen — verifieer bij deploy."
+  ],
+
+  "tenant_id": "itconnect-klant-01",
+  "_tenant_id_comment": "Stabiele, korte, kleine-letters id. Drijft deterministische resource-naming (idempotentie). Niet wijzigen na eerste deploy.",
+  "client_display_name": "Voorbeeld B.V.",
+  "created": "2026-06-21",
+  "status": "draft",
+  "_status_comment": "draft | provisioning | live | paused | offboarded",
+
+  "deployment": {
+    "_comment": "Sectie 0 van de intake — bepaalt de hele architectuur.",
+    "target": "client_tenant",
+    "_target_comment": "client_tenant = Azure Managed Application in de subscription van de klant (data blijft bij hem). agency_tenant = in onze Azure (resources deelbaar, goedkoper).",
+    "azure_subscription_id": "00000000-0000-0000-0000-000000000000",
+    "azure_tenant_id": "00000000-0000-0000-0000-000000000000",
+    "azure_region": "westeurope",
+    "_azure_region_comment": "westeurope (Amsterdam, NL-residency) of northeurope (Ierland). Bij VNet/private endpoints moeten ALLE resources in deze regio.",
+    "billing_owner": "client",
+    "_billing_owner_comment": "client = klant betaalt Azure-verbruik direct. agency = wij dragen en rekenen door (all-in).",
+    "agreement_type": "MCA",
+    "_agreement_type_comment": "EA | MCA | PAYG. ZDR (Zero Data Retention) bij Azure OpenAI vereist EA of MCA, NIET op PAYG.",
+    "management_access": {
+      "method": "lighthouse",
+      "_method_comment": "lighthouse = cross-tenant beheer vanuit onze tenant. service_principal = directe SP. none = klant beheert zelf.",
+      "least_privilege_roles": ["Reader", "Foundry User", "Website Contributor"],
+      "_least_privilege_roles_comment": "Minimale RBAC. Nooit Owner op de hele subscription vragen."
+    },
+    "private_networking": false,
+    "_private_networking_comment": "true = VNet + private endpoints (sterk compliance-argument, regio-lock, meer complexiteit)."
+  },
+
+  "company": {
+    "_comment": "Sectie 1 — basis-identiteit. Voedt schema-markup en niche-bepaling.",
+    "legal_name": "Voorbeeld B.V.",
+    "trade_names": ["Voorbeeld"],
+    "kvk": "12345678",
+    "address": {
+      "street": "Voorbeeldstraat 1",
+      "postal_code": "1234 AB",
+      "city": "Almelo",
+      "country": "NL"
+    },
+    "description": "Korte omschrijving in 2-3 zinnen, in eigen woorden van de klant.",
+    "existing_website": "https://www.voorbeeld.nl",
+    "social_profiles": {
+      "linkedin": "https://www.linkedin.com/company/voorbeeld",
+      "crunchbase": null,
+      "g2": null,
+      "wikidata_qid": null,
+      "_wikidata_qid_comment": "Vul de QID in zodra de Wikidata-entry is aangemaakt; gebruikt in Organization sameAs."
+    }
+  },
+
+  "niche": {
+    "_comment": "Sectie 2 — branche, doelgroep, concurrenten.",
+    "industry": "ICT-dienstverlening",
+    "is_ymyl": false,
+    "_is_ymyl_comment": "true voor finance/zorg/juridisch => verplicht mens-in-de-lus op content.",
+    "target_audience": "MKB-bedrijven in Oost-Nederland, IT-managers/directeuren",
+    "competitors": [
+      "https://concurrent-a.nl",
+      "https://concurrent-b.nl"
+    ],
+    "key_services": [
+      "Managed IT-services",
+      "Cloud-migratie",
+      "Cybersecurity"
+    ],
+    "markets": ["NL"],
+    "_markets_comment": "Landcodes; stuurt locatie-parameters in keyword-API's en TLD-set.",
+    "languages": ["nl"],
+    "_languages_comment": "Per taal een aparte content-pijplijn + sitemap."
+  },
+
+  "branding": {
+    "_comment": "Sectie 3 — directe input voor de site-generator (CSS-variabelen).",
+    "logo_svg_path": "./assets/voorbeeld/logo.svg",
+    "logo_png_path": "./assets/voorbeeld/logo.png",
+    "colors": {
+      "accent": "#0066cc",
+      "accent_soft": "#e6f0fb",
+      "bg": "#ffffff",
+      "bg_card": "#f5f7fa",
+      "text": "#1a1a1a"
+    },
+    "_colors_comment": "Worden 1-op-1 de :root CSS-vars in de template.",
+    "font_family": "Inter, system-ui, sans-serif",
+    "tone_of_voice": {
+      "register": "informeel",
+      "_register_comment": "formeel | informeel",
+      "address_form": "jij",
+      "_address_form_comment": "jij | u",
+      "example_sentences": [
+        "Voorbeeldzin die klinkt als de klant.",
+        "Nog een voorbeeld van hun eigen toon."
+      ],
+      "humanizer": true,
+      "_humanizer_comment": "true = stijl-pass die AI-tell-woorden (delve, leverage, moreover) en LANGE STREEPJES (em/en-dash) verwijdert vóór publicatie."
+    },
+    "imagery": {
+      "source": "ai_generated",
+      "_source_comment": "ai_generated (gpt-image-1) | client_library | stock",
+      "ai_label_required": true,
+      "_ai_label_required_comment": "EU/DE AI-label-plicht 2026 => 'AI-generated'-credit bij gegenereerd beeld."
+    },
+    "legal_footer": {
+      "kvk": "12345678",
+      "vat": "NL000000000B00",
+      "privacy_url": "/privacy",
+      "terms_url": "/voorwaarden"
+    }
+  },
+
+  "domain": {
+    "_comment": "Sectie 4 — domein & DNS.",
+    "mode": "register_new",
+    "_mode_comment": "use_existing | register_new",
+    "primary_domain": "voorbeeld.nl",
+    "extra_domains": [],
+    "name_ideas": ["voorbeeld", "voorbeeld-it"],
+    "_name_ideas_comment": "Seeds voor LLM-shortlist als mode=register_new. Elke naam wordt gecheckt op availability EN merkrecht (EUIPO) vóór registratie.",
+    "tlds": [".nl", ".com"],
+    "registrar": "cloudflare",
+    "_registrar_comment": "cloudflare (wholesale, geen markup) | transip | godaddy | namecheap. Availability-bulkcheck via WhoisJSON/WhoisFreaks.",
+    "registrant": "client",
+    "_registrant_comment": "client | agency — wie eigenaar wordt van het domein.",
+    "dns_managed_by": "client",
+    "_dns_managed_by_comment": "Wie SPF/DKIM/DMARC + custom-domain-records kan zetten. Nodig vóór oplevering."
+  },
+
+  "seo_geo": {
+    "_comment": "Sectie 5 — SEO + GEO (AI-citatie).",
+    "seed_keywords": [
+      "managed it almelo",
+      "it beheer mkb",
+      "cloud migratie twente"
+    ],
+    "geo_enabled": true,
+    "_geo_enabled_comment": "true = DataForSEO AI Optimization (citatie-tracking ChatGPT/Perplexity/Gemini/Claude). KANS, geen garantie.",
+    "author": {
+      "_comment": "E-E-A-T: echte persoon bij de klant, GEEN 'AI' of Organization. #1 citatie-hefboom.",
+      "name": "Voornaam Achternaam",
+      "job_title": "Directeur",
+      "bio": "Korte bio voor de /auteur/<slug>-pagina.",
+      "photo_path": "./assets/voorbeeld/auteur.jpg",
+      "same_as": [
+        "https://www.linkedin.com/in/voorbeeld"
+      ]
+    },
+    "create_wikidata_entry": true,
+    "_create_wikidata_entry_comment": "Hoogste ROI per uur voor knowledge-graph; geen notability-drempel.",
+    "search_console_property": "https://www.voorbeeld.nl",
+    "bing_webmaster_property": "https://www.voorbeeld.nl",
+    "indexnow_key": "GENERATE_PER_TENANT",
+    "_indexnow_key_comment": "32-char hex; .txt op site-root. Pingt Bing => ook ChatGPT. Google ondersteunt IndexNow NIET (= aparte lijn via sitemaps + GSC).",
+    "schema_types": ["Organization", "LocalBusiness", "FAQPage", "BlogPosting"],
+    "_schema_types_comment": "FAQPage = hoogste-impact schema voor AI-citatie.",
+    "emit_llms_txt": true,
+    "validate_schema_in_ci": true,
+    "_validate_schema_in_ci_comment": "Google Rich Results Test API blokkeert deploy bij JSON-LD-fouten."
+  },
+
+  "content_pipeline": {
+    "_comment": "Sectie 6 — blog/content. Vervangt Thomas' news_bot.py, Azure-native.",
+    "mode": "evergreen",
+    "_mode_comment": "news (RSS-feeds) | evergreen (keyword/onderwerp via Grounding with Bing) | both",
+    "rss_feeds": [],
+    "topics": [
+      "cybersecurity mkb",
+      "cloud-kosten besparen"
+    ],
+    "cadence_cron": "0 0 9 * * 1",
+    "_cadence_cron_comment": "NCRONTAB (seconden-veld!). Voorbeeld = maandag 09:00. Lage cadans (2-3/week) — massa AI-content wordt afgestraft (scaled content abuse).",
+    "articles_per_run": 2,
+    "timezone": "W. Europe Standard Time",
+    "_timezone_comment": "Azure Functions cron is default UTC — zonder dit publiceert de bot op het verkeerde uur.",
+    "human_in_the_loop": true,
+    "_human_in_the_loop_comment": "true = approval-stap (Teams-kaart of mail) vóór publicatie. Verplicht bij YMYL/start.",
+    "editorial_gate": {
+      "min_paragraphs": 3,
+      "min_body_chars": 800,
+      "min_internal_links": 2,
+      "min_external_sources": 3,
+      "blocklist_words": ["delve", "leverage", "moreover", "in conclusion", "in het huidige landschap"],
+      "fact_check_pass": true,
+      "_fact_check_pass_comment": "Tweede LLM-pass: draft tegen bron, PASS/FAIL, markeert elke claim die niet uit de bron volgt (anti-hallucinatie)."
+    },
+    "publish_target": "azure_static_web_apps",
+    "_publish_target_comment": "azure_static_web_apps | azure_blob_static | external_cms (WordPress/Webflow via API)",
+    "internal_links_via_embeddings": true,
+    "_internal_links_via_embeddings_comment": "text-embedding-3-small + cosine-similariteit => self-healing link-graph, geen orphans, geen dode links."
+  },
+
+  "leads": {
+    "_comment": "Sectie 7 — inbound capture, AI-respond, kwalificatie, routing.",
+    "channels": ["form", "chat"],
+    "_channels_comment": "form (HTML POST -> Azure Function) + chat (AI-widget). Beide aanraden.",
+    "chat_autonomy": "human_in_loop",
+    "_chat_autonomy_comment": "autonomous | human_in_loop. Beïnvloedt AI-Act-risicoprofiel.",
+    "ai_disclosure_text": "Je praat met een AI-assistent van Voorbeeld B.V.",
+    "_ai_disclosure_text_comment": "EU AI Act Art. 50 — niet-uitschakelbaar, verplicht bij eerste interactie.",
+    "qualification": {
+      "rubric": "BANT",
+      "_rubric_comment": "BANT | MEDDIC | custom. De agent levert JSON {budget,authority,need,timeline,score 0-100,qualified,samenvatting}.",
+      "custom_criteria": [],
+      "qualify_threshold": 60,
+      "_qualify_threshold_comment": "Score waarboven we doorzetten naar de klant."
+    },
+    "routing": {
+      "target": "email",
+      "_target_comment": "email | teams | dynamics | hubspot | pipedrive",
+      "notify_email": "sales@voorbeeld.nl",
+      "teams_webhook_keyvault_ref": null,
+      "crm": {
+        "type": "none",
+        "_type_comment": "none | dynamics | hubspot | pipedrive",
+        "api_key_keyvault_ref": null
+      }
+    },
+    "email": {
+      "_comment": "Auto-reply + notificaties via Azure Communication Services.",
+      "sender_domain": "mail.voorbeeld.nl",
+      "_sender_domain_comment": "Per tenant geverifieerd; SPF/DKIM/DMARC vereist of mails belanden in spam.",
+      "auto_reply_enabled": true
+    },
+    "anti_spam": {
+      "turnstile": true,
+      "_turnstile_comment": "Cloudflare Turnstile (cookieloos, AVG-vriendelijk, 1M/mnd gratis). Beschermt tegen mail-bomb-misbruik.",
+      "honeypot": true,
+      "rate_limit_per_ip_per_hour": 10
+    },
+    "retention_days": 730,
+    "_retention_days_comment": "Default 2 jaar (marketing) — automatische verwijder/anonimiseer-job in Cosmos/Functions.",
+    "consent_logging": true,
+    "_consent_logging_comment": "Welk privacy-statement de lead zag + wanneer (bewijs rechtmatigheid voor AP)."
+  },
+
+  "existing_systems": {
+    "_comment": "Sectie 8 — wat de klant al heeft.",
+    "crm": "none",
+    "uses_teams": false,
+    "has_google_ads_account": false,
+    "analytics": "umami_selfhosted",
+    "_analytics_comment": "Cookieloos, GDPR-compliant, geen consent-banner. Eventueel 1 gedeelde Umami over tenants.",
+    "downstream_systems": []
+  },
+
+  "azure_ai": {
+    "_comment": "Sectie 9/10 — de AI-laag (Microsoft Foundry).",
+    "foundry_setup": "standard_agent",
+    "_foundry_setup_comment": "standard_agent = alle agent-state/gesprekken/files in BYO-resources (Cosmos+Storage+Search) in de tenant van de klant. basic = Microsoft-managed opslag.",
+    "model_deployment": {
+      "chat_model": "gpt-4.1-mini",
+      "_chat_model_comment": "Werkpaard voor blog/SEO/lead-replies. GPT-4.1-mini ~$0.40 in / $1.60 out per 1M.",
+      "reasoning_model": "gpt-4.1",
+      "_reasoning_model_comment": "Zwaardere reasoning waar nodig.",
+      "embedding_model": "text-embedding-3-small",
+      "image_model": "gpt-image-1-mini",
+      "deployment_type": "data_zone_standard_eu",
+      "_deployment_type_comment": "data_zone_standard_eu = EU-only INFERENCE (harde EU-eis). global_standard = data-at-rest in EU maar inference kan wereldwijd routen. GPT-5.x is medio 2026 NIET als EU-data-zone beschikbaar => pin op GPT-4o/4.1."
+    },
+    "tools": {
+      "grounding_with_bing": true,
+      "_grounding_with_bing_comment": "~$35/1000 queries — duur, alleen voor news/research/citatie-monitoring, niet per pagina.",
+      "file_search_rag": true,
+      "code_interpreter": false
+    },
+    "byo_stores": {
+      "ai_search_tier": "basic",
+      "_ai_search_tier_comment": "free (dev) | basic (~$75/mnd) | s1 (~$250/mnd). VASTE bodemkost per tenant, 24/7.",
+      "cosmos_ru_per_sec": 3000,
+      "_cosmos_ru_per_sec_comment": "Min. 3000 RU/s vereist of capability host faalt (CapabilityHostProvisioningFailed).",
+      "storage_account": "auto",
+      "key_vault": "auto"
+    }
+  },
+
+  "compliance": {
+    "_comment": "Sectie 10 — AVG/AI Act.",
+    "eu_residency_level": "eu_only_inference",
+    "_eu_residency_level_comment": "data_at_rest_eu (makkelijk, global_standard volstaat) | eu_only_inference (vereist data_zone_standard_eu, beperkt modelkeuze).",
+    "modified_abuse_monitoring": true,
+    "_modified_abuse_monitoring_comment": "Geen human review van prompts. Aanvragen via Limited Access-programma.",
+    "zero_data_retention": true,
+    "_zero_data_retention_comment": "Vereist EA/MCA (zie deployment.agreement_type). Beloof niet op PAYG.",
+    "data_controller": "client",
+    "data_processor": "agency",
+    "_data_processor_comment": "Bureau is (sub)verwerker => verwerkersovereenkomst tussen bureau en klant nodig, bóvenop Microsoft DPA.",
+    "external_apis_allowed": true,
+    "_external_apis_allowed_comment": "DataForSEO/Whois/IndexNow/Wikidata mogen — maar ALLEEN niet-persoonsgebonden data (keywords/domeinen), nooit lead-PII. DPA met DataForSEO vastleggen.",
+    "ai_act_disclosure": true
+  },
+
+  "secrets": {
+    "_comment": "GEEN waarden hier — alleen Key Vault-verwijzingen. Het script haalt ze op via Managed Identity.",
+    "key_vault_name": "kv-itconnect-klant-01",
+    "references": {
+      "dataforseo_login": "kv:dataforseo-login",
+      "dataforseo_password": "kv:dataforseo-password",
+      "cloudflare_token": "kv:cloudflare-token",
+      "whois_api_key": "kv:whois-api-key",
+      "crm_api_key": "kv:crm-api-key",
+      "turnstile_secret": "kv:turnstile-secret"
+    },
+    "auth_method": "managed_identity",
+    "_auth_method_comment": "ManagedIdentityCredential (niet DefaultAzureCredential in productie). Geen keys in code/repo."
+  },
+
+  "commercial": {
+    "_comment": "Sectie 11 — intern.",
+    "monthly_budget_cap_eur": 500,
+    "_monthly_budget_cap_comment": "Azure Cost Management budget/alert hierop. Bepaalt modelkeuze + AI Search-tier + aantal Bing-queries.",
+    "pricing_model": "setup_plus_retainer",
+    "_pricing_model_comment": "setup_plus_retainer (setup-fee + maand-fee, klant draagt Azure) | all_in_saas.",
+    "setup_fee_eur": null,
+    "monthly_fee_eur": null
+  },
+
+  "provisioning_steps": {
+    "_comment": "Wat het script idempotent uitvoert op basis van bovenstaande config. Informatief — geen invoer.",
+    "1": "Resource group + Azure Policy (allowed locations = azure_region) in deployment.target",
+    "2": "Foundry resource + project (standard_agent setup) + BYO Cosmos/Storage/Search/Key Vault + capability hosts + RBAC (Managed Identity)",
+    "3": "Model-deployments (chat/reasoning/embedding/image) als deployment_type",
+    "4": "Azure Static Web App (regio-pinned) + custom domain + SSL; site bouwen uit branding+niche config; mobile-first-patch in template",
+    "5": "Azure Functions/Container Apps: form-endpoint, chat-proxy, mail-trigger (ACS), CRM-write, anti-spam; cron-bots (content, sitemap, IndexNow, rank-check)",
+    "6": "ACS Email-domein verifiëren (SPF/DKIM/DMARC) onder domain.dns_managed_by",
+    "7": "GSC/Bing-property + IndexNow-key.txt op site-root; optioneel Wikidata-entry",
+    "8": "Cost Management budget op commercial.monthly_budget_cap_eur; Application Insights alert op '0 published'/fact_check FAIL (loud failure)"
+  }
+}
