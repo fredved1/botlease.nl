@@ -8,7 +8,7 @@ Eerste klant: via Tijmen (IT Connect, Almelo). Bouwt voort op de bouwstenen die 
 ## Leesvolgorde
 
 1. **[00-BLUEPRINT.md](00-BLUEPRINT.md)** — start hier. Visie, de 6 stappen, high-level Azure-architectuur, het "1 script per klant"-model, fasen, kosten, risico's + AVG.
-2. **[01-client-intake.md](01-client-intake.md)** — intake-vragenlijst per klant + de open beslissingen die het ontwerp bepalen (deploy-model A/B, hardheid EU-eis, CRM, budget).
+2. **[01-client-intake.md](01-client-intake.md)** — intake-naslagwerk (het "waarom" per vraag) + de open beslissingen die het ontwerp bepalen (deploy-model A/B, hardheid EU-eis, CRM, budget). Voor het invullen: gebruik **[INTAKE-FORMULIER.md](INTAKE-FORMULIER.md)** (compact, invulbaar, blockers gemarkeerd) — dit stuur je naar Tijmen/de klant.
 3. **[02-architecture.md](02-architecture.md)** — gedetailleerde Azure-architectuur: diensten, auth (keyless/Managed Identity), netwerk, data-residentie, per-tenant isolatie, dataflow per stap, en het rapportage-/meet-component (§6b).
 4. **[03-build-plan.md](03-build-plan.md)** — bouwfasen van MVP naar volledig, met deliverables per fase en het onboarding-script-stappenplan.
 5. **[04-data-needed.md](04-data-needed.md)** — afvinkbare checklist: alles wat Tijmen/de klant moet aanleveren + accounts/keys + te nemen beslissingen (met [BLOCKER MVP]-tags).
