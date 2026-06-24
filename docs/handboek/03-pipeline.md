@@ -26,7 +26,7 @@
 ## ⏳ Klaarstaand in de werklijst (Thomas klikt versturen) — 24 juni, allemaal promise-vrij
 - **NEURA / Kristina** (task #31): ons reseller/lease-model verhelderd + partnerprijs 4NE-1 gevraagd. Engels.
 - **RobotShop / Nathy** (task #32): volumedrempel voor betere rate gevraagd. Engels.
-- **VR Expert / Dante** (task #33): herschreven naar lean visie en promise-vrij — gebruiksklaar + operator bij events, onafhankelijk, compliance "we denken mee". **Geen vaste prijs, geen SLA, niks vastgezet**; nodigt uit tot korte kennismaking (Teams). Dario-onafhankelijk gemaakt.
+- **VR Expert / Dante** (task #33): ⏸️ **ON HOLD — Thomas wil nog GEEN contact.** Concept is klaar en promise-vrij (gebruiksklaar + operator bij events, event-forward, geen prijs/SLA, acrobatiek-grap eruit), maar **niet versturen tot Thomas het zegt**. Reden: eerst de blokkerende basis (papieren/financier) + concurrent-klant-strategie scherp.
 - **Dario / Synergy** (task #34): korte nudge op de openstaande compliance-antwoorden (8 dagen stil); EU-route blijft open via RobotShop. Engels.
 (eerdere ronde 17-18 juni allemaal verstuurd: RobotShop-versie, RoboCorpus, UBTECH-direct, Zoe-offerte-bedankje, UBTECH-Walker-S2, Nathy-offerte-bevestiging)
 
