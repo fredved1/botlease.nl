@@ -23,9 +23,11 @@
 | **Pollen Robotics (FR)** | Santiago Pavon | Beantwoord | Pollen | Reachy 2-verduidelijking gestuurd |
 | Overige follow-ups | 1X, Terra, Generation Robots, QUADRUPED, INGEN, Leobotics, OrcaRobot | Gemaild | hen | Geen reactie; laten rusten |
 
-## ⏳ Klaarstaand in de werklijst (versturen)
+## ⏳ Klaarstaand in de werklijst (Thomas klikt versturen) — 24 juni, allemaal promise-vrij
 - **NEURA / Kristina** (task #31): ons reseller/lease-model verhelderd + partnerprijs 4NE-1 gevraagd. Engels.
 - **RobotShop / Nathy** (task #32): volumedrempel voor betere rate gevraagd. Engels.
+- **VR Expert / Dante** (task #33): herschreven naar lean visie en promise-vrij — gebruiksklaar + operator bij events, onafhankelijk, compliance "we denken mee". **Geen vaste prijs, geen SLA, niks vastgezet**; nodigt uit tot korte kennismaking (Teams). Dario-onafhankelijk gemaakt.
+- **Dario / Synergy** (task #34): korte nudge op de openstaande compliance-antwoorden (8 dagen stil); EU-route blijft open via RobotShop. Engels.
 (eerdere ronde 17-18 juni allemaal verstuurd: RobotShop-versie, RoboCorpus, UBTECH-direct, Zoe-offerte-bedankje, UBTECH-Walker-S2, Nathy-offerte-bevestiging)
 
 ## 💡 Strategie bij inkoop
