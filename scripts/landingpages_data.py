@@ -55,8 +55,8 @@ SECTORS = [
              "Dat hangt af van tote-grootte (8-25 kg), aisle-breedte (1,2 m of meer voor full-size, 0,8 m voor compact), en of "
              "de pilot in een 2-ploeg of 3-ploeg moet draaien. Tijdens de gratis intake meten we dit op locatie."),
             ("Werkt de robot met onze WMS?",
-             "Ja - alle humanoids ondersteunen REST/OPC-UA koppeling met SAP EWM, Manhattan, Blue Yonder, Körber en de grote "
-             "Nederlandse WMS-leveranciers. BotLease verzorgt de integratie."),
+             "De meeste humanoids ondersteunen REST/OPC-UA koppeling met SAP EWM, Manhattan, Blue Yonder, Körber en de grote "
+             "Nederlandse WMS-leveranciers. De integratie verzorg je samen met je eigen WMS-leverancier of IT-partner; wij denken mee."),
             ("Hoe gaat het bij piek (Black Friday)?",
              "Surge-lease: extra units voor 6-12 weken tegen weekprijs. Geen jaarcontract, snel op- en afschalen. Dit is de "
              "scherpste case voor humanoids vs. vaste robotarmen."),

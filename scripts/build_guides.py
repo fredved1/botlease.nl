@@ -214,7 +214,7 @@ ORG_SCHEMA = json.dumps({
     "legalName": "BotLease",
     "url": SITE_URL,
     "logo": f"{SITE_URL}/logo.png",
-    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance.",
+    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.",
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
@@ -695,10 +695,10 @@ def render_costs(g: dict) -> str:
       <h2 style="margin-bottom:16px">Wat zit er in de leaseprijs?</h2>
       <ul style="font-size:16.5px; line-height:1.75; color:var(--ink); padding-left:22px">
         <li><b>Robot zelf</b> - afschrijving over 36 maanden gedragen door BotLease.</li>
-        <li><b>Installatie</b> + 2-uurs operatortraining (apart in setup-fee).</li>
+        <li><b>Installatie</b> + korte operator-instructie (in de setup-fee).</li>
         <li><b>Preventief + correctief onderhoud</b> - wij komen langs als er iets is.</li>
         <li><b>Onderdelen</b> - alle reserveonderdelen inbegrepen.</li>
-        <li><b>Swap-SLA</b> - vervangende unit binnen 24u op locatie (anders €100/dag vergoeding).</li>
+        <li><b>Swap-SLA</b> - vervangende unit bij storing, doorgaans binnen enkele werkdagen.</li>
         <li><b>Verzekering</b> - WA tot €2,5M + casco.</li>
         <li><b>helpdesk op werkdagen</b> - Nederlands sprekende engineers.</li>
         <li><b>Software-updates</b> + remote tuning + AI-Act compliance maintenance.</li>
@@ -1052,15 +1052,15 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
         },
         {
             "q": f"Welke is goedkoper, {a['name']} of {b['name']}?",
-            "a": f"De {a['name']} kost {euro(a['lease_eur'])}/mnd, de {b['name']} {euro(b['lease_eur'])}/mnd - verschil van {euro(abs(a['lease_eur']-b['lease_eur']))}/mnd. Over een 36-mnd lease scheelt dat {euro(abs(a['lease_eur']-b['lease_eur'])*36)}. Beide all-in inclusief installatie, training, onderhoud, swap-SLA en verzekering.",
+            "a": f"De {a['name']} kost {euro(a['lease_eur'])}/mnd, de {b['name']} {euro(b['lease_eur'])}/mnd - verschil van {euro(abs(a['lease_eur']-b['lease_eur']))}/mnd. Over een 36-mnd lease scheelt dat {euro(abs(a['lease_eur']-b['lease_eur'])*36)}. Beide all-in inclusief gebruiksklare oplevering, onderhoud, swap-SLA en verzekering.",
         },
         {
             "q": f"Voldoen {a['name']} én {b['name']} aan de EU AI-Act?",
-            "a": f"BotLease voert per deployment een EU AI-Act risicoanalyse uit en regelt de CE-conformiteit onder Machineverordening 2023/1230, voor zowel {a['name']} (productie {a['vendor_country']}) als {b['name']} (productie {b['vendor_country']}). EU-gebouwde modellen hebben een kortere paper-trail; niet-EU modellen vergen extra technische documentatie bij de douane.",
+            "a": f"BotLease verzorgt per deployment de importeurs- en CE-conformiteitskant onder de Machineverordening 2023/1230 (documentatie van de fabrikant verzamelen en controleren), voor zowel {a['name']} (productie {a['vendor_country']}) als {b['name']} (productie {b['vendor_country']}). EU-gebouwde modellen hebben een kortere paper-trail; niet-EU modellen vergen extra technische documentatie bij de douane.",
         },
         {
             "q": f"Hoe lang duurt het voordat een {a['name']} of {b['name']} operationeel is?",
-            "a": f"Direct leverbare modellen: 6-10 weken vanaf intake tot operationeel inclusief 2-uurs operator-training. {a['name']}: {'leverbaar binnen 6-10 weken' if a['category']=='available' else 'wachtlijst 2027'}. {b['name']}: {'leverbaar binnen 6-10 weken' if b['category']=='available' else 'wachtlijst 2027'}.",
+            "a": f"Direct leverbare modellen: 6-10 weken vanaf intake tot operationeel, gebruiksklaar opgeleverd. {a['name']}: {'leverbaar binnen 6-10 weken' if a['category']=='available' else 'wachtlijst 2027'}. {b['name']}: {'leverbaar binnen 6-10 weken' if b['category']=='available' else 'wachtlijst 2027'}.",
         },
         {
             "q": f"Kan ik {a['name']} en {b['name']} ook combineren in één deployment?",
@@ -1360,7 +1360,7 @@ def build():
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Onderhoud + onderdelen (3 jaar)</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€6.900 (10%/j)</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>incl.</td></tr>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>WA-verzekering (3 jaar)</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€2.300 (1%/j)</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>incl.</td></tr>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>EU AI-Act compliance traject</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€3.000-€8.000</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>incl.</td></tr>"
-             "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Swap-SLA reserve unit</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>kun je niet zelf</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>24u swap inbegrepen</td></tr>"
+             "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Swap-SLA reserve unit</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>kun je niet zelf</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>vervangende unit inbegrepen</td></tr>"
              "<tr><td style='padding:10px 14px; font-size:14px'><b>Restwaarde-risico</b></td><td style='padding:10px 14px; text-align:right; font-size:14px'>jouw probleem</td><td style='padding:10px 14px; text-align:right; font-size:14px'><b>BotLease draagt</b></td></tr>"
              "</tbody></table>"
              "<p>Totaal over 3 jaar: zelf kopen kost <b>€37.700-€42.700</b>, lease via BotLease kost <b>€46.620</b>. Verschil: ~€4.000-€9.000 over 3 jaar. Voor dat geld krijg je het volledige risico-traject afgevangen.</p>"),

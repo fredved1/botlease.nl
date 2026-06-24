@@ -121,7 +121,7 @@ ORG_SCHEMA = json.dumps({
     "legalName": "BotLease",
     "url": SITE_URL,
     "logo": f"{SITE_URL}/logo.png",
-    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance.",
+    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.",
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
@@ -349,7 +349,7 @@ def render_city(c: dict) -> str:
     city_faqs = [
         {
             "q": f"Hoe snel kan BotLease een humanoïde robot leveren in {c['name']}?",
-            "a": f"In {c['name']} ligt onze gemiddelde levertijd op pilots op 5 werkdagen na ondertekend contract - installatie en operator-training (2 uur) inbegrepen. Voor productieve lease-deployments rekenen we op 6-10 weken vanaf fabrikant tot operationeel.",
+            "a": f"In {c['name']} ligt onze gemiddelde levertijd op pilots op 5 werkdagen na ondertekend contract - gebruiksklaar opgeleverd. Voor productieve lease-deployments rekenen we op 6-10 weken vanaf fabrikant tot operationeel.",
         },
         {
             "q": f"Welke sectoren in {c['name']} zetten humanoïde robots in?",
@@ -357,15 +357,15 @@ def render_city(c: dict) -> str:
         },
         {
             "q": f"Werkt BotLease in {c['name']} met lokale onderhouds-partners?",
-            "a": f"Ja. Onze swap-SLA (vervangende unit bij storing) wordt uitgevoerd door regionale field engineers. Voor {c['name']} en omgeving werken we samen met technische partners die gemiddeld binnen 2 uur op locatie zijn.",
+            "a": f"Ja. Bij een storing regelen we een vervangende unit, doorgaans binnen enkele werkdagen. Voor {c['name']} en omgeving loopt reparatie via de leverancier.",
         },
         {
             "q": f"Voldoen humanoïde robots in {c['name']} aan de EU AI-Act?",
-            "a": f"Ja. BotLease regelt voor elke deployment in {c['name']} de EU AI-Act risicoanalyse en CE-conformiteit onder Machineverordening 2023/1230. Voor government / defensie-toepassingen in {c['name']} (relevant in regio Den Haag) zetten wij uitsluitend EU-gebouwde modellen in (NEURA, Pollen).",
+            "a": f"Ja. BotLease regelt voor elke deployment in {c['name']} de importeurs- en CE-conformiteitskant onder de Machineverordening 2023/1230 (documentatie van de fabrikant verzamelen en controleren). Voor government / defensie-toepassingen in {c['name']} (relevant in regio Den Haag) zetten wij uitsluitend EU-gebouwde modellen in (NEURA, Pollen).",
         },
         {
             "q": f"Hoeveel kost een humanoïde robot leasen in {c['name']}?",
-            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €6.650/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten installatie, training, onderhoud, 24u swap-SLA, WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk.",
+            "a": f"Hetzelfde tarief als in heel Nederland: vanaf €290/mnd voor het Unitree R1 instapmodel, oplopend tot €6.650/mnd voor industriële flagships. Alle prijzen zijn publiek op botlease.nl/robots en bevatten gebruiksklare oplevering, onderhoud, een vervangende unit bij storing, WA-verzekering per inzet en Nederlandstalige helpdesk.",
         },
     ]
     city_faq_html = "".join(
@@ -406,7 +406,7 @@ def render_city(c: dict) -> str:
             {"@type": "Country", "name": "Nederland"},
         ],
         "serviceType": "Operational lease van humanoïde robots",
-        "description": f"All-in operational lease van humanoïde robots in {c['name']} en omgeving - installatie, training, onderhoud, swap-SLA en EU AI-Act compliance inbegrepen.",
+        "description": f"All-in operational lease van humanoïde robots in {c['name']} en omgeving - gebruiksklare oplevering, onderhoud, swap-SLA en EU AI-Act compliance inbegrepen.",
     }, ensure_ascii=False)
 
     return f"""<!DOCTYPE html>
@@ -459,7 +459,7 @@ def render_city(c: dict) -> str:
     <div style="max-width:760px">
       <h2>Wat past in {escape(c['name'])}?</h2>
       <p>{escape(c['local_hooks'])}</p>
-      <p>Vanaf BotLease Amsterdam leveren we humanoids op locatie binnen heel Nederland. Voor {escape(c['name'])} ligt onze gemiddelde respons-tijd op intake-aanvragen op 4 werkuren, en levering van pilot-units gemiddeld 5 werkdagen na ondertekening. Onze field engineers zijn binnen 2 uur op locatie wanneer een swap-SLA wordt geactiveerd - dat is een harde toezegging die we contractueel onderbouwen met €100/dag dagvergoeding bij overschrijding.</p>
+      <p>Vanaf BotLease Amsterdam leveren we humanoids op locatie binnen heel Nederland. Voor {escape(c['name'])} ligt onze gemiddelde respons-tijd op intake-aanvragen op 4 werkuren, en levering van pilot-units gemiddeld 5 werkdagen na ondertekening. Bij een storing regelen we een vervangende unit, doorgaans binnen enkele werkdagen.</p>
     </div>
 
     {f'''<div style="max-width:840px; margin-top:48px">

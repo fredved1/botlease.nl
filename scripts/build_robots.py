@@ -274,7 +274,7 @@ ORG_SCHEMA = json.dumps({
     "legalName": "BotLease",
     "url": SITE_URL,
     "logo": f"{SITE_URL}/logo.png",
-    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: installatie, training, onderhoud, swap-SLA en EU AI-Act compliance.",
+    "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.",
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "email": "hallo@botlease.nl",
     "areaServed": ["NL", "BE", "DE", "LU"],
@@ -472,7 +472,7 @@ def faq_for_robot(r: dict) -> list[dict]:
     return [
         {
             "q": f"Wat kost een {name} leasen via BotLease?",
-            "a": f"{name} leasen kost {price} all-in operational lease (36 maanden). De eenmalige setup-fee is {setup} en dekt installatie, training en integratie op locatie. De all-in maandprijs omvat preventief + correctief onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen).",
+            "a": f"{name} leasen kost {price} all-in operational lease (36 maanden). De eenmalige setup-fee is {setup} en dekt de gebruiksklare oplevering. De all-in maandprijs omvat preventief + correctief onderhoud, swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige helpdesk op werkdagen (spoedlijn bij storingen).",
         },
         {
             "q": f"Wat is de levertijd van een {name} in Nederland?",
@@ -488,7 +488,7 @@ def faq_for_robot(r: dict) -> list[dict]:
         },
         {
             "q": f"Voldoet de {name} aan de EU AI-Act en Machineverordening?",
-            "a": f"BotLease regelt voor elke deployment de EU AI-Act risicoanalyse en de CE-conformiteitsverklaring onder Machineverordening 2023/1230. De {name} wordt alleen ingezet binnen een gedefinieerde werkzone met menselijk toezicht (human-in-the-loop). De technische documentatie blijft up-to-date gedurende de leasetermijn.",
+            "a": f"BotLease regelt voor elke deployment de importeurs- en CE-conformiteitskant onder de Machineverordening 2023/1230 (documentatie van de fabrikant verzamelen en controleren). De {name} wordt ingezet met menselijk toezicht (human-in-the-loop); werkzones op de werkvloer wijst de werkgever aan. De technische documentatie blijft up-to-date gedurende de leasetermijn.",
         },
     ]
 
@@ -567,7 +567,7 @@ def render_robot(r: dict, related: list) -> str:
       <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
         <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} — humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
-        <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief installatie, training, onderhoud en swap-SLA (vervangende unit bij storing).</li>
+        <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief gebruiksklare oplevering, onderhoud en een vervangende unit bij storing.</li>
         <li><b style="color:var(--ink)">Beste voor:</b> {escape(_tldr_best)}.</li>
         <li><b style="color:var(--ink)">Leverbaarheid:</b> {_tldr_avail}</li>
 {_tldr_h2h}      </ul>
@@ -657,11 +657,11 @@ def render_robot(r: dict, related: list) -> str:
       </div>
       <div class="price-block">
         <div class="price-row"><b>€{r['lease_eur']:,}</b><span class="per">/mnd · 36 mnd</span></div>
-        <div class="setup">+ €{r['setup_eur']:,} eenmalige setup (installatie, training, integratie)</div>
+        <div class="setup">+ €{r['setup_eur']:,} eenmalige setup (gebruiksklare oplevering)</div>
         <ul>
-          <li>Installatie + 2-uurs training operators</li>
+          <li>Gebruiksklare oplevering met korte uitleg</li>
           <li>Preventief + correctief onderhoud</li>
-          <li>Swap-SLA: vervangende unit binnen 24u</li>
+          <li>Vervangende unit bij storing, doorgaans binnen enkele werkdagen</li>
           <li>WA-verzekering wordt per deployment geregeld + casco</li>
           <li>helpdesk op werkdagen Nederlands</li>
           <li>Software-updates en remote tuning</li>
@@ -689,10 +689,10 @@ def render_robot(r: dict, related: list) -> str:
             <b style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€{r['lease_eur']:,}</b>
             <span style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
           </div>
-          <div style="color:var(--ink-2); font-size:13.5px; margin-bottom:14px">+ €{r['setup_eur']:,} eenmalige setup (installatie, training, integratie)</div>
+          <div style="color:var(--ink-2); font-size:13.5px; margin-bottom:14px">+ €{r['setup_eur']:,} eenmalige setup (gebruiksklare oplevering)</div>
           <ul style="list-style:none; padding:0; margin:0; color:var(--ink-2); font-size:13.5px; line-height:1.7">
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Preventief + correctief onderhoud</li>
-            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Swap-SLA: vervangende unit binnen 24u</li>
+            <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Vervangende unit bij storing, doorgaans binnen enkele werkdagen</li>
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> WA-verzekering wordt per deployment geregeld + casco</li>
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> helpdesk op werkdagen Nederlands</li>
             <li style="padding-left:20px; position:relative"><span style="position:absolute; left:0; color:var(--green); font-weight:700">✓</span> Software-updates en remote tuning</li>
@@ -757,7 +757,7 @@ def render_robot(r: dict, related: list) -> str:
     # Cap meta-desc onder Google's ~155-char cut-off voor maximale CTR
     meta_desc = (
         f"{r['name']} leasen in Nederland vanaf €{r['lease_eur']:,}/mnd. "
-        f"All-in operational lease: installatie, training, onderhoud, swap-SLA, verzekering."
+        f"All-in operational lease: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en verzekering."
     ).replace(",", ".")
 
     return f"""<!DOCTYPE html>
