@@ -6,7 +6,15 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Mon, 22 Jun 2026 14:17:15 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 15:05:40 +0000</lastBuildDate>
+    <item>
+      <title>Robotkarakter: de les van Amazons Astro</title>
+      <link>https://botlease.nl/nieuws/robotkarakter-de-les-van-amazons-astro</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/robotkarakter-de-les-van-amazons-astro</guid>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0100</pubDate>
+      <category>R&amp;D</category>
+      <description><![CDATA[Sound designer van Amazons huisrobot Astro legt uit waarom een bewegende machine altijd een karakter krijgt, of je dat nu ontwerpt of niet.]]></description>
+    </item>
     <item>
       <title>Humanoide robot loopt halve marathon in 50 minuten</title>
       <link>https://botlease.nl/nieuws/humanoide-robot-loopt-halve-marathon-in-50-minuten</link>
@@ -158,14 +166,6 @@
       <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
       <category>Industrie</category>
       <description><![CDATA[De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.]]></description>
-    </item>
-    <item>
-      <title>Hello Robot lanceert Stretch 4: pragmatisch alternatief voor humanoïden</title>
-      <link>https://botlease.nl/nieuws/hello-robot-lanceert-stretch-4-pragmatisch-alternatief-voor-humanoiden</link>
-      <guid isPermaLink="true">https://botlease.nl/nieuws/hello-robot-lanceert-stretch-4-pragmatisch-alternatief-voor-humanoiden</guid>
-      <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
-      <category>R&amp;D</category>
-      <description><![CDATA[Terwijl humanoïde robots de aandacht opeisen, mikt Hello Robot met Stretch 4 op betaalbare, veilige inzet in huis en zorg.]]></description>
     </item>
   </channel>
 </rss>
