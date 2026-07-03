@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://botlease.nl/nieuws/robotkarakter-de-les-van-amazons-astro</loc>
+    <loc>https://botlease.nl/nieuws/apptronik-apollo-2-leren-door-inzet-in-de-praktijk</loc>
     <news:news>
       <news:publication>
         <news:name>BotLease</news:name>
         <news:language>nl</news:language>
       </news:publication>
-      <news:publication_date>2026-06-26</news:publication_date>
-      <news:title>Robotkarakter: de les van Amazons Astro</news:title>
+      <news:publication_date>2026-07-03</news:publication_date>
+      <news:title>Apptronik Apollo 2: leren door inzet in de praktijk</news:title>
     </news:news>
   </url>
 </urlset>

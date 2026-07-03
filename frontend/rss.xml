@@ -6,7 +6,15 @@
     <atom:link href="https://botlease.nl/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Dagelijkse analyses over humanoïde robots, lease, pilots, regelgeving en marktontwikkeling in Nederland.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Fri, 26 Jun 2026 15:05:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 15:07:56 +0000</lastBuildDate>
+    <item>
+      <title>Apptronik Apollo 2: leren door inzet in de praktijk</title>
+      <link>https://botlease.nl/nieuws/apptronik-apollo-2-leren-door-inzet-in-de-praktijk</link>
+      <guid isPermaLink="true">https://botlease.nl/nieuws/apptronik-apollo-2-leren-door-inzet-in-de-praktijk</guid>
+      <pubDate>Fri, 03 Jul 2026 08:00:00 +0100</pubDate>
+      <category>Industrie</category>
+      <description><![CDATA[Apptronik presenteert Apollo 2 en een eigen trainingsfaciliteit, met de nadruk op data verzamelen en continu blijven leren tijdens echte inzet.]]></description>
+    </item>
     <item>
       <title>Robotkarakter: de les van Amazons Astro</title>
       <link>https://botlease.nl/nieuws/robotkarakter-de-les-van-amazons-astro</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 13 May 2026 08:00:00 +0100</pubDate>
       <category>Industrie</category>
       <description><![CDATA[December 2025 rolde de duizendste Walker S2 van de lijn in Liuzhou. Wat zegt dat over de humanoid-markt - en moet je nu kopen?]]></description>
-    </item>
-    <item>
-      <title>Apptronik × Mercedes: wat de eerste industriële Apollo-pilot ons leert</title>
-      <link>https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot</link>
-      <guid isPermaLink="true">https://botlease.nl/nieuws/apptronik-mercedes-apollo-lessen-eerste-pilot</guid>
-      <pubDate>Tue, 12 May 2026 08:00:00 +0100</pubDate>
-      <category>Industrie</category>
-      <description><![CDATA[De eerste Apollo's draaien in een Mercedes-fabriek in Hongarije. Drie lessen voor Nederlandse maakindustrie.]]></description>
     </item>
   </channel>
 </rss>
