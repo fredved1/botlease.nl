@@ -26,6 +26,7 @@ SSH met root-key werkt. Draait: nginx (crm.botlease.nl, api.heymilo.nl), de CRM,
 ### Mail (volledig IMAP, geen doorstuur-omweg meer)
 - **`scripts/imap_poller.py`** → systemd-timer **botlease-imap** (elke 10 min): leest INBOX + Verzonden-map van **hallo@ én thomas@** rechtstreeks. Inkomend → lead (status nieuw). Uitgaand → log. Filtert ruis (no-reply/nieuwsbrieven/KvK).
 - **Versturen** via `/api/send` (CRM): SMTP smtp.hostnet.nl:587, plakt handtekening, zet kopie in Verzonden-map, threadt via opgeslagen Message-ID.
+- **Persona's (sinds 7/7):** afzender hallo@ = **"Lisa | BotLease"** met handtekening "Lisa, Sales & Planning"; afzender thomas@ = "Thomas Vedder, Oprichter". Override per mail: `{"as":"thomas"}` of `{"as":"lisa"}` in de /api/send-payload. **Niet mid-thread van identiteit wisselen** (lopende leveranciersthreads waar Thomas de afzender is → thomas@ of as=thomas). Thomas haalt de handtekening uit zijn eigen mailprogramma zodat die niet dubbel/strijdig plakt.
 - **Wachtwoorden:** in `/root/botlease-crm/env` (`CRM_SMTP_PASS` = hallo@, thomas@ in `CRM_IMAP_ACCOUNTS`). Nooit in de repo.
 
 ### Draft-bot (UIT)

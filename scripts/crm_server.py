@@ -460,7 +460,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send(404, {"error": "taak niet gevonden of geen mail"})
             try:
                 msg = EmailMessage()
-                disp = "Thomas Vedder" if sender.startswith("thomas@") else "Thomas Vedder | BotLease"
+                # persona: hallo@ = Lisa (Sales & Planning), thomas@ = Thomas Vedder.
+                # Override per mail met {"as": "thomas"|"lisa"} — nooit mid-thread van identiteit wisselen.
+                persona = d.get("as") if d.get("as") in ("thomas", "lisa") else ("thomas" if sender.startswith("thomas@") else "lisa")
+                if persona == "thomas":
+                    disp = "Thomas Vedder" if sender.startswith("thomas@") else "Thomas Vedder | BotLease"
+                    sig = f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
+                else:
+                    disp = "Lisa | BotLease"
+                    sig = f"\n\nLisa\nSales & Planning, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
                 msg["From"] = f"{disp} <{sender}>"
                 msg["To"] = task["mail_to"]
                 msg["Subject"] = task["mail_subject"]
@@ -478,7 +486,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                             msg["References"] = clean_mid
                 body = task["mail_body"].rstrip()
                 if "+31 6 2369 2944" not in body:  # handtekening alleen toevoegen als-ie ontbreekt
-                    body += f"\n\nThomas Vedder\nOprichter, BotLease\n+31 6 2369 2944 | {sender}\nwww.botlease.nl"
+                    body += sig
                 # HARDE GARANTIE: nooit em-dash/en-dash in ONZE tekst (verraadt AI — Thomas: never).
                 # Alleen op ons deel, vóór de geciteerde historie (die is de tekst van de ander).
                 body = (body.replace(" — ", " - ").replace(" – ", " - ")
