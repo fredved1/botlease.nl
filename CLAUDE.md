@@ -35,6 +35,7 @@ Houd elke mail aan deze richting:
 
 ## Harde regels (NOOIT overtreden)
 - **Geen koude mails autonoom versturen** naar externe partijen zonder dat Thomas het per geval autoriseert. Replies in lopende gesprekken mogen wél na zijn "stuur jij maar".
+- **NOOIT akkoord/toezeggingen per mail geven namens Thomas.** Geen "akkoord", geen orderbevestiging, geen contractuele instemming, geen "we gaan ermee door", geen ingevulde formulieren terugsturen. Informatieve replies (prijzen, vragen, status) mogen; alles wat instemming of verplichting inhoudt verstuurt Thomas ALTIJD zelf handmatig (7/7/2026).
 - **Humanizer over elke mail** — menselijk, geen AI-toon, geen overpromise. **NOOIT lange streepjes (— em-dash of – en-dash) in mails of teksten** — dat verraadt AI. Gebruik gewoon komma's, punten of haakjes. (Geldt voor mails; in code/markdown-tabellen maakt het niet uit.)
 - **Taal spiegelen** — Nederlands antwoorden op Nederlandse/Belgische contacten (Dante/VR Expert, Jordi/RoboCorpus), Engels op internationale (Zoe, Dario, Sean, Alexandre). Kijk naar de taal van hún mail.
 - **Geen overpromises op de site**: swap = "vervangende unit bij storing, doorgaans binnen enkele werkdagen" (NOOIT "binnen 24u"/"€100/dag"); verzekering = "per deployment geregeld" (NOOIT een bedrag); helpdesk = "op werkdagen" (NOOIT "24/7 support", wel "24/7 inzetbaar" als robot-eigenschap).

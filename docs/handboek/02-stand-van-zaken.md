@@ -10,6 +10,8 @@
 - **NEURA definitief afgesloten** (Kristina 2/7: geen reseller/lease, "kom in 2027 terug") → status beantwoord, geen actie.
 - **CRM opgeschoond:** formulier+Resend-dubbelen gekoppeld (175/176, 177/178), RobotShop-surveys en NEURA-afsluiters op beantwoord.
 - **controle.py-ruis gefixt:** 29 meldingen waren privé (camping/recreatie) + Project X (Thijmen/BackupCo, eigen repo) → SKIP_SUBJ uitgebreid in repo + VPS.
+- **PAL Distributor RFI opgehaald** (bijlage bij Alexandres mail 26/6 aan thomas@, uit IMAP gevist): 4 pagina's vragen (administratief, HR, jaarcijfers 3 jr, profiel, supportcapaciteit, landen). PDF + concept-antwoorden in `docs/leveranciers/`. Open gaten (btw-id, adres, KvK-datum, bijlagen) + go/no-go zijn aan Thomas; **hij verstuurt zelf**.
+- **⭐ NIEUWE HARDE REGEL (Thomas):** Claude geeft NOOIT akkoord/toezeggingen per mail en retourneert nooit formulieren; zulke mails verstuurt Thomas altijd handmatig. Vastgelegd in CLAUDE.md + geheugen.
 
 ## 2026-06-21
 - **⭐ SEO/GEO-sprint uitgevoerd + live** (audit-workflow: 7 dimensies + adversariële tegencheck). Kerncorrectie: de **rank-bot** (`seo/seo_data.json`, Google.nl-scrape 19 juni) toont **#1 op "humanoïde robot leasen Nederland" + Engelse variant** (2/23 keywords; "huren" + de rest nog 0). De WebSearch-tool is US-only en gaf vals "ranken nergens" → voor NL-rankings de rank-bot gebruiken, niet WebSearch.
