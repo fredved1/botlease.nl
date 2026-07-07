@@ -13,6 +13,11 @@
 - R1-prijslijst: niet compleet gedeeld — kies uit de selection table, dan offerte.
 - CE: certificaat in de bijlage (= RED/radiorichtlijn 2014/53/EU; **Machineverordening-DoC nog apart opvragen** voor NL-doorverkoop).
 
+## Update 30/6-2/7 (Zoe, reply op onze vragen van 17/6)
+- **R1 standaard: $6.200/unit** (incl. remote, lader, transportkoffer; excl. stand). Aanbevolen: Robot Protective Stand **$250**. Verzending R1: **$900**. Totaal incl. stand + shipping: **$7.350** (≈ €6.800 landed, ex import-btw). Site-canon aanschaf R1 = €8.000 → marge klopt nog.
+- **CE-bijlage geleverd, maar LET OP:** bestandsnaam zegt "2023:1230", inhoud is een **EU Type-Examination Certificate onder RED 2014/53/EU Annex III** (TÜV Rheinland InterCert, Boedapest, 11-5-2026; cert M5 69268646 0001; G1/G1 EDU; hw 02.02.02.03.00156 712, sw 1.2.1). Wél nieuw en waardevol: getest op **art. 3.3(d) network protection + 3.3(e) personal data & privacy (EN 18031-1/2:2024)** = cyber/privacy door TÜV, sterk voor het compliance-verhaal (Dante!). Maar de **DoC onder Machineverordening 2023/1230 ontbreekt NOG STEEDS** → bij volgende Zoe-mail opnieuw vragen. Bestand: `unitree-ce-certificaat-g1-RED-cyber-2026-05-11.png`.
+- Zoe wacht op bevestiging van "je Nederlandse klant" → PI maakt ze zodra wij bevestigen. Bal bij ons, pas na getekende klant.
+
 ## Omgerekend (indicatief, EUR — koers checken!)
 Bij ~1 USD ≈ €0,92 (koers + import-btw 21% [terugvorderbaar voor bedrijf] nog bevestigen):
 - **U1 landed ≈ €28.000** (ex terugvorderbare btw)
