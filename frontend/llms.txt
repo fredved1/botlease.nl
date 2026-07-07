@@ -6,7 +6,7 @@ _Laatst bijgewerkt: 2026-06-21_
 ## Feitenkaart (citeerbaar)
 
 - **Wat:** flexibele humanoïde robotica voor zakelijke gebruikers in NL/EU — via **verhuur** (per dag voor events, of flexibel per maand) óf **operational lease** (36 mnd). All-in, eigendom blijft bij BotLease, swap-SLA. Geen consumentenrobots, geen cobots.
-- **Verhuurmodellen:** Eventdag **€750–€1.450/dag** incl. operator (Unitree R1/G1, −30% vanaf dag 2). Flexibele maandhuur **€690–€2.450/maand**, per maand opzegbaar. Operational lease **€290–€6.650/maand** (36 mnd).
+- **Verhuurmodellen:** Eventdag **€750–€1.450/dag** incl. operator, excl. reiskosten (Unitree R1/G1, −30% vanaf dag 2). Flexibele maandhuur **€690–€2.450/maand**, per maand opzegbaar. Operational lease **€290–€6.650/maand** (36 mnd).
 - **Prijs:** all-in vanaf **€290/maand** (Unitree R1, lease) tot **€6.650/maand** (Unitree H1-2). Aanschafprijzen €8.000–€110.000.
 - **Inbegrepen in de lease:** installatie, operator-training, onderhoud, **swap-SLA (vervangende unit bij storing)**, verzekering die per deployment wordt geregeld, en EU AI-Act + CE-conformiteit.
 - **Pilot:** 4 weken voor €1.500, daarna beslissen. Gemiddelde ROI in 3PL: 11–14 maanden.
@@ -21,7 +21,7 @@ _Laatst bijgewerkt: 2026-06-21_
 ## Kernpagina's
 
 - [Homepage](https://botlease.nl/): Overzicht aanbod + pricing
-- [Robot huren voor event](https://botlease.nl/robot-huren-evenement): Eventdag-verhuur incl. operator, €750–€1.450/dag, publieke prijzen
+- [Robot huren voor event](https://botlease.nl/robot-huren-evenement): Eventdag-verhuur incl. operator, excl. reiskosten, €750–€1.450/dag, publieke prijzen
 - [Robot huren per maand](https://botlease.nl/huren): Flexibele maandhuur (opzegbaar), R1 €690/mnd, G1 €2.450/mnd
 - [Volledige catalogus](https://botlease.nl/robots): 13 humanoïde robots — huren of leasen
 - [Pijler-gids: humanoïde robot leasen](https://botlease.nl/gids/humanoide-robot-leasen): Hoe lease werkt, kosten, ROI
