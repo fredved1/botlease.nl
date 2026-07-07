@@ -2,6 +2,15 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-07
+- **⭐ 2 nieuwe klantaanvragen via de site, beide beantwoord (prijzen genoemd, Claude, taken #39/#40):**
+  - **BusinessWise (Tim Swager, tim.swager@dpgmedia.nl, 06-21971403):** event do **16 juli 16:00-17:00**, entree-ontvangst. Reply met dagtarieven (R1 €750 / G1 €1.450, incl. operator, excl. btw), locatie + invulling gevraagd. **Beloofd: uiterlijk do 9/7 uitsluitsel over beschikbaarheid** → hangt op leveranciersreacties (zie hieronder). ⚠️ Wij hebben nog geen units; 16 juli kan alleen via een partner. **Thomas: bellen op 06-21971403 versnelt dit.**
+  - **Van de Beek Advies (Bart, bart@vandebeekadvies.nl):** event **30 september** (Agri & Food-kennissessie), korte huurperiode, mogelijk meerdere humanoids, plus **roadshow-idee langs groene onderwijsinstellingen** (potentieel structureel vervolg). Reply met dagverhuur-canon + 3 vragen (locatie/dagdeel, aantal robots, roadshow-omvang).
+- **Leveranciers gepolst voor eventinzet + kosten (taken #41-#43, geen orders/klantnamen gedeeld):** Dario/Synergy (nudge distributeurprijs + eventinzet-tarief + levertijd G1+ARGOS bij order in augustus), Damien/INGEN (**wachtte op óns sinds 29/6**: U1+U2-offerte gevraagd, 1 unit nu + indicatie bij 3, partnerprijs Go2 Pro, eventinzet-vraag), Jordi/RoboCorpus (nudge: G1+operator op partnerbasis voor 16/7 en 30/9, dagtarief gevraagd).
+- **NEURA definitief afgesloten** (Kristina 2/7: geen reseller/lease, "kom in 2027 terug") → status beantwoord, geen actie.
+- **CRM opgeschoond:** formulier+Resend-dubbelen gekoppeld (175/176, 177/178), RobotShop-surveys en NEURA-afsluiters op beantwoord.
+- **controle.py-ruis gefixt:** 29 meldingen waren privé (camping/recreatie) + Project X (Thijmen/BackupCo, eigen repo) → SKIP_SUBJ uitgebreid in repo + VPS.
+
 ## 2026-06-21
 - **⭐ SEO/GEO-sprint uitgevoerd + live** (audit-workflow: 7 dimensies + adversariële tegencheck). Kerncorrectie: de **rank-bot** (`seo/seo_data.json`, Google.nl-scrape 19 juni) toont **#1 op "humanoïde robot leasen Nederland" + Engelse variant** (2/23 keywords; "huren" + de rest nog 0). De WebSearch-tool is US-only en gaf vals "ranken nergens" → voor NL-rankings de rank-bot gebruiken, niet WebSearch.
 - **Verhuur-first on-page** ("huren" rankt nog 0, is north-star): homepage H1 = "Humanoïde robot huren of leasen" (was leasen-only) + hero leidt met huren; /huren-title ingekort. Homepage is de doelpagina voor de huren-zoekwoorden.

@@ -14,6 +14,8 @@ SKIP=("no-reply","noreply","donotreply","mailer-daemon","postmaster","kvk.nl",
       "resend","metamail","euipo","news@neura-robotics","notifications@","unitree.cc","hostnet.nl")
 # automatische/waardeloze onderwerpen (ticket-acks, routing, surveys)
 SKIP_SUBJ=("request received","how would you rate","rate the support","my colleague","undeliverable","mail delivery","delivery status")
+# privé / Project X — bewust buiten het BotLease-CRM (recreatie-mails; BackupCo/Connectworks leeft in de project-x-repo)
+SKIP_SUBJ+=("seizoensplaats","recreatiewoning","stacaravan","backupco","ai-bestuurde organisatie","heeft u uitgenodigd")
 def hdr(v):
     try: return str(make_header(decode_header(v or "")))
     except: return v or ""

@@ -21,12 +21,13 @@ h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
 .hot{border:1.5px solid var(--accent);background:#f5f9ff}
 .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
 .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 10px;border-radius:99px}
-.t-go{background:#e6f8eb;color:var(--green)}.t-busy{background:#fef3c7;color:var(--amber)}.t-hold{background:var(--bg2);color:var(--ink3)}
+.t-go{background:#e6f8eb;color:var(--green)}.t-busy{background:#fef3c7;color:var(--amber)}.t-hold{background:var(--bg2);color:var(--ink3)}.t-top{background:#e8f0ff;color:var(--accent)}
 table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0}
 th{text-align:left;padding:8px 8px;border-bottom:2px solid var(--line);font-size:11px;text-transform:uppercase;color:var(--ink3)}
 td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 ul{padding-left:20px;margin:6px 0}li{margin-bottom:6px}
 .done li::marker{color:var(--green)}
+.todo li::marker{color:var(--amber)}
 .help{background:#f5f9ff;border:1px solid #cfe0f7;border-radius:14px;padding:18px 22px;margin-top:8px}
 .planlink{display:inline-block;margin-top:10px;background:var(--accent);color:#fff;border-radius:99px;padding:10px 20px;font-weight:600;font-size:13.5px;text-decoration:none}
 .foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px}
@@ -35,69 +36,82 @@ ul{padding-left:20px;margin:6px 0}li{margin-bottom:6px}
 <header>
   <div class="brand"><div class="mark">B</div><b style="font-size:17px">BotLease</b></div>
   <h1>Waar we staan</h1>
-  <div class="sub">Interne stand van zaken — 21 juni 2026 · humanoïde robots huren &amp; leasen</div>
+  <div class="sub">Interne stand van zaken, 29 juni 2026 · humanoïde robots <b>verhuren</b>, voor events &amp; leasen</div>
 </header>
 
 <div class="goal">
-  <span class="big">🎯 Het doel nu</span>
-  Van gesprekken naar de <b>eerste betaalde deal</b> (VR Expert), terwijl we een goedkope, betrouwbare inkooplijn vastleggen waarbij <b>wij de klant bezitten</b>. Verhuur en events leveren de eerste omzet; lease groeit daarna. Nooit een robot kopen zonder een getekende of aanbetaalde klant.
+  <span class="big">🎯 De focus nu: verhuur en events</span>
+  <b>Verhuur en events zijn de motor.</b> Daar ligt de eerste omzet, met de laagste drempel voor de klant (geen meerjarig contract) en voor ons (kort, per inzet). Lease groeit daarna mee. Concreet doel: de <b>eerste betaalde deal</b> (VR Expert, verhuur voor events), terwijl we een goedkope, betrouwbare inkooplijn vastleggen waarbij <b>wij de klant bezitten</b>. Nooit een robot kopen zonder een getekende of aanbetaalde klant.
 </div>
 
 <h2>🔥 Heetste kans</h2>
 <div class="card hot">
-  <div class="row"><b>VR Expert (Dante Spekman)</b><span class="tag t-busy">in gesprek</span></div>
-  <p style="margin-top:6px;color:var(--ink2)">Een van de grootste XR-/hardware-verhuurders van de Benelux. Wil humanoid-verhuur verkennen (events, beurzen, demo's) en bestelde een Unitree G1. We hebben de inkoopprijzen rond en wachten op de laatste compliance-antwoorden van distributeur Dario (Synergy); dán gaat het voorstel eruit. <b>Dit is de deal om binnen te halen.</b></p>
-  <p style="margin-top:8px;color:var(--ink3);font-size:13px">Let op: Dante is zélf verhuurder, dus een klant die concurrent kan worden. Open over het wát en hóé van veiligheid, gesloten over onze inkoopketen (nooit bron, inkoopprijs of marge noemen). We verkopen de ontzorgde inzet, niet "een kale G1".</p>
+  <div class="row"><b>VR Expert (Dante Spekman)</b><span class="tag t-busy">in voorbereiding</span></div>
+  <p style="margin-top:6px;color:var(--ink2)">Een van de grootste XR- en hardware-verhuurders van de Benelux, en precies onze eerste doelgroep: <b>verhuur voor events en beurzen</b>. Wil humanoid-verhuur verkennen en bestelde een Unitree G1. De inkoopprijzen zijn rond en de compliance-vragen (CE, data, veiligheid) zijn nu beantwoord door distributeur Synergy. We zetten eerst de zakelijke basis op orde (B.V., verzekering, voorwaarden, modelcontract) voordat het voorstel eruit gaat. <b>Dit blijft de deal om binnen te halen.</b></p>
+  <p style="margin-top:8px;color:var(--ink3);font-size:13px">Let op: Dante is zelf verhuurder, dus een klant die concurrent kan worden. Open over het wat en hoe van veiligheid, gesloten over onze inkoopketen (nooit bron, inkoopprijs of marge noemen). We verkopen de ontzorgde inzet, niet "een kale G1".</p>
 </div>
 
 <h2>👥 Pijplijn</h2>
 <table>
 <tr><th>Partij</th><th>Wat</th><th>Status</th></tr>
-<tr><td><b>VR Expert</b></td><td>Klant — humanoid-verhuur Benelux (G1)</td><td><span class="tag t-busy">in gesprek</span></td></tr>
-<tr><td><b>Atlas Copco</b> (BE)</td><td>Klant — humanoid-taskforce industrie</td><td><span class="tag t-hold">on hold</span></td></tr>
-<tr><td><b>Unitree</b> (China)</td><td>Leverancier — fabrikant, G1-offerte binnen</td><td><span class="tag t-go">offerte</span></td></tr>
-<tr><td><b>RobotShop EU</b></td><td>Leverancier — EU-distributeur, offerte binnen (geen reseller, wel simpele EU-route)</td><td><span class="tag t-go">offerte</span></td></tr>
-<tr><td><b>Synergy</b> (ES)</td><td>Leverancier — officiële Unitree-distributeur EU</td><td><span class="tag t-busy">in gesprek</span></td></tr>
-<tr><td><b>PAL Robotics</b> (ES)</td><td>Leverancier — EU-fabrikant, partner-pad</td><td><span class="tag t-busy">in gesprek</span></td></tr>
-<tr><td><b>NEURA</b> (DE)</td><td>Leverancier — EU-fabrikant (kwalificeert rond NEURA Gym, past matig op ons model)</td><td><span class="tag t-busy">in gesprek</span></td></tr>
-<tr><td><b>UBTECH</b></td><td>Leverancier — Walker S2, directe lijn</td><td><span class="tag t-busy">in gesprek</span></td></tr>
-<tr><td><b>RoboCorpus</b> (BE)</td><td>Leverancier — distributeur</td><td><span class="tag t-busy">in gesprek</span></td></tr>
+<tr><td><b>VR Expert</b></td><td>Klant, humanoid-verhuur Benelux (G1)</td><td><span class="tag t-busy">in voorbereiding</span></td></tr>
+<tr><td><b>Atlas Copco</b> (BE)</td><td>Klant, humanoid-taskforce industrie</td><td><span class="tag t-hold">on hold</span></td></tr>
+<tr><td><b>Synergy</b> (ES)</td><td>Leverancier, officiële Unitree-distributeur. Distributeurprijs aangeboden, plus kant-en-klare demo-software en compliance-papieren die we mogen delen</td><td><span class="tag t-top">front-runner</span></td></tr>
+<tr><td><b>RobotShop EU</b></td><td>Leverancier, EU-distributeur. Offerte en voorwaarden helder (8% vanaf 3 units, geen reseller)</td><td><span class="tag t-go">offerte</span></td></tr>
+<tr><td><b>Unitree</b> (China)</td><td>Leverancier, fabrikant. G1-offerte binnen (100% vooruitbetaling)</td><td><span class="tag t-go">offerte</span></td></tr>
+<tr><td><b>INGEN</b> (FR)</td><td>Leverancier, Franse Unitree-reseller. Prijs opgevraagd</td><td><span class="tag t-busy">in gesprek</span></td></tr>
+<tr><td><b>UBTECH</b></td><td>Leverancier, Walker S2, directe lijn</td><td><span class="tag t-busy">in gesprek</span></td></tr>
+<tr><td><b>RoboCorpus</b> (BE)</td><td>Leverancier, distributeur</td><td><span class="tag t-busy">in gesprek</span></td></tr>
+<tr><td><b>PAL Robotics</b> (ES)</td><td>Leverancier, EU-fabrikant. Formulier ontvangen, geparkeerd (duur, niet voor deal 1)</td><td><span class="tag t-hold">geparkeerd</span></td></tr>
+<tr><td><b>NEURA</b> (DE)</td><td>Leverancier, EU-fabrikant. Doet geen reseller of lease, past niet op ons model</td><td><span class="tag t-hold">geparkeerd</span></td></tr>
 </table>
-<p style="font-size:13px;color:var(--ink3)">16 leveranciers benaderd, meerdere in gesprek mét echte offertes. We verzamelen prijzen om per deal de goedkoopste inkoop te kiezen — gezonde marge, en wij houden de klantrelatie.</p>
+<p style="font-size:13px;color:var(--ink3)">16 leveranciers benaderd, meerdere in gesprek met echte offertes. Synergy (Spanje) is nu de sterkste lijn: distributeurprijs, plus demo-software zodat units direct inzetbaar zijn, plus de compliance-papieren die we aan klanten mogen geven. We verzamelen prijzen om per deal de goedkoopste inkoop te kiezen, met gezonde marge, en wij houden de klantrelatie.</p>
 
 <h2>✅ Wat er staat (gebouwd &amp; gedaan)</h2>
 <ul class="done">
-  <li><b>Complete website</b> (botlease.nl) — 13 robotmodellen, publieke prijzen voor huren/leasen/events, technische SEO/GEO af.</li>
-  <li><b>We ranken</b> — #1 op Google.nl voor "humanoïde robot leasen Nederland" (NL + EN). Verhuur ("huren") staat nu voorop op de site en moet daar nog volgen.</li>
-  <li><b>Wekelijkse nieuws-engine</b> — publiceert automatisch een vers artikel; werkt als content- en SEO-motor.</li>
-  <li><b>Eigen CRM + mailsysteem</b> — elke aanvraag en mail komt automatisch binnen, antwoorden gaan eruit, alles controleert zichzelf dagelijks.</li>
-  <li><b>Leverancierslijn in opbouw</b> — twee concrete inkoopoffertes binnen (EU + China), meerdere andere in gesprek.</li>
-  <li><b>Eerste klanten in gesprek</b> — VR Expert (verhuur) en Atlas Copco (industrie).</li>
+  <li><b>Complete website</b> (botlease.nl), 13 robotmodellen, publieke prijzen voor huren, leasen en events, technische SEO/GEO af.</li>
+  <li><b>De site staat nu op verhuur voorop</b> ("huren of leasen", verhuur eerst). We ranken al #1 op Google.nl voor "humanoïde robot leasen" (NL en EN); de vindbaarheid op "huren" bouwen we daar nu bovenop.</li>
+  <li><b>Inkooplijn rond in EU</b>, distributeurprijs aangeboden door Synergy, met offerte van RobotShop en China als alternatief.</li>
+  <li><b>Compliance helder</b>, CE-conformiteitspakket beschikbaar dat we aan klanten mogen delen, robots volledig offline en op het eigen netwerk inzetbaar.</li>
+  <li><b>Wekelijkse nieuws-engine</b>, publiceert automatisch een vers artikel, werkt als content- en SEO-motor.</li>
+  <li><b>Eigen CRM en mailsysteem</b>, elke aanvraag en mail komt automatisch binnen, antwoorden gaan eruit, alles controleert zichzelf dagelijks.</li>
+  <li><b>Eerste klanten in gesprek</b>, VR Expert (verhuur) en Atlas Copco (industrie).</li>
 </ul>
+
+<h2>🧱 Wat nu nog moet (de basis op orde)</h2>
+<div class="card">
+<p style="color:var(--ink2);margin-bottom:6px">Dit zijn geen techniek-blokkers, maar de zakelijke basis die klaar moet zijn vóór de eerste handtekening:</p>
+<ul class="todo">
+  <li><b>B.V. oprichten</b>, de rechtspersoon voor contracten en voor het compliance-pakket dat de distributeur op naam zet.</li>
+  <li><b>Bedrijfsaansprakelijkheidsverzekering</b> (AVB) voor de inzet bij klanten.</li>
+  <li><b>Algemene voorwaarden en een modelcontract</b> voor huur en lease.</li>
+  <li><b>Financiering bevestigen</b> (via Marinho) zodat we per deal niet hoeven voor te schieten.</li>
+</ul>
+</div>
 
 <h2>📋 Het plan in het kort</h2>
 <div class="card">
 <ul>
-  <li><b>De markt is nog vroeg</b> (wereldwijd &lt;20 bedrijven op productieschaal vóór 2028). Daarom: events/verhuur eerst → pilots → lease later.</li>
-  <li><b>Niemand in NL/BE least humanoids.</b> Onze vier pijlers — verhuur+lease, compliance, onafhankelijk advies, transparante prijzen — zijn onbezet.</li>
-  <li><b>Het model:</b> wij kopen in tegen reseller-prijs, verhuren/leasen aan de klant, met financiering zodat we niet voorschieten. Wij bezitten de klant.</li>
+  <li><b>De markt is nog vroeg</b> (wereldwijd minder dan 20 bedrijven op productieschaal vóór 2028). Daarom zetten we vol in op <b>verhuur en events eerst</b> (lage drempel, eerste omzet, snelle leermomenten), dan pilots, lease later.</li>
+  <li><b>Niemand in NL/BE verhuurt of least humanoids.</b> Onze vier pijlers (verhuur en lease, compliance, onafhankelijk advies, transparante prijzen) zijn onbezet.</li>
+  <li><b>Het model:</b> wij kopen in tegen reseller-prijs, verhuren (en leasen) aan de klant, met financiering zodat we niet voorschieten. Wij bezitten de klant.</li>
 </ul>
-<p style="font-size:13.5px;color:var(--ink2);margin-top:6px">Prijzen (vanaf €290/mnd lease, €690/mnd huur, €750/dag event), het volledige winstmodel, de cijfers en de strategie staan in het businessplan — dat is de enige bron, deze pagina is alleen de stand van zaken.</p>
+<p style="font-size:13.5px;color:var(--ink2);margin-top:6px">Prijzen (vanaf €750/dag event, €690/mnd huur, €290/mnd lease), het volledige winstmodel, de cijfers en de strategie staan in het businessplan. Dat is de enige bron, deze pagina is alleen de stand van zaken.</p>
 <a href="businessplan-volledig.html" class="planlink">📄 Volledig businessplan + cijfers openen →</a>
 </div>
 
 <h2>🤝 Waar jij (Ton) het verschil maakt</h2>
 <div class="help">
-  De techniek, site en leveranciers staan. Waar het nu op aankomt is <b>de gesprekken sluiten</b> — precies jouw kracht:
+  De techniek, site en leveranciers staan. Waar het nu op aankomt is <b>de gesprekken sluiten</b>, precies jouw kracht:
   <ul style="margin-top:8px">
-    <li><b>VR Expert</b> — de call voeren en de deal binnenhalen zodra het voorstel ligt.</li>
-    <li><b>Atlas Copco</b> — het verkennende gesprek met de specialist erbij, wanneer de leverancierslijn rond is.</li>
-    <li><b>Nieuwe inbound leads</b> — de site haalt ze binnen; jij zet ze om in afspraken.</li>
+    <li><b>VR Expert</b>, de call voeren en de deal binnenhalen zodra de basis ligt en het voorstel eruit gaat.</li>
+    <li><b>Atlas Copco</b>, het verkennende gesprek met de specialist erbij, wanneer de basis rond is.</li>
+    <li><b>Nieuwe inbound leads</b>, de site haalt ze binnen, jij zet ze om in afspraken.</li>
   </ul>
 </div>
 
 <div class="foot">
   BotLease · Thomas Vedder · hallo@botlease.nl · +31 6 2369 2944 · botlease.nl<br>
-  Interne pagina — niet delen buiten het team. Stand bijgewerkt: 21 juni 2026.
+  Interne pagina, niet delen buiten het team. Stand bijgewerkt: 29 juni 2026.
 </div>
 </div></body></html>

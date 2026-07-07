@@ -8,25 +8,43 @@
 |---|---|---|---|---|
 | **VR Expert — Dante Spekman** ⭐ | Een van de grootste XR-verhuurders EU; wil humanoid-verhuur verkennen (events/beurzen). Bestelde G1 Edu ×1. | In gesprek | **Ons** (na Dario) | Wacht op Dario's compliance-antwoorden → dan marge doorrekenen + complete mail (leaseprijs + compliance). ⚠️ **Strategie (Dante = klant die concurrent kan worden):** hij is zelf verhuurder, dus de stap klant→concurrent is klein. Zijn compliance-vragen zijn normaal due-diligence, geen bewijs van overnameplan, maar: **antwoord open over het wát/hóé van veiligheid, gesloten over de inkoopketen.** Nooit inkoopbron/-prijs/marge noemen, geen kale unit zonder operator, geen "testunit om mee te spelen", geen exclusiviteit, niets voorschieten. Verkoop de ontzorgde inzet, niet "een G1". Vroege alarmsignalen: vragen verschuiven naar "welke distributeur", "inkoopprijs", "kaal huren zonder begeleiding". Volledige analyse in businessplan §9A. |
 | **Atlas Copco — Thomas Christiaensen** | Humanoid-taskforce (BE, industrie). Verkennend. | Hold | Ons | 1-pager klaar (`OUTREACH/send-atlas-onepager.html`); sturen wanneer leverancierslijn rond is |
+| **BusinessWise — Tim Swager** (via DPG Media) | Event **16 juli 16:00-17:00**, entree-ontvangst met humanoid. Tel 06-21971403. | Beantwoord 7/7 (prijzen + vragen, #39) | **Ons** | ⚠️ **Beloofd: uiterlijk do 9/7 uitsluitsel beschikbaarheid.** Wij hebben geen units → kan alleen via partner (Dario/Damien/Jordi gepolst 7/7). Locatie nog onbekend. **Thomas: bellen versnelt.** |
+| **Van de Beek Advies — Bart** | Event **30 sept** (Agri & Food-kennissessie), 1+ humanoids, korte periode; plus **roadshow-idee** langs groene onderwijsinstellingen | Beantwoord 7/7 (dagtarieven + 3 vragen, #40) | hen | Wacht op locatie/dagdeel, aantal robots, roadshow-omvang. 30/9 haalbaar via order (Unitree 4-5wk, order uiterlijk half aug ná getekende klant) of partner. Roadshow = potentieel structurele omzet. |
 
 ## 🏭 Leveranciers (inkoop)
 
 | Leverancier | Contact | Status | Op wie wachten | Notitie |
 |---|---|---|---|---|
 | **Unitree (China)** | Zoe Wang (sales_www@unitree.com) + Wanda (WhatsApp) | ✅ **Offerte ontvangen** (16/6) | **Ons** | **G1 EDU U1 $28.900, U2 $36.900 + $1.500 shipping** (CPT, 100% vooruit, 4-5wk). Next: order bevestigen → Zoe maakt PI. Pas bestellen ná getekende klant. Detail: `docs/leveranciers/unitree-offerte-2026-06-16.md` |
-| **Synergy Tech (Unitree ES)** | Dario Samaniego, CEO (dario.samaniego@synergytech.es) | In gesprek | **Dario** | Open voor distributeur-prijzen. Was 8 dagen stil → **nudge verstuurd 24/6** (concreet kortingspercentage gevraagd, VR Expert-deal eraf gekoppeld). EU-route = makkelijker dan China |
-| **RobotShop EU** | Nathy (marketplace@robotshop.com, ticket T1121128) | ✅ Offerte (Bid 1482037) | **hen** | **U1 €29.925, U2 €34.200** (5% korting, ex btw, EU, 18mnd garantie, t/m 30 juli). **Reply verstuurd 24/6**: volumedrempel + geldigheid + de reseller-tegenstrijdigheid uitgevraagd (Louise zei "reseller vanaf 2-5/jr", offerte zegt "geen reseller"). Default eerste-deal-route (EU, U2 goedkoper dan China). PDF in docs/leveranciers/ |
-| **PAL Robotics** | Alexandre Saldes (alexandre.sb@pal-robotics.com) | Partner-pad | Alexandre | Na meeting NDSM; stuurt formulier. Echte prijzen: TIAGo ~€110k, StockBot ~€30k. ⚠️ Niet op de site terugzetten |
-| **NEURA Robotics (DE)** | Kristina Naumoska | In gesprek | **hen** | Kristina kwalificeert ons rond **NEURA Gym** (vereist intern budget + strategisch besluit). Past matig op ons model → behandelen als "later/PR", niet inkooplijn voor deal 1. **Reply verstuurd 24/6**: ons model verhelderd + partner-track/partnerprijs 4NE-1 gevraagd. Haalden $1,4B op |
-| **RoboCorpus (BE)** | Jordi Hurssel (+ collega Hamza) | In gesprek | hen | Reply gestuurd 17/6 (NL): context + reseller-voorwaarden gevraagd. Wilden Teams; wij eerst per mail |
+| **Synergy Tech (Unitree ES)** ⭐ | Dario Samaniego, CEO (dario.samaniego@synergytech.es) + Miriam Muñoz (docs) | ✅ **Alles beantwoord** (25/6) | **Dario** | **Front-runner inkooplijn.** Beantwoordde alle compliance-vragen (CE + deelbaar conformiteitspakket, volledig offline/on-prem met hun eigen lokale AI ARGOS, firmware onder onze controle, AI Act). Turnkey-gat gedicht: kant-en-klare demo-apps (ARGOS) als add-on. **Biedt distributeur-pad met speciale kortingsprijs.** Wil config+volume bevestigd → maakt dan partnervoorstel. Reply 29/6 (#35): distributeurprijs + voorwaarden + ARGOS-prijs op papier gevraagd. **Nudge 7/7 (#42)**: + eventinzet-tarief (G1+ARGOS+operator of korte huur aan ons) + levertijd NL bij order in augustus (event-ready 30/9?). |
+| **RobotShop EU** | Nathy (marketplace@robotshop.com, ticket T1121128) | ✅ Offerte + vragen beantwoord (25/6) | **Ons** | **U1 €29.925, U2 €34.200** (5% korting, ex btw, EU, 18mnd garantie, t/m 30 juli). Antwoord 25/6: **8% vanaf 3 units**, **45 dagen geldig**, en **geen reseller op Unitree** (mag niet van fabrikant, enkel volumekorting, case-by-case). Transactionele EU-fallback. Geen actie tenzij we bestellen. PDF in docs/leveranciers/ |
+| **PAL Robotics** | Alexandre Saldes (alexandre.sb@pal-robotics.com) | Partner-pad | Ons | **Distributeur-aanvraagformulier ontvangen 26/6** (bijlage). Echte prijzen: TIAGo ~€110k, StockBot ~€30k → duur, niet voor deal 1. Formulier geparkeerd. ⚠️ Niet op de site terugzetten |
+| **NEURA Robotics (DE)** | Kristina Naumoska | ❌ **Afgesloten (2/7)** | — | Kristina sloot netjes af: geen reseller/distributie/lease, uitnodiging om in **2027** terug te komen (dan mogelijk ander commercieel model). Geen actie. |
+| **INGEN (FR)** | Damien Blanc (damien.blanc@ingen-geosciences.com) | ✅ **Offerte gevraagd (7/7)** | **hen** | Franse Unitree-reseller. Damien vroeg 29/6+2/7 welke G1-versie/aantallen (wachtte op óns!). **Beantwoord 7/7 (#41)**: U1+U2-offerte NL, 1 unit nu + prijsindicatie bij 3, partnerprijs Go2 Pro (publiek €3.250 ex btw), + eventinzet-vraag (unit+operator voor 16/7 en 30/9). Prio omhoog: derde EU-prijslijn naast Dario/RobotShop. |
+| **RoboCorpus (BE)** | Jordi Hurssel (+ collega Hamza) | In gesprek | hen | Reply 17/6 (NL): context + reseller-voorwaarden. **Nudge 7/7 (#43)**: eventinzet op partnerbasis (G1+operator, 16/7 en 30/9, dagtarief voor ons) + reseller-voorwaarden herhaald. Wilden Teams; basics eerst op papier |
 | **UBTECH** | Sean Qin | In gesprek | hen | Opent directe lijn (18/6). Reply gestuurd: Walker S2 reseller-prijs (1+3 stuks) gevraagd |
 | **Pollen Robotics (FR)** | Santiago Pavon | Beantwoord | Pollen | Reachy 2-verduidelijking gestuurd |
-| Overige follow-ups | 1X, Terra, Generation Robots, QUADRUPED, INGEN, Leobotics, OrcaRobot | Gemaild | hen | Geen reactie; laten rusten |
+| Overige follow-ups | 1X, Terra, Generation Robots, QUADRUPED, Leobotics, OrcaRobot | Gemaild | hen | Geen reactie; laten rusten |
 
-## ✅ Verstuurd 24 juni (bal ligt bij hen)
-- **NEURA / Kristina** (#31): ons model verhelderd + partner-track/partnerprijs 4NE-1 gevraagd.
-- **RobotShop / Nathy** (#32): volumedrempel + geldigheid + reseller-tegenstrijdigheid uitgevraagd.
-- **Dario / Synergy** (#34): nudge op stilgevallen compliance-antwoorden, VR Expert-deal eraf gekoppeld.
+## ✅ Verstuurd 7 juli (alles vanaf hallo@, geen orders toegezegd, geen klantnamen naar leveranciers)
+- **Tim Swager / BusinessWise** (#39): dagtarieven (R1 €750 / G1 €1.450 incl. operator, excl. btw), locatie + invulling gevraagd, uitsluitsel beschikbaarheid uiterlijk 9/7 beloofd, belaanbod gedaan.
+- **Bart / Van de Beek** (#40): dagverhuur-uitleg (korte periode kan juist), tarieven + 30% vanaf dag 2, roadshow-interesse uitgesproken, 3 vragen gesteld.
+- **Damien / INGEN** (#41): U1+U2-offerte gevraagd (NL levering), 1 unit + indicatie bij 3, partnerprijs Go2 Pro, eventinzet-vraag.
+- **Dario / Synergy** (#42): nudge distributeurprijs/ARGOS + eventinzet-tarief + levertijd bij augustus-order.
+- **Jordi / RoboCorpus** (#43): eventinzet op partnerbasis (16/7 en 30/9) + dagtarief + reseller-voorwaarden herhaald.
+
+## ✅ Verstuurd 29 juni (alles vanaf hallo@botlease.nl, in de juiste thread, geen beloftes/order)
+- **Dario / Synergy** (#35): distributeurprijs + voorwaarden + ARGOS-add-on-prijs op papier gevraagd, GEEN order/volume toegezegd. Bal ligt bij Dario.
+- **NEURA / Kristina** (#36): beleefd geparkeerd, ons model is lease/verhuur (geen co-development via NEURA Gym); deur open voor later.
+- **RobotShop / Nathy** (#37): begrip bevestigd (geen reseller op Unitree, 8% vanaf 3 units, 45 dgn geldig); geen order toegezegd.
+- **INGEN / Damien** (#38): reseller-prijs per mail opgevraagd (G1 EDU + Go2 Pro + voorwaarden) i.p.v. bellen; geen order.
+
+PAL: niets gestuurd, distributeur-formulier geparkeerd (duur + juridisch gevoelig, niet voor deal 1).
+
+## ✅ Verstuurd 24 juni
+- **NEURA / Kristina** (#31): ons model verhelderd + partner-track/partnerprijs 4NE-1 gevraagd. → beantwoord 26/6 (geen reseller, willen tech-partner).
+- **RobotShop / Nathy** (#32): volumedrempel + geldigheid + reseller-tegenstrijdigheid uitgevraagd. → beantwoord 25/6 (8%@3+, 45 dgn, geen reseller).
+- **Dario / Synergy** (#34): nudge op stilgevallen compliance-antwoorden. → beantwoord 25/6 (alles + distributeur-aanbod).
 
 ## ⏸️ ON HOLD (niet versturen)
 - **VR Expert / Dante** (#33): concept klaar en promise-vrij (event-forward, geen prijs/SLA, acrobatiek-grap eruit), maar **Thomas wil nog GEEN contact**. Eerst blokkerende basis (papieren/financier) + concurrent-klant-strategie scherp. Niet versturen tot Thomas het zegt.
