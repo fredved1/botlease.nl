@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BotLease rank bot — weekly LaunchAgent.
+     INSTALL (eenmalig):
+       cp scripts/nl.botlease.rankbot.plist ~/Library/LaunchAgents/
+       launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/nl.botlease.rankbot.plist
+     TEST nu:
+       launchctl kickstart -p gui/$(id -u)/nl.botlease.rankbot
+     UNINSTALL:
+       launchctl bootout gui/$(id -u)/nl.botlease.rankbot
+       rm ~/Library/LaunchAgents/nl.botlease.rankbot.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>nl.botlease.rankbot</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/werk/Documents/Python/botlease.nl/scripts/run_rank_weekly.sh</string>
+    </array>
+
+    <!-- Wekelijks: vrijdag 17:30 (na de news-bot) -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>5</integer>
+        <key>Hour</key>
+        <integer>17</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/werk</string>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/werk/Documents/Python/botlease.nl</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/werk/Documents/Python/botlease.nl/logs/launchd.rank.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/werk/Documents/Python/botlease.nl/logs/launchd.rank.err.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

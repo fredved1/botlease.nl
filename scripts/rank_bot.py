@@ -36,7 +36,7 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 )
-DELAY_SEC = 3.0  # polite delay between queries
+DELAY_SEC = 12.0  # polite delay between queries (DDG HTML rate-limits hard; hoger = minder lege resultaten)
 
 TARGET_DOMAIN = "botlease.nl"
 
@@ -140,7 +140,7 @@ def main():
         return 1
     data = json.loads(SEO_DATA.read_text(encoding="utf-8"))
     keywords = data.get("target_keywords", [])
-    log(f"checking {len(keywords)} keywords against Google.nl")
+    log(f"checking {len(keywords)} keywords via DuckDuckGo HTML (proxy voor rankings)")
 
     ranks: dict[str, dict] = {}
     for i, kw in enumerate(keywords, start=1):
@@ -164,7 +164,7 @@ def main():
     ranked = sum(1 for r in ranks.values() if r["position"] > 0)
     new_check = {
         "date": today,
-        "method": "rank-bot (Google.nl direct scrape, weekly automated)",
+        "method": "rank-bot (DuckDuckGo HTML scrape, weekly automated) — let op: DDG, niet Google; rate-limit kan lege posities geven",
         "notes": f"Automatische weekly check. {ranked}/{len(keywords)} keywords nu in top 30. Volgende run: vrijdag.",
         "ranks": ranks,
     }

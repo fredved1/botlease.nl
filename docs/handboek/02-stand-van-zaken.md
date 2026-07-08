@@ -2,6 +2,12 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-08 (SEO)
+- **SEO-stand:** **#1 op Google/DDG voor "humanoïde robot leasen Nederland" (NL+EN)**; overige zoektermen (huren/event, steden, merk) nog niet in top 30 (deels onbetrouwbaar: scraper wordt geblokkeerd). Site haalt tóch event-leads binnen → vindbaarheid werkt via merk/direct/long-tail.
+- **Rank-bot gerepareerd + eerlijk gemaakt:** bleek **DuckDuckGo** te scrapen maar labelde het als "Google.nl" → rechtgezet. Delay 3s→12s (minder DDG-rate-limit-blokkades). **6 money-keywords toegevoegd** (robot huren event/beurs/evenement/bedrijfsevent, unitree g1 huren, beursstand huren) zodat we de omzet-termen meten (28 keywords totaal).
+- **Wekelijkse meting weer aangezet** (lag stil sinds 19/6): launchd `nl.botlease.rankbot` op de Mac, vrijdag 17:30 (residentieel IP; VPS/datacenter blokkeert DDG harder). Runner `scripts/run_rank_weekly.sh` + plist in `scripts/`.
+- **Actieplan:** `OUTREACH/seo-actieplan-2026-07-08.md`. Echte hefboom = **backlinks** (Thomas: Google Bedrijfsprofiel = gratis quick win + lokale SEO, dan Rocking Robots/directories/partners). On-page kans: event-per-stad/beurs-pagina's (Claude, op verzoek).
+
 ## 2026-07-08 (Kiwa-offerte + Tim-terugval)
 - **Kiwa-offerte VERSTUURD** (als Lisa, taak #47): G1-advies, dagdeel €950 / dag €1.450, R1-alternatief, reiskosten Expo Houten €75, rondgang-voorbehoud. Lead 189 → offerte, bal bij Erik.
 - **Tim-terugval voor morgen klaargezet (taak #56, NIET verstuurd):** net nee met framing "units in buitenland in touw, niet op tijd terug", + goedmaak-aanbod volgend event (dagdeeltarief, reiskosten eraf). Vervangt keuze B (#45, gesloten). **Keuze morgen 9/7:** #44 bevestigen (als partner rond) of #56 net nee.
