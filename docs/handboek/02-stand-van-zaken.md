@@ -2,6 +2,12 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-08 (SEO — event-stadpagina's gebouwd)
+- **4 event-per-stad landingspagina's gebouwd** (on-page kans uit het actieplan): `/robot-huren-evenement/{amsterdam,utrecht,rotterdam,eindhoven}`. Doel: long-tail koopintentie ("robot huren beurs Utrecht" etc.), lage concurrentie.
+- **Werkwijze (belangrijk):** NIET via de generators (die strippen de mobile-patch), maar de bestaande `frontend/robot-huren-evenement.html` gekloond met een eenmalig scriptje (scratchpad, niet in `scripts/`) dat per stad alleen unieke content vervangt. Elke pagina heeft eigen title/meta/canonical/OG, eigen JSON-LD (Service areaServed=City, breadcrumb met stad-niveau, extra stad-FAQ in FAQPage), eigen H1/intro, een echte **"Populaire beurs- en eventlocaties in <stad>"**-sectie met genoemde venues (RAI/Jaarbeurs/Ahoy/Evoluon etc.) en een stad-specifieke FAQ → echte locatiepagina's, geen doorway-duplicaten. Mobile-patch + hamburger bewezen intact, 4/4 JSON-LD-blokken gevalideerd.
+- **Interne links:** hub-pagina kreeg een "Robot huren per stad"-blok (in-place edit, patch intact); elke stadpagina linkt terug naar de hub (breadcrumb + prijsnoot) en naar `/huren`. **Sitemap:** 4 URL's toegevoegd (priority 0.8), event-hub lastmod ge-refreshed.
+- Reiskosten overal correct: excl. btw en reiskosten (vooraf in offerte), plus per stad de reisafstand vanuit Amsterdam benoemd (Amsterdam = thuisbasis, laagste kosten).
+
 ## 2026-07-08 (SEO)
 - **SEO-stand:** **#1 op Google/DDG voor "humanoïde robot leasen Nederland" (NL+EN)**; overige zoektermen (huren/event, steden, merk) nog niet in top 30 (deels onbetrouwbaar: scraper wordt geblokkeerd). Site haalt tóch event-leads binnen → vindbaarheid werkt via merk/direct/long-tail.
 - **Rank-bot gerepareerd + eerlijk gemaakt:** bleek **DuckDuckGo** te scrapen maar labelde het als "Google.nl" → rechtgezet. Delay 3s→12s (minder DDG-rate-limit-blokkades). **6 money-keywords toegevoegd** (robot huren event/beurs/evenement/bedrijfsevent, unitree g1 huren, beursstand huren) zodat we de omzet-termen meten (28 keywords totaal).
