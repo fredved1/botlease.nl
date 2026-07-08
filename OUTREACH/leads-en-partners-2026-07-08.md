@@ -1,14 +1,16 @@
 # Leads + partner-opties + bots die we nodig hebben (8 juli 2026)
 
-## 1. Alle actieve klant-leads met datum
+## 1. Alle actieve klant-leads met datum + welke bot
 
-| Klant | Event / datum | Wat | Model-advies | Status |
-|---|---|---|---|---|
-| **BusinessWise / DPG (Tim Swager)** | **do 16 juli 2026**, 16:00-17:00 | Entree-ontvangst, 1 uur | G1 (dagdeel) of R1 | Prijzen gemaild 7/7, uitsluitsel beloofd uiterlijk 9/7. ⚠️ Geen eigen unit → partner nodig |
-| **Kiwa (Erik Steegman)** | **wo 11 nov 2026**, hele dag of 11-15u | Beurs "Daken en Zaken", Expo Houten: blikvanger + rondgang + foto's + begroeten | **G1** (geadviseerd) | Offerte-concept klaar (#47), wacht op go. Ruim haalbaar met eigen unit |
-| **Van de Beek Advies (Bart)** | **wo 30 sept 2026** | Agri & Food-kennissessie, 1+ humanoids, korte periode. Plus roadshow-idee onderwijs | G1 (meerdere?) | Beantwoord 7/7, wacht op zijn antwoord (locatie/aantal/roadshow-omvang) |
-| **VR Expert (Dante)** | geen datum, structureel | Humanoid-verhuur Benelux (G1 EDU) | G1 EDU | On hold tot zakelijke basis rond is |
-| **Atlas Copco (BE)** | geen datum | Industrie-taskforce, verkennend | n.v.t. | On hold |
+| Klant | Event / datum | Wat | Bot die de klant wil | Ons advies | Status |
+|---|---|---|---|---|---|
+| **BusinessWise / DPG (Tim Swager)** | **do 16 juli 2026**, 16:00-17:00 | Entree-ontvangst, 1 uur | Niet gespecificeerd (open) | **G1** (blikvanger) of R1 (goedkoper) | Prijzen gemaild 7/7, uitsluitsel beloofd uiterlijk 9/7. ⚠️ Geen eigen unit → partner nodig |
+| **Kiwa (Erik Steegman)** | **wo 11 nov 2026**, hele dag of 11-15u | Beurs "Daken en Zaken", Expo Houten: blikvanger + rondgang + foto's + begroeten | **R1 óf G1** (vroeg om uitleg verschil) | **G1** (loopt mee over de paden, valt meer op) | Offerte-concept klaar (#47), wacht op go. Ruim haalbaar met eigen unit |
+| **Van de Beek Advies (Bart)** | **wo 30 sept 2026** | Agri & Food-kennissessie + roadshow-idee onderwijs | **Humanoids, voorkeur uitgesproken**, mogelijk meerdere | **G1** (evt. 2x); R1 als 2e blikvanger | Beantwoord 7/7, wacht op zijn antwoord (locatie/aantal/roadshow-omvang) |
+| **VR Expert (Dante)** | geen datum, structureel | Humanoid-verhuur Benelux | **Unitree G1 EDU** (besteld via site) | G1 EDU (open SDK) | On hold tot zakelijke basis rond is |
+| **Atlas Copco (BE)** | geen datum | Industrie-taskforce, verkennend | Niet gespecificeerd (industrie) | industrieel model, later (bv. Walker S2/H1) | On hold |
+
+**Rode draad:** iedereen wil de **G1** (of laat de keuze aan ons, en dan adviseren wij G1). De R1 komt alleen op als goedkoper alternatief of 2e unit. VR Expert wil specifiek de **G1 EDU**. → **De G1 is de bot om als eerste te bezitten.**
 
 **Tijdlijn eventvraag:** 16 juli (Tim) → 30 sept (Bart) → 11 nov (Kiwa). Alleen 16 juli is te krap voor een eigen unit (levertijd 4-5 wk); 30 sept en 11 nov halen we wél met een eigen bestelling ná handtekening.
 
