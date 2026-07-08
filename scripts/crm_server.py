@@ -402,6 +402,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         path, q = self._path()
+        # Publieke static pagina's (deelbaar zonder key): /p/<bestand>.
+        # De onraadbare bestandsnaam IS het geheim. Bedoeld voor bv. het Ton-overzicht.
+        # Map: /root/botlease-crm/public/<bestand>. Geen auth, wel path-traversal-beveiliging.
+        if path.startswith("/p/"):
+            name = os.path.basename(path[3:])  # strip pad, geen ../ of subdirs
+            if name and not name.startswith("."):
+                fp = os.path.join("/root/botlease-crm/public", name)
+                if os.path.isfile(fp):
+                    ctype = "text/html; charset=utf-8" if name.endswith((".html", ".htm")) else "application/octet-stream"
+                    with open(fp, "rb") as fh:
+                        return self._send(200, fh.read(), ctype)
+            return self._send(404, "<h3>404 - niet gevonden</h3>".encode(), "text/html; charset=utf-8")
         if path in ("/", "/index.html"):
             if not self._authed(q):
                 return self._send(401, "<h3>401 - open de volledige link met ?key=...</h3>".encode(), "text/html; charset=utf-8")
