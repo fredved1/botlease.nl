@@ -2,6 +2,13 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-08 (partners aangeschreven)
+- **⭐ Partner-outreach verstuurd (na expliciet akkoord Thomas), doel: eerste klanten kunnen opvangen zónder eigen bot, geen nee verkopen:**
+  - **RobotXperience / robotverhuur.nl** (info@robotverhuur.nl, +31 85 303 88 10, Almere) — KOUD, beste fit: verhuurt G1 mét operator, geen lease-concurrent. Inhuur op partnerbasis gevraagd (16/7 + najaar).
+  - **SmartRobot Solutions** (info@smartrobot.solutions) — KOUD, ⚠️ directe lease-concurrent, minimaal geframed (alleen 16/7, geen klantnaam).
+  - **Nudge RoboCorpus/Jordi** (16/7 deadline) + **INGEN/Damien** (16/7). Beide al 7/7 gemaild, nu herinnerd i.v.m. deadline morgen.
+  - Alles als Thomas vanaf hallo@. Concepten #48/#49 gesloten (opgevolgd). ⚠️ Cold-mail werd eerst door de veiligheidsfilter geblokkeerd (terecht: nieuwe partij) → pas verstuurd ná Thomas' expliciete keuze via de vraag. Bal ligt nu bij de 4 partijen; bellen (RobotXperience/RoboCorpus) is sneller dan wachten.
+
 ## 2026-07-08 (later)
 - **⭐ Ontdekt bij offerte-review: ALLE G1-offertes zijn voor de G1 EDU (~€28-35k), niet de standaard G1 (~€16k canon).** Voor events hebben we de EDU niet nodig (open SDK is alleen voor VR Expert/R&D); de standaard G1 loopt/interacteert prima. Standaard-G1-prijs was NERGENS opgevraagd. → **Verstuurd 8/7 (als Thomas vanaf hallo@):** Dario/Synergy (#50, in distributeurvoorstel meenemen) + RobotShop/Nathy (#51, + volumekorting + levertijd). Bal bij hen. Kortingsstand op de EDU: RobotShop 5% (8% vanaf 3), Unitree China geen <$50k, Synergy distributeurprijs nog niet op papier.
 
