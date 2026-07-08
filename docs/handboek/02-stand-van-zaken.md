@@ -2,6 +2,9 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-08
+- **9/7-mail aan Tim voorbereid (Thomas verstuurt zelf):** 2 keuze-concepten in de werklijst, beide in de bestaande thread en als Thomas (persona-continuïteit): **#44 KEUZE A** = bevestigen mét dagdeeltarief-correctie (G1 €950 / R1 €495, alleen sturen als partner echt rond is; voorbehoud-zin in de note), **#45 KEUZE B** = eerlijk nee + volgende-event-garantie (dagdeeltarief + reiskosten eraf als goedmaker) + aanbod om zelf rond te bellen (broker). **Concurrent-besluit:** géén warme doorverwijzing naar directe lease/verhuur-concurrenten; hooguit zelf inhuren onder BotLease-vlag of generieke tip, klant blijft van ons. Nog geen reacties van Dario/Damien/Jordi (stand 8/7 ochtend) → vandaag nabellen helpt (Damien: +33 7 81 62 38 77, staat in zijn handtekening).
+
 ## 2026-07-07
 - **⭐ 2 nieuwe klantaanvragen via de site, beide beantwoord (prijzen genoemd, Claude, taken #39/#40):**
   - **BusinessWise (Tim Swager, tim.swager@dpgmedia.nl, 06-21971403):** event do **16 juli 16:00-17:00**, entree-ontvangst. Reply met dagtarieven (R1 €750 / G1 €1.450, incl. operator, excl. btw), locatie + invulling gevraagd. **Beloofd: uiterlijk do 9/7 uitsluitsel over beschikbaarheid** → hangt op leveranciersreacties (zie hieronder). ⚠️ Wij hebben nog geen units; 16 juli kan alleen via een partner. **Thomas: bellen op 06-21971403 versnelt dit.**
