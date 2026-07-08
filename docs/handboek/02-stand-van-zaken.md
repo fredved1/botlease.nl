@@ -2,6 +2,10 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-08 (Kiwa-offerte + Tim-terugval)
+- **Kiwa-offerte VERSTUURD** (als Lisa, taak #47): G1-advies, dagdeel €950 / dag €1.450, R1-alternatief, reiskosten Expo Houten €75, rondgang-voorbehoud. Lead 189 → offerte, bal bij Erik.
+- **Tim-terugval voor morgen klaargezet (taak #56, NIET verstuurd):** net nee met framing "units in buitenland in touw, niet op tijd terug", + goedmaak-aanbod volgend event (dagdeeltarief, reiskosten eraf). Vervangt keuze B (#45, gesloten). **Keuze morgen 9/7:** #44 bevestigen (als partner rond) of #56 net nee.
+
 ## 2026-07-08 (partners aangeschreven)
 - **⭐ Partner-outreach verstuurd (na expliciet akkoord Thomas), doel: eerste klanten kunnen opvangen zónder eigen bot, geen nee verkopen:**
   - **RobotXperience / robotverhuur.nl** (info@robotverhuur.nl, +31 85 303 88 10, Almere) — KOUD, beste fit: verhuurt G1 mét operator, geen lease-concurrent. Inhuur op partnerbasis gevraagd (16/7 + najaar).
