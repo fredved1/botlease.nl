@@ -29,6 +29,9 @@ SSH met root-key werkt. Draait: nginx (crm.botlease.nl, api.heymilo.nl), de CRM,
 - **Persona's (sinds 7/7):** afzender hallo@ = **"Lisa | BotLease"** met handtekening "Lisa, Sales & Planning"; afzender thomas@ = "Thomas Vedder, Oprichter". Override per mail: `{"as":"thomas"}` of `{"as":"lisa"}` in de /api/send-payload. **Niet mid-thread van identiteit wisselen** (lopende leveranciersthreads waar Thomas de afzender is → thomas@ of as=thomas). Thomas haalt de handtekening uit zijn eigen mailprogramma zodat die niet dubbel/strijdig plakt.
 - **Wachtwoorden:** in `/root/botlease-crm/env` (`CRM_SMTP_PASS` = hallo@, thomas@ in `CRM_IMAP_ACCOUNTS`). Nooit in de repo.
 
+### Publieke deelpagina's (`/p/<bestand>`)
+CRM-server serveert static HTML uit `/root/botlease-crm/public/` op `https://crm.botlease.nl/p/<bestand>` **zonder key** (de onraadbare bestandsnaam is het geheim; path-traversal-veilig, geen dotfiles). Bedoeld om HTML te delen zonder claude.ai-login (bv. het Ton-overzicht). **Ton-overzicht (8/7):** `https://crm.botlease.nl/p/overzicht-WbS3HUOES2hK.html` (bevat vertrouwelijke inkoop/marge → alleen de link delen, niet indexeerbaar maar wel raadbaar-als-lek). Verversen: nieuwe HTML naar die file kopiëren. Nieuwe pagina = nieuwe token-bestandsnaam (`python3 -c "import secrets;print(secrets.token_urlsafe(9))"`).
+
 ### Draft-bot (UIT)
 `scripts/draft_bot.py` schrijft automatisch concepten via Claude Code op de VPS — **staat op verzoek uit** (Thomas wil dat ik het via de terminal doe op "update mijn crm"). Heraanzetten: `systemctl enable --now botlease-draft.timer`.
 
