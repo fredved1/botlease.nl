@@ -10,6 +10,7 @@
 | **Atlas Copco — Thomas Christiaensen** | Humanoid-taskforce (BE, industrie). Verkennend. | Hold | Ons | 1-pager klaar (`OUTREACH/send-atlas-onepager.html`); sturen wanneer leverancierslijn rond is |
 | **BusinessWise — Tim Swager** (via DPG Media) | Event **16 juli 16:00-17:00**, entree-ontvangst met humanoid. Tel 06-21971403. | Beantwoord 7/7 (prijzen + vragen, #39) | **Ons** | ⚠️ **Beloofd: uiterlijk do 9/7 uitsluitsel beschikbaarheid.** Wij hebben geen units → kan alleen via partner (Dario/Damien/Jordi gepolst 7/7). Locatie nog onbekend. **Thomas: bellen versnelt.** |
 | **Van de Beek Advies — Bart** | Event **30 sept** (Agri & Food-kennissessie), 1+ humanoids, korte periode; plus **roadshow-idee** langs groene onderwijsinstellingen | Beantwoord 7/7 (dagtarieven + 3 vragen, #40) | hen | Wacht op locatie/dagdeel, aantal robots, roadshow-omvang. 30/9 haalbaar via order (Unitree 4-5wk, order uiterlijk half aug ná getekende klant) of partner. Roadshow = potentieel structurele omzet. |
+| **Kiwa — Erik Steegman** | Event **11 nov 2026, Expo Houten**; R1 of G1, wil uitleg verschillen + beeldmateriaal | Aanvraag 8/7, concept klaar (#46, Lisa) | **Thomas** (versturen) | Concept in werklijst: R1 vs G1 uitleg, dag- en dagdeeltarieven, links naar robotpagina's, 3 vragen (dag/dagdeel, rol, welke beurs). Ruim haalbaar, ook met eigen unit. Kiwa = grote TIC-organisatie, potentieel terugkerende klant. |
 
 ## 🏭 Leveranciers (inkoop)
 
