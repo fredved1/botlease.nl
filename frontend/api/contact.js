@@ -155,12 +155,12 @@ async function sendConfirmation(data) {
       <p style="font-size:15px;line-height:1.6">Bedankt voor je interesse in humanoïde robot leasing via BotLease. We hebben je aanvraag goed ontvangen en nemen binnen <b>4 werkuren</b> contact op via ${escapeHtml(data.email)}.</p>
       <p style="font-size:15px;line-height:1.6">In de tussentijd kun je vrijblijvend rondkijken:</p>
       <ul style="font-size:15px;line-height:1.7">
-        <li><a href="https://botlease.nl/robots" style="color:#f97316">Volledige robotcatalogus</a> — 15 modellen vergeleken</li>
+        <li><a href="https://botlease.nl/robots" style="color:#f97316">Volledige robotcatalogus</a>, 13 modellen vergeleken</li>
         <li><a href="https://botlease.nl/gids/humanoide-robot-leasen" style="color:#f97316">Complete lease-gids</a></li>
         <li><a href="https://botlease.nl/kosten" style="color:#f97316">Bereken je lease-prijs</a></li>
       </ul>
       <p style="font-size:15px;line-height:1.6;margin-top:24px">Vragen tussendoor? Antwoord gewoon op deze e-mail.</p>
-      <p style="font-size:15px;line-height:1.6">— Team BotLease</p>
+      <p style="font-size:15px;line-height:1.6">Groet, Team BotLease</p>
       <hr style="border:none;border-top:1px solid #e4e4e7;margin:24px 0">
       <p style="font-size:12px;color:#71717a">BotLease · Amsterdam · hallo@botlease.nl · botlease.nl</p>
     </div>
@@ -174,7 +174,7 @@ async function sendConfirmation(data) {
     body: JSON.stringify({
       from: RESEND_FROM,
       to: [data.email],
-      subject: 'Bedankt voor je aanvraag — BotLease',
+      subject: 'Bedankt voor je aanvraag, BotLease',
       html,
     }),
   });

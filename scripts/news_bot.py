@@ -544,7 +544,7 @@ SEO-FOCUS (verwerk deze termen NATUURLIJK in titel, intro en H2's waar relevant 
 {seo_focus}
 
 INTERNE LINKS — bouw er minstens 2-3 in waar relevant (markdown link-syntax in HTML <a>-tags):
-- /robots — catalogus 15 modellen
+- /robots — catalogus 13 modellen
 - /gids/humanoide-robot-leasen — pijler-gids
 - /gids/ai-act-machineverordening — EU AI-Act / Machineverordening gids
 - /kosten — prijsstelling

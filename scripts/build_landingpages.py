@@ -497,7 +497,7 @@ def render_city(c: dict) -> str:
     <span class="eyebrow">Aanbevolen modellen voor {escape(c['name'])}</span>
     <h2 style="margin:14px 0 32px">Robotmodellen die hier het meest gevraagd worden.</h2>
     <div class="r-grid">{robots_html}</div>
-    <p style="margin-top:32px"><a href="/robots" style="color:var(--accent-2); text-decoration:underline">Bekijk alle 15 modellen in de volledige catalogus →</a></p>
+    <p style="margin-top:32px"><a href="/robots" style="color:var(--accent-2); text-decoration:underline">Bekijk alle 13 modellen in de volledige catalogus →</a></p>
   </div>
 </section>
 
