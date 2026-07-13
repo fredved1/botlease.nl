@@ -2,6 +2,11 @@
 
 > ⭐ Dit is het belangrijkste bestand om bij te houden. Nieuwste update bovenaan. Datum + wat + door wie.
 
+## 2026-07-13 (⭐ afspraak met Richard ingepland: di 14/7 10:00 online)
+- **⭐ Kennismaking/koffie met Richard (SmartRobot) staat: dinsdag 14 juli, 10:00, ONLINE.** Verloop: Richard stelde di 9-10u Nijmegen of online voor (12/7) → wij: online + lukt 10:30? (taak #61) → Richard: 10 of 13 uur? (13/7 13:59) → wij bevestigd **10:00 online** (taak #62, als Thomas vanaf hallo@). Beide replies netjes in de thread (lead 226 resp. 233).
+- ⚠️ **Open actie vóór morgen 10:00: Google Meet-link maken + naar Richard sturen.** Wij hebben toegezegd dat WIJ de link sturen (Richard leverde er zelf geen). Claude kan geen Meet-link genereren (geen agenda-toegang) → Thomas maakt 'm via meet.google.com of koppelt agenda, dan zet Claude 'm in een kort mailtje.
+- **Doel van het gesprek (zie 09/07-notitie): het model scherpkrijgen** — broker (klant blijft van ONS, hij voert uit tegen commissie/marge = wat we willen) vs lead-gen (klant naar hem, wij fee). Wie factureert de klant, wie is contracthouder. Niet dichttimmeren per mail; aan tafel beslissen.
+
 ## 2026-07-10 (⭐ Richard zegt JA op samenwerking + inbox-ronde)
 - **⭐ Richard/SmartRobot zei JA op de samenwerking** (mail 9/7 avond): *"zeker willen we de uitvoering van je overnemen met commissie en kunnen we zo samenwerken"* + wil koffie, vraagt wanneer het schikt. ⚠️ **Zijn formulering is dubbel te lezen:** broker (klant blijft van ONS, hij voert uit tegen commissie/marge = wat we willen) OF lead-gen (klant naar hem, wij een fee = klant weggeven). **Dit MOET aan de koffietafel scherp: wie factureert de klant, wie is contracthouder.** Niet per mail dichttimmeren.
 - Richard bevestigt onze eigen strategie gratis: **lease van humanoids is nu te complex** (ze kunnen nog weinig, secondary development nodig, verzekering bij schade op de werkvloer lastig) → onderstreept: begin bij events/verhuur, lease later.
