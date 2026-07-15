@@ -543,8 +543,8 @@ def render_robot(r: dict, related: list) -> str:
         for rel in related[:3]
     )
     waitlist_notice = (
-        '<p style="background:rgba(255,201,102,0.1); border:1px solid rgba(255,201,102,0.3); '
-        'border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">'
+        '<p style="background:rgba(255,201,102,0.1); border:1px solid rgba(255,201,102,0.45); '
+        'border-radius:10px; padding:14px 18px; color:#7a4f00; font-size:14px; margin:18px 0; max-width:520px">'
         '⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. '
         '<a href="#wachtlijst" style="color:#7a4f00; font-weight:600; text-decoration:underline">Reserveer plek op wachtlijst</a> - '
         'BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>'
