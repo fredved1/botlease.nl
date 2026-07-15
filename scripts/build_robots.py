@@ -566,7 +566,7 @@ def render_robot(r: dict, related: list) -> str:
     )
     tldr_html = f"""<section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0">
   <div class="container">
-    <div style="max-width:840px">
+    <div style="max-width:620px">
       <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
         <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} - humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
@@ -643,6 +643,11 @@ def render_robot(r: dict, related: list) -> str:
 </section>
 <style>
   @media (min-width: 880px) {{ .waitlist-grid {{ grid-template-columns: 1fr 1fr !important; gap: 64px !important; align-items: start; }} }}
+/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+details p { max-width:600px; }
+.hub-hero p { max-width:600px; }
 </style>"""
 
     # Voor waitlist-robots: eigen prijssectie met "Reserveer plek" CTA (geen aanvraag-form)
@@ -878,7 +883,7 @@ def render_robot(r: dict, related: list) -> str:
     <div class="section-eyebrow">Veelgestelde vragen</div>
     <h2>{escape(r['name'])} - vraag &amp; antwoord.</h2>
     <div style="max-width:820px; margin-top:24px">
-      {"".join(f'<details style="border-top:1px solid var(--border); padding:0"><summary style="cursor:pointer; list-style:none; padding:20px 6px; font-size:17px; font-weight:500; letter-spacing:-0.01em; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:20px">{escape(f["q"])}<span style="color:var(--ink-3); font-size:22px; font-weight:300">+</span></summary><p style="padding:0 6px 22px; font-size:15.5px; line-height:1.6; color:var(--ink-2); max-width:680px">{escape(f["a"])}</p></details>' for f in faq_for_robot(r))}
+      {"".join(f'<details style="border-top:1px solid var(--border); padding:0"><summary style="cursor:pointer; list-style:none; padding:20px 6px; font-size:17px; font-weight:500; letter-spacing:-0.01em; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:20px">{escape(f["q"])}<span style="color:var(--ink-3); font-size:22px; font-weight:300">+</span></summary><p style="padding:0 6px 22px; font-size:15.5px; line-height:1.6; color:var(--ink-2); max-width:600px">{escape(f["a"])}</p></details>' for f in faq_for_robot(r))}
       <div style="border-top:1px solid var(--border)"></div>
     </div>
   </div>

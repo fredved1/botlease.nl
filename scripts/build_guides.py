@@ -345,7 +345,14 @@ def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<style>{PAGE_CSS}</style>
+<style>{PAGE_CSS}/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+.faq-item p { max-width:600px; }
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+.tldr li, .tldr p { max-width:600px; }
+details p { max-width:600px; }
+.g-hero .tag, .g-hero p { max-width:600px; }
+</style>
 <script type="application/ld+json">{article_jsonld}</script>
 <script type="application/ld+json">{breadcrumb}</script>
 {f'<script type="application/ld+json">{faq_jsonld}</script>' if faq_jsonld else ''}

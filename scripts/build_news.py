@@ -963,7 +963,13 @@ def render_article(a: dict, related: list) -> str:
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<style>{PAGE_CSS}{ARTICLE_CSS}</style>
+<style>{PAGE_CSS}{ARTICLE_CSS}/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+article.full .body aside p, article.full aside p { max-width:540px; }
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+.tldr li, .tldr p { max-width:600px; }
+article.full .body p, article.full .body li { max-width:640px; }
+</style>
 <script type="application/ld+json">{article_jsonld(a)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(a)}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>

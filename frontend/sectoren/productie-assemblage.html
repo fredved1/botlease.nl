@@ -313,6 +313,12 @@ section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bot
 @media (max-width:640px){ .lp-hero h1{font-size:36px;} }
 @media (max-width:900px){ section.body h2{font-size:29px;} }
 @media (max-width:640px){ section.body h2{font-size:25px;} }
+/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+.tldr li, .tldr p { max-width:600px; }
+.qa-item p { max-width:600px; }
+.lp-hero p.intro { max-width:620px; }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Werken humanoids veilig naast onze operators?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, mits ze CE-gemarkeerd zijn met EN ISO 13482 cobot-compliance. NEURA 4NE-1 heeft artificial-skin (detecteert nabijheid voor aanraking), Apptronik Apollo gebruikt force-control. Werkzones worden tijdens de intake gedefinieerd."}}, {"@type": "Question", "name": "Past dit binnen de EU Machineverordening?", "acceptedAnswer": {"@type": "Answer", "text": "De Machineverordening 2023/1230 geldt vanaf 20 jan 2027. EU-gebouwde humanoids (NEURA, Pollen) zijn al voorbereid; bij Amerikaanse/Chinese modellen voert BotLease de conformity assessment uit per deployment."}}, {"@type": "Question", "name": "Hoeveel personeel hebben we nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Eén operator kan 3-5 humanoids beheren in een normale productielijn. De robot vraagt vooral aandacht bij uitzonderingen (gripper-issues, onverwachte onderdelen). Voor 8-uurs shifts: 1 operator per cel."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Sectoren", "item": "https://botlease.nl/sectoren"}, {"@type": "ListItem", "position": 3, "name": "Productie en assemblage", "item": "https://botlease.nl/sectoren/productie-assemblage"}]}</script>

@@ -313,6 +313,12 @@ section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bot
 @media (max-width:640px){ .lp-hero h1{font-size:36px;} }
 @media (max-width:900px){ section.body h2{font-size:29px;} }
 @media (max-width:640px){ section.body h2{font-size:25px;} }
+/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+.tldr li, .tldr p { max-width:600px; }
+.qa-item p { max-width:600px; }
+.lp-hero p.intro { max-width:620px; }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hoe reageren gasten op een robot?", "acceptedAnswer": {"@type": "Answer", "text": "Bij de meeste pilots: positief. 65% van de gasten interacteert vrijwillig binnen 24 uur, 80% rapporteert geen ongemak. Belangrijk: training van personeel om bij te springen wanneer de robot vastloopt - gasten voelen zich snel ongemakkelijk bij een 'kapotte' robot."}}, {"@type": "Question", "name": "Werkt dit in een kleiner hotel of winkel?", "acceptedAnswer": {"@type": "Answer", "text": "Onder 80 kamers (hotels) of 800 m² (retail) is de ROI moeilijk te halen - dan zit je in event-mode of marketing-stunts. Goedkoper alternatief: huur per event in plaats van leasen."}}, {"@type": "Question", "name": "Wat zegt AVG/GDPR over robot-cameras?", "acceptedAnswer": {"@type": "Answer", "text": "Camera-streams blijven on-prem of op EU-cloud (Hetzner FSN). BotLease sluit een DPA per klant en is AI-act compliant als deployer. Gasten worden geïnformeerd via bordjes bij de ingang."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Sectoren", "item": "https://botlease.nl/sectoren"}, {"@type": "ListItem", "position": 3, "name": "Hospitality en retail", "item": "https://botlease.nl/sectoren/hospitality-retail"}]}</script>

@@ -221,7 +221,13 @@ def render_sector(s: dict) -> str:
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<style>{PAGE_CSS}</style>
+<style>{PAGE_CSS}/* leesbaarheid: prozaregels begrensd (de-slop, live-engine mat >85 tekens/regel) */
+section.body p, section.body li { max-width:600px; }
+section.body .cta-strip p, .cta-strip p { max-width:560px; margin-left:auto; margin-right:auto; }
+details p { max-width:600px; }
+.qa-item p { max-width:600px; }
+.lp-hero p.intro { max-width:620px; }
+</style>
 <script type="application/ld+json">{qa_jsonld}</script>
 <script type="application/ld+json">{bc_jsonld}</script>
 <script type="application/ld+json">{service_jsonld}</script>
