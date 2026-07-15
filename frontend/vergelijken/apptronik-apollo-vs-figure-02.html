@@ -14,9 +14,9 @@
 <meta property="og:url" content="https://botlease.nl/vergelijken/apptronik-apollo-vs-figure-02">
 <meta property="og:image" content="https://botlease.nl/img/robots/apollo-norm.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -77,7 +77,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -86,7 +86,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -140,7 +140,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -220,8 +220,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .g-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .g-hero { padding:110px 0 40px; } }
 .g-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(34px, 4.6vw, 56px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:52px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .g-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.5; }
@@ -230,7 +230,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--accent-soft); border:1px solid var(--accent-line);
   border-radius:18px; padding:32px 36px; margin:40px 0;
 }
-.tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Inter'; }
+.tldr h2, .tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Hanken Grotesk'; }
 .tldr ul { list-style:none; padding:0; }
 .tldr li {
   padding:12px 0 12px 28px; position:relative;
@@ -244,7 +244,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--bg-2); border:1px solid var(--border);
   border-radius:14px; padding:24px 28px; margin:32px 0;
 }
-.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Inter'; font-weight:600; }
+.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Hanken Grotesk'; font-weight:600; }
 .toc ol { padding-left:22px; }
 .toc li { margin-bottom:7px; }
 .toc a { color:var(--ink-2); font-size:14.5px; }
@@ -252,8 +252,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 
 section.body { padding:30px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
   scroll-margin-top:80px;
 }
@@ -273,7 +273,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   padding:24px 28px; border:1px solid var(--border);
   border-radius:14px; margin-bottom:14px; background:var(--bg-card);
 }
-.faq-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.faq-item h3, .faq-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 .faq-item a { color:var(--accent); text-decoration:underline; }
 
@@ -282,17 +282,17 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   border-radius:20px; text-align:center; margin:60px auto; max-width:900px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
 /* Glossary */
 .glossary-grid { display:grid; gap:14px; max-width:920px; margin:0 auto; }
 .gloss { padding:22px 26px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; }
-.gloss dt { font-family:'Inter'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; letter-spacing:-0.015em; }
+.gloss dt { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; letter-spacing:-0.015em; }
 .gloss dd { color:var(--ink-2); font-size:15px; line-height:1.7; }
 .gloss dd a { color:var(--accent); text-decoration:underline; }
 .alpha-nav {
@@ -303,12 +303,12 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 .alpha-nav .row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
 .alpha-nav a {
   padding:4px 10px; color:var(--ink-2);
-  font-family:'Inter'; font-weight:600; font-size:13px;
+  font-family:'Hanken Grotesk'; font-weight:600; font-size:13px;
   border-radius:6px; transition:background .15s, color .15s;
 }
 .alpha-nav a:hover { background:var(--bg-2); color:var(--ink); }
 .alpha-letter {
-  font-family:'Inter', -apple-system, sans-serif; color:var(--accent);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; color:var(--accent);
   font-size:28px; font-weight:500; margin:32px 0 14px; padding-top:8px;
 }
 .alpha-letter:first-of-type { margin-top:0; }
@@ -322,18 +322,18 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   border-radius:18px; padding:32px;
 }
 .calc-field { margin-bottom:22px; }
-.calc-field label { display:block; font-size:13px; color:var(--ink-2); text-transform:uppercase; letter-spacing:0.08em; font-weight:600; margin-bottom:8px; font-family:'Inter'; }
+.calc-field label { display:block; font-size:13px; color:var(--ink-2); text-transform:uppercase; letter-spacing:0.08em; font-weight:600; margin-bottom:8px; font-family:'Hanken Grotesk'; }
 .calc-field select, .calc-field input {
   width:100%; padding:13px 16px;
   background:var(--bg); border:1px solid var(--border);
-  border-radius:8px; color:var(--ink); font-size:15px; font-family:'Inter';
+  border-radius:8px; color:var(--ink); font-size:15px; font-family:'Hanken Grotesk';
 }
 .calc-field select:focus, .calc-field input:focus {
   outline:none; border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-soft);
 }
 .calc-out .vbig {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:48px; letter-spacing:-0.025em;
   color:var(--accent-line); margin-bottom:6px;
 }
@@ -345,7 +345,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .calc-out .vrow:last-child { border-bottom:none; }
 .calc-out .vrow .k { color:var(--ink-2-on-dark); }
-.calc-out .vrow .v { font-family:'Inter'; font-weight:600; color:var(--ink-on-dark); }
+.calc-out .vrow .v { font-family:'Hanken Grotesk'; font-weight:600; color:var(--ink-on-dark); }
 .calc-summary {
   margin-top:24px; padding:18px;
   background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
@@ -365,7 +365,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .cmp-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .cmp-card img { width:64px; height:64px; object-fit:contain; }
-.cmp-card .cmp-title { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.015em; }
+.cmp-card .cmp-title { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.015em; }
 .cmp-card .cmp-sub { color:var(--ink-3); font-size:13px; }
 .cmp-card .cmp-arr { color:var(--accent); font-weight:600; font-size:14px; }
 
@@ -373,7 +373,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 @media (min-width:768px) { .h2h-grid { grid-template-columns:1fr 1fr; } }
 .h2h-card { background:var(--bg-card); border:1px solid var(--border); border-radius:18px; padding:32px; }
 .h2h-card .vendor { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:6px; }
-.h2h-card h3 { font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:26px; margin-bottom:10px; letter-spacing:-0.025em; }
+section.body .h2h-card h2, .h2h-card h2, .h2h-card h3 { font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700; font-size:26px; margin-bottom:10px; letter-spacing:-0.025em; }
 .h2h-card .photo-wrap {
   aspect-ratio:1;
   background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-card) 100%);
@@ -383,14 +383,18 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .h2h-card .photo-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(45% 35% at 50% 50%, var(--accent-soft), transparent 70%); }
 .h2h-card .photo-wrap img { max-height:88%; max-width:88%; width:auto; height:auto; object-fit:contain; position:relative; z-index:2; filter:drop-shadow(0 14px 28px rgba(28,25,23,0.15)); }
-.h2h-card .price { font-family:'Inter', -apple-system, sans-serif; font-size:32px; font-weight:500; color:var(--accent); margin-bottom:14px; letter-spacing:-0.025em; }
+.h2h-card .price { font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-size:32px; font-weight:500; color:var(--accent); margin-bottom:14px; letter-spacing:-0.025em; }
 .h2h-card .specs { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:18px; }
 .h2h-card .specs div { padding:10px 12px; background:var(--bg-2); border:1px solid var(--border); border-radius:8px; font-size:12.5px; }
-.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Inter'; font-size:14px; font-weight:600; }
+.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Hanken Grotesk'; font-size:14px; font-weight:600; }
 .h2h-card .specs div span { color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
 .h2h-card ul { padding-left:18px; margin-bottom:18px; }
 .h2h-card li { color:var(--ink-2); font-size:14px; margin-bottom:6px; line-height:1.55; }
-.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Inter'; font-size:28px; font-weight:600; padding:8px 0; }
+.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Hanken Grotesk'; font-size:28px; font-weight:600; padding:8px 0; }
+@media (max-width:1100px){ .g-hero h1{font-size:44px;} }
+@media (max-width:640px){ .g-hero h1{font-size:35px;} }
+@media (max-width:900px){ section.body h2{font-size:30px;} }
+@media (max-width:640px){ section.body h2{font-size:26px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Vergelijken", "item": "https://botlease.nl/vergelijken"}, {"@type": "ListItem", "position": 3, "name": "Apptronik Apollo vs Figure 02 / 03", "item": "https://botlease.nl/vergelijken/apptronik-apollo-vs-figure-02"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Apptronik Apollo", "image": "https://botlease.nl/img/robots/apollo-norm.webp", "url": "https://botlease.nl/robots/apptronik-apollo", "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "3499", "url": "https://botlease.nl/robots/apptronik-apollo"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Figure 02 / 03", "image": "https://botlease.nl/img/robots/figure02-norm.webp", "url": "https://botlease.nl/robots/figure-02", "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "3899", "url": "https://botlease.nl/robots/figure-02"}}}]}</script>
@@ -440,8 +444,8 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -451,7 +455,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -557,7 +561,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <div class="h2h-grid">
       <div class="h2h-card">
           <div class="vendor">Apptronik · Verenigde Staten</div>
-          <h3>Apptronik Apollo</h3>
+          <h2>Apptronik Apollo</h2>
           <div class="photo-wrap"><img src="/img/robots/apollo-norm.webp" alt="Apptronik Apollo robot foto" loading="lazy"></div>
           <div class="price">€3.499/mnd</div>
           <div class="specs">
@@ -573,7 +577,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
         </div>
       <div class="h2h-card">
           <div class="vendor">Figure AI · Verenigde Staten</div>
-          <h3>Figure 02 / 03</h3>
+          <h2>Figure 02 / 03</h2>
           <div class="photo-wrap"><img src="/img/robots/figure02-norm.webp" alt="Figure 02 / 03 robot foto" loading="lazy"></div>
           <div class="price">€3.899/mnd</div>
           <div class="specs">
@@ -597,7 +601,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       <p style="color:var(--ink-2); font-size:15.5px; line-height:1.65; margin-bottom:18px">Alle harde cijfers naast elkaar. Voor uitgebreide motivering per spec en third-party benchmarks: zie de detail-pagina's onderaan.</p>
       <table style="width:100%; border-collapse:collapse; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-top:6px">
         <thead><tr style="background:var(--bg-2)">
-          <th style="text-align:left; padding:12px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Specificatie</th>
+          <th style="text-align:left; padding:12px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Specificatie</th>
           <th style="text-align:left; padding:12px 14px; font-size:13px; color:var(--ink); font-weight:600">Apptronik Apollo</th>
           <th style="text-align:left; padding:12px 14px; font-size:13px; color:var(--ink); font-weight:600">Figure 02 / 03</th>
         </tr></thead>

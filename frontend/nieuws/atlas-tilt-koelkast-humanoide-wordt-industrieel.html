@@ -29,9 +29,9 @@
 <meta name="twitter:image" content="https://botlease.nl/img/robots/neo-norm.webp">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="https://botlease.nl/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -92,7 +92,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -101,7 +101,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -155,7 +155,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -245,7 +245,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .hero-banner-pattern { display:none; }
 .hero-banner-label {
   position:absolute; top:18px; left:20px;
-  font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
+  font-family:'Hanken Grotesk',sans-serif; font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:0.1em;
   color:var(--accent-deep);
   padding:4px 12px; background:var(--bg-card);
@@ -262,13 +262,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
-  font-family:'Inter'; color:var(--accent-deep);
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
   font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.full h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(34px, 4.5vw, 56px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
@@ -280,21 +280,20 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 .tldr {
   position:relative;
   background:var(--accent-soft);
-  border-left:4px solid var(--accent);
-  border-radius:0 12px 12px 0;
-  padding:22px 28px 22px 28px;
+  border-radius:12px;
+  padding:22px 28px;
   margin:0 0 36px;
 }
 .tldr-label {
   display:inline-block;
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:11px; font-weight:700;
   letter-spacing:0.14em; text-transform:uppercase;
   color:var(--accent-deep);
   margin-bottom:8px;
 }
 .tldr p {
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:16.5px !important;
   font-weight:500;
   color:var(--ink) !important;
@@ -305,7 +304,7 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 article.full .body ul { padding-left:24px; }
 article.full .body li { margin-bottom:8px; color:var(--ink); }
 article.full .body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:30px; margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
 }
 article.full .body h3 { font-size:21px; margin:36px 0 14px; }
@@ -315,11 +314,11 @@ article.full .body strong, article.full .body b { color:var(--ink); font-weight:
 article.full blockquote {
   border-left:3px solid var(--accent);
   padding:8px 0 8px 24px; margin:32px 0;
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:22px; color:var(--ink); line-height:1.4;
 }
 .sources { margin-top:64px; padding:32px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; }
-.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Inter'; font-weight:600; }
+.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Hanken Grotesk'; font-weight:600; }
 .sources ol { padding-left:22px; }
 .sources li { color:var(--ink-2); font-size:14.5px; margin-bottom:8px; }
 .sources a { color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); }
@@ -331,14 +330,14 @@ article.full blockquote {
   border-radius:20px; text-align:center;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 .related { margin-top:80px; padding-top:48px; border-top:1px solid var(--border); }
-.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Inter'; font-weight:600; }
+.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Hanken Grotesk'; font-weight:600; }
 .related-grid { display:grid; grid-template-columns:1fr; gap:18px; }
 @media (min-width:640px) { .related-grid { grid-template-columns:1fr 1fr; } }
 .related a {
@@ -348,7 +347,7 @@ article.full blockquote {
 }
 .related a:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .related .cat { font-size:11px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-.related .t { font-family:'Inter'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
+.related .t { font-family:'Hanken Grotesk'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Atlas tilt koelkast: humanoïde wordt industrieel", "description": "Boston Dynamics laat zien hoe reinforcement learning Atlas leert om zware objecten te hanteren met whole-body control, een stap richting echte industriële inzet.", "image": ["https://botlease.nl/img/og/neo-og.jpg", "https://botlease.nl/img/robots/neo-norm.webp"], "datePublished": "2026-05-22T08:00:00+02:00", "dateModified": "2026-05-22T08:00:00+02:00", "author": {"@type": "Person", "name": "Thomas Vedder", "url": "https://botlease.nl/auteur/thomas-vedder", "jobTitle": "Oprichter & redactie", "worksFor": {"@id": "https://botlease.nl/#organization"}}, "publisher": {"@type": "Organization", "name": "BotLease", "logo": {"@type": "ImageObject", "url": "https://botlease.nl/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel"}, "citation": ["https://spectrum.ieee.org/video-friday-humanoid-robot-learning"], "keywords": "Boston Dynamics, Atlas, reinforcement learning, industrie, humanoïde", "articleSection": "R&D", "isAccessibleForFree": true, "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "https://botlease.nl/nieuws"}, {"@type": "ListItem", "position": 3, "name": "Atlas tilt koelkast: humanoïde wordt industrieel", "item": "https://botlease.nl/nieuws/atlas-tilt-koelkast-humanoide-wordt-industrieel"}]}</script>
@@ -619,7 +618,7 @@ article.full blockquote {
       <span class="sep">/</span>
       <span>R&amp;D</span>
     </nav>
-    <div class="hero-banner"><svg class="edart" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="R&amp;D" style="position:absolute;inset:0;width:100%;height:100%;display:block"><defs><linearGradient id="e15708" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101934"/><stop offset="1" stop-color="#0a0e1d"/></linearGradient><radialGradient id="e15708r" cx="0.82" cy="0.12" r="0.95"><stop offset="0" stop-color="#6b8cff" stop-opacity="0.38"/><stop offset="0.62" stop-color="#6b8cff" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="480" fill="url(#e15708)"/><rect width="1200" height="480" fill="url(#e15708r)"/><circle cx="94" cy="206" r="80" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="909" cy="413" r="242" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="931" cy="416" r="281" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><line x1="952" y1="234" x2="916" y2="140" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="952" y1="234" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1113" y1="156" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1113" y1="156" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="916" y1="140" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="916" y1="140" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="558" y1="378" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="558" y1="378" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="185" y1="412" x2="169" y2="350" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="185" y1="412" x2="355" y2="357" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="355" y1="357" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="355" y1="357" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="431" y1="308" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="431" y1="308" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="706" y1="376" x2="558" y2="378" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="706" y1="376" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="433" y1="392" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="433" y1="392" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="437" y1="398" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="437" y1="398" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="169" y1="350" x2="185" y2="412" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="169" y1="350" x2="355" y2="357" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1039" y1="175" x2="1113" y2="156" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1039" y1="175" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><circle cx="952" cy="234" r="17" fill="#6b8cff" fill-opacity="0.10"/><circle cx="952" cy="234" r="8" fill="#6b8cff" fill-opacity="0.9"/><circle cx="1113" cy="156" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="1113" cy="156" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="916" cy="140" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="916" cy="140" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="558" cy="378" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="558" cy="378" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="185" cy="412" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="185" cy="412" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="355" cy="357" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="355" cy="357" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="431" cy="308" r="16" fill="#6b8cff" fill-opacity="0.10"/><circle cx="431" cy="308" r="7" fill="#6b8cff" fill-opacity="0.9"/><circle cx="706" cy="376" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="706" cy="376" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="433" cy="392" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="433" cy="392" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="437" cy="398" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="437" cy="398" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="169" cy="350" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="169" cy="350" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="1039" cy="175" r="17" fill="#6b8cff" fill-opacity="0.10"/><circle cx="1039" cy="175" r="8" fill="#6b8cff" fill-opacity="0.9"/><text x="1156" y="446" text-anchor="end" font-family="Inter,sans-serif" font-size="118" font-weight="800" fill="#aebfff" fill-opacity="0.06">R&amp;</text></svg><span class="hero-banner-label">R&amp;D</span></div>
+    <div class="hero-banner"><svg class="edart" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="R&amp;D" style="position:absolute;inset:0;width:100%;height:100%;display:block"><defs><linearGradient id="e15708" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101934"/><stop offset="1" stop-color="#0a0e1d"/></linearGradient><radialGradient id="e15708r" cx="0.82" cy="0.12" r="0.95"><stop offset="0" stop-color="#6b8cff" stop-opacity="0.38"/><stop offset="0.62" stop-color="#6b8cff" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="480" fill="url(#e15708)"/><rect width="1200" height="480" fill="url(#e15708r)"/><circle cx="94" cy="206" r="80" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="909" cy="413" r="242" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="931" cy="416" r="281" fill="none" stroke="#aebfff" stroke-opacity="0.07" stroke-width="1.5"/><line x1="952" y1="234" x2="916" y2="140" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="952" y1="234" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1113" y1="156" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1113" y1="156" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="916" y1="140" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="916" y1="140" x2="1039" y2="175" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="558" y1="378" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="558" y1="378" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="185" y1="412" x2="169" y2="350" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="185" y1="412" x2="355" y2="357" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="355" y1="357" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="355" y1="357" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="431" y1="308" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="431" y1="308" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="706" y1="376" x2="558" y2="378" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="706" y1="376" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="433" y1="392" x2="437" y2="398" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="433" y1="392" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="437" y1="398" x2="433" y2="392" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="437" y1="398" x2="431" y2="308" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="169" y1="350" x2="185" y2="412" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="169" y1="350" x2="355" y2="357" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1039" y1="175" x2="1113" y2="156" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><line x1="1039" y1="175" x2="952" y2="234" stroke="#6b8cff" stroke-opacity="0.20" stroke-width="1"/><circle cx="952" cy="234" r="17" fill="#6b8cff" fill-opacity="0.10"/><circle cx="952" cy="234" r="8" fill="#6b8cff" fill-opacity="0.9"/><circle cx="1113" cy="156" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="1113" cy="156" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="916" cy="140" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="916" cy="140" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="558" cy="378" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="558" cy="378" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="185" cy="412" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="185" cy="412" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="355" cy="357" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="355" cy="357" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="431" cy="308" r="16" fill="#6b8cff" fill-opacity="0.10"/><circle cx="431" cy="308" r="7" fill="#6b8cff" fill-opacity="0.9"/><circle cx="706" cy="376" r="14" fill="#6b8cff" fill-opacity="0.10"/><circle cx="706" cy="376" r="5" fill="#6b8cff" fill-opacity="0.9"/><circle cx="433" cy="392" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="433" cy="392" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="437" cy="398" r="12" fill="#6b8cff" fill-opacity="0.10"/><circle cx="437" cy="398" r="3" fill="#6b8cff" fill-opacity="0.9"/><circle cx="169" cy="350" r="13" fill="#6b8cff" fill-opacity="0.10"/><circle cx="169" cy="350" r="4" fill="#6b8cff" fill-opacity="0.9"/><circle cx="1039" cy="175" r="17" fill="#6b8cff" fill-opacity="0.10"/><circle cx="1039" cy="175" r="8" fill="#6b8cff" fill-opacity="0.9"/></svg><span class="hero-banner-label">R&amp;D</span></div>
     <article class="full">
       <div class="meta">
         <span class="cat">R&amp;D</span>
@@ -688,7 +687,7 @@ article.full blockquote {
       track('article_internal_click', { slug: slug, target: link.getAttribute('href') });
     });
   });
-  // Scroll depth — fire at 50% + 90%
+  // Scroll depth - fire at 50% + 90%
   var fired50 = false, fired90 = false;
   window.addEventListener('scroll', function() {
     var h = document.documentElement, b = document.body;

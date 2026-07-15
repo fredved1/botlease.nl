@@ -12,6 +12,12 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+raise SystemExit(
+    "VEROUDERD (2026-07, playbook 15): unify_fonts.py zou Inter + Google-Fonts-CDN "
+    "terugzetten. De site is inmiddels self-hosted Hanken Grotesk + Bricolage "
+    "Grotesque (zie scripts/deslop_fonts.py). Niet meer draaien."
+)
+
 ROOT = Path(__file__).resolve().parent.parent
 CANON_LINK = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 

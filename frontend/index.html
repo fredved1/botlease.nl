@@ -28,9 +28,9 @@
 <meta name="twitter:image" content="https://botlease.nl/img/robots/apollo-norm.webp">
 <meta name="theme-color" content="#000000">
 <link rel="preload" as="image" href="/img/hero/hero-robot-1600.webp" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://botlease.nl/#organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.", "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "telephone": "+31623692944", "areaServed": ["NL", "BE", "DE", "LU"], "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"], "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"}, "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"}, "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "telephone": "+31623692944", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "BotLease", "url": "https://botlease.nl", "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Verhuur en operational lease van humanoïde robots", "provider": {"@type": "Organization", "name": "BotLease"}, "areaServed": {"@type": "Country", "name": "Nederland"}, "description": "Humanoïde robots huren of leasen, all-in inclusief gebruiksklare oplevering, onderhoud, swap-SLA en verzekering. Eventverhuur per dag (vanaf €750/dag incl. operator, excl. reiskosten), flexibele maandhuur (vanaf €690/maand) of operational lease over 36 maanden (vanaf €290/maand)."}</script>
@@ -46,7 +46,7 @@
 <style>
 /* ─────────────────────────────────────────────────────────
    BotLease - Apple iPad-style cinematic
-   Inter font · alternating black/white · big typography
+   Hanken Grotesk + Bricolage Grotesque (self-hosted) · alternating black/white · big typography
    ─────────────────────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -63,7 +63,7 @@
   --border-light: #d2d2d7;
   --border-dark:  #424245;
 
-  /* Canonical design-system tokens (scripts/style_base.py) — same values as the
+  /* Canonical design-system tokens (scripts/style_base.py) - same values as the
      --*-light/--*-dark names above, so the homepage speaks one shared vocabulary
      and any canonical component drops in cleanly. See .claude/design/tokens.md. */
   --bg:            #fbfbfd;
@@ -87,7 +87,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg-light);
   color:var(--fg-light);
   font-size:17px; line-height:1.5;
@@ -97,7 +97,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   line-height:1.05;
@@ -177,7 +177,7 @@ nav.top.dark .lang-btn { color:var(--fg-dark); border-color:rgba(255,255,255,0.1
 nav.top.dark .lang-btn:hover { border-color:rgba(255,255,255,0.4); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border-light); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -228,31 +228,29 @@ section.scene.dark .eyebrow { color:var(--accent-2); }
 
 .display {
   font-weight:700;
-  font-size:clamp(36px, 5.6vw, 72px);
+  font-size:68px;
   letter-spacing:-0.035em;
   line-height:1.06;
   max-width:14ch;
   margin:0 auto 18px;
 }
 .display-xl {
-  font-size:clamp(40px, 7vw, 96px);
+  font-size:88px;
   letter-spacing:-0.045em;
 }
+@media (max-width:1100px) { .display { font-size:56px; } .display-xl { font-size:64px; } }
+@media (max-width:900px)  { .display { font-size:46px; } .display-xl { font-size:52px; } }
 .display em {
   font-style:normal;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:var(--accent);
 }
 section.scene.dark .display em {
-  background:linear-gradient(135deg, var(--accent-2), #66c0ff);
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:var(--accent-2);
 }
 
 .subhead {
-  font-size:clamp(19px, 1.6vw, 24px);
-  line-height:1.35;
+  font-size:21px;
+  line-height:1.45;
   font-weight:400;
   color:var(--fg-light);
   max-width:36ch;
@@ -311,13 +309,15 @@ section.scene.hero-compact {
 }
 .hero-compact-copy .eyebrow { margin-bottom:14px; }
 .hero-compact-copy .display {
-  font-size:clamp(34px, 4.6vw, 56px);
+  font-size:54px;
   max-width:none; margin:0 0 18px;
   letter-spacing:-0.03em;
 }
+@media (max-width:1100px) { .hero-compact-copy .display { font-size:46px; } }
+@media (max-width:900px)  { .hero-compact-copy .display { font-size:40px; } }
 .hero-compact-copy .subhead {
   max-width:52ch; margin:0 0 26px;
-  font-size:clamp(17px, 1.3vw, 20px);
+  font-size:19px;
 }
 .hero-compact-ctas { justify-content:flex-start; margin-top:0; }
 .hero-compact-photo {
@@ -332,7 +332,7 @@ section.scene.hero-compact {
 }
 @media (max-width:520px) {
   section.scene.hero-compact { padding:48px 0 32px; }
-  .hero-compact-copy .display { font-size:clamp(30px, 8vw, 42px); }
+  .hero-compact-copy .display { font-size:32px; }
   .hero-compact-photo { max-width:280px; margin-top:8px; }
 }
 
@@ -363,8 +363,9 @@ section.scene.hero-compact {
   margin-bottom:6px;
 }
 .tile.dark .tile-eyebrow { color:var(--fg-dark-2); }
+
 .tile h3 {
-  font-size:clamp(22px, 2.2vw, 28px);
+  font-size:26px;
   font-weight:600; letter-spacing:-0.022em;
   line-height:1.12;
   margin-bottom:10px;
@@ -419,7 +420,7 @@ section.scene.hero-compact {
 section.scene:not(.dark) .spec-strip { border-color:rgba(0,0,0,0.1); }
 .spec { text-align:center; padding:0 12px; }
 .spec .v {
-  font-weight:700; font-size:clamp(28px, 3vw, 40px);
+  font-weight:700; font-size:36px;
   letter-spacing:-0.03em; line-height:1; margin-bottom:6px;
 }
 .spec .l { font-size:13px; color:var(--fg-dark-2); }
@@ -475,7 +476,7 @@ section.scene:not(.dark) .step p { color:var(--fg-light-2); }
   transition:transform .2s;
 }
 .faq-item[open] summary::after { content:"−"; }
-.faq-item p { padding:0 6px 22px; font-size:17px; color:var(--fg-light-2); line-height:1.5; }
+.faq-item p { padding:0 6px 22px; font-size:17px; color:var(--fg-light-2); line-height:1.5; max-width:66ch; }
 
 /* Contact form */
 .contact-card {
@@ -536,7 +537,7 @@ section.scene.dark .form-note { color:var(--fg-dark-2); }
   text-transform:uppercase; letter-spacing:0.12em; margin-bottom:10px;
 }
 .about-h {
-  font-size:clamp(24px, 2.6vw, 32px);
+  font-size:30px;
   font-weight:600; letter-spacing:-0.02em; line-height:1.18;
   color:var(--fg-light); max-width:18ch;
 }
@@ -555,8 +556,8 @@ section.scene.dark .form-note { color:var(--fg-dark-2); }
   text-align:center;
 }
 .trust-strip .label {
-  font-size:12px; color:var(--fg-light-2); font-weight:500;
-  text-transform:uppercase; letter-spacing:0.1em;
+  font-size:13px; color:var(--fg-light-2); font-weight:500;
+  letter-spacing:0.01em;
   margin-bottom:18px;
 }
 .trust-row {
@@ -591,7 +592,7 @@ footer {
 }
 @media (min-width:640px) { .foot { grid-template-columns:repeat(2, 1fr); } }
 @media (min-width:980px) { .foot { grid-template-columns:repeat(4, 1fr); padding-inline:40px; } }
-.foot h5 {
+.foot .foot-h {
   font-size:12px; font-weight:600; color:var(--fg-light);
   margin-bottom:14px; letter-spacing:-0.005em;
 }
@@ -615,7 +616,7 @@ footer {
 /* Small */
 @media (max-width:520px) {
   section.scene { padding:64px 0; }
-  .display { font-size:clamp(32px, 9vw, 48px); max-width:100%; }
+  .display { font-size:34px; max-width:100%; } .display-xl { font-size:38px; }
   .subhead { font-size:18px; }
   .tile { min-height:320px; }
   .tile p { margin-right:0; }
@@ -661,8 +662,8 @@ footer {
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -672,7 +673,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -859,7 +860,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       <a href="/robots/pollen-reachy-2" class="tile light">
         <div class="tile-eyebrow">Pollen Robotics · Frankrijk</div>
         <h3>Reachy 2</h3>
-        <p>Open-source humanoid van Hugging Face. EU-gebouwd, ROS-native — favoriet bij R&amp;D-teams, universiteiten en AI-labs.</p>
+        <p>Open-source humanoid van Hugging Face. EU-gebouwd, ROS-native - favoriet bij R&amp;D-teams, universiteiten en AI-labs.</p>
         <div class="tile-tags">
           <span class="tile-tag">R&amp;D</span><span class="tile-tag">Open-source</span><span class="tile-tag">EU-gebouwd</span>
         </div>
@@ -893,7 +894,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 <section class="scene" style="padding-block:80px">
   <div class="container">
     <div class="eyebrow reveal">Veelgestelde vragen</div>
-    <h2 class="display reveal" style="font-size:clamp(32px,4vw,52px); max-width:18ch">Vraag &amp; antwoord.</h2>
+    <h2 class="display reveal" style="font-size:48px; max-width:18ch">Vraag &amp; antwoord.</h2>
     <div class="faq reveal">
       <details class="faq-item"><summary>Hoe veilig is een humanoïde robot op de werkvloer?</summary><p>Elke deployment voldoet aan de Machinerichtlijn 2006/42/EG (vanaf 2027 de Machineverordening EU 2023/1230) en ISO 10218 / EN ISO 13482. Wij verzorgen de CE- en importeurskant: we verzamelen en controleren de conformiteitsdocumentatie van de fabrikant. De risicobeoordeling op de werkvloer blijft bij de werkgever. WA-dekking regelen we per inzet.</p></details>
       <details class="faq-item"><summary>Wat als de robot stuk gaat?</summary><p>Bij een storing regelen we een vervangende unit, doorgaans binnen enkele werkdagen (Swap-SLA). Reparatie loopt via de leverancier.</p></details>
@@ -946,7 +947,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       <p style="max-width:240px">Humanoïde robots leasen voor organisaties in Europa. All-in operational lease.</p>
     </div>
     <div>
-      <h5>Robots</h5>
+      <p class="foot-h">Robots</p>
       <ul>
         <li><a href="/robots">Volledige catalogus</a></li>
         <li><a href="/vergelijken">Vergelijken</a></li>
@@ -963,7 +964,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       </ul>
     </div>
     <div>
-      <h5>Sectoren</h5>
+      <p class="foot-h">Sectoren</p>
       <ul>
         <li><a href="/sectoren/3pl-fulfillment">3PL & fulfillment</a></li>
         <li><a href="/sectoren/productie-assemblage">Productie</a></li>
@@ -972,7 +973,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       </ul>
     </div>
     <div>
-      <h5>Bedrijf</h5>
+      <p class="foot-h">Bedrijf</p>
       <ul>
         <li><a href="/over">Over BotLease</a></li>
         <li><a href="/mkb">Voor het MKB</a></li>

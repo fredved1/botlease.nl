@@ -1,12 +1,12 @@
 """Shared design system - Apple.com cinematic stijl.
 
-Inter font, alternerend zwart/wit secties, rounded tiles, Apple pill buttons.
+Hanken Grotesk + Bricolage Grotesque (self-hosted), alternerend zwart/wit secties, rounded tiles, Apple pill buttons.
 Geen mono, geen brutalist grid lines.
 """
 
-FONTS_LINK = """<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">"""
+FONTS_LINK = """<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">"""
 
 BASE_CSS = """
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -68,7 +68,7 @@ BASE_CSS = """
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -77,7 +77,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -131,7 +131,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);

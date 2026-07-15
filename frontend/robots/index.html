@@ -18,9 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://botlease.nl/img/robots/neura-4ne1.webp">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -81,7 +81,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -90,7 +90,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -144,7 +144,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -222,7 +222,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .crumbs .sep { color:var(--ink-4); }
 
 /* Tier badges voor robotpagina's */
-.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Inter'; }
+.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Hanken Grotesk'; }
 .tier-eu      { background:var(--green-soft); color:var(--green); border:1px solid var(--green-line); }
 .tier-value   { background:var(--accent-soft); color:var(--accent-deep); border:1px solid var(--accent-line); }
 .tier-premium { background:var(--blue-soft); color:var(--blue); border:1px solid #bfdbfe; }
@@ -230,13 +230,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .hub-hero { padding:80px 0 40px; }
 @media (min-width:768px) { .hub-hero { padding:110px 0 50px; } }
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 .hub-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(36px, 5vw, 64px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:60px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.05;
 }
 .hub-hero p { color:var(--ink-2); font-size:18px; max-width:720px; line-height:1.55; }
@@ -244,8 +244,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 @media (min-width:768px) { .hub-section { padding:64px 0 80px; } }
 .hub-section .head { margin-bottom:32px; }
 .hub-section h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin-bottom:10px; letter-spacing:-0.025em; line-height:1.1;
 }
 .hub-section p.lede { color:var(--ink-2); font-size:16px; max-width:720px; line-height:1.55; }
@@ -265,7 +265,6 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-card) 100%);
   position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:center;
-  border-bottom:1px solid var(--border);
 }
 .hub-thumb::before {
   content:""; position:absolute; inset:0;
@@ -277,8 +276,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   filter:drop-shadow(0 8px 16px rgba(28,25,23,0.12));
 }
 .hub-card-body { padding:14px 16px 16px; display:flex; flex-direction:column; flex:1; }
-.hub-card .vendor { color:var(--ink-3); font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
-.hub-card h3 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.01em; line-height:1.2; }
+.hub-card .vendor { color:var(--ink-3); font-size:12.5px; letter-spacing:0.01em; font-weight:600; margin-bottom:4px; }
+.hub-card h3 { font-family:'Hanken Grotesk'; font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.01em; line-height:1.2; }
 .hub-card p.tag { color:var(--ink-2); font-size:12.5px; line-height:1.45; margin-bottom:8px; }
 .hub-tags {
   position:absolute; top:10px; left:10px; right:10px; z-index:3;
@@ -295,9 +294,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   white-space:nowrap;
 }
 .hub-card .foot { display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid var(--border); }
-.hub-card .price-mini { font-family:'Inter'; font-weight:600; font-size:14px; color:var(--ink); }
+.hub-card .price-mini { font-family:'Hanken Grotesk'; font-weight:600; font-size:14px; color:var(--ink); }
 .hub-card .price-mini .per { color:var(--ink-3); font-size:11px; font-weight:400; }
 .hub-card .arr { color:var(--accent); font-weight:600; font-size:12.5px; }
+@media (max-width:1100px){ .hub-hero h1{font-size:48px;} }
+@media (max-width:640px){ .hub-hero h1{font-size:37px;} }
+@media (max-width:900px){ .hub-section h2{font-size:30px;} }
+@media (max-width:640px){ .hub-section h2{font-size:26px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "BotLease robot catalogus - humanoïde robots voor lease in Nederland", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://botlease.nl/robots/neura-4ne1-mini", "name": "NEURA 4NE-1 Mini"}, {"@type": "ListItem", "position": 2, "url": "https://botlease.nl/robots/neura-4ne1-gen3", "name": "NEURA 4NE-1 Gen 3.5"}, {"@type": "ListItem", "position": 3, "url": "https://botlease.nl/robots/pollen-reachy-2", "name": "Pollen Reachy 2"}, {"@type": "ListItem", "position": 4, "url": "https://botlease.nl/robots/unitree-r1", "name": "Unitree R1"}, {"@type": "ListItem", "position": 5, "url": "https://botlease.nl/robots/unitree-g1", "name": "Unitree G1"}, {"@type": "ListItem", "position": 6, "url": "https://botlease.nl/robots/unitree-h1-2", "name": "Unitree H1-2"}, {"@type": "ListItem", "position": 7, "url": "https://botlease.nl/robots/unitree-h2", "name": "Unitree H2"}, {"@type": "ListItem", "position": 8, "url": "https://botlease.nl/robots/engineai-se01", "name": "EngineAI SE01"}, {"@type": "ListItem", "position": 9, "url": "https://botlease.nl/robots/ubtech-walker-s2", "name": "UBTECH Walker S2"}, {"@type": "ListItem", "position": 10, "url": "https://botlease.nl/robots/apptronik-apollo", "name": "Apptronik Apollo"}, {"@type": "ListItem", "position": 11, "url": "https://botlease.nl/robots/figure-02", "name": "Figure 02 / 03"}, {"@type": "ListItem", "position": 12, "url": "https://botlease.nl/robots/agility-digit", "name": "Agility Digit v4"}, {"@type": "ListItem", "position": 13, "url": "https://botlease.nl/robots/1x-neo", "name": "1X NEO"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://botlease.nl/#organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.", "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"], "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"}, "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"}, "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]}}</script>
@@ -305,8 +308,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -316,7 +319,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -413,7 +416,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <div class="eyebrow">Catalogus 2026</div>
     <h1>Humanoïde robots leasen in Nederland.</h1>
     <p>13 modellen vergeleken, gerangschikt naar leverbaarheid. EU-gebouwde robots (NEURA, Pollen) eerst - voor de kortste supply chain en EU AI-Act compliance vanaf dag 1. Daarna Aziatische value-modellen, en de wachtlijst voor 2027.</p>
-    <p style="color:var(--ink-2);font-size:15px;margin-top:10px">Op zoek naar de <a href="/robots/tesla-optimus" style="color:var(--accent)">Tesla Optimus</a>? Die is nog niet leverbaar voor derden — lees waarom en bekijk de leverbare alternatieven.</p>
+    <p style="color:var(--ink-2);font-size:15px;margin-top:10px">Op zoek naar de <a href="/robots/tesla-optimus" style="color:var(--accent)">Tesla Optimus</a>? Die is nog niet leverbaar voor derden - lees waarom en bekijk de leverbare alternatieven.</p>
   </div>
 </section>
 

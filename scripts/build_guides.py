@@ -31,17 +31,19 @@ PAGE_CSS = BASE_CSS + """
 .g-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .g-hero { padding:110px 0 40px; } }
 .g-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(34px, 4.6vw, 56px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:52px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
+@media (max-width:1100px){ .g-hero h1{font-size:44px;} }
+@media (max-width:640px){ .g-hero h1{font-size:35px;} }
 .g-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.5; }
 
 .tldr {
   background:var(--accent-soft); border:1px solid var(--accent-line);
   border-radius:18px; padding:32px 36px; margin:40px 0;
 }
-.tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Inter'; }
+.tldr h2, .tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Hanken Grotesk'; }
 .tldr ul { list-style:none; padding:0; }
 .tldr li {
   padding:12px 0 12px 28px; position:relative;
@@ -55,7 +57,7 @@ PAGE_CSS = BASE_CSS + """
   background:var(--bg-2); border:1px solid var(--border);
   border-radius:14px; padding:24px 28px; margin:32px 0;
 }
-.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Inter'; font-weight:600; }
+.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Hanken Grotesk'; font-weight:600; }
 .toc ol { padding-left:22px; }
 .toc li { margin-bottom:7px; }
 .toc a { color:var(--ink-2); font-size:14.5px; }
@@ -63,11 +65,13 @@ PAGE_CSS = BASE_CSS + """
 
 section.body { padding:30px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
   scroll-margin-top:80px;
 }
+@media (max-width:900px){ section.body h2{font-size:30px;} }
+@media (max-width:640px){ section.body h2{font-size:26px;} }
 section.body p, section.body ul, section.body ol { font-size:17px; color:var(--ink); line-height:1.78; margin-bottom:18px; }
 section.body ul, section.body ol { padding-left:24px; }
 section.body li { margin-bottom:8px; }
@@ -84,7 +88,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   padding:24px 28px; border:1px solid var(--border);
   border-radius:14px; margin-bottom:14px; background:var(--bg-card);
 }
-.faq-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.faq-item h3, .faq-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 .faq-item a { color:var(--accent); text-decoration:underline; }
 
@@ -93,17 +97,17 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   border-radius:20px; text-align:center; margin:60px auto; max-width:900px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
 /* Glossary */
 .glossary-grid { display:grid; gap:14px; max-width:920px; margin:0 auto; }
 .gloss { padding:22px 26px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; }
-.gloss dt { font-family:'Inter'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; letter-spacing:-0.015em; }
+.gloss dt { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:6px; letter-spacing:-0.015em; }
 .gloss dd { color:var(--ink-2); font-size:15px; line-height:1.7; }
 .gloss dd a { color:var(--accent); text-decoration:underline; }
 .alpha-nav {
@@ -114,12 +118,12 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 .alpha-nav .row { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
 .alpha-nav a {
   padding:4px 10px; color:var(--ink-2);
-  font-family:'Inter'; font-weight:600; font-size:13px;
+  font-family:'Hanken Grotesk'; font-weight:600; font-size:13px;
   border-radius:6px; transition:background .15s, color .15s;
 }
 .alpha-nav a:hover { background:var(--bg-2); color:var(--ink); }
 .alpha-letter {
-  font-family:'Inter', -apple-system, sans-serif; color:var(--accent);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; color:var(--accent);
   font-size:28px; font-weight:500; margin:32px 0 14px; padding-top:8px;
 }
 .alpha-letter:first-of-type { margin-top:0; }
@@ -133,18 +137,18 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
   border-radius:18px; padding:32px;
 }
 .calc-field { margin-bottom:22px; }
-.calc-field label { display:block; font-size:13px; color:var(--ink-2); text-transform:uppercase; letter-spacing:0.08em; font-weight:600; margin-bottom:8px; font-family:'Inter'; }
+.calc-field label { display:block; font-size:13px; color:var(--ink-2); text-transform:uppercase; letter-spacing:0.08em; font-weight:600; margin-bottom:8px; font-family:'Hanken Grotesk'; }
 .calc-field select, .calc-field input {
   width:100%; padding:13px 16px;
   background:var(--bg); border:1px solid var(--border);
-  border-radius:8px; color:var(--ink); font-size:15px; font-family:'Inter';
+  border-radius:8px; color:var(--ink); font-size:15px; font-family:'Hanken Grotesk';
 }
 .calc-field select:focus, .calc-field input:focus {
   outline:none; border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-soft);
 }
 .calc-out .vbig {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:48px; letter-spacing:-0.025em;
   color:var(--accent-line); margin-bottom:6px;
 }
@@ -156,7 +160,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .calc-out .vrow:last-child { border-bottom:none; }
 .calc-out .vrow .k { color:var(--ink-2-on-dark); }
-.calc-out .vrow .v { font-family:'Inter'; font-weight:600; color:var(--ink-on-dark); }
+.calc-out .vrow .v { font-family:'Hanken Grotesk'; font-weight:600; color:var(--ink-on-dark); }
 .calc-summary {
   margin-top:24px; padding:18px;
   background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
@@ -176,7 +180,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .cmp-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .cmp-card img { width:64px; height:64px; object-fit:contain; }
-.cmp-card .cmp-title { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.015em; }
+.cmp-card .cmp-title { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.015em; }
 .cmp-card .cmp-sub { color:var(--ink-3); font-size:13px; }
 .cmp-card .cmp-arr { color:var(--accent); font-weight:600; font-size:14px; }
 
@@ -184,7 +188,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 @media (min-width:768px) { .h2h-grid { grid-template-columns:1fr 1fr; } }
 .h2h-card { background:var(--bg-card); border:1px solid var(--border); border-radius:18px; padding:32px; }
 .h2h-card .vendor { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:6px; }
-.h2h-card h3 { font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:26px; margin-bottom:10px; letter-spacing:-0.025em; }
+section.body .h2h-card h2, .h2h-card h2, .h2h-card h3 { font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700; font-size:26px; margin-bottom:10px; letter-spacing:-0.025em; }
 .h2h-card .photo-wrap {
   aspect-ratio:1;
   background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-card) 100%);
@@ -194,14 +198,14 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 }
 .h2h-card .photo-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(45% 35% at 50% 50%, var(--accent-soft), transparent 70%); }
 .h2h-card .photo-wrap img { max-height:88%; max-width:88%; width:auto; height:auto; object-fit:contain; position:relative; z-index:2; filter:drop-shadow(0 14px 28px rgba(28,25,23,0.15)); }
-.h2h-card .price { font-family:'Inter', -apple-system, sans-serif; font-size:32px; font-weight:500; color:var(--accent); margin-bottom:14px; letter-spacing:-0.025em; }
+.h2h-card .price { font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-size:32px; font-weight:500; color:var(--accent); margin-bottom:14px; letter-spacing:-0.025em; }
 .h2h-card .specs { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:18px; }
 .h2h-card .specs div { padding:10px 12px; background:var(--bg-2); border:1px solid var(--border); border-radius:8px; font-size:12.5px; }
-.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Inter'; font-size:14px; font-weight:600; }
+.h2h-card .specs div b { display:block; color:var(--ink); font-family:'Hanken Grotesk'; font-size:14px; font-weight:600; }
 .h2h-card .specs div span { color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
 .h2h-card ul { padding-left:18px; margin-bottom:18px; }
 .h2h-card li { color:var(--ink-2); font-size:14px; margin-bottom:6px; line-height:1.55; }
-.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Inter'; font-size:28px; font-weight:600; padding:8px 0; }
+.h2h-vs { text-align:center; color:var(--ink-3); font-family:'Hanken Grotesk'; font-size:28px; font-weight:600; padding:8px 0; }
 """
 
 # NAV_HTML + FOOTER_HTML komen uit style_base.py
@@ -261,12 +265,12 @@ def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool
     tldr_html = ""
     if g.get("tldr"):
         tldr_items = "".join(f"<li>{p}</li>" for p in g["tldr"])
-        tldr_html = f'<div class="tldr"><h3>TL;DR</h3><ul>{tldr_items}</ul></div>'
+        tldr_html = f'<div class="tldr"><h2>TL;DR</h2><ul>{tldr_items}</ul></div>'
 
     faq_html = ""
     faq_jsonld = ""
     if g.get("faq"):
-        faq_items = "".join(f'<div class="faq-item"><h4>{escape(q)}</h4><p>{a}</p></div>' for q, a in g["faq"])
+        faq_items = "".join(f'<div class="faq-item"><h3>{escape(q)}</h3><p>{a}</p></div>' for q, a in g["faq"])
         faq_html = f'''
 <section class="faq-section">
   <div class="narrow">
@@ -338,9 +342,9 @@ def render_guide(g: dict, og_image: str = "/img/robots/apollo.png", how_to: bool
 <meta name="twitter:description" content="{escape(trim_desc(g['meta_desc']))}">
 <meta name="twitter:image" content="{SITE_URL}{og_image}">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{article_jsonld}</script>
 <script type="application/ld+json">{breadcrumb}</script>
@@ -446,9 +450,9 @@ def render_glossary(g: dict) -> str:
 <meta property="og:url" content="{SITE_URL}/begrippen">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{defined_terms_jsonld}</script>
@@ -545,9 +549,9 @@ def render_simple(g: dict, kind: str = "over") -> str:
 <meta property="og:url" content="{SITE_URL}/{g['slug']}">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 {f'<script type="application/ld+json">{person_jsonld}</script>' if person_jsonld else ''}
@@ -623,9 +627,9 @@ def render_costs(g: dict) -> str:
 <meta property="og:url" content="{SITE_URL}/kosten">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
@@ -798,18 +802,18 @@ def render_comparison_hub() -> str:
     # Editoriale "beste per use-case 2026" picks (data-grounded)
     _rob = {r["slug"]: r for r in ROBOTS}
     PICKS = [
-        ("🥇", "Beste instapmodel", "unitree-r1", "Laagste drempel om te starten — volwaardige bipedal voor demo's, onderzoek en lichte taken."),
+        ("🥇", "Beste instapmodel", "unitree-r1", "Laagste drempel om te starten - volwaardige bipedal voor demo's, onderzoek en lichte taken."),
         ("⚖️", "Beste prijs-kwaliteit allround", "unitree-g1", "Het werkpaard: bewezen, breed inzetbaar voor service en R&D, scherpe maandprijs."),
-        ("🇪🇺", "Beste EU-gebouwd", "neura-4ne1-mini", "In Duitsland gebouwd — kortste levertijd, lokale support en compliance ingebouwd."),
+        ("🇪🇺", "Beste EU-gebouwd", "neura-4ne1-mini", "In Duitsland gebouwd - kortste levertijd, lokale support en compliance ingebouwd."),
         ("📦", "Beste voor logistiek &amp; fulfilment (3PL)", "agility-digit", "Purpose-built voor warehouse: tassen tillen, bins verplaatsen. Draait al bij echte 3PL-pilots."),
-        ("🏭", "Beste voor zware productie", "unitree-h1-2", "Hoogste payload en snelheid in de catalogus — gemaakt voor industrieel tilwerk."),
-        ("🔬", "Beste voor onderzoek &amp; manipulatie", "pollen-reachy-2", "Open-source en EU-gebouwd (Frankrijk) — ideaal voor labs en fijne grijptaken."),
+        ("🏭", "Beste voor zware productie", "unitree-h1-2", "Hoogste payload en snelheid in de catalogus - gemaakt voor industrieel tilwerk."),
+        ("🔬", "Beste voor onderzoek &amp; manipulatie", "pollen-reachy-2", "Open-source en EU-gebouwd (Frankrijk) - ideaal voor labs en fijne grijptaken."),
     ]
     pick_cards = "".join(
         f"""<a href="/robots/{slug}" class="cmp-card">
         <div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-size:30px">{emoji}</div>
         <div>
-          <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); font-weight:700; margin-bottom:3px">{award}</div>
+          <div style="font-size:12.5px; letter-spacing:0.01em; color:var(--ink-3); font-weight:700; margin-bottom:3px">{award}</div>
           <div class="cmp-title">{escape(_rob[slug]['name'])}{' · wachtlijst' if _rob[slug]['tier'] == 'premium' else ''}</div>
           <div class="cmp-sub">{why}</div>
         </div>
@@ -844,7 +848,7 @@ def render_comparison_hub() -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Humanoïde robots vergelijken: 13 modellen naast elkaar (2026) | BotLease</title>
-<meta name="description" content="Vergelijk 15 humanoïde robots op prijs, specs en leverbaarheid in Nederland. Alle leaseprijzen all-in per maand, van €290 tot €6.650. Inclusief onze keuze per use-case.">
+<meta name="description" content="Vergelijk 13 humanoïde robots op prijs, specs en leverbaarheid in Nederland. Alle leaseprijzen all-in per maand, van €290 tot €6.650. Inclusief onze keuze per use-case.">
 <meta name="keywords" content="humanoide robots vergelijken, robot vergelijking, humanoid robot specs prijzen, vergelijk humanoid lease">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{SITE_URL}/vergelijken">
@@ -854,9 +858,9 @@ def render_comparison_hub() -> str:
 <meta property="og:url" content="{SITE_URL}/vergelijken">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{itemlist_jsonld}</script>
@@ -870,8 +874,8 @@ def render_comparison_hub() -> str:
   <div class="container">
     <nav class="crumbs"><a href="/">Home</a><span class="sep">/</span><span>Vergelijken</span></nav>
     <span class="eyebrow">Vergelijken · 2026</span>
-    <h1>Vergelijk 15 humanoïde robots — specs, prijs en leverbaarheid.</h1>
-    <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 13 modellen naast elkaar — specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
+    <h1>Vergelijk 13 humanoïde robots - specs, prijs en leverbaarheid.</h1>
+    <p class="tag">Welke humanoïde robot past bij jouw use-case? Hieronder onze keuze per situatie, gevolgd door alle 13 modellen naast elkaar - specs, prijs en leverbaarheid in Nederland. Alle prijzen all-in per maand.</p>
   </div>
 </section>
 
@@ -879,7 +883,7 @@ def render_comparison_hub() -> str:
   <div class="container">
     <span class="eyebrow">Onze keuze · 2026</span>
     <h2 style="margin:14px 0 10px">Onze keuze per use-case</h2>
-    <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 15 — beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand. Lees ook de volledige ranking: <a href="/beste-humanoide-robots-2026" style="color:var(--accent)">de beste humanoïde robots voor bedrijven (2026) →</a></p>
+    <p class="tag" style="max-width:700px; margin-bottom:28px">Geen enkele humanoïde robot is "de beste" voor álles. Dit is per situatie het sterkste model uit onze catalogus van 13 - beoordeeld op leverbaarheid in Nederland, prijs-kwaliteit en bewezen inzet. Alle prijzen zijn all-in per maand. Lees ook de volledige ranking: <a href="/beste-humanoide-robots-2026" style="color:var(--accent)">de beste humanoïde robots voor bedrijven (2026) →</a></p>
     <div class="cmp-grid">{pick_cards}</div>
     <p style="margin-top:20px; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · 13 modellen, prijzen all-in per maand.</p>
   </div>
@@ -897,12 +901,12 @@ def render_comparison_hub() -> str:
     <span class="eyebrow">Populaire head-to-heads</span>
     <h2 style="margin:14px 0 28px">Direct vergelijken - top 5 vergelijkingen.</h2>
     <div class="cmp-grid">
-      <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · beide €1.295 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €6.650 vs €5.750</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">EU vs US</div><div><div class="cmp-title">NEURA 4NE-1 Gen 3.5 vs Apptronik Apollo</div><div class="cmp-sub">EU-flagship vs US-wachtlijst · €5.950 vs €3.499</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/unitree-r1-vs-engineai-se01" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">R1 vs SE</div><div><div class="cmp-title">Unitree R1 vs EngineAI SE01</div><div class="cmp-sub">Instap demo vs natural gait · €290 vs €1.590</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/apptronik-apollo-vs-figure-02" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">Apollo vs F2</div><div><div class="cmp-title">Apptronik Apollo vs Figure 02</div><div class="cmp-sub">Mercedes-pilot vs BMW-pilot · €3.499 vs €3.899</div></div><div class="cmp-arr">Vergelijk →</div></a>
-      <a href="/vergelijken/humanoid-vs-cobot" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Inter'; font-weight:700; font-size:13px; color:var(--ink-2)">H vs C</div><div><div class="cmp-title">Humanoïde robot vs cobot</div><div class="cmp-sub">Welke automatisering past bij jouw proces? · beslisgids</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-g1-vs-neura-4ne1-mini" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">G1 vs M</div><div><div class="cmp-title">Unitree G1 vs NEURA 4NE-1 Mini</div><div class="cmp-sub">Bestseller vs EU-instap · beide €1.295 per maand</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-h1-2-vs-ubtech-walker-s2" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">H1 vs W2</div><div><div class="cmp-title">Unitree H1-2 vs UBTECH Walker S2</div><div class="cmp-sub">Industrieel value vs auto-industrie · €6.650 vs €5.750</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/neura-4ne1-gen3-vs-apptronik-apollo" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">EU vs US</div><div><div class="cmp-title">NEURA 4NE-1 Gen 3.5 vs Apptronik Apollo</div><div class="cmp-sub">EU-flagship vs US-wachtlijst · €5.950 vs €3.499</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/unitree-r1-vs-engineai-se01" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">R1 vs SE</div><div><div class="cmp-title">Unitree R1 vs EngineAI SE01</div><div class="cmp-sub">Instap demo vs natural gait · €290 vs €1.590</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/apptronik-apollo-vs-figure-02" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">Apollo vs F2</div><div><div class="cmp-title">Apptronik Apollo vs Figure 02</div><div class="cmp-sub">Mercedes-pilot vs BMW-pilot · €3.499 vs €3.899</div></div><div class="cmp-arr">Vergelijk →</div></a>
+      <a href="/vergelijken/humanoid-vs-cobot" class="cmp-card"><div style="width:72px; height:72px; display:flex; align-items:center; justify-content:center; background:var(--bg-3); border-radius:8px; font-family:'Hanken Grotesk'; font-weight:700; font-size:13px; color:var(--ink-2)">H vs C</div><div><div class="cmp-title">Humanoïde robot vs cobot</div><div class="cmp-sub">Welke automatisering past bij jouw proces? · beslisgids</div></div><div class="cmp-arr">Vergelijk →</div></a>
     </div>
   </div>
 </section>
@@ -1092,9 +1096,9 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
 <meta property="og:url" content="{SITE_URL}/vergelijken/{slug}">
 <meta property="og:image" content="{SITE_URL}{a['photo']}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{itemlist_h2h}</script>
@@ -1129,7 +1133,7 @@ def render_h2h(slug_a: str, slug_b: str) -> str:
       <p style="color:var(--ink-2); font-size:15.5px; line-height:1.65; margin-bottom:18px">Alle harde cijfers naast elkaar. Voor uitgebreide motivering per spec en third-party benchmarks: zie de detail-pagina's onderaan.</p>
       <table style="width:100%; border-collapse:collapse; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-top:6px">
         <thead><tr style="background:var(--bg-2)">
-          <th style="text-align:left; padding:12px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Specificatie</th>
+          <th style="text-align:left; padding:12px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Specificatie</th>
           <th style="text-align:left; padding:12px 14px; font-size:13px; color:var(--ink); font-weight:600">{escape(a['name'])}</th>
           <th style="text-align:left; padding:12px 14px; font-size:13px; color:var(--ink); font-weight:600">{escape(b['name'])}</th>
         </tr></thead>
@@ -1194,9 +1198,9 @@ def render_gids_hub() -> str:
 <meta property="og:type" content="website">
 <meta property="og:title" content="BotLease gidsen - humanoïde robot leasing">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
@@ -1279,9 +1283,9 @@ def render_decision_page(slug: str, title: str, h1: str, meta_desc: str, intro: 
 <meta property="og:description" content="{escape(meta_desc)}">
 <meta property="og:url" content="{SITE_URL}/vergelijken/{slug}">
 <meta property="og:image" content="{SITE_URL}/img/hero/hero-robot.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{breadcrumb}</script>
 <script type="application/ld+json">{faq_jsonld}</script>
@@ -1353,7 +1357,7 @@ def build():
             ("De cijfers - €25.000 robot, 36 maanden",
              "<p>Een Unitree G1 kost €16.000 koop, €1.295/mnd lease (€46.620 over 36 maanden). Op het eerste oog dus 2× zo duur leasen. Maar dat is een misleidende vergelijking - die €1.295 omvat dingen die je bij koop nog moet betalen.</p>"
              "<table style='width:100%; border-collapse:collapse; margin:18px 0; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden'>"
-             "<thead><tr style='background:var(--bg-2)'><th style='padding:11px 14px; text-align:left; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Component</th><th style='padding:11px 14px; text-align:right; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Kopen (zelf)</th><th style='padding:11px 14px; text-align:right; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Leasen via BotLease</th></tr></thead>"
+             "<thead><tr style='background:var(--bg-2)'><th style='padding:11px 14px; text-align:left; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Component</th><th style='padding:11px 14px; text-align:right; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Kopen (zelf)</th><th style='padding:11px 14px; text-align:right; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Leasen via BotLease</th></tr></thead>"
              "<tbody>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Aanschaf / lease (36mnd)</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€16.000</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€46.620</td></tr>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Installatie + training</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>€2.500</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); text-align:right; font-size:14px'>incl.</td></tr>"
@@ -1430,7 +1434,7 @@ def build():
              "<p>BotLease werkt samen met cobot-leveranciers waar dat past - geen exclusieve binding aan humanoids. Bij een intake bespreken we eerlijk welke combinatie werkt.</p>"),
             ("Concrete vergelijking - €900/mnd budget",
              "<table style='width:100%; border-collapse:collapse; margin:18px 0; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden'>"
-             "<thead><tr style='background:var(--bg-2)'><th style='padding:11px 14px; text-align:left; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Aspect</th><th style='padding:11px 14px; text-align:left; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>UR5e cobot (~€700/mnd)</th><th style='padding:11px 14px; text-align:left; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Unitree G1 humanoid (€1.295/mnd)</th></tr></thead>"
+             "<thead><tr style='background:var(--bg-2)'><th style='padding:11px 14px; text-align:left; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Aspect</th><th style='padding:11px 14px; text-align:left; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>UR5e cobot (~€700/mnd)</th><th style='padding:11px 14px; text-align:left; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em'>Unitree G1 humanoid (€1.295/mnd)</th></tr></thead>"
              "<tbody>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Mobiliteit</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Statisch</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Loopt 2 m/s</td></tr>"
              "<tr><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>Payload</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>5 kg, sub-mm precisie</td><td style='padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px'>3 kg, menselijke precisie</td></tr>"

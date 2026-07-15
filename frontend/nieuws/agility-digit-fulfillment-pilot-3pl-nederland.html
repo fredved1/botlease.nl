@@ -29,9 +29,9 @@
 <meta name="twitter:image" content="https://botlease.nl/img/robots/digit.jpg">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="https://botlease.nl/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -92,7 +92,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -101,7 +101,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -155,7 +155,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -245,7 +245,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .hero-banner-pattern { display:none; }
 .hero-banner-label {
   position:absolute; top:18px; left:20px;
-  font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
+  font-family:'Hanken Grotesk',sans-serif; font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:0.1em;
   color:var(--accent-deep);
   padding:4px 12px; background:var(--bg-card);
@@ -262,13 +262,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
-  font-family:'Inter'; color:var(--accent-deep);
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
   font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.full h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(34px, 4.5vw, 56px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
@@ -280,21 +280,20 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 .tldr {
   position:relative;
   background:var(--accent-soft);
-  border-left:4px solid var(--accent);
-  border-radius:0 12px 12px 0;
-  padding:22px 28px 22px 28px;
+  border-radius:12px;
+  padding:22px 28px;
   margin:0 0 36px;
 }
 .tldr-label {
   display:inline-block;
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:11px; font-weight:700;
   letter-spacing:0.14em; text-transform:uppercase;
   color:var(--accent-deep);
   margin-bottom:8px;
 }
 .tldr p {
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:16.5px !important;
   font-weight:500;
   color:var(--ink) !important;
@@ -305,7 +304,7 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 article.full .body ul { padding-left:24px; }
 article.full .body li { margin-bottom:8px; color:var(--ink); }
 article.full .body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:30px; margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
 }
 article.full .body h3 { font-size:21px; margin:36px 0 14px; }
@@ -315,11 +314,11 @@ article.full .body strong, article.full .body b { color:var(--ink); font-weight:
 article.full blockquote {
   border-left:3px solid var(--accent);
   padding:8px 0 8px 24px; margin:32px 0;
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:22px; color:var(--ink); line-height:1.4;
 }
 .sources { margin-top:64px; padding:32px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; }
-.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Inter'; font-weight:600; }
+.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Hanken Grotesk'; font-weight:600; }
 .sources ol { padding-left:22px; }
 .sources li { color:var(--ink-2); font-size:14.5px; margin-bottom:8px; }
 .sources a { color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); }
@@ -331,14 +330,14 @@ article.full blockquote {
   border-radius:20px; text-align:center;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 .related { margin-top:80px; padding-top:48px; border-top:1px solid var(--border); }
-.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Inter'; font-weight:600; }
+.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Hanken Grotesk'; font-weight:600; }
 .related-grid { display:grid; grid-template-columns:1fr; gap:18px; }
 @media (min-width:640px) { .related-grid { grid-template-columns:1fr 1fr; } }
 .related a {
@@ -348,7 +347,7 @@ article.full blockquote {
 }
 .related a:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .related .cat { font-size:11px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-.related .t { font-family:'Inter'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
+.related .t { font-family:'Hanken Grotesk'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie", "description": "Wat een Digit v4 in 90 dagen daadwerkelijk doet in een Nederlands 3PL - en wat de cijfers zeggen.", "image": ["https://botlease.nl/img/og/digit-og.jpg", "https://botlease.nl/img/robots/digit.jpg"], "datePublished": "2026-05-08T08:00:00+02:00", "dateModified": "2026-05-08T08:00:00+02:00", "author": {"@type": "Person", "name": "Thomas Vedder", "url": "https://botlease.nl/auteur/thomas-vedder", "jobTitle": "Oprichter & redactie", "worksFor": {"@id": "https://botlease.nl/#organization"}}, "publisher": {"@type": "Organization", "name": "BotLease", "logo": {"@type": "ImageObject", "url": "https://botlease.nl/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland"}, "citation": ["https://agilityrobotics.com/products/digit", "https://www.gxo.com/news/gxo-extends-multi-year-deal-with-agility-robotics/", "https://www.mckinsey.com/industries/logistics/our-insights"], "keywords": "Agility, Digit, 3PL, Fulfillment, ROI, Telemetrie", "articleSection": "Toepassingen", "isAccessibleForFree": true, "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "https://botlease.nl/nieuws"}, {"@type": "ListItem", "position": 3, "name": "Agility Digit in Nederlandse fulfillment: de eerste 90 dagen telemetrie", "item": "https://botlease.nl/nieuws/agility-digit-fulfillment-pilot-3pl-nederland"}]}</script>
@@ -619,7 +618,7 @@ article.full blockquote {
       <span class="sep">/</span>
       <span>Toepassingen</span>
     </nav>
-    <div class="hero-banner"><svg class="edart" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Toepassingen" style="position:absolute;inset:0;width:100%;height:100%;display:block"><defs><linearGradient id="e1809" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1233"/><stop offset="1" stop-color="#0d0a1b"/></linearGradient><radialGradient id="e1809r" cx="0.82" cy="0.12" r="0.95"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.38"/><stop offset="0.62" stop-color="#a78bfa" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="480" fill="url(#e1809)"/><rect width="1200" height="480" fill="url(#e1809r)"/><circle cx="830" cy="354" r="135" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="320" cy="310" r="143" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="951" cy="123" r="135" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="1130" cy="530" r="120" fill="none" stroke="#a78bfa" stroke-opacity="0.30" stroke-width="2"/><circle cx="1130" cy="530" r="212" fill="none" stroke="#a78bfa" stroke-opacity="0.27" stroke-width="2"/><circle cx="1130" cy="530" r="304" fill="none" stroke="#a78bfa" stroke-opacity="0.23" stroke-width="2"/><circle cx="1130" cy="530" r="396" fill="none" stroke="#a78bfa" stroke-opacity="0.19" stroke-width="2"/><circle cx="1130" cy="530" r="488" fill="none" stroke="#a78bfa" stroke-opacity="0.16" stroke-width="2"/><circle cx="1130" cy="530" r="580" fill="none" stroke="#a78bfa" stroke-opacity="0.12" stroke-width="2"/><circle cx="1130" cy="530" r="672" fill="none" stroke="#a78bfa" stroke-opacity="0.09" stroke-width="2"/><circle cx="1130" cy="530" r="764" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="2"/><circle cx="255" cy="72" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="633" cy="233" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="146" cy="88" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="679" cy="433" r="3" fill="#cdbcff" fill-opacity="0.5"/><circle cx="419" cy="57" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="113" cy="292" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="553" cy="374" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="500" cy="417" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="421" cy="114" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="396" cy="150" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="249" cy="220" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="247" cy="251" r="4" fill="#cdbcff" fill-opacity="0.5"/><text x="1156" y="446" text-anchor="end" font-family="Inter,sans-serif" font-size="118" font-weight="800" fill="#cdbcff" fill-opacity="0.06">TO</text></svg><span class="hero-banner-label">Toepassingen</span></div>
+    <div class="hero-banner"><svg class="edart" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Toepassingen" style="position:absolute;inset:0;width:100%;height:100%;display:block"><defs><linearGradient id="e1809" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1233"/><stop offset="1" stop-color="#0d0a1b"/></linearGradient><radialGradient id="e1809r" cx="0.82" cy="0.12" r="0.95"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.38"/><stop offset="0.62" stop-color="#a78bfa" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="480" fill="url(#e1809)"/><rect width="1200" height="480" fill="url(#e1809r)"/><circle cx="830" cy="354" r="135" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="320" cy="310" r="143" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="951" cy="123" r="135" fill="none" stroke="#cdbcff" stroke-opacity="0.07" stroke-width="1.5"/><circle cx="1130" cy="530" r="120" fill="none" stroke="#a78bfa" stroke-opacity="0.30" stroke-width="2"/><circle cx="1130" cy="530" r="212" fill="none" stroke="#a78bfa" stroke-opacity="0.27" stroke-width="2"/><circle cx="1130" cy="530" r="304" fill="none" stroke="#a78bfa" stroke-opacity="0.23" stroke-width="2"/><circle cx="1130" cy="530" r="396" fill="none" stroke="#a78bfa" stroke-opacity="0.19" stroke-width="2"/><circle cx="1130" cy="530" r="488" fill="none" stroke="#a78bfa" stroke-opacity="0.16" stroke-width="2"/><circle cx="1130" cy="530" r="580" fill="none" stroke="#a78bfa" stroke-opacity="0.12" stroke-width="2"/><circle cx="1130" cy="530" r="672" fill="none" stroke="#a78bfa" stroke-opacity="0.09" stroke-width="2"/><circle cx="1130" cy="530" r="764" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="2"/><circle cx="255" cy="72" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="633" cy="233" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="146" cy="88" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="679" cy="433" r="3" fill="#cdbcff" fill-opacity="0.5"/><circle cx="419" cy="57" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="113" cy="292" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="553" cy="374" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="500" cy="417" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="421" cy="114" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="396" cy="150" r="4" fill="#cdbcff" fill-opacity="0.5"/><circle cx="249" cy="220" r="2" fill="#cdbcff" fill-opacity="0.5"/><circle cx="247" cy="251" r="4" fill="#cdbcff" fill-opacity="0.5"/></svg><span class="hero-banner-label">Toepassingen</span></div>
     <article class="full">
       <div class="meta">
         <span class="cat">Toepassingen</span>
@@ -689,7 +688,7 @@ article.full blockquote {
       track('article_internal_click', { slug: slug, target: link.getAttribute('href') });
     });
   });
-  // Scroll depth — fire at 50% + 90%
+  // Scroll depth - fire at 50% + 90%
   var fired50 = false, fired90 = false;
   window.addEventListener('scroll', function() {
     var h = document.documentElement, b = document.body;

@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   background: var(--bg-soft);
   color: var(--fg);
   min-height: 100vh;

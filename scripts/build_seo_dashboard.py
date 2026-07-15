@@ -28,6 +28,15 @@ if ANALYTICS.exists():
         analytics = None
 
 
+def undash(s: str) -> str:
+    """Em-dashes in datagedreven copy -> koppelteken (AI-cadans-tell, playbook 15).
+
+    Placeholders (kale em-dash zonder omliggende tekst) blijven staan; alleen
+    lopende copy uit seo_data.json wordt genormaliseerd.
+    """
+    return s.replace(" — ", " - ").replace("—", "-") if len(s) > 1 else s
+
+
 def fmt_n(n) -> str:
     if not isinstance(n, (int, float)):
         return "—"
@@ -102,7 +111,7 @@ def render_analytics() -> str:
     cvr = (submit / view * 100) if view else 0
 
     return f"""
-<h2>Analytics — Umami</h2>
+<h2>Analytics - Umami</h2>
 <p class="muted" style="margin-top:-8px">Snapshot: {escape(analytics.get('generated_at', '')[:19])}. Live dashboard: <a href="https://analytics.botlease.nl" target="_blank">analytics.botlease.nl</a></p>
 
 <div class="stats">
@@ -112,7 +121,7 @@ def render_analytics() -> str:
   <div class="stat"><div class="label">Sessieduur 7d</div><div class="v">{stat_v(p7, 'totaltime')}s</div><div class="sub">cumulatief</div></div>
 </div>
 
-<h2 style="font-size:15px; border:none; padding-bottom:0; margin-top:32px">Funnel — afgelopen 7 dagen</h2>
+<h2 style="font-size:15px; border:none; padding-bottom:0; margin-top:32px">Funnel - afgelopen 7 dagen</h2>
 <div class="stats">
   <div class="stat"><div class="label">Aanvraag form views</div><div class="v">{view}</div><div class="sub">cta_aanvraag_view</div></div>
   <div class="stat"><div class="label">Aanvraag submits</div><div class="v" style="color:#16a34a">{submit}</div><div class="sub">conversie {cvr:.1f}%</div></div>
@@ -176,7 +185,7 @@ for kw in target_kws:
         elif current > prev:
             trend = f'<span style="color:#dc2626">▼ {current - prev}</span>'
         else:
-            trend = '<span style="color:#a3a3a3">—</span>'
+            trend = '<span style="color:#a3a3a3">–</span>'
     elif prev is None and current:
         trend = '<span style="color:#a3a3a3">nieuw</span>'
 
@@ -187,14 +196,14 @@ for kw in target_kws:
       <td><b>{escape(kw['kw'])}</b><br><span style="color:#737373; font-size:11px">→ <a href="{escape(kw['target_page'])}" style="color:#737373">{escape(kw['target_page'])}</a></span></td>
       <td>{pos_pill(current)}</td>
       <td>{trend}</td>
-      <td style="color:#737373; font-size:12px">{escape(kw['intent'])}</td>
+      <td style="color:#737373; font-size:12px">{escape(undash(kw['intent']))}</td>
     </tr>"""
 
 # Competitors tabel
 comp_html = "".join(
     f'<tr><td><b>{escape(c["domain"])}</b><br><span style="color:#737373; font-size:11px">{escape(c.get("location", "—"))}</span></td>'
     f'<td><span class="pill pill-{ {"high":"bad", "medium":"okay", "low":"good"}.get(c["threat"], "okay") }">{escape(c["threat"])}</span></td>'
-    f'<td style="color:#525252; font-size:12.5px">{escape(c.get("notes", ""))}</td></tr>'
+    f'<td style="color:#525252; font-size:12.5px">{escape(undash(c.get("notes", "")))}</td></tr>'
     for c in competitors
 )
 
@@ -206,12 +215,12 @@ top10 = sum(1 for kw in target_kws if any(0 < c.get("ranks", {}).get(kw["id"], {
 
 # Fixes lijst
 fixes_open_html = "".join(
-    f'<li style="margin-bottom:10px"><b>{escape(f.get("title", ""))}</b><br><span style="color:#737373; font-size:13px">{escape(f.get("notes", ""))}</span></li>'
+    f'<li style="margin-bottom:10px"><b>{escape(undash(f.get("title", "")))}</b><br><span style="color:#737373; font-size:13px">{escape(undash(f.get("notes", "")))}</span></li>'
     for f in fixes_open
-) or '<li style="color:#a3a3a3">Niets open — wel keywords ranken</li>'
+) or '<li style="color:#a3a3a3">Niets open - wel keywords ranken</li>'
 
 fixes_done_html = "".join(
-    f'<li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">{escape(f.get("title", ""))}</s>'
+    f'<li style="margin-bottom:8px; color:#16a34a"><s style="color:#737373">{escape(undash(f.get("title", "")))}</s>'
     f' <span style="color:#16a34a; font-weight:600; font-size:11px">✓ {escape(f.get("date", ""))}</span></li>'
     for f in fixes_done
 ) or '<li style="color:#a3a3a3">Nog niets afgevinkt</li>'
@@ -222,11 +231,12 @@ html = f"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
-<title>SEO Dashboard — BotLease (intern)</title>
+<title>SEO Dashboard - BotLease (intern)</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 body {{
-  font-family: -apple-system, 'Inter', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, sans-serif;
   background: #fafaf9; color: #1c1917;
   font-size: 14px; line-height: 1.5;
   padding: 32px 24px;
@@ -236,7 +246,7 @@ h1 {{
   font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
   margin-bottom: 4px;
 }}
-h2 {{
+h2 {{ font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
   margin: 36px 0 14px;
   padding-bottom: 8px; border-bottom: 1px solid #e7e5e4;
@@ -253,7 +263,7 @@ h2 {{
 }}
 .stat .label {{ color: #737373; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }}
 .stat .v {{ font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; }}
-.stat .sub {{ color: #a3a3a3; font-size: 11px; margin-top: 2px; }}
+.stat .sub {{ color: #6e6e73; font-size: 12px; margin-top: 2px; }}
 table {{
   width: 100%; border-collapse: collapse;
   background: #fff; border: 1px solid #e7e5e4; border-radius: 10px;
@@ -290,16 +300,17 @@ ul li::before {{ content: "□"; position: absolute; left: 0; color: #a3a3a3; fo
 a {{ color: #0066cc; text-decoration: none; }}
 a:hover {{ text-decoration: underline; }}
 code {{ background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12px; }}
-.footnote {{ color: #a3a3a3; font-size: 11px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e7e5e4; }}
+.footnote {{ color: #6e6e73; font-size: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e7e5e4; }}
 </style>
+<!-- impeccable-disable numbered-section-markers -- datums en verificatietokens in intern SEO-rapport zijn data, geen sectiescaffold -->
 </head>
 <body>
 <div class="container">
 
 <h1>SEO Dashboard</h1>
-<p class="muted">Intern overzicht — botlease.nl rankings, fixes en concurrentie. Gegenereerd: {datetime.now().strftime('%d-%m-%Y %H:%M')}.</p>
+<p class="muted">Intern overzicht - botlease.nl rankings, fixes en concurrentie. Gegenereerd: {datetime.now().strftime('%d-%m-%Y %H:%M')}.</p>
 
-<div class="banner" style="background:#fff7ed; border-left:3px solid #f59e0b; color:#7c2d12">
+<div class="banner" style="background:#fff7ed; border:1px solid #f59e0b; color:#7c2d12">
   <strong>Actie vereist: Google re-crawl.</strong> De site is technisch maximaal (73/73 URLs 200, 288 JSON-LD blokken valide, mobile-first, &minus;52% paginagewicht via lazy-loaded Google Translate, IndexNow voor alle 73 URLs, verse sitemap-lastmod, llms.txt met alle pagina's). <b>MAAR:</b> <code>site:botlease.nl</code> toont in Google nog steeds de oude Milo-chatbot-homepage ("AI-assistent in 15 minuten | &euro;49/maand") &mdash; Google heeft de nieuwe humanoid-lease-site nog niet opnieuw gecrawld, waardoor de hele site onzichtbaar is voor de doeltermen.
   <p style="margin-top:10px; font-size:13px"><b>Deblokkeer dit (alleen jij kunt dit):</b> Google Search Console &rarr; property verifi&euml;ren &rarr; homepage URL-inspectie &rarr; "Indexering aanvragen" + sitemap indienen op <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a>. IndexNow bereikt Bing/Yandex w&eacute;l, maar Google niet. Pas na de re-crawl renderen de 13 nieuwe pagina's + fundering in Google.</p>
 </div>
@@ -323,7 +334,7 @@ code {{ background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12
   <div class="stat">
     <div class="label">Laatste check</div>
     <div class="v" style="font-size:18px">{escape(last_check['date']) if last_check else '—'}</div>
-    <div class="sub">{escape(last_check.get('method', '—')[:30]) if last_check else ''}</div>
+    <div class="sub">{escape(undash(last_check.get('method', '—'))[:30]) if last_check else ''}</div>
   </div>
 </div>
 
@@ -357,26 +368,26 @@ code {{ background: #f5f5f4; padding: 2px 6px; border-radius: 4px; font-size: 12
   </tbody>
 </table>
 
-<h2>Fixes — nog te doen</h2>
+<h2>Fixes - nog te doen</h2>
 <div class="card">
   <ul>{fixes_open_html}</ul>
 </div>
 
-<h2>Fixes — afgevinkt</h2>
+<h2>Fixes - afgevinkt</h2>
 <div class="card">
   <ul style="list-style:none">{fixes_done_html}</ul>
 </div>
 
 <h2>Hoe dit dashboard bijgewerkt wordt</h2>
 <div class="card" style="font-size:13.5px; line-height:1.6">
-  <p style="margin-bottom:10px"><b>1. Nieuwe rank-check toevoegen</b> — open <code>seo/seo_data.json</code> en voeg een nieuw entry toe aan de <code>checks</code> array met datum + posities per keyword. Voor handmatige checks: ga naar Google in een incognito venster, zoek het keyword, tel waar botlease.nl staat (0 = niet in top 30).</p>
-  <p style="margin-bottom:10px"><b>2. Fix afvinken</b> — verplaats een entry van <code>fixes_open</code> naar <code>fixes_done</code> met datum.</p>
-  <p style="margin-bottom:10px"><b>3. Rebuild dashboard</b> — <code>python3 scripts/build_seo_dashboard.py</code>.</p>
-  <p><b>4. Echte automatisering</b> — voor wekelijkse automatische rank-tracking, koppel een SerpAPI of DataForSEO account (~$10-50/mnd). Of zet up Google Search Console (gratis) en exporteer wekelijks de "Performance" data — dat is de echte waarheid.</p>
+  <p style="margin-bottom:10px"><b>1. Nieuwe rank-check toevoegen</b> - open <code>seo/seo_data.json</code> en voeg een nieuw entry toe aan de <code>checks</code> array met datum + posities per keyword. Voor handmatige checks: ga naar Google in een incognito venster, zoek het keyword, tel waar botlease.nl staat (0 = niet in top 30).</p>
+  <p style="margin-bottom:10px"><b>2. Fix afvinken</b> - verplaats een entry van <code>fixes_open</code> naar <code>fixes_done</code> met datum.</p>
+  <p style="margin-bottom:10px"><b>3. Rebuild dashboard</b> - <code>python3 scripts/build_seo_dashboard.py</code>.</p>
+  <p><b>4. Echte automatisering</b> - voor wekelijkse automatische rank-tracking, koppel een SerpAPI of DataForSEO account (~$10-50/mnd). Of zet up Google Search Console (gratis) en exporteer wekelijks de "Performance" data - dat is de echte waarheid.</p>
 </div>
 
 <p class="footnote">
-  Intern dashboard — niet indexeerbaar (noindex). Niet linken vanaf publieke pagina's. Toegang via <code>/admin/seo</code>.<br>
+  Intern dashboard - niet indexeerbaar (noindex). Niet linken vanaf publieke pagina's. Toegang via <code>/admin/seo</code>.<br>
   Brondata: <code>seo/seo_data.json</code> · Builder: <code>scripts/build_seo_dashboard.py</code>
 </p>
 

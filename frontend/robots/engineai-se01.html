@@ -22,9 +22,9 @@
 <meta name="twitter:description" content="Eerste humanoid met écht natuurlijke menselijke gang.">
 <meta name="twitter:image" content="https://botlease.nl/img/robots/se01-norm.webp">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -85,7 +85,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -94,7 +94,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -148,7 +148,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -226,7 +226,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .crumbs .sep { color:var(--ink-4); }
 
 /* Tier badges voor robotpagina's */
-.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Inter'; }
+.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Hanken Grotesk'; }
 .tier-eu      { background:var(--green-soft); color:var(--green); border:1px solid var(--green-line); }
 .tier-value   { background:var(--accent-soft); color:var(--accent-deep); border:1px solid var(--accent-line); }
 .tier-premium { background:var(--blue-soft); color:var(--blue); border:1px solid #bfdbfe; }
@@ -240,13 +240,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   .r-hero-grid { grid-template-columns:1.2fr 1fr; gap:64px; }
 }
 .r-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(36px, 4.6vw, 58px);
   margin:14px 0 18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .r-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; font-weight:500; line-height:1.5; }
 .r-hero .lede { color:var(--ink-2); font-size:17px; line-height:1.55; margin-bottom:32px; max-width:560px; }
-.r-hero .vendor { color:var(--ink-3); font-size:12.5px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:8px; }
+.r-hero .vendor { color:var(--ink-3); font-size:12.5px; letter-spacing:0.01em; font-weight:600; margin-bottom:8px; }
 .r-hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
 .r-hero-art {
   background:var(--bg-card);
@@ -279,13 +279,13 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 @media (min-width:880px) { .r-quick-grid { grid-template-columns:repeat(6, 1fr); gap:20px; } }
 .r-quick-item { display:flex; flex-direction:column; gap:4px; }
 .r-quick-item .v {
-  font-family:'Inter'; font-size:22px; font-weight:600;
+  font-family:'Hanken Grotesk'; font-size:22px; font-weight:600;
   letter-spacing:-0.02em; color:var(--ink);
 }
-.r-quick-item .l { font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
+.r-quick-item .l { font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
 
 section h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(26px, 3vw, 40px);
   margin-bottom:16px; letter-spacing:-0.025em; line-height:1.1;
 }
@@ -300,10 +300,10 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .usecase-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .usecase-card .n {
-  font-family:'Inter'; color:var(--accent-deep);
-  font-weight:600; font-size:11.5px; margin-bottom:8px; letter-spacing:0.08em;
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
+  font-weight:600; font-size:12px; margin-bottom:8px; letter-spacing:0.08em;
 }
-.usecase-card h4 { font-family:'Inter'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
+.usecase-card h3, .usecase-card h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
 .usecase-card p { color:var(--ink-2); font-size:14.5px; line-height:1.55; }
 
 .spec-table {
@@ -325,7 +325,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .price-row { display:flex; align-items:baseline; gap:6px; margin-bottom:10px; }
 .price-row b {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:48px; letter-spacing:-0.025em; color:var(--ink);
 }
 .price-row .per { color:var(--ink-3); font-size:15px; }
@@ -346,28 +346,28 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   display:block; color:inherit;
 }
 .compare-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
-.compare-card .vname { font-family:'Inter'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
+.compare-card .vname { font-family:'Hanken Grotesk'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
 .compare-card .vmeta { color:var(--ink-3); font-size:13px; margin-bottom:10px; }
-.compare-card .vprice { font-family:'Inter'; color:var(--accent); font-size:15px; font-weight:600; }
+.compare-card .vprice { font-family:'Hanken Grotesk'; color:var(--accent); font-size:15px; font-weight:600; }
 
 .cta-strip {
   padding:48px; background:var(--bg-dark); color:var(--ink-on-dark);
   border-radius:20px; text-align:center; margin-top:48px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
 /* Video facade - iframe laadt pas bij klik */
 .video-wrap {
   position:relative; border-radius:16px; overflow:hidden;
-  aspect-ratio:16/9; background:var(--bg-darker);
+  aspect-ratio:16/9;
   cursor:pointer; max-width:880px; margin:0 auto;
-  box-shadow:var(--shadow-lg); border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
 }
 .video-wrap img { width:100%; height:100%; object-fit:cover; max-width:none; max-height:none; }
 .video-wrap .play {
@@ -384,9 +384,9 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   margin-left:4px;
 }
 .video-wrap .vlabel {
-  position:absolute; bottom:20px; left:24px; right:24px;
-  color:white; font-family:'Inter'; font-weight:600; font-size:17px;
-  text-shadow:0 2px 12px rgba(0,0,0,0.9);
+  position:absolute; bottom:16px; left:16px; right:auto; max-width:calc(100% - 32px);
+  color:#f5f5f7; font-family:'Hanken Grotesk'; font-weight:600; font-size:15px;
+  background:rgba(0,0,0,0.72); border-radius:10px; padding:8px 14px;
   pointer-events:none;
 }
 .video-wrap iframe { width:100%; height:100%; border:none; display:block; }
@@ -440,8 +440,8 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -451,7 +451,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -574,10 +574,10 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <div style="max-width:840px">
       <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
-        <li><b style="color:var(--ink)">Wat:</b> EngineAI SE01 — humanoïde robot van EngineAI (China). Eerste humanoid met écht natuurlijke menselijke gang.</li>
+        <li><b style="color:var(--ink)">Wat:</b> EngineAI SE01 - humanoïde robot van EngineAI (China). Eerste humanoid met écht natuurlijke menselijke gang.</li>
         <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €1.590/mnd, inclusief gebruiksklare oplevering, onderhoud en een vervangende unit bij storing.</li>
         <li><b style="color:var(--ink)">Beste voor:</b> demo + events waar natuurlijke beweging indruk maakt; r&amp;D in locomotie en neural-network gait; lichte service en hospitality.</li>
-        <li><b style="color:var(--ink)">Leverbaarheid:</b> Leverbaar in Nederland — intake binnen 5 werkdagen, levering doorgaans 6–10 weken.</li>
+        <li><b style="color:var(--ink)">Leverbaarheid:</b> Leverbaar in Nederland - intake binnen 5 werkdagen, levering doorgaans 6-10 weken.</li>
         <li><b style="color:var(--ink)">Direct vergelijken:</b> <a href="/vergelijken/unitree-r1-vs-engineai-se01" style="color:var(--accent)">vs Unitree R1 →</a></li>
       </ul>
       <p style="margin:14px 0 0; color:var(--ink-3); font-size:12.5px">Laatst bijgewerkt: 5 juni 2026 · leaseprijs indicatief, all-in per maand.</p>
@@ -603,7 +603,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <div class="section-eyebrow">Toepassingen</div>
     <h2>Waar verdient een EngineAI SE01 zich terug?</h2>
     <p class="lede">Specifieke use-cases waar dit model getest of bewezen is - niet generiek "robots zijn handig".</p>
-    <div class="usecases-grid"><div class="usecase-card"><div class="n">01</div><h4>Demo + events waar natuurlijke beweging indruk maakt</h4></div><div class="usecase-card"><div class="n">02</div><h4>R&amp;D in locomotie en neural-network gait</h4></div><div class="usecase-card"><div class="n">03</div><h4>Lichte service en hospitality</h4></div><div class="usecase-card"><div class="n">04</div><h4>Onderzoek naar embodied AI</h4></div></div>
+    <div class="usecases-grid"><div class="usecase-card"><div class="n">1</div><h3>Demo + events waar natuurlijke beweging indruk maakt</h3></div><div class="usecase-card"><div class="n">2</div><h3>R&amp;D in locomotie en neural-network gait</h3></div><div class="usecase-card"><div class="n">3</div><h3>Lichte service en hospitality</h3></div><div class="usecase-card"><div class="n">4</div><h3>Onderzoek naar embodied AI</h3></div></div>
     <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:10px; align-items:center"><span style="color:var(--ink-3); font-size:13.5px; font-weight:500; margin-right:6px">Geschikt voor sector:</span><a href="/sectoren/hospitality-retail" style="display:inline-block; padding:6px 14px; border-radius:999px; background:var(--bg-2); border:1px solid var(--border); color:var(--ink); font-size:13px; font-weight:500; text-decoration:none">Hospitality &amp; retail →</a></div>
 
     <div style="margin-top:28px; padding:18px 22px; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; font-size:14px; color:var(--ink-2); line-height:1.55">
@@ -650,7 +650,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 
         <div style="background:var(--bg-card); border:1px solid var(--border-hover); border-radius:14px; padding:24px; margin-bottom:24px">
           <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:8px">
-            <b id="vform-bedrag" style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€1.590</b>
+            <b id="vform-bedrag" style="font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€1.590</b>
             <span id="vform-sub" style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
           </div>
           <div style="font-size:13px; color:var(--ink-2); margin-bottom:14px; padding-top:12px; border-top:1px solid var(--border)"><b style="color:var(--ink)">Ook beschikbaar:</b> maandhuur op aanvraag (flexibel opzegbaar, levertijd 6-10 wk). <a href="/huren" style="color:var(--accent)">Huren →</a></div>
@@ -691,7 +691,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
                    style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px">
           </div>
         </div>
-        <div style="margin-bottom:18px"><label for="aanv-vorm" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Hoe wil je deze robot?</label><select id="aanv-vorm" name="vorm" onchange="vormKies(this)" style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px"><option value="Operational lease (36 mnd)" data-bedrag="€1.590" data-sub="/mnd · 36 mnd">Leasen — €1.590/mnd (36 mnd)</option><option value="Maandhuur (flexibel)" data-bedrag="op aanvraag" data-sub="flexibel opzegbaar">Maandhuur — op aanvraag (flexibel)</option></select><p style="font-size:11.5px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">De prijs hierboven past zich aan je keuze aan. Twijfel je? Kies leasen — we bespreken in het gesprek wat past.</p></div>
+        <div style="margin-bottom:18px"><label for="aanv-vorm" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Hoe wil je deze robot?</label><select id="aanv-vorm" name="vorm" onchange="vormKies(this)" style="width:100%; padding:12px 14px; background:var(--bg-3); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:inherit; font-size:14.5px"><option value="Operational lease (36 mnd)" data-bedrag="€1.590" data-sub="/mnd · 36 mnd">Leasen - €1.590/mnd (36 mnd)</option><option value="Maandhuur (flexibel)" data-bedrag="op aanvraag" data-sub="flexibel opzegbaar">Maandhuur - op aanvraag (flexibel)</option></select><p style="font-size:12px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">De prijs hierboven past zich aan je keuze aan. Twijfel je? Kies leasen - we bespreken in het gesprek wat past.</p></div>
         <div style="margin-bottom:18px">
           <label for="aanv-stadium" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Waar sta je in het proces?</label>
           <select id="aanv-stadium" name="usecase"
@@ -702,7 +702,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
             <option>Bulk-traject (3+ units)</option>
             <option>Anders - leg ik uit in bericht</option>
           </select>
-          <p style="font-size:11.5px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">We bevestigen in het gesprek welk model voor jou geschikt is en welke vorm van kennismaking - online toelichting, video-demo of fysieke pilot - op dat moment realistisch is.</p>
+          <p style="font-size:12px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">We bevestigen in het gesprek welk model voor jou geschikt is en welke vorm van kennismaking - online toelichting, video-demo of fysieke pilot - op dat moment realistisch is.</p>
         </div>
         <div style="margin-bottom:18px">
           <label for="aanv-bericht" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Wat wil je oplossen? <span style="color:var(--ink-3); font-weight:400">(optioneel)</span></label>
@@ -796,7 +796,7 @@ function handleWaitlistSubmit(e) {
     .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
     .then(function(res){
       if (res.ok && res.body.success) {
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Inter\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Bricolage Grotesque\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
         if (window.umami) window.umami.track('waitlist_signup', { robot: data.robot_slug });
       } else {
         if (note) { note.textContent = (res.body && res.body.error) || 'Er ging iets mis - probeer opnieuw'; note.style.color = '#dc2626'; }
@@ -830,7 +830,7 @@ function handleAanvraagSubmit(e) {
     .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
     .then(function(res){
       if (res.ok && res.body.success) {
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Inter\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Aanvraag ontvangen</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">We nemen binnen 1-2 werkdagen contact op via je email om de aanvraag te bespreken.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\'Bricolage Grotesque\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Aanvraag ontvangen</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">We nemen binnen 1-2 werkdagen contact op via je email om de aanvraag te bespreken.</p></div>';
         if (window.umami) window.umami.track('cta_aanvraag_submit', { source: 'robot', robot: data.robot_slug });
       } else {
         if (note) { note.textContent = '// ' + ((res.body && res.body.error) || 'Probeer opnieuw'); note.style.color = '#f87171'; }

@@ -21,9 +21,9 @@
 <meta name="twitter:description" content="Huur een humanoïde robot per dag (vanaf €750, incl. operator) of per maand (vanaf €690, flexibel opzegbaar). Alle prijzen en het verschil met leasen.">
 <meta name="twitter:image" content="https://botlease.nl/img/robots/apollo.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -71,7 +71,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -80,7 +80,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -132,7 +132,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -201,8 +201,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .g-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .g-hero { padding:110px 0 40px; } }
 .g-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(34px, 4.6vw, 56px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:52px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .g-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.5; }
@@ -211,7 +211,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--accent-soft); border:1px solid var(--accent-line);
   border-radius:18px; padding:32px 36px; margin:40px 0;
 }
-.tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Inter'; }
+.tldr h2, .tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Hanken Grotesk'; }
 .tldr ul { list-style:none; padding:0; }
 .tldr li {
   padding:12px 0 12px 28px; position:relative;
@@ -225,7 +225,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--bg-2); border:1px solid var(--border);
   border-radius:14px; padding:24px 28px; margin:32px 0;
 }
-.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Inter'; font-weight:600; }
+.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Hanken Grotesk'; font-weight:600; }
 .toc ol { padding-left:22px; }
 .toc li { margin-bottom:7px; }
 .toc a { color:var(--ink-2); font-size:14.5px; }
@@ -233,8 +233,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 
 section.body { padding:30px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
   scroll-margin-top:80px;
 }
@@ -247,7 +247,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 
 table.cmp { width:100%; border-collapse:collapse; margin:24px 0; font-size:15px; }
 table.cmp th, table.cmp td { padding:12px 14px; border:1px solid var(--border); text-align:left; vertical-align:top; }
-table.cmp th { background:var(--bg-2); font-family:'Inter'; font-weight:600; color:var(--ink); font-size:13px; }
+table.cmp th { background:var(--bg-2); font-family:'Hanken Grotesk'; font-weight:600; color:var(--ink); font-size:13px; }
 table.cmp td { color:var(--ink-2); line-height:1.55; }
 table.cmp tr:nth-child(even) td { background:var(--bg-2); }
 
@@ -260,7 +260,7 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
   padding:24px 28px; border:1px solid var(--border);
   border-radius:14px; margin-bottom:14px; background:var(--bg-card);
 }
-.faq-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.faq-item h3, .faq-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 .faq-item a { color:var(--accent); text-decoration:underline; }
 
@@ -269,12 +269,16 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
   border-radius:20px; text-align:center; margin:60px auto; max-width:900px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
+@media (max-width:1100px){ .g-hero h1{font-size:44px;} }
+@media (max-width:640px){ .g-hero h1{font-size:35px;} }
+@media (max-width:900px){ section.body h2{font-size:30px;} }
+@media (max-width:640px){ section.body h2{font-size:26px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Humanoïde robot huren in Nederland: flexibel per maand", "description": "Huur een humanoïde robot per dag (vanaf €750, incl. operator) of per maand (vanaf €690, flexibel opzegbaar). Alle prijzen en het verschil met leasen.", "image": "https://botlease.nl/img/robots/apollo.png", "datePublished": "2026-05-29T08:00:00+02:00", "dateModified": "2026-05-29T08:00:00+02:00", "author": {"@type": "Person", "name": "Thomas Vedder", "url": "https://botlease.nl/auteur/thomas-vedder"}, "publisher": {"@type": "Organization", "name": "BotLease", "logo": {"@type": "ImageObject", "url": "https://botlease.nl/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://botlease.nl/huren"}, "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Humanoïde robot huren", "item": "https://botlease.nl/huren"}]}</script>
@@ -322,8 +326,8 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -333,7 +337,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -411,21 +415,21 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <h1>Humanoïde robot huren - flexibel, per maand.</h1>
     <p class="tag">Geen aanschaf, geen lang contract. Huur een werkende humanoïde robot per maand, inclusief gebruiksklare oplevering, onderhoud en vervanging.</p>
     <p style="font-size:14px; color:var(--ink-2); margin-top:10px">🎪 Eén dag nodig voor een beurs of event? Bekijk <a href="/robot-huren-evenement" style="color:var(--accent)">robot huren per dag (vanaf €750, incl. operator, excl. reiskosten) →</a></p>
-    <div class="tldr"><h3>TL;DR</h3><ul><li>Een humanoïde robot huren = een werkende robot per maand afnemen zonder hem te kopen - flexibele maandhuur vanaf €690/mnd (Unitree R1); operational lease (36 mnd) is voordeliger vanaf €290/mnd, inclusief gebruiksklare oplevering, onderhoud, swap-SLA en verzekering.</li><li>Verschil met event-verhuur: wij verhuren robots om wérk te doen (logistiek, productie, service), niet als attractie voor een beurs of feest.</li><li>Verschil met leasen: huren is korter en flexibeler; operational lease loopt meestal 36 maanden met een lager maandbedrag. Beide off-balance.</li><li>Begin met een pilot van 4 weken (€1.500) om de businesscase te bewijzen voordat je je voor langere termijn vastlegt.</li></ul></div>
+    <div class="tldr"><h2>TL;DR</h2><ul><li>Een humanoïde robot huren = een werkende robot per maand afnemen zonder hem te kopen - flexibele maandhuur vanaf €690/mnd (Unitree R1); operational lease (36 mnd) is voordeliger vanaf €290/mnd, inclusief gebruiksklare oplevering, onderhoud, swap-SLA en verzekering.</li><li>Verschil met event-verhuur: wij verhuren robots om wérk te doen (logistiek, productie, service), niet als attractie voor een beurs of feest.</li><li>Verschil met leasen: huren is korter en flexibeler; operational lease loopt meestal 36 maanden met een lager maandbedrag. Beide off-balance.</li><li>Begin met een pilot van 4 weken (€1.500) om de businesscase te bewijzen voordat je je voor langere termijn vastlegt.</li></ul></div>
     <div class="toc"><h3>Inhoud</h3><ol><li><a href="#wat-is">1. Wat betekent een humanoïde robot huren?</a></li><li><a href="#huren-vs">2. Huren vs leasen vs event-verhuur</a></li><li><a href="#kosten">3. Wat kost een humanoïde robot huren?</a></li><li><a href="#modellen">4. Welke robots kun je huren?</a></li><li><a href="#hoe">5. Hoe werkt het - van intake tot inzet</a></li><li><a href="#voor-wie">6. Voor wie is huren interessant?</a></li></ol></div>
   </div>
 </section>
 
 <section class="body">
   <div class="narrow">
-<h2 id="wat-is">1. Wat betekent een humanoïde robot huren?</h2><p><b>Een humanoïde robot huren kan per dag (events, vanaf €750 incl. operator, excl. reiskosten) of per maand (vanaf €690, flexibel opzegbaar).</b> BotLease blijft eigenaar en regelt gebruiksklare oplevering, onderhoud en vervanging — jij draagt geen investering en geen restwaarde-risico. Zet je de robot structureel in, dan is operational lease (36 mnd, vanaf €290/mnd) fors voordeliger.</p><p>Belangrijk onderscheid: er bestaan twee soorten "robot huren" in Nederland. Het ene is <i>event-verhuur</i> - een robot als blikvanger op een beurs of feest, vaak per dag. Het andere - waar BotLease in zit - is het huren van een robot om <i>echt werk</i> te doen: orderpicking, kitting, voorraadtelling, receptie of inspectie. Deze pagina gaat over dat laatste.</p><h2 id="huren-vs">2. Huren vs leasen vs event-verhuur</h2><p>De termen lopen door elkaar. Zo zitten ze in elkaar:</p><table class="cmp"><thead><tr><th>&nbsp;</th><th>Event-verhuur</th><th>Huren (kort)</th><th>Operational lease</th></tr></thead><tbody><tr><td><b>Doel</b></td><td>Attractie / show</td><td>Werk doen, flexibel</td><td>Werk doen, structureel</td></tr><tr><td><b>Termijn</b></td><td>Dag(en)</td><td>Maand tot maand</td><td>36 mnd, daarna maandelijks</td></tr><tr><td><b>Maandprijs</b></td><td>Hoog (per dag)</td><td>Iets hoger</td><td>Laagst</td></tr><tr><td><b>Inbegrepen service</b></td><td>Beperkt</td><td>All-in</td><td>All-in</td></tr><tr><td><b>Past bij</b></td><td>Marketing</td><td>Piek, project, twijfel</td><td>Vaste taak</td></tr></tbody></table><p>Twijfel je over huren versus structureel leasen? Lees <a href="/robot-as-a-service">hoe Robot-as-a-Service werkt</a> of zet koop en lease naast elkaar in <a href="/vergelijken/lease-vs-koop">lease vs koop</a>.</p><h2 id="kosten">3. Wat kost een humanoïde robot huren?</h2><p>Bij BotLease huur je all-in: het maandbedrag dekt de gebruiksklare oplevering, preventief en correctief onderhoud, alle onderdelen, de swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige support op werkdagen (spoedlijn bij storingen). Kies de vorm die past:</p>
+<h2 id="wat-is">1. Wat betekent een humanoïde robot huren?</h2><p><b>Een humanoïde robot huren kan per dag (events, vanaf €750 incl. operator, excl. reiskosten) of per maand (vanaf €690, flexibel opzegbaar).</b> BotLease blijft eigenaar en regelt gebruiksklare oplevering, onderhoud en vervanging - jij draagt geen investering en geen restwaarde-risico. Zet je de robot structureel in, dan is operational lease (36 mnd, vanaf €290/mnd) fors voordeliger.</p><p>Belangrijk onderscheid: er bestaan twee soorten "robot huren" in Nederland. Het ene is <i>event-verhuur</i> - een robot als blikvanger op een beurs of feest, vaak per dag. Het andere - waar BotLease in zit - is het huren van een robot om <i>echt werk</i> te doen: orderpicking, kitting, voorraadtelling, receptie of inspectie. Deze pagina gaat over dat laatste.</p><h2 id="huren-vs">2. Huren vs leasen vs event-verhuur</h2><p>De termen lopen door elkaar. Zo zitten ze in elkaar:</p><table class="cmp"><thead><tr><th>&nbsp;</th><th>Event-verhuur</th><th>Huren (kort)</th><th>Operational lease</th></tr></thead><tbody><tr><td><b>Doel</b></td><td>Attractie / show</td><td>Werk doen, flexibel</td><td>Werk doen, structureel</td></tr><tr><td><b>Termijn</b></td><td>Dag(en)</td><td>Maand tot maand</td><td>36 mnd, daarna maandelijks</td></tr><tr><td><b>Maandprijs</b></td><td>Hoog (per dag)</td><td>Iets hoger</td><td>Laagst</td></tr><tr><td><b>Inbegrepen service</b></td><td>Beperkt</td><td>All-in</td><td>All-in</td></tr><tr><td><b>Past bij</b></td><td>Marketing</td><td>Piek, project, twijfel</td><td>Vaste taak</td></tr></tbody></table><p>Twijfel je over huren versus structureel leasen? Lees <a href="/robot-as-a-service">hoe Robot-as-a-Service werkt</a> of zet koop en lease naast elkaar in <a href="/vergelijken/lease-vs-koop">lease vs koop</a>.</p><h2 id="kosten">3. Wat kost een humanoïde robot huren?</h2><p>Bij BotLease huur je all-in: het maandbedrag dekt de gebruiksklare oplevering, preventief en correctief onderhoud, alle onderdelen, de swap-SLA (vervangende unit bij storing), WA-verzekering wordt per deployment geregeld en Nederlandstalige support op werkdagen (spoedlijn bij storingen). Kies de vorm die past:</p>
 <div style="overflow-x:auto"><table style="width:100%; border-collapse:collapse; font-size:14.5px; margin:14px 0">
 <tr style="border-bottom:2px solid var(--line)"><th style="text-align:left; padding:9px 8px">Vorm</th><th style="text-align:left; padding:9px 8px">Termijn</th><th style="text-align:right; padding:9px 8px">Unitree R1</th><th style="text-align:right; padding:9px 8px">Unitree G1</th></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:10px 8px"><b><a href="/robot-huren-evenement">Eventdag</a></b> <span style="color:var(--ink-3); font-size:12.5px">incl. operator · excl. reiskosten</span></td><td style="padding:10px 8px">per dag(deel)</td><td style="text-align:right; padding:10px 8px">€750/dag</td><td style="text-align:right; padding:10px 8px">€1.450/dag</td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:10px 8px"><b>Maandhuur</b> <span style="color:var(--ink-3); font-size:12.5px">flexibel</span></td><td style="padding:10px 8px">min. 1 mnd, per maand opzegbaar</td><td style="text-align:right; padding:10px 8px">€690/mnd</td><td style="text-align:right; padding:10px 8px">€2.450/mnd</td></tr>
 <tr><td style="padding:10px 8px"><b><a href="/gids/humanoide-robot-leasen">Operational lease</a></b></td><td style="padding:10px 8px">36 mnd</td><td style="text-align:right; padding:10px 8px">€290/mnd</td><td style="text-align:right; padding:10px 8px">€1.295/mnd</td></tr>
 </table></div>
-<p>Maandhuur van overige modellen (H2, Walker S2 e.a.): op aanvraag — afhankelijk van beschikbaarheid, levertijd 6-10 weken. Overweeg je lease? Een pilot van 4 weken kost €1.500 en wordt volledig verrekend als je doorgaat. <b>Opzeggen maandhuur:</b> schriftelijk per e-mail met 1 maand opzegtermijn, ingaand op het einde van de kalendermaand. Geen eerste-jaar-binding en geen minimumduur na de eerste maand.</p><p><a href="/kosten">Bereken het exacte maandbedrag</a> voor jouw situatie met de calculator.</p><h2 id="modellen">4. Welke robots kun je huren?</h2><p>Voor maandhuur zijn de Unitree R1 en G1 doorgaans het snelst leverbaar; de overige modellen uit de catalogus huur je op aanvraag (levertijd 6-10 weken). Populair voor kortere inzet: <a href="/robots/unitree-g1">Unitree G1</a> (R&amp;D, hospitality, voorraadtelling), <a href="/robots/unitree-h2">Unitree H2</a> (service, receptie) en (wheeled, ROS-native). Voor industriële inzet: <a href="/robots/ubtech-walker-s2">UBTECH Walker S2</a> en <a href="/robots/neura-4ne1-gen3">NEURA 4NE-1 Gen 3.5</a>. Bekijk de <a href="/robots">volledige catalogus</a> of <a href="/vergelijken">vergelijk modellen</a>.</p><h2 id="hoe">5. Hoe werkt het - van intake tot inzet</h2><p><b>Intake (gratis):</b> wij komen binnen 5 werkdagen op locatie, meten de werkruimte en kiezen 1-2 passende modellen. <b>Deployment:</b> robot gebruiksklaar op locatie met een korte operator-instructie. <b>Productie:</b> de robot draait in je echte workflow; wij monitoren op afstand en sturen bij. Wil je daarna langer door, dan gaat het over in een lease - of de robot gaat retour, zonder gedoe.</p><h2 id="voor-wie">6. Voor wie is huren interessant?</h2><p>Huren past wanneer je flexibiliteit wilt: een seizoenspiek in je <a href="/sectoren/3pl-fulfillment">fulfillment</a>, een tijdelijk project in de <a href="/sectoren/productie-assemblage">productie</a>, of simpelweg twijfel of een humanoïde robot bij je past. Je test zonder grote investering en zonder je voor jaren vast te leggen. Weet je al dat je structureel wilt inzetten, dan is <a href="/robot-as-a-service">leasen (RaaS)</a> goedkoper per maand. <a href="/#contact">Plan een gratis intake</a> en we adviseren onafhankelijk wat past.</p>
+<p>Maandhuur van overige modellen (H2, Walker S2 e.a.): op aanvraag - afhankelijk van beschikbaarheid, levertijd 6-10 weken. Overweeg je lease? Een pilot van 4 weken kost €1.500 en wordt volledig verrekend als je doorgaat. <b>Opzeggen maandhuur:</b> schriftelijk per e-mail met 1 maand opzegtermijn, ingaand op het einde van de kalendermaand. Geen eerste-jaar-binding en geen minimumduur na de eerste maand.</p><p><a href="/kosten">Bereken het exacte maandbedrag</a> voor jouw situatie met de calculator.</p><h2 id="modellen">4. Welke robots kun je huren?</h2><p>Voor maandhuur zijn de Unitree R1 en G1 doorgaans het snelst leverbaar; de overige modellen uit de catalogus huur je op aanvraag (levertijd 6-10 weken). Populair voor kortere inzet: <a href="/robots/unitree-g1">Unitree G1</a> (R&amp;D, hospitality, voorraadtelling), <a href="/robots/unitree-h2">Unitree H2</a> (service, receptie) en (wheeled, ROS-native). Voor industriële inzet: <a href="/robots/ubtech-walker-s2">UBTECH Walker S2</a> en <a href="/robots/neura-4ne1-gen3">NEURA 4NE-1 Gen 3.5</a>. Bekijk de <a href="/robots">volledige catalogus</a> of <a href="/vergelijken">vergelijk modellen</a>.</p><h2 id="hoe">5. Hoe werkt het - van intake tot inzet</h2><p><b>Intake (gratis):</b> wij komen binnen 5 werkdagen op locatie, meten de werkruimte en kiezen 1-2 passende modellen. <b>Deployment:</b> robot gebruiksklaar op locatie met een korte operator-instructie. <b>Productie:</b> de robot draait in je echte workflow; wij monitoren op afstand en sturen bij. Wil je daarna langer door, dan gaat het over in een lease - of de robot gaat retour, zonder gedoe.</p><h2 id="voor-wie">6. Voor wie is huren interessant?</h2><p>Huren past wanneer je flexibiliteit wilt: een seizoenspiek in je <a href="/sectoren/3pl-fulfillment">fulfillment</a>, een tijdelijk project in de <a href="/sectoren/productie-assemblage">productie</a>, of simpelweg twijfel of een humanoïde robot bij je past. Je test zonder grote investering en zonder je voor jaren vast te leggen. Weet je al dat je structureel wilt inzetten, dan is <a href="/robot-as-a-service">leasen (RaaS)</a> goedkoper per maand. <a href="/#contact">Plan een gratis intake</a> en we adviseren onafhankelijk wat past.</p>
   </div>
 </section>
 
@@ -435,7 +439,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <span class="eyebrow">Veelgestelde vragen</span>
     <h2 style="margin-top:14px">Vraag &amp; antwoord.</h2>
     <div class="faq-list">
-<div class="faq-item"><h4>Wat kost het om een humanoïde robot te huren?</h4><p>Per dag (events): vanaf €750 incl. operator. Per maand: €690 (Unitree R1) of €2.450 (Unitree G1), flexibel opzegbaar en all-in. Structurele inzet? Operational lease (36 mnd) is fors voordeliger: vanaf €290/mnd. Een lease-pilot van 4 weken kost €1.500 en wordt verrekend bij doorgang.</p></div><div class="faq-item"><h4>Wat is het verschil tussen een humanoïde robot huren en leasen?</h4><p>Huren is flexibel (per dag of per maand opzegbaar) en kent daarom een hoger tarief: een Unitree G1 huur je voor €2.450/mnd, terwijl dezelfde robot in 36-maands lease €1.295/mnd kost. Beide zijn all-in. Voor structurele inzet is leasen dus fors voordeliger; voor een piek, project of event is huren handiger.</p></div><div class="faq-item"><h4>Verhuren jullie robots ook voor evenementen of beurzen?</h4><p>Ja. We verhuren de Unitree R1 en G1 per dag voor beurzen en events, inclusief operator, vanaf €750 per dag (−30% vanaf dag 2, excl. reiskosten). Bekijk de event-packages op onze pagina robot huren voor events.</p></div><div class="faq-item"><h4>Hoe snel staat een gehuurde robot op locatie?</h4><p>Na een gratis intake (binnen 5 werkdagen) start de inzet gemiddeld 10 werkdagen later. De robot is productief vanaf de tweede week.</p></div><div class="faq-item"><h4>Kan ik een gehuurde robot later overnemen of leasen?</h4><p>Ja. Een huur- of pilotperiode gaat naadloos over in een operational-leasecontract als je structureel wilt inzetten. De pilotkosten verrekenen we dan met de eerste maand.</p></div>
+<div class="faq-item"><h3>Wat kost het om een humanoïde robot te huren?</h3><p>Per dag (events): vanaf €750 incl. operator. Per maand: €690 (Unitree R1) of €2.450 (Unitree G1), flexibel opzegbaar en all-in. Structurele inzet? Operational lease (36 mnd) is fors voordeliger: vanaf €290/mnd. Een lease-pilot van 4 weken kost €1.500 en wordt verrekend bij doorgang.</p></div><div class="faq-item"><h3>Wat is het verschil tussen een humanoïde robot huren en leasen?</h3><p>Huren is flexibel (per dag of per maand opzegbaar) en kent daarom een hoger tarief: een Unitree G1 huur je voor €2.450/mnd, terwijl dezelfde robot in 36-maands lease €1.295/mnd kost. Beide zijn all-in. Voor structurele inzet is leasen dus fors voordeliger; voor een piek, project of event is huren handiger.</p></div><div class="faq-item"><h3>Verhuren jullie robots ook voor evenementen of beurzen?</h3><p>Ja. We verhuren de Unitree R1 en G1 per dag voor beurzen en events, inclusief operator, vanaf €750 per dag (−30% vanaf dag 2, excl. reiskosten). Bekijk de event-packages op onze pagina robot huren voor events.</p></div><div class="faq-item"><h3>Hoe snel staat een gehuurde robot op locatie?</h3><p>Na een gratis intake (binnen 5 werkdagen) start de inzet gemiddeld 10 werkdagen later. De robot is productief vanaf de tweede week.</p></div><div class="faq-item"><h3>Kan ik een gehuurde robot later overnemen of leasen?</h3><p>Ja. Een huur- of pilotperiode gaat naadloos over in een operational-leasecontract als je structureel wilt inzetten. De pilotkosten verrekenen we dan met de eerste maand.</p></div>
     </div>
   </div>
 </section>

@@ -23,7 +23,7 @@ from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML, FONTS_LINK  # noqa: E402
 
 PAGE_CSS = BASE_CSS + """
 /* Tier badges voor robotpagina's */
-.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Inter'; }
+.tier-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-family:'Hanken Grotesk'; }
 .tier-eu      { background:var(--green-soft); color:var(--green); border:1px solid var(--green-line); }
 .tier-value   { background:var(--accent-soft); color:var(--accent-deep); border:1px solid var(--accent-line); }
 .tier-premium { background:var(--blue-soft); color:var(--blue); border:1px solid #bfdbfe; }
@@ -39,13 +39,13 @@ ROBOT_CSS = """
   .r-hero-grid { grid-template-columns:1.2fr 1fr; gap:64px; }
 }
 .r-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(36px, 4.6vw, 58px);
   margin:14px 0 18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .r-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; font-weight:500; line-height:1.5; }
 .r-hero .lede { color:var(--ink-2); font-size:17px; line-height:1.55; margin-bottom:32px; max-width:560px; }
-.r-hero .vendor { color:var(--ink-3); font-size:12.5px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:8px; }
+.r-hero .vendor { color:var(--ink-3); font-size:12.5px; letter-spacing:0.01em; font-weight:600; margin-bottom:8px; }
 .r-hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
 .r-hero-art {
   background:var(--bg-card);
@@ -78,13 +78,13 @@ ROBOT_CSS = """
 @media (min-width:880px) { .r-quick-grid { grid-template-columns:repeat(6, 1fr); gap:20px; } }
 .r-quick-item { display:flex; flex-direction:column; gap:4px; }
 .r-quick-item .v {
-  font-family:'Inter'; font-size:22px; font-weight:600;
+  font-family:'Hanken Grotesk'; font-size:22px; font-weight:600;
   letter-spacing:-0.02em; color:var(--ink);
 }
-.r-quick-item .l { font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
+.r-quick-item .l { font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
 
 section h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(26px, 3vw, 40px);
   margin-bottom:16px; letter-spacing:-0.025em; line-height:1.1;
 }
@@ -99,10 +99,10 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .usecase-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .usecase-card .n {
-  font-family:'Inter'; color:var(--accent-deep);
-  font-weight:600; font-size:11.5px; margin-bottom:8px; letter-spacing:0.08em;
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
+  font-weight:600; font-size:12px; margin-bottom:8px; letter-spacing:0.08em;
 }
-.usecase-card h4 { font-family:'Inter'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
+.usecase-card h3, .usecase-card h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:17px; margin-bottom:6px; color:var(--ink); }
 .usecase-card p { color:var(--ink-2); font-size:14.5px; line-height:1.55; }
 
 .spec-table {
@@ -124,7 +124,7 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
 }
 .price-row { display:flex; align-items:baseline; gap:6px; margin-bottom:10px; }
 .price-row b {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:48px; letter-spacing:-0.025em; color:var(--ink);
 }
 .price-row .per { color:var(--ink-3); font-size:15px; }
@@ -145,28 +145,28 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   display:block; color:inherit;
 }
 .compare-card:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
-.compare-card .vname { font-family:'Inter'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
+.compare-card .vname { font-family:'Hanken Grotesk'; font-weight:600; font-size:17px; margin:6px 0 4px; color:var(--ink); }
 .compare-card .vmeta { color:var(--ink-3); font-size:13px; margin-bottom:10px; }
-.compare-card .vprice { font-family:'Inter'; color:var(--accent); font-size:15px; font-weight:600; }
+.compare-card .vprice { font-family:'Hanken Grotesk'; color:var(--accent); font-size:15px; font-weight:600; }
 
 .cta-strip {
   padding:48px; background:var(--bg-dark); color:var(--ink-on-dark);
   border-radius:20px; text-align:center; margin-top:48px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 
 /* Video facade - iframe laadt pas bij klik */
 .video-wrap {
   position:relative; border-radius:16px; overflow:hidden;
-  aspect-ratio:16/9; background:var(--bg-darker);
+  aspect-ratio:16/9;
   cursor:pointer; max-width:880px; margin:0 auto;
-  box-shadow:var(--shadow-lg); border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
 }
 .video-wrap img { width:100%; height:100%; object-fit:cover; max-width:none; max-height:none; }
 .video-wrap .play {
@@ -183,9 +183,9 @@ section p.lede { color:var(--ink-2); font-size:17px; max-width:680px; margin-bot
   margin-left:4px;
 }
 .video-wrap .vlabel {
-  position:absolute; bottom:20px; left:24px; right:24px;
-  color:white; font-family:'Inter'; font-weight:600; font-size:17px;
-  text-shadow:0 2px 12px rgba(0,0,0,0.9);
+  position:absolute; bottom:16px; left:16px; right:auto; max-width:calc(100% - 32px);
+  color:#f5f5f7; font-family:'Hanken Grotesk'; font-weight:600; font-size:15px;
+  background:rgba(0,0,0,0.72); border-radius:10px; padding:8px 14px;
   pointer-events:none;
 }
 .video-wrap iframe { width:100%; height:100%; border:none; display:block; }
@@ -195,24 +195,28 @@ LISTING_CSS = """
 .hub-hero { padding:80px 0 40px; }
 @media (min-width:768px) { .hub-hero { padding:110px 0 50px; } }
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 .hub-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(36px, 5vw, 64px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:60px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.05;
 }
+@media (max-width:1100px){ .hub-hero h1{font-size:48px;} }
+@media (max-width:640px){ .hub-hero h1{font-size:37px;} }
 .hub-hero p { color:var(--ink-2); font-size:18px; max-width:720px; line-height:1.55; }
 .hub-section { padding:48px 0 64px; }
 @media (min-width:768px) { .hub-section { padding:64px 0 80px; } }
 .hub-section .head { margin-bottom:32px; }
 .hub-section h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin-bottom:10px; letter-spacing:-0.025em; line-height:1.1;
 }
+@media (max-width:900px){ .hub-section h2{font-size:30px;} }
+@media (max-width:640px){ .hub-section h2{font-size:26px;} }
 .hub-section p.lede { color:var(--ink-2); font-size:16px; max-width:720px; line-height:1.55; }
 
 .hub-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
@@ -230,7 +234,6 @@ LISTING_CSS = """
   background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg-card) 100%);
   position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:center;
-  border-bottom:1px solid var(--border);
 }
 .hub-thumb::before {
   content:""; position:absolute; inset:0;
@@ -242,8 +245,8 @@ LISTING_CSS = """
   filter:drop-shadow(0 8px 16px rgba(28,25,23,0.12));
 }
 .hub-card-body { padding:14px 16px 16px; display:flex; flex-direction:column; flex:1; }
-.hub-card .vendor { color:var(--ink-3); font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
-.hub-card h3 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.01em; line-height:1.2; }
+.hub-card .vendor { color:var(--ink-3); font-size:12.5px; letter-spacing:0.01em; font-weight:600; margin-bottom:4px; }
+.hub-card h3 { font-family:'Hanken Grotesk'; font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); letter-spacing:-0.01em; line-height:1.2; }
 .hub-card p.tag { color:var(--ink-2); font-size:12.5px; line-height:1.45; margin-bottom:8px; }
 .hub-tags {
   position:absolute; top:10px; left:10px; right:10px; z-index:3;
@@ -260,7 +263,7 @@ LISTING_CSS = """
   white-space:nowrap;
 }
 .hub-card .foot { display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid var(--border); }
-.hub-card .price-mini { font-family:'Inter'; font-weight:600; font-size:14px; color:var(--ink); }
+.hub-card .price-mini { font-family:'Hanken Grotesk'; font-weight:600; font-size:14px; color:var(--ink); }
 .hub-card .price-mini .per { color:var(--ink-3); font-size:11px; font-weight:400; }
 .hub-card .arr { color:var(--accent); font-weight:600; font-size:12.5px; }
 """
@@ -523,7 +526,7 @@ def render_robot(r: dict, related: list) -> str:
     tier_class = {"eu": "tier-eu", "value": "tier-value", "premium": "tier-premium"}.get(r["tier"], "tier-eu")
     photo_url = f"{SITE_URL}{r['photo']}"
     use_cases_html = "".join(
-        f'<div class="usecase-card"><div class="n">{i+1:02d}</div><h4>{escape(uc)}</h4></div>'
+        f'<div class="usecase-card"><div class="n">{i+1:d}</div><h3>{escape(uc)}</h3></div>'
         for i, uc in enumerate(r["use_cases"])
     )
     specs_html = "".join(
@@ -543,7 +546,7 @@ def render_robot(r: dict, related: list) -> str:
         '<p style="background:rgba(255,201,102,0.1); border:1px solid rgba(255,201,102,0.3); '
         'border-radius:10px; padding:14px 18px; color:#ffd166; font-size:14px; margin:18px 0">'
         '⏳ Deze robot is nog niet commercieel leverbaar voor EU-derden. '
-        '<a href="#wachtlijst" style="color:#ffd166; text-decoration:underline">Reserveer plek op wachtlijst</a> - '
+        '<a href="#wachtlijst" style="color:#7a4f00; font-weight:600; text-decoration:underline">Reserveer plek op wachtlijst</a> - '
         'BotLease krijgt prioriteit zodra ze beschikbaar komen.</p>'
     ) if r["category"] == "waitlist" else ""
 
@@ -557,16 +560,16 @@ def render_robot(r: dict, related: list) -> str:
                  + " · ".join(f'<a href="{href}" style="color:var(--accent)">vs {nm} →</a>' for nm, href in _h2h)
                  + "</li>\n") if _h2h else ""
     _tldr_avail = (
-        f"Op wachtlijst — BotLease regelt priority-access bij {escape(r['vendor'])} zodra de EU-verkoop opent (verwacht Q4 2026 / Q1 2027)."
+        f"Op wachtlijst - BotLease regelt priority-access bij {escape(r['vendor'])} zodra de EU-verkoop opent (verwacht Q4 2026 / Q1 2027)."
         if r["category"] == "waitlist"
-        else "Leverbaar in Nederland — intake binnen 5 werkdagen, levering doorgaans 6–10 weken."
+        else "Leverbaar in Nederland - intake binnen 5 werkdagen, levering doorgaans 6-10 weken."
     )
     tldr_html = f"""<section style="background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0">
   <div class="container">
     <div style="max-width:840px">
       <div class="section-eyebrow" style="margin-bottom:12px">In het kort</div>
       <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-2); font-size:15px; line-height:1.5">
-        <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} — humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
+        <li><b style="color:var(--ink)">Wat:</b> {escape(r['name'])} - humanoïde robot van {escape(r['vendor'])} ({escape(r['vendor_country'])}). {escape(_tldr_tag)}</li>
         <li><b style="color:var(--ink)">Leaseprijs:</b> all-in vanaf €{r['lease_eur']:,}/mnd, inclusief gebruiksklare oplevering, onderhoud en een vervangende unit bij storing.</li>
         <li><b style="color:var(--ink)">Beste voor:</b> {escape(_tldr_best)}.</li>
         <li><b style="color:var(--ink)">Leverbaarheid:</b> {_tldr_avail}</li>
@@ -686,7 +689,7 @@ def render_robot(r: dict, related: list) -> str:
 
         <div style="background:var(--bg-card); border:1px solid var(--border-hover); border-radius:14px; padding:24px; margin-bottom:24px">
           <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:8px">
-            <b style="font-family:'Inter', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€{r['lease_eur']:,}</b>
+            <b style="font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.025em; color:var(--ink)">€{r['lease_eur']:,}</b>
             <span style="color:var(--ink-3); font-size:14px">/mnd · 36 mnd</span>
           </div>
           <div style="color:var(--ink-2); font-size:13.5px; margin-bottom:14px">+ €{r['setup_eur']:,} eenmalige setup (gebruiksklare oplevering)</div>
@@ -736,7 +739,7 @@ def render_robot(r: dict, related: list) -> str:
             <option>Bulk-traject (3+ units)</option>
             <option>Anders - leg ik uit in bericht</option>
           </select>
-          <p style="font-size:11.5px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">We bevestigen in het gesprek welk model voor jou geschikt is en welke vorm van kennismaking - online toelichting, video-demo of fysieke pilot - op dat moment realistisch is.</p>
+          <p style="font-size:12px; color:var(--ink-3); margin-top:6px; font-style:italic; line-height:1.5">We bevestigen in het gesprek welk model voor jou geschikt is en welke vorm van kennismaking - online toelichting, video-demo of fysieke pilot - op dat moment realistisch is.</p>
         </div>
         <div style="margin-bottom:18px">
           <label for="aanv-bericht" style="display:block; font-size:13px; color:var(--ink-2); margin-bottom:6px; font-weight:500">Wat wil je oplossen? <span style="color:var(--ink-3); font-weight:400">(optioneel)</span></label>
@@ -784,9 +787,9 @@ def render_robot(r: dict, related: list) -> str:
 <meta name="twitter:description" content="{escape(r['tagline'])}">
 <meta name="twitter:image" content="{photo_url}">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}{ROBOT_CSS}</style>
 <script type="application/ld+json">{product_jsonld(r)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(r)}</script>
@@ -924,7 +927,7 @@ function handleWaitlistSubmit(e) {{
     .then(function(r){{ return r.json().then(function(j){{ return {{ ok:r.ok, body:j }}; }}); }})
     .then(function(res){{
       if (res.ok && res.body.success) {{
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Inter\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Bricolage Grotesque\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Je staat op de wachtlijst</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">Een bevestiging is verstuurd. Je hoort van ons zodra de eerste EU-units leverbaar zijn.</p></div>';
         if (window.umami) window.umami.track('waitlist_signup', {{ robot: data.robot_slug }});
       }} else {{
         if (note) {{ note.textContent = (res.body && res.body.error) || 'Er ging iets mis - probeer opnieuw'; note.style.color = '#dc2626'; }}
@@ -958,7 +961,7 @@ function handleAanvraagSubmit(e) {{
     .then(function(r){{ return r.json().then(function(j){{ return {{ ok:r.ok, body:j }}; }}); }})
     .then(function(res){{
       if (res.ok && res.body.success) {{
-        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Inter\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Aanvraag ontvangen</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">We nemen binnen 1-2 werkdagen contact op via je email om de aanvraag te bespreken.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:32px 0"><div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);margin-bottom:20px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3 style="font-family:\\'Bricolage Grotesque\\',sans-serif;font-weight:600;font-size:20px;margin-bottom:10px;color:var(--ink)">Aanvraag ontvangen</h3><p style="color:var(--ink-2);font-size:14.5px;line-height:1.55">We nemen binnen 1-2 werkdagen contact op via je email om de aanvraag te bespreken.</p></div>';
         if (window.umami) window.umami.track('cta_aanvraag_submit', {{ source: 'robot', robot: data.robot_slug }});
       }} else {{
         if (note) {{ note.textContent = '// ' + ((res.body && res.body.error) || 'Probeer opnieuw'); note.style.color = '#f87171'; }}
@@ -1057,9 +1060,9 @@ def render_hub() -> str:
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{SITE_URL}/img/robots/neura-4ne1.webp">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>

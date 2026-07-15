@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard — Milo</title>
+  <title>Dashboard - Milo</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+      <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/dashboard.css">
   <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
 </head>
@@ -33,7 +33,7 @@
     <!-- Header -->
     <div class="page-header">
       <div>
-        <h1 id="greeting">Goedemorgen.</h1>
+        <h1 id="greeting" style="font-size:24px">Goedemorgen.</h1>
         <p id="bot-domain" style="margin-top:4px;font-size:14px;color:var(--fg-muted)">Bot laadt…</p>
       </div>
       <div id="bot-status" class="status-badge">Online</div>
@@ -43,22 +43,22 @@
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-label">Gesprekken vandaag</div>
-        <div class="stat-value" id="stat-today">—</div>
+        <div class="stat-value" id="stat-today">–</div>
         <div class="stat-sub">chatgesprekken</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Deze week</div>
-        <div class="stat-value" id="stat-week">—</div>
+        <div class="stat-value" id="stat-week">–</div>
         <div class="stat-sub">chatgesprekken</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Leads</div>
-        <div class="stat-value" id="stat-leads">—</div>
+        <div class="stat-value" id="stat-leads">–</div>
         <div class="stat-sub">e-mails verzameld</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Kennisitems</div>
-        <div class="stat-value" id="stat-knowledge">—</div>
+        <div class="stat-value" id="stat-knowledge">–</div>
         <div class="stat-sub">actieve items</div>
       </div>
     </div>
@@ -103,7 +103,7 @@
             </div>
             <div class="bot-since">
               <strong>Bot actief sinds</strong>
-              <span id="bot-since">—</span>
+              <span id="bot-since">–</span>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
       if (bot) {
         currentChatbotId = bot.id;
         const domainEl = document.getElementById('bot-domain');
-        domainEl.textContent = (client.domain ? '● ' + client.domain : '● Bot actief') + ' — ' + bot.name;
+        domainEl.textContent = (client.domain ? '● ' + client.domain : '● Bot actief') + ' - ' + bot.name;
 
         const statusEl = document.getElementById('bot-status');
         if (!bot.is_active) {

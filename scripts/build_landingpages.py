@@ -21,18 +21,20 @@ from style_base import BASE_CSS, NAV_HTML, FOOTER_HTML  # noqa: E402
 
 PAGE_CSS = BASE_CSS + """
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 
 .lp-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .lp-hero { padding:110px 0 40px; } }
 .lp-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(36px, 5vw, 60px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:56px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
+@media (max-width:1100px){ .lp-hero h1{font-size:46px;} }
+@media (max-width:640px){ .lp-hero h1{font-size:36px;} }
 .lp-hero .tag { color:var(--accent); font-size:19px; margin-bottom:24px; max-width:680px; line-height:1.4; }
 .lp-hero p.intro { color:var(--ink-2); font-size:17px; max-width:760px; line-height:1.65; }
 
@@ -45,18 +47,20 @@ PAGE_CSS = BASE_CSS + """
 @media (min-width:768px) { .metrics { grid-template-columns:repeat(4,1fr); } }
 .metric { display:flex; flex-direction:column; gap:6px; }
 .metric .v {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:32px; letter-spacing:-0.025em; color:var(--accent);
   line-height:1;
 }
-.metric .l { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
+.metric .l { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:500; }
 
 section.body { padding:80px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(24px, 2.8vw, 36px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:34px;
   margin-bottom:14px; letter-spacing:-0.025em; line-height:1.15;
 }
+@media (max-width:900px){ section.body h2{font-size:29px;} }
+@media (max-width:640px){ section.body h2{font-size:25px;} }
 section.body p { color:var(--ink); font-size:17px; line-height:1.78; margin-bottom:18px; }
 section.body .sub { margin-bottom:48px; }
 section.body .sub:last-child { margin-bottom:0; }
@@ -86,16 +90,16 @@ section.body .sub:last-child { margin-bottom:0; }
   object-fit:contain; filter:drop-shadow(0 10px 20px rgba(28,25,23,0.15));
 }
 .r-body { padding:16px 18px 18px; flex:1; display:flex; flex-direction:column; }
-.r-body .v { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
-.r-body h4 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
-.r-body .p { font-family:'Inter'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
+.r-body .v { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:600; margin-bottom:4px; }
+section.body .r-body h2, .r-body h2, .r-body h3, .r-body h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
+.r-body .p { font-family:'Hanken Grotesk'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
 
 .qa { padding:80px 0; }
 .qa-item {
   padding:24px; border:1px solid var(--border); border-radius:14px;
   margin-bottom:14px; background:var(--bg-card);
 }
-.qa-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.qa-item h3, .qa-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .qa-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 
 .cta-strip {
@@ -103,10 +107,10 @@ section.body .sub:last-child { margin-bottom:0; }
   border-radius:20px; text-align:center; margin:60px 0 100px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 """
@@ -148,7 +152,7 @@ def robot_card(slug: str) -> str:
         <div class="r-thumb"><img src="{r['photo']}" alt="{escape(r['name'])} robot" loading="lazy"></div>
         <div class="r-body">
           <span class="v">{escape(r['vendor'])} · {escape(r['vendor_country'])}</span>
-          <h4>{escape(r['name'])}</h4>
+          <h3>{escape(r['name'])}</h3>
           <span class="p">€{r['lease_eur']:,}/mnd</span>
         </div>
       </a>"""
@@ -158,7 +162,7 @@ def render_sector(s: dict) -> str:
     metrics_html = "".join(f'<div class="metric"><span class="v">{escape(v)}</span><span class="l">{escape(l)}</span></div>' for v, l in s["metrics"])
     sub_html = "".join(f'<div class="sub"><h2>{escape(sub["h"])}</h2><p>{escape(sub["body"])}</p></div>' for sub in s["subsections"])
     robots_html = "".join(robot_card(slug) for slug in s["recommended_robots"])
-    qa_html = "".join(f'<div class="qa-item"><h4>{escape(q)}</h4><p>{escape(a)}</p></div>' for q, a in s["questions"])
+    qa_html = "".join(f'<div class="qa-item"><h3>{escape(q)}</h3><p>{escape(a)}</p></div>' for q, a in s["questions"])
 
     title = f"{s['title_kw']} - vanaf €290/mnd | BotLease"
     desc = f"{s['name']} met humanoïde robots: ROI, robotmodellen, regelgeving. {s['tagline']} BotLease verzorgt all-in lease vanaf €290/maand."
@@ -214,9 +218,9 @@ def render_sector(s: dict) -> str:
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{SITE_URL}/img/robots/apollo.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{qa_jsonld}</script>
 <script type="application/ld+json">{bc_jsonld}</script>
@@ -340,7 +344,7 @@ def render_city(c: dict) -> str:
     local_areas = LOCAL_AREAS.get(c["slug"], [])
     areas_html = "".join(
         f'<tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">{escape(name)}</td>'
-        f'<td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:\'Inter\', sans-serif; font-variant-numeric:tabular-nums">{escape(pc)}</td>'
+        f'<td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:\'Hanken Grotesk\', sans-serif; font-variant-numeric:tabular-nums">{escape(pc)}</td>'
         f'<td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">{escape(use)}</td></tr>'
         for name, pc, use in local_areas
     )
@@ -427,9 +431,9 @@ def render_city(c: dict) -> str:
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{bc_jsonld}</script>
 <script type="application/ld+json">{local_jsonld}</script>
@@ -467,9 +471,9 @@ def render_city(c: dict) -> str:
       <p style="color:var(--ink-2); font-size:15.5px; line-height:1.65; margin-bottom:18px">De vier sterkste clusters in regio {escape(c['name'])} waar wij momenteel actief zijn. Levering- en swap-SLA's gelden voor alle hier vermelde postcodes; daarbuiten op aanvraag.</p>
       <table style="width:100%; border-collapse:collapse; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden">
         <thead><tr style="background:var(--bg-2)">
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Gebied</th>
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Postcode</th>
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Typische use-case</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Gebied</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Postcode</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Typische use-case</th>
         </tr></thead>
         <tbody>{areas_html}</tbody>
       </table>
@@ -528,7 +532,7 @@ def render_sectors_hub() -> str:
         f'<a href="/sectoren/{s["slug"]}" class="r-card" style="aspect-ratio:auto">'
         f'<div class="r-body" style="padding:24px">'
         f'<span class="v">Sector</span>'
-        f'<h4 style="font-size:19px; margin-bottom:10px">{escape(s["name"])}</h4>'
+        f'<h2 style="font-size:19px; margin-bottom:10px">{escape(s["name"])}</h2>'
         f'<p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">{escape(s["tagline"])}</p>'
         f'<span class="p" style="margin-top:14px">Bekijk →</span>'
         f'</div></a>'
@@ -544,9 +548,9 @@ def render_sectors_hub() -> str:
 <meta property="og:title" content="Humanoïde robots per sector | BotLease">
 <meta property="og:url" content="{SITE_URL}/sectoren/">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
@@ -570,7 +574,7 @@ def render_cities_hub() -> str:
         f'<a href="/leasen/{c["slug"]}" class="r-card" style="aspect-ratio:auto">'
         f'<div class="r-body" style="padding:24px">'
         f'<span class="v">Regio</span>'
-        f'<h4 style="font-size:19px; margin-bottom:10px">{escape(c["name"])}</h4>'
+        f'<h2 style="font-size:19px; margin-bottom:10px">{escape(c["name"])}</h2>'
         f'<p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">{escape(c["intro"][:140])}…</p>'
         f'<span class="p" style="margin-top:14px">Bekijk →</span>'
         f'</div></a>'
@@ -586,9 +590,9 @@ def render_cities_hub() -> str:
 <meta property="og:title" content="Humanoïde robot leasen per stad | BotLease">
 <meta property="og:url" content="{SITE_URL}/leasen/">
 <meta property="og:image" content="{SITE_URL}/img/robots/apollo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}</style>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}

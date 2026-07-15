@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — Lease-aanvragen | BotLease</title>
+<title>Admin - Lease-aanvragen | BotLease</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
   --bg:#050507; --bg-2:#0a0a0e; --bg-3:#131318; --bg-elev:#1c1c24;
   --border:rgba(255,255,255,0.06); --border-h:rgba(255,255,255,0.12);
-  --fg:#fafafa; --fg-2:#a1a1aa; --fg-3:#71717a;
+  --fg:#fafafa; --fg-2:#a1a1aa; --fg-3:#8c8c96;
   --accent:#f97316; --green:#22c55e; --rose:#fb7185;
 }
-body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--fg); min-height:100vh; }
-h1,h2,h3 { font-family:'Inter',sans-serif; font-weight:700; letter-spacing:-0.025em; }
+body { font-family:'Bricolage Grotesque',-apple-system,sans-serif; background:var(--bg); color:var(--fg); min-height:100vh; }
+h1,h2,h3 { font-family:'Hanken Grotesk',sans-serif; font-weight:700; letter-spacing:-0.025em; }
 button { font-family:inherit; cursor:pointer; }
 input { font-family:inherit; }
 
@@ -34,7 +34,7 @@ input { font-family:inherit; }
   padding:40px; max-width:440px; width:100%;
   box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
 }
-.login-card .brand { display:flex; align-items:center; gap:10px; font-family:'Inter'; font-weight:700; font-size:18px; margin-bottom:28px; }
+.login-card .brand { display:flex; align-items:center; gap:10px; font-family:'Hanken Grotesk'; font-weight:700; font-size:18px; margin-bottom:28px; }
 .brand-mark { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--accent), #fb923c); display:flex; align-items:center; justify-content:center; }
 .login-card h1 { font-size:24px; margin-bottom:8px; }
 .login-card p { color:var(--fg-2); font-size:14.5px; margin-bottom:24px; }
@@ -49,11 +49,11 @@ input { font-family:inherit; }
 .btn {
   display:inline-flex; align-items:center; gap:8px; padding:13px 22px;
   border-radius:999px; font-weight:600; font-size:14px; font-family:inherit;
-  background:var(--accent); color:#fff; border:none;
+  background:var(--accent); color:#1c1207; border:none;
   transition:transform .15s, box-shadow .2s;
-  box-shadow:0 8px 20px -6px rgba(249,115,22,0.4);
+  box-shadow:0 8px 20px -6px rgba(0,0,0,0.55);
 }
-.btn:hover { transform:translateY(-1px); box-shadow:0 12px 28px -6px rgba(249,115,22,0.5); }
+.btn:hover { transform:translateY(-1px); box-shadow:0 12px 28px -6px rgba(0,0,0,0.6); }
 .btn.full { width:100%; justify-content:center; }
 .err { color:var(--rose); font-size:13.5px; margin-top:12px; min-height:18px; }
 
@@ -78,7 +78,7 @@ input { font-family:inherit; }
   background:var(--bg-2); border:1px solid var(--border); border-radius:14px;
   padding:18px 22px;
 }
-.stat-card .v { font-family:'Inter'; font-weight:700; font-size:28px; letter-spacing:-0.02em; color:var(--accent); }
+.stat-card .v { font-family:'Hanken Grotesk'; font-weight:700; font-size:28px; letter-spacing:-0.02em; color:var(--accent); }
 .stat-card .l { font-size:12px; color:var(--fg-3); text-transform:uppercase; letter-spacing:0.08em; margin-top:2px; font-weight:500; }
 
 .toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; gap:12px; flex-wrap:wrap; }
@@ -104,7 +104,7 @@ input { font-family:inherit; }
   cursor:pointer; transition:background .15s, color .15s, border-color .15s;
 }
 .pill:hover { background:var(--bg-3); color:var(--fg); }
-.pill.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+.pill.active { background:var(--accent); border-color:var(--accent); color:#1c1207; }
 
 .type-badge { display:inline-block; padding:3px 9px; border-radius:999px; font-size:10.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; }
 .type-badge.contact { background:rgba(96,165,250,0.14); color:#60a5fa; border:1px solid rgba(96,165,250,0.3); }
@@ -112,7 +112,7 @@ input { font-family:inherit; }
 .type-badge.order { background:rgba(74,222,128,0.14); color:#4ade80; border:1px solid rgba(74,222,128,0.3); }
 
 /* Source mapping voor admin (intern) */
-.source-cell { font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums; font-size:11.5px; color:#fbbf24; line-height:1.4; }
+.source-cell { font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums; font-size:12px; color:#fbbf24; line-height:1.4; }
 
 table {
   width:100%; border-collapse:collapse; border:1px solid var(--border);
@@ -125,12 +125,12 @@ th, td {
   font-size:14px; vertical-align:top;
 }
 th {
-  font-family:'Inter'; font-size:11.5px; font-weight:600;
+  font-family:'Hanken Grotesk'; font-size:12px; font-weight:600;
   color:var(--fg-3); text-transform:uppercase; letter-spacing:0.1em;
 }
 tbody tr:hover { background:var(--bg-3); }
 tbody tr:last-child td { border-bottom:none; }
-.cell-date { color:var(--fg-3); font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums; font-size:12.5px; white-space:nowrap; }
+.cell-date { color:var(--fg-3); font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums; font-size:12.5px; white-space:nowrap; }
 .cell-name { font-weight:500; }
 .cell-email a { color:var(--accent); text-decoration:none; }
 .cell-email a:hover { text-decoration:underline; }
@@ -222,7 +222,7 @@ var STORAGE_KEY = 'botlease_admin_pw';
 var rowsCache = [];
 var currentFilter = 'all';
 
-// Source mapping per robot — INTERN — exact dezelfde als /api/contact.js
+// Source mapping per robot - INTERN - exact dezelfde als /api/contact.js
 // Bij bestelling toont admin meteen waar je het kunt bestellen.
 var SOURCE_BY_NAME = {
   'NEURA 4NE-1 Mini':     'NEURA Robotics direct · sales@neura-robotics.com · Metzingen (DE)',
@@ -240,10 +240,10 @@ var SOURCE_BY_NAME = {
   '1X NEO':               '⏳ WACHTLIJST Q1 2027 · 1X Technologies (1x.tech)',
 };
 function getSource(tag) {
-  // tag is like "Apptronik Apollo × 2 · 36mnd" — strip qty/mnd to match
+  // tag is like "Apptronik Apollo × 2 · 36mnd" - strip qty/mnd to match
   if (!tag) return '';
   var name = tag.replace(/\s*×.*$/, '').trim();
-  return SOURCE_BY_NAME[name] || '? Onbekende bron — zoek handmatig';
+  return SOURCE_BY_NAME[name] || '? Onbekende bron - zoek handmatig';
 }
 
 // Parse message field to extract type + tag
@@ -269,7 +269,7 @@ function escapeHtml(s) {
 }
 
 function fmtDate(s) {
-  if (!s) return '—';
+  if (!s) return '–';
   var d = new Date(s);
   if (isNaN(d.getTime())) return s;
   return d.toLocaleString('nl-NL', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
@@ -300,11 +300,11 @@ function render(rows) {
     return '<tr>' +
       '<td class="cell-date">' + escapeHtml(fmtDate(r.created_at)) + '</td>' +
       '<td><span class="type-badge ' + p.type + '">' + typeLabel + '</span></td>' +
-      '<td class="cell-name">' + escapeHtml(r.name || '—') + '</td>' +
-      '<td>' + escapeHtml(r.company || '—') + '</td>' +
-      '<td class="cell-email"><a href="mailto:' + encodeURIComponent(r.email||'') + '?subject=' + encodeURIComponent(subject) + '">' + escapeHtml(r.email || '—') + '</a></td>' +
-      '<td>' + escapeHtml(p.tag || '—') + source + '</td>' +
-      '<td class="cell-msg">' + escapeHtml(p.text || '—') + '</td>' +
+      '<td class="cell-name">' + escapeHtml(r.name || '–') + '</td>' +
+      '<td>' + escapeHtml(r.company || '–') + '</td>' +
+      '<td class="cell-email"><a href="mailto:' + encodeURIComponent(r.email||'') + '?subject=' + encodeURIComponent(subject) + '">' + escapeHtml(r.email || '–') + '</a></td>' +
+      '<td>' + escapeHtml(p.tag || '–') + source + '</td>' +
+      '<td class="cell-msg">' + escapeHtml(p.text || '–') + '</td>' +
       '</tr>';
   }).join('');
 }

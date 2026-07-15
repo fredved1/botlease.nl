@@ -2,16 +2,16 @@
 <html lang="nl"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Humanoïde robot leasen per regio | BotLease</title>
-<meta name="description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen."
-<meta property="og:description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.">>
+<meta name="description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.">
+<meta property="og:description" content="Humanoïde robot leasen in de 5 grootste Nederlandse steden. Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.">
 <link rel="canonical" href="https://botlease.nl/leasen">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Humanoïde robot leasen per stad | BotLease">
 <meta property="og:url" content="https://botlease.nl/leasen">
 <meta property="og:image" content="https://botlease.nl/img/robots/apollo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -72,7 +72,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -81,7 +81,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -135,7 +135,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -213,16 +213,16 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .crumbs .sep { color:var(--ink-4); }
 
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 
 .lp-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .lp-hero { padding:110px 0 40px; } }
 .lp-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(36px, 5vw, 60px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:56px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .lp-hero .tag { color:var(--accent); font-size:19px; margin-bottom:24px; max-width:680px; line-height:1.4; }
@@ -237,16 +237,16 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 @media (min-width:768px) { .metrics { grid-template-columns:repeat(4,1fr); } }
 .metric { display:flex; flex-direction:column; gap:6px; }
 .metric .v {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:32px; letter-spacing:-0.025em; color:var(--accent);
   line-height:1;
 }
-.metric .l { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
+.metric .l { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:500; }
 
 section.body { padding:80px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(24px, 2.8vw, 36px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:34px;
   margin-bottom:14px; letter-spacing:-0.025em; line-height:1.15;
 }
 section.body p { color:var(--ink); font-size:17px; line-height:1.78; margin-bottom:18px; }
@@ -278,16 +278,16 @@ section.body .sub:last-child { margin-bottom:0; }
   object-fit:contain; filter:drop-shadow(0 10px 20px rgba(28,25,23,0.15));
 }
 .r-body { padding:16px 18px 18px; flex:1; display:flex; flex-direction:column; }
-.r-body .v { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
-.r-body h4 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
-.r-body .p { font-family:'Inter'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
+.r-body .v { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:600; margin-bottom:4px; }
+section.body .r-body h2, .r-body h2, .r-body h3, .r-body h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
+.r-body .p { font-family:'Hanken Grotesk'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
 
 .qa { padding:80px 0; }
 .qa-item {
   padding:24px; border:1px solid var(--border); border-radius:14px;
   margin-bottom:14px; background:var(--bg-card);
 }
-.qa-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.qa-item h3, .qa-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .qa-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 
 .cta-strip {
@@ -295,12 +295,16 @@ section.body .sub:last-child { margin-bottom:0; }
   border-radius:20px; text-align:center; margin:60px 0 100px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
+@media (max-width:1100px){ .lp-hero h1{font-size:46px;} }
+@media (max-width:640px){ .lp-hero h1{font-size:36px;} }
+@media (max-width:900px){ section.body h2{font-size:29px;} }
+@media (max-width:640px){ section.body h2{font-size:25px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://botlease.nl/#organization", "name": "BotLease", "url": "https://botlease.nl", "logo": "https://botlease.nl/logo.png", "description": "Nederlands eerste full-service leasemaatschappij voor humanoïde robots. All-in operational lease vanaf €290 per maand: gebruiksklare oplevering, onderhoud, vervangende unit bij storing en compliance-documentatie.", "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"}, "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "knowsAbout": ["humanoïde robots", "operational lease", "Robot-as-a-Service", "EU AI-Act", "Machineverordening 2023/1230", "Unitree", "NEURA Robotics", "Apptronik", "Figure AI", "Agility Robotics", "1X Technologies", "UBTECH", "EngineAI", "Pollen Robotics"], "identifier": {"@type": "PropertyValue", "propertyID": "KvK", "value": "95943420"}, "founder": {"@type": "Person", "name": "Thomas Vedder", "jobTitle": "Oprichter"}, "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hallo@botlease.nl", "areaServed": ["NL", "BE", "DE", "LU"], "availableLanguage": ["nl", "en"]}}</script>
 
@@ -347,8 +351,8 @@ section.body .sub:last-child { margin-bottom:0; }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -358,7 +362,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -454,7 +458,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
   <p class="tag">Lokale levering, sectorspecifiek advies, intake binnen 1-2 werkdagen.</p>
 </div></section>
 <section class="body"><div class="container">
-  <div class="r-grid" style="grid-template-columns:repeat(2,1fr)"><a href="/leasen/amsterdam" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Amsterdam</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Amsterdam is Nederlands grootste cluster voor e-commerce-hoofdkantoren, tech-scale-ups en luxe hospitality. BotLease levert humanoids op loc…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/rotterdam" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Rotterdam</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Rotterdam is het logistieke hart van Nederland: Maasvlakte, Botlek, Waalhaven. BotLease levert humanoids voor warehouse-deployments in Eemha…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/eindhoven" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Eindhoven</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Eindhoven Brainport is Nederlands maakindustrie-hart: ASML, NXP, Philips, VDL. BotLease bedient deze regio actief vanuit Amsterdam met demo-…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/utrecht" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Utrecht</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Utrecht is het knooppunt voor zorginstellingen (UMC Utrecht), universitair onderzoek en logistieke knooppunten rond A12/A2. BotLease levert …</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/den-haag" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Den Haag</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Den Haag is een sector-mix: government, defensie, hotels rond Scheveningen, en logistieke clusters in Bleizo en Rijswijk. BotLease verzorgt …</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/noord-brabant" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h4 style="font-size:19px; margin-bottom:10px">Noord-Brabant</h4><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Noord-Brabant is het industriële hart van Nederland: Brainport Eindhoven, de logistieke as Tilburg-Waalwijk en machinebouw rond Helmond. De sterkste case voor industriële humanoids.</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a></div>
+  <div class="r-grid" style="grid-template-columns:repeat(2,1fr)"><a href="/leasen/amsterdam" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Amsterdam</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Amsterdam is Nederlands grootste cluster voor e-commerce-hoofdkantoren, tech-scale-ups en luxe hospitality. BotLease levert humanoids op loc…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/rotterdam" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Rotterdam</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Rotterdam is het logistieke hart van Nederland: Maasvlakte, Botlek, Waalhaven. BotLease levert humanoids voor warehouse-deployments in Eemha…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/eindhoven" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Eindhoven</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Eindhoven Brainport is Nederlands maakindustrie-hart: ASML, NXP, Philips, VDL. BotLease bedient deze regio actief vanuit Amsterdam met demo-…</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/utrecht" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Utrecht</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Utrecht is het knooppunt voor zorginstellingen (UMC Utrecht), universitair onderzoek en logistieke knooppunten rond A12/A2. BotLease levert …</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/den-haag" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Den Haag</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Den Haag is een sector-mix: government, defensie, hotels rond Scheveningen, en logistieke clusters in Bleizo en Rijswijk. BotLease verzorgt …</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a><a href="/leasen/noord-brabant" class="r-card" style="aspect-ratio:auto"><div class="r-body" style="padding:24px"><span class="v">Regio</span><h2 style="font-size:19px; margin-bottom:10px">Noord-Brabant</h2><p style="color:var(--ink-2); font-size:13.5px; line-height:1.5">Noord-Brabant is het industriële hart van Nederland: Brainport Eindhoven, de logistieke as Tilburg-Waalwijk en machinebouw rond Helmond. De sterkste case voor industriële humanoids.</p><span class="p" style="margin-top:14px">Bekijk →</span></div></a></div>
 </div></section>
 
 </main>

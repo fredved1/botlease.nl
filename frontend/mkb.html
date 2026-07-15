@@ -21,9 +21,9 @@
 <meta name="twitter:description" content="Humanoïde robot leasen voor het MKB: all-in vanaf €290/mnd, geen investering vooraf, geen technisch team nodig. Zo begint een mkb-bedrijf in 2026.">
 <meta name="twitter:image" content="https://botlease.nl/img/robots/apollo.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -71,7 +71,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -80,7 +80,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -132,7 +132,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -201,8 +201,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .g-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .g-hero { padding:110px 0 40px; } }
 .g-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(34px, 4.6vw, 56px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:52px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .g-hero .tag { color:var(--accent); font-size:18px; margin-bottom:24px; max-width:760px; line-height:1.5; }
@@ -211,7 +211,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--accent-soft); border:1px solid var(--accent-line);
   border-radius:18px; padding:32px 36px; margin:40px 0;
 }
-.tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Inter'; }
+.tldr h2, .tldr h3 { font-size:12.5px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px; font-weight:600; font-family:'Hanken Grotesk'; }
 .tldr ul { list-style:none; padding:0; }
 .tldr li {
   padding:12px 0 12px 28px; position:relative;
@@ -225,7 +225,7 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
   background:var(--bg-2); border:1px solid var(--border);
   border-radius:14px; padding:24px 28px; margin:32px 0;
 }
-.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Inter'; font-weight:600; }
+.toc h3 { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-family:'Hanken Grotesk'; font-weight:600; }
 .toc ol { padding-left:22px; }
 .toc li { margin-bottom:7px; }
 .toc a { color:var(--ink-2); font-size:14.5px; }
@@ -233,8 +233,8 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 
 section.body { padding:30px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(26px, 3vw, 38px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:36px;
   margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
   scroll-margin-top:80px;
 }
@@ -247,7 +247,7 @@ section.body b, section.body strong { color:var(--ink); font-weight:600; }
 
 table.cmp { width:100%; border-collapse:collapse; margin:24px 0; font-size:15px; }
 table.cmp th, table.cmp td { padding:12px 14px; border:1px solid var(--border); text-align:left; vertical-align:top; }
-table.cmp th { background:var(--bg-2); font-family:'Inter'; font-weight:600; color:var(--ink); font-size:13px; }
+table.cmp th { background:var(--bg-2); font-family:'Hanken Grotesk'; font-weight:600; color:var(--ink); font-size:13px; }
 table.cmp td { color:var(--ink-2); line-height:1.55; }
 table.cmp tr:nth-child(even) td { background:var(--bg-2); }
 
@@ -260,7 +260,7 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
   padding:24px 28px; border:1px solid var(--border);
   border-radius:14px; margin-bottom:14px; background:var(--bg-card);
 }
-.faq-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.faq-item h3, .faq-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .faq-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 .faq-item a { color:var(--accent); text-decoration:underline; }
 
@@ -269,12 +269,16 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
   border-radius:20px; text-align:center; margin:60px auto; max-width:900px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
+@media (max-width:1100px){ .g-hero h1{font-size:44px;} }
+@media (max-width:640px){ .g-hero h1{font-size:35px;} }
+@media (max-width:900px){ section.body h2{font-size:30px;} }
+@media (max-width:640px){ section.body h2{font-size:26px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Humanoïde robot leasen voor het MKB zonder grote investering", "description": "Humanoïde robot leasen voor het MKB: all-in vanaf €290/mnd, geen investering vooraf, geen technisch team nodig. Zo begint een mkb-bedrijf in 2026.", "image": "https://botlease.nl/img/robots/apollo.png", "datePublished": "2026-05-29T08:00:00+02:00", "dateModified": "2026-05-29T08:00:00+02:00", "author": {"@type": "Person", "name": "Thomas Vedder", "url": "https://botlease.nl/auteur/thomas-vedder"}, "publisher": {"@type": "Organization", "name": "BotLease", "logo": {"@type": "ImageObject", "url": "https://botlease.nl/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://botlease.nl/mkb"}, "inLanguage": "nl-NL"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Voor het MKB", "item": "https://botlease.nl/mkb"}]}</script>
@@ -321,8 +325,8 @@ table.cmp tr:nth-child(even) td { background:var(--bg-2); }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -332,7 +336,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -409,7 +413,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <span class="eyebrow">MKB</span>
     <h1>Humanoïde robot leasen voor het MKB.</h1>
     <p class="tag">Robotica was lang voorbehouden aan grote bedrijven met diepe zakken en eigen engineers. Met all-in lease is een humanoïde robot nu ook haalbaar voor het MKB.</p>
-    <div class="tldr"><h3>TL;DR</h3><ul><li>Geen investering vooraf: je leaset all-in vanaf €290/mnd in plaats van €16k-€100k+ te kopen. Je werkkapitaal blijft op de balans.</li><li>Geen technisch team nodig: gebruiksklare oplevering, onderhoud, updates en vervanging bij storing (swap-SLA) zitten in het maandbedrag.</li><li>Geen restwaarde-risico: humanoïde robots zijn jonge techniek - dat risico ligt bij BotLease, niet bij jou.</li><li>Flexibel: standaard 36 maanden, na jaar 1 maandelijks opzegbaar. Begin met een pilot van 4 weken (€1.500) om de businesscase te bewijzen.</li></ul></div>
+    <div class="tldr"><h2>TL;DR</h2><ul><li>Geen investering vooraf: je leaset all-in vanaf €290/mnd in plaats van €16k-€100k+ te kopen. Je werkkapitaal blijft op de balans.</li><li>Geen technisch team nodig: gebruiksklare oplevering, onderhoud, updates en vervanging bij storing (swap-SLA) zitten in het maandbedrag.</li><li>Geen restwaarde-risico: humanoïde robots zijn jonge techniek - dat risico ligt bij BotLease, niet bij jou.</li><li>Flexibel: standaard 36 maanden, na jaar 1 maandelijks opzegbaar. Begin met een pilot van 4 weken (€1.500) om de businesscase te bewijzen.</li></ul></div>
     <div class="toc"><h3>Inhoud</h3><ol><li><a href="#waarom">1. Waarom is dit nu haalbaar voor het MKB?</a></li><li><a href="#drempels">2. De drie drempels - en hoe lease ze wegneemt</a></li><li><a href="#kosten">3. Wat kost het voor een mkb-bedrijf?</a></li><li><a href="#modellen">4. Welke modellen passen bij het MKB?</a></li><li><a href="#sectoren">5. MKB-toepassingen per sector</a></li><li><a href="#starten">6. Hoe begin je als mkb-ondernemer?</a></li></ol></div>
   </div>
 </section>
@@ -426,7 +430,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
     <span class="eyebrow">Veelgestelde vragen</span>
     <h2 style="margin-top:14px">Vraag &amp; antwoord.</h2>
     <div class="faq-list">
-<div class="faq-item"><h4>Is een humanoïde robot betaalbaar voor het MKB?</h4><p>Ja. Door te leasen in plaats van te kopen betaal je een all-in maandbedrag vanaf €290 (Unitree R1) tot €6.650 (Unitree H1-2), zonder investering vooraf. Een pilot van 4 weken kost €1.500. Daarmee is robotica ook voor kleine en middelgrote bedrijven haalbaar.</p></div><div class="faq-item"><h4>Heb ik technisch personeel nodig om een robot in te zetten?</h4><p>Nee. De robot wordt gebruiksklaar geleverd en we geven bij oplevering een korte uitleg. Je hebt geen eigen engineers of robotica-afdeling nodig.</p></div><div class="faq-item"><h4>Wat als de robot stuk gaat - draait mijn proces dan stil?</h4><p>Nee. Dankzij de swap-SLA staat er bij storing een vervangende unit (doorgaans binnen enkele werkdagen) op locatie. We regelen de vervanging zo snel mogelijk. Het onderhouds- en restwaarderisico ligt bij BotLease.</p></div><div class="faq-item"><h4>Kan een klein bedrijf het contract flexibel houden?</h4><p>Ja. De standaardtermijn is 36 maanden; na het eerste jaar is het maandelijks opzegbaar met één maand opzegtermijn. Zo schaal je mee met fluctuerende volumes.</p></div><div class="faq-item"><h4>Hoe weet ik of het voor mijn mkb-bedrijf loont?</h4><p>Met een pilot van 4 weken. We kiezen één taak, zetten een passend model in en meten bespaarde uren en uptime. Op basis van dat ROI-rapport beslis je pas of je leaset.</p></div>
+<div class="faq-item"><h3>Is een humanoïde robot betaalbaar voor het MKB?</h3><p>Ja. Door te leasen in plaats van te kopen betaal je een all-in maandbedrag vanaf €290 (Unitree R1) tot €6.650 (Unitree H1-2), zonder investering vooraf. Een pilot van 4 weken kost €1.500. Daarmee is robotica ook voor kleine en middelgrote bedrijven haalbaar.</p></div><div class="faq-item"><h3>Heb ik technisch personeel nodig om een robot in te zetten?</h3><p>Nee. De robot wordt gebruiksklaar geleverd en we geven bij oplevering een korte uitleg. Je hebt geen eigen engineers of robotica-afdeling nodig.</p></div><div class="faq-item"><h3>Wat als de robot stuk gaat - draait mijn proces dan stil?</h3><p>Nee. Dankzij de swap-SLA staat er bij storing een vervangende unit (doorgaans binnen enkele werkdagen) op locatie. We regelen de vervanging zo snel mogelijk. Het onderhouds- en restwaarderisico ligt bij BotLease.</p></div><div class="faq-item"><h3>Kan een klein bedrijf het contract flexibel houden?</h3><p>Ja. De standaardtermijn is 36 maanden; na het eerste jaar is het maandelijks opzegbaar met één maand opzegtermijn. Zo schaal je mee met fluctuerende volumes.</p></div><div class="faq-item"><h3>Hoe weet ik of het voor mijn mkb-bedrijf loont?</h3><p>Met een pilot van 4 weken. We kiezen één taak, zetten een passend model in en meten bespaarde uren en uptime. Op basis van dat ROI-rapport beslis je pas of je leaset.</p></div>
     </div>
   </div>
 </section>

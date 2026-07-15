@@ -16,9 +16,9 @@
 <meta property="og:image" content="https://botlease.nl/img/robots/apollo.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -79,7 +79,7 @@
 
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   background:var(--bg); color:var(--ink);
   font-size:17px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -88,7 +88,7 @@ body {
   overflow-x:hidden;
 }
 h1,h2,h3,h4 {
-  font-family:'Inter', -apple-system, sans-serif;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif;
   font-weight:700;
   letter-spacing:-0.03em;
   color:var(--ink); line-height:1.05;
@@ -142,7 +142,7 @@ nav.top .row { display:flex; align-items:center; justify-content:space-between; 
 .lang-btn:hover { border-color:rgba(0,0,0,0.3); }
 .lang-btn svg { width:9px; height:9px; opacity:0.6; }
 .lang-menu {
-  position:absolute; top:calc(100% + 6px); right:0;
+  position:absolute; top:30px; right:0;
   background:#fff; border:1px solid var(--border); border-radius:12px;
   padding:6px; display:none; flex-direction:column;
   min-width:148px; box-shadow:0 8px 28px rgba(0,0,0,0.12);
@@ -220,16 +220,16 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 .crumbs .sep { color:var(--ink-4); }
 
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 
 .lp-hero { padding:80px 0 30px; }
 @media (min-width:768px) { .lp-hero { padding:110px 0 40px; } }
 .lp-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(36px, 5vw, 60px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:56px;
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
 .lp-hero .tag { color:var(--accent); font-size:19px; margin-bottom:24px; max-width:680px; line-height:1.4; }
@@ -244,16 +244,16 @@ section.dark .eyebrow, section.dark .section-eyebrow { color:var(--accent-2); }
 @media (min-width:768px) { .metrics { grid-template-columns:repeat(4,1fr); } }
 .metric { display:flex; flex-direction:column; gap:6px; }
 .metric .v {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:32px; letter-spacing:-0.025em; color:var(--accent);
   line-height:1;
 }
-.metric .l { font-size:12.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; }
+.metric .l { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:500; }
 
 section.body { padding:80px 0; }
 section.body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(24px, 2.8vw, 36px);
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:34px;
   margin-bottom:14px; letter-spacing:-0.025em; line-height:1.15;
 }
 section.body p { color:var(--ink); font-size:17px; line-height:1.78; margin-bottom:18px; }
@@ -285,16 +285,16 @@ section.body .sub:last-child { margin-bottom:0; }
   object-fit:contain; filter:drop-shadow(0 10px 20px rgba(28,25,23,0.15));
 }
 .r-body { padding:16px 18px 18px; flex:1; display:flex; flex-direction:column; }
-.r-body .v { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:4px; }
-.r-body h4 { font-family:'Inter'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
-.r-body .p { font-family:'Inter'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
+.r-body .v { font-size:12.5px; color:var(--ink-3); letter-spacing:0.01em; font-weight:600; margin-bottom:4px; }
+section.body .r-body h2, .r-body h2, .r-body h3, .r-body h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:16px; margin-bottom:8px; color:var(--ink); }
+.r-body .p { font-family:'Hanken Grotesk'; color:var(--accent); font-size:14px; font-weight:600; margin-top:auto; padding-top:10px; }
 
 .qa { padding:80px 0; }
 .qa-item {
   padding:24px; border:1px solid var(--border); border-radius:14px;
   margin-bottom:14px; background:var(--bg-card);
 }
-.qa-item h4 { font-family:'Inter'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
+.qa-item h3, .qa-item h4 { font-family:'Hanken Grotesk'; font-weight:600; font-size:18px; margin-bottom:10px; color:var(--ink); letter-spacing:-0.015em; }
 .qa-item p { color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 
 .cta-strip {
@@ -302,12 +302,16 @@ section.body .sub:last-child { margin-bottom:0; }
   border-radius:20px; text-align:center; margin:60px 0 100px;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
+@media (max-width:1100px){ .lp-hero h1{font-size:46px;} }
+@media (max-width:640px){ .lp-hero h1{font-size:36px;} }
+@media (max-width:900px){ section.body h2{font-size:29px;} }
+@media (max-width:640px){ section.body h2{font-size:25px;} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botlease.nl/"}, {"@type": "ListItem", "position": 2, "name": "Leasen", "item": "https://botlease.nl/leasen"}, {"@type": "ListItem", "position": 3, "name": "Noord-Brabant", "item": "https://botlease.nl/leasen/noord-brabant"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "BotLease - Humanoïde robot leasen Noord-Brabant", "image": "https://botlease.nl/img/robots/apollo-norm.webp", "url": "https://botlease.nl/leasen/noord-brabant", "email": "hallo@botlease.nl", "priceRange": "€290 - €6.650 per maand", "address": {"@type": "PostalAddress", "addressLocality": "Eindhoven", "addressRegion": "Noord-Brabant", "addressCountry": "NL"}, "areaServed": [{"@type": "AdministrativeArea", "name": "Noord-Brabant"}, {"@type": "City", "name": "Eindhoven"}, {"@type": "City", "name": "Tilburg"}, {"@type": "City", "name": "Helmond"}, {"@type": "City", "name": "\u0027s-Hertogenbosch"}, {"@type": "Country", "name": "Nederland"}], "serviceType": "Operational lease van humanoïde robots", "description": "All-in operational lease van humanoïde robots in Noord-Brabant en Brainport Eindhoven - voor maakindustrie en logistiek, inclusief gebruiksklare oplevering, onderhoud, swap-SLA en EU AI-Act compliance."}</script>
@@ -357,8 +361,8 @@ section.body .sub:last-child { margin-bottom:0; }
 
 <style id="mobile-first-patch">
 /* ── mobile-first patch (BotLease) ─────────────────────────────── */
-.skip-to-main{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
-.skip-to-main:focus{left:0;}
+.skip-to-main{position:fixed;top:0;left:0;transform:translateY(-150%);z-index:200;background:var(--accent,#0066cc);color:#fff;padding:10px 16px;font-weight:600;text-decoration:none;}
+.skip-to-main:focus{transform:none;}
 .nav-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:none;padding:0;color:#1d1d1f;-webkit-tap-highlight-color:transparent;flex-shrink:0;}
 .nav-burger svg{width:22px;height:22px;}
 .nav-burger .ic-close{display:none;}
@@ -368,7 +372,7 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
 @media (max-width:780px){
   .nav-burger{display:inline-flex;}
   .nav-links{
-    position:absolute;top:100%;left:0;right:0;
+    position:absolute;top:48px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
     background:rgba(251,251,253,0.98);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -487,11 +491,11 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
       <p style="color:var(--ink-2); font-size:15.5px; line-height:1.65; margin-bottom:18px">De vier sterkste industrie- en logistiekclusters in Brabant waar wij actief zijn. Levering- en swap-SLA's gelden voor alle hier vermelde postcodes; daarbuiten op aanvraag.</p>
       <table style="width:100%; border-collapse:collapse; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden">
         <thead><tr style="background:var(--bg-2)">
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Gebied</th>
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Postcode</th>
-          <th style="text-align:left; padding:11px 14px; font-size:11.5px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Typische use-case</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Gebied</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Postcode</th>
+          <th style="text-align:left; padding:11px 14px; font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.06em; font-weight:600">Typische use-case</th>
         </tr></thead>
-        <tbody><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Brainport Eindhoven / High Tech Campus</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums">5600-5658</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Hightech maakindustrie, automotive, assemblage, R&amp;D</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Tilburg / Waalwijk logistiek</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums">5000-5049</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Mega-distributiecentra, e-commerce fulfillment</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Helmond / Automotive Campus</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums">5700-5749</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Automotive, machinebouw, parts-handling</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">&rsquo;s-Hertogenbosch / Rosmalen</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Inter', sans-serif; font-variant-numeric:tabular-nums">5200-5249</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Productie, food, regionale distributie</td></tr></tbody>
+        <tbody><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Brainport Eindhoven / High Tech Campus</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums">5600-5658</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Hightech maakindustrie, automotive, assemblage, R&amp;D</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Tilburg / Waalwijk logistiek</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums">5000-5049</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Mega-distributiecentra, e-commerce fulfillment</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">Helmond / Automotive Campus</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums">5700-5749</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Automotive, machinebouw, parts-handling</td></tr><tr><td style="padding:11px 14px; font-weight:600; color:var(--ink); font-size:14px; border-bottom:1px solid var(--border)">&rsquo;s-Hertogenbosch / Rosmalen</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border); font-family:'Hanken Grotesk', sans-serif; font-variant-numeric:tabular-nums">5200-5249</td><td style="padding:11px 14px; color:var(--ink-2); font-size:13.5px; border-bottom:1px solid var(--border)">Productie, food, regionale distributie</td></tr></tbody>
       </table>
     </div>
 
@@ -520,28 +524,28 @@ nav.top.menu-open .nav-burger .ic-close{display:block;}
         <div class="r-thumb"><img src="/img/robots/digit-norm.webp" alt="Agility Digit v4 robot" loading="lazy"></div>
         <div class="r-body">
           <span class="v">Agility Robotics · Verenigde Staten</span>
-          <h4>Agility Digit v4</h4>
+          <h3>Agility Digit v4</h3>
           <span class="p">€4.250/mnd</span>
         </div>
       </a><a href="/robots/apptronik-apollo" class="r-card">
         <div class="r-thumb"><img src="/img/robots/apollo-norm.webp" alt="Apptronik Apollo robot" loading="lazy"></div>
         <div class="r-body">
           <span class="v">Apptronik · Verenigde Staten</span>
-          <h4>Apptronik Apollo</h4>
+          <h3>Apptronik Apollo</h3>
           <span class="p">€3.499/mnd</span>
         </div>
       </a><a href="/robots/ubtech-walker-s2" class="r-card">
         <div class="r-thumb"><img src="/img/robots/walker-s-norm.webp" alt="UBTECH Walker S2 robot" loading="lazy"></div>
         <div class="r-body">
           <span class="v">UBTECH · China</span>
-          <h4>UBTECH Walker S2</h4>
+          <h3>UBTECH Walker S2</h3>
           <span class="p">€5.750/mnd</span>
         </div>
       </a><a href="/robots/unitree-h1-2" class="r-card">
         <div class="r-thumb"><img src="/img/robots/h1-norm.webp" alt="Unitree H1-2 robot" loading="lazy"></div>
         <div class="r-body">
           <span class="v">Unitree Robotics · China</span>
-          <h4>Unitree H1-2</h4>
+          <h3>Unitree H1-2</h3>
           <span class="p">€6.650/mnd</span>
         </div>
       </a></div>

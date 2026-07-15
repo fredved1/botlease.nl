@@ -112,12 +112,12 @@ LISTING_CSS = """
 .news-hero { padding:80px 0 28px; }
 @media (min-width:768px) { .news-hero { padding:120px 0 36px; } }
 .eyebrow {
-  display:inline-block; color:var(--accent); font-size:12.5px;
-  text-transform:uppercase; letter-spacing:0.12em; font-weight:600;
-  margin-bottom:16px;
+  display:inline-block; color:var(--accent); font-size:14px;
+  letter-spacing:-0.005em; font-weight:600;
+  margin-bottom:14px;
 }
 .news-hero h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(40px, 5.5vw, 72px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.02;
 }
@@ -128,7 +128,7 @@ LISTING_CSS = """
   background:var(--accent-soft); color:var(--accent-deep);
   border:1px solid var(--accent-line);
   padding:6px 14px; border-radius:999px;
-  font-family:'Inter'; font-size:12px; font-weight:600;
+  font-family:'Hanken Grotesk'; font-size:12px; font-weight:600;
   letter-spacing:0.06em; text-transform:uppercase;
 }
 .live-badge::before {
@@ -149,7 +149,7 @@ LISTING_CSS = """
   border-top:1px solid var(--border); margin-top:32px; padding-top:22px;
 }
 .cat-chip {
-  font-family:'Inter'; font-size:13px; font-weight:600;
+  font-family:'Hanken Grotesk'; font-size:13px; font-weight:600;
   padding:7px 16px; border-radius:999px;
   background:transparent; color:var(--ink-2);
   border:1px solid var(--border); cursor:pointer;
@@ -186,16 +186,16 @@ LISTING_CSS = """
 @media (min-width:880px) { .lead-story-content { padding:48px 56px 52px; max-width:780px; } }
 .lead-story .cat-tag {
   display:inline-block;
-  font-family:'Inter'; font-size:11px; font-weight:700;
+  font-family:'Hanken Grotesk'; font-size:11px; font-weight:700;
   letter-spacing:0.12em; text-transform:uppercase;
   padding:5px 12px; border-radius:999px;
   background:var(--accent); color:#fff;
   margin-bottom:18px;
 }
 .lead-story h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
-  font-size:clamp(28px, 3.5vw, 44px);
-  line-height:1.12; letter-spacing:-0.025em;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
+  font-size:40px;
+  line-height:53px; letter-spacing:-0.025em;
   margin-bottom:14px; color:#fff;
 }
 .lead-story h2 a { color:#fff; }
@@ -224,7 +224,7 @@ LISTING_CSS = """
 /* Main grid - 3 columns */
 .news-feed { padding:24px 0 96px; }
 .news-grid-title {
-  font-family:'Inter'; font-size:13px; text-transform:uppercase;
+  font-family:'Hanken Grotesk'; font-size:13px; text-transform:uppercase;
   letter-spacing:0.12em; font-weight:600; color:var(--ink-3);
   margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border);
 }
@@ -245,15 +245,15 @@ article.card:hover {
 article.card .card-body { padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; }
 article.card .meta { display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
 article.card .cat {
-  font-family:'Inter'; color:var(--accent-deep);
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
   font-size:10.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.card .date { color:var(--ink-3); font-size:12.5px; }
 article.card h2 {
-  font-family:'Inter'; font-weight:600;
-  font-size:18px; line-height:1.28; margin-bottom:10px; letter-spacing:-0.015em;
+  font-family:'Hanken Grotesk'; font-weight:600;
+  font-size:18px; line-height:25px; margin-bottom:10px; letter-spacing:-0.015em;
 }
 article.card h2 a { color:var(--ink); }
 article.card h2 a:hover { color:var(--accent); }
@@ -265,7 +265,7 @@ article.card .footer-line {
 }
 article.card .read-more { color:var(--accent); font-weight:600; white-space:nowrap; }
 article.card .src {
-  font-size:11px; color:var(--ink-3); font-weight:500;
+  font-size:12px; color:var(--ink-3); font-weight:500;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 
@@ -300,7 +300,7 @@ article.card:hover .card-thumb-photo:not(.cover) { transform:translateY(-50%) sc
 .thumb-sub.card-thumb { height:260px; }
 
 /* Sub-feature card body slightly larger */
-article.card.sub-featured h2 { font-size:21px; line-height:1.22; }
+article.card.sub-featured h2 { font-size:21px; line-height:1.35; }
 article.card.sub-featured p.lede { font-size:15px; }
 """
 
@@ -318,7 +318,7 @@ ARTICLE_CSS = """
 .hero-banner-pattern { display:none; }
 .hero-banner-label {
   position:absolute; top:18px; left:20px;
-  font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
+  font-family:'Hanken Grotesk',sans-serif; font-size:11px; font-weight:600;
   text-transform:uppercase; letter-spacing:0.1em;
   color:var(--accent-deep);
   padding:4px 12px; background:var(--bg-card);
@@ -335,13 +335,13 @@ ARTICLE_CSS = """
 }
 article.full .meta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13.5px; color:var(--ink-3); }
 article.full .cat {
-  font-family:'Inter'; color:var(--accent-deep);
+  font-family:'Hanken Grotesk'; color:var(--accent-deep);
   font-size:11px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600;
   padding:3px 10px; background:var(--accent-soft);
   border:1px solid var(--accent-line); border-radius:999px;
 }
 article.full h1 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:clamp(34px, 4.5vw, 56px);
   margin-bottom:18px; letter-spacing:-0.035em; line-height:1.06;
 }
@@ -353,21 +353,20 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 .tldr {
   position:relative;
   background:var(--accent-soft);
-  border-left:4px solid var(--accent);
-  border-radius:0 12px 12px 0;
-  padding:22px 28px 22px 28px;
+  border-radius:12px;
+  padding:22px 28px;
   margin:0 0 36px;
 }
 .tldr-label {
   display:inline-block;
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:11px; font-weight:700;
   letter-spacing:0.14em; text-transform:uppercase;
   color:var(--accent-deep);
   margin-bottom:8px;
 }
 .tldr p {
-  font-family:'Inter', sans-serif;
+  font-family:'Hanken Grotesk', sans-serif;
   font-size:16.5px !important;
   font-weight:500;
   color:var(--ink) !important;
@@ -378,7 +377,7 @@ article.full .body p, article.full .body ul { font-size:17px; color:var(--ink); 
 article.full .body ul { padding-left:24px; }
 article.full .body li { margin-bottom:8px; color:var(--ink); }
 article.full .body h2 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:30px; margin:56px 0 18px; letter-spacing:-0.025em; line-height:1.15;
 }
 article.full .body h3 { font-size:21px; margin:36px 0 14px; }
@@ -388,11 +387,11 @@ article.full .body strong, article.full .body b { color:var(--ink); font-weight:
 article.full blockquote {
   border-left:3px solid var(--accent);
   padding:8px 0 8px 24px; margin:32px 0;
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:22px; color:var(--ink); line-height:1.4;
 }
 .sources { margin-top:64px; padding:32px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; }
-.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Inter'; font-weight:600; }
+.sources h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:18px; font-family:'Hanken Grotesk'; font-weight:600; }
 .sources ol { padding-left:22px; }
 .sources li { color:var(--ink-2); font-size:14.5px; margin-bottom:8px; }
 .sources a { color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); }
@@ -404,14 +403,14 @@ article.full blockquote {
   border-radius:20px; text-align:center;
 }
 .cta-strip h3 {
-  font-family:'Inter', -apple-system, sans-serif; font-weight:700;
+  font-family:'Bricolage Grotesque', -apple-system, sans-serif; font-weight:700;
   font-size:28px; margin-bottom:10px; color:var(--ink-on-dark);
 }
-.cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
+section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bottom:24px; font-size:16px; }
 .cta-strip .btn { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cta-strip .btn:hover { background:#fff; color:var(--ink); border-color:#fff; }
 .related { margin-top:80px; padding-top:48px; border-top:1px solid var(--border); }
-.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Inter'; font-weight:600; }
+.related h3 { font-size:13px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:22px; font-family:'Hanken Grotesk'; font-weight:600; }
 .related-grid { display:grid; grid-template-columns:1fr; gap:18px; }
 @media (min-width:640px) { .related-grid { grid-template-columns:1fr 1fr; } }
 .related a {
@@ -421,7 +420,7 @@ article.full blockquote {
 }
 .related a:hover { border-color:var(--border-hover); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 .related .cat { font-size:11px; color:var(--accent-deep); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-.related .t { font-family:'Inter'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
+.related .t { font-family:'Hanken Grotesk'; font-weight:600; margin-top:6px; line-height:1.3; color:var(--ink); }
 """
 
 
@@ -765,8 +764,7 @@ def editorial_svg(a: dict, *, w: int = 1200, h: int = 480) -> str:
             o.append(f'<path d="{path}" fill="none" stroke="{acc}" stroke-opacity="0.24" stroke-width="1.5"/>')
         for _ in range(9):
             o.append(f'<rect x="{int(rnd()*w)}" y="{int(rnd()*h)}" width="7" height="7" rx="1.5" fill="{acc}" fill-opacity="0.65"/>')
-    o.append(f'<text x="{w-44}" y="{h-34}" text-anchor="end" font-family="Inter,sans-serif" '
-             f'font-size="118" font-weight="800" fill="{acc2}" fill-opacity="0.06">{escape(cat[:2].upper())}</text>')
+    o.append(f'')
     o.append('</svg>')
     return "".join(o)
 
@@ -962,14 +960,15 @@ def render_article(a: dict, related: list) -> str:
 <meta name="twitter:image" content="{article_image(a)}">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}{ARTICLE_CSS}</style>
 <script type="application/ld+json">{article_jsonld(a)}</script>
 <script type="application/ld+json">{breadcrumb_jsonld(a)}</script>
 <script type="application/ld+json">{ORG_SCHEMA}</script>
 {HEAD_SEO}
+<!-- impeccable-disable numbered-section-markers -- publicatiedata in het nieuwsoverzicht zijn content, geen sectiescaffold -->
 </head>
 <body>
 {SVG_DEFS}
@@ -1179,9 +1178,9 @@ def render_listing(articles: list) -> str:
 <meta name="twitter:image" content="{SITE_URL}/img/robots/apollo.png">
 
 <link rel="alternate" type="application/rss+xml" title="BotLease Nieuws" href="{SITE_URL}/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}{LISTING_CSS}</style>
 <script type="application/ld+json">{itemlist_jsonld}</script>
 <script type="application/ld+json">{{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}}, {{"@type": "ListItem", "position": 2, "name": "Nieuws", "item": "{SITE_URL}/nieuws"}}]}}</script>
@@ -1274,12 +1273,12 @@ def render_author_page(articles: list) -> str:
 <meta name="author" content="{escape(NEWS_AUTHOR_NAME)}">
 <link rel="canonical" href="{NEWS_AUTHOR_URL}">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="{escape(NEWS_AUTHOR_NAME)} — BotLease">
+<meta property="og:title" content="{escape(NEWS_AUTHOR_NAME)} - BotLease">
 <meta property="og:url" content="{NEWS_AUTHOR_URL}">
 <meta property="og:image" content="{SITE_URL}/img/og/g1-og.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-latin-400-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin-700-normal.woff2">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>{PAGE_CSS}
 .ap-wrap{{max-width:760px;margin:0 auto}}
 .ap-head{{display:flex;gap:20px;align-items:center;margin:10px 0 24px}}
@@ -1307,8 +1306,8 @@ def render_author_page(articles: list) -> str:
         <h1 style="margin:2px 0 0">{escape(NEWS_AUTHOR_NAME)}</h1>
       </div>
     </div>
-    <p style="color:var(--ink-2);font-size:17px;line-height:1.6">Oprichter van <a href="/over">BotLease</a> en verantwoordelijk voor de redactie van ons nieuws over humanoïde robots in Nederland en Europa. Achtergrond in conversational AI, taalmodellen en MKB-software (2022–2025) — van daaruit ontstond het patroon achter BotLease: nieuwe technologie wordt pas écht bruikbaar voor het bredere bedrijfsleven zodra iemand de financiering, het onderhoud en de compliance overneemt.</p>
-    <p style="color:var(--ink-2);font-size:15.5px;line-height:1.6">In het nieuws duidt Thomas internationale ontwikkelingen (Figure, Unitree, Apptronik, NEURA) consequent vanuit één vraag: <em>wat betekent dit concreet voor Nederlandse werkgevers?</em> — met echte leasecijfers, leverbaarheid en de stand van de EU-regelgeving (AI-Act, Machineverordening 2023/1230).</p>
+    <p style="color:var(--ink-2);font-size:17px;line-height:1.6">Oprichter van <a href="/over">BotLease</a> en verantwoordelijk voor de redactie van ons nieuws over humanoïde robots in Nederland en Europa. Achtergrond in conversational AI, taalmodellen en MKB-software (2022–2025) - van daaruit ontstond het patroon achter BotLease: nieuwe technologie wordt pas écht bruikbaar voor het bredere bedrijfsleven zodra iemand de financiering, het onderhoud en de compliance overneemt.</p>
+    <p style="color:var(--ink-2);font-size:15.5px;line-height:1.6">In het nieuws duidt Thomas internationale ontwikkelingen (Figure, Unitree, Apptronik, NEURA) consequent vanuit één vraag: <em>wat betekent dit concreet voor Nederlandse werkgevers?</em> - met echte leasecijfers, leverbaarheid en de stand van de EU-regelgeving (AI-Act, Machineverordening 2023/1230).</p>
     <p style="color:var(--ink-3);font-size:13.5px">Contact of persvragen: <a href="mailto:hallo@botlease.nl">hallo@botlease.nl</a></p>
     <h2 style="font-size:18px;margin:30px 0 4px">Artikelen van {escape(NEWS_AUTHOR_NAME)}</h2>
     {cards}
