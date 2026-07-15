@@ -166,7 +166,7 @@ section.body .cta-strip p, .cta-strip p { color:var(--ink-2-on-dark); margin-bot
   background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
   border-radius:12px; color:#ffffff; font-size:14.5px; line-height:1.6;
 }
-.calc-summary b { color:#ffffff; }
+section.body .calc-summary b, .calc-summary b { color:#ffffff; }
 
 /* Comparison */
 .cmp-grid { display:grid; gap:14px; max-width:1080px; margin:32px auto; }
