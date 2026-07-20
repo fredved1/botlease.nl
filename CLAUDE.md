@@ -23,6 +23,9 @@ Houd elke mail aan deze richting:
 2. **Lees `docs/handboek/02-stand-van-zaken.md`** — de laatste updates + wie wat deed.
 3. Bij een mail/deal-actie: check `docs/handboek/03-pipeline.md` voor de context.
 
+## 📘 DE BLAUWDRUK — nieuw bedrijf starten
+Leeft in het blauwdruk-project: **`~/Documents/Python/ai-organisatie-blauwdruk/`** (spiegel: `~/Documents/Python/botlease/blauwdruk/`). Klant-AI-organisatie → `BLAUWDRUK.md` (REF: perduro/backupco). **Eigen webshop/dropship → `playbooks/13-webshop-dropship.md`** (REF: Deskt, deskt.eu — Stripe→CJ-fulfilment, echte foto's, Merchant-feed, Keychain-mail, SEO-3-banen, valkuilen-register). Nieuwe les geleerd? Zelfde dag toevoegen.
+
 ## Het handboek (docs/handboek/)
 | Bestand | Wat |
 |---|---|
