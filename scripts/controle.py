@@ -5,7 +5,7 @@ Draai dit om zeker te weten dat er niks misgaat/mist. Gebruik:
 Checkt: (1) elke zakelijke inbox-mail heeft een CRM-lead (geen verloren mail),
 (2) geen dubbele leads, (3) open reply-taken hangen aan de JUISTE mail.
 """
-import imaplib, os, sqlite3, subprocess, sys
+import email, imaplib, os, sqlite3, subprocess, sys
 from email.utils import parseaddr
 from email.header import decode_header, make_header
 
@@ -15,7 +15,7 @@ SKIP=("no-reply","noreply","donotreply","mailer-daemon","postmaster","kvk.nl",
 # automatische/waardeloze onderwerpen (ticket-acks, routing, surveys)
 SKIP_SUBJ=("request received","how would you rate","rate the support","my colleague","undeliverable","mail delivery","delivery status")
 # privé / Project X — bewust buiten het BotLease-CRM (recreatie-mails; BackupCo/Connectworks leeft in de project-x-repo)
-SKIP_SUBJ+=("seizoensplaats","recreatiewoning","stacaravan","backupco","ai-bestuurde organisatie","heeft u uitgenodigd")
+SKIP_SUBJ+=("seizoensplaats","recreatiewoning","stacaravan","backupco","ai-bestuurde organisatie","heeft u uitgenodigd","perduro")
 def hdr(v):
     try: return str(make_header(decode_header(v or "")))
     except: return v or ""
@@ -34,13 +34,10 @@ typ,d=M.uid("search",None,"ALL")
 inbox=[]
 for u in d[0].split():
     typ,md=M.uid("fetch",u,"(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID FROM SUBJECT DATE)])")
-    raw=md[0][1].decode("utf-8","replace"); mid=frm=subj=date=""
-    for line in raw.split("\n"):
-        ll=line.lower()
-        if ll.startswith("message-id:"): mid="".join(line.split(":",1)[1].split())
-        elif ll.startswith("from:"): frm=hdr(line[5:].strip())
-        elif ll.startswith("subject:"): subj=hdr(line[8:].strip())
-        elif ll.startswith("date:"): date=line[5:].strip()[:16]
+    m=email.message_from_bytes(md[0][1])  # gevouwen+gecodeerde headers correct
+    mid="".join((m.get("Message-ID") or "").split())
+    frm=hdr(m.get("From","")); subj=hdr(m.get("Subject",""))
+    date=(m.get("Date","") or "").strip()[:16]
     name,addr=parseaddr(frm)
     if any(s in addr.lower() for s in SKIP): continue
     inbox.append((mid,date,addr,subj))

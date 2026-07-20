@@ -7,6 +7,16 @@
 
 # LET OP: PAL-modellen (Kangaroo, TIAGo Pro) verwijderd 11-6-2026 op formeel verzoek
 # van PAL Robotics (Alexandre, WhatsApp). NIET heropvoeren zonder schriftelijke toestemming.
+
+# VERHUURCANON eventdag (site-breed live sinds 20-7-2026): inkoop-menukaart
+# uitvoeringspartner (14-7-2026) + ~30% opslag, afgerond. Vanaf-prijzen,
+# incl. operator, excl. btw en reiskosten (reis/hotel/extra units vooraf
+# in de offerte). Bumi 1250, Unitree R1 1650, Agibot X2 2150, Unitree G1
+# 2550, EngineAI PM01 2550, UBTECH Walker 2950, EngineAI T800 3350.
+# Dagdeel/meerdaags: op aanvraag (de oude -30% vanaf dag 2 bestaat NIET
+# meer). De meeste catalogus-modellen zijn niet uit voorraad leverbaar;
+# de robotpagina's dragen daarvoor een in-place beschikbaarheids-notice
+# (dus NIET rebuilden, zie mobile-patch-regel in CLAUDE.md).
 ROBOTS = [
     # ────────────────────────────── EU-gebouwd (strategische kern) ──────────
     {
@@ -146,6 +156,7 @@ ROBOTS = [
         "dof": 26,
         "speed_ms": 1.5,
         "lease_eur": 290,
+        "rental_day_eur": 1650,
         "setup_eur": 1200,
         "purchase_eur": 8000,
         "use_cases": [
@@ -183,6 +194,7 @@ ROBOTS = [
         "dof": 23,
         "speed_ms": 2.0,
         "lease_eur": 1295,
+        "rental_day_eur": 2550,
         "setup_eur": 1800,
         "purchase_eur": 16000,
         "use_cases": [
@@ -332,6 +344,7 @@ ROBOTS = [
         "dof": 41,
         "speed_ms": 2.0,
         "lease_eur": 5750,
+        "rental_day_eur": 2950,  # als "UBTECH Walker" op de eventpagina's
         "setup_eur": 4500,
         "purchase_eur": 95000,
         "use_cases": [
